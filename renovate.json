@@ -1,0 +1,37 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update Helm chart versions in source config files",
+      "fileMatch": ["^sources/.*\\.yaml$"],
+      "matchStrings": [
+        "type:\\s*helm\\n\\s+repo:\\s*(?<registryUrl>[^\\n]+)\\n\\s+chart:\\s*(?<depName>[^\\n]+)\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
+      ],
+      "datasourceTemplate": "helm",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": "Update GitHub release URL versions in source config files",
+      "fileMatch": ["^sources/.*\\.yaml$"],
+      "matchStrings": [
+        "type:\\s*url\\n\\s+url:\\s*https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/(?<currentValue>v[^/]+)/"
+      ],
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Group CRD source updates by source file",
+      "matchFileNames": ["sources/**"],
+      "schedule": ["before 6am on Monday"],
+      "automerge": false,
+      "commitMessagePrefix": "chore(crd):"
+    }
+  ]
+}
