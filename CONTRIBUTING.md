@@ -94,6 +94,17 @@ Push your branch and open a pull request. CI will:
 - Run extraction and upload the resulting schemas as a PR artifact
 - Validate all extracted JSON schemas for well-formedness
 
+## Known gaps
+
+The following popular projects are not currently covered due to technical limitations:
+
+- **Cilium** (`cilium.io`) -- CRDs are embedded in the agent binary and not shipped in the Helm chart. No standalone CRD manifest is published.
+- **Crossplane** (`pkg.crossplane.io`, `apiextensions.crossplane.io`) -- CRDs are dynamically generated at runtime by the Crossplane controller. The Helm chart contains no CRD definitions.
+- **Karpenter** (`karpenter.sh`) -- The core `kubernetes-sigs/karpenter` repo is a framework library. CRDs are shipped by provider-specific implementations (e.g., `aws/karpenter-provider-aws`), which use OCI registries that require authentication.
+- **CSI Volume Snapshots** (`snapshot.storage.k8s.io`) -- CRDs are distributed as individual files in `kubernetes-csi/external-snapshotter` with no combined manifest. The extractor currently supports single-URL sources only.
+
+Contributions that resolve any of these limitations are welcome.
+
 ## Updating an existing source version
 
 Renovate handles this automatically via weekly PRs. To bump manually, edit the `version` field (and `url` for URL sources) in the relevant source config file.
