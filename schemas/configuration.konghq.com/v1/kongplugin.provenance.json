@@ -1,0 +1,27 @@
+{
+  "schema": "kongplugin.json",
+  "crd": {
+    "group": "configuration.konghq.com",
+    "kind": "KongPlugin",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "kong-ingress",
+    "type": "helm",
+    "repo": "https://charts.konghq.com",
+    "chart": "ingress",
+    "version": "0.22.0",
+    "license": "Apache-2.0",
+    "homepage": "https://docs.konghq.com/kubernetes-ingress-controller",
+    "include": [
+      "configuration.konghq.com/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "be44c570f6cad3d2487d4038f688fc2e90c0c93b3aa8d2256808387c6fee14fb"
+  }
+}

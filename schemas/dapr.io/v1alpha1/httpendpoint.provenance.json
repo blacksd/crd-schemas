@@ -1,0 +1,24 @@
+{
+  "schema": "httpendpoint.json",
+  "crd": {
+    "group": "dapr.io",
+    "kind": "HTTPEndpoint",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "dapr",
+    "type": "helm",
+    "repo": "https://dapr.github.io/helm-charts",
+    "chart": "dapr",
+    "version": "1.17.0",
+    "license": "Apache-2.0",
+    "homepage": "https://dapr.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bc30b58a6dc923d13f6be8c680a52050b63c2da98318625f09c4f126919d3fcb"
+  }
+}

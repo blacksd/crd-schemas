@@ -1,0 +1,27 @@
+{
+  "schema": "autoopsagentpolicy.json",
+  "crd": {
+    "group": "autoops.k8s.elastic.co",
+    "kind": "AutoOpsAgentPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "eck-operator",
+    "type": "helm",
+    "repo": "https://helm.elastic.co",
+    "chart": "eck-operator",
+    "version": "3.3.1",
+    "license": "Elastic-2.0",
+    "homepage": "https://www.elastic.co/guide/en/cloud-on-k8s",
+    "include": [
+      "autoops.k8s.elastic.co/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a88f72d63e48c752aab337d4135bcdda9501ec12e1f0c3aee7cf2fc8dce8c9b8"
+  }
+}

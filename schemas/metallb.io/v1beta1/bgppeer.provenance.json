@@ -1,0 +1,27 @@
+{
+  "schema": "bgppeer.json",
+  "crd": {
+    "group": "metallb.io",
+    "kind": "BGPPeer",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "metallb",
+    "type": "helm",
+    "repo": "https://metallb.github.io/metallb",
+    "chart": "metallb",
+    "version": "0.15.3",
+    "license": "Apache-2.0",
+    "homepage": "https://metallb.universe.tf",
+    "include": [
+      "metallb.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0acd8060c239b2afea9b14326080f93f21e008fb9c27723e9a447140990f7929"
+  }
+}

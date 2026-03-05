@@ -1,0 +1,24 @@
+{
+  "schema": "component.json",
+  "crd": {
+    "group": "dapr.io",
+    "kind": "Component",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "dapr",
+    "type": "helm",
+    "repo": "https://dapr.github.io/helm-charts",
+    "chart": "dapr",
+    "version": "1.17.0",
+    "license": "Apache-2.0",
+    "homepage": "https://dapr.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f20d594f9cae1e0219e92c413ebf705cb9c6e6eb98f32eb65cfc5725f8ee0516"
+  }
+}

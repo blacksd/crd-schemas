@@ -1,0 +1,27 @@
+{
+  "schema": "metrictemplate.json",
+  "crd": {
+    "group": "flagger.app",
+    "kind": "MetricTemplate",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "flagger",
+    "type": "helm",
+    "repo": "https://flagger.app",
+    "chart": "flagger",
+    "version": "1.42.0",
+    "license": "Apache-2.0",
+    "homepage": "https://flagger.app",
+    "include": [
+      "flagger.app/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bbc4ff643903bf0a37559ccd6423b725fe415592cacfc1d8cac2b9d4edf43cae"
+  }
+}

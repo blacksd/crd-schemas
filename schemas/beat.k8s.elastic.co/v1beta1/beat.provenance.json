@@ -1,0 +1,27 @@
+{
+  "schema": "beat.json",
+  "crd": {
+    "group": "beat.k8s.elastic.co",
+    "kind": "Beat",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "eck-operator",
+    "type": "helm",
+    "repo": "https://helm.elastic.co",
+    "chart": "eck-operator",
+    "version": "3.3.1",
+    "license": "Elastic-2.0",
+    "homepage": "https://www.elastic.co/guide/en/cloud-on-k8s",
+    "include": [
+      "beat.k8s.elastic.co/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "34e0a05be0594aa6f2d1db873117a8c1223c84b05de54ddbc9ebad6d9d1e779e"
+  }
+}

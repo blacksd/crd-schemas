@@ -1,0 +1,394 @@
+{
+  "description": "ElasticsearchAutoscaler represents an ElasticsearchAutoscaler resource in a Kubernetes cluster.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "ElasticsearchAutoscalerSpec holds the specification of an Elasticsearch autoscaler resource.",
+      "type": "object",
+      "required": [
+        "elasticsearchRef",
+        "policies"
+      ],
+      "properties": {
+        "elasticsearchRef": {
+          "description": "ElasticsearchRef is a reference to an Elasticsearch cluster that exists in the same namespace.",
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "Name is the name of the Elasticsearch resource to scale automatically.",
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "policies": {
+          "type": "array",
+          "items": {
+            "description": "AutoscalingPolicySpec holds a named autoscaling policy and the associated resources limits (cpu, memory, storage).",
+            "type": "object",
+            "required": [
+              "resources"
+            ],
+            "properties": {
+              "deciders": {
+                "description": "Deciders allow the user to override default settings for autoscaling deciders.",
+                "type": "object",
+                "additionalProperties": {
+                  "description": "DeciderSettings allow the user to tweak autoscaling deciders.\nThe map data structure complies with the \u003ckey,value\u003e format expected by Elasticsearch.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "name": {
+                "description": "Name identifies the autoscaling policy in the autoscaling specification.",
+                "type": "string"
+              },
+              "resources": {
+                "description": "AutoscalingResources model the limits, submitted by the user, for the supported resources in an autoscaling policy.\nOnly the node count range is mandatory. For other resources, a limit range is required only\nif the Elasticsearch autoscaling capacity API returns a requirement for a given resource.\nFor example, the memory limit range is only required if the autoscaling API response contains a memory requirement.\nIf there is no limit range for a resource, and if that resource is not mandatory, then the resources in the NodeSets\nmanaged by the autoscaling policy are left untouched.",
+                "type": "object",
+                "required": [
+                  "nodeCount"
+                ],
+                "properties": {
+                  "cpu": {
+                    "description": "QuantityRange models a resource limit range for resources which can be expressed with resource.Quantity.",
+                    "type": "object",
+                    "required": [
+                      "max",
+                      "min"
+                    ],
+                    "properties": {
+                      "max": {
+                        "description": "Max represents the upper limit for the resources managed by the autoscaler.",
+                        "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "x-kubernetes-int-or-string": true
+                      },
+                      "min": {
+                        "description": "Min represents the lower limit for the resources managed by the autoscaler.",
+                        "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "x-kubernetes-int-or-string": true
+                      },
+                      "requestsToLimitsRatio": {
+                        "description": "RequestsToLimitsRatio allows to customize Kubernetes resource Limit based on the Request.",
+                        "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "x-kubernetes-int-or-string": true
+                      }
+                    }
+                  },
+                  "memory": {
+                    "description": "QuantityRange models a resource limit range for resources which can be expressed with resource.Quantity.",
+                    "type": "object",
+                    "required": [
+                      "max",
+                      "min"
+                    ],
+                    "properties": {
+                      "max": {
+                        "description": "Max represents the upper limit for the resources managed by the autoscaler.",
+                        "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "x-kubernetes-int-or-string": true
+                      },
+                      "min": {
+                        "description": "Min represents the lower limit for the resources managed by the autoscaler.",
+                        "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "x-kubernetes-int-or-string": true
+                      },
+                      "requestsToLimitsRatio": {
+                        "description": "RequestsToLimitsRatio allows to customize Kubernetes resource Limit based on the Request.",
+                        "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "x-kubernetes-int-or-string": true
+                      }
+                    }
+                  },
+                  "nodeCount": {
+                    "description": "NodeCountRange is used to model the minimum and the maximum number of nodes over all the NodeSets managed by the same autoscaling policy.",
+                    "type": "object",
+                    "required": [
+                      "max",
+                      "min"
+                    ],
+                    "properties": {
+                      "max": {
+                        "description": "Max represents the maximum number of nodes in a tier.",
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "min": {
+                        "description": "Min represents the minimum number of nodes in a tier.",
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                    }
+                  },
+                  "storage": {
+                    "description": "QuantityRange models a resource limit range for resources which can be expressed with resource.Quantity.",
+                    "type": "object",
+                    "required": [
+                      "max",
+                      "min"
+                    ],
+                    "properties": {
+                      "max": {
+                        "description": "Max represents the upper limit for the resources managed by the autoscaler.",
+                        "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "x-kubernetes-int-or-string": true
+                      },
+                      "min": {
+                        "description": "Min represents the lower limit for the resources managed by the autoscaler.",
+                        "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "x-kubernetes-int-or-string": true
+                      },
+                      "requestsToLimitsRatio": {
+                        "description": "RequestsToLimitsRatio allows to customize Kubernetes resource Limit based on the Request.",
+                        "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "x-kubernetes-int-or-string": true
+                      }
+                    }
+                  }
+                }
+              },
+              "roles": {
+                "description": "An autoscaling policy must target a unique set of roles.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "pollingPeriod": {
+          "description": "PollingPeriod is the period at which to synchronize with the Elasticsearch autoscaling API.",
+          "type": "string"
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "conditions": {
+          "description": "Conditions holds the current service state of the autoscaling controller.",
+          "type": "array",
+          "items": {
+            "description": "Condition represents Elasticsearch resource's condition.\n**This API is in technical preview and may be changed or removed in a future release.**",
+            "type": "object",
+            "required": [
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "description": "ConditionType defines the condition of an Elasticsearch resource.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the last observed generation by the controller.",
+          "type": "integer",
+          "format": "int64"
+        },
+        "policies": {
+          "description": "AutoscalingPolicyStatuses is used to expose state messages to user or external system.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "lastModificationTime": {
+                "description": "LastModificationTime is the last time the resources have been updated, used by the cooldown algorithm.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "name": {
+                "description": "Name is the name of the autoscaling policy",
+                "type": "string"
+              },
+              "nodeSets": {
+                "description": "NodeSetNodeCount holds the number of nodes for each nodeSet.",
+                "type": "array",
+                "items": {
+                  "description": "NodeSetNodeCount models the number of nodes expected in a given NodeSet.",
+                  "type": "object",
+                  "required": [
+                    "name",
+                    "nodeCount"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the Nodeset.",
+                      "type": "string"
+                    },
+                    "nodeCount": {
+                      "description": "NodeCount is the number of nodes, as computed by the autoscaler, expected in this NodeSet.",
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  }
+                }
+              },
+              "resources": {
+                "description": "ResourcesSpecification holds the resource values common to all the nodeSets managed by a same autoscaling policy.\nOnly the resources managed by the autoscaling controller are saved in the Status.",
+                "type": "object",
+                "properties": {
+                  "limits": {
+                    "description": "ResourceList is a set of (resource name, quantity) pairs.",
+                    "type": "object",
+                    "additionalProperties": {
+                      "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "x-kubernetes-int-or-string": true
+                    }
+                  },
+                  "requests": {
+                    "description": "ResourceList is a set of (resource name, quantity) pairs.",
+                    "type": "object",
+                    "additionalProperties": {
+                      "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "x-kubernetes-int-or-string": true
+                    }
+                  }
+                }
+              },
+              "state": {
+                "description": "PolicyStates may contain various messages regarding the current state of this autoscaling policy.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "messages",
+                    "type"
+                  ],
+                  "properties": {
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

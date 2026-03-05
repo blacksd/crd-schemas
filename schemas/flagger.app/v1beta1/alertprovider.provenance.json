@@ -1,0 +1,27 @@
+{
+  "schema": "alertprovider.json",
+  "crd": {
+    "group": "flagger.app",
+    "kind": "AlertProvider",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "flagger",
+    "type": "helm",
+    "repo": "https://flagger.app",
+    "chart": "flagger",
+    "version": "1.42.0",
+    "license": "Apache-2.0",
+    "homepage": "https://flagger.app",
+    "include": [
+      "flagger.app/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "50cfc69cb0fef5051f515f3d9f7dc67b10827dc1b36066af38677c797a8db060"
+  }
+}

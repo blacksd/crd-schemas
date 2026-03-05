@@ -1,0 +1,27 @@
+{
+  "schema": "elasticsearchautoscaler.json",
+  "crd": {
+    "group": "autoscaling.k8s.elastic.co",
+    "kind": "ElasticsearchAutoscaler",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "eck-operator",
+    "type": "helm",
+    "repo": "https://helm.elastic.co",
+    "chart": "eck-operator",
+    "version": "3.3.1",
+    "license": "Elastic-2.0",
+    "homepage": "https://www.elastic.co/guide/en/cloud-on-k8s",
+    "include": [
+      "autoscaling.k8s.elastic.co/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1be44078c1bfe9b4a5553e8e11b25d403e0bcb5021f85a6b7c9e823679c50505"
+  }
+}

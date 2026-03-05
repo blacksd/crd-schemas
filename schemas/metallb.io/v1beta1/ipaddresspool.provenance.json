@@ -1,0 +1,27 @@
+{
+  "schema": "ipaddresspool.json",
+  "crd": {
+    "group": "metallb.io",
+    "kind": "IPAddressPool",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "metallb",
+    "type": "helm",
+    "repo": "https://metallb.github.io/metallb",
+    "chart": "metallb",
+    "version": "0.15.3",
+    "license": "Apache-2.0",
+    "homepage": "https://metallb.universe.tf",
+    "include": [
+      "metallb.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c321c1d838634445c5642dce84284459c71e176117aabee09710b98ddf307a2d"
+  }
+}

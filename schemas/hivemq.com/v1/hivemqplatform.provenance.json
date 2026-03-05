@@ -1,0 +1,24 @@
+{
+  "schema": "hivemqplatform.json",
+  "crd": {
+    "group": "hivemq.com",
+    "kind": "HiveMQPlatform",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "hivemq-platform-operator",
+    "type": "helm",
+    "repo": "https://hivemq.github.io/helm-charts",
+    "chart": "hivemq-platform-operator",
+    "version": "0.2.22",
+    "license": "Apache-2.0",
+    "homepage": "https://www.hivemq.com"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bf7a91257d05899ff2d47b19adf8ca989e2fd6de21bfaed361e0aef25652432f"
+  }
+}

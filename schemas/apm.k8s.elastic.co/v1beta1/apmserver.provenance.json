@@ -1,0 +1,27 @@
+{
+  "schema": "apmserver.json",
+  "crd": {
+    "group": "apm.k8s.elastic.co",
+    "kind": "ApmServer",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "eck-operator",
+    "type": "helm",
+    "repo": "https://helm.elastic.co",
+    "chart": "eck-operator",
+    "version": "3.3.1",
+    "license": "Elastic-2.0",
+    "homepage": "https://www.elastic.co/guide/en/cloud-on-k8s",
+    "include": [
+      "apm.k8s.elastic.co/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "da68e841f135020603b4d0ca8df55aaf686e102ac236c94cf1fbd0969c2785c2"
+  }
+}

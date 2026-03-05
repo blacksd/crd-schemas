@@ -1,0 +1,27 @@
+{
+  "schema": "elasticsearch.json",
+  "crd": {
+    "group": "elasticsearch.k8s.elastic.co",
+    "kind": "Elasticsearch",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "eck-operator",
+    "type": "helm",
+    "repo": "https://helm.elastic.co",
+    "chart": "eck-operator",
+    "version": "3.3.1",
+    "license": "Elastic-2.0",
+    "homepage": "https://www.elastic.co/guide/en/cloud-on-k8s",
+    "include": [
+      "elasticsearch.k8s.elastic.co/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ecba3a6138aba2a0bd8bad1406a1a27c39f7c688687f791a4906df1a41d794c2"
+  }
+}

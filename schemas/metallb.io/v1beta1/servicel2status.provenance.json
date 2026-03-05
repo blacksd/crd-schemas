@@ -1,0 +1,27 @@
+{
+  "schema": "servicel2status.json",
+  "crd": {
+    "group": "metallb.io",
+    "kind": "ServiceL2Status",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "metallb",
+    "type": "helm",
+    "repo": "https://metallb.github.io/metallb",
+    "chart": "metallb",
+    "version": "0.15.3",
+    "license": "Apache-2.0",
+    "homepage": "https://metallb.universe.tf",
+    "include": [
+      "metallb.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e7a38e878f2659a89b58a2d5987173d0b8bb3896c37f5238f5697c3177714e34"
+  }
+}

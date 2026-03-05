@@ -1,0 +1,27 @@
+{
+  "schema": "bgpadvertisement.json",
+  "crd": {
+    "group": "metallb.io",
+    "kind": "BGPAdvertisement",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "metallb",
+    "type": "helm",
+    "repo": "https://metallb.github.io/metallb",
+    "chart": "metallb",
+    "version": "0.15.3",
+    "license": "Apache-2.0",
+    "homepage": "https://metallb.universe.tf",
+    "include": [
+      "metallb.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "432c285c3b1103be1f391cd998a5e9c188bbd7cd7d2657b0ae665cb6ffef91f7"
+  }
+}

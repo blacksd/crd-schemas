@@ -1,0 +1,23 @@
+{
+  "schema": "kubevirt.json",
+  "crd": {
+    "group": "kubevirt.io",
+    "kind": "KubeVirt",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "kubevirt",
+    "type": "url",
+    "url": "https://github.com/kubevirt/kubevirt/releases/download/v1.6.1/kubevirt-operator.yaml",
+    "version": "v1.6.1",
+    "license": "Apache-2.0",
+    "homepage": "https://kubevirt.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "fb1da1563a227b181f89ba0ab7d51045589037de0a7083a8d05c8377d6fc30bf"
+  }
+}

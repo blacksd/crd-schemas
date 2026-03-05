@@ -1,0 +1,27 @@
+{
+  "schema": "kibana.json",
+  "crd": {
+    "group": "kibana.k8s.elastic.co",
+    "kind": "Kibana",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "eck-operator",
+    "type": "helm",
+    "repo": "https://helm.elastic.co",
+    "chart": "eck-operator",
+    "version": "3.3.1",
+    "license": "Elastic-2.0",
+    "homepage": "https://www.elastic.co/guide/en/cloud-on-k8s",
+    "include": [
+      "kibana.k8s.elastic.co/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e30ac643066079c7b1f69050bdd798f5614ef3c9a9684dfa4b71dfdf5451d2f7"
+  }
+}

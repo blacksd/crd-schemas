@@ -1,0 +1,27 @@
+{
+  "schema": "l2advertisement.json",
+  "crd": {
+    "group": "metallb.io",
+    "kind": "L2Advertisement",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "metallb",
+    "type": "helm",
+    "repo": "https://metallb.github.io/metallb",
+    "chart": "metallb",
+    "version": "0.15.3",
+    "license": "Apache-2.0",
+    "homepage": "https://metallb.universe.tf",
+    "include": [
+      "metallb.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T14:58:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bed04b2de01775171f41fe7244eb560f82078540fac4c44ba3c4bccf846753fd"
+  }
+}

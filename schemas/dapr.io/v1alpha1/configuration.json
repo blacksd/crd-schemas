@@ -1,0 +1,727 @@
+{
+  "description": "Configuration describes an Dapr configuration setting.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "ConfigurationSpec is the spec for a configuration.",
+      "type": "object",
+      "properties": {
+        "accessControl": {
+          "description": "AccessControlSpec is the spec object in ConfigurationSpec.",
+          "type": "object",
+          "properties": {
+            "defaultAction": {
+              "type": "string"
+            },
+            "policies": {
+              "type": "array",
+              "items": {
+                "description": "AppPolicySpec defines the policy data structure for each app.",
+                "type": "object",
+                "required": [
+                  "appId"
+                ],
+                "properties": {
+                  "appId": {
+                    "type": "string"
+                  },
+                  "defaultAction": {
+                    "type": "string"
+                  },
+                  "namespace": {
+                    "type": "string"
+                  },
+                  "operations": {
+                    "type": "array",
+                    "items": {
+                      "description": "AppOperationAction defines the data structure for each app operation.",
+                      "type": "object",
+                      "required": [
+                        "action",
+                        "name"
+                      ],
+                      "properties": {
+                        "action": {
+                          "type": "string"
+                        },
+                        "httpVerb": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "trustDomain": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "trustDomain": {
+              "type": "string"
+            }
+          }
+        },
+        "api": {
+          "description": "APISpec describes the configuration for Dapr APIs.",
+          "type": "object",
+          "properties": {
+            "allowed": {
+              "description": "List of allowed APIs. Can be used in conjunction with denied.",
+              "type": "array",
+              "items": {
+                "description": "APIAccessRule describes an access rule for allowing or denying a Dapr API.",
+                "type": "object",
+                "required": [
+                  "name",
+                  "version"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "protocol": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "denied": {
+              "description": "List of denied APIs. Can be used in conjunction with allowed.",
+              "type": "array",
+              "items": {
+                "description": "APIAccessRule describes an access rule for allowing or denying a Dapr API.",
+                "type": "object",
+                "required": [
+                  "name",
+                  "version"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "protocol": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "appHttpPipeline": {
+          "description": "PipelineSpec defines the middleware pipeline.",
+          "type": "object",
+          "required": [
+            "handlers"
+          ],
+          "properties": {
+            "handlers": {
+              "type": "array",
+              "items": {
+                "description": "HandlerSpec defines a request handlers.",
+                "type": "object",
+                "required": [
+                  "name",
+                  "type"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "selector": {
+                    "description": "SelectorSpec selects target services to which the handler is to be applied.",
+                    "type": "object",
+                    "required": [
+                      "fields"
+                    ],
+                    "properties": {
+                      "fields": {
+                        "type": "array",
+                        "items": {
+                          "description": "SelectorField defines a selector fields.",
+                          "type": "object",
+                          "required": [
+                            "field",
+                            "value"
+                          ],
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "components": {
+          "description": "ComponentsSpec describes the configuration for Dapr components",
+          "type": "object",
+          "properties": {
+            "deny": {
+              "description": "Denylist of component types that cannot be instantiated",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "description": "FeatureSpec defines the features that are enabled/disabled.",
+            "type": "object",
+            "required": [
+              "enabled",
+              "name"
+            ],
+            "properties": {
+              "enabled": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "httpPipeline": {
+          "description": "PipelineSpec defines the middleware pipeline.",
+          "type": "object",
+          "required": [
+            "handlers"
+          ],
+          "properties": {
+            "handlers": {
+              "type": "array",
+              "items": {
+                "description": "HandlerSpec defines a request handlers.",
+                "type": "object",
+                "required": [
+                  "name",
+                  "type"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "selector": {
+                    "description": "SelectorSpec selects target services to which the handler is to be applied.",
+                    "type": "object",
+                    "required": [
+                      "fields"
+                    ],
+                    "properties": {
+                      "fields": {
+                        "type": "array",
+                        "items": {
+                          "description": "SelectorField defines a selector fields.",
+                          "type": "object",
+                          "required": [
+                            "field",
+                            "value"
+                          ],
+                          "properties": {
+                            "field": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "logging": {
+          "description": "LoggingSpec defines the configuration for logging.",
+          "type": "object",
+          "properties": {
+            "apiLogging": {
+              "description": "Configure API logging.",
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "description": "Default value for enabling API logging. Sidecars can always override this by setting `--enable-api-logging` to true or false explicitly.\nThe default value is false.",
+                  "type": "boolean"
+                },
+                "obfuscateURLs": {
+                  "description": "When enabled, obfuscates the values of URLs in HTTP API logs, logging the route name rather than the full path being invoked, which could contain PII.\nDefault: false.\nThis option has no effect if API logging is disabled.",
+                  "type": "boolean"
+                },
+                "omitHealthChecks": {
+                  "description": "If true, health checks are not reported in API logs. Default: false.\nThis option has no effect if API logging is disabled.",
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "metric": {
+          "description": "MetricSpec defines metrics configuration.",
+          "type": "object",
+          "default": {
+            "enabled": true
+          },
+          "required": [
+            "enabled"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "http": {
+              "description": "MetricHTTP defines configuration for metrics for the HTTP server",
+              "type": "object",
+              "properties": {
+                "excludeVerbs": {
+                  "description": "If true (default is false) HTTP verbs (e.g., GET, POST) are excluded from the metrics.",
+                  "type": "boolean"
+                },
+                "increasedCardinality": {
+                  "description": "If false, metrics for the HTTP server are collected with increased cardinality.\nThe default is true in Dapr 1.13, but will be changed to false in 1.15+",
+                  "type": "boolean"
+                },
+                "pathMatching": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "latencyDistributionBuckets": {
+              "description": "The LatencyDistributionBuckets variable specifies the latency distribution buckets (in milliseconds) used for\nhistograms in the application. If this variable is not set or left empty, the application will default to using the standard histogram buckets.\nThe default histogram latency buckets (in milliseconds) are as follows:\n   1, 2, 3, 4, 5, 6, 8, 10, 13, 16, 20, 25, 30, 40, 50, 65, 80, 100, 130, 160, 200, 250, 300, 400, 500, 650, 800, 1,000, 2,000, 5,000, 10,000, 20,000, 50,000, 100,000.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "recordErrorCodes": {
+              "type": "boolean"
+            },
+            "rules": {
+              "type": "array",
+              "items": {
+                "description": "MetricsRule defines configuration options for a metric.",
+                "type": "object",
+                "required": [
+                  "labels",
+                  "name"
+                ],
+                "properties": {
+                  "labels": {
+                    "type": "array",
+                    "items": {
+                      "description": "MetricsLabel defines an object that allows to set regex expressions for a label.",
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "regex"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "regex": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "metrics": {
+          "description": "MetricSpec defines metrics configuration.",
+          "type": "object",
+          "default": {
+            "enabled": true
+          },
+          "required": [
+            "enabled"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "http": {
+              "description": "MetricHTTP defines configuration for metrics for the HTTP server",
+              "type": "object",
+              "properties": {
+                "excludeVerbs": {
+                  "description": "If true (default is false) HTTP verbs (e.g., GET, POST) are excluded from the metrics.",
+                  "type": "boolean"
+                },
+                "increasedCardinality": {
+                  "description": "If false, metrics for the HTTP server are collected with increased cardinality.\nThe default is true in Dapr 1.13, but will be changed to false in 1.15+",
+                  "type": "boolean"
+                },
+                "pathMatching": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "latencyDistributionBuckets": {
+              "description": "The LatencyDistributionBuckets variable specifies the latency distribution buckets (in milliseconds) used for\nhistograms in the application. If this variable is not set or left empty, the application will default to using the standard histogram buckets.\nThe default histogram latency buckets (in milliseconds) are as follows:\n   1, 2, 3, 4, 5, 6, 8, 10, 13, 16, 20, 25, 30, 40, 50, 65, 80, 100, 130, 160, 200, 250, 300, 400, 500, 650, 800, 1,000, 2,000, 5,000, 10,000, 20,000, 50,000, 100,000.",
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "recordErrorCodes": {
+              "type": "boolean"
+            },
+            "rules": {
+              "type": "array",
+              "items": {
+                "description": "MetricsRule defines configuration options for a metric.",
+                "type": "object",
+                "required": [
+                  "labels",
+                  "name"
+                ],
+                "properties": {
+                  "labels": {
+                    "type": "array",
+                    "items": {
+                      "description": "MetricsLabel defines an object that allows to set regex expressions for a label.",
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "regex"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "regex": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "mtls": {
+          "description": "MTLSSpec defines mTLS configuration.",
+          "type": "object",
+          "required": [
+            "controlPlaneTrustDomain",
+            "enabled",
+            "sentryAddress"
+          ],
+          "properties": {
+            "allowedClockSkew": {
+              "type": "string"
+            },
+            "controlPlaneTrustDomain": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "sentryAddress": {
+              "type": "string"
+            },
+            "tokenValidators": {
+              "description": "Additional token validators to use.\nWhen Dapr is running in Kubernetes mode, this is in addition to the built-in \"kubernetes\" validator.\nIn self-hosted mode, enabling a custom validator will disable the built-in \"insecure\" validator.",
+              "type": "array",
+              "items": {
+                "description": "ValidatorSpec contains additional token validators to use.",
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "description": "Name of the validator",
+                    "type": "string",
+                    "enum": [
+                      "jwks"
+                    ]
+                  },
+                  "options": {
+                    "description": "Options for the validator, if any",
+                    "type": "object",
+                    "x-kubernetes-preserve-unknown-fields": true
+                  }
+                }
+              }
+            },
+            "workloadCertTTL": {
+              "type": "string"
+            }
+          }
+        },
+        "nameResolution": {
+          "description": "NameResolutionSpec is the spec for name resolution configuration.",
+          "type": "object",
+          "required": [
+            "component",
+            "configuration",
+            "version"
+          ],
+          "properties": {
+            "component": {
+              "type": "string"
+            },
+            "configuration": {
+              "description": "DynamicValue is a dynamic value struct for the component.metadata pair value.",
+              "type": "object",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        },
+        "secrets": {
+          "description": "SecretsSpec is the spec for secrets configuration.",
+          "type": "object",
+          "required": [
+            "scopes"
+          ],
+          "properties": {
+            "scopes": {
+              "type": "array",
+              "items": {
+                "description": "SecretsScope defines the scope for secrets.",
+                "type": "object",
+                "required": [
+                  "storeName"
+                ],
+                "properties": {
+                  "allowedSecrets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "defaultAccess": {
+                    "type": "string"
+                  },
+                  "deniedSecrets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "storeName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tracing": {
+          "description": "TracingSpec defines distributed tracing configuration.",
+          "type": "object",
+          "required": [
+            "samplingRate"
+          ],
+          "properties": {
+            "otel": {
+              "description": "OtelSpec defines Otel exporter configurations.",
+              "type": "object",
+              "required": [
+                "endpointAddress",
+                "isSecure",
+                "protocol"
+              ],
+              "properties": {
+                "endpointAddress": {
+                  "type": "string"
+                },
+                "headers": {
+                  "description": "Headers to add to the OTLP trace exporter request.\nEach header can contain plaintext values, reference secrets, or reference environment variables.",
+                  "type": "array",
+                  "items": {
+                    "description": "NameValuePair is a name/value pair.",
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "envRef": {
+                        "description": "EnvRef is the name of an environmental variable to read the value from.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the property.",
+                        "type": "string"
+                      },
+                      "secretKeyRef": {
+                        "description": "SecretKeyRef is the reference of a value in a secret store component.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "key": {
+                            "description": "Field in the secret.",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Secret name.",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "value": {
+                        "description": "Value of the property, in plaintext.",
+                        "x-kubernetes-preserve-unknown-fields": true
+                      }
+                    }
+                  }
+                },
+                "isSecure": {
+                  "type": "boolean"
+                },
+                "protocol": {
+                  "type": "string"
+                },
+                "timeout": {
+                  "description": "Timeout for the OTLP trace exporter request.",
+                  "type": "string"
+                }
+              }
+            },
+            "samplingRate": {
+              "type": "string"
+            },
+            "stdout": {
+              "type": "boolean"
+            },
+            "zipkin": {
+              "description": "ZipkinSpec defines Zipkin trace configurations.",
+              "type": "object",
+              "required": [
+                "endpointAddress"
+              ],
+              "properties": {
+                "endpointAddress": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "wasm": {
+          "description": "WasmSpec describes the security profile for all Dapr Wasm components.",
+          "type": "object",
+          "properties": {
+            "strictSandbox": {
+              "description": "Force enabling strict sandbox mode for all WASM components.\nWhen this is enabled, WASM components always run in strict mode regardless of their configuration.\nStrict mode enhances security of the WASM sandbox by limiting access to certain capabilities such as real-time clocks and random number generators.",
+              "type": "boolean"
+            }
+          }
+        },
+        "workflow": {
+          "description": "WorkflowSpec defines the configuration for Dapr workflows.",
+          "type": "object",
+          "properties": {
+            "maxConcurrentActivityInvocations": {
+              "description": "maxConcurrentActivityInvocations is the maximum number of concurrent activities that can be processed by a single Dapr instance.\nAttempted invocations beyond this will be queued until the number of concurrent invocations drops below this value.\nIf omitted, no maximum will be enforced.",
+              "type": "integer",
+              "format": "int32"
+            },
+            "maxConcurrentWorkflowInvocations": {
+              "description": "maxConcurrentWorkflowInvocations is the maximum number of concurrent workflow invocations that can be scheduled by a single Dapr instance.\nAttempted invocations beyond this will be queued until the number of concurrent invocations drops below this value.\nIf omitted, no maximum will be enforced.",
+              "type": "integer",
+              "format": "int32"
+            },
+            "stateRetentionPolicy": {
+              "description": "StateRetentionPolicy defines the retention configuration for workflow\nstate once a workflow reaches a terminal state. If not set, workflow\ninstances will not be automatically purged.",
+              "type": "object",
+              "properties": {
+                "anyTerminal": {
+                  "description": "AnyTerminal is the TTL for purging workflow instances that reach any\nterminal state.",
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "completed": {
+                  "description": "Completed is the TTL for purging workflow instances that reach the\nCompleted terminal state.",
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "failed": {
+                  "description": "Failed is the TTL for purging workflow instances that reach the Failed\nterminal state.",
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "terminated": {
+                  "description": "Terminated is the TTL for purging workflow instances that reach the\nTerminated terminal state.",
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
