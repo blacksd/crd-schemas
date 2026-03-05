@@ -46,7 +46,7 @@
           },
           "license": {
             "type": "string",
-            "description": "SPDX license identifier (e.g., Apache-2.0)."
+            "description": "SPDX license identifier (e.g., Apache-2.0). Must permit redistribution of derived artifacts."
           },
           "homepage": {
             "type": "string",

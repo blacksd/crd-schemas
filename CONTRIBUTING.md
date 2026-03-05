@@ -1,5 +1,16 @@
 # Contributing
 
+## Acceptance criteria
+
+Sources must reference **publicly accessible** CRD definitions. This means:
+
+- Helm chart repositories must be unauthenticated (no private registries, no OCI images behind login).
+- URL sources must resolve without credentials (public GitHub releases, raw URLs, etc.).
+- The upstream project must distribute its CRDs as a published artifact (release asset, Helm chart, or in-tree manifest at a tagged ref).
+- The upstream license must permit redistribution of derived artifacts (the extracted JSON schemas). Most OSI-approved licenses qualify (Apache-2.0, MIT, MPL-2.0, AGPL-3.0, etc.). Licenses that restrict redistribution or derived works, such as CC BY-NC or proprietary/source-available licenses, do not. The upstream license is recorded in each schema's provenance metadata for attribution.
+
+We do not accept sources that require authentication, VPN access, or any form of private distribution. The extracted schemas are served publicly and must be reproducible by anyone.
+
 ## Adding a new CRD source
 
 Each source config file in `sources/` is named after the primary API group it provides (e.g., `cert-manager.io.yaml`). Source configs are validated automatically against `source.schema.json` on every PR.
