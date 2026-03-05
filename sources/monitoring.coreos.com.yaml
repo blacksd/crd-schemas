@@ -1,0 +1,8 @@
+sources:
+  - name: prometheus-operator
+    type: helm
+    repo: https://prometheus-community.github.io/helm-charts
+    chart: kube-prometheus-stack
+    version: v69.8.2
+    license: Apache-2.0
+    homepage: https://prometheus-operator.dev

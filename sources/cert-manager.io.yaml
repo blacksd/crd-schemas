@@ -1,0 +1,10 @@
+sources:
+  - name: cert-manager
+    type: helm
+    repo: https://charts.jetstack.io
+    chart: cert-manager
+    version: v1.17.2
+    license: Apache-2.0
+    homepage: https://cert-manager.io
+    values:
+      crds.enabled: "true"
