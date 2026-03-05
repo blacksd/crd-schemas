@@ -13,6 +13,16 @@
       });
     in
     {
+      packages = forAllSystems ({ pkgs }: {
+        default = pkgs.buildGoModule {
+          pname = "crd-schemas";
+          version = "0.1.0";
+          src = ./.;
+          vendorHash = "sha256-9+/SUDnd4cH35NMMSFKZiDrRu14xYyuzXPoxrHIRu4U=";
+          subPackages = [ "cmd/extract" ];
+        };
+      });
+
       devShells = forAllSystems ({ pkgs }: {
         default = pkgs.mkShell {
           packages = [

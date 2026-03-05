@@ -4,13 +4,6 @@ on:
   pull_request:
     paths:
       - 'sources/**'
-      - 'schemas/**'
-      - 'source.schema.json'
-  push:
-    branches: [main]
-    paths:
-      - 'sources/**'
-      - 'schemas/**'
       - 'source.schema.json'
 
 jobs:
@@ -31,45 +24,3 @@ jobs:
               check-jsonschema --schemafile source.schema.json "$f"
             done
           '
-
-  validate-schemas:
-    name: Validate extracted schemas
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Validate JSON files are well-formed
-        run: |
-          failed=0
-          count=0
-          for f in $(find schemas -name '*.json' -not -name 'sbom.cdx.json'); do
-            count=$((count + 1))
-            if ! jq empty "$f" 2>/dev/null; then
-              echo "INVALID JSON: $f"
-              failed=1
-            fi
-          done
-          echo "Validated $count JSON files"
-          exit $failed
-
-      - name: Validate schema files have required structure
-        run: |
-          failed=0
-          for f in $(find schemas -name '*.json' -not -name '*.provenance.json' -not -name 'sbom.cdx.json'); do
-            if ! jq -e 'has("type") or has("properties") or has("allOf") or has("oneOf") or has("anyOf")' "$f" > /dev/null 2>&1; then
-              echo "MISSING SCHEMA STRUCTURE: $f"
-              failed=1
-            fi
-          done
-          exit $failed
-
-      - name: Validate provenance files have required fields
-        run: |
-          failed=0
-          for f in $(find schemas -name '*.provenance.json'); do
-            if ! jq -e '.schema and .crd.group and .crd.kind and .crd.apiVersion and .source.name and .integrity.sha256' "$f" > /dev/null 2>&1; then
-              echo "INVALID PROVENANCE: $f"
-              failed=1
-            fi
-          done
-          exit $failed

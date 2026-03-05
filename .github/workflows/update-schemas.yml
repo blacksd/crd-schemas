@@ -7,11 +7,6 @@ on:
       - 'sources/**'
       - 'cmd/**'
       - 'internal/**'
-  pull_request:
-    paths:
-      - 'sources/**'
-      - 'cmd/**'
-      - 'internal/**'
   workflow_dispatch:
 
 permissions:
@@ -30,7 +25,6 @@ jobs:
 
       - name: Detect changed source files
         id: changed-files
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: tj-actions/changed-files@v46
         with:
           files: sources/**
@@ -56,11 +50,43 @@ jobs:
             echo "tags=$tags" >> "$GITHUB_OUTPUT"
           '
 
+      - name: Build extract binary
+        run: nix build
+
       - name: Run extraction
-        run: nix develop --command go run ./cmd/extract/ --sources=sources --output=schemas
+        run: nix develop --command ./result/bin/extract --sources=sources --output=schemas
+
+      - name: Validate extracted schemas
+        run: |
+          failed=0
+
+          # Well-formed JSON
+          for f in $(find schemas -name '*.json' -not -name 'sbom.cdx.json'); do
+            if ! jq empty "$f" 2>/dev/null; then
+              echo "INVALID JSON: $f"
+              failed=1
+            fi
+          done
+
+          # Schema structure
+          for f in $(find schemas -name '*.json' -not -name '*.provenance.json' -not -name 'sbom.cdx.json'); do
+            if ! jq -e 'has("type") or has("properties") or has("allOf") or has("oneOf") or has("anyOf")' "$f" > /dev/null 2>&1; then
+              echo "MISSING SCHEMA STRUCTURE: $f"
+              failed=1
+            fi
+          done
+
+          # Provenance fields
+          for f in $(find schemas -name '*.provenance.json'); do
+            if ! jq -e '.schema and .crd.group and .crd.kind and .crd.apiVersion and .source.name and .integrity.sha256' "$f" > /dev/null 2>&1; then
+              echo "INVALID PROVENANCE: $f"
+              failed=1
+            fi
+          done
+
+          exit $failed
 
       - name: Commit updated schemas
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -73,7 +99,7 @@ jobs:
           fi
 
       - name: Create version tags
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.changed.outputs.tags != ''
+        if: steps.changed.outputs.tags != ''
         run: |
           for tag in ${{ steps.changed.outputs.tags }}; do
             source_name="${tag%%/*}"
@@ -83,10 +109,3 @@ jobs:
             git tag -a "$tag" -m "Schemas extracted from $source_name $source_version"
             git push origin "$tag"
           done
-
-      - name: Upload schemas artifact
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: schemas
-          path: schemas/
