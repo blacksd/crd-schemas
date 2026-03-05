@@ -1,0 +1,8 @@
+sources:
+  - name: hivemq-platform-operator
+    type: helm
+    repo: https://hivemq.github.io/helm-charts
+    chart: hivemq-platform-operator
+    version: 0.2.22
+    license: Apache-2.0
+    homepage: https://www.hivemq.com

@@ -1,0 +1,10 @@
+sources:
+  - name: metallb
+    type: helm
+    repo: https://metallb.github.io/metallb
+    chart: metallb
+    version: 0.15.3
+    license: Apache-2.0
+    homepage: https://metallb.universe.tf
+    include:
+      - "frrk8s.metallb.io/*"

@@ -1,5 +1,16 @@
 # Contributing
 
+## Acceptance criteria
+
+Sources must reference **publicly accessible** CRD definitions. This means:
+
+- Helm chart repositories must be unauthenticated (no private registries, no OCI images behind login).
+- URL sources must resolve without credentials (public GitHub releases, raw URLs, etc.).
+- The upstream project must distribute its CRDs as a published artifact (release asset, Helm chart, or in-tree manifest at a tagged ref).
+- The upstream license must permit redistribution of derived artifacts (the extracted JSON schemas). Most OSI-approved licenses qualify (Apache-2.0, MIT, MPL-2.0, AGPL-3.0, etc.). Licenses that restrict redistribution or derived works, such as CC BY-NC or proprietary/source-available licenses, do not. The upstream license is recorded in each schema's provenance metadata for attribution.
+
+We do not accept sources that require authentication, VPN access, or any form of private distribution. The extracted schemas are served publicly and must be reproducible by anyone.
+
 ## Adding a new CRD source
 
 Each source config file in `sources/` is named after the primary API group it provides (e.g., `cert-manager.io.yaml`). Source configs are validated automatically against `source.schema.json` on every PR.
@@ -82,6 +93,17 @@ Push your branch and open a pull request. CI will:
 - Validate your source config against `source.schema.json`
 - Run extraction and upload the resulting schemas as a PR artifact
 - Validate all extracted JSON schemas for well-formedness
+
+## Known gaps
+
+The following popular projects are not currently covered due to technical limitations:
+
+- **Cilium** (`cilium.io`) -- CRDs are embedded in the agent binary and not shipped in the Helm chart. No standalone CRD manifest is published.
+- **Crossplane** (`pkg.crossplane.io`, `apiextensions.crossplane.io`) -- CRDs are dynamically generated at runtime by the Crossplane controller. The Helm chart contains no CRD definitions.
+- **Karpenter** (`karpenter.sh`) -- The core `kubernetes-sigs/karpenter` repo is a framework library. CRDs are shipped by provider-specific implementations (e.g., `aws/karpenter-provider-aws`), which use OCI registries that require authentication.
+- **CSI Volume Snapshots** (`snapshot.storage.k8s.io`) -- CRDs are distributed as individual files in `kubernetes-csi/external-snapshotter` with no combined manifest. The extractor currently supports single-URL sources only.
+
+Contributions that resolve any of these limitations are welcome.
 
 ## Updating an existing source version
 
