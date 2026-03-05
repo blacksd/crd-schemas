@@ -1,0 +1,24 @@
+{
+  "schema": "perconaservermysqlbackup.json",
+  "crd": {
+    "group": "ps.percona.com",
+    "kind": "PerconaServerMySQLBackup",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "ps-operator",
+    "type": "helm",
+    "repo": "https://percona.github.io/percona-helm-charts",
+    "chart": "ps-operator",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "homepage": "https://www.percona.com/percona-server-mysql-kubernetes"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:41Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e36d57d20ab0b46ee905a1f37794407c977837c38ca67347a05d2849b255b2ea"
+  }
+}

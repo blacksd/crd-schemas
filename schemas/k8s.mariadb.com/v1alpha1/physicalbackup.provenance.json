@@ -1,0 +1,24 @@
+{
+  "schema": "physicalbackup.json",
+  "crd": {
+    "group": "k8s.mariadb.com",
+    "kind": "PhysicalBackup",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "mariadb-operator-crds",
+    "type": "helm",
+    "repo": "https://mariadb-operator.github.io/mariadb-operator",
+    "chart": "mariadb-operator-crds",
+    "version": "25.10.4",
+    "license": "MIT",
+    "homepage": "https://github.com/mariadb-operator/mariadb-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:12Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ec0c8856958c69aab92cff6458f202ad22e07148d390b21d3fbbc085d4d32f9d"
+  }
+}

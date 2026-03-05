@@ -1,0 +1,23 @@
+{
+  "schema": "tempostack.json",
+  "crd": {
+    "group": "tempo.grafana.com",
+    "kind": "TempoStack",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "tempo-operator",
+    "type": "url",
+    "url": "https://github.com/grafana/tempo-operator/releases/download/v0.20.0/tempo-operator.yaml",
+    "version": "v0.20.0",
+    "license": "AGPL-3.0",
+    "homepage": "https://grafana.com/docs/tempo/latest/setup/operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:50Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6a08ff53135ea3994bd9a8e26702e37d893d433b37aff2c0a81217d765f55256"
+  }
+}

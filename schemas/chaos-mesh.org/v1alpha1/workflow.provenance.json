@@ -1,0 +1,24 @@
+{
+  "schema": "workflow.json",
+  "crd": {
+    "group": "chaos-mesh.org",
+    "kind": "Workflow",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "chaos-mesh",
+    "type": "helm",
+    "repo": "https://charts.chaos-mesh.org",
+    "chart": "chaos-mesh",
+    "version": "2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://chaos-mesh.org"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:29Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "de2476f1990f6fb488df328d72b2b17422d8158b9088d92833661998e7ac8330"
+  }
+}

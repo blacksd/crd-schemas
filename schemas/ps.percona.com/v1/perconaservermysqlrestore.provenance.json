@@ -1,0 +1,24 @@
+{
+  "schema": "perconaservermysqlrestore.json",
+  "crd": {
+    "group": "ps.percona.com",
+    "kind": "PerconaServerMySQLRestore",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "ps-operator",
+    "type": "helm",
+    "repo": "https://percona.github.io/percona-helm-charts",
+    "chart": "ps-operator",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "homepage": "https://www.percona.com/percona-server-mysql-kubernetes"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:41Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f5b981813adc88cc73ab002cb0747a8ddf8e75ac708bd81ccbd5e6c623a4457a"
+  }
+}

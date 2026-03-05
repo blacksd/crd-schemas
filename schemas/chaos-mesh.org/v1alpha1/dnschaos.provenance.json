@@ -1,0 +1,24 @@
+{
+  "schema": "dnschaos.json",
+  "crd": {
+    "group": "chaos-mesh.org",
+    "kind": "DNSChaos",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "chaos-mesh",
+    "type": "helm",
+    "repo": "https://charts.chaos-mesh.org",
+    "chart": "chaos-mesh",
+    "version": "2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://chaos-mesh.org"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:29Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d7fd7ce8c41ed6ba8641bcb440d51b67ae55bdb679656755f4ec02a3e0a42a5b"
+  }
+}

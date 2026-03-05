@@ -1,0 +1,29 @@
+{
+  "schema": "sensor.json",
+  "crd": {
+    "group": "argoproj.io",
+    "kind": "Sensor",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "argo-events",
+    "type": "helm",
+    "repo": "https://argoproj.github.io/argo-helm",
+    "chart": "argo-events",
+    "version": "2.4.20",
+    "license": "Apache-2.0",
+    "homepage": "https://argoproj.github.io/argo-events",
+    "include": [
+      "EventBus",
+      "EventSource",
+      "Sensor"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:19Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "190cb420728bbed62258af08203434d4dd47c240ebe1f8a4fe865e76f85c9fc6"
+  }
+}

@@ -1,0 +1,8 @@
+sources:
+  - name: spark-operator
+    type: helm
+    repo: https://kubeflow.github.io/spark-operator
+    chart: spark-operator
+    version: 2.4.0
+    license: Apache-2.0
+    homepage: https://www.kubeflow.org/docs/components/spark-operator

@@ -1,0 +1,27 @@
+{
+  "schema": "keptnworkload.json",
+  "crd": {
+    "group": "lifecycle.keptn.sh",
+    "kind": "KeptnWorkload",
+    "apiVersion": "v1alpha3"
+  },
+  "source": {
+    "name": "keptn",
+    "type": "helm",
+    "repo": "https://charts.lifecycle.keptn.sh",
+    "chart": "keptn",
+    "version": "0.11.0",
+    "license": "Apache-2.0",
+    "homepage": "https://keptn.sh",
+    "include": [
+      "lifecycle.keptn.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:51Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ea6624c970913cde65a6010877744262a8b3ffc1625beea9c395d2223ac6bc7b"
+  }
+}

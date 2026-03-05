@@ -1,0 +1,24 @@
+{
+  "schema": "sparkconnect.json",
+  "crd": {
+    "group": "sparkoperator.k8s.io",
+    "kind": "SparkConnect",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "spark-operator",
+    "type": "helm",
+    "repo": "https://kubeflow.github.io/spark-operator",
+    "chart": "spark-operator",
+    "version": "2.4.0",
+    "license": "Apache-2.0",
+    "homepage": "https://www.kubeflow.org/docs/components/spark-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:25Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2502744814755b1218f0997cb5dcf9947433ee087ccf8ed88a1978a562ebed07"
+  }
+}

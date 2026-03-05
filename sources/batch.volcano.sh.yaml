@@ -1,0 +1,10 @@
+sources:
+  - name: volcano
+    type: helm
+    repo: https://volcano-sh.github.io/helm-charts
+    chart: volcano
+    version: 1.14.1
+    license: Apache-2.0
+    homepage: https://volcano.sh
+    include:
+      - "batch.volcano.sh/*"

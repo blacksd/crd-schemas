@@ -1,0 +1,24 @@
+{
+  "schema": "redisreplication.json",
+  "crd": {
+    "group": "redis.redis.opstreelabs.in",
+    "kind": "RedisReplication",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "redis-operator",
+    "type": "helm",
+    "repo": "https://ot-container-kit.github.io/helm-charts",
+    "chart": "redis-operator",
+    "version": "0.23.0",
+    "license": "Apache-2.0",
+    "homepage": "https://redis-operator.opstree.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:16Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a8f0e77edf4a89116c04c5403b1c0c6356c447c40026b9cf1b4aa7137fdaf8f3"
+  }
+}

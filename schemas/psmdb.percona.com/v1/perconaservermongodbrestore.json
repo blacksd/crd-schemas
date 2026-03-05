@@ -1,0 +1,367 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "backupName": {
+          "type": "string"
+        },
+        "backupSource": {
+          "type": "object",
+          "properties": {
+            "azure": {
+              "type": "object",
+              "required": [
+                "credentialsSecret"
+              ],
+              "properties": {
+                "container": {
+                  "type": "string"
+                },
+                "credentialsSecret": {
+                  "type": "string"
+                },
+                "endpointUrl": {
+                  "type": "string"
+                },
+                "prefix": {
+                  "type": "string"
+                }
+              }
+            },
+            "completed": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "destination": {
+              "type": "string"
+            },
+            "error": {
+              "type": "string"
+            },
+            "filesystem": {
+              "type": "object",
+              "required": [
+                "path"
+              ],
+              "properties": {
+                "path": {
+                  "type": "string"
+                }
+              }
+            },
+            "gcs": {
+              "type": "object",
+              "required": [
+                "bucket",
+                "credentialsSecret"
+              ],
+              "properties": {
+                "bucket": {
+                  "type": "string"
+                },
+                "chunkSize": {
+                  "type": "integer"
+                },
+                "credentialsSecret": {
+                  "type": "string"
+                },
+                "prefix": {
+                  "type": "string"
+                },
+                "retryer": {
+                  "type": "object",
+                  "required": [
+                    "backoffInitial",
+                    "backoffMax",
+                    "backoffMultiplier"
+                  ],
+                  "properties": {
+                    "backoffInitial": {
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "backoffMax": {
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "backoffMultiplier": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            },
+            "lastTransition": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "lastWriteAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "latestRestorableTime": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "minio": {
+              "type": "object",
+              "properties": {
+                "bucket": {
+                  "type": "string"
+                },
+                "caBundle": {
+                  "type": "object",
+                  "required": [
+                    "key"
+                  ],
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "default": ""
+                    },
+                    "optional": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-kubernetes-map-type": "atomic"
+                },
+                "credentialsSecret": {
+                  "type": "string"
+                },
+                "debugTrace": {
+                  "type": "boolean"
+                },
+                "endpointUrl": {
+                  "type": "string"
+                },
+                "forcePathStyle": {
+                  "type": "boolean"
+                },
+                "insecureSkipTLSVerify": {
+                  "type": "boolean"
+                },
+                "partSize": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "prefix": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "retryer": {
+                  "type": "object",
+                  "required": [
+                    "numMaxRetries"
+                  ],
+                  "properties": {
+                    "numMaxRetries": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "secure": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "pbmName": {
+              "type": "string"
+            },
+            "pbmPod": {
+              "type": "string"
+            },
+            "pbmPods": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "replsetNames": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "s3": {
+              "type": "object",
+              "required": [
+                "bucket"
+              ],
+              "properties": {
+                "bucket": {
+                  "type": "string"
+                },
+                "credentialsSecret": {
+                  "type": "string"
+                },
+                "debugLogLevels": {
+                  "type": "string"
+                },
+                "endpointUrl": {
+                  "type": "string"
+                },
+                "forcePathStyle": {
+                  "type": "boolean"
+                },
+                "insecureSkipTLSVerify": {
+                  "type": "boolean"
+                },
+                "maxUploadParts": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "prefix": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "retryer": {
+                  "type": "object",
+                  "properties": {
+                    "maxRetryDelay": {
+                      "type": "string"
+                    },
+                    "minRetryDelay": {
+                      "type": "string"
+                    },
+                    "numMaxRetries": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "serverSideEncryption": {
+                  "type": "object",
+                  "properties": {
+                    "kmsKeyID": {
+                      "type": "string"
+                    },
+                    "sseAlgorithm": {
+                      "type": "string"
+                    },
+                    "sseCustomerAlgorithm": {
+                      "type": "string"
+                    },
+                    "sseCustomerKey": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "storageClass": {
+                  "type": "string"
+                },
+                "uploadPartSize": {
+                  "type": "integer"
+                }
+              }
+            },
+            "size": {
+              "type": "string"
+            },
+            "start": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "state": {
+              "type": "string"
+            },
+            "storageName": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        "clusterName": {
+          "type": "string"
+        },
+        "pitr": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "self.type != 'date' || (has(self.date) \u0026\u0026 self.date.matches('^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01]) ([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$'))",
+              "message": "Time should be in format YYYY-MM-DD HH:MM:SS with valid ranges (MM: 01-12, DD: 01-31, HH: 00-23, MM/SS: 00-59)"
+            },
+            {
+              "rule": "self.type != 'latest' || !has(self.date)",
+              "message": "Date should not be used when 'latest' type is used"
+            }
+          ]
+        },
+        "replsetRemapping": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "selective": {
+          "type": "object",
+          "properties": {
+            "namespaces": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "withUsersAndRoles": {
+              "type": "boolean"
+            }
+          }
+        },
+        "storageName": {
+          "type": "string"
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "completed": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "error": {
+          "type": "string"
+        },
+        "lastTransition": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "pbmName": {
+          "type": "string"
+        },
+        "pitrTarget": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

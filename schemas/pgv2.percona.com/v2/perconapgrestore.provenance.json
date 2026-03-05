@@ -1,0 +1,27 @@
+{
+  "schema": "perconapgrestore.json",
+  "crd": {
+    "group": "pgv2.percona.com",
+    "kind": "PerconaPGRestore",
+    "apiVersion": "v2"
+  },
+  "source": {
+    "name": "pg-operator",
+    "type": "helm",
+    "repo": "https://percona.github.io/percona-helm-charts",
+    "chart": "pg-operator",
+    "version": "2.8.2",
+    "license": "Apache-2.0",
+    "homepage": "https://www.percona.com/percona-postgresql-kubernetes",
+    "include": [
+      "pgv2.percona.com/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:37Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a53d4bfe60e8669fe3fac6810ab46acc2b2317ec8878bfd8f9b9c621c580f8ab"
+  }
+}

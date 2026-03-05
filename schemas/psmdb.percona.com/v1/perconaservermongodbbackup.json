@@ -1,0 +1,319 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "clusterName": {
+          "type": "string"
+        },
+        "compressionLevel": {
+          "type": "integer"
+        },
+        "compressionType": {
+          "type": "string"
+        },
+        "startingDeadlineSeconds": {
+          "type": "integer",
+          "format": "int64",
+          "default": 120,
+          "minimum": 1
+        },
+        "storageName": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "logical",
+            "physical",
+            "incremental",
+            "incremental-base"
+          ]
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "azure": {
+          "type": "object",
+          "required": [
+            "credentialsSecret"
+          ],
+          "properties": {
+            "container": {
+              "type": "string"
+            },
+            "credentialsSecret": {
+              "type": "string"
+            },
+            "endpointUrl": {
+              "type": "string"
+            },
+            "prefix": {
+              "type": "string"
+            }
+          }
+        },
+        "completed": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "filesystem": {
+          "type": "object",
+          "required": [
+            "path"
+          ],
+          "properties": {
+            "path": {
+              "type": "string"
+            }
+          }
+        },
+        "gcs": {
+          "type": "object",
+          "required": [
+            "bucket",
+            "credentialsSecret"
+          ],
+          "properties": {
+            "bucket": {
+              "type": "string"
+            },
+            "chunkSize": {
+              "type": "integer"
+            },
+            "credentialsSecret": {
+              "type": "string"
+            },
+            "prefix": {
+              "type": "string"
+            },
+            "retryer": {
+              "type": "object",
+              "required": [
+                "backoffInitial",
+                "backoffMax",
+                "backoffMultiplier"
+              ],
+              "properties": {
+                "backoffInitial": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "backoffMax": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "backoffMultiplier": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "lastTransition": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastWriteAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "latestRestorableTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "minio": {
+          "type": "object",
+          "properties": {
+            "bucket": {
+              "type": "string"
+            },
+            "caBundle": {
+              "type": "object",
+              "required": [
+                "key"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string",
+                  "default": ""
+                },
+                "optional": {
+                  "type": "boolean"
+                }
+              },
+              "x-kubernetes-map-type": "atomic"
+            },
+            "credentialsSecret": {
+              "type": "string"
+            },
+            "debugTrace": {
+              "type": "boolean"
+            },
+            "endpointUrl": {
+              "type": "string"
+            },
+            "forcePathStyle": {
+              "type": "boolean"
+            },
+            "insecureSkipTLSVerify": {
+              "type": "boolean"
+            },
+            "partSize": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "prefix": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "retryer": {
+              "type": "object",
+              "required": [
+                "numMaxRetries"
+              ],
+              "properties": {
+                "numMaxRetries": {
+                  "type": "integer"
+                }
+              }
+            },
+            "secure": {
+              "type": "boolean"
+            }
+          }
+        },
+        "pbmName": {
+          "type": "string"
+        },
+        "pbmPod": {
+          "type": "string"
+        },
+        "pbmPods": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "replsetNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "s3": {
+          "type": "object",
+          "required": [
+            "bucket"
+          ],
+          "properties": {
+            "bucket": {
+              "type": "string"
+            },
+            "credentialsSecret": {
+              "type": "string"
+            },
+            "debugLogLevels": {
+              "type": "string"
+            },
+            "endpointUrl": {
+              "type": "string"
+            },
+            "forcePathStyle": {
+              "type": "boolean"
+            },
+            "insecureSkipTLSVerify": {
+              "type": "boolean"
+            },
+            "maxUploadParts": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "prefix": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "retryer": {
+              "type": "object",
+              "properties": {
+                "maxRetryDelay": {
+                  "type": "string"
+                },
+                "minRetryDelay": {
+                  "type": "string"
+                },
+                "numMaxRetries": {
+                  "type": "integer"
+                }
+              }
+            },
+            "serverSideEncryption": {
+              "type": "object",
+              "properties": {
+                "kmsKeyID": {
+                  "type": "string"
+                },
+                "sseAlgorithm": {
+                  "type": "string"
+                },
+                "sseCustomerAlgorithm": {
+                  "type": "string"
+                },
+                "sseCustomerKey": {
+                  "type": "string"
+                }
+              }
+            },
+            "storageClass": {
+              "type": "string"
+            },
+            "uploadPartSize": {
+              "type": "integer"
+            }
+          }
+        },
+        "size": {
+          "type": "string"
+        },
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": {
+          "type": "string"
+        },
+        "storageName": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

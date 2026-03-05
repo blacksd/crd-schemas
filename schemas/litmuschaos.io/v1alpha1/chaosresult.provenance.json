@@ -1,0 +1,24 @@
+{
+  "schema": "chaosresult.json",
+  "crd": {
+    "group": "litmuschaos.io",
+    "kind": "ChaosResult",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "litmus-core",
+    "type": "helm",
+    "repo": "https://litmuschaos.github.io/litmus-helm",
+    "chart": "litmus-core",
+    "version": "3.26.0",
+    "license": "Apache-2.0",
+    "homepage": "https://litmuschaos.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:56Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7a50df7650f9f3980b64211c77a848adb9c201354f2bdd57f14eaa803cbf9b5d"
+  }
+}

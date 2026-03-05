@@ -1,0 +1,24 @@
+{
+  "schema": "redissentinel.json",
+  "crd": {
+    "group": "redis.redis.opstreelabs.in",
+    "kind": "RedisSentinel",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "redis-operator",
+    "type": "helm",
+    "repo": "https://ot-container-kit.github.io/helm-charts",
+    "chart": "redis-operator",
+    "version": "0.23.0",
+    "license": "Apache-2.0",
+    "homepage": "https://redis-operator.opstree.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:16Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "64ec0bd6a93dd447a033f10c186c3e8df151474df2ee9cd9576a3a542e9b2355"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "perconapgupgrade.json",
+  "crd": {
+    "group": "pgv2.percona.com",
+    "kind": "PerconaPGUpgrade",
+    "apiVersion": "v2"
+  },
+  "source": {
+    "name": "pg-operator",
+    "type": "helm",
+    "repo": "https://percona.github.io/percona-helm-charts",
+    "chart": "pg-operator",
+    "version": "2.8.2",
+    "license": "Apache-2.0",
+    "homepage": "https://www.percona.com/percona-postgresql-kubernetes",
+    "include": [
+      "pgv2.percona.com/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:37Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c1a5e0c07a3460e7fa240d0d100b58eeda38ee431bfe94cdc2164f7426e94d9f"
+  }
+}
