@@ -1,0 +1,23 @@
+{
+  "schema": "httproute.json",
+  "crd": {
+    "group": "gateway.networking.k8s.io",
+    "kind": "HTTPRoute",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "gateway-api",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/experimental-install.yaml",
+    "version": "v1.2.1",
+    "license": "Apache-2.0",
+    "homepage": "https://gateway-api.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c2f537d5fd1f0c91438e60237f4754b33bb0565001d556d2cbe0d51bd0880948"
+  }
+}

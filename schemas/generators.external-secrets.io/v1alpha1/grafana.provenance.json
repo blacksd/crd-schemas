@@ -1,0 +1,24 @@
+{
+  "schema": "grafana.json",
+  "crd": {
+    "group": "generators.external-secrets.io",
+    "kind": "Grafana",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "external-secrets",
+    "type": "helm",
+    "repo": "https://charts.external-secrets.io",
+    "chart": "external-secrets",
+    "version": "v0.14.4",
+    "license": "Apache-2.0",
+    "homepage": "https://external-secrets.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "48fe0045f7b4476c25343bc47513e539f2565b7a6fb7f5cd0575447c81795121"
+  }
+}

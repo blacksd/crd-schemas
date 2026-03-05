@@ -1,0 +1,24 @@
+{
+  "schema": "stssessiontoken.json",
+  "crd": {
+    "group": "generators.external-secrets.io",
+    "kind": "STSSessionToken",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "external-secrets",
+    "type": "helm",
+    "repo": "https://charts.external-secrets.io",
+    "chart": "external-secrets",
+    "version": "v0.14.4",
+    "license": "Apache-2.0",
+    "homepage": "https://external-secrets.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "29fc8fa5f59bf09fa6d518e8e7d45d4d26dc2b7b491f67f16301917bc2c86ef7"
+  }
+}

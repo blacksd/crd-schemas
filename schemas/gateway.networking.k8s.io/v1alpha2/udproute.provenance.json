@@ -1,0 +1,23 @@
+{
+  "schema": "udproute.json",
+  "crd": {
+    "group": "gateway.networking.k8s.io",
+    "kind": "UDPRoute",
+    "apiVersion": "v1alpha2"
+  },
+  "source": {
+    "name": "gateway-api",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/experimental-install.yaml",
+    "version": "v1.2.1",
+    "license": "Apache-2.0",
+    "homepage": "https://gateway-api.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "52af3b4d30a2a9945c5c7b96b4f506aa6f82382eef6ae1681360ffcebd815fc9"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "githubaccesstoken.json",
+  "crd": {
+    "group": "generators.external-secrets.io",
+    "kind": "GithubAccessToken",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "external-secrets",
+    "type": "helm",
+    "repo": "https://charts.external-secrets.io",
+    "chart": "external-secrets",
+    "version": "v0.14.4",
+    "license": "Apache-2.0",
+    "homepage": "https://external-secrets.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "710474bd5fd7715f795b7ff26c49968bb817925ae45faf6e31a080de2b2bf7cf"
+  }
+}

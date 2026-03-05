@@ -1,0 +1,23 @@
+{
+  "schema": "backendlbpolicy.json",
+  "crd": {
+    "group": "gateway.networking.k8s.io",
+    "kind": "BackendLBPolicy",
+    "apiVersion": "v1alpha2"
+  },
+  "source": {
+    "name": "gateway-api",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/experimental-install.yaml",
+    "version": "v1.2.1",
+    "license": "Apache-2.0",
+    "homepage": "https://gateway-api.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "fbf3273860b7aa98fe510414aaa76ff23dc31aa7ccfebbeaab6bd180ef329ca5"
+  }
+}

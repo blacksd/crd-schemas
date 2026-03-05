@@ -1,0 +1,23 @@
+{
+  "schema": "backendtlspolicy.json",
+  "crd": {
+    "group": "gateway.networking.k8s.io",
+    "kind": "BackendTLSPolicy",
+    "apiVersion": "v1alpha3"
+  },
+  "source": {
+    "name": "gateway-api",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/experimental-install.yaml",
+    "version": "v1.2.1",
+    "license": "Apache-2.0",
+    "homepage": "https://gateway-api.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "376f3b4fd0c24220516d75bea78e294b1aa9506b2e94b0660d400a44ecaf0aeb"
+  }
+}

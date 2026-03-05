@@ -1,0 +1,24 @@
+{
+  "schema": "ecrauthorizationtoken.json",
+  "crd": {
+    "group": "generators.external-secrets.io",
+    "kind": "ECRAuthorizationToken",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "external-secrets",
+    "type": "helm",
+    "repo": "https://charts.external-secrets.io",
+    "chart": "external-secrets",
+    "version": "v0.14.4",
+    "license": "Apache-2.0",
+    "homepage": "https://external-secrets.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "265d5fc40c7a2ec3672e95ce3df983eb38323710af63a036d3b9ca15bc45cfee"
+  }
+}

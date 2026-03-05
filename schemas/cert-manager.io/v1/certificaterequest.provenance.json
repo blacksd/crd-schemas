@@ -1,0 +1,27 @@
+{
+  "schema": "certificaterequest.json",
+  "crd": {
+    "group": "cert-manager.io",
+    "kind": "CertificateRequest",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "cert-manager",
+    "type": "helm",
+    "repo": "https://charts.jetstack.io",
+    "chart": "cert-manager",
+    "version": "v1.17.2",
+    "license": "Apache-2.0",
+    "homepage": "https://cert-manager.io",
+    "values": {
+      "crds.enabled": "true"
+    }
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bd0acf5475c6631b523006fdbf27f86d6c52c44b410a4f972f945e66bd1d416f"
+  }
+}

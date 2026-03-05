@@ -1,0 +1,24 @@
+{
+  "schema": "servicemonitor.json",
+  "crd": {
+    "group": "monitoring.coreos.com",
+    "kind": "ServiceMonitor",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "prometheus-operator",
+    "type": "helm",
+    "repo": "https://prometheus-community.github.io/helm-charts",
+    "chart": "kube-prometheus-stack",
+    "version": "v69.8.2",
+    "license": "Apache-2.0",
+    "homepage": "https://prometheus-operator.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9fdb6e5c42d75b6b334a106b8c976787e9449200e0860c2924a8e98d42d36eba"
+  }
+}

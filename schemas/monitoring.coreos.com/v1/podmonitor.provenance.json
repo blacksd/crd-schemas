@@ -1,0 +1,24 @@
+{
+  "schema": "podmonitor.json",
+  "crd": {
+    "group": "monitoring.coreos.com",
+    "kind": "PodMonitor",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "prometheus-operator",
+    "type": "helm",
+    "repo": "https://prometheus-community.github.io/helm-charts",
+    "chart": "kube-prometheus-stack",
+    "version": "v69.8.2",
+    "license": "Apache-2.0",
+    "homepage": "https://prometheus-operator.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5e8466dedca43bcbc686863c1a4cf7f51fc2621237e7a8c7c731bfa9b10a2c2f"
+  }
+}

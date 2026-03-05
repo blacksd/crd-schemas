@@ -1,0 +1,24 @@
+{
+  "schema": "thanosruler.json",
+  "crd": {
+    "group": "monitoring.coreos.com",
+    "kind": "ThanosRuler",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "prometheus-operator",
+    "type": "helm",
+    "repo": "https://prometheus-community.github.io/helm-charts",
+    "chart": "kube-prometheus-stack",
+    "version": "v69.8.2",
+    "license": "Apache-2.0",
+    "homepage": "https://prometheus-operator.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "234f3a0ab953bfe92e80d33034eb7c5b8017023c6f02fa222f03c11dd0aeed70"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "probe.json",
+  "crd": {
+    "group": "monitoring.coreos.com",
+    "kind": "Probe",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "prometheus-operator",
+    "type": "helm",
+    "repo": "https://prometheus-community.github.io/helm-charts",
+    "chart": "kube-prometheus-stack",
+    "version": "v69.8.2",
+    "license": "Apache-2.0",
+    "homepage": "https://prometheus-operator.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8e747a57e7a9f775b935a673226f55701ce2a6d3df40dc8948f258d24956d6f5"
+  }
+}

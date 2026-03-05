@@ -1,0 +1,24 @@
+{
+  "schema": "appproject.json",
+  "crd": {
+    "group": "argoproj.io",
+    "kind": "AppProject",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "argo-cd",
+    "type": "helm",
+    "repo": "https://argoproj.github.io/argo-helm",
+    "chart": "argo-cd",
+    "version": "v7.8.7",
+    "license": "Apache-2.0",
+    "homepage": "https://argoproj.github.io/cd"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "58dd4dd46e26422ffaa043bba9ed2626f40ef6f5f91a86ca92cac0657a1dec82"
+  }
+}

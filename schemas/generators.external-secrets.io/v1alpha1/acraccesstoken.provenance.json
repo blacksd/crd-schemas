@@ -1,0 +1,24 @@
+{
+  "schema": "acraccesstoken.json",
+  "crd": {
+    "group": "generators.external-secrets.io",
+    "kind": "ACRAccessToken",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "external-secrets",
+    "type": "helm",
+    "repo": "https://charts.external-secrets.io",
+    "chart": "external-secrets",
+    "version": "v0.14.4",
+    "license": "Apache-2.0",
+    "homepage": "https://external-secrets.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d15aada14f9fb6d164b2b5098d460dad8f4bd5df0606e948751cef10b2cfd19e"
+  }
+}

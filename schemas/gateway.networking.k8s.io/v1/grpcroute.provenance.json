@@ -1,0 +1,23 @@
+{
+  "schema": "grpcroute.json",
+  "crd": {
+    "group": "gateway.networking.k8s.io",
+    "kind": "GRPCRoute",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "gateway-api",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.1/experimental-install.yaml",
+    "version": "v1.2.1",
+    "license": "Apache-2.0",
+    "homepage": "https://gateway-api.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "541b764eefe6294828e941f943590db2047dd314a795622aaf0f376ea956f221"
+  }
+}

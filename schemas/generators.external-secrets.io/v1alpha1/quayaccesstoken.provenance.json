@@ -1,0 +1,24 @@
+{
+  "schema": "quayaccesstoken.json",
+  "crd": {
+    "group": "generators.external-secrets.io",
+    "kind": "QuayAccessToken",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "external-secrets",
+    "type": "helm",
+    "repo": "https://charts.external-secrets.io",
+    "chart": "external-secrets",
+    "version": "v0.14.4",
+    "license": "Apache-2.0",
+    "homepage": "https://external-secrets.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "435de49258e0b96d689b9016b0d1a9497e7aa26b5ccd1b5268a51aed38fafe32"
+  }
+}

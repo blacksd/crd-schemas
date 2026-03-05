@@ -1,0 +1,110 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-05T09:57:11Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "crd-schemas",
+          "version": "crd-schemas v0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "gateway-api",
+      "version": "v1.2.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://gateway-api.sigs.k8s.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prometheus-operator",
+      "version": "v69.8.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://prometheus-operator.dev",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "argo-cd",
+      "version": "v7.8.7",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://argoproj.github.io/cd",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "cert-manager",
+      "version": "v1.17.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://cert-manager.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "external-secrets",
+      "version": "v0.14.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://external-secrets.io",
+          "type": "website"
+        }
+      ]
+    }
+  ]
+}
