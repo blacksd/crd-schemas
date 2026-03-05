@@ -183,6 +183,12 @@ go run ./cmd/extract/ -source cert-manager
 | `-source` | (all) | Process only the named source |
 | `-debug` | `false` | Enable debug logging (helm commands, HTTP fetches, per-schema detail) |
 
+### Validate source configs
+
+```bash
+check-jsonschema --schemafile source.schema.json sources/*.yaml
+```
+
 ### Run tests
 
 ```bash
@@ -206,7 +212,10 @@ go test ./...
 
 ### CI pipeline
 
-The GitHub Actions workflow (`.github/workflows/update-schemas.yml`) runs extraction on every push to `main` that touches `sources/`, `cmd/`, or `internal/`. On PRs, schemas are uploaded as an artifact for review. After extraction, annotated git tags are created for each source whose version changed.
+Two workflows run in CI:
+
+- **`update-schemas.yml`**: Runs extraction on every push to `main` that touches `sources/`, `cmd/`, or `internal/`. On PRs, schemas are uploaded as an artifact for review. After extraction, annotated git tags are created for each source whose version changed.
+- **`validate.yml`**: Validates source configs against `source.schema.json` and checks extracted schemas for well-formed JSON and required structure. Runs on PRs and pushes to `main`.
 
 ### Version updates
 

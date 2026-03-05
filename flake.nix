@@ -18,6 +18,8 @@
           packages = [
             pkgs.go
             pkgs.kubernetes-helm
+            pkgs.check-jsonschema
+            pkgs.yq-go
           ];
         };
       });

@@ -24,39 +24,40 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version-file: go.mod
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
 
-      - name: Set up Helm
-        uses: azure/setup-helm@v4
-
-      - name: Detect changed sources
-        id: changed
+      - name: Detect changed source files
+        id: changed-files
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: tj-actions/changed-files@v46
+        with:
+          files: sources/**
+
+      - name: Build tag list from changed sources
+        id: changed
+        if: steps.changed-files.outputs.any_changed == 'true'
         run: |
-          changed_files=$(git diff --name-only HEAD~1 -- sources/)
-          tags=""
-          for f in $changed_files; do
-            if [ -f "$f" ]; then
-              count=$(yq '.sources | length' "$f")
-              for i in $(seq 0 $((count - 1))); do
-                name=$(yq ".sources[$i].name" "$f")
-                version=$(yq ".sources[$i].version" "$f")
-                if [ -n "$name" ] && [ -n "$version" ]; then
-                  tags="$tags $name/$version"
-                fi
-              done
-            fi
-          done
-          echo "tags=$tags" >> "$GITHUB_OUTPUT"
+          nix develop --command bash -c '
+            tags=""
+            for f in ${{ steps.changed-files.outputs.all_changed_files }}; do
+              if [ -f "$f" ]; then
+                count=$(yq ".sources | length" "$f")
+                for i in $(seq 0 $((count - 1))); do
+                  name=$(yq ".sources[$i].name" "$f")
+                  version=$(yq ".sources[$i].version" "$f")
+                  if [ -n "$name" ] && [ -n "$version" ]; then
+                    tags="$tags $name/$version"
+                  fi
+                done
+              fi
+            done
+            echo "tags=$tags" >> "$GITHUB_OUTPUT"
+          '
 
       - name: Run extraction
-        run: go run ./cmd/extract/ --sources=sources --output=schemas
+        run: nix develop --command go run ./cmd/extract/ --sources=sources --output=schemas
 
       - name: Commit updated schemas
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
