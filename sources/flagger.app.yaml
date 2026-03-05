@@ -1,0 +1,10 @@
+sources:
+  - name: flagger
+    type: helm
+    repo: https://flagger.app
+    chart: flagger
+    version: 1.42.0
+    license: Apache-2.0
+    homepage: https://flagger.app
+    include:
+      - "flagger.app/*"

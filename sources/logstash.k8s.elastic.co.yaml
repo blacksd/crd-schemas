@@ -1,0 +1,10 @@
+sources:
+  - name: eck-operator
+    type: helm
+    repo: https://helm.elastic.co
+    chart: eck-operator
+    version: 3.3.1
+    license: Elastic-2.0
+    homepage: https://www.elastic.co/guide/en/cloud-on-k8s
+    include:
+      - "logstash.k8s.elastic.co/*"
