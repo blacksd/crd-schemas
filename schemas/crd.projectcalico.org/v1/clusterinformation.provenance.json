@@ -1,0 +1,27 @@
+{
+  "schema": "clusterinformation.json",
+  "crd": {
+    "group": "crd.projectcalico.org",
+    "kind": "ClusterInformation",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "tigera-operator",
+    "type": "helm",
+    "repo": "https://docs.tigera.io/calico/charts",
+    "chart": "tigera-operator",
+    "version": "v3.31.4",
+    "license": "Apache-2.0",
+    "homepage": "https://www.tigera.io/project-calico",
+    "include": [
+      "crd.projectcalico.org/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4d5aa2480437613ad0592a86c2f648c7e88bf06ba3f95392d673853f3ce4ccac"
+  }
+}

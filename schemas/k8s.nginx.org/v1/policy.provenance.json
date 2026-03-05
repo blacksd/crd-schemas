@@ -1,0 +1,23 @@
+{
+  "schema": "policy.json",
+  "crd": {
+    "group": "k8s.nginx.org",
+    "kind": "Policy",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "nginx-ingress",
+    "type": "url",
+    "url": "https://raw.githubusercontent.com/nginx/kubernetes-ingress/v5.3.4/deploy/crds.yaml",
+    "version": "v5.3.4",
+    "license": "Apache-2.0",
+    "homepage": "https://docs.nginx.com/nginx-ingress-controller"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "95e96eed74aabdadc83e673de4a6a2abfbd3fddd733800f36804759e025a730a"
+  }
+}

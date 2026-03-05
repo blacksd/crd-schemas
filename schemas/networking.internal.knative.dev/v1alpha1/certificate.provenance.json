@@ -1,0 +1,23 @@
+{
+  "schema": "certificate.json",
+  "crd": {
+    "group": "networking.internal.knative.dev",
+    "kind": "Certificate",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "knative-serving",
+    "type": "url",
+    "url": "https://github.com/knative/serving/releases/download/knative-v1.21.1/serving-crds.yaml",
+    "version": "v1.21.1",
+    "license": "Apache-2.0",
+    "homepage": "https://knative.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "dc87de5b0bd7cda035700e56e1eec53576d50919e1e54ef8761341f5dd8d632f"
+  }
+}

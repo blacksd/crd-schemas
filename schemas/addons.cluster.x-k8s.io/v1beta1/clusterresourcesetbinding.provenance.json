@@ -1,0 +1,23 @@
+{
+  "schema": "clusterresourcesetbinding.json",
+  "crd": {
+    "group": "addons.cluster.x-k8s.io",
+    "kind": "ClusterResourceSetBinding",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "cluster-api",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/core-components.yaml",
+    "version": "v1.12.3",
+    "license": "Apache-2.0",
+    "homepage": "https://cluster-api.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "82a323bf8da92132e2d54042a0a5ab7f7e8a77d64b8e7d6b731b14dfcab011cc"
+  }
+}

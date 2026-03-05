@@ -1,0 +1,27 @@
+{
+  "schema": "gatewayapi.json",
+  "crd": {
+    "group": "operator.tigera.io",
+    "kind": "GatewayAPI",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "tigera-operator",
+    "type": "helm",
+    "repo": "https://docs.tigera.io/calico/charts",
+    "chart": "tigera-operator",
+    "version": "v3.31.4",
+    "license": "Apache-2.0",
+    "homepage": "https://www.tigera.io/project-calico",
+    "include": [
+      "operator.tigera.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "29af5f3bb53961cb8515b6552a79a894f9db34de6b9ff392ffb0a1c856ede68c"
+  }
+}

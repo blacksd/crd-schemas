@@ -1,0 +1,24 @@
+{
+  "schema": "backupvolume.json",
+  "crd": {
+    "group": "longhorn.io",
+    "kind": "BackupVolume",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "longhorn",
+    "type": "helm",
+    "repo": "https://charts.longhorn.io",
+    "chart": "longhorn",
+    "version": "1.11.0",
+    "license": "Apache-2.0",
+    "homepage": "https://longhorn.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9615750d2384db9f51a68935ee3db9ba2dd4373948b0143d2611b93f3888e400"
+  }
+}

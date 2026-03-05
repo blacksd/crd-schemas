@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "required": [
+        "cidr"
+      ],
+      "properties": {
+        "allowedUses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "assignmentMode": {
+          "type": "string",
+          "enum": [
+            "Automatic",
+            "Manual"
+          ]
+        },
+        "blockSize": {
+          "type": "integer"
+        },
+        "cidr": {
+          "type": "string"
+        },
+        "disableBGPExport": {
+          "type": "boolean"
+        },
+        "disabled": {
+          "type": "boolean"
+        },
+        "ipip": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string"
+            }
+          }
+        },
+        "ipipMode": {
+          "type": "string"
+        },
+        "namespaceSelector": {
+          "type": "string"
+        },
+        "nat-outgoing": {
+          "type": "boolean"
+        },
+        "natOutgoing": {
+          "type": "boolean"
+        },
+        "nodeSelector": {
+          "type": "string"
+        },
+        "vxlanMode": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

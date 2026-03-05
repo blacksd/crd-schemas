@@ -1,0 +1,27 @@
+{
+  "schema": "namespacedvalidatingpolicy.json",
+  "crd": {
+    "group": "policies.kyverno.io",
+    "kind": "NamespacedValidatingPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "kyverno",
+    "type": "helm",
+    "repo": "https://kyverno.github.io/kyverno",
+    "chart": "kyverno",
+    "version": "3.7.1",
+    "license": "Apache-2.0",
+    "homepage": "https://kyverno.io",
+    "include": [
+      "policies.kyverno.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "898c8a980d393c58e9152624dc50d6c138ad553da7c5926794275d1c3a77d9e4"
+  }
+}

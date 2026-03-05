@@ -1,0 +1,142 @@
+{
+  "description": "An ExternalWorkload describes a single workload (i.e. a deployable unit) external to the cluster that should be enrolled in the mesh.",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "required": [
+        "meshTls"
+      ],
+      "properties": {
+        "meshTls": {
+          "description": "meshTls describes TLS settings associated with an external workload.",
+          "type": "object",
+          "required": [
+            "identity",
+            "serverName"
+          ],
+          "properties": {
+            "identity": {
+              "description": "identity of the workload. Corresponds to the identity used in the workload's certificate. It is used by peers to perform verification in the mTLS handshake.",
+              "type": "string",
+              "maxLength": 253,
+              "minLength": 1
+            },
+            "serverName": {
+              "description": "serverName is the name of the workload in DNS format. It is used by the workload to terminate TLS using SNI.",
+              "type": "string",
+              "maxLength": 253,
+              "minLength": 1
+            }
+          }
+        },
+        "ports": {
+          "description": "ports describes a list of ports exposed by the workload",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "port"
+            ],
+            "properties": {
+              "name": {
+                "description": "name must be an IANA_SVC_NAME and unique within the ports set. Each named port can be referred to by services.",
+                "type": "string"
+              },
+              "port": {
+                "type": "integer",
+                "format": "int32",
+                "maximum": 65535,
+                "minimum": 1
+              },
+              "protocol": {
+                "description": "protocol exposed by the port. Must be UDP or TCP. Defaults to TCP.",
+                "type": "string",
+                "default": "TCP"
+              }
+            }
+          }
+        },
+        "workloadIPs": {
+          "description": "workloadIPs contains a list of IP addresses that can be used to send traffic to the workload.",
+          "type": "array",
+          "maxItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "ip": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "conditions": {
+          "type": "array",
+          "required": [
+            "status",
+            "type"
+          ],
+          "items": {
+            "type": "object",
+            "properties": {
+              "lastProbeTime": {
+                "description": "lastProbeTime is the last time the healthcheck endpoint was probed.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "lastTransitionTime": {
+                "description": "lastTransitionTime is the last time the condition transitioned from one status to another.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "message is a human readable message indicating details about the transition. This may be an empty string.",
+                "type": "string",
+                "maxLength": 32768
+              },
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.",
+                "type": "string",
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$"
+              },
+              "status": {
+                "description": "status of the condition (one of True, False, Unknown)",
+                "type": "string",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ]
+              },
+              "type": {
+                "description": "type of the condition in CamelCase or in foo.example.com/CamelCase.",
+                "type": "string",
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

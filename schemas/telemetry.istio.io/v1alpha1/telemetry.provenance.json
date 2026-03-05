@@ -1,0 +1,27 @@
+{
+  "schema": "telemetry.json",
+  "crd": {
+    "group": "telemetry.istio.io",
+    "kind": "Telemetry",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "istio-base",
+    "type": "helm",
+    "repo": "https://istio-release.storage.googleapis.com/charts",
+    "chart": "base",
+    "version": "1.29.0",
+    "license": "Apache-2.0",
+    "homepage": "https://istio.io",
+    "include": [
+      "telemetry.istio.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c8550575a7cdd0072ccf8f6c881bbc7b63a0d6ee8af69076838bd642ca77bf54"
+  }
+}

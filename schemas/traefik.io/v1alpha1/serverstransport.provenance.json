@@ -1,0 +1,27 @@
+{
+  "schema": "serverstransport.json",
+  "crd": {
+    "group": "traefik.io",
+    "kind": "ServersTransport",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "traefik",
+    "type": "helm",
+    "repo": "https://traefik.github.io/charts",
+    "chart": "traefik",
+    "version": "39.0.3",
+    "license": "MIT",
+    "homepage": "https://traefik.io",
+    "include": [
+      "traefik.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "63c9dae2afbdca3873a21ffc98e8c555e4feada88573e296eb4b7ce9f0402e1c"
+  }
+}

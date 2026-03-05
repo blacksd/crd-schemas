@@ -1,0 +1,117 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "asNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "keepOriginalNextHop": {
+          "type": "boolean"
+        },
+        "localASNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "localWorkloadSelector": {
+          "type": "string"
+        },
+        "maxRestartTime": {
+          "type": "string"
+        },
+        "nextHopMode": {
+          "type": "string",
+          "allOf": [
+            {
+              "enum": [
+                "Auto",
+                "Self",
+                "Keep"
+              ]
+            },
+            {
+              "enum": [
+                "Auto",
+                "Self",
+                "Keep"
+              ]
+            }
+          ]
+        },
+        "node": {
+          "type": "string"
+        },
+        "nodeSelector": {
+          "type": "string"
+        },
+        "numAllowedLocalASNumbers": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "password": {
+          "type": "object",
+          "properties": {
+            "secretKeyRef": {
+              "type": "object",
+              "required": [
+                "key"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string",
+                  "default": ""
+                },
+                "optional": {
+                  "type": "boolean"
+                }
+              },
+              "x-kubernetes-map-type": "atomic"
+            }
+          }
+        },
+        "peerIP": {
+          "type": "string"
+        },
+        "peerSelector": {
+          "type": "string"
+        },
+        "reachableBy": {
+          "type": "string"
+        },
+        "reversePeering": {
+          "type": "string",
+          "enum": [
+            "Auto",
+            "Manual"
+          ]
+        },
+        "sourceAddress": {
+          "type": "string"
+        },
+        "ttlSecurity": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

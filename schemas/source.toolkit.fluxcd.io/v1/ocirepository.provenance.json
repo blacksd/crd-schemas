@@ -1,0 +1,26 @@
+{
+  "schema": "ocirepository.json",
+  "crd": {
+    "group": "source.toolkit.fluxcd.io",
+    "kind": "OCIRepository",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "flux",
+    "type": "url",
+    "url": "https://github.com/fluxcd/flux2/releases/download/v2.8.1/install.yaml",
+    "version": "v2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://fluxcd.io",
+    "include": [
+      "source.toolkit.fluxcd.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "75c72db8eda73bda6d3e7c12f1c34b13a1f50c6c11d123ac052343c00badd30b"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "grafanacontactpoint.json",
+  "crd": {
+    "group": "grafana.integreatly.org",
+    "kind": "GrafanaContactPoint",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "grafana-operator",
+    "type": "helm",
+    "repo": "https://grafana.github.io/helm-charts",
+    "chart": "grafana-operator",
+    "version": "5.22.0",
+    "license": "Apache-2.0",
+    "homepage": "https://grafana.github.io/grafana-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "08953c1833be3c2c7da9640c34c17790b5aaa4481b1fc7fae19cc61fd5c32176"
+  }
+}

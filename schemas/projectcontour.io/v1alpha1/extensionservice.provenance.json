@@ -1,0 +1,23 @@
+{
+  "schema": "extensionservice.json",
+  "crd": {
+    "group": "projectcontour.io",
+    "kind": "ExtensionService",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "contour",
+    "type": "url",
+    "url": "https://raw.githubusercontent.com/projectcontour/contour/v1.33.2/examples/contour/01-crds.yaml",
+    "version": "v1.33.2",
+    "license": "Apache-2.0",
+    "homepage": "https://projectcontour.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b05380de797c6b099c8fdab609b764ac7b41fb53b176bf5520231c005933bfe8"
+  }
+}

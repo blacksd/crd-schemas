@@ -1,0 +1,23 @@
+{
+  "schema": "resolutionrequest.json",
+  "crd": {
+    "group": "resolution.tekton.dev",
+    "kind": "ResolutionRequest",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "tekton-pipelines",
+    "type": "url",
+    "url": "https://github.com/tektoncd/pipeline/releases/download/v1.10.0/release.yaml",
+    "version": "v1.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://tekton.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2f4c0ac72f5c543f3dc4aeae926f3c9351b3c6f77e4c95b6b660fb87f46e5daf"
+  }
+}

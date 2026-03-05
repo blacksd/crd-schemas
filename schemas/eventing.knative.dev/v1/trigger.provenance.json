@@ -1,0 +1,23 @@
+{
+  "schema": "trigger.json",
+  "crd": {
+    "group": "eventing.knative.dev",
+    "kind": "Trigger",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "knative-eventing",
+    "type": "url",
+    "url": "https://github.com/knative/eventing/releases/download/knative-v1.21.0/eventing-crds.yaml",
+    "version": "v1.21.0",
+    "license": "Apache-2.0",
+    "homepage": "https://knative.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bc0c65799a9b7d0bdc35a1f6524aa741a5c1009410486bf9c10416b0ed989a7d"
+  }
+}

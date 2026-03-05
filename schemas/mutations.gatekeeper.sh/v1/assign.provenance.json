@@ -1,0 +1,27 @@
+{
+  "schema": "assign.json",
+  "crd": {
+    "group": "mutations.gatekeeper.sh",
+    "kind": "Assign",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "gatekeeper",
+    "type": "helm",
+    "repo": "https://open-policy-agent.github.io/gatekeeper/charts",
+    "chart": "gatekeeper",
+    "version": "3.21.1",
+    "license": "Apache-2.0",
+    "homepage": "https://open-policy-agent.github.io/gatekeeper",
+    "include": [
+      "mutations.gatekeeper.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d801e095704197c2df872f1f2261faf4a4a5c7688f903c131d1b5fe047ea5ffc"
+  }
+}

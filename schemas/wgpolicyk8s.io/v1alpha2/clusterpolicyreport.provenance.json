@@ -1,0 +1,27 @@
+{
+  "schema": "clusterpolicyreport.json",
+  "crd": {
+    "group": "wgpolicyk8s.io",
+    "kind": "ClusterPolicyReport",
+    "apiVersion": "v1alpha2"
+  },
+  "source": {
+    "name": "kyverno",
+    "type": "helm",
+    "repo": "https://kyverno.github.io/kyverno",
+    "chart": "kyverno",
+    "version": "3.7.1",
+    "license": "Apache-2.0",
+    "homepage": "https://kyverno.io",
+    "include": [
+      "wgpolicyk8s.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9d4490f2bacfb7ce59b5dd38c07d5b04e19892e25b2cfe7bebdb95ae11d90886"
+  }
+}

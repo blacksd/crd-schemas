@@ -1,0 +1,24 @@
+{
+  "schema": "orphan.json",
+  "crd": {
+    "group": "longhorn.io",
+    "kind": "Orphan",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "longhorn",
+    "type": "helm",
+    "repo": "https://charts.longhorn.io",
+    "chart": "longhorn",
+    "version": "1.11.0",
+    "license": "Apache-2.0",
+    "homepage": "https://longhorn.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8d51175f77c554e00a056baa28032b73c6d5ec6a521c4f049a26163977b58aa8"
+  }
+}

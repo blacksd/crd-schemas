@@ -1,0 +1,24 @@
+{
+  "schema": "infraassessmentreport.json",
+  "crd": {
+    "group": "aquasecurity.github.io",
+    "kind": "InfraAssessmentReport",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "trivy-operator",
+    "type": "helm",
+    "repo": "https://aquasecurity.github.io/helm-charts",
+    "chart": "trivy-operator",
+    "version": "0.32.0",
+    "license": "Apache-2.0",
+    "homepage": "https://aquasecurity.github.io/trivy-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "3fe7b04e25c3be05139cb3fd2970e9b21b94f8563dabc5e2e89a476e645f1bb4"
+  }
+}

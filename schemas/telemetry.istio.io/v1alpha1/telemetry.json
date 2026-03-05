@@ -1,0 +1,615 @@
+{
+  "type": "object",
+  "properties": {
+    "spec": {
+      "description": "Telemetry configuration for workloads. See more details at: https://istio.io/docs/reference/config/telemetry.html",
+      "type": "object",
+      "properties": {
+        "accessLogging": {
+          "description": "Optional.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "disabled": {
+                "description": "Controls logging.",
+                "type": "boolean",
+                "nullable": true
+              },
+              "filter": {
+                "description": "Optional.",
+                "type": "object",
+                "properties": {
+                  "expression": {
+                    "description": "CEL expression for selecting when requests/connections should be logged.",
+                    "type": "string"
+                  }
+                }
+              },
+              "match": {
+                "description": "Allows tailoring of logging behavior to specific conditions.",
+                "type": "object",
+                "properties": {
+                  "mode": {
+                    "description": "This determines whether or not to apply the access logging configuration based on the direction of traffic relative to the proxied workload.\n\nValid Options: CLIENT_AND_SERVER, CLIENT, SERVER",
+                    "type": "string",
+                    "enum": [
+                      "CLIENT_AND_SERVER",
+                      "CLIENT",
+                      "SERVER"
+                    ]
+                  }
+                }
+              },
+              "providers": {
+                "description": "Optional.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Required.",
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "metrics": {
+          "description": "Optional.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "overrides": {
+                "description": "Optional.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "disabled": {
+                      "description": "Optional.",
+                      "type": "boolean",
+                      "nullable": true
+                    },
+                    "match": {
+                      "description": "Match allows providing the scope of the override.",
+                      "type": "object",
+                      "oneOf": [
+                        {
+                          "not": {
+                            "anyOf": [
+                              {
+                                "required": [
+                                  "metric"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "customMetric"
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "required": [
+                            "metric"
+                          ]
+                        },
+                        {
+                          "required": [
+                            "customMetric"
+                          ]
+                        }
+                      ],
+                      "properties": {
+                        "customMetric": {
+                          "description": "Allows free-form specification of a metric.",
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "metric": {
+                          "description": "One of the well-known [Istio Standard Metrics](https://istio.io/latest/docs/reference/config/metrics/).\n\nValid Options: ALL_METRICS, REQUEST_COUNT, REQUEST_DURATION, REQUEST_SIZE, RESPONSE_SIZE, TCP_OPENED_CONNECTIONS, TCP_CLOSED_CONNECTIONS, TCP_SENT_BYTES, TCP_RECEIVED_BYTES, GRPC_REQUEST_MESSAGES, GRPC_RESPONSE_MESSAGES",
+                          "type": "string",
+                          "enum": [
+                            "ALL_METRICS",
+                            "REQUEST_COUNT",
+                            "REQUEST_DURATION",
+                            "REQUEST_SIZE",
+                            "RESPONSE_SIZE",
+                            "TCP_OPENED_CONNECTIONS",
+                            "TCP_CLOSED_CONNECTIONS",
+                            "TCP_SENT_BYTES",
+                            "TCP_RECEIVED_BYTES",
+                            "GRPC_REQUEST_MESSAGES",
+                            "GRPC_RESPONSE_MESSAGES"
+                          ]
+                        },
+                        "mode": {
+                          "description": "Controls which mode of metrics generation is selected: `CLIENT`, `SERVER`, or `CLIENT_AND_SERVER`.\n\nValid Options: CLIENT_AND_SERVER, CLIENT, SERVER",
+                          "type": "string",
+                          "enum": [
+                            "CLIENT_AND_SERVER",
+                            "CLIENT",
+                            "SERVER"
+                          ]
+                        }
+                      }
+                    },
+                    "tagOverrides": {
+                      "description": "Optional.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object",
+                        "properties": {
+                          "operation": {
+                            "description": "Operation controls whether or not to update/add a tag, or to remove it.\n\nValid Options: UPSERT, REMOVE",
+                            "type": "string",
+                            "enum": [
+                              "UPSERT",
+                              "REMOVE"
+                            ]
+                          },
+                          "value": {
+                            "description": "Value is only considered if the operation is `UPSERT`.",
+                            "type": "string"
+                          }
+                        },
+                        "x-kubernetes-validations": [
+                          {
+                            "rule": "((has(self.operation) ? self.operation : \"\") == \"UPSERT\") ? (self.value != \"\") : true",
+                            "message": "value must be set when operation is UPSERT"
+                          },
+                          {
+                            "rule": "((has(self.operation) ? self.operation : \"\") == \"REMOVE\") ? !has(self.value) : true",
+                            "message": "value must not be set when operation is REMOVE"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "providers": {
+                "description": "Optional.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Required.",
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              },
+              "reportingInterval": {
+                "description": "Optional.",
+                "type": "string",
+                "x-kubernetes-validations": [
+                  {
+                    "rule": "duration(self) \u003e= duration('1ms')",
+                    "message": "must be a valid duration greater than 1ms"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "selector": {
+          "description": "Optional.",
+          "type": "object",
+          "properties": {
+            "matchLabels": {
+              "description": "One or more labels that indicate a specific set of pods/VMs on which a policy should be applied.",
+              "type": "object",
+              "maxProperties": 4096,
+              "additionalProperties": {
+                "type": "string",
+                "maxLength": 63,
+                "x-kubernetes-validations": [
+                  {
+                    "rule": "!self.contains(\"*\")",
+                    "message": "wildcard not allowed in label value match"
+                  }
+                ]
+              },
+              "x-kubernetes-validations": [
+                {
+                  "rule": "self.all(key, !key.contains(\"*\"))",
+                  "message": "wildcard not allowed in label key match"
+                },
+                {
+                  "rule": "self.all(key, key.size() != 0)",
+                  "message": "key must not be empty"
+                }
+              ]
+            }
+          }
+        },
+        "targetRef": {
+          "type": "object",
+          "required": [
+            "kind",
+            "name"
+          ],
+          "properties": {
+            "group": {
+              "description": "group is the group of the target resource.",
+              "type": "string",
+              "maxLength": 253,
+              "pattern": "^$|^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
+            },
+            "kind": {
+              "description": "kind is kind of the target resource.",
+              "type": "string",
+              "maxLength": 63,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z]([-a-zA-Z0-9]*[a-zA-Z0-9])?$"
+            },
+            "name": {
+              "description": "name is the name of the target resource.",
+              "type": "string",
+              "maxLength": 253,
+              "minLength": 1
+            },
+            "namespace": {
+              "description": "namespace is the namespace of the referent.",
+              "type": "string",
+              "x-kubernetes-validations": [
+                {
+                  "rule": "self.size() == 0",
+                  "message": "cross namespace referencing is not currently supported"
+                }
+              ]
+            }
+          }
+        },
+        "targetRefs": {
+          "description": "Optional.",
+          "type": "array",
+          "maxItems": 16,
+          "items": {
+            "type": "object",
+            "required": [
+              "kind",
+              "name"
+            ],
+            "properties": {
+              "group": {
+                "description": "group is the group of the target resource.",
+                "type": "string",
+                "maxLength": 253,
+                "pattern": "^$|^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
+              },
+              "kind": {
+                "description": "kind is kind of the target resource.",
+                "type": "string",
+                "maxLength": 63,
+                "minLength": 1,
+                "pattern": "^[a-zA-Z]([-a-zA-Z0-9]*[a-zA-Z0-9])?$"
+              },
+              "name": {
+                "description": "name is the name of the target resource.",
+                "type": "string",
+                "maxLength": 253,
+                "minLength": 1
+              },
+              "namespace": {
+                "description": "namespace is the namespace of the referent.",
+                "type": "string",
+                "x-kubernetes-validations": [
+                  {
+                    "rule": "self.size() == 0",
+                    "message": "cross namespace referencing is not currently supported"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tracing": {
+          "description": "Optional.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "customTags": {
+                "description": "Optional.",
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "oneOf": [
+                    {
+                      "not": {
+                        "anyOf": [
+                          {
+                            "required": [
+                              "literal"
+                            ]
+                          },
+                          {
+                            "required": [
+                              "environment"
+                            ]
+                          },
+                          {
+                            "required": [
+                              "header"
+                            ]
+                          },
+                          {
+                            "required": [
+                              "formatter"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "required": [
+                        "literal"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "environment"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "header"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "formatter"
+                      ]
+                    }
+                  ],
+                  "properties": {
+                    "environment": {
+                      "description": "Environment adds the value of an environment variable to each span.",
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "defaultValue": {
+                          "description": "Optional.",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "Name of the environment variable from which to extract the tag value.",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    "formatter": {
+                      "description": "Formatter adds the value of access logging substitution formatter.",
+                      "type": "object",
+                      "required": [
+                        "value"
+                      ],
+                      "properties": {
+                        "value": {
+                          "description": "The formatter tag value to use, same formatter as HTTP access logging (e.g.",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    "header": {
+                      "description": "RequestHeader adds the value of an header from the request to each span.",
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "defaultValue": {
+                          "description": "Optional.",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "Name of the header from which to extract the tag value.",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    "literal": {
+                      "description": "Literal adds the same, hard-coded value to each span.",
+                      "type": "object",
+                      "required": [
+                        "value"
+                      ],
+                      "properties": {
+                        "value": {
+                          "description": "The tag value to use.",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "disableSpanReporting": {
+                "description": "Controls span reporting.",
+                "type": "boolean",
+                "nullable": true
+              },
+              "enableIstioTags": {
+                "description": "Determines whether or not trace spans generated by Envoy will include Istio specific tags.",
+                "type": "boolean",
+                "nullable": true
+              },
+              "match": {
+                "description": "Allows tailoring of behavior to specific conditions.",
+                "type": "object",
+                "properties": {
+                  "mode": {
+                    "description": "This determines whether or not to apply the tracing configuration based on the direction of traffic relative to the proxied workload.\n\nValid Options: CLIENT_AND_SERVER, CLIENT, SERVER",
+                    "type": "string",
+                    "enum": [
+                      "CLIENT_AND_SERVER",
+                      "CLIENT",
+                      "SERVER"
+                    ]
+                  }
+                }
+              },
+              "providers": {
+                "description": "Optional.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Required.",
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              },
+              "randomSamplingPercentage": {
+                "description": "Controls the rate at which traffic will be selected for tracing if no prior sampling decision has been made.",
+                "type": "number",
+                "format": "double",
+                "maximum": 100,
+                "minimum": 0,
+                "nullable": true
+              },
+              "useRequestIdForTraceSampling": {
+                "type": "boolean",
+                "nullable": true
+              }
+            }
+          }
+        }
+      },
+      "x-kubernetes-validations": [
+        {
+          "rule": "(has(self.selector) ? 1 : 0) + (has(self.targetRef) ? 1 : 0) + (has(self.targetRefs) ? 1 : 0) \u003c= 1",
+          "message": "only one of targetRefs or selector can be set"
+        }
+      ]
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "conditions": {
+          "description": "Current service state of the resource.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lastProbeTime": {
+                "description": "Last time we probed the condition.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "lastTransitionTime": {
+                "description": "Last time the condition transitioned from one status to another.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "Human-readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "Resource Generation to which the Condition refers.",
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "x-kubernetes-int-or-string": true
+              },
+              "reason": {
+                "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status is the status of the condition.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type is the type of the condition.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "observedGeneration": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "x-kubernetes-int-or-string": true
+        },
+        "validationMessages": {
+          "description": "Includes any errors or warnings detected by Istio's analyzers.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "documentationUrl": {
+                "description": "A url pointing to the Istio documentation for this specific error type.",
+                "type": "string"
+              },
+              "level": {
+                "description": "Represents how severe a message is.\n\nValid Options: UNKNOWN, ERROR, WARNING, INFO",
+                "type": "string",
+                "enum": [
+                  "UNKNOWN",
+                  "ERROR",
+                  "WARNING",
+                  "INFO"
+                ]
+              },
+              "type": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "description": "A 7 character code matching `^IST[0-9]{4}$` intended to uniquely identify the message type.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "A human-readable name for the message type.",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "x-kubernetes-preserve-unknown-fields": true
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "asNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "bindMode": {
+          "type": "string"
+        },
+        "communities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string",
+                "pattern": "^(\\d+):(\\d+)$|^(\\d+):(\\d+):(\\d+)$"
+              }
+            }
+          }
+        },
+        "ignoredInterfaces": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "listenPort": {
+          "type": "integer",
+          "maximum": 65535,
+          "minimum": 1
+        },
+        "localWorkloadPeeringIPV4": {
+          "type": "string"
+        },
+        "localWorkloadPeeringIPV6": {
+          "type": "string"
+        },
+        "logSeverityScreen": {
+          "type": "string"
+        },
+        "nodeMeshMaxRestartTime": {
+          "type": "string"
+        },
+        "nodeMeshPassword": {
+          "type": "object",
+          "properties": {
+            "secretKeyRef": {
+              "type": "object",
+              "required": [
+                "key"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string",
+                  "default": ""
+                },
+                "optional": {
+                  "type": "boolean"
+                }
+              },
+              "x-kubernetes-map-type": "atomic"
+            }
+          }
+        },
+        "nodeToNodeMeshEnabled": {
+          "type": "boolean"
+        },
+        "prefixAdvertisements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cidr": {
+                "type": "string"
+              },
+              "communities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "serviceClusterIPs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cidr": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "serviceExternalIPs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cidr": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "serviceLoadBalancerAggregation": {
+          "type": "string",
+          "default": "Enabled",
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
+        },
+        "serviceLoadBalancerIPs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cidr": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "task.json",
+  "crd": {
+    "group": "tekton.dev",
+    "kind": "Task",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "tekton-pipelines",
+    "type": "url",
+    "url": "https://github.com/tektoncd/pipeline/releases/download/v1.10.0/release.yaml",
+    "version": "v1.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://tekton.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6815a33f20db0fd393fc79fddac6ac124094ea6eb256119c7d6ed574141570c8"
+  }
+}

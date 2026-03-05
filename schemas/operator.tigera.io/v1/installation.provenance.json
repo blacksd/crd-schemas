@@ -1,0 +1,27 @@
+{
+  "schema": "installation.json",
+  "crd": {
+    "group": "operator.tigera.io",
+    "kind": "Installation",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "tigera-operator",
+    "type": "helm",
+    "repo": "https://docs.tigera.io/calico/charts",
+    "chart": "tigera-operator",
+    "version": "v3.31.4",
+    "license": "Apache-2.0",
+    "homepage": "https://www.tigera.io/project-calico",
+    "include": [
+      "operator.tigera.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6650d576f1ae984ddecfebf1b85266c4c23049cb11f7c86d465e860a4e36e60b"
+  }
+}

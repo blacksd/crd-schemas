@@ -1,0 +1,23 @@
+{
+  "schema": "eventtype.json",
+  "crd": {
+    "group": "eventing.knative.dev",
+    "kind": "EventType",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "knative-eventing",
+    "type": "url",
+    "url": "https://github.com/knative/eventing/releases/download/knative-v1.21.0/eventing-crds.yaml",
+    "version": "v1.21.0",
+    "license": "Apache-2.0",
+    "homepage": "https://knative.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7fa10fc3f1f4b95d72eca9bbca4864e0f027c50a63eb8d27d7c453c40e7e5d5b"
+  }
+}

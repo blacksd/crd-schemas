@@ -1,0 +1,275 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "required": [
+        "controllers"
+      ],
+      "properties": {
+        "controllers": {
+          "type": "object",
+          "properties": {
+            "loadBalancer": {
+              "type": "object",
+              "properties": {
+                "assignIPs": {
+                  "type": "string",
+                  "default": "AllServices"
+                }
+              }
+            },
+            "namespace": {
+              "type": "object",
+              "properties": {
+                "reconcilerPeriod": {
+                  "type": "string"
+                }
+              }
+            },
+            "node": {
+              "type": "object",
+              "properties": {
+                "hostEndpoint": {
+                  "type": "object",
+                  "properties": {
+                    "autoCreate": {
+                      "type": "string"
+                    },
+                    "createDefaultHostEndpoint": {
+                      "type": "string"
+                    },
+                    "templates": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "generateName": {
+                            "type": "string",
+                            "maxLength": 253
+                          },
+                          "interfaceCIDRs": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "interfacePattern": {
+                            "type": "string"
+                          },
+                          "labels": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "nodeSelector": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "leakGracePeriod": {
+                  "type": "string"
+                },
+                "reconcilerPeriod": {
+                  "type": "string"
+                },
+                "syncLabels": {
+                  "type": "string"
+                }
+              }
+            },
+            "policy": {
+              "type": "object",
+              "properties": {
+                "reconcilerPeriod": {
+                  "type": "string"
+                }
+              }
+            },
+            "serviceAccount": {
+              "type": "object",
+              "properties": {
+                "reconcilerPeriod": {
+                  "type": "string"
+                }
+              }
+            },
+            "workloadEndpoint": {
+              "type": "object",
+              "properties": {
+                "reconcilerPeriod": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "debugProfilePort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "etcdV3CompactionPeriod": {
+          "type": "string"
+        },
+        "healthChecks": {
+          "type": "string"
+        },
+        "logSeverityScreen": {
+          "type": "string"
+        },
+        "prometheusMetricsPort": {
+          "type": "integer"
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "environmentVars": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "runningConfig": {
+          "type": "object",
+          "required": [
+            "controllers"
+          ],
+          "properties": {
+            "controllers": {
+              "type": "object",
+              "properties": {
+                "loadBalancer": {
+                  "type": "object",
+                  "properties": {
+                    "assignIPs": {
+                      "type": "string",
+                      "default": "AllServices"
+                    }
+                  }
+                },
+                "namespace": {
+                  "type": "object",
+                  "properties": {
+                    "reconcilerPeriod": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "node": {
+                  "type": "object",
+                  "properties": {
+                    "hostEndpoint": {
+                      "type": "object",
+                      "properties": {
+                        "autoCreate": {
+                          "type": "string"
+                        },
+                        "createDefaultHostEndpoint": {
+                          "type": "string"
+                        },
+                        "templates": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "generateName": {
+                                "type": "string",
+                                "maxLength": 253
+                              },
+                              "interfaceCIDRs": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "interfacePattern": {
+                                "type": "string"
+                              },
+                              "labels": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "string"
+                                }
+                              },
+                              "nodeSelector": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "leakGracePeriod": {
+                      "type": "string"
+                    },
+                    "reconcilerPeriod": {
+                      "type": "string"
+                    },
+                    "syncLabels": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "policy": {
+                  "type": "object",
+                  "properties": {
+                    "reconcilerPeriod": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "serviceAccount": {
+                  "type": "object",
+                  "properties": {
+                    "reconcilerPeriod": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "workloadEndpoint": {
+                  "type": "object",
+                  "properties": {
+                    "reconcilerPeriod": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "debugProfilePort": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "etcdV3CompactionPeriod": {
+              "type": "string"
+            },
+            "healthChecks": {
+              "type": "string"
+            },
+            "logSeverityScreen": {
+              "type": "string"
+            },
+            "prometheusMetricsPort": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  }
+}

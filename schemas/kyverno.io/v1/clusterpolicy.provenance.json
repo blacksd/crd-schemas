@@ -1,0 +1,27 @@
+{
+  "schema": "clusterpolicy.json",
+  "crd": {
+    "group": "kyverno.io",
+    "kind": "ClusterPolicy",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "kyverno",
+    "type": "helm",
+    "repo": "https://kyverno.github.io/kyverno",
+    "chart": "kyverno",
+    "version": "3.7.1",
+    "license": "Apache-2.0",
+    "homepage": "https://kyverno.io",
+    "include": [
+      "kyverno.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d1acbd7a6b3c7b81a58f7384dc7303f1ff657a94c6cb39ec532a9ff6de52b1d5"
+  }
+}

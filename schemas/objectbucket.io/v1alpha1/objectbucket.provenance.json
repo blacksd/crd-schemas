@@ -1,0 +1,24 @@
+{
+  "schema": "objectbucket.json",
+  "crd": {
+    "group": "objectbucket.io",
+    "kind": "ObjectBucket",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "rook-ceph",
+    "type": "helm",
+    "repo": "https://charts.rook.io/release",
+    "chart": "rook-ceph",
+    "version": "v1.19.2",
+    "license": "Apache-2.0",
+    "homepage": "https://rook.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "37fb53db221951733f3392b0fb339eeb86f1bdaa626b83a10875ef878e931e12"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "workloadgroup.json",
+  "crd": {
+    "group": "networking.istio.io",
+    "kind": "WorkloadGroup",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "istio-base",
+    "type": "helm",
+    "repo": "https://istio-release.storage.googleapis.com/charts",
+    "chart": "base",
+    "version": "1.29.0",
+    "license": "Apache-2.0",
+    "homepage": "https://istio.io",
+    "include": [
+      "networking.istio.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2c83fd6d8b333cb1046a0619228e39a6defc8e60a031ad91de137ea3a76114ad"
+  }
+}

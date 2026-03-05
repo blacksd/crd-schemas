@@ -1,0 +1,23 @@
+{
+  "schema": "ingress.json",
+  "crd": {
+    "group": "networking.internal.knative.dev",
+    "kind": "Ingress",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "knative-serving",
+    "type": "url",
+    "url": "https://github.com/knative/serving/releases/download/knative-v1.21.1/serving-crds.yaml",
+    "version": "v1.21.1",
+    "license": "Apache-2.0",
+    "homepage": "https://knative.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2b28465bd990d6d52b90f7659aa39a3bcbba260f2125ff4e183483b33dee5cf1"
+  }
+}

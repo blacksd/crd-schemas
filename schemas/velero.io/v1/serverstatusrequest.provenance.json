@@ -1,0 +1,24 @@
+{
+  "schema": "serverstatusrequest.json",
+  "crd": {
+    "group": "velero.io",
+    "kind": "ServerStatusRequest",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "velero",
+    "type": "helm",
+    "repo": "https://vmware-tanzu.github.io/helm-charts",
+    "chart": "velero",
+    "version": "11.4.0",
+    "license": "Apache-2.0",
+    "homepage": "https://velero.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b0b173f10477fc37e77b324360e9405fa6427550584be24787f5b04de1ac27e7"
+  }
+}

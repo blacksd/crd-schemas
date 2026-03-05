@@ -1,0 +1,24 @@
+{
+  "schema": "tenant.json",
+  "crd": {
+    "group": "minio.min.io",
+    "kind": "Tenant",
+    "apiVersion": "v2"
+  },
+  "source": {
+    "name": "minio-operator",
+    "type": "helm",
+    "repo": "https://operator.min.io",
+    "chart": "operator",
+    "version": "7.1.1",
+    "license": "AGPL-3.0-or-later",
+    "homepage": "https://min.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "53575b544434aa6e1073092e8f8e1a47d4f7482c7809b4787298b01498726bef"
+  }
+}

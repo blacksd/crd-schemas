@@ -1,0 +1,27 @@
+{
+  "schema": "tlsstore.json",
+  "crd": {
+    "group": "traefik.io",
+    "kind": "TLSStore",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "traefik",
+    "type": "helm",
+    "repo": "https://traefik.github.io/charts",
+    "chart": "traefik",
+    "version": "39.0.3",
+    "license": "MIT",
+    "homepage": "https://traefik.io",
+    "include": [
+      "traefik.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f64531a90e615e409744f78973ebf7f4fd6ed004bab6c6c75861dfac7eb8f2fa"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "policyexception.json",
+  "crd": {
+    "group": "policies.kyverno.io",
+    "kind": "PolicyException",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "kyverno",
+    "type": "helm",
+    "repo": "https://kyverno.github.io/kyverno",
+    "chart": "kyverno",
+    "version": "3.7.1",
+    "license": "Apache-2.0",
+    "homepage": "https://kyverno.io",
+    "include": [
+      "policies.kyverno.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "400a853b0d54c49be1751aa602951c2d077d7f3760e2ec709b547c97de776e48"
+  }
+}

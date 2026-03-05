@@ -1,0 +1,27 @@
+{
+  "schema": "provider.json",
+  "crd": {
+    "group": "externaldata.gatekeeper.sh",
+    "kind": "Provider",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "gatekeeper",
+    "type": "helm",
+    "repo": "https://open-policy-agent.github.io/gatekeeper/charts",
+    "chart": "gatekeeper",
+    "version": "3.21.1",
+    "license": "Apache-2.0",
+    "homepage": "https://open-policy-agent.github.io/gatekeeper",
+    "include": [
+      "externaldata.gatekeeper.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "47796c985aaf8994f287ffa85c3db6cbcf73bf0a110b2eb9e3653190f89238dc"
+  }
+}

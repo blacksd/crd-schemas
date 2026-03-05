@@ -1,0 +1,24 @@
+{
+  "schema": "cephblockpoolradosnamespace.json",
+  "crd": {
+    "group": "ceph.rook.io",
+    "kind": "CephBlockPoolRadosNamespace",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "rook-ceph",
+    "type": "helm",
+    "repo": "https://charts.rook.io/release",
+    "chart": "rook-ceph",
+    "version": "v1.19.2",
+    "license": "Apache-2.0",
+    "homepage": "https://rook.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e866ab7ac6856bf7ea6340b0233092da2898300498c51248c222cbfa773dac16"
+  }
+}

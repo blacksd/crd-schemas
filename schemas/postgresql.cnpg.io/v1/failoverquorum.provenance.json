@@ -1,0 +1,24 @@
+{
+  "schema": "failoverquorum.json",
+  "crd": {
+    "group": "postgresql.cnpg.io",
+    "kind": "FailoverQuorum",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "cloudnative-pg",
+    "type": "helm",
+    "repo": "https://cloudnative-pg.github.io/charts",
+    "chart": "cloudnative-pg",
+    "version": "0.27.1",
+    "license": "Apache-2.0",
+    "homepage": "https://cloudnative-pg.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "93f96d87d9b1062069e932f87ad1894c3edc44ae0da0349fd1abedd3f839fc02"
+  }
+}

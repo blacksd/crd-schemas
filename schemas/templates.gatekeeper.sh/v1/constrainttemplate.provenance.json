@@ -1,0 +1,27 @@
+{
+  "schema": "constrainttemplate.json",
+  "crd": {
+    "group": "templates.gatekeeper.sh",
+    "kind": "ConstraintTemplate",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "gatekeeper",
+    "type": "helm",
+    "repo": "https://open-policy-agent.github.io/gatekeeper/charts",
+    "chart": "gatekeeper",
+    "version": "3.21.1",
+    "license": "Apache-2.0",
+    "homepage": "https://open-policy-agent.github.io/gatekeeper",
+    "include": [
+      "templates.gatekeeper.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9215b91b66d64951a6498b45d73297cf290b46609cf3637a7119c50ada00a9f9"
+  }
+}

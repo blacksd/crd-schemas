@@ -1,0 +1,27 @@
+{
+  "schema": "goldmane.json",
+  "crd": {
+    "group": "operator.tigera.io",
+    "kind": "Goldmane",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "tigera-operator",
+    "type": "helm",
+    "repo": "https://docs.tigera.io/calico/charts",
+    "chart": "tigera-operator",
+    "version": "v3.31.4",
+    "license": "Apache-2.0",
+    "homepage": "https://www.tigera.io/project-calico",
+    "include": [
+      "operator.tigera.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2c866ec44e38a350f83dfa4148dc04e60a4805f588b92ec7de180836cd84f3af"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "ipamblock.json",
+  "crd": {
+    "group": "crd.projectcalico.org",
+    "kind": "IPAMBlock",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "tigera-operator",
+    "type": "helm",
+    "repo": "https://docs.tigera.io/calico/charts",
+    "chart": "tigera-operator",
+    "version": "v3.31.4",
+    "license": "Apache-2.0",
+    "homepage": "https://www.tigera.io/project-calico",
+    "include": [
+      "crd.projectcalico.org/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c3dc93f6d06448a7f27c12d909081e5f12f6a9ca83fd1eb2206106e509709028"
+  }
+}

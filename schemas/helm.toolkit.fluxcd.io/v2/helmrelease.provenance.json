@@ -1,0 +1,26 @@
+{
+  "schema": "helmrelease.json",
+  "crd": {
+    "group": "helm.toolkit.fluxcd.io",
+    "kind": "HelmRelease",
+    "apiVersion": "v2"
+  },
+  "source": {
+    "name": "flux",
+    "type": "url",
+    "url": "https://github.com/fluxcd/flux2/releases/download/v2.8.1/install.yaml",
+    "version": "v2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://fluxcd.io",
+    "include": [
+      "helm.toolkit.fluxcd.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "12c5b9392c6583c662bb6e7b094157a2295af89975c01683d0ce0e3c29c4b99b"
+  }
+}

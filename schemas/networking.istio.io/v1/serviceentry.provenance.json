@@ -1,0 +1,27 @@
+{
+  "schema": "serviceentry.json",
+  "crd": {
+    "group": "networking.istio.io",
+    "kind": "ServiceEntry",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "istio-base",
+    "type": "helm",
+    "repo": "https://istio-release.storage.googleapis.com/charts",
+    "chart": "base",
+    "version": "1.29.0",
+    "license": "Apache-2.0",
+    "homepage": "https://istio.io",
+    "include": [
+      "networking.istio.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "302aae29a0b48d066aa0cbb9a47eb98ca38d2901142af97d8437f1148f9255f6"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "httproute.json",
+  "crd": {
+    "group": "policy.linkerd.io",
+    "kind": "HTTPRoute",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "linkerd-crds",
+    "type": "helm",
+    "repo": "https://helm.linkerd.io/edge",
+    "chart": "linkerd-crds",
+    "version": "2026.2.1",
+    "license": "Apache-2.0",
+    "homepage": "https://linkerd.io",
+    "include": [
+      "policy.linkerd.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "53c64f02273deb2a7e4105486fc976d9cee3bff17224f0fd85700b4c97f74f06"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "imagerepository.json",
+  "crd": {
+    "group": "image.toolkit.fluxcd.io",
+    "kind": "ImageRepository",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "flux",
+    "type": "url",
+    "url": "https://github.com/fluxcd/flux2/releases/download/v2.8.1/install.yaml",
+    "version": "v2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://fluxcd.io",
+    "include": [
+      "image.toolkit.fluxcd.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1b2797472cdf0344ddf62b563ee93ada1cbc53b49daef7e9a225d4f8e479c8da"
+  }
+}

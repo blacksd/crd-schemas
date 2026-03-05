@@ -1,0 +1,26 @@
+{
+  "schema": "imagepolicy.json",
+  "crd": {
+    "group": "image.toolkit.fluxcd.io",
+    "kind": "ImagePolicy",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "flux",
+    "type": "url",
+    "url": "https://github.com/fluxcd/flux2/releases/download/v2.8.1/install.yaml",
+    "version": "v2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://fluxcd.io",
+    "include": [
+      "image.toolkit.fluxcd.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6f57b036304a4eb18d6ab779bdcaac4e54aa1d97faf13bdde35d6045469e63ce"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "metric.json",
+  "crd": {
+    "group": "autoscaling.internal.knative.dev",
+    "kind": "Metric",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "knative-serving",
+    "type": "url",
+    "url": "https://github.com/knative/serving/releases/download/knative-v1.21.1/serving-crds.yaml",
+    "version": "v1.21.1",
+    "license": "Apache-2.0",
+    "homepage": "https://knative.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ccc401b4023c125a91675b91c00724be3ca61d325674cd0ad71571bf185caadf"
+  }
+}

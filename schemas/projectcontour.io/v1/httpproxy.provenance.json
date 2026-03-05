@@ -1,0 +1,23 @@
+{
+  "schema": "httpproxy.json",
+  "crd": {
+    "group": "projectcontour.io",
+    "kind": "HTTPProxy",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "contour",
+    "type": "url",
+    "url": "https://raw.githubusercontent.com/projectcontour/contour/v1.33.2/examples/contour/01-crds.yaml",
+    "version": "v1.33.2",
+    "license": "Apache-2.0",
+    "homepage": "https://projectcontour.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2ff9213fd754ed3190306b0425abef7dbaf41360b4f6fdb80e71140456eec3bd"
+  }
+}

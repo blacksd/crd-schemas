@@ -1,0 +1,23 @@
+{
+  "schema": "podautoscaler.json",
+  "crd": {
+    "group": "autoscaling.internal.knative.dev",
+    "kind": "PodAutoscaler",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "knative-serving",
+    "type": "url",
+    "url": "https://github.com/knative/serving/releases/download/knative-v1.21.1/serving-crds.yaml",
+    "version": "v1.21.1",
+    "license": "Apache-2.0",
+    "homepage": "https://knative.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6ec04c2bc46ec650c20357d6f2bc0de651abb77c29ace603a85eab8c82c6bfd9"
+  }
+}

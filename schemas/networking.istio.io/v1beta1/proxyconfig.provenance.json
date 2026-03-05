@@ -1,0 +1,27 @@
+{
+  "schema": "proxyconfig.json",
+  "crd": {
+    "group": "networking.istio.io",
+    "kind": "ProxyConfig",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "istio-base",
+    "type": "helm",
+    "repo": "https://istio-release.storage.googleapis.com/charts",
+    "chart": "base",
+    "version": "1.29.0",
+    "license": "Apache-2.0",
+    "homepage": "https://istio.io",
+    "include": [
+      "networking.istio.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e0b986be36ffc4f18f8826b1aaa77cfbf59fb72dd66b8a0be1182110e78a5431"
+  }
+}

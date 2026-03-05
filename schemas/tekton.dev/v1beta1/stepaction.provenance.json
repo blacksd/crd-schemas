@@ -1,0 +1,23 @@
+{
+  "schema": "stepaction.json",
+  "crd": {
+    "group": "tekton.dev",
+    "kind": "StepAction",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "tekton-pipelines",
+    "type": "url",
+    "url": "https://github.com/tektoncd/pipeline/releases/download/v1.10.0/release.yaml",
+    "version": "v1.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://tekton.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "314f522ae9e504a4b76ba1ac3144f3e4a7d73f6e4779c95cf4194a7f0def03b8"
+  }
+}

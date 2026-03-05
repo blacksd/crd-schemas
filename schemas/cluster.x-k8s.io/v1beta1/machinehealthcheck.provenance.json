@@ -1,0 +1,23 @@
+{
+  "schema": "machinehealthcheck.json",
+  "crd": {
+    "group": "cluster.x-k8s.io",
+    "kind": "MachineHealthCheck",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "cluster-api",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/core-components.yaml",
+    "version": "v1.12.3",
+    "license": "Apache-2.0",
+    "homepage": "https://cluster-api.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4751e7217a7059547a36e9e0a4e769eb76e7c6a9af4d422d63f6ee6cd56658d4"
+  }
+}

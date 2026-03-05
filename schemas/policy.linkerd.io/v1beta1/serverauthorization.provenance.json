@@ -1,0 +1,27 @@
+{
+  "schema": "serverauthorization.json",
+  "crd": {
+    "group": "policy.linkerd.io",
+    "kind": "ServerAuthorization",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "linkerd-crds",
+    "type": "helm",
+    "repo": "https://helm.linkerd.io/edge",
+    "chart": "linkerd-crds",
+    "version": "2026.2.1",
+    "license": "Apache-2.0",
+    "homepage": "https://linkerd.io",
+    "include": [
+      "policy.linkerd.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8d03dfae8235bc5b15f5d62fdca3187e9e0220f68f6bae839c77eb593defaa19"
+  }
+}

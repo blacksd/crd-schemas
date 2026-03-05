@@ -1,0 +1,27 @@
+{
+  "schema": "imagevalidatingpolicy.json",
+  "crd": {
+    "group": "policies.kyverno.io",
+    "kind": "ImageValidatingPolicy",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "kyverno",
+    "type": "helm",
+    "repo": "https://kyverno.github.io/kyverno",
+    "chart": "kyverno",
+    "version": "3.7.1",
+    "license": "Apache-2.0",
+    "homepage": "https://kyverno.io",
+    "include": [
+      "policies.kyverno.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "176d531719260322b41229db5e3eb9e523419348733a63a3ab2cd9fbe27518fe"
+  }
+}

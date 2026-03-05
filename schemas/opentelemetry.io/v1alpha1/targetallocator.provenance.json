@@ -1,0 +1,24 @@
+{
+  "schema": "targetallocator.json",
+  "crd": {
+    "group": "opentelemetry.io",
+    "kind": "TargetAllocator",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "opentelemetry-operator",
+    "type": "helm",
+    "repo": "https://open-telemetry.github.io/opentelemetry-helm-charts",
+    "chart": "opentelemetry-operator",
+    "version": "0.106.0",
+    "license": "Apache-2.0",
+    "homepage": "https://opentelemetry.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bae55dfc73235168b737016b9a2363e601fdc826fdcbcedcaf199df6b13b680a"
+  }
+}

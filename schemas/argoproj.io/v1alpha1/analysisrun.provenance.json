@@ -1,0 +1,31 @@
+{
+  "schema": "analysisrun.json",
+  "crd": {
+    "group": "argoproj.io",
+    "kind": "AnalysisRun",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "argo-rollouts",
+    "type": "helm",
+    "repo": "https://argoproj.github.io/argo-helm",
+    "chart": "argo-rollouts",
+    "version": "2.40.6",
+    "license": "Apache-2.0",
+    "homepage": "https://argoproj.github.io/rollouts",
+    "include": [
+      "AnalysisRun",
+      "AnalysisTemplate",
+      "ClusterAnalysisTemplate",
+      "Experiment",
+      "Rollout"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4e315250e743f78dbf39bc48462a70260e06a280a8cd783a7139bee68b556491"
+  }
+}

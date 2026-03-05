@@ -1,0 +1,27 @@
+{
+  "schema": "managementclusterconnection.json",
+  "crd": {
+    "group": "operator.tigera.io",
+    "kind": "ManagementClusterConnection",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "tigera-operator",
+    "type": "helm",
+    "repo": "https://docs.tigera.io/calico/charts",
+    "chart": "tigera-operator",
+    "version": "v3.31.4",
+    "license": "Apache-2.0",
+    "homepage": "https://www.tigera.io/project-calico",
+    "include": [
+      "operator.tigera.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ac4eec05b6c85d1d25bf950145d85f366274b0a890a0b5f19c2ff47dae6674b1"
+  }
+}

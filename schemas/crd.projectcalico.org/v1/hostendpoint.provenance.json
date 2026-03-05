@@ -1,0 +1,27 @@
+{
+  "schema": "hostendpoint.json",
+  "crd": {
+    "group": "crd.projectcalico.org",
+    "kind": "HostEndpoint",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "tigera-operator",
+    "type": "helm",
+    "repo": "https://docs.tigera.io/calico/charts",
+    "chart": "tigera-operator",
+    "version": "v3.31.4",
+    "license": "Apache-2.0",
+    "homepage": "https://www.tigera.io/project-calico",
+    "include": [
+      "crd.projectcalico.org/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "68f63dc663f74e12ce4d9217869e4ce23972801010d20288ef21a64a252480a7"
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "exportV4": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "action"
+            ],
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "cidr": {
+                "type": "string"
+              },
+              "interface": {
+                "type": "string"
+              },
+              "matchOperator": {
+                "type": "string"
+              },
+              "prefixLength": {
+                "type": "object",
+                "properties": {
+                  "max": {
+                    "type": "integer",
+                    "format": "int32",
+                    "maximum": 32,
+                    "minimum": 0
+                  },
+                  "min": {
+                    "type": "integer",
+                    "format": "int32",
+                    "maximum": 32,
+                    "minimum": 0
+                  }
+                }
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "exportV6": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "action"
+            ],
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "cidr": {
+                "type": "string"
+              },
+              "interface": {
+                "type": "string"
+              },
+              "matchOperator": {
+                "type": "string"
+              },
+              "prefixLength": {
+                "type": "object",
+                "properties": {
+                  "max": {
+                    "type": "integer",
+                    "format": "int32",
+                    "maximum": 128,
+                    "minimum": 0
+                  },
+                  "min": {
+                    "type": "integer",
+                    "format": "int32",
+                    "maximum": 128,
+                    "minimum": 0
+                  }
+                }
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "importV4": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "action"
+            ],
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "cidr": {
+                "type": "string"
+              },
+              "interface": {
+                "type": "string"
+              },
+              "matchOperator": {
+                "type": "string"
+              },
+              "prefixLength": {
+                "type": "object",
+                "properties": {
+                  "max": {
+                    "type": "integer",
+                    "format": "int32",
+                    "maximum": 32,
+                    "minimum": 0
+                  },
+                  "min": {
+                    "type": "integer",
+                    "format": "int32",
+                    "maximum": 32,
+                    "minimum": 0
+                  }
+                }
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "importV6": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "action"
+            ],
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "cidr": {
+                "type": "string"
+              },
+              "interface": {
+                "type": "string"
+              },
+              "matchOperator": {
+                "type": "string"
+              },
+              "prefixLength": {
+                "type": "object",
+                "properties": {
+                  "max": {
+                    "type": "integer",
+                    "format": "int32",
+                    "maximum": 128,
+                    "minimum": 0
+                  },
+                  "min": {
+                    "type": "integer",
+                    "format": "int32",
+                    "maximum": 128,
+                    "minimum": 0
+                  }
+                }
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

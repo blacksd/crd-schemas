@@ -1,0 +1,23 @@
+{
+  "schema": "ipaddress.json",
+  "crd": {
+    "group": "ipam.cluster.x-k8s.io",
+    "kind": "IPAddress",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "cluster-api",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/core-components.yaml",
+    "version": "v1.12.3",
+    "license": "Apache-2.0",
+    "homepage": "https://cluster-api.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f321d07b88b0184fdcd002d53779a77f25d8d625a561d4c42b15effa355ce8dc"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "recurringjob.json",
+  "crd": {
+    "group": "longhorn.io",
+    "kind": "RecurringJob",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "longhorn",
+    "type": "helm",
+    "repo": "https://charts.longhorn.io",
+    "chart": "longhorn",
+    "version": "1.11.0",
+    "license": "Apache-2.0",
+    "homepage": "https://longhorn.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4c14a95abdae5192413f7e333e51fc71567f83443bf652c0fb2e478e218c043f"
+  }
+}

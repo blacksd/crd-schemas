@@ -1,0 +1,27 @@
+{
+  "schema": "syncset.json",
+  "crd": {
+    "group": "syncset.gatekeeper.sh",
+    "kind": "SyncSet",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "gatekeeper",
+    "type": "helm",
+    "repo": "https://open-policy-agent.github.io/gatekeeper/charts",
+    "chart": "gatekeeper",
+    "version": "3.21.1",
+    "license": "Apache-2.0",
+    "homepage": "https://open-policy-agent.github.io/gatekeeper",
+    "include": [
+      "syncset.gatekeeper.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b787924573976611fe017ce28152b4784edb4cb35bfde3454207da7caea9bc1b"
+  }
+}

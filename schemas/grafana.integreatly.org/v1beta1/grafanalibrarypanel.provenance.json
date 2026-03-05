@@ -1,0 +1,24 @@
+{
+  "schema": "grafanalibrarypanel.json",
+  "crd": {
+    "group": "grafana.integreatly.org",
+    "kind": "GrafanaLibraryPanel",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "grafana-operator",
+    "type": "helm",
+    "repo": "https://grafana.github.io/helm-charts",
+    "chart": "grafana-operator",
+    "version": "5.22.0",
+    "license": "Apache-2.0",
+    "homepage": "https://grafana.github.io/grafana-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "47671d5dbab4e6acc37c5bbe36d27c9223d46edf65850526d78ab0cc1bd719ed"
+  }
+}

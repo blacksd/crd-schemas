@@ -1,0 +1,26 @@
+{
+  "schema": "kustomization.json",
+  "crd": {
+    "group": "kustomize.toolkit.fluxcd.io",
+    "kind": "Kustomization",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "flux",
+    "type": "url",
+    "url": "https://github.com/fluxcd/flux2/releases/download/v2.8.1/install.yaml",
+    "version": "v2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://fluxcd.io",
+    "include": [
+      "kustomize.toolkit.fluxcd.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2183d3ff063dfebca3bba4c8842f50303786bbe0d421a938a9a372331671db44"
+  }
+}

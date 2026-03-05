@@ -1,0 +1,317 @@
+{
+  "description": "InstanceManager is where Longhorn stores instance manager object.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "InstanceManagerSpec defines the desired state of the Longhorn instance manager",
+      "type": "object",
+      "properties": {
+        "dataEngine": {
+          "type": "string"
+        },
+        "dataEngineSpec": {
+          "type": "object",
+          "properties": {
+            "v2": {
+              "type": "object",
+              "properties": {
+                "cpuMask": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "image": {
+          "type": "string"
+        },
+        "nodeID": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "aio",
+            "engine",
+            "replica"
+          ]
+        }
+      }
+    },
+    "status": {
+      "description": "InstanceManagerStatus defines the observed state of the Longhorn instance manager",
+      "type": "object",
+      "properties": {
+        "apiMinVersion": {
+          "type": "integer"
+        },
+        "apiVersion": {
+          "type": "integer"
+        },
+        "backingImages": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "currentChecksum": {
+                "type": "string"
+              },
+              "diskUUID": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "progress": {
+                "type": "integer"
+              },
+              "size": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "state": {
+                "type": "string"
+              },
+              "uuid": {
+                "type": "string"
+              }
+            }
+          },
+          "nullable": true
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lastProbeTime": {
+                "description": "Last time we probed the condition.",
+                "type": "string"
+              },
+              "lastTransitionTime": {
+                "description": "Last time the condition transitioned from one status to another.",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human-readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status is the status of the condition.\nCan be True, False, Unknown.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type is the type of the condition.",
+                "type": "string"
+              }
+            }
+          },
+          "nullable": true
+        },
+        "currentState": {
+          "type": "string"
+        },
+        "dataEngineStatus": {
+          "type": "object",
+          "properties": {
+            "v2": {
+              "type": "object",
+              "properties": {
+                "cpuMask": {
+                  "type": "string"
+                },
+                "interruptModeEnabled": {
+                  "description": "InterruptModeEnabled indicates whether the V2 data engine is running in\ninterrupt mode (true) or polling mode (false). Set by Longhorn manager;\nread-only to users.",
+                  "type": "string",
+                  "enum": [
+                    "",
+                    "true",
+                    "false"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "instanceEngines": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "spec": {
+                "type": "object",
+                "properties": {
+                  "dataEngine": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              },
+              "status": {
+                "type": "object",
+                "properties": {
+                  "conditions": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "boolean"
+                    },
+                    "nullable": true
+                  },
+                  "endpoint": {
+                    "type": "string"
+                  },
+                  "errorMsg": {
+                    "type": "string"
+                  },
+                  "listen": {
+                    "type": "string"
+                  },
+                  "portEnd": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "portStart": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "resourceVersion": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "targetPortEnd": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "targetPortStart": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "ublkID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "uuid": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "nullable": true
+        },
+        "instanceReplicas": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "spec": {
+                "type": "object",
+                "properties": {
+                  "dataEngine": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              },
+              "status": {
+                "type": "object",
+                "properties": {
+                  "conditions": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "boolean"
+                    },
+                    "nullable": true
+                  },
+                  "endpoint": {
+                    "type": "string"
+                  },
+                  "errorMsg": {
+                    "type": "string"
+                  },
+                  "listen": {
+                    "type": "string"
+                  },
+                  "portEnd": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "portStart": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "resourceVersion": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "targetPortEnd": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "targetPortStart": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "ublkID": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "uuid": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "nullable": true
+        },
+        "ip": {
+          "type": "string"
+        },
+        "ownerID": {
+          "type": "string"
+        },
+        "proxyApiMinVersion": {
+          "type": "integer"
+        },
+        "proxyApiVersion": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

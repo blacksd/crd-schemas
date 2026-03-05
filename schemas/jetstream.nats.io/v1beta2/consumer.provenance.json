@@ -1,0 +1,23 @@
+{
+  "schema": "consumer.json",
+  "crd": {
+    "group": "jetstream.nats.io",
+    "kind": "Consumer",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "nats-nack",
+    "type": "url",
+    "url": "https://github.com/nats-io/nack/releases/download/v0.22.3/crds.yml",
+    "version": "v0.22.3",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/nats-io/nack"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d10092972198ede47ae3b03ec9c6f3837887505496101468822a04b3302dd286"
+  }
+}

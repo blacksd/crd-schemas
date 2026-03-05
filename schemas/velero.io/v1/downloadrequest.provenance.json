@@ -1,0 +1,24 @@
+{
+  "schema": "downloadrequest.json",
+  "crd": {
+    "group": "velero.io",
+    "kind": "DownloadRequest",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "velero",
+    "type": "helm",
+    "repo": "https://vmware-tanzu.github.io/helm-charts",
+    "chart": "velero",
+    "version": "11.4.0",
+    "license": "Apache-2.0",
+    "homepage": "https://velero.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "caa984f537c9d8b7135d76093281802864053d223d22d0606675cf10e2dd7492"
+  }
+}

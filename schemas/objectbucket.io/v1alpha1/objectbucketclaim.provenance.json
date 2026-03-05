@@ -1,0 +1,24 @@
+{
+  "schema": "objectbucketclaim.json",
+  "crd": {
+    "group": "objectbucket.io",
+    "kind": "ObjectBucketClaim",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "rook-ceph",
+    "type": "helm",
+    "repo": "https://charts.rook.io/release",
+    "chart": "rook-ceph",
+    "version": "v1.19.2",
+    "license": "Apache-2.0",
+    "homepage": "https://rook.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2ef8780438e6d1d2cf74b32caa35248e98ed875bd533c875e1fe0d5dd46f7aa9"
+  }
+}

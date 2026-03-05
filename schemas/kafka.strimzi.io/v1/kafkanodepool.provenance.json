@@ -1,0 +1,23 @@
+{
+  "schema": "kafkanodepool.json",
+  "crd": {
+    "group": "kafka.strimzi.io",
+    "kind": "KafkaNodePool",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "strimzi-kafka",
+    "type": "url",
+    "url": "https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.50.1/strimzi-crds-0.50.1.yaml",
+    "version": "0.50.1",
+    "license": "Apache-2.0",
+    "homepage": "https://strimzi.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c727092474727de52fae05f0c2c9fdeebe5cb25060dbfc9244a1328a7815283c"
+  }
+}

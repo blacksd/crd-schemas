@@ -1,0 +1,27 @@
+{
+  "schema": "globalcontextentry.json",
+  "crd": {
+    "group": "kyverno.io",
+    "kind": "GlobalContextEntry",
+    "apiVersion": "v2"
+  },
+  "source": {
+    "name": "kyverno",
+    "type": "helm",
+    "repo": "https://kyverno.github.io/kyverno",
+    "chart": "kyverno",
+    "version": "3.7.1",
+    "license": "Apache-2.0",
+    "homepage": "https://kyverno.io",
+    "include": [
+      "kyverno.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e236c8f9b4fa29e5e5c52e6d5d5f9112b04a5ee98b928930fdb06f8eb6248144"
+  }
+}

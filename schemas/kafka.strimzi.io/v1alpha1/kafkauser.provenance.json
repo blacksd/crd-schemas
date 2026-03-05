@@ -1,0 +1,23 @@
+{
+  "schema": "kafkauser.json",
+  "crd": {
+    "group": "kafka.strimzi.io",
+    "kind": "KafkaUser",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "strimzi-kafka",
+    "type": "url",
+    "url": "https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.50.1/strimzi-crds-0.50.1.yaml",
+    "version": "0.50.1",
+    "license": "Apache-2.0",
+    "homepage": "https://strimzi.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0f266d236709f1ed0220732103bb568f21532e4142c8e26f31d9d121c80cb4be"
+  }
+}

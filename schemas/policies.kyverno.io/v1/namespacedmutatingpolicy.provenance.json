@@ -1,0 +1,27 @@
+{
+  "schema": "namespacedmutatingpolicy.json",
+  "crd": {
+    "group": "policies.kyverno.io",
+    "kind": "NamespacedMutatingPolicy",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "kyverno",
+    "type": "helm",
+    "repo": "https://kyverno.github.io/kyverno",
+    "chart": "kyverno",
+    "version": "3.7.1",
+    "license": "Apache-2.0",
+    "homepage": "https://kyverno.io",
+    "include": [
+      "policies.kyverno.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1fc1a341e47858ad2c274d1cfbb7ca5cfd9902ad91b806c23eeb5d822dfd2d92"
+  }
+}

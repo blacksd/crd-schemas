@@ -1,0 +1,34 @@
+{
+  "schema": "cronworkflow.json",
+  "crd": {
+    "group": "argoproj.io",
+    "kind": "CronWorkflow",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "argo-workflows",
+    "type": "helm",
+    "repo": "https://argoproj.github.io/argo-helm",
+    "chart": "argo-workflows",
+    "version": "0.47.4",
+    "license": "Apache-2.0",
+    "homepage": "https://argoproj.github.io/workflows",
+    "include": [
+      "ClusterWorkflowTemplate",
+      "CronWorkflow",
+      "Workflow",
+      "WorkflowArtifactGCTask",
+      "WorkflowEventBinding",
+      "WorkflowTaskResult",
+      "WorkflowTaskSet",
+      "WorkflowTemplate"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "74162562cfab55c31a0c6e32369762e7d48e86dfe986b9c8bde01e09c454cac2"
+  }
+}

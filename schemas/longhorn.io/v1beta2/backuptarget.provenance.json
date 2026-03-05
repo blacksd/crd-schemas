@@ -1,0 +1,24 @@
+{
+  "schema": "backuptarget.json",
+  "crd": {
+    "group": "longhorn.io",
+    "kind": "BackupTarget",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "longhorn",
+    "type": "helm",
+    "repo": "https://charts.longhorn.io",
+    "chart": "longhorn",
+    "version": "1.11.0",
+    "license": "Apache-2.0",
+    "homepage": "https://longhorn.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c4a5f4e99c3631908c64c586ee9c802f2994e9849b28425d40e3851d3f1e62e1"
+  }
+}

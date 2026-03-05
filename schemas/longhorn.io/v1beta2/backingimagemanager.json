@@ -1,0 +1,110 @@
+{
+  "description": "BackingImageManager is where Longhorn stores backing image manager object.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "BackingImageManagerSpec defines the desired state of the Longhorn backing image manager",
+      "type": "object",
+      "properties": {
+        "backingImages": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "diskPath": {
+          "type": "string"
+        },
+        "diskUUID": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "nodeID": {
+          "type": "string"
+        }
+      }
+    },
+    "status": {
+      "description": "BackingImageManagerStatus defines the observed state of the Longhorn backing image manager",
+      "type": "object",
+      "properties": {
+        "apiMinVersion": {
+          "type": "integer"
+        },
+        "apiVersion": {
+          "type": "integer"
+        },
+        "backingImageFileMap": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "currentChecksum": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "progress": {
+                "type": "integer"
+              },
+              "realSize": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "senderManagerAddress": {
+                "type": "string"
+              },
+              "sendingReference": {
+                "type": "integer"
+              },
+              "size": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "state": {
+                "type": "string"
+              },
+              "uuid": {
+                "type": "string"
+              },
+              "virtualSize": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          "nullable": true
+        },
+        "currentState": {
+          "type": "string"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "ownerID": {
+          "type": "string"
+        },
+        "storageIP": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

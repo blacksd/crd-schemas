@@ -1,0 +1,27 @@
+{
+  "schema": "namespacedgeneratingpolicy.json",
+  "crd": {
+    "group": "policies.kyverno.io",
+    "kind": "NamespacedGeneratingPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "kyverno",
+    "type": "helm",
+    "repo": "https://kyverno.github.io/kyverno",
+    "chart": "kyverno",
+    "version": "3.7.1",
+    "license": "Apache-2.0",
+    "homepage": "https://kyverno.io",
+    "include": [
+      "policies.kyverno.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "264c1993d9f728fc6e5919cda19ec6cd7b7176d415877c4d60485034147a7a5b"
+  }
+}

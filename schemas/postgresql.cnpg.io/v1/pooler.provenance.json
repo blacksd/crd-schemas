@@ -1,0 +1,24 @@
+{
+  "schema": "pooler.json",
+  "crd": {
+    "group": "postgresql.cnpg.io",
+    "kind": "Pooler",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "cloudnative-pg",
+    "type": "helm",
+    "repo": "https://cloudnative-pg.github.io/charts",
+    "chart": "cloudnative-pg",
+    "version": "0.27.1",
+    "license": "Apache-2.0",
+    "homepage": "https://cloudnative-pg.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1f6e157e4f05060f27aeeb4cdd7088562db7e0776764bd3d8d5e3e88169a7c0b"
+  }
+}

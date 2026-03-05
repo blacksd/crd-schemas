@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "defaultAction": {
+          "type": "string",
+          "enum": [
+            "Pass",
+            "Deny"
+          ]
+        },
+        "order": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

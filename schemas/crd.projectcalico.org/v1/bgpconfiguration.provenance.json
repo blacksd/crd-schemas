@@ -1,0 +1,27 @@
+{
+  "schema": "bgpconfiguration.json",
+  "crd": {
+    "group": "crd.projectcalico.org",
+    "kind": "BGPConfiguration",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "tigera-operator",
+    "type": "helm",
+    "repo": "https://docs.tigera.io/calico/charts",
+    "chart": "tigera-operator",
+    "version": "v3.31.4",
+    "license": "Apache-2.0",
+    "homepage": "https://www.tigera.io/project-calico",
+    "include": [
+      "crd.projectcalico.org/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c640fe67464ae5401b2f391a703a5fcfed87015da637830bf9f7bc0fd60e79a6"
+  }
+}

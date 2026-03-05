@@ -1,0 +1,565 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "egress": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "action"
+            ],
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "destination": {
+                "type": "object",
+                "properties": {
+                  "namespaceSelector": {
+                    "type": "string"
+                  },
+                  "nets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "notNets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "notPorts": {
+                    "type": "array",
+                    "items": {
+                      "pattern": "^.*",
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "x-kubernetes-int-or-string": true
+                    }
+                  },
+                  "notSelector": {
+                    "type": "string"
+                  },
+                  "ports": {
+                    "type": "array",
+                    "items": {
+                      "pattern": "^.*",
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "x-kubernetes-int-or-string": true
+                    }
+                  },
+                  "selector": {
+                    "type": "string"
+                  },
+                  "serviceAccounts": {
+                    "type": "object",
+                    "properties": {
+                      "names": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "selector": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "services": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "http": {
+                "type": "object",
+                "properties": {
+                  "methods": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "paths": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "exact": {
+                          "type": "string"
+                        },
+                        "prefix": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "icmp": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "ipVersion": {
+                "type": "integer"
+              },
+              "metadata": {
+                "type": "object",
+                "properties": {
+                  "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "notICMP": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "notProtocol": {
+                "pattern": "^.*",
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "x-kubernetes-int-or-string": true
+              },
+              "protocol": {
+                "pattern": "^.*",
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "x-kubernetes-int-or-string": true
+              },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "namespaceSelector": {
+                    "type": "string"
+                  },
+                  "nets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "notNets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "notPorts": {
+                    "type": "array",
+                    "items": {
+                      "pattern": "^.*",
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "x-kubernetes-int-or-string": true
+                    }
+                  },
+                  "notSelector": {
+                    "type": "string"
+                  },
+                  "ports": {
+                    "type": "array",
+                    "items": {
+                      "pattern": "^.*",
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "x-kubernetes-int-or-string": true
+                    }
+                  },
+                  "selector": {
+                    "type": "string"
+                  },
+                  "serviceAccounts": {
+                    "type": "object",
+                    "properties": {
+                      "names": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "selector": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "services": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ingress": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "action"
+            ],
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "destination": {
+                "type": "object",
+                "properties": {
+                  "namespaceSelector": {
+                    "type": "string"
+                  },
+                  "nets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "notNets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "notPorts": {
+                    "type": "array",
+                    "items": {
+                      "pattern": "^.*",
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "x-kubernetes-int-or-string": true
+                    }
+                  },
+                  "notSelector": {
+                    "type": "string"
+                  },
+                  "ports": {
+                    "type": "array",
+                    "items": {
+                      "pattern": "^.*",
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "x-kubernetes-int-or-string": true
+                    }
+                  },
+                  "selector": {
+                    "type": "string"
+                  },
+                  "serviceAccounts": {
+                    "type": "object",
+                    "properties": {
+                      "names": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "selector": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "services": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "http": {
+                "type": "object",
+                "properties": {
+                  "methods": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "paths": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "exact": {
+                          "type": "string"
+                        },
+                        "prefix": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "icmp": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "ipVersion": {
+                "type": "integer"
+              },
+              "metadata": {
+                "type": "object",
+                "properties": {
+                  "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "notICMP": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "notProtocol": {
+                "pattern": "^.*",
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "x-kubernetes-int-or-string": true
+              },
+              "protocol": {
+                "pattern": "^.*",
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "x-kubernetes-int-or-string": true
+              },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "namespaceSelector": {
+                    "type": "string"
+                  },
+                  "nets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "notNets": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "notPorts": {
+                    "type": "array",
+                    "items": {
+                      "pattern": "^.*",
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "x-kubernetes-int-or-string": true
+                    }
+                  },
+                  "notSelector": {
+                    "type": "string"
+                  },
+                  "ports": {
+                    "type": "array",
+                    "items": {
+                      "pattern": "^.*",
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "x-kubernetes-int-or-string": true
+                    }
+                  },
+                  "selector": {
+                    "type": "string"
+                  },
+                  "serviceAccounts": {
+                    "type": "object",
+                    "properties": {
+                      "names": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "selector": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "services": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "order": {
+          "type": "number"
+        },
+        "performanceHints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "selector": {
+          "type": "string"
+        },
+        "serviceAccountSelector": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string"
+        },
+        "types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

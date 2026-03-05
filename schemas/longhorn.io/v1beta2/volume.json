@@ -1,0 +1,422 @@
+{
+  "description": "Volume is where Longhorn stores volume object.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "VolumeSpec defines the desired state of the Longhorn volume",
+      "type": "object",
+      "properties": {
+        "Standby": {
+          "type": "boolean"
+        },
+        "accessMode": {
+          "type": "string",
+          "enum": [
+            "rwo",
+            "rwop",
+            "rwx"
+          ]
+        },
+        "backingImage": {
+          "type": "string",
+          "x-kubernetes-validations": [
+            {
+              "rule": "self == oldSelf",
+              "message": "BackingImage is immutable"
+            }
+          ]
+        },
+        "backupBlockSize": {
+          "description": "BackupBlockSize indicate the block size to create backups. The block size is immutable.",
+          "type": "string",
+          "format": "int64",
+          "enum": [
+            "2097152",
+            "16777216"
+          ]
+        },
+        "backupCompressionMethod": {
+          "type": "string",
+          "enum": [
+            "none",
+            "lz4",
+            "gzip"
+          ]
+        },
+        "backupTargetName": {
+          "description": "The backup target name that the volume will be backed up to or is synced.",
+          "type": "string"
+        },
+        "cloneMode": {
+          "type": "string",
+          "enum": [
+            "",
+            "full-copy",
+            "linked-clone"
+          ]
+        },
+        "dataEngine": {
+          "type": "string",
+          "enum": [
+            "v1",
+            "v2"
+          ]
+        },
+        "dataLocality": {
+          "type": "string",
+          "enum": [
+            "disabled",
+            "best-effort",
+            "strict-local"
+          ]
+        },
+        "dataSource": {
+          "type": "string"
+        },
+        "disableFrontend": {
+          "type": "boolean"
+        },
+        "diskSelector": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "encrypted": {
+          "type": "boolean",
+          "x-kubernetes-validations": [
+            {
+              "rule": "self == oldSelf",
+              "message": "Encrypted is immutable"
+            }
+          ]
+        },
+        "freezeFilesystemForSnapshot": {
+          "description": "Setting that freezes the filesystem on the root partition before a snapshot is created.",
+          "type": "string",
+          "enum": [
+            "ignored",
+            "enabled",
+            "disabled"
+          ]
+        },
+        "fromBackup": {
+          "type": "string"
+        },
+        "frontend": {
+          "type": "string",
+          "enum": [
+            "blockdev",
+            "iscsi",
+            "nvmf",
+            "ublk",
+            ""
+          ]
+        },
+        "image": {
+          "type": "string"
+        },
+        "lastAttachedBy": {
+          "type": "string"
+        },
+        "migratable": {
+          "type": "boolean"
+        },
+        "migrationNodeID": {
+          "type": "string"
+        },
+        "nodeID": {
+          "type": "string"
+        },
+        "nodeSelector": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "numberOfReplicas": {
+          "type": "integer"
+        },
+        "offlineRebuilding": {
+          "description": "Specifies whether Longhorn should rebuild replicas while the detached volume is degraded.\n- ignored: Use the global setting for offline replica rebuilding.\n- enabled: Enable offline rebuilding for this volume, regardless of the global setting.\n- disabled: Disable offline rebuilding for this volume, regardless of the global setting",
+          "type": "string",
+          "enum": [
+            "ignored",
+            "disabled",
+            "enabled"
+          ]
+        },
+        "rebuildConcurrentSyncLimit": {
+          "description": "RebuildConcurrentSyncLimit controls the maximum number of file synchronization operations that can run\nconcurrently during a single replica rebuild.\nWhen set to 0, it means following the global setting.",
+          "type": "integer",
+          "maximum": 5,
+          "minimum": 0
+        },
+        "replicaAutoBalance": {
+          "type": "string",
+          "enum": [
+            "ignored",
+            "disabled",
+            "least-effort",
+            "best-effort"
+          ]
+        },
+        "replicaDiskSoftAntiAffinity": {
+          "description": "Replica disk soft anti affinity of the volume. Set enabled to allow replicas to be scheduled in the same disk.",
+          "type": "string",
+          "enum": [
+            "ignored",
+            "enabled",
+            "disabled"
+          ]
+        },
+        "replicaRebuildingBandwidthLimit": {
+          "description": "ReplicaRebuildingBandwidthLimit controls the maximum write bandwidth (in megabytes per second) allowed on the destination replica during the rebuilding process. Set this value to 0 to disable bandwidth limiting.",
+          "type": "integer",
+          "format": "int64",
+          "minimum": 0
+        },
+        "replicaSoftAntiAffinity": {
+          "description": "Replica soft anti affinity of the volume. Set enabled to allow replicas to be scheduled on the same node.",
+          "type": "string",
+          "enum": [
+            "ignored",
+            "enabled",
+            "disabled"
+          ]
+        },
+        "replicaZoneSoftAntiAffinity": {
+          "description": "Replica zone soft anti affinity of the volume. Set enabled to allow replicas to be scheduled in the same zone.",
+          "type": "string",
+          "enum": [
+            "ignored",
+            "enabled",
+            "disabled"
+          ]
+        },
+        "restoreVolumeRecurringJob": {
+          "type": "string",
+          "enum": [
+            "ignored",
+            "enabled",
+            "disabled"
+          ]
+        },
+        "revisionCounterDisabled": {
+          "type": "boolean"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
+        "snapshotDataIntegrity": {
+          "type": "string",
+          "enum": [
+            "ignored",
+            "disabled",
+            "enabled",
+            "fast-check"
+          ]
+        },
+        "snapshotMaxCount": {
+          "type": "integer"
+        },
+        "snapshotMaxSize": {
+          "type": "string",
+          "format": "int64"
+        },
+        "staleReplicaTimeout": {
+          "type": "integer"
+        },
+        "ublkNumberOfQueue": {
+          "description": "ublkNumberOfQueue controls the number of queues for ublk frontend.",
+          "type": "integer"
+        },
+        "ublkQueueDepth": {
+          "description": "ublkQueueDepth controls the depth of each queue for ublk frontend.",
+          "type": "integer"
+        },
+        "unmapMarkSnapChainRemoved": {
+          "type": "string",
+          "enum": [
+            "ignored",
+            "disabled",
+            "enabled"
+          ]
+        }
+      }
+    },
+    "status": {
+      "description": "VolumeStatus defines the observed state of the Longhorn volume",
+      "type": "object",
+      "properties": {
+        "actualSize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "cloneStatus": {
+          "type": "object",
+          "properties": {
+            "attemptCount": {
+              "type": "integer"
+            },
+            "nextAllowedAttemptAt": {
+              "type": "string"
+            },
+            "snapshot": {
+              "type": "string"
+            },
+            "sourceVolume": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            }
+          }
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lastProbeTime": {
+                "description": "Last time we probed the condition.",
+                "type": "string"
+              },
+              "lastTransitionTime": {
+                "description": "Last time the condition transitioned from one status to another.",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human-readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status is the status of the condition.\nCan be True, False, Unknown.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type is the type of the condition.",
+                "type": "string"
+              }
+            }
+          },
+          "nullable": true
+        },
+        "currentImage": {
+          "type": "string"
+        },
+        "currentMigrationNodeID": {
+          "description": "the node that this volume is currently migrating to",
+          "type": "string"
+        },
+        "currentNodeID": {
+          "type": "string"
+        },
+        "expansionRequired": {
+          "type": "boolean"
+        },
+        "frontendDisabled": {
+          "type": "boolean"
+        },
+        "isStandby": {
+          "type": "boolean"
+        },
+        "kubernetesStatus": {
+          "type": "object",
+          "properties": {
+            "lastPVCRefAt": {
+              "type": "string"
+            },
+            "lastPodRefAt": {
+              "type": "string"
+            },
+            "namespace": {
+              "description": "determine if PVC/Namespace is history or not",
+              "type": "string"
+            },
+            "pvName": {
+              "type": "string"
+            },
+            "pvStatus": {
+              "type": "string"
+            },
+            "pvcName": {
+              "type": "string"
+            },
+            "workloadsStatus": {
+              "description": "determine if Pod/Workload is history or not",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "podName": {
+                    "type": "string"
+                  },
+                  "podStatus": {
+                    "type": "string"
+                  },
+                  "workloadName": {
+                    "type": "string"
+                  },
+                  "workloadType": {
+                    "type": "string"
+                  }
+                }
+              },
+              "nullable": true
+            }
+          }
+        },
+        "lastBackup": {
+          "type": "string"
+        },
+        "lastBackupAt": {
+          "type": "string"
+        },
+        "lastDegradedAt": {
+          "type": "string"
+        },
+        "ownerID": {
+          "type": "string"
+        },
+        "remountRequestedAt": {
+          "type": "string"
+        },
+        "restoreInitiated": {
+          "type": "boolean"
+        },
+        "restoreRequired": {
+          "type": "boolean"
+        },
+        "robustness": {
+          "type": "string"
+        },
+        "shareEndpoint": {
+          "type": "string"
+        },
+        "shareState": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "dataupload.json",
+  "crd": {
+    "group": "velero.io",
+    "kind": "DataUpload",
+    "apiVersion": "v2alpha1"
+  },
+  "source": {
+    "name": "velero",
+    "type": "helm",
+    "repo": "https://vmware-tanzu.github.io/helm-charts",
+    "chart": "velero",
+    "version": "11.4.0",
+    "license": "Apache-2.0",
+    "homepage": "https://velero.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "45c13b98104654b04cf10c8b9fbe35beab9f0f0bd4921180fecabf16a1b0a66b"
+  }
+}

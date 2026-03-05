@@ -1,0 +1,24 @@
+{
+  "schema": "cephblockpool.json",
+  "crd": {
+    "group": "ceph.rook.io",
+    "kind": "CephBlockPool",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "rook-ceph",
+    "type": "helm",
+    "repo": "https://charts.rook.io/release",
+    "chart": "rook-ceph",
+    "version": "v1.19.2",
+    "license": "Apache-2.0",
+    "homepage": "https://rook.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f00f2e283f9e1b24500a6567f5d5a03861a31f0194345e023a4103143d6f3a0b"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "sbomreport.json",
+  "crd": {
+    "group": "aquasecurity.github.io",
+    "kind": "SbomReport",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "trivy-operator",
+    "type": "helm",
+    "repo": "https://aquasecurity.github.io/helm-charts",
+    "chart": "trivy-operator",
+    "version": "0.32.0",
+    "license": "Apache-2.0",
+    "homepage": "https://aquasecurity.github.io/trivy-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8f60080c3152b7125ddaf0a7fc478468aaaa2cad1a5240e3ed95ff977224a4e3"
+  }
+}

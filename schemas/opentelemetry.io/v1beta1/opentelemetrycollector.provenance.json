@@ -1,0 +1,24 @@
+{
+  "schema": "opentelemetrycollector.json",
+  "crd": {
+    "group": "opentelemetry.io",
+    "kind": "OpenTelemetryCollector",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "opentelemetry-operator",
+    "type": "helm",
+    "repo": "https://open-telemetry.github.io/opentelemetry-helm-charts",
+    "chart": "opentelemetry-operator",
+    "version": "0.106.0",
+    "license": "Apache-2.0",
+    "homepage": "https://opentelemetry.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9c93240274c9614c06070dfc7ce95410821d0b6e4a362a38a3f1193896e93eec"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "jaeger.json",
+  "crd": {
+    "group": "jaegertracing.io",
+    "kind": "Jaeger",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "jaeger-operator",
+    "type": "helm",
+    "repo": "https://jaegertracing.github.io/helm-charts",
+    "chart": "jaeger-operator",
+    "version": "2.57.0",
+    "license": "Apache-2.0",
+    "homepage": "https://www.jaegertracing.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b42006bb09fba752013a283202802a6c02a238b3496ee44d342887c98f0e5947"
+  }
+}

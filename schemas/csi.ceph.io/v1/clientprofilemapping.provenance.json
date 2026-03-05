@@ -1,0 +1,24 @@
+{
+  "schema": "clientprofilemapping.json",
+  "crd": {
+    "group": "csi.ceph.io",
+    "kind": "ClientProfileMapping",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "rook-ceph",
+    "type": "helm",
+    "repo": "https://charts.rook.io/release",
+    "chart": "rook-ceph",
+    "version": "v1.19.2",
+    "license": "Apache-2.0",
+    "homepage": "https://rook.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "be56c4feb0dc0463802180ab0a69e41a94743e2fdc2079753a1cece4e5647367"
+  }
+}

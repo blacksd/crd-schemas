@@ -1,0 +1,24 @@
+{
+  "schema": "clusterconfigauditreport.json",
+  "crd": {
+    "group": "aquasecurity.github.io",
+    "kind": "ClusterConfigAuditReport",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "trivy-operator",
+    "type": "helm",
+    "repo": "https://aquasecurity.github.io/helm-charts",
+    "chart": "trivy-operator",
+    "version": "0.32.0",
+    "license": "Apache-2.0",
+    "homepage": "https://aquasecurity.github.io/trivy-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f40fce5f737dfd91c481fcc8949f9230858aa4b76d6d15608c7ccca74f21e651"
+  }
+}

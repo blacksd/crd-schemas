@@ -1,0 +1,27 @@
+{
+  "schema": "stagedkubernetesnetworkpolicy.json",
+  "crd": {
+    "group": "crd.projectcalico.org",
+    "kind": "StagedKubernetesNetworkPolicy",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "tigera-operator",
+    "type": "helm",
+    "repo": "https://docs.tigera.io/calico/charts",
+    "chart": "tigera-operator",
+    "version": "v3.31.4",
+    "license": "Apache-2.0",
+    "homepage": "https://www.tigera.io/project-calico",
+    "include": [
+      "crd.projectcalico.org/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ef88b8c82407918491889cfffd8e2ac6060a4e3a99f649a00ac354c931f174bb"
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "description": "ClusterComplianceReport is a specification for the ClusterComplianceReport resource.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "ReportSpec represent the compliance specification",
+      "type": "object",
+      "required": [
+        "compliance",
+        "cron",
+        "reportType"
+      ],
+      "properties": {
+        "compliance": {
+          "type": "object",
+          "required": [
+            "controls",
+            "description",
+            "id",
+            "platform",
+            "relatedResources",
+            "title",
+            "type",
+            "version"
+          ],
+          "properties": {
+            "controls": {
+              "description": "Control represent the cps controls data and mapping checks",
+              "type": "array",
+              "items": {
+                "description": "Control represent the cps controls data and mapping checks",
+                "type": "object",
+                "required": [
+                  "id",
+                  "name",
+                  "severity"
+                ],
+                "properties": {
+                  "checks": {
+                    "type": "array",
+                    "items": {
+                      "description": "SpecCheck represent the scanner who perform the control check",
+                      "type": "object",
+                      "required": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "description": "id define the check id as produced by scanner",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "commands": {
+                    "type": "array",
+                    "items": {
+                      "description": "Commands represent the commands to be executed by the node-collector",
+                      "type": "object",
+                      "required": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "description": "id define the commands id",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "defaultStatus": {
+                    "description": "define the default value for check status in case resource not found",
+                    "type": "string",
+                    "enum": [
+                      "PASS",
+                      "WARN",
+                      "FAIL"
+                    ]
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "id define the control check id",
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "description": "define the severity of the control",
+                    "type": "string",
+                    "enum": [
+                      "CRITICAL",
+                      "HIGH",
+                      "MEDIUM",
+                      "LOW",
+                      "UNKNOWN"
+                    ]
+                  }
+                }
+              }
+            },
+            "description": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "platform": {
+              "type": "string"
+            },
+            "relatedResources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        },
+        "cron": {
+          "description": "cron define the intervals for report generation",
+          "type": "string",
+          "pattern": "^(((([\\*]{1}){1})|((\\*\\/){0,1}(([0-9]{1}){1}|(([1-5]{1}){1}([0-9]{1}){1}){1}))) ((([\\*]{1}){1})|((\\*\\/){0,1}(([0-9]{1}){1}|(([1]{1}){1}([0-9]{1}){1}){1}|([2]{1}){1}([0-3]{1}){1}))) ((([\\*]{1}){1})|((\\*\\/){0,1}(([1-9]{1}){1}|(([1-2]{1}){1}([0-9]{1}){1}){1}|([3]{1}){1}([0-1]{1}){1}))) ((([\\*]{1}){1})|((\\*\\/){0,1}(([1-9]{1}){1}|(([1-2]{1}){1}([0-9]{1}){1}){1}|([3]{1}){1}([0-1]{1}){1}))|(jan|feb|mar|apr|may|jun|jul|aug|sep|okt|nov|dec)) ((([\\*]{1}){1})|((\\*\\/){0,1}(([0-7]{1}){1}))|(sun|mon|tue|wed|thu|fri|sat)))$"
+        },
+        "reportType": {
+          "type": "string",
+          "enum": [
+            "summary",
+            "all"
+          ]
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "required": [
+        "updateTimestamp"
+      ],
+      "properties": {
+        "detailReport": {
+          "description": "ComplianceReport represents a kubernetes scan report",
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "relatedVersion": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "checks"
+                ],
+                "properties": {
+                  "checks": {
+                    "type": "array",
+                    "items": {
+                      "description": "ComplianceCheck provides the result of conducting a single compliance step.",
+                      "type": "object",
+                      "required": [
+                        "checkID",
+                        "severity",
+                        "success"
+                      ],
+                      "properties": {
+                        "category": {
+                          "type": "string"
+                        },
+                        "checkID": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "messages": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "remediation": {
+                          "description": "Remediation provides description or links to external resources to remediate failing check.",
+                          "type": "string"
+                        },
+                        "severity": {
+                          "description": "Severity level of a vulnerability or a configuration audit check.",
+                          "type": "string"
+                        },
+                        "success": {
+                          "type": "boolean"
+                        },
+                        "target": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "title": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "failCount": {
+              "type": "integer"
+            },
+            "passCount": {
+              "type": "integer"
+            }
+          }
+        },
+        "summaryReport": {
+          "description": "SummaryReport represents a kubernetes scan report with consolidated findings",
+          "type": "object",
+          "properties": {
+            "controlCheck": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "type": "string"
+                  },
+                  "totalFail": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "updateTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "x-kubernetes-preserve-unknown-fields": true
+}

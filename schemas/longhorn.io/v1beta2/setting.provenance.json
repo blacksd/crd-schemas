@@ -1,0 +1,24 @@
+{
+  "schema": "setting.json",
+  "crd": {
+    "group": "longhorn.io",
+    "kind": "Setting",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "longhorn",
+    "type": "helm",
+    "repo": "https://charts.longhorn.io",
+    "chart": "longhorn",
+    "version": "1.11.0",
+    "license": "Apache-2.0",
+    "homepage": "https://longhorn.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a533d0e4f8343cd7fd802588c740926a58c375777a395d9cadcbedc76346eb7c"
+  }
+}

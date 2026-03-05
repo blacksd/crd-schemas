@@ -1,0 +1,23 @@
+{
+  "schema": "tlscertificatedelegation.json",
+  "crd": {
+    "group": "projectcontour.io",
+    "kind": "TLSCertificateDelegation",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "contour",
+    "type": "url",
+    "url": "https://raw.githubusercontent.com/projectcontour/contour/v1.33.2/examples/contour/01-crds.yaml",
+    "version": "v1.33.2",
+    "license": "Apache-2.0",
+    "homepage": "https://projectcontour.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ecd958bba46943d5d426c1762bd70fa9b1ec093770b9340fea9b4c5644529fe0"
+  }
+}

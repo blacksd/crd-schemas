@@ -1,0 +1,27 @@
+{
+  "schema": "mutatorpodstatus.json",
+  "crd": {
+    "group": "status.gatekeeper.sh",
+    "kind": "MutatorPodStatus",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "gatekeeper",
+    "type": "helm",
+    "repo": "https://open-policy-agent.github.io/gatekeeper/charts",
+    "chart": "gatekeeper",
+    "version": "3.21.1",
+    "license": "Apache-2.0",
+    "homepage": "https://open-policy-agent.github.io/gatekeeper",
+    "include": [
+      "status.gatekeeper.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8983c20dd65ba30c7be1938f863dda7cc41ba439b9d6735cfe8bef33b08f354d"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "deletingpolicy.json",
+  "crd": {
+    "group": "policies.kyverno.io",
+    "kind": "DeletingPolicy",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "kyverno",
+    "type": "helm",
+    "repo": "https://kyverno.github.io/kyverno",
+    "chart": "kyverno",
+    "version": "3.7.1",
+    "license": "Apache-2.0",
+    "homepage": "https://kyverno.io",
+    "include": [
+      "policies.kyverno.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "45366ea96673864512bf863182ccdec28a4420bee5d3644aa48dc472f9688df7"
+  }
+}

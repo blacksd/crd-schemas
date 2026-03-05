@@ -1,0 +1,23 @@
+{
+  "schema": "machinedeployment.json",
+  "crd": {
+    "group": "cluster.x-k8s.io",
+    "kind": "MachineDeployment",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "cluster-api",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/core-components.yaml",
+    "version": "v1.12.3",
+    "license": "Apache-2.0",
+    "homepage": "https://cluster-api.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c3a403dcc44c72356cabe59d4d30eaebd953b15b9ceb6b858597740d91b7505c"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "policyreport.json",
+  "crd": {
+    "group": "wgpolicyk8s.io",
+    "kind": "PolicyReport",
+    "apiVersion": "v1alpha2"
+  },
+  "source": {
+    "name": "kyverno",
+    "type": "helm",
+    "repo": "https://kyverno.github.io/kyverno",
+    "chart": "kyverno",
+    "version": "3.7.1",
+    "license": "Apache-2.0",
+    "homepage": "https://kyverno.io",
+    "include": [
+      "wgpolicyk8s.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1633c4283f504b739ea12c51d769860cf6bf08fd17ea1d5b015b55801df10ff1"
+  }
+}

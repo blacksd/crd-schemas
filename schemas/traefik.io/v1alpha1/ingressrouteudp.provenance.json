@@ -1,0 +1,27 @@
+{
+  "schema": "ingressrouteudp.json",
+  "crd": {
+    "group": "traefik.io",
+    "kind": "IngressRouteUDP",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "traefik",
+    "type": "helm",
+    "repo": "https://traefik.github.io/charts",
+    "chart": "traefik",
+    "version": "39.0.3",
+    "license": "MIT",
+    "homepage": "https://traefik.io",
+    "include": [
+      "traefik.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "040ab98c8a3415c1c254ef6a5a1e0f4275605602ccaec8f56f0c47da3accffc1"
+  }
+}

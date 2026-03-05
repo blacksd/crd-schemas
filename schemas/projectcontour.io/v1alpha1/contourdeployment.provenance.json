@@ -1,0 +1,23 @@
+{
+  "schema": "contourdeployment.json",
+  "crd": {
+    "group": "projectcontour.io",
+    "kind": "ContourDeployment",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "contour",
+    "type": "url",
+    "url": "https://raw.githubusercontent.com/projectcontour/contour/v1.33.2/examples/contour/01-crds.yaml",
+    "version": "v1.33.2",
+    "license": "Apache-2.0",
+    "homepage": "https://projectcontour.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a69a25134f07b69ed6ef2ec5fbb1baeac320e23249731a8a720f703a31031d7d"
+  }
+}

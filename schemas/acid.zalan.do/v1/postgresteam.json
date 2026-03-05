@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "required": [
+    "kind",
+    "apiVersion",
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "type": "string",
+      "enum": [
+        "acid.zalan.do/v1"
+      ]
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "PostgresTeam"
+      ]
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "additionalMembers": {
+          "description": "Map for teamId and associated additional users",
+          "type": "object",
+          "additionalProperties": {
+            "description": "List of users who will also be added to the Postgres cluster",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalSuperuserTeams": {
+          "description": "Map for teamId and associated additional superuser teams",
+          "type": "object",
+          "additionalProperties": {
+            "description": "List of teams to become Postgres superusers",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalTeams": {
+          "description": "Map for teamId and associated additional teams",
+          "type": "object",
+          "additionalProperties": {
+            "description": "List of teams whose members will also be added to the Postgres cluster",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

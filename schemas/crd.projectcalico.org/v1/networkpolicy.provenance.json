@@ -1,0 +1,27 @@
+{
+  "schema": "networkpolicy.json",
+  "crd": {
+    "group": "crd.projectcalico.org",
+    "kind": "NetworkPolicy",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "tigera-operator",
+    "type": "helm",
+    "repo": "https://docs.tigera.io/calico/charts",
+    "chart": "tigera-operator",
+    "version": "v3.31.4",
+    "license": "Apache-2.0",
+    "homepage": "https://www.tigera.io/project-calico",
+    "include": [
+      "crd.projectcalico.org/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0dac8c19651903b22b21d51266ee1e2e630682c04efbbbee7dbb8dd32f6877ba"
+  }
+}

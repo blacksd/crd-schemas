@@ -1,0 +1,217 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "properties": {
+        "classes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "node": {
+          "type": "string"
+        },
+        "updatePeriodSeconds": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "agent": {
+          "type": "object",
+          "properties": {
+            "birdV4": {
+              "type": "object",
+              "properties": {
+                "lastBootTime": {
+                  "type": "string"
+                },
+                "lastReconfigurationTime": {
+                  "type": "string"
+                },
+                "routerID": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              }
+            },
+            "birdV6": {
+              "type": "object",
+              "properties": {
+                "lastBootTime": {
+                  "type": "string"
+                },
+                "lastReconfigurationTime": {
+                  "type": "string"
+                },
+                "routerID": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "bgp": {
+          "type": "object",
+          "required": [
+            "numberEstablishedV4",
+            "numberEstablishedV6",
+            "numberNotEstablishedV4",
+            "numberNotEstablishedV6"
+          ],
+          "properties": {
+            "numberEstablishedV4": {
+              "type": "integer"
+            },
+            "numberEstablishedV6": {
+              "type": "integer"
+            },
+            "numberNotEstablishedV4": {
+              "type": "integer"
+            },
+            "numberNotEstablishedV6": {
+              "type": "integer"
+            },
+            "peersV4": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "peerIP": {
+                    "type": "string"
+                  },
+                  "since": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "peersV6": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "peerIP": {
+                    "type": "string"
+                  },
+                  "since": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "lastUpdated": {
+          "type": "string",
+          "format": "date-time",
+          "nullable": true
+        },
+        "routes": {
+          "type": "object",
+          "properties": {
+            "routesV4": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "destination": {
+                    "type": "string"
+                  },
+                  "gateway": {
+                    "type": "string"
+                  },
+                  "interface": {
+                    "type": "string"
+                  },
+                  "learnedFrom": {
+                    "type": "object",
+                    "properties": {
+                      "peerIP": {
+                        "type": "string"
+                      },
+                      "sourceType": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "routesV6": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "destination": {
+                    "type": "string"
+                  },
+                  "gateway": {
+                    "type": "string"
+                  },
+                  "interface": {
+                    "type": "string"
+                  },
+                  "learnedFrom": {
+                    "type": "object",
+                    "properties": {
+                      "peerIP": {
+                        "type": "string"
+                      },
+                      "sourceType": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "machinedrainrule.json",
+  "crd": {
+    "group": "cluster.x-k8s.io",
+    "kind": "MachineDrainRule",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "cluster-api",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/core-components.yaml",
+    "version": "v1.12.3",
+    "license": "Apache-2.0",
+    "homepage": "https://cluster-api.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "efd3bf1071394cf647972362f0bfafc25a0f9bc865dc0d40ef904112423c8d13"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "backupstoragelocation.json",
+  "crd": {
+    "group": "velero.io",
+    "kind": "BackupStorageLocation",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "velero",
+    "type": "helm",
+    "repo": "https://vmware-tanzu.github.io/helm-charts",
+    "chart": "velero",
+    "version": "11.4.0",
+    "license": "Apache-2.0",
+    "homepage": "https://velero.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "525e8a5cdb5f6d5eb2254a189f1d4a88e404c8171bd328043e80f29dbdcd1e37"
+  }
+}

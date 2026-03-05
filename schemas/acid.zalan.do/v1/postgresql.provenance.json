@@ -1,0 +1,24 @@
+{
+  "schema": "postgresql.json",
+  "crd": {
+    "group": "acid.zalan.do",
+    "kind": "postgresql",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "zalando-postgres-operator",
+    "type": "helm",
+    "repo": "https://opensource.zalando.com/postgres-operator/charts/postgres-operator",
+    "chart": "postgres-operator",
+    "version": "1.15.1",
+    "license": "MIT",
+    "homepage": "https://postgres-operator.readthedocs.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4ba57a386d219d70a2be07713e9cfbd4de186192548dd9ffc09f7cf4f91c059a"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "globalconfiguration.json",
+  "crd": {
+    "group": "k8s.nginx.org",
+    "kind": "GlobalConfiguration",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "nginx-ingress",
+    "type": "url",
+    "url": "https://raw.githubusercontent.com/nginx/kubernetes-ingress/v5.3.4/deploy/crds.yaml",
+    "version": "v5.3.4",
+    "license": "Apache-2.0",
+    "homepage": "https://docs.nginx.com/nginx-ingress-controller"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "75cc6d3d262b66d6266d6f347d87131b0b41a9c25c949b60277da9361294d32c"
+  }
+}

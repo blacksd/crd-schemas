@@ -1,0 +1,23 @@
+{
+  "schema": "kafkamirrormaker2.json",
+  "crd": {
+    "group": "kafka.strimzi.io",
+    "kind": "KafkaMirrorMaker2",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "strimzi-kafka",
+    "type": "url",
+    "url": "https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.50.1/strimzi-crds-0.50.1.yaml",
+    "version": "0.50.1",
+    "license": "Apache-2.0",
+    "homepage": "https://strimzi.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "fea5de36c4387e9434b6ccb2f023c0ebdf2332172f59f9b2df57da6378cf62eb"
+  }
+}

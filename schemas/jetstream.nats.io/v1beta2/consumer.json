@@ -1,0 +1,276 @@
+{
+  "type": "object",
+  "properties": {
+    "spec": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "description": "Name of the account to which the Consumer belongs.",
+          "type": "string",
+          "pattern": "^[^.*\u003e]*$"
+        },
+        "ackPolicy": {
+          "description": "How messages should be acknowledged.",
+          "type": "string",
+          "default": "none",
+          "enum": [
+            "none",
+            "all",
+            "explicit"
+          ]
+        },
+        "ackWait": {
+          "description": "How long to allow messages to remain un-acknowledged before attempting redelivery.",
+          "type": "string",
+          "default": "1ns"
+        },
+        "backoff": {
+          "description": "List of durations representing a retry time scale for NaK'd or retried messages.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "creds": {
+          "description": "NATS user credentials for connecting to servers. Please make sure your controller has mounted the creds on its path.",
+          "type": "string",
+          "default": ""
+        },
+        "deliverGroup": {
+          "description": "The name of a queue group.",
+          "type": "string"
+        },
+        "deliverPolicy": {
+          "type": "string",
+          "default": "all",
+          "enum": [
+            "all",
+            "last",
+            "new",
+            "byStartSequence",
+            "byStartTime",
+            "lastPerSubject"
+          ]
+        },
+        "deliverSubject": {
+          "description": "The subject to deliver observed messages, when not set, a pull-based Consumer is created.",
+          "type": "string"
+        },
+        "description": {
+          "description": "The description of the consumer.",
+          "type": "string"
+        },
+        "durableName": {
+          "description": "The name of the Consumer.",
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^.*\u003e]+$"
+        },
+        "filterSubject": {
+          "description": "Select only a specific incoming subjects, supports wildcards.",
+          "type": "string"
+        },
+        "filterSubjects": {
+          "description": "List of incoming subjects, supports wildcards. Available since 2.10.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "flowControl": {
+          "description": "Enables flow control.",
+          "type": "boolean",
+          "default": false
+        },
+        "headersOnly": {
+          "description": "When set, only the headers of messages in the stream are delivered, and not the bodies. Additionally, Nats-Msg-Size header is added to indicate the size of the removed payload.",
+          "type": "boolean",
+          "default": false
+        },
+        "heartbeatInterval": {
+          "description": "The interval used to deliver idle heartbeats for push-based consumers, in Go's time.Duration format.",
+          "type": "string"
+        },
+        "inactiveThreshold": {
+          "description": "The idle time an Ephemeral Consumer allows before it is removed.",
+          "type": "string"
+        },
+        "jsDomain": {
+          "description": "The JetStream domain to use for the consumer.",
+          "type": "string"
+        },
+        "maxAckPending": {
+          "description": "Maximum pending Acks before consumers are paused.",
+          "type": "integer"
+        },
+        "maxDeliver": {
+          "type": "integer",
+          "minimum": -1
+        },
+        "maxRequestBatch": {
+          "description": "The largest batch property that may be specified when doing a pull on a Pull Consumer.",
+          "type": "integer"
+        },
+        "maxRequestExpires": {
+          "description": "The maximum expires duration that may be set when doing a pull on a Pull Consumer.",
+          "type": "string"
+        },
+        "maxRequestMaxBytes": {
+          "description": "The maximum max_bytes value that maybe set when dong a pull on a Pull Consumer.",
+          "type": "integer"
+        },
+        "maxWaiting": {
+          "description": "The number of pulls that can be outstanding on a pull consumer, pulls received after this is reached are ignored.",
+          "type": "integer"
+        },
+        "memStorage": {
+          "description": "Force the consumer state to be kept in memory rather than inherit the setting from the stream.",
+          "type": "boolean",
+          "default": false
+        },
+        "metadata": {
+          "description": "Additional Consumer metadata.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "nkey": {
+          "description": "NATS user NKey for connecting to servers.",
+          "type": "string",
+          "default": ""
+        },
+        "optStartSeq": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "optStartTime": {
+          "description": "Time format must be RFC3339.",
+          "type": "string"
+        },
+        "pauseUntil": {
+          "description": "RFC3339 timestamp until which the consumer should be paused.",
+          "type": "string",
+          "default": ""
+        },
+        "pinnedTtl": {
+          "description": "TTL for pinned client when using pinned_client priority policy.",
+          "type": "string",
+          "default": ""
+        },
+        "preventDelete": {
+          "description": "When true, the managed Consumer will not be deleted when the resource is deleted.",
+          "type": "boolean",
+          "default": false
+        },
+        "preventUpdate": {
+          "description": "When true, the managed Consumer will not be updated when the resource is updated.",
+          "type": "boolean",
+          "default": false
+        },
+        "priorityGroups": {
+          "description": "List of priority groups for the consumer. For now, only one group is supported.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "priorityPolicy": {
+          "description": "Priority policy for consumer (pinned_client, overflow, prioritized, or none).",
+          "type": "string",
+          "default": ""
+        },
+        "rateLimitBps": {
+          "description": "Rate at which messages will be delivered to clients, expressed in bit per second.",
+          "type": "integer"
+        },
+        "replayPolicy": {
+          "description": "How messages are sent.",
+          "type": "string",
+          "default": "instant",
+          "enum": [
+            "instant",
+            "original"
+          ]
+        },
+        "replicas": {
+          "description": "When set do not inherit the replica count from the stream but specifically set it to this amount.",
+          "type": "integer"
+        },
+        "sampleFreq": {
+          "description": "What percentage of acknowledgements should be samples for observability.",
+          "type": "string"
+        },
+        "servers": {
+          "description": "A list of servers for creating consumer.",
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          }
+        },
+        "streamName": {
+          "description": "The name of the Stream to create the Consumer in.",
+          "type": "string"
+        },
+        "tls": {
+          "description": "A client's TLS certs and keys.",
+          "type": "object",
+          "properties": {
+            "clientCert": {
+              "description": "A client's cert filepath. Should be mounted.",
+              "type": "string"
+            },
+            "clientKey": {
+              "description": "A client's key filepath. Should be mounted.",
+              "type": "string"
+            },
+            "rootCas": {
+              "description": "A list of filepaths to CAs. Should be mounted.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "tlsFirst": {
+          "description": "When true, the KV Store will initiate TLS before server INFO.",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lastTransitionTime": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "observedGeneration": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

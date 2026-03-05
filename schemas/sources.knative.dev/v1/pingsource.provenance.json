@@ -1,0 +1,23 @@
+{
+  "schema": "pingsource.json",
+  "crd": {
+    "group": "sources.knative.dev",
+    "kind": "PingSource",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "knative-eventing",
+    "type": "url",
+    "url": "https://github.com/knative/eventing/releases/download/knative-v1.21.0/eventing-crds.yaml",
+    "version": "v1.21.0",
+    "license": "Apache-2.0",
+    "homepage": "https://knative.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "41de50c5d821b9e81de3dad113fff5e28280bab1ed0acde6c27e8962c6e73029"
+  }
+}

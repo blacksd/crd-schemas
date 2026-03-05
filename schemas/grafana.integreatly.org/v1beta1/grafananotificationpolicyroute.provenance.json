@@ -1,0 +1,24 @@
+{
+  "schema": "grafananotificationpolicyroute.json",
+  "crd": {
+    "group": "grafana.integreatly.org",
+    "kind": "GrafanaNotificationPolicyRoute",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "grafana-operator",
+    "type": "helm",
+    "repo": "https://grafana.github.io/helm-charts",
+    "chart": "grafana-operator",
+    "version": "5.22.0",
+    "license": "Apache-2.0",
+    "homepage": "https://grafana.github.io/grafana-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "15f8edbcd0bff30536b3c7a9f45df5f0ef5362ddc122c11f11662d242db73860"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "required": [
+        "allocations",
+        "attributes",
+        "cidr",
+        "strictAffinity",
+        "unallocated"
+      ],
+      "properties": {
+        "affinity": {
+          "type": "string"
+        },
+        "allocations": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "nullable": true
+          }
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "handle_id": {
+                "type": "string"
+              },
+              "secondary": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "cidr": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "sequenceNumber": {
+          "type": "integer",
+          "format": "int64",
+          "default": 0
+        },
+        "sequenceNumberForAllocation": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "strictAffinity": {
+          "type": "boolean"
+        },
+        "unallocated": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

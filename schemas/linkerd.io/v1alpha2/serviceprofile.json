@@ -1,0 +1,175 @@
+{
+  "type": "object",
+  "properties": {
+    "spec": {
+      "description": "Spec is the custom resource spec",
+      "type": "object",
+      "properties": {
+        "dstOverrides": {
+          "type": "array",
+          "required": [
+            "authority",
+            "weight"
+          ],
+          "items": {
+            "description": "WeightedDst is a weighted alternate destination.",
+            "type": "object",
+            "properties": {
+              "authority": {
+                "type": "string"
+              },
+              "weight": {
+                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "x-kubernetes-int-or-string": true
+              }
+            }
+          }
+        },
+        "opaquePorts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "retryBudget": {
+          "description": "RetryBudget describes the maximum number of retries that should be issued to this service.",
+          "type": "object",
+          "required": [
+            "minRetriesPerSecond",
+            "retryRatio",
+            "ttl"
+          ],
+          "properties": {
+            "minRetriesPerSecond": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "retryRatio": {
+              "type": "number",
+              "format": "float"
+            },
+            "ttl": {
+              "type": "string"
+            }
+          }
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "description": "RouteSpec specifies a Route resource.",
+            "type": "object",
+            "required": [
+              "condition",
+              "name"
+            ],
+            "properties": {
+              "condition": {
+                "description": "RequestMatch describes the conditions under which to match a Route.",
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "x-kubernetes-preserve-unknown-fields": true
+                    }
+                  },
+                  "any": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "x-kubernetes-preserve-unknown-fields": true
+                    }
+                  },
+                  "method": {
+                    "type": "string"
+                  },
+                  "not": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "x-kubernetes-preserve-unknown-fields": true
+                    }
+                  },
+                  "pathRegex": {
+                    "type": "string"
+                  }
+                }
+              },
+              "isRetryable": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "responseClasses": {
+                "type": "array",
+                "items": {
+                  "description": "ResponseClass describes how to classify a response (e.g. success or failures).",
+                  "type": "object",
+                  "required": [
+                    "condition"
+                  ],
+                  "properties": {
+                    "condition": {
+                      "description": "ResponseMatch describes the conditions under which to classify a response.",
+                      "type": "object",
+                      "properties": {
+                        "all": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "x-kubernetes-preserve-unknown-fields": true
+                          }
+                        },
+                        "any": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "x-kubernetes-preserve-unknown-fields": true
+                          }
+                        },
+                        "not": {
+                          "type": "object",
+                          "x-kubernetes-preserve-unknown-fields": true
+                        },
+                        "status": {
+                          "description": "Range describes a range of integers (e.g. status codes).",
+                          "type": "object",
+                          "properties": {
+                            "max": {
+                              "type": "integer",
+                              "format": "int32"
+                            },
+                            "min": {
+                              "type": "integer",
+                              "format": "int32"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "isFailure": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              },
+              "timeout": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

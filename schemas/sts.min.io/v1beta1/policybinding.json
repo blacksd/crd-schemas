@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "required": [
+        "application",
+        "policies"
+      ],
+      "properties": {
+        "application": {
+          "type": "object",
+          "required": [
+            "namespace",
+            "serviceaccount"
+          ],
+          "properties": {
+            "namespace": {
+              "type": "string"
+            },
+            "serviceaccount": {
+              "type": "string"
+            }
+          }
+        },
+        "policies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "required": [
+        "currentState",
+        "usage"
+      ],
+      "properties": {
+        "currentState": {
+          "type": "string"
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "authotizations": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "nullable": true
+        }
+      }
+    }
+  }
+}

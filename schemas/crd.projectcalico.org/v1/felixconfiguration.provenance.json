@@ -1,0 +1,27 @@
+{
+  "schema": "felixconfiguration.json",
+  "crd": {
+    "group": "crd.projectcalico.org",
+    "kind": "FelixConfiguration",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "tigera-operator",
+    "type": "helm",
+    "repo": "https://docs.tigera.io/calico/charts",
+    "chart": "tigera-operator",
+    "version": "v3.31.4",
+    "license": "Apache-2.0",
+    "homepage": "https://www.tigera.io/project-calico",
+    "include": [
+      "crd.projectcalico.org/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c9a220af96c4baefd3fab1dddbf5b5e9d4b20077004e6bb33e411438224005fd"
+  }
+}

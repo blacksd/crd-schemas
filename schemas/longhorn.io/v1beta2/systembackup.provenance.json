@@ -1,0 +1,24 @@
+{
+  "schema": "systembackup.json",
+  "crd": {
+    "group": "longhorn.io",
+    "kind": "SystemBackup",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "longhorn",
+    "type": "helm",
+    "repo": "https://charts.longhorn.io",
+    "chart": "longhorn",
+    "version": "1.11.0",
+    "license": "Apache-2.0",
+    "homepage": "https://longhorn.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8b0d2af7886b6731d51a09631e703b0bd62edfb796b3d64af12ff79ddc1ca0df"
+  }
+}

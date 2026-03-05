@@ -1,0 +1,24 @@
+{
+  "schema": "cephfilesystemmirror.json",
+  "crd": {
+    "group": "ceph.rook.io",
+    "kind": "CephFilesystemMirror",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "rook-ceph",
+    "type": "helm",
+    "repo": "https://charts.rook.io/release",
+    "chart": "rook-ceph",
+    "version": "v1.19.2",
+    "license": "Apache-2.0",
+    "homepage": "https://rook.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "35ed8a96b6fa5ba498e91af6d9f7ee10670de6b9a8579ef7ce87859abb4ae149"
+  }
+}

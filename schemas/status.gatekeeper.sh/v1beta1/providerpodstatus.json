@@ -1,0 +1,80 @@
+{
+  "description": "ProviderPodStatus is the Schema for the providerpodstatuses API.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "status": {
+      "description": "No spec field is defined here, as this is a status-only resource.",
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "description": "ProviderError represents a single error caught while managing providers.",
+            "type": "object",
+            "required": [
+              "errorTimestamp",
+              "message",
+              "retryable",
+              "type"
+            ],
+            "properties": {
+              "errorTimestamp": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "type": "string"
+              },
+              "retryable": {
+                "type": "boolean"
+              },
+              "type": {
+                "description": "Type indicates a specific class of error for use by controller code.\nIf not present, the error should be treated as not matching any known type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "lastCacheUpdateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastTransitionTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "observedGeneration": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "providerUID": {
+          "description": "Storing the provider UID allows us to detect drift, such as\nwhen a provider has been recreated after its CRD was deleted\nout from under it, interrupting the watch",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

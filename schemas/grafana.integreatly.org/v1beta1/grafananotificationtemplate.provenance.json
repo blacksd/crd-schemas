@@ -1,0 +1,24 @@
+{
+  "schema": "grafananotificationtemplate.json",
+  "crd": {
+    "group": "grafana.integreatly.org",
+    "kind": "GrafanaNotificationTemplate",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "grafana-operator",
+    "type": "helm",
+    "repo": "https://grafana.github.io/helm-charts",
+    "chart": "grafana-operator",
+    "version": "5.22.0",
+    "license": "Apache-2.0",
+    "homepage": "https://grafana.github.io/grafana-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "83ec2bce9f694d341753833b1b7c3bc1847f9677d4cea28462c4e03ce207aba1"
+  }
+}

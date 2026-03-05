@@ -1,0 +1,23 @@
+{
+  "schema": "broker.json",
+  "crd": {
+    "group": "eventing.knative.dev",
+    "kind": "Broker",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "knative-eventing",
+    "type": "url",
+    "url": "https://github.com/knative/eventing/releases/download/knative-v1.21.0/eventing-crds.yaml",
+    "version": "v1.21.0",
+    "license": "Apache-2.0",
+    "homepage": "https://knative.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "41a23fe85e466678b04e8f390a01a62c36d31eba998bd7d1edc490c45451f4a9"
+  }
+}

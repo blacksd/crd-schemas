@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "required": [
+        "autoAllocateBlocks",
+        "strictAffinity"
+      ],
+      "properties": {
+        "autoAllocateBlocks": {
+          "type": "boolean"
+        },
+        "maxBlocksPerHost": {
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": 0
+        },
+        "strictAffinity": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

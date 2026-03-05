@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "properties": {
+    "spec": {
+      "type": "object",
+      "properties": {
+        "additionalState": {
+          "type": "object",
+          "nullable": true,
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "authentication": {
+          "type": "object",
+          "items": {
+            "type": "object",
+            "x-kubernetes-preserve-unknown-fields": true
+          },
+          "nullable": true
+        },
+        "claimRef": {
+          "type": "object",
+          "nullable": true,
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "endpoint": {
+          "type": "object",
+          "properties": {
+            "additionalConfig": {
+              "type": "object",
+              "nullable": true,
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "bucketHost": {
+              "type": "string"
+            },
+            "bucketName": {
+              "type": "string"
+            },
+            "bucketPort": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "region": {
+              "type": "string"
+            },
+            "subRegion": {
+              "type": "string"
+            }
+          },
+          "nullable": true
+        },
+        "reclaimPolicy": {
+          "type": "string"
+        },
+        "storageClassName": {
+          "type": "string"
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "x-kubernetes-preserve-unknown-fields": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "kafkabridge.json",
+  "crd": {
+    "group": "kafka.strimzi.io",
+    "kind": "KafkaBridge",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "strimzi-kafka",
+    "type": "url",
+    "url": "https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.50.1/strimzi-crds-0.50.1.yaml",
+    "version": "0.50.1",
+    "license": "Apache-2.0",
+    "homepage": "https://strimzi.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4df48049a193110eab7b2e4a5115036a99f46fb334e3fa80744117537bcba1cf"
+  }
+}

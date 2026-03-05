@@ -1,0 +1,27 @@
+{
+  "schema": "constraintpodstatus.json",
+  "crd": {
+    "group": "status.gatekeeper.sh",
+    "kind": "ConstraintPodStatus",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "gatekeeper",
+    "type": "helm",
+    "repo": "https://open-policy-agent.github.io/gatekeeper/charts",
+    "chart": "gatekeeper",
+    "version": "3.21.1",
+    "license": "Apache-2.0",
+    "homepage": "https://open-policy-agent.github.io/gatekeeper",
+    "include": [
+      "status.gatekeeper.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f38459f3259f83c278381a69278651dfa6cd744814796f248d8714a9d02d2e1f"
+  }
+}

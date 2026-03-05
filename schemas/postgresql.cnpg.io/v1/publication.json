@@ -1,0 +1,177 @@
+{
+  "description": "Publication is the Schema for the publications API",
+  "type": "object",
+  "required": [
+    "metadata",
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "PublicationSpec defines the desired state of Publication",
+      "type": "object",
+      "required": [
+        "cluster",
+        "dbname",
+        "name",
+        "target"
+      ],
+      "properties": {
+        "cluster": {
+          "description": "The name of the PostgreSQL cluster that identifies the \"publisher\"",
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "type": "string",
+              "default": ""
+            }
+          },
+          "x-kubernetes-map-type": "atomic"
+        },
+        "dbname": {
+          "description": "The name of the database where the publication will be installed in\nthe \"publisher\" cluster",
+          "type": "string",
+          "x-kubernetes-validations": [
+            {
+              "rule": "self == oldSelf",
+              "message": "dbname is immutable"
+            }
+          ]
+        },
+        "name": {
+          "description": "The name of the publication inside PostgreSQL",
+          "type": "string",
+          "x-kubernetes-validations": [
+            {
+              "rule": "self == oldSelf",
+              "message": "name is immutable"
+            }
+          ]
+        },
+        "parameters": {
+          "description": "Publication parameters part of the `WITH` clause as expected by\nPostgreSQL `CREATE PUBLICATION` command",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "publicationReclaimPolicy": {
+          "description": "The policy for end-of-life maintenance of this publication",
+          "type": "string",
+          "default": "retain",
+          "enum": [
+            "delete",
+            "retain"
+          ]
+        },
+        "target": {
+          "description": "Target of the publication as expected by PostgreSQL `CREATE PUBLICATION` command",
+          "type": "object",
+          "properties": {
+            "allTables": {
+              "description": "Marks the publication as one that replicates changes for all tables\nin the database, including tables created in the future.\nCorresponding to `FOR ALL TABLES` in PostgreSQL.",
+              "type": "boolean",
+              "x-kubernetes-validations": [
+                {
+                  "rule": "self == oldSelf",
+                  "message": "allTables is immutable"
+                }
+              ]
+            },
+            "objects": {
+              "description": "Just the following schema objects",
+              "type": "array",
+              "maxItems": 100000,
+              "items": {
+                "description": "PublicationTargetObject is an object to publish",
+                "type": "object",
+                "properties": {
+                  "table": {
+                    "description": "Specifies a list of tables to add to the publication. Corresponding\nto `FOR TABLE` in PostgreSQL.",
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "columns": {
+                        "description": "The columns to publish",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The table name",
+                        "type": "string"
+                      },
+                      "only": {
+                        "description": "Whether to limit to the table only or include all its descendants",
+                        "type": "boolean"
+                      },
+                      "schema": {
+                        "description": "The schema name",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "tablesInSchema": {
+                    "description": "Marks the publication as one that replicates changes for all tables\nin the specified list of schemas, including tables created in the\nfuture. Corresponding to `FOR TABLES IN SCHEMA` in PostgreSQL.",
+                    "type": "string"
+                  }
+                },
+                "x-kubernetes-validations": [
+                  {
+                    "rule": "(has(self.tablesInSchema) \u0026\u0026 !has(self.table)) || (!has(self.tablesInSchema) \u0026\u0026 has(self.table))",
+                    "message": "tablesInSchema and table are mutually exclusive"
+                  }
+                ]
+              },
+              "x-kubernetes-validations": [
+                {
+                  "rule": "!(self.exists(o, has(o.table) \u0026\u0026 has(o.table.columns)) \u0026\u0026 self.exists(o, has(o.tablesInSchema)))",
+                  "message": "specifying a column list when the publication also publishes tablesInSchema is not supported"
+                }
+              ]
+            }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "(has(self.allTables) \u0026\u0026 !has(self.objects)) || (!has(self.allTables) \u0026\u0026 has(self.objects))",
+              "message": "allTables and objects are mutually exclusive"
+            }
+          ]
+        }
+      }
+    },
+    "status": {
+      "description": "PublicationStatus defines the observed state of Publication",
+      "type": "object",
+      "properties": {
+        "applied": {
+          "description": "Applied is true if the publication was reconciled correctly",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "Message is the reconciliation output message",
+          "type": "string"
+        },
+        "observedGeneration": {
+          "description": "A sequence number representing the latest\ndesired state that was synchronized",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

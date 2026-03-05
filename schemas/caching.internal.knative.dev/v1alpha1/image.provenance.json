@@ -1,0 +1,23 @@
+{
+  "schema": "image.json",
+  "crd": {
+    "group": "caching.internal.knative.dev",
+    "kind": "Image",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "knative-serving",
+    "type": "url",
+    "url": "https://github.com/knative/serving/releases/download/knative-v1.21.1/serving-crds.yaml",
+    "version": "v1.21.1",
+    "license": "Apache-2.0",
+    "homepage": "https://knative.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c8495c6dab257522264d3d3b1b7d8169bc2ac4d72f8395e027caaefbfe64a7fe"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "description": "ConstraintPodStatus is the Schema for the constraintpodstatuses API.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "status": {
+      "description": "ConstraintPodStatusStatus defines the observed state of ConstraintPodStatus.",
+      "type": "object",
+      "properties": {
+        "constraintUID": {
+          "description": "Storing the constraint UID allows us to detect drift, such as\nwhen a constraint has been recreated after its CRD was deleted\nout from under it, interrupting the watch",
+          "type": "string"
+        },
+        "enforced": {
+          "type": "boolean"
+        },
+        "enforcementPointsStatus": {
+          "type": "array",
+          "items": {
+            "description": "EnforcementPointStatus represents the status of a single enforcement point.",
+            "type": "object",
+            "required": [
+              "enforcementPoint",
+              "state"
+            ],
+            "properties": {
+              "enforcementPoint": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "observedGeneration": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "state": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "description": "Error represents a single error caught while adding a constraint to engine.",
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "observedGeneration": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "verticalpodautoscalercheckpoint.json",
+  "crd": {
+    "group": "autoscaling.k8s.io",
+    "kind": "VerticalPodAutoscalerCheckpoint",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "vpa",
+    "type": "url",
+    "url": "https://raw.githubusercontent.com/kubernetes/autoscaler/vertical-pod-autoscaler-1.6.0/vertical-pod-autoscaler/deploy/vpa-v1-crd-gen.yaml",
+    "version": "1.6.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ac52bb7cecd989c018edfdda6deab1e101ac3730cb0dad7bc293b217cb5efb34"
+  }
+}

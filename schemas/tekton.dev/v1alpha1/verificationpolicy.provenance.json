@@ -1,0 +1,23 @@
+{
+  "schema": "verificationpolicy.json",
+  "crd": {
+    "group": "tekton.dev",
+    "kind": "VerificationPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "tekton-pipelines",
+    "type": "url",
+    "url": "https://github.com/tektoncd/pipeline/releases/download/v1.10.0/release.yaml",
+    "version": "v1.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://tekton.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8eb1ed22ac6f56fcfabcc6e990dfdab0df8acf94a637eb0aed15f4a460fbd5f6"
+  }
+}

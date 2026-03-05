@@ -1,0 +1,315 @@
+{
+  "description": "Node is where Longhorn stores Longhorn node object.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "NodeSpec defines the desired state of the Longhorn node",
+      "type": "object",
+      "properties": {
+        "allowScheduling": {
+          "type": "boolean"
+        },
+        "disks": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "allowScheduling": {
+                "type": "boolean"
+              },
+              "diskDriver": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "auto",
+                  "aio",
+                  "nvme"
+                ]
+              },
+              "diskType": {
+                "type": "string",
+                "enum": [
+                  "filesystem",
+                  "block"
+                ]
+              },
+              "evictionRequested": {
+                "type": "boolean"
+              },
+              "path": {
+                "type": "string"
+              },
+              "storageReserved": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "evictionRequested": {
+          "type": "boolean"
+        },
+        "instanceManagerCPURequest": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "description": "NodeStatus defines the observed state of the Longhorn node",
+      "type": "object",
+      "properties": {
+        "autoEvicting": {
+          "type": "boolean"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lastProbeTime": {
+                "description": "Last time we probed the condition.",
+                "type": "string"
+              },
+              "lastTransitionTime": {
+                "description": "Last time the condition transitioned from one status to another.",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human-readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status is the status of the condition.\nCan be True, False, Unknown.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type is the type of the condition.",
+                "type": "string"
+              }
+            }
+          },
+          "nullable": true
+        },
+        "diskStatus": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "conditions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "lastProbeTime": {
+                      "description": "Last time we probed the condition.",
+                      "type": "string"
+                    },
+                    "lastTransitionTime": {
+                      "description": "Last time the condition transitioned from one status to another.",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Human-readable message indicating details about last transition.",
+                      "type": "string"
+                    },
+                    "reason": {
+                      "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "Status is the status of the condition.\nCan be True, False, Unknown.",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Type is the type of the condition.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "nullable": true
+              },
+              "diskDriver": {
+                "type": "string"
+              },
+              "diskName": {
+                "type": "string"
+              },
+              "diskPath": {
+                "type": "string"
+              },
+              "diskType": {
+                "type": "string"
+              },
+              "diskUUID": {
+                "type": "string"
+              },
+              "filesystemType": {
+                "type": "string"
+              },
+              "healthData": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "attributes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "rawString": {
+                            "type": "string"
+                          },
+                          "rawValue": {
+                            "type": "integer",
+                            "format": "int64"
+                          },
+                          "threshold": {
+                            "type": "integer"
+                          },
+                          "value": {
+                            "type": "integer"
+                          },
+                          "whenFailed": {
+                            "type": "string"
+                          },
+                          "worst": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "capacity": {
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "diskName": {
+                      "type": "string"
+                    },
+                    "diskType": {
+                      "type": "string"
+                    },
+                    "firmwareVersion": {
+                      "type": "string"
+                    },
+                    "healthStatus": {
+                      "type": "string",
+                      "enum": [
+                        "FAILED",
+                        "PASSED",
+                        "UNKNOWN",
+                        "WARNING"
+                      ]
+                    },
+                    "modelName": {
+                      "type": "string"
+                    },
+                    "serialNumber": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "type": "string",
+                      "enum": [
+                        "SMART",
+                        "SPDK"
+                      ]
+                    },
+                    "temperature": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              },
+              "healthDataLastCollectedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "instanceManagerName": {
+                "type": "string"
+              },
+              "scheduledBackingImage": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              },
+              "scheduledReplica": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "nullable": true
+              },
+              "storageAvailable": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "storageMaximum": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "storageScheduled": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          "nullable": true
+        },
+        "region": {
+          "type": "string"
+        },
+        "snapshotCheckStatus": {
+          "type": "object",
+          "properties": {
+            "lastPeriodicCheckedAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "zone": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

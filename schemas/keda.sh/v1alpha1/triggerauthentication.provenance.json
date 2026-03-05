@@ -1,0 +1,24 @@
+{
+  "schema": "triggerauthentication.json",
+  "crd": {
+    "group": "keda.sh",
+    "kind": "TriggerAuthentication",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "keda",
+    "type": "helm",
+    "repo": "https://kedacore.github.io/charts",
+    "chart": "keda",
+    "version": "2.19.0",
+    "license": "Apache-2.0",
+    "homepage": "https://keda.sh"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b9240f05507e5d16f49f466da1fa7c388be89b75b68eaf7cf9d50e8b3ab26b0d"
+  }
+}

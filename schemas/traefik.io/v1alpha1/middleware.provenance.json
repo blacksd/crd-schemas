@@ -1,0 +1,27 @@
+{
+  "schema": "middleware.json",
+  "crd": {
+    "group": "traefik.io",
+    "kind": "Middleware",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "traefik",
+    "type": "helm",
+    "repo": "https://traefik.github.io/charts",
+    "chart": "traefik",
+    "version": "39.0.3",
+    "license": "MIT",
+    "homepage": "https://traefik.io",
+    "include": [
+      "traefik.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "05d69b97867e98882bf20dd466d63a970aeb2e9c0ed9a04f29b33f16815a8f15"
+  }
+}

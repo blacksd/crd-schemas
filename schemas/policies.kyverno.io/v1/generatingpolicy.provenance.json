@@ -1,0 +1,27 @@
+{
+  "schema": "generatingpolicy.json",
+  "crd": {
+    "group": "policies.kyverno.io",
+    "kind": "GeneratingPolicy",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "kyverno",
+    "type": "helm",
+    "repo": "https://kyverno.github.io/kyverno",
+    "chart": "kyverno",
+    "version": "3.7.1",
+    "license": "Apache-2.0",
+    "homepage": "https://kyverno.io",
+    "include": [
+      "policies.kyverno.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "877e74f486a65179cd272f8360d8619d1ffb161bb93ea04c4b5bfd02fa209e48"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "virtualserver.json",
+  "crd": {
+    "group": "k8s.nginx.org",
+    "kind": "VirtualServer",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "nginx-ingress",
+    "type": "url",
+    "url": "https://raw.githubusercontent.com/nginx/kubernetes-ingress/v5.3.4/deploy/crds.yaml",
+    "version": "v5.3.4",
+    "license": "Apache-2.0",
+    "homepage": "https://docs.nginx.com/nginx-ingress-controller"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "352e7a03537f789922960d044350d6dfd5625b80f366fef69c1b07c3c18bf65d"
+  }
+}

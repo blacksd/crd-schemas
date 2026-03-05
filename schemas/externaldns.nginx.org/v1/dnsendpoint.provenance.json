@@ -1,0 +1,23 @@
+{
+  "schema": "dnsendpoint.json",
+  "crd": {
+    "group": "externaldns.nginx.org",
+    "kind": "DNSEndpoint",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "nginx-ingress",
+    "type": "url",
+    "url": "https://raw.githubusercontent.com/nginx/kubernetes-ingress/v5.3.4/deploy/crds.yaml",
+    "version": "v5.3.4",
+    "license": "Apache-2.0",
+    "homepage": "https://docs.nginx.com/nginx-ingress-controller"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T11:37:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "dde41af4de0e0af9301d3352c39361fc031b866e09a5b821a5310966eba30ad4"
+  }
+}
