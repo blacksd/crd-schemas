@@ -1,0 +1,7 @@
+sources:
+  - name: contour
+    type: url
+    url: https://raw.githubusercontent.com/projectcontour/contour/v1.33.2/examples/contour/01-crds.yaml
+    version: v1.33.2
+    license: Apache-2.0
+    homepage: https://projectcontour.io

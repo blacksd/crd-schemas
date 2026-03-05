@@ -1,0 +1,10 @@
+sources:
+  - name: gatekeeper
+    type: helm
+    repo: https://open-policy-agent.github.io/gatekeeper/charts
+    chart: gatekeeper
+    version: 3.21.1
+    license: Apache-2.0
+    homepage: https://open-policy-agent.github.io/gatekeeper
+    include:
+      - "syncset.gatekeeper.sh/*"

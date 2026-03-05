@@ -1,0 +1,9 @@
+sources:
+  - name: flux
+    type: url
+    url: https://github.com/fluxcd/flux2/releases/download/v2.8.1/install.yaml
+    version: v2.8.1
+    license: Apache-2.0
+    homepage: https://fluxcd.io
+    include:
+      - "helm.toolkit.fluxcd.io/*"

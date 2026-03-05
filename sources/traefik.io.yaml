@@ -1,0 +1,10 @@
+sources:
+  - name: traefik
+    type: helm
+    repo: https://traefik.github.io/charts
+    chart: traefik
+    version: 39.0.3
+    license: MIT
+    homepage: https://traefik.io
+    include:
+      - "traefik.io/*"

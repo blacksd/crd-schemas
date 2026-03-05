@@ -1,0 +1,8 @@
+sources:
+  - name: velero
+    type: helm
+    repo: https://vmware-tanzu.github.io/helm-charts
+    chart: velero
+    version: 11.4.0
+    license: Apache-2.0
+    homepage: https://velero.io
