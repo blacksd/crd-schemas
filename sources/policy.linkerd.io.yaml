@@ -1,0 +1,10 @@
+sources:
+  - name: linkerd-crds
+    type: helm
+    repo: https://helm.linkerd.io/edge
+    chart: linkerd-crds
+    version: 2026.2.1
+    license: Apache-2.0
+    homepage: https://linkerd.io
+    include:
+      - "policy.linkerd.io/*"

@@ -1,0 +1,8 @@
+sources:
+  - name: minio-operator
+    type: helm
+    repo: https://operator.min.io
+    chart: operator
+    version: 7.1.1
+    license: AGPL-3.0-or-later
+    homepage: https://min.io

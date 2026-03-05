@@ -1,0 +1,8 @@
+sources:
+  - name: trivy-operator
+    type: helm
+    repo: https://aquasecurity.github.io/helm-charts
+    chart: trivy-operator
+    version: 0.32.0
+    license: Apache-2.0
+    homepage: https://aquasecurity.github.io/trivy-operator

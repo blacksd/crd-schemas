@@ -1,0 +1,8 @@
+sources:
+  - name: zalando-postgres-operator
+    type: helm
+    repo: https://opensource.zalando.com/postgres-operator/charts/postgres-operator
+    chart: postgres-operator
+    version: 1.15.1
+    license: MIT
+    homepage: https://postgres-operator.readthedocs.io
