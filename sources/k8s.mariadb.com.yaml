@@ -1,0 +1,8 @@
+sources:
+  - name: mariadb-operator-crds
+    type: helm
+    repo: https://mariadb-operator.github.io/mariadb-operator
+    chart: mariadb-operator-crds
+    version: 25.10.4
+    license: MIT
+    homepage: https://github.com/mariadb-operator/mariadb-operator

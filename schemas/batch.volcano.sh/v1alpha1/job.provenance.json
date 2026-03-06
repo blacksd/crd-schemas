@@ -1,0 +1,27 @@
+{
+  "schema": "job.json",
+  "crd": {
+    "group": "batch.volcano.sh",
+    "kind": "Job",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "volcano",
+    "type": "helm",
+    "repo": "https://volcano-sh.github.io/helm-charts",
+    "chart": "volcano",
+    "version": "1.14.1",
+    "license": "Apache-2.0",
+    "homepage": "https://volcano.sh",
+    "include": [
+      "batch.volcano.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:41Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c123c1e0e3ba1969c54f45c837dda215bbd0872e348f4bb5d7c0b339c5260f0e"
+  }
+}

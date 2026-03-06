@@ -1,0 +1,24 @@
+{
+  "schema": "physicalmachine.json",
+  "crd": {
+    "group": "chaos-mesh.org",
+    "kind": "PhysicalMachine",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "chaos-mesh",
+    "type": "helm",
+    "repo": "https://charts.chaos-mesh.org",
+    "chart": "chaos-mesh",
+    "version": "2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://chaos-mesh.org"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:29Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "abef9d00b9875126e3e4721a1891eb1d6722125571180cb876b9e2f01ce5a853"
+  }
+}

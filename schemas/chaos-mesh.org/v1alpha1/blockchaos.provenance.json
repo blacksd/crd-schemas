@@ -1,0 +1,24 @@
+{
+  "schema": "blockchaos.json",
+  "crd": {
+    "group": "chaos-mesh.org",
+    "kind": "BlockChaos",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "chaos-mesh",
+    "type": "helm",
+    "repo": "https://charts.chaos-mesh.org",
+    "chart": "chaos-mesh",
+    "version": "2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://chaos-mesh.org"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:29Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "78df5dfa6518c2e74ded32e475bb1fee68bf82d1c561548b21df460df6fc7703"
+  }
+}

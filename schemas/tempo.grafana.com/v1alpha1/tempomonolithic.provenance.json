@@ -1,0 +1,23 @@
+{
+  "schema": "tempomonolithic.json",
+  "crd": {
+    "group": "tempo.grafana.com",
+    "kind": "TempoMonolithic",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "tempo-operator",
+    "type": "url",
+    "url": "https://github.com/grafana/tempo-operator/releases/download/v0.20.0/tempo-operator.yaml",
+    "version": "v0.20.0",
+    "license": "AGPL-3.0",
+    "homepage": "https://grafana.com/docs/tempo/latest/setup/operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:50Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "561b33929a7735ae15ae380edbcf81ab0c19dd1e3d8662d7f517c955b3e6f753"
+  }
+}

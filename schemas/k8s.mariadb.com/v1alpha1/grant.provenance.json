@@ -1,0 +1,24 @@
+{
+  "schema": "grant.json",
+  "crd": {
+    "group": "k8s.mariadb.com",
+    "kind": "Grant",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "mariadb-operator-crds",
+    "type": "helm",
+    "repo": "https://mariadb-operator.github.io/mariadb-operator",
+    "chart": "mariadb-operator-crds",
+    "version": "25.10.4",
+    "license": "MIT",
+    "homepage": "https://github.com/mariadb-operator/mariadb-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:12Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "003f64f382a0b1b65369038f622155f5d49e890a811712d4976f38cb371941dd"
+  }
+}

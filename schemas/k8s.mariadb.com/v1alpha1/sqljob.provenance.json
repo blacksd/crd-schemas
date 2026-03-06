@@ -1,0 +1,24 @@
+{
+  "schema": "sqljob.json",
+  "crd": {
+    "group": "k8s.mariadb.com",
+    "kind": "SqlJob",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "mariadb-operator-crds",
+    "type": "helm",
+    "repo": "https://mariadb-operator.github.io/mariadb-operator",
+    "chart": "mariadb-operator-crds",
+    "version": "25.10.4",
+    "license": "MIT",
+    "homepage": "https://github.com/mariadb-operator/mariadb-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:12Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a4d6403bc8f1076300752902a2bc28e170d7b0ae07f85cc7c2e6f556a1eb18c6"
+  }
+}

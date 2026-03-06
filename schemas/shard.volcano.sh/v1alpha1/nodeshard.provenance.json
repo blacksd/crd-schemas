@@ -1,0 +1,27 @@
+{
+  "schema": "nodeshard.json",
+  "crd": {
+    "group": "shard.volcano.sh",
+    "kind": "NodeShard",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "volcano",
+    "type": "helm",
+    "repo": "https://volcano-sh.github.io/helm-charts",
+    "chart": "volcano",
+    "version": "1.14.1",
+    "license": "Apache-2.0",
+    "homepage": "https://volcano.sh",
+    "include": [
+      "shard.volcano.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:41Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "3c4c7200f021186a7423c0ac4b0ef459b30f66350cff30e9ec20b77c0ba12a01"
+  }
+}

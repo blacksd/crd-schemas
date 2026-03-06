@@ -1,0 +1,24 @@
+{
+  "schema": "perconaservermongodbbackup.json",
+  "crd": {
+    "group": "psmdb.percona.com",
+    "kind": "PerconaServerMongoDBBackup",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "psmdb-operator",
+    "type": "helm",
+    "repo": "https://percona.github.io/percona-helm-charts",
+    "chart": "psmdb-operator",
+    "version": "1.22.0",
+    "license": "Apache-2.0",
+    "homepage": "https://www.percona.com/percona-server-mongodb-kubernetes"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:32Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "476de673bab88552f54248fd3ad0a0772965c6f782bfae440b0feb1617eb24f0"
+  }
+}

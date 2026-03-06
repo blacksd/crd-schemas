@@ -1,0 +1,27 @@
+{
+  "schema": "cronjob.json",
+  "crd": {
+    "group": "batch.volcano.sh",
+    "kind": "CronJob",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "volcano",
+    "type": "helm",
+    "repo": "https://volcano-sh.github.io/helm-charts",
+    "chart": "volcano",
+    "version": "1.14.1",
+    "license": "Apache-2.0",
+    "homepage": "https://volcano.sh",
+    "include": [
+      "batch.volcano.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:41Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4173f2eb5059a4410d7526ad7e9548e55655dff629d5175d3bd5788eb7460707"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "broker.json",
+  "crd": {
+    "group": "submariner.io",
+    "kind": "Broker",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "submariner-operator",
+    "type": "helm",
+    "repo": "https://submariner-io.github.io/submariner-charts/charts",
+    "chart": "submariner-operator",
+    "version": "0.22.1",
+    "license": "Apache-2.0",
+    "homepage": "https://submariner.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:07Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "88df02a5a7be76ffc1606ac526acd84d21b73abf959d85e6ef651104d7f579a2"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "numatopology.json",
+  "crd": {
+    "group": "nodeinfo.volcano.sh",
+    "kind": "Numatopology",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "volcano",
+    "type": "helm",
+    "repo": "https://volcano-sh.github.io/helm-charts",
+    "chart": "volcano",
+    "version": "1.14.1",
+    "license": "Apache-2.0",
+    "homepage": "https://volcano.sh",
+    "include": [
+      "nodeinfo.volcano.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:41Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "03fef6af0a2a1600362a3a410a1babaf0243cdd65cf6756c43c27d43f1abb09e"
+  }
+}

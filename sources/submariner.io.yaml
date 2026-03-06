@@ -1,0 +1,8 @@
+sources:
+  - name: submariner-operator
+    type: helm
+    repo: https://submariner-io.github.io/submariner-charts/charts
+    chart: submariner-operator
+    version: 0.22.1
+    license: Apache-2.0
+    homepage: https://submariner.io

@@ -1,0 +1,8 @@
+sources:
+  - name: redis-operator
+    type: helm
+    repo: https://ot-container-kit.github.io/helm-charts
+    chart: redis-operator
+    version: 0.23.0
+    license: Apache-2.0
+    homepage: https://redis-operator.opstree.dev

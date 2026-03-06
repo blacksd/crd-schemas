@@ -1,0 +1,24 @@
+{
+  "schema": "statuscheck.json",
+  "crd": {
+    "group": "chaos-mesh.org",
+    "kind": "StatusCheck",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "chaos-mesh",
+    "type": "helm",
+    "repo": "https://charts.chaos-mesh.org",
+    "chart": "chaos-mesh",
+    "version": "2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://chaos-mesh.org"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:29Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d509ff556e114b66896fa86e1a2f800820b829a8fe418ca6a26859a5c9dfa920"
+  }
+}

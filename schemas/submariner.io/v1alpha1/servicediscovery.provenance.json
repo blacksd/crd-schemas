@@ -1,0 +1,24 @@
+{
+  "schema": "servicediscovery.json",
+  "crd": {
+    "group": "submariner.io",
+    "kind": "ServiceDiscovery",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "submariner-operator",
+    "type": "helm",
+    "repo": "https://submariner-io.github.io/submariner-charts/charts",
+    "chart": "submariner-operator",
+    "version": "0.22.1",
+    "license": "Apache-2.0",
+    "homepage": "https://submariner.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:07Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "06e970796049d2ff17a4cae7a445fd4aa0a42f8a89b90f1cadc4e42fef6d05a6"
+  }
+}

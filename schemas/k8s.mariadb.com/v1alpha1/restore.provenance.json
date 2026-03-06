@@ -1,0 +1,24 @@
+{
+  "schema": "restore.json",
+  "crd": {
+    "group": "k8s.mariadb.com",
+    "kind": "Restore",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "mariadb-operator-crds",
+    "type": "helm",
+    "repo": "https://mariadb-operator.github.io/mariadb-operator",
+    "chart": "mariadb-operator-crds",
+    "version": "25.10.4",
+    "license": "MIT",
+    "homepage": "https://github.com/mariadb-operator/mariadb-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:12Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2f311f8d2a76d889e19e02a8eb8863dc321ed60ea0b117e386f4761fe454aa40"
+  }
+}

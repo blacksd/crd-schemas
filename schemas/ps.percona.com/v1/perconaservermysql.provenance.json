@@ -1,0 +1,24 @@
+{
+  "schema": "perconaservermysql.json",
+  "crd": {
+    "group": "ps.percona.com",
+    "kind": "PerconaServerMySQL",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "ps-operator",
+    "type": "helm",
+    "repo": "https://percona.github.io/percona-helm-charts",
+    "chart": "ps-operator",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "homepage": "https://www.percona.com/percona-server-mysql-kubernetes"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:41Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5cde2d21cf7a9d8f70cd60903a54b5adbf66c085f0e6eff8a3b2d12338e11757"
+  }
+}

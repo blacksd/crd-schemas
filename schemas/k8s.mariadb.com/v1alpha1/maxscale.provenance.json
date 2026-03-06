@@ -1,0 +1,24 @@
+{
+  "schema": "maxscale.json",
+  "crd": {
+    "group": "k8s.mariadb.com",
+    "kind": "MaxScale",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "mariadb-operator-crds",
+    "type": "helm",
+    "repo": "https://mariadb-operator.github.io/mariadb-operator",
+    "chart": "mariadb-operator-crds",
+    "version": "25.10.4",
+    "license": "MIT",
+    "homepage": "https://github.com/mariadb-operator/mariadb-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:56:12Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d979404d187fb799a2b0b616abdb5579991be6517efc4c67b0486b19a459fb48"
+  }
+}

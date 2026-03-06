@@ -1,0 +1,27 @@
+{
+  "schema": "keptnmetric.json",
+  "crd": {
+    "group": "metrics.keptn.sh",
+    "kind": "KeptnMetric",
+    "apiVersion": "v1alpha3"
+  },
+  "source": {
+    "name": "keptn",
+    "type": "helm",
+    "repo": "https://charts.lifecycle.keptn.sh",
+    "chart": "keptn",
+    "version": "0.11.0",
+    "license": "Apache-2.0",
+    "homepage": "https://keptn.sh",
+    "include": [
+      "metrics.keptn.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-05T16:55:51Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9f5a153354f9786b857823569f45b1f9615a797321053090e01059c21d6822f4"
+  }
+}
