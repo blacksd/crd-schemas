@@ -1,0 +1,30 @@
+{
+  "schema": "envoypatchpolicy.json",
+  "crd": {
+    "group": "gateway.envoyproxy.io",
+    "kind": "EnvoyPatchPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "envoy-gateway",
+    "type": "helm",
+    "repo": "oci://docker.io/envoyproxy",
+    "chart": "gateway-crds-helm",
+    "version": "1.7.0",
+    "license": "Apache-2.0",
+    "homepage": "https://gateway.envoyproxy.io",
+    "values": {
+      "crds.envoyGateway.enabled": "true"
+    },
+    "include": [
+      "gateway.envoyproxy.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:53:15Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c1e613e691f6b7d1ad98ef3bd4cf7da5991dae762a1221b8d78a477d5c55995d"
+  }
+}

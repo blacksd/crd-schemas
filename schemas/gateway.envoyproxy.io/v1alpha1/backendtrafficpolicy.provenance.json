@@ -1,0 +1,30 @@
+{
+  "schema": "backendtrafficpolicy.json",
+  "crd": {
+    "group": "gateway.envoyproxy.io",
+    "kind": "BackendTrafficPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "envoy-gateway",
+    "type": "helm",
+    "repo": "oci://docker.io/envoyproxy",
+    "chart": "gateway-crds-helm",
+    "version": "1.7.0",
+    "license": "Apache-2.0",
+    "homepage": "https://gateway.envoyproxy.io",
+    "values": {
+      "crds.envoyGateway.enabled": "true"
+    },
+    "include": [
+      "gateway.envoyproxy.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:53:15Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d69bcdc2142c447a95814a045e1ec8a09ca3edb553cf37b9956c21235c29ea4a"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "envoyproxy.json",
+  "crd": {
+    "group": "gateway.envoyproxy.io",
+    "kind": "EnvoyProxy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "envoy-gateway",
+    "type": "helm",
+    "repo": "oci://docker.io/envoyproxy",
+    "chart": "gateway-crds-helm",
+    "version": "1.7.0",
+    "license": "Apache-2.0",
+    "homepage": "https://gateway.envoyproxy.io",
+    "values": {
+      "crds.envoyGateway.enabled": "true"
+    },
+    "include": [
+      "gateway.envoyproxy.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:53:15Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bfbf602d62844230d2d44775492c74732395204aaaef9f77d93895b2391dbee3"
+  }
+}

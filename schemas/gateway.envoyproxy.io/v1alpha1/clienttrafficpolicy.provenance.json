@@ -1,0 +1,30 @@
+{
+  "schema": "clienttrafficpolicy.json",
+  "crd": {
+    "group": "gateway.envoyproxy.io",
+    "kind": "ClientTrafficPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "envoy-gateway",
+    "type": "helm",
+    "repo": "oci://docker.io/envoyproxy",
+    "chart": "gateway-crds-helm",
+    "version": "1.7.0",
+    "license": "Apache-2.0",
+    "homepage": "https://gateway.envoyproxy.io",
+    "values": {
+      "crds.envoyGateway.enabled": "true"
+    },
+    "include": [
+      "gateway.envoyproxy.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:53:15Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1a2e0f591e6766d63b1b524eaddf03ac9b2cd00f9904f5c5d6d4c02e372feedc"
+  }
+}

@@ -121,7 +121,6 @@ The following popular projects are not currently covered due to technical limita
 ### Non-standard chart structure
 
 - **Kargo** (`kargo.akuity.io`) -- CRDs are placed in a non-standard `resources/crds/` directory inside the Helm chart instead of the conventional `crds/` directory. The `helm template` output also does not include them.
-- **Envoy Gateway** (`gateway.envoyproxy.io`) -- The Helm chart only ships standard Gateway API CRDs (`gateway.networking.k8s.io`), which are already covered by the `gateway-api` source. No Envoy Gateway-specific CRDs are distributed.
 
 ### Authenticated OCI registries
 
