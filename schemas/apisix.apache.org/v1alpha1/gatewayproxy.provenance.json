@@ -1,0 +1,27 @@
+{
+  "schema": "gatewayproxy.json",
+  "crd": {
+    "group": "apisix.apache.org",
+    "kind": "GatewayProxy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "apisix-ingress-controller",
+    "type": "helm",
+    "repo": "https://charts.apiseven.com",
+    "chart": "apisix-ingress-controller",
+    "version": "1.1.2",
+    "license": "Apache-2.0",
+    "homepage": "https://apisix.apache.org",
+    "include": [
+      "apisix.apache.org/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:02Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "fcb740f359ebded641373efdf63bdd5e9e4603e69f501449328601e5d74dd51f"
+  }
+}

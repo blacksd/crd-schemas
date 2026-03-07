@@ -1,0 +1,24 @@
+{
+  "schema": "nodefeaturerule.json",
+  "crd": {
+    "group": "nfd.k8s-sigs.io",
+    "kind": "NodeFeatureRule",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "node-feature-discovery",
+    "type": "helm",
+    "repo": "https://kubernetes-sigs.github.io/node-feature-discovery/charts",
+    "chart": "node-feature-discovery",
+    "version": "0.18.3",
+    "license": "Apache-2.0",
+    "homepage": "https://kubernetes-sigs.github.io/node-feature-discovery"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:54Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "3b3952b212629a865ca19b0baec23de02302640214035ee27a06e837dab06363"
+  }
+}

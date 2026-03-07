@@ -1,0 +1,24 @@
+{
+  "schema": "mongodbcommunity.json",
+  "crd": {
+    "group": "mongodbcommunity.mongodb.com",
+    "kind": "MongoDBCommunity",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "mongodb-community-operator",
+    "type": "helm",
+    "repo": "https://mongodb.github.io/helm-charts",
+    "chart": "community-operator",
+    "version": "0.13.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/mongodb/mongodb-kubernetes-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:42Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e9fadb4565b7fc3cda514aebb17862e6dae23fbb45e67c2810657b784cc13ced"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "prometheusservicelevel.json",
+  "crd": {
+    "group": "sloth.slok.dev",
+    "kind": "PrometheusServiceLevel",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "sloth",
+    "type": "helm",
+    "repo": "https://slok.github.io/sloth",
+    "chart": "sloth",
+    "version": "0.15.0",
+    "license": "Apache-2.0",
+    "homepage": "https://sloth.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:04Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8011e8c7ff566b2a26396d1d25625d075647ad3949d39c12279acf41f34270f1"
+  }
+}

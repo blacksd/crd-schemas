@@ -1,0 +1,24 @@
+{
+  "schema": "inprocessconfiguration.json",
+  "crd": {
+    "group": "core.openfeature.dev",
+    "kind": "InProcessConfiguration",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "open-feature-operator",
+    "type": "helm",
+    "repo": "https://open-feature.github.io/open-feature-operator",
+    "chart": "open-feature-operator",
+    "version": "v0.8.9",
+    "license": "Apache-2.0",
+    "homepage": "https://openfeature.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9ece43ffd403f70934a725e44dbc40046a133ad14b0192eeb7c2b870cd412efb"
+  }
+}

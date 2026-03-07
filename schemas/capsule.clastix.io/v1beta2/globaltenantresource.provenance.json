@@ -1,0 +1,24 @@
+{
+  "schema": "globaltenantresource.json",
+  "crd": {
+    "group": "capsule.clastix.io",
+    "kind": "GlobalTenantResource",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "capsule",
+    "type": "helm",
+    "repo": "https://projectcapsule.github.io/charts",
+    "chart": "capsule",
+    "version": "0.12.4",
+    "license": "Apache-2.0",
+    "homepage": "https://capsule.clastix.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:12Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8f2cc49d2e3e96ef3a2b715082f38de04d0c9ffd080dd60d1132d4785dd53854"
+  }
+}

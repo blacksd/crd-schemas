@@ -1,0 +1,23 @@
+{
+  "schema": "admissioncheck.json",
+  "crd": {
+    "group": "kueue.x-k8s.io",
+    "kind": "AdmissionCheck",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "kueue",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/kueue/releases/download/v0.16.2/manifests.yaml",
+    "version": "v0.16.2",
+    "license": "Apache-2.0",
+    "homepage": "https://kueue.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "3f3743fa9e04d00c1b6bc86c5ff0dfc2bc8201d2bba74283ee71c5bff3daa110"
+  }
+}

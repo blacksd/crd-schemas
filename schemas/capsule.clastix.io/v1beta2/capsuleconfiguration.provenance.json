@@ -1,0 +1,24 @@
+{
+  "schema": "capsuleconfiguration.json",
+  "crd": {
+    "group": "capsule.clastix.io",
+    "kind": "CapsuleConfiguration",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "capsule",
+    "type": "helm",
+    "repo": "https://projectcapsule.github.io/charts",
+    "chart": "capsule",
+    "version": "0.12.4",
+    "license": "Apache-2.0",
+    "homepage": "https://capsule.clastix.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:12Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "46f632bc15eb87f87b7d6c0dc71984a2b40edad2c658d45653d8edc1c34fb709"
+  }
+}

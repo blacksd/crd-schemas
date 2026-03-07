@@ -1,0 +1,27 @@
+{
+  "schema": "clustermultilineparser.json",
+  "crd": {
+    "group": "fluentbit.fluent.io",
+    "kind": "ClusterMultilineParser",
+    "apiVersion": "v1alpha2"
+  },
+  "source": {
+    "name": "fluent-operator",
+    "type": "helm",
+    "repo": "https://fluent.github.io/helm-charts",
+    "chart": "fluent-operator",
+    "version": "3.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/fluent/fluent-operator",
+    "include": [
+      "fluentbit.fluent.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "eaba72391933203cbf99fefd1b9e4e19d6504f474aa130708fe34d419fa2eb6c"
+  }
+}

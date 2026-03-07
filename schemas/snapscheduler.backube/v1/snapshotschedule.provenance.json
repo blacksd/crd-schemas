@@ -1,0 +1,24 @@
+{
+  "schema": "snapshotschedule.json",
+  "crd": {
+    "group": "snapscheduler.backube",
+    "kind": "SnapshotSchedule",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "snapscheduler",
+    "type": "helm",
+    "repo": "https://backube.github.io/helm-charts",
+    "chart": "snapscheduler",
+    "version": "3.5.0",
+    "license": "AGPL-3.0",
+    "homepage": "https://backube.github.io/snapscheduler"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:51Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6eeaacb615b1164fbb8796663786f922a7993bb6aace86722801c5c814fc5623"
+  }
+}

@@ -1,0 +1,8 @@
+sources:
+  - name: sigstore-policy-controller
+    type: helm
+    repo: https://sigstore.github.io/helm-charts
+    chart: policy-controller
+    version: 0.10.6
+    license: Apache-2.0
+    homepage: https://docs.sigstore.dev

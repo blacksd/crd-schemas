@@ -1,0 +1,24 @@
+{
+  "schema": "trustroot.json",
+  "crd": {
+    "group": "policy.sigstore.dev",
+    "kind": "TrustRoot",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "sigstore-policy-controller",
+    "type": "helm",
+    "repo": "https://sigstore.github.io/helm-charts",
+    "chart": "policy-controller",
+    "version": "0.10.6",
+    "license": "Apache-2.0",
+    "homepage": "https://docs.sigstore.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:35Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b738e37fb51e8b8b9f574207d1783d7ef289e4b3444ad398b507c2d0594fd3cf"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "servicelevelobjective.json",
+  "crd": {
+    "group": "pyrra.dev",
+    "kind": "ServiceLevelObjective",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "pyrra",
+    "type": "helm",
+    "repo": "https://rlex.github.io/helm-charts",
+    "chart": "pyrra",
+    "version": "0.14.3",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/pyrra-dev/pyrra"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:22Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "61c4c4dd226ea69cc519f2f2e29c0a2f5b8aa831e66b45dc469b6eac8c83d795"
+  }
+}

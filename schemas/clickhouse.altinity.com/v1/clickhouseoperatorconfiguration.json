@@ -1,0 +1,963 @@
+{
+  "description": "allows customize `clickhouse-operator` settings, need restart clickhouse-operator pod after adding, more details https://github.com/Altinity/clickhouse-operator/blob/master/docs/operator_configuration.md",
+  "type": "object",
+  "properties": {
+    "spec": {
+      "description": "Allows to define settings of the clickhouse-operator.\nMore info: https://github.com/Altinity/clickhouse-operator/blob/master/config/config.yaml\nCheck into etc-clickhouse-operator* ConfigMaps if you need more control\n",
+      "type": "object",
+      "properties": {
+        "annotation": {
+          "description": "defines which metadata.annotations items will include or exclude during render StatefulSet, Pod, PVC resources",
+          "type": "object",
+          "properties": {
+            "exclude": {
+              "description": "When propagating labels from the chi's `metadata.annotations` section to child objects' `metadata.annotations`,\nexclude annotations with names from the following list\n",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "include": {
+              "description": "When propagating labels from the chi's `metadata.annotations` section to child objects' `metadata.annotations`,\ninclude annotations with names from the following list\n",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "clickhouse": {
+          "description": "Clickhouse related parameters used by clickhouse-operator",
+          "type": "object",
+          "properties": {
+            "access": {
+              "description": "parameters which use for connect to clickhouse from clickhouse-operator deployment",
+              "type": "object",
+              "properties": {
+                "password": {
+                  "description": "ClickHouse password to be used by operator to connect to ClickHouse instances, deprecated, use chCredentialsSecretName",
+                  "type": "string"
+                },
+                "port": {
+                  "description": "Port to be used by operator to connect to ClickHouse instances",
+                  "type": "integer",
+                  "maximum": 65535,
+                  "minimum": 1
+                },
+                "rootCA": {
+                  "description": "Root certificate authority that clients use when verifying server certificates. Used for https connection to ClickHouse",
+                  "type": "string"
+                },
+                "scheme": {
+                  "description": "The scheme to user for connecting to ClickHouse. Possible values: http, https, auto",
+                  "type": "string"
+                },
+                "secret": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "Name of k8s Secret with username and password to be used by operator to connect to ClickHouse instances",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Location of k8s Secret with username and password to be used by operator to connect to ClickHouse instances",
+                      "type": "string"
+                    }
+                  }
+                },
+                "timeouts": {
+                  "description": "Timeouts used to limit connection and queries from the operator to ClickHouse instances, In seconds",
+                  "type": "object",
+                  "properties": {
+                    "connect": {
+                      "description": "Timout to setup connection from the operator to ClickHouse instances. In seconds.",
+                      "type": "integer",
+                      "maximum": 10,
+                      "minimum": 1
+                    },
+                    "query": {
+                      "description": "Timout to perform SQL query from the operator to ClickHouse instances. In seconds.",
+                      "type": "integer",
+                      "maximum": 600,
+                      "minimum": 1
+                    }
+                  }
+                },
+                "username": {
+                  "description": "ClickHouse username to be used by operator to connect to ClickHouse instances, deprecated, use chCredentialsSecretName",
+                  "type": "string"
+                }
+              }
+            },
+            "addons": {
+              "description": "Configuration addons specifies additional settings",
+              "type": "object",
+              "properties": {
+                "rules": {
+                  "description": "Array of set of rules per specified ClickHouse versions",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "spec": {
+                        "description": "spec",
+                        "type": "object",
+                        "properties": {
+                          "configuration": {
+                            "description": "allows configure multiple aspects and behavior for `clickhouse-server` instance and also allows describe multiple `clickhouse-server` clusters inside one `chi` resource",
+                            "type": "object",
+                            "properties": {
+                              "files": {
+                                "description": "see same section from CR spec",
+                                "type": "object",
+                                "x-kubernetes-preserve-unknown-fields": true
+                              },
+                              "profiles": {
+                                "description": "see same section from CR spec",
+                                "type": "object",
+                                "x-kubernetes-preserve-unknown-fields": true
+                              },
+                              "quotas": {
+                                "description": "see same section from CR spec",
+                                "type": "object",
+                                "x-kubernetes-preserve-unknown-fields": true
+                              },
+                              "settings": {
+                                "description": "see same section from CR spec",
+                                "type": "object",
+                                "x-kubernetes-preserve-unknown-fields": true
+                              },
+                              "users": {
+                                "description": "see same section from CR spec",
+                                "type": "object",
+                                "x-kubernetes-preserve-unknown-fields": true
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "version": {
+                        "description": "ClickHouse version expression",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "configuration": {
+              "type": "object",
+              "properties": {
+                "file": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "description": "Each 'path' can be either absolute or relative.\nIn case path is absolute - it is used as is.\nIn case path is relative - it is relative to the folder where configuration file you are reading right now is located.\n",
+                      "type": "object",
+                      "properties": {
+                        "common": {
+                          "description": "Path to the folder where ClickHouse configuration files common for all instances within a CHI are located.\nDefault value - config.d\n",
+                          "type": "string"
+                        },
+                        "host": {
+                          "description": "Path to the folder where ClickHouse configuration files unique for each instance (host) within a CHI are located.\nDefault value - conf.d\n",
+                          "type": "string"
+                        },
+                        "user": {
+                          "description": "Path to the folder where ClickHouse configuration files with users settings are located.\nFiles are common for all instances within a CHI.\nDefault value - users.d\n",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "network": {
+                  "description": "Default network parameters for any user which will create",
+                  "type": "object",
+                  "properties": {
+                    "hostRegexpTemplate": {
+                      "description": "ClickHouse server configuration `\u003chost_regexp\u003e...\u003c/host_regexp\u003e` for any \u003cuser\u003e",
+                      "type": "string"
+                    }
+                  }
+                },
+                "user": {
+                  "description": "Default parameters for any user which will create",
+                  "type": "object",
+                  "properties": {
+                    "default": {
+                      "type": "object",
+                      "properties": {
+                        "networksIP": {
+                          "description": "ClickHouse server configuration `\u003cnetworks\u003e\u003cip\u003e...\u003c/ip\u003e\u003c/networks\u003e` for any \u003cuser\u003e",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "password": {
+                          "description": "ClickHouse server configuration `\u003cpassword\u003e...\u003c/password\u003e` for any \u003cuser\u003e",
+                          "type": "string"
+                        },
+                        "profile": {
+                          "description": "ClickHouse server configuration `\u003cprofile\u003e...\u003c/profile\u003e` for any \u003cuser\u003e",
+                          "type": "string"
+                        },
+                        "quota": {
+                          "description": "ClickHouse server configuration `\u003cquota\u003e...\u003c/quota\u003e` for any \u003cuser\u003e",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "configurationRestartPolicy": {
+              "description": "Configuration restart policy describes what configuration changes require ClickHouse restart",
+              "type": "object",
+              "properties": {
+                "rules": {
+                  "description": "Array of set of rules per specified ClickHouse versions",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rules": {
+                        "description": "Set of configuration rules for specified ClickHouse version",
+                        "type": "array",
+                        "items": {
+                          "description": "setting: value pairs for configuration restart policy",
+                          "type": "object",
+                          "x-kubernetes-preserve-unknown-fields": true
+                        }
+                      },
+                      "version": {
+                        "description": "ClickHouse version expression",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "metrics": {
+              "description": "parameters which use for connect to fetch metrics from clickhouse by clickhouse-operator",
+              "type": "object",
+              "properties": {
+                "tablesRegexp": {
+                  "description": "Regexp to match tables in system database to fetch metrics from.\nMultiple tables can be matched using regexp. Matched tables are merged using merge() table function.\nDefault is \"^(metrics|custom_metrics)$\".\n",
+                  "type": "string"
+                },
+                "timeouts": {
+                  "description": "Timeouts used to limit connection and queries from the metrics exporter to ClickHouse instances\nSpecified in seconds.\n",
+                  "type": "object",
+                  "properties": {
+                    "collect": {
+                      "description": "Timeout used to limit metrics collection request. In seconds.\nUpon reaching this timeout metrics collection is aborted and no more metrics are collected in this cycle.\nAll collected metrics are returned.\n",
+                      "type": "integer",
+                      "maximum": 600,
+                      "minimum": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "label": {
+          "description": "defines which metadata.labels will include or exclude during render StatefulSet, Pod, PVC resources",
+          "type": "object",
+          "properties": {
+            "appendScope": {
+              "description": "Whether to append *Scope* labels to StatefulSet and Pod\n- \"LabelShardScopeIndex\"\n- \"LabelReplicaScopeIndex\"\n- \"LabelCHIScopeIndex\"\n- \"LabelCHIScopeCycleSize\"\n- \"LabelCHIScopeCycleIndex\"\n- \"LabelCHIScopeCycleOffset\"\n- \"LabelClusterScopeIndex\"\n- \"LabelClusterScopeCycleSize\"\n- \"LabelClusterScopeCycleIndex\"\n- \"LabelClusterScopeCycleOffset\"\n",
+              "type": "string",
+              "enum": [
+                "",
+                "0",
+                "1",
+                "False",
+                "false",
+                "True",
+                "true",
+                "No",
+                "no",
+                "Yes",
+                "yes",
+                "Off",
+                "off",
+                "On",
+                "on",
+                "Disable",
+                "disable",
+                "Enable",
+                "enable",
+                "Disabled",
+                "disabled",
+                "Enabled",
+                "enabled"
+              ]
+            },
+            "exclude": {
+              "description": "When propagating labels from the chi's `metadata.labels` section to child objects' `metadata.labels`,\nexclude labels from the following list\n",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "include": {
+              "description": "When propagating labels from the chi's `metadata.labels` section to child objects' `metadata.labels`,\ninclude labels from the following list\n",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "logger": {
+          "description": "allow setup clickhouse-operator logger behavior",
+          "type": "object",
+          "properties": {
+            "alsologtostderr": {
+              "description": "boolean allows logs to stderr and files both",
+              "type": "string"
+            },
+            "log_backtrace_at": {
+              "description": "It can be set to a file and line number with a logging line.\nEx.: file.go:123\nEach time when this line is being executed, a stack trace will be written to the Info log.\n",
+              "type": "string"
+            },
+            "logtostderr": {
+              "description": "boolean, allows logs to stderr",
+              "type": "string"
+            },
+            "stderrthreshold": {
+              "type": "string"
+            },
+            "v": {
+              "description": "verbosity level of clickhouse-operator log, default - 1 max - 9",
+              "type": "string"
+            },
+            "vmodule": {
+              "description": "Comma-separated list of filename=N, where filename (can be a pattern) must have no .go ext, and N is a V level.\nEx.: file*=2 sets the 'V' to 2 in all files with names like file*.\n",
+              "type": "string"
+            }
+          }
+        },
+        "metrics": {
+          "description": "defines metrics exporter options",
+          "type": "object",
+          "properties": {
+            "labels": {
+              "description": "defines metric labels options",
+              "type": "object",
+              "properties": {
+                "exclude": {
+                  "description": "When adding labels to a metric exclude labels with names from the following list\n",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "pod": {
+          "description": "define pod specific parameters",
+          "type": "object",
+          "properties": {
+            "terminationGracePeriod": {
+              "description": "Optional duration in seconds the pod needs to terminate gracefully. \nLook details in `pod.spec.terminationGracePeriodSeconds`\n",
+              "type": "integer"
+            }
+          }
+        },
+        "reconcile": {
+          "description": "allow tuning reconciling process",
+          "type": "object",
+          "properties": {
+            "host": {
+              "description": "Whether the operator during reconcile procedure should wait for a ClickHouse host:\n  - to be excluded from a ClickHouse cluster\n  - to complete all running queries\n  - to be included into a ClickHouse cluster\nrespectfully before moving forward\n",
+              "type": "object",
+              "properties": {
+                "drop": {
+                  "type": "object",
+                  "properties": {
+                    "replicas": {
+                      "description": "Whether the operator during reconcile procedure should drop replicas when replica is deleted or recreated\n",
+                      "type": "object",
+                      "properties": {
+                        "active": {
+                          "description": "Whether the operator during reconcile procedure should drop active replicas when replica is deleted or recreated\n",
+                          "type": "string",
+                          "enum": [
+                            "",
+                            "0",
+                            "1",
+                            "False",
+                            "false",
+                            "True",
+                            "true",
+                            "No",
+                            "no",
+                            "Yes",
+                            "yes",
+                            "Off",
+                            "off",
+                            "On",
+                            "on",
+                            "Disable",
+                            "disable",
+                            "Enable",
+                            "enable",
+                            "Disabled",
+                            "disabled",
+                            "Enabled",
+                            "enabled"
+                          ]
+                        },
+                        "onDelete": {
+                          "description": "Whether the operator during reconcile procedure should drop replicas when replica is deleted\n",
+                          "type": "string",
+                          "enum": [
+                            "",
+                            "0",
+                            "1",
+                            "False",
+                            "false",
+                            "True",
+                            "true",
+                            "No",
+                            "no",
+                            "Yes",
+                            "yes",
+                            "Off",
+                            "off",
+                            "On",
+                            "on",
+                            "Disable",
+                            "disable",
+                            "Enable",
+                            "enable",
+                            "Disabled",
+                            "disabled",
+                            "Enabled",
+                            "enabled"
+                          ]
+                        },
+                        "onLostVolume": {
+                          "description": "Whether the operator during reconcile procedure should drop replicas when replica volume is lost\n",
+                          "type": "string",
+                          "enum": [
+                            "",
+                            "0",
+                            "1",
+                            "False",
+                            "false",
+                            "True",
+                            "true",
+                            "No",
+                            "no",
+                            "Yes",
+                            "yes",
+                            "Off",
+                            "off",
+                            "On",
+                            "on",
+                            "Disable",
+                            "disable",
+                            "Enable",
+                            "enable",
+                            "Disabled",
+                            "disabled",
+                            "Enabled",
+                            "enabled"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "wait": {
+                  "type": "object",
+                  "properties": {
+                    "exclude": {
+                      "description": "Whether the operator during reconcile procedure should wait for a ClickHouse host to be excluded from a ClickHouse cluster",
+                      "type": "string",
+                      "enum": [
+                        "",
+                        "0",
+                        "1",
+                        "False",
+                        "false",
+                        "True",
+                        "true",
+                        "No",
+                        "no",
+                        "Yes",
+                        "yes",
+                        "Off",
+                        "off",
+                        "On",
+                        "on",
+                        "Disable",
+                        "disable",
+                        "Enable",
+                        "enable",
+                        "Disabled",
+                        "disabled",
+                        "Enabled",
+                        "enabled"
+                      ]
+                    },
+                    "include": {
+                      "description": "Whether the operator during reconcile procedure should wait for a ClickHouse host to be included into a ClickHouse cluster",
+                      "type": "string",
+                      "enum": [
+                        "",
+                        "0",
+                        "1",
+                        "False",
+                        "false",
+                        "True",
+                        "true",
+                        "No",
+                        "no",
+                        "Yes",
+                        "yes",
+                        "Off",
+                        "off",
+                        "On",
+                        "on",
+                        "Disable",
+                        "disable",
+                        "Enable",
+                        "enable",
+                        "Disabled",
+                        "disabled",
+                        "Enabled",
+                        "enabled"
+                      ]
+                    },
+                    "probes": {
+                      "description": "What probes the operator should wait during host launch procedure",
+                      "type": "object",
+                      "properties": {
+                        "readiness": {
+                          "description": "Whether the operator during host launch procedure should wait for readiness probe to succeed.\nIn case probe is unspecified wait is assumed to be completed successfully.\nDefault option value is to wait.\n",
+                          "type": "string",
+                          "enum": [
+                            "",
+                            "0",
+                            "1",
+                            "False",
+                            "false",
+                            "True",
+                            "true",
+                            "No",
+                            "no",
+                            "Yes",
+                            "yes",
+                            "Off",
+                            "off",
+                            "On",
+                            "on",
+                            "Disable",
+                            "disable",
+                            "Enable",
+                            "enable",
+                            "Disabled",
+                            "disabled",
+                            "Enabled",
+                            "enabled"
+                          ]
+                        },
+                        "startup": {
+                          "description": "Whether the operator during host launch procedure should wait for startup probe to succeed.\nIn case probe is unspecified wait is assumed to be completed successfully.\nDefault option value is to do not wait.\n",
+                          "type": "string",
+                          "enum": [
+                            "",
+                            "0",
+                            "1",
+                            "False",
+                            "false",
+                            "True",
+                            "true",
+                            "No",
+                            "no",
+                            "Yes",
+                            "yes",
+                            "Off",
+                            "off",
+                            "On",
+                            "on",
+                            "Disable",
+                            "disable",
+                            "Enable",
+                            "enable",
+                            "Disabled",
+                            "disabled",
+                            "Enabled",
+                            "enabled"
+                          ]
+                        }
+                      }
+                    },
+                    "queries": {
+                      "description": "Whether the operator during reconcile procedure should wait for a ClickHouse host to complete all running queries",
+                      "type": "string",
+                      "enum": [
+                        "",
+                        "0",
+                        "1",
+                        "False",
+                        "false",
+                        "True",
+                        "true",
+                        "No",
+                        "no",
+                        "Yes",
+                        "yes",
+                        "Off",
+                        "off",
+                        "On",
+                        "on",
+                        "Disable",
+                        "disable",
+                        "Enable",
+                        "enable",
+                        "Disabled",
+                        "disabled",
+                        "Enabled",
+                        "enabled"
+                      ]
+                    },
+                    "replicas": {
+                      "description": "Whether the operator during reconcile procedure should wait for replicas to catch-up",
+                      "type": "object",
+                      "properties": {
+                        "all": {
+                          "description": "Whether the operator during reconcile procedure should wait for all replicas to catch-up",
+                          "type": "string",
+                          "enum": [
+                            "",
+                            "0",
+                            "1",
+                            "False",
+                            "false",
+                            "True",
+                            "true",
+                            "No",
+                            "no",
+                            "Yes",
+                            "yes",
+                            "Off",
+                            "off",
+                            "On",
+                            "on",
+                            "Disable",
+                            "disable",
+                            "Enable",
+                            "enable",
+                            "Disabled",
+                            "disabled",
+                            "Enabled",
+                            "enabled"
+                          ]
+                        },
+                        "delay": {
+                          "description": "replication max absolute delay to consider replica is not delayed",
+                          "type": "integer"
+                        },
+                        "new": {
+                          "description": "Whether the operator during reconcile procedure should wait for new replicas to catch-up",
+                          "type": "string",
+                          "enum": [
+                            "",
+                            "0",
+                            "1",
+                            "False",
+                            "false",
+                            "True",
+                            "true",
+                            "No",
+                            "no",
+                            "Yes",
+                            "yes",
+                            "Off",
+                            "off",
+                            "On",
+                            "on",
+                            "Disable",
+                            "disable",
+                            "Enable",
+                            "enable",
+                            "Disabled",
+                            "disabled",
+                            "Enabled",
+                            "enabled"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "runtime": {
+              "description": "runtime parameters for clickhouse-operator process which are used during reconcile cycle",
+              "type": "object",
+              "properties": {
+                "reconcileCHIsThreadsNumber": {
+                  "description": "How many goroutines will be used to reconcile CHIs in parallel, 10 by default",
+                  "type": "integer",
+                  "maximum": 65535,
+                  "minimum": 1
+                },
+                "reconcileShardsMaxConcurrencyPercent": {
+                  "description": "The maximum percentage of cluster shards that may be reconciled in parallel, 50 percent by default.",
+                  "type": "integer",
+                  "maximum": 100,
+                  "minimum": 0
+                },
+                "reconcileShardsThreadsNumber": {
+                  "description": "How many goroutines will be used to reconcile shards of a cluster in parallel, 1 by default",
+                  "type": "integer",
+                  "maximum": 65535,
+                  "minimum": 1
+                }
+              }
+            },
+            "statefulSet": {
+              "description": "Allow change default behavior for reconciling StatefulSet which generated by clickhouse-operator",
+              "type": "object",
+              "properties": {
+                "create": {
+                  "description": "Behavior during create StatefulSet",
+                  "type": "object",
+                  "properties": {
+                    "onFailure": {
+                      "description": "What to do in case created StatefulSet is not in Ready after `statefulSetUpdateTimeout` seconds\nPossible options:\n1. abort - do nothing, just break the process and wait for admin.\n2. delete - delete newly created problematic StatefulSet.\n3. ignore (default) - ignore error, pretend nothing happened and move on to the next StatefulSet.\n",
+                      "type": "string"
+                    }
+                  }
+                },
+                "recreate": {
+                  "description": "Behavior during recreate StatefulSet",
+                  "type": "object",
+                  "properties": {
+                    "onDataLoss": {
+                      "description": "What to do in case operator needs to recreate StatefulSet due to PVC data loss or missing volumes.\nPossible options:\n1. abort - abort the process, do nothing with the problematic StatefulSet.\n2. recreate (default) - proceed and recreate StatefulSet.\n",
+                      "type": "string"
+                    },
+                    "onUpdateFailure": {
+                      "description": "What to do in case operator needs to recreate StatefulSet due to update failure or StatefulSet not ready.\nPossible options:\n1. abort - abort the process, do nothing with the problematic StatefulSet.\n2. recreate (default) - proceed and recreate StatefulSet.\n",
+                      "type": "string"
+                    }
+                  }
+                },
+                "update": {
+                  "description": "Behavior during update StatefulSet",
+                  "type": "object",
+                  "properties": {
+                    "onFailure": {
+                      "description": "What to do in case updated StatefulSet is not in Ready after `statefulSetUpdateTimeout` seconds\nPossible options:\n1. abort - do nothing, just break the process and wait for admin.\n2. rollback (default) - delete Pod and rollback StatefulSet to previous Generation. Pod would be recreated by StatefulSet based on rollback-ed configuration.\n3. ignore - ignore error, pretend nothing happened and move on to the next StatefulSet.\n",
+                      "type": "string"
+                    },
+                    "pollInterval": {
+                      "description": "How many seconds to wait between checks for created/updated StatefulSet status",
+                      "type": "integer"
+                    },
+                    "timeout": {
+                      "description": "How many seconds to wait for created/updated StatefulSet to be Ready",
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "statefulSet": {
+          "description": "define StatefulSet-specific parameters",
+          "type": "object",
+          "properties": {
+            "revisionHistoryLimit": {
+              "description": "revisionHistoryLimit is the maximum number of revisions that will be\nmaintained in the StatefulSet's revision history.                         \nLook details in `statefulset.spec.revisionHistoryLimit`\n",
+              "type": "integer"
+            }
+          }
+        },
+        "status": {
+          "description": "defines status options",
+          "type": "object",
+          "properties": {
+            "fields": {
+              "description": "defines status fields options",
+              "type": "object",
+              "properties": {
+                "action": {
+                  "description": "Whether the operator should fill status field 'action'",
+                  "type": "string",
+                  "enum": [
+                    "",
+                    "0",
+                    "1",
+                    "False",
+                    "false",
+                    "True",
+                    "true",
+                    "No",
+                    "no",
+                    "Yes",
+                    "yes",
+                    "Off",
+                    "off",
+                    "On",
+                    "on",
+                    "Disable",
+                    "disable",
+                    "Enable",
+                    "enable",
+                    "Disabled",
+                    "disabled",
+                    "Enabled",
+                    "enabled"
+                  ]
+                },
+                "actions": {
+                  "description": "Whether the operator should fill status field 'actions'",
+                  "type": "string",
+                  "enum": [
+                    "",
+                    "0",
+                    "1",
+                    "False",
+                    "false",
+                    "True",
+                    "true",
+                    "No",
+                    "no",
+                    "Yes",
+                    "yes",
+                    "Off",
+                    "off",
+                    "On",
+                    "on",
+                    "Disable",
+                    "disable",
+                    "Enable",
+                    "enable",
+                    "Disabled",
+                    "disabled",
+                    "Enabled",
+                    "enabled"
+                  ]
+                },
+                "error": {
+                  "description": "Whether the operator should fill status field 'error'",
+                  "type": "string",
+                  "enum": [
+                    "",
+                    "0",
+                    "1",
+                    "False",
+                    "false",
+                    "True",
+                    "true",
+                    "No",
+                    "no",
+                    "Yes",
+                    "yes",
+                    "Off",
+                    "off",
+                    "On",
+                    "on",
+                    "Disable",
+                    "disable",
+                    "Enable",
+                    "enable",
+                    "Disabled",
+                    "disabled",
+                    "Enabled",
+                    "enabled"
+                  ]
+                },
+                "errors": {
+                  "description": "Whether the operator should fill status field 'errors'",
+                  "type": "string",
+                  "enum": [
+                    "",
+                    "0",
+                    "1",
+                    "False",
+                    "false",
+                    "True",
+                    "true",
+                    "No",
+                    "no",
+                    "Yes",
+                    "yes",
+                    "Off",
+                    "off",
+                    "On",
+                    "on",
+                    "Disable",
+                    "disable",
+                    "Enable",
+                    "enable",
+                    "Disabled",
+                    "disabled",
+                    "Enabled",
+                    "enabled"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "template": {
+          "description": "Parameters which are used if you want to generate ClickHouseInstallationTemplate custom resources from files which are stored inside clickhouse-operator deployment",
+          "type": "object",
+          "properties": {
+            "chi": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "description": "Path to folder where ClickHouseInstallationTemplate .yaml manifests are located.",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "CHI template updates handling policy\nPossible policy values:\n  - ReadOnStart. Accept CHIT updates on the operators start only.\n  - ApplyOnNextReconcile. Accept CHIT updates at all time. Apply news CHITs on next regular reconcile of the CHI\n",
+                  "type": "string",
+                  "enum": [
+                    "",
+                    "ReadOnStart",
+                    "ApplyOnNextReconcile"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "watch": {
+          "description": "Parameters for watch kubernetes resources which used by clickhouse-operator deployment",
+          "type": "object",
+          "properties": {
+            "namespaces": {
+              "description": "List of namespaces where clickhouse-operator watches for events.",
+              "type": "object",
+              "x-kubernetes-preserve-unknown-fields": true
+            }
+          }
+        }
+      },
+      "x-kubernetes-preserve-unknown-fields": true
+    },
+    "status": {
+      "type": "object",
+      "x-kubernetes-preserve-unknown-fields": true
+    }
+  },
+  "x-kubernetes-preserve-unknown-fields": true
+}

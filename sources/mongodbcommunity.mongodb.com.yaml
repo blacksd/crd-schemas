@@ -1,0 +1,8 @@
+sources:
+  - name: mongodb-community-operator
+    type: helm
+    repo: https://mongodb.github.io/helm-charts
+    chart: community-operator
+    version: 0.13.0
+    license: Apache-2.0
+    homepage: https://github.com/mongodb/mongodb-kubernetes-operator

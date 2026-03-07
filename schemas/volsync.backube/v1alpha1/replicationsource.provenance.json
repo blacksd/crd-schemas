@@ -1,0 +1,24 @@
+{
+  "schema": "replicationsource.json",
+  "crd": {
+    "group": "volsync.backube",
+    "kind": "ReplicationSource",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "volsync",
+    "type": "helm",
+    "repo": "https://backube.github.io/helm-charts",
+    "chart": "volsync",
+    "version": "0.15.0",
+    "license": "AGPL-3.0",
+    "homepage": "https://volsync.readthedocs.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:46Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1c3738c33d943d38b1879fd9d938c8ca4f832ad77511db2c2bfb406d6ec510cc"
+  }
+}

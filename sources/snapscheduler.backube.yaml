@@ -1,0 +1,8 @@
+sources:
+  - name: snapscheduler
+    type: helm
+    repo: https://backube.github.io/helm-charts
+    chart: snapscheduler
+    version: 3.5.0
+    license: AGPL-3.0
+    homepage: https://backube.github.io/snapscheduler

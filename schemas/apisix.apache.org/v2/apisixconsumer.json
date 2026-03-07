@@ -1,0 +1,381 @@
+{
+  "description": "ApisixConsumer defines configuration of a consumer and their authentication details.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "ApisixConsumerSpec defines the consumer authentication configuration.",
+      "type": "object",
+      "required": [
+        "authParameter"
+      ],
+      "properties": {
+        "authParameter": {
+          "description": "AuthParameter defines the authentication credentials and configuration for this consumer.",
+          "type": "object",
+          "properties": {
+            "basicAuth": {
+              "description": "BasicAuth configures the basic authentication details.",
+              "type": "object",
+              "properties": {
+                "secretRef": {
+                  "description": "SecretRef references a Kubernetes Secret containing the basic authentication credentials.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                      "type": "string",
+                      "default": ""
+                    }
+                  },
+                  "x-kubernetes-map-type": "atomic"
+                },
+                "value": {
+                  "description": "Value specifies the basic authentication credentials.",
+                  "type": "object",
+                  "required": [
+                    "password",
+                    "username"
+                  ],
+                  "properties": {
+                    "password": {
+                      "description": "Password is the basic authentication password.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "Username is the basic authentication username.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "hmacAuth": {
+              "description": "HMACAuth configures the HMAC authentication details.",
+              "type": "object",
+              "properties": {
+                "secretRef": {
+                  "description": "SecretRef references a Kubernetes Secret containing the HMAC credentials.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                      "type": "string",
+                      "default": ""
+                    }
+                  },
+                  "x-kubernetes-map-type": "atomic"
+                },
+                "value": {
+                  "description": "Value specifies HMAC authentication credentials.",
+                  "type": "object",
+                  "required": [
+                    "secret_key"
+                  ],
+                  "oneOf": [
+                    {
+                      "required": [
+                        "key_id",
+                        "secret_key"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "access_key",
+                        "secret_key"
+                      ]
+                    }
+                  ],
+                  "properties": {
+                    "access_key": {
+                      "description": "AccessKey is the identifier used to look up the HMAC secret. Deprecated from consumer configuration",
+                      "type": "string"
+                    },
+                    "algorithm": {
+                      "description": "Algorithm specifies the hashing algorithm (e.g., \"hmac-sha256\"). Deprecated from consumer configuration",
+                      "type": "string"
+                    },
+                    "clock_skew": {
+                      "description": "ClockSkew is the allowed time difference (in seconds) between client and server clocks. Deprecated from consumer configuration",
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "encode_uri_params": {
+                      "description": "EncodeURIParams indicates whether URI parameters are encoded when calculating the signature. Deprecated from consumer configuration",
+                      "type": "boolean"
+                    },
+                    "keep_headers": {
+                      "description": "KeepHeaders determines whether the HMAC signature headers are preserved after verification. Deprecated from consumer configuration",
+                      "type": "boolean"
+                    },
+                    "key_id": {
+                      "description": "KeyID is the identifier used to look up the HMAC secret.",
+                      "type": "string"
+                    },
+                    "max_req_body": {
+                      "description": "MaxReqBody sets the maximum size (in bytes) of the request body that can be validated. Deprecated from consumer configuration",
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "secret_key": {
+                      "description": "SecretKey is the HMAC secret used to sign the request.",
+                      "type": "string"
+                    },
+                    "signed_headers": {
+                      "description": "SignedHeaders lists the headers that must be included in the signature. Deprecated from consumer configuration",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "validate_request_body": {
+                      "description": "ValidateRequestBody enables HMAC validation of the request body. Deprecated from consumer configuration",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            },
+            "jwtAuth": {
+              "description": "JwtAuth configures the JWT authentication details.",
+              "type": "object",
+              "properties": {
+                "secretRef": {
+                  "description": "SecretRef references a Kubernetes Secret containing JWT authentication credentials.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                      "type": "string",
+                      "default": ""
+                    }
+                  },
+                  "x-kubernetes-map-type": "atomic"
+                },
+                "value": {
+                  "description": "Value specifies JWT authentication credentials.",
+                  "type": "object",
+                  "required": [
+                    "key",
+                    "private_key"
+                  ],
+                  "properties": {
+                    "algorithm": {
+                      "description": "Algorithm specifies the signing algorithm.\nCan be `HS256`, `HS512`, `RS256`, or `ES256`.",
+                      "type": "string"
+                    },
+                    "base64_secret": {
+                      "description": "Base64Secret indicates whether the secret is base64-encoded.",
+                      "type": "boolean"
+                    },
+                    "exp": {
+                      "description": "Exp is the token expiration period in seconds.",
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "key": {
+                      "description": "Key is the unique identifier for the JWT credential.",
+                      "type": "string"
+                    },
+                    "lifetime_grace_period": {
+                      "description": "LifetimeGracePeriod is the allowed clock skew in seconds for token expiration.",
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "private_key": {
+                      "description": "PrivateKey is the private key used to sign the JWT (for asymmetric algorithms).",
+                      "type": "string"
+                    },
+                    "public_key": {
+                      "description": "PublicKey is the public key used to verify JWT signatures (for asymmetric algorithms).",
+                      "type": "string"
+                    },
+                    "secret": {
+                      "description": "Secret is the shared secret used to sign the JWT (for symmetric algorithms).",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "keyAuth": {
+              "description": "KeyAuth configures the key authentication details.",
+              "type": "object",
+              "properties": {
+                "secretRef": {
+                  "description": "SecretRef references a Kubernetes Secret containing the key authentication credentials.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                      "type": "string",
+                      "default": ""
+                    }
+                  },
+                  "x-kubernetes-map-type": "atomic"
+                },
+                "value": {
+                  "description": "Value specifies the key authentication credentials.",
+                  "type": "object",
+                  "required": [
+                    "key"
+                  ],
+                  "properties": {
+                    "key": {
+                      "description": "Key is the credential used for key authentication.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "ldapAuth": {
+              "description": "LDAPAuth configures the LDAP authentication details.",
+              "type": "object",
+              "required": [
+                "secretRef"
+              ],
+              "properties": {
+                "secretRef": {
+                  "description": "SecretRef references a Kubernetes Secret containing the LDAP credentials.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                      "type": "string",
+                      "default": ""
+                    }
+                  },
+                  "x-kubernetes-map-type": "atomic"
+                },
+                "value": {
+                  "description": "Value specifies LDAP authentication credentials.",
+                  "type": "object",
+                  "required": [
+                    "user_dn"
+                  ],
+                  "properties": {
+                    "user_dn": {
+                      "description": "UserDN is the distinguished name (DN) of the LDAP user.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "wolfRBAC": {
+              "description": "WolfRBAC configures the Wolf RBAC authentication details.",
+              "type": "object",
+              "properties": {
+                "secretRef": {
+                  "description": "SecretRef references a Kubernetes Secret containing the Wolf RBAC token.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                      "type": "string",
+                      "default": ""
+                    }
+                  },
+                  "x-kubernetes-map-type": "atomic"
+                },
+                "value": {
+                  "description": "Value specifies the Wolf RBAC token.",
+                  "type": "object",
+                  "properties": {
+                    "appid": {
+                      "description": "Appid is the application identifier used when communicating with the Wolf RBAC server.",
+                      "type": "string"
+                    },
+                    "header_prefix": {
+                      "description": "HeaderPrefix is the prefix added to request headers for RBAC enforcement.",
+                      "type": "string"
+                    },
+                    "server": {
+                      "description": "Server is the URL of the Wolf RBAC server.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ingressClassName": {
+          "description": "IngressClassName is the name of an IngressClass cluster resource.\nThe controller uses this field to decide whether the resource should be managed.",
+          "type": "string"
+        }
+      }
+    },
+    "status": {
+      "description": "ApisixStatus is the status report for Apisix ingress Resources",
+      "type": "object",
+      "properties": {
+        "conditions": {
+          "type": "array",
+          "items": {
+            "description": "Condition contains details for one aspect of the current state of this API Resource.",
+            "type": "object",
+            "required": [
+              "lastTransitionTime",
+              "message",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "lastTransitionTime is the last time the condition transitioned from one status to another.\nThis should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "message is a human readable message indicating details about the transition.\nThis may be an empty string.",
+                "type": "string",
+                "maxLength": 32768
+              },
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "type": "integer",
+                "format": "int64",
+                "minimum": 0
+              },
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition.\nProducers of specific condition types may define expected values and meanings for this field,\nand whether the values are considered a guaranteed API.\nThe value should be a CamelCase string.\nThis field may not be empty.",
+                "type": "string",
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$"
+              },
+              "status": {
+                "description": "status of the condition, one of True, False, Unknown.",
+                "type": "string",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ]
+              },
+              "type": {
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase.",
+                "type": "string",
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
