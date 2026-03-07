@@ -1,0 +1,13 @@
+sources:
+  - name: kargo
+    type: helm
+    repo: oci://ghcr.io/akuity/kargo-charts
+    chart: kargo
+    version: 1.9.5
+    license: Apache-2.0
+    homepage: https://kargo.io
+    values:
+      api.adminAccount.passwordHash: "dummy"
+      api.adminAccount.tokenSigningKey: "dummy"
+    include:
+      - "kargo.akuity.io/*"

@@ -1,0 +1,31 @@
+{
+  "schema": "projectconfig.json",
+  "crd": {
+    "group": "kargo.akuity.io",
+    "kind": "ProjectConfig",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "kargo",
+    "type": "helm",
+    "repo": "oci://ghcr.io/akuity/kargo-charts",
+    "chart": "kargo",
+    "version": "1.9.5",
+    "license": "Apache-2.0",
+    "homepage": "https://kargo.io",
+    "values": {
+      "api.adminAccount.passwordHash": "dummy",
+      "api.adminAccount.tokenSigningKey": "dummy"
+    },
+    "include": [
+      "kargo.akuity.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T07:00:35Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6b9409601ff1bec47a7ceddb99a135074ab038af0b6f3d86aa2576f1c1de5872"
+  }
+}

@@ -118,10 +118,6 @@ The following popular projects are not currently covered due to technical limita
 - **Karpenter** (`karpenter.sh`) -- The core `kubernetes-sigs/karpenter` repo is a framework library. CRDs are shipped by provider-specific implementations (e.g., `aws/karpenter-provider-aws`), which use OCI registries that require authentication.
 - **CSI Volume Snapshots** (`snapshot.storage.k8s.io`) -- CRDs are distributed as individual files in `kubernetes-csi/external-snapshotter` with no combined manifest. The extractor currently supports single-URL sources only.
 
-### Non-standard chart structure
-
-- **Kargo** (`kargo.akuity.io`) -- CRDs are placed in a non-standard `resources/crds/` directory inside the Helm chart instead of the conventional `crds/` directory. The `helm template` output also does not include them.
-
 ### Authenticated OCI registries
 
 The following projects publish Helm charts exclusively via OCI registries that require authentication:

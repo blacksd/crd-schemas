@@ -1,0 +1,31 @@
+{
+  "schema": "promotiontask.json",
+  "crd": {
+    "group": "kargo.akuity.io",
+    "kind": "PromotionTask",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "kargo",
+    "type": "helm",
+    "repo": "oci://ghcr.io/akuity/kargo-charts",
+    "chart": "kargo",
+    "version": "1.9.5",
+    "license": "Apache-2.0",
+    "homepage": "https://kargo.io",
+    "values": {
+      "api.adminAccount.passwordHash": "dummy",
+      "api.adminAccount.tokenSigningKey": "dummy"
+    },
+    "include": [
+      "kargo.akuity.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T07:00:35Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "362e985325c9aacd6db1b57e3c6a210e07a84279bededd456a82af3af2991125"
+  }
+}

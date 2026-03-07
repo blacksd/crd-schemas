@@ -1,0 +1,31 @@
+{
+  "schema": "clusterpromotiontask.json",
+  "crd": {
+    "group": "kargo.akuity.io",
+    "kind": "ClusterPromotionTask",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "kargo",
+    "type": "helm",
+    "repo": "oci://ghcr.io/akuity/kargo-charts",
+    "chart": "kargo",
+    "version": "1.9.5",
+    "license": "Apache-2.0",
+    "homepage": "https://kargo.io",
+    "values": {
+      "api.adminAccount.passwordHash": "dummy",
+      "api.adminAccount.tokenSigningKey": "dummy"
+    },
+    "include": [
+      "kargo.akuity.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T07:00:35Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7ff8b181f929fbcb9d08e1e248f79bfd595e165f7f98df01d19615addf87dd95"
+  }
+}
