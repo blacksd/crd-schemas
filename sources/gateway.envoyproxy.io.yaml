@@ -1,0 +1,12 @@
+sources:
+  - name: envoy-gateway
+    type: helm
+    repo: oci://docker.io/envoyproxy
+    chart: gateway-crds-helm
+    version: 1.7.0
+    license: Apache-2.0
+    homepage: https://gateway.envoyproxy.io
+    values:
+      crds.envoyGateway.enabled: "true"
+    include:
+      - "gateway.envoyproxy.io/*"

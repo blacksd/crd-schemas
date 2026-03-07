@@ -1,0 +1,24 @@
+{
+  "schema": "autoscalinglistener.json",
+  "crd": {
+    "group": "actions.github.com",
+    "kind": "AutoscalingListener",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "actions-runner-controller",
+    "type": "helm",
+    "repo": "oci://ghcr.io/actions/actions-runner-controller-charts",
+    "chart": "gha-runner-scale-set-controller",
+    "version": "0.10.1",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/actions/actions-runner-controller"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:41:33Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9bda3919f0c1c09cc3cfd53aac2e55e6a6a7e59a36a661ca3c90a8612f4f58d3"
+  }
+}

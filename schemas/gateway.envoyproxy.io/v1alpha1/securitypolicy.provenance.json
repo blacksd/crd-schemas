@@ -1,0 +1,30 @@
+{
+  "schema": "securitypolicy.json",
+  "crd": {
+    "group": "gateway.envoyproxy.io",
+    "kind": "SecurityPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "envoy-gateway",
+    "type": "helm",
+    "repo": "oci://docker.io/envoyproxy",
+    "chart": "gateway-crds-helm",
+    "version": "1.7.0",
+    "license": "Apache-2.0",
+    "homepage": "https://gateway.envoyproxy.io",
+    "values": {
+      "crds.envoyGateway.enabled": "true"
+    },
+    "include": [
+      "gateway.envoyproxy.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:53:15Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6114a5a6e84e05bc4df9bf5740e442abe5c0e1a1fc6ed57751c5a4d9388ede7e"
+  }
+}
