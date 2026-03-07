@@ -1,0 +1,24 @@
+{
+  "schema": "backup.json",
+  "crd": {
+    "group": "k8up.io",
+    "kind": "Backup",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "k8up",
+    "type": "helm",
+    "repo": "https://k8up-io.github.io/k8up",
+    "chart": "k8up",
+    "version": "4.8.6",
+    "license": "Apache-2.0",
+    "homepage": "https://k8up.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:38Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "640194d995c34cd4aef65f79b2ce69d81c7616356f0b3fe2ca310085ff0bbff4"
+  }
+}

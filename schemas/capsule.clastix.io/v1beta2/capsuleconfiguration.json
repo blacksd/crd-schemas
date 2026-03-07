@@ -1,0 +1,191 @@
+{
+  "description": "CapsuleConfiguration is the Schema for the Capsule configuration API.",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "CapsuleConfigurationSpec defines the Capsule configuration.",
+      "type": "object",
+      "required": [
+        "enableTLSReconciler"
+      ],
+      "properties": {
+        "administrators": {
+          "description": "Define entities which can act as Administrators in the capsule construct\nThese entities are automatically owners for all existing tenants. Meaning they can add namespaces to any tenant. However they must be specific by using the capsule label\nfor interacting with namespaces. Because if that label is not defined, it's assumed that namespace interaction was not targeted towards a tenant and will therefor\nbe ignored by capsule.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "kind",
+              "name"
+            ],
+            "properties": {
+              "kind": {
+                "description": "Kind of entity. Possible values are \"User\", \"Group\", and \"ServiceAccount\"",
+                "type": "string",
+                "enum": [
+                  "User",
+                  "Group",
+                  "ServiceAccount"
+                ]
+              },
+              "name": {
+                "description": "Name of the entity.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "allowServiceAccountPromotion": {
+          "description": "ServiceAccounts within tenant namespaces can be promoted to owners of the given tenant\nthis can be achieved by labeling the serviceaccount and then they are considered owners. This can only be done by other owners of the tenant.\nHowever ServiceAccounts which have been promoted to owner can not promote further serviceAccounts.",
+          "type": "boolean",
+          "default": false
+        },
+        "enableTLSReconciler": {
+          "description": "Toggles the TLS reconciler, the controller that is able to generate CA and certificates for the webhooks\nwhen not using an already provided CA and certificate, or when these are managed externally with Vault, or cert-manager.",
+          "type": "boolean",
+          "default": false
+        },
+        "forceTenantPrefix": {
+          "description": "Enforces the Tenant owner, during Namespace creation, to name it using the selected Tenant name as prefix,\nseparated by a dash. This is useful to avoid Namespace name collision in a public CaaS environment.",
+          "type": "boolean",
+          "default": false
+        },
+        "ignoreUserWithGroups": {
+          "description": "Define groups which when found in the request of a user will be ignored by the Capsule\nthis might be useful if you have one group where all the users are in, but you want to separate administrators from normal users with additional groups.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nodeMetadata": {
+          "description": "Allows to set the forbidden metadata for the worker nodes that could be patched by a Tenant.\nThis applies only if the Tenant has an active NodeSelector, and the Owner have right to patch their nodes.",
+          "type": "object",
+          "properties": {
+            "forbiddenAnnotations": {
+              "description": "Define the annotations that a Tenant Owner cannot set for their nodes.",
+              "type": "object",
+              "properties": {
+                "denied": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "deniedRegex": {
+                  "type": "string"
+                }
+              }
+            },
+            "forbiddenLabels": {
+              "description": "Define the labels that a Tenant Owner cannot set for their nodes.",
+              "type": "object",
+              "properties": {
+                "denied": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "deniedRegex": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "overrides": {
+          "description": "Allows to set different name rather than the canonical one for the Capsule configuration objects,\nsuch as webhook secret or configurations.",
+          "type": "object",
+          "default": {
+            "TLSSecretName": "capsule-tls",
+            "mutatingWebhookConfigurationName": "capsule-mutating-webhook-configuration",
+            "validatingWebhookConfigurationName": "capsule-validating-webhook-configuration"
+          },
+          "required": [
+            "TLSSecretName",
+            "mutatingWebhookConfigurationName",
+            "validatingWebhookConfigurationName"
+          ],
+          "properties": {
+            "TLSSecretName": {
+              "description": "Defines the Secret name used for the webhook server.\nMust be in the same Namespace where the Capsule Deployment is deployed.",
+              "type": "string",
+              "default": "capsule-tls"
+            },
+            "mutatingWebhookConfigurationName": {
+              "description": "Name of the MutatingWebhookConfiguration which contains the dynamic admission controller paths and resources.",
+              "type": "string",
+              "default": "capsule-mutating-webhook-configuration"
+            },
+            "validatingWebhookConfigurationName": {
+              "description": "Name of the ValidatingWebhookConfiguration which contains the dynamic admission controller paths and resources.",
+              "type": "string",
+              "default": "capsule-validating-webhook-configuration"
+            }
+          }
+        },
+        "protectedNamespaceRegex": {
+          "description": "Disallow creation of namespaces, whose name matches this regexp",
+          "type": "string"
+        },
+        "userGroups": {
+          "description": "Deprecated: use users property instead (https://projectcapsule.dev/docs/operating/setup/configuration/#users)\n\nNames of the groups considered as Capsule users.",
+          "type": "array",
+          "default": [
+            "capsule.clastix.io"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "userNames": {
+          "description": "Deprecated: use users property instead (https://projectcapsule.dev/docs/operating/setup/configuration/#users)\n\nNames of the users considered as Capsule users.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "users": {
+          "description": "Define entities which are considered part of the Capsule construct\nUsers not mentioned here will be ignored by Capsule",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "kind",
+              "name"
+            ],
+            "properties": {
+              "kind": {
+                "description": "Kind of entity. Possible values are \"User\", \"Group\", and \"ServiceAccount\"",
+                "type": "string",
+                "enum": [
+                  "User",
+                  "Group",
+                  "ServiceAccount"
+                ]
+              },
+              "name": {
+                "description": "Name of the entity.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

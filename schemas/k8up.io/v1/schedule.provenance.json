@@ -1,0 +1,24 @@
+{
+  "schema": "schedule.json",
+  "crd": {
+    "group": "k8up.io",
+    "kind": "Schedule",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "k8up",
+    "type": "helm",
+    "repo": "https://k8up-io.github.io/k8up",
+    "chart": "k8up",
+    "version": "4.8.6",
+    "license": "Apache-2.0",
+    "homepage": "https://k8up.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:38Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6dee855468193f7d0f87c907c998609eaec5256f733984789d97288c7dc9af9f"
+  }
+}

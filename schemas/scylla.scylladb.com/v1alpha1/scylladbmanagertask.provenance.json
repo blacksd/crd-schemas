@@ -1,0 +1,24 @@
+{
+  "schema": "scylladbmanagertask.json",
+  "crd": {
+    "group": "scylla.scylladb.com",
+    "kind": "ScyllaDBManagerTask",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "scylla-operator",
+    "type": "helm",
+    "repo": "https://scylla-operator-charts.storage.googleapis.com/stable",
+    "chart": "scylla-operator",
+    "version": "v1.20.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/scylladb/scylla-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:59Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9ca78ad1cce89be26eb3182c8b2a2dfc375a733ab5e8c328d20bd831f792cf24"
+  }
+}

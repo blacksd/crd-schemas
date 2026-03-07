@@ -1,0 +1,27 @@
+{
+  "schema": "clickhousekeeperinstallation.json",
+  "crd": {
+    "group": "clickhouse-keeper.altinity.com",
+    "kind": "ClickHouseKeeperInstallation",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "altinity-clickhouse-operator",
+    "type": "helm",
+    "repo": "https://altinity.github.io/clickhouse-operator",
+    "chart": "altinity-clickhouse-operator",
+    "version": "0.26.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/Altinity/clickhouse-operator",
+    "include": [
+      "clickhouse-keeper.altinity.com/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:17Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "21715f5058d607f7f68974603cd103392b55eff1e14399d1665529121f56a7ab"
+  }
+}

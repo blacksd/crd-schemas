@@ -1,0 +1,23 @@
+{
+  "schema": "topology.json",
+  "crd": {
+    "group": "kueue.x-k8s.io",
+    "kind": "Topology",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "kueue",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/kueue/releases/download/v0.16.2/manifests.yaml",
+    "version": "v0.16.2",
+    "license": "Apache-2.0",
+    "homepage": "https://kueue.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7c377ea05c09526208773ba406c35dd05ea77e936009f960ba15ea9e124e52b9"
+  }
+}

@@ -1,0 +1,10 @@
+sources:
+  - name: stunner
+    type: helm
+    repo: https://l7mp.io/stunner
+    chart: stunner
+    version: 1.1.0
+    license: MIT
+    homepage: https://github.com/l7mp/stunner
+    include:
+      - "stunner.l7mp.io/*"

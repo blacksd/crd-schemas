@@ -1,0 +1,23 @@
+{
+  "schema": "multikueueconfig.json",
+  "crd": {
+    "group": "kueue.x-k8s.io",
+    "kind": "MultiKueueConfig",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "kueue",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/kueue/releases/download/v0.16.2/manifests.yaml",
+    "version": "v0.16.2",
+    "license": "Apache-2.0",
+    "homepage": "https://kueue.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0003535ad5df63db9d4ad353cbf7662bd52a118ae7ae40a659cbc37f761c4761"
+  }
+}

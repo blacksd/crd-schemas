@@ -1,0 +1,27 @@
+{
+  "schema": "gatewayconfig.json",
+  "crd": {
+    "group": "stunner.l7mp.io",
+    "kind": "GatewayConfig",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "stunner",
+    "type": "helm",
+    "repo": "https://l7mp.io/stunner",
+    "chart": "stunner",
+    "version": "1.1.0",
+    "license": "MIT",
+    "homepage": "https://github.com/l7mp/stunner",
+    "include": [
+      "stunner.l7mp.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:09Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "401b6ecce0445753233f77a5994573659d1800992825d8f5aa11e1c92d6e2ce9"
+  }
+}

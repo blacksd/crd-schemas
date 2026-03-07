@@ -1,0 +1,8 @@
+sources:
+  - name: open-feature-operator
+    type: helm
+    repo: https://open-feature.github.io/open-feature-operator
+    chart: open-feature-operator
+    version: v0.8.9
+    license: Apache-2.0
+    homepage: https://openfeature.dev

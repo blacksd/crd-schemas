@@ -1,0 +1,27 @@
+{
+  "schema": "apisixconsumer.json",
+  "crd": {
+    "group": "apisix.apache.org",
+    "kind": "ApisixConsumer",
+    "apiVersion": "v2"
+  },
+  "source": {
+    "name": "apisix-ingress-controller",
+    "type": "helm",
+    "repo": "https://charts.apiseven.com",
+    "chart": "apisix-ingress-controller",
+    "version": "1.1.2",
+    "license": "Apache-2.0",
+    "homepage": "https://apisix.apache.org",
+    "include": [
+      "apisix.apache.org/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:02Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "680f992ed01247ced2f52fe2afe3a4e17af2615adb5ec3457b49d8e928d0e91c"
+  }
+}

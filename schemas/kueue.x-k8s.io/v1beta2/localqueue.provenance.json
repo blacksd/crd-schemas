@@ -1,0 +1,23 @@
+{
+  "schema": "localqueue.json",
+  "crd": {
+    "group": "kueue.x-k8s.io",
+    "kind": "LocalQueue",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "kueue",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/kueue/releases/download/v0.16.2/manifests.yaml",
+    "version": "v0.16.2",
+    "license": "Apache-2.0",
+    "homepage": "https://kueue.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:26Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "51fd3ccdf13dde8ece2bf84cba3997afc64b7f10b0cc7cfb003b46c6595f4f04"
+  }
+}

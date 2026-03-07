@@ -1,0 +1,8 @@
+sources:
+  - name: scylla-operator
+    type: helm
+    repo: https://scylla-operator-charts.storage.googleapis.com/stable
+    chart: scylla-operator
+    version: v1.20.0
+    license: Apache-2.0
+    homepage: https://github.com/scylladb/scylla-operator

@@ -1,0 +1,27 @@
+{
+  "schema": "clusteroutput.json",
+  "crd": {
+    "group": "fluentd.fluent.io",
+    "kind": "ClusterOutput",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "fluent-operator",
+    "type": "helm",
+    "repo": "https://fluent.github.io/helm-charts",
+    "chart": "fluent-operator",
+    "version": "3.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/fluent/fluent-operator",
+    "include": [
+      "fluentd.fluent.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "cd1c21f994090afcfd29201be5b7215b52b9152fdd1a5ad4bc7143291856b45b"
+  }
+}

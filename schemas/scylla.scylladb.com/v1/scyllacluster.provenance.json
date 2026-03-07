@@ -1,0 +1,24 @@
+{
+  "schema": "scyllacluster.json",
+  "crd": {
+    "group": "scylla.scylladb.com",
+    "kind": "ScyllaCluster",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "scylla-operator",
+    "type": "helm",
+    "repo": "https://scylla-operator-charts.storage.googleapis.com/stable",
+    "chart": "scylla-operator",
+    "version": "v1.20.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/scylladb/scylla-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:59Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2508d1142505778875506715c93cdcbda5e0f741b06177f516b84b195238866c"
+  }
+}

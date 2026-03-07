@@ -1,0 +1,24 @@
+{
+  "schema": "resourcepool.json",
+  "crd": {
+    "group": "capsule.clastix.io",
+    "kind": "ResourcePool",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "capsule",
+    "type": "helm",
+    "repo": "https://projectcapsule.github.io/charts",
+    "chart": "capsule",
+    "version": "0.12.4",
+    "license": "Apache-2.0",
+    "homepage": "https://capsule.clastix.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:12Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "27f749ef53748c805e404fb8de64eb970204df9eb91e8fe8c5075e93419dc186"
+  }
+}

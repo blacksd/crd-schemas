@@ -1,0 +1,24 @@
+{
+  "schema": "clusterimagepolicy.json",
+  "crd": {
+    "group": "policy.sigstore.dev",
+    "kind": "ClusterImagePolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "sigstore-policy-controller",
+    "type": "helm",
+    "repo": "https://sigstore.github.io/helm-charts",
+    "chart": "policy-controller",
+    "version": "0.10.6",
+    "license": "Apache-2.0",
+    "homepage": "https://docs.sigstore.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:35Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "530bd4c1be83b27c4177769b68db5fe62c555acd38f132a8add6a4a070c1062f"
+  }
+}

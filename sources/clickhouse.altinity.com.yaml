@@ -1,0 +1,10 @@
+sources:
+  - name: altinity-clickhouse-operator
+    type: helm
+    repo: https://altinity.github.io/clickhouse-operator
+    chart: altinity-clickhouse-operator
+    version: 0.26.0
+    license: Apache-2.0
+    homepage: https://github.com/Altinity/clickhouse-operator
+    include:
+      - "clickhouse.altinity.com/*"

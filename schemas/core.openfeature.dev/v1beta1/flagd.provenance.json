@@ -1,0 +1,24 @@
+{
+  "schema": "flagd.json",
+  "crd": {
+    "group": "core.openfeature.dev",
+    "kind": "Flagd",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "open-feature-operator",
+    "type": "helm",
+    "repo": "https://open-feature.github.io/open-feature-operator",
+    "chart": "open-feature-operator",
+    "version": "v0.8.9",
+    "license": "Apache-2.0",
+    "homepage": "https://openfeature.dev"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:29:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f71959629bd9983b67fb896b78dcdd300fbc1e2fd3321b17fe5b8695bf0551d0"
+  }
+}

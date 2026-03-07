@@ -1,0 +1,27 @@
+{
+  "schema": "backendtrafficpolicy.json",
+  "crd": {
+    "group": "apisix.apache.org",
+    "kind": "BackendTrafficPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "apisix-ingress-controller",
+    "type": "helm",
+    "repo": "https://charts.apiseven.com",
+    "chart": "apisix-ingress-controller",
+    "version": "1.1.2",
+    "license": "Apache-2.0",
+    "homepage": "https://apisix.apache.org",
+    "include": [
+      "apisix.apache.org/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:02Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0cbded4f91e803dde8514264948a8e64074cb52fd9d0832122f3b9fb5d665783"
+  }
+}

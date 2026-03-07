@@ -1,0 +1,27 @@
+{
+  "schema": "filter.json",
+  "crd": {
+    "group": "fluentbit.fluent.io",
+    "kind": "Filter",
+    "apiVersion": "v1alpha2"
+  },
+  "source": {
+    "name": "fluent-operator",
+    "type": "helm",
+    "repo": "https://fluent.github.io/helm-charts",
+    "chart": "fluent-operator",
+    "version": "3.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/fluent/fluent-operator",
+    "include": [
+      "fluentbit.fluent.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:31Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9e7aafbe94dcb43b557e84ff32abdba3e369a30a4a6a2cdd0df1f8055f643b79"
+  }
+}

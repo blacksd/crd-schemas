@@ -1,0 +1,8 @@
+sources:
+  - name: k8up
+    type: helm
+    repo: https://k8up-io.github.io/k8up
+    chart: k8up
+    version: 4.8.6
+    license: Apache-2.0
+    homepage: https://k8up.io

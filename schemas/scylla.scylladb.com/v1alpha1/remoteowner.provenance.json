@@ -1,0 +1,24 @@
+{
+  "schema": "remoteowner.json",
+  "crd": {
+    "group": "scylla.scylladb.com",
+    "kind": "RemoteOwner",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "scylla-operator",
+    "type": "helm",
+    "repo": "https://scylla-operator-charts.storage.googleapis.com/stable",
+    "chart": "scylla-operator",
+    "version": "v1.20.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/scylladb/scylla-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:28:59Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5acd870cc8c416dd47a08736e215a68d42867c1fc88701c502ca52c1c8bc4f0e"
+  }
+}
