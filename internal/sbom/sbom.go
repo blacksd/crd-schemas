@@ -3,6 +3,7 @@ package sbom
 
 import (
 	"bytes"
+	"sort"
 
 	cdx "github.com/CycloneDX/cyclonedx-go"
 
@@ -48,6 +49,10 @@ func Generate(sources []source.Source, timestamp string) ([]byte, error) {
 		}
 		components = append(components, c)
 	}
+
+	sort.Slice(components, func(i, j int) bool {
+		return components[i].Name < components[j].Name
+	})
 
 	if len(components) > 0 {
 		bom.Components = &components

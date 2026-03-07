@@ -4,7 +4,7 @@
   "specVersion": "1.5",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-03-07T06:40:58Z",
+    "timestamp": "2026-03-07T07:07:07Z",
     "tools": {
       "components": [
         {
@@ -18,144 +18,18 @@
   "components": [
     {
       "type": "library",
-      "name": "volsync",
-      "version": "0.15.0",
+      "name": "zalando-postgres-operator",
+      "version": "1.15.1",
       "licenses": [
         {
           "license": {
-            "id": "AGPL-3.0"
+            "id": "MIT"
           }
         }
       ],
       "externalReferences": [
         {
-          "url": "https://volsync.readthedocs.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "eck-operator",
-      "version": "3.3.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Elastic-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "eck-operator",
-      "version": "3.3.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Elastic-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "gateway-api",
-      "version": "v1.2.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://gateway-api.sigs.k8s.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "litmus-core",
-      "version": "3.26.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://litmuschaos.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "eck-operator",
-      "version": "3.3.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Elastic-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "cluster-api",
-      "version": "v1.12.3",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://cluster-api.sigs.k8s.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "fluent-operator",
-      "version": "3.5.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://github.com/fluent/fluent-operator",
+          "url": "https://postgres-operator.readthedocs.io",
           "type": "website"
         }
       ]
@@ -174,60 +48,6 @@
       "externalReferences": [
         {
           "url": "https://volcano.sh",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "traefik",
-      "version": "39.0.3",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://traefik.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "kyverno",
-      "version": "3.7.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://kyverno.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "vpa",
-      "version": "1.6.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler",
           "type": "website"
         }
       ]
@@ -252,8 +72,8 @@
     },
     {
       "type": "library",
-      "name": "nats-nack",
-      "version": "v0.22.3",
+      "name": "metallb",
+      "version": "0.15.3",
       "licenses": [
         {
           "license": {
@@ -263,79 +83,7 @@
       ],
       "externalReferences": [
         {
-          "url": "https://github.com/nats-io/nack",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "kubevirt",
-      "version": "v1.6.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://kubevirt.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "scylla-operator",
-      "version": "v1.20.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://github.com/scylladb/scylla-operator",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "sealed-secrets",
-      "version": "2.18.3",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://sealed-secrets.netlify.app",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "rabbitmq-cluster-operator",
-      "version": "v2.19.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "MPL-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.rabbitmq.com/kubernetes/operator/operator-overview",
+          "url": "https://metallb.universe.tf",
           "type": "website"
         }
       ]
@@ -354,510 +102,6 @@
       "externalReferences": [
         {
           "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "keptn",
-      "version": "0.11.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://keptn.sh",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "ps-operator",
-      "version": "1.0.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.percona.com/percona-server-mysql-kubernetes",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "dapr",
-      "version": "1.17.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://dapr.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "eck-operator",
-      "version": "3.3.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Elastic-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "eck-operator",
-      "version": "3.3.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Elastic-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "gatekeeper",
-      "version": "3.21.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://open-policy-agent.github.io/gatekeeper",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "eck-operator",
-      "version": "3.3.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Elastic-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "node-feature-discovery",
-      "version": "0.18.3",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://kubernetes-sigs.github.io/node-feature-discovery",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "pxc-operator",
-      "version": "1.19.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.percona.com/percona-xtradb-cluster-kubernetes",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "vault-secrets-operator",
-      "version": "1.3.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "BUSL-1.1"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://developer.hashicorp.com/vault/docs/platform/k8s/vso",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "capsule",
-      "version": "0.12.4",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://capsule.clastix.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "cert-manager",
-      "version": "v1.17.2",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://cert-manager.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "mongodb-community-operator",
-      "version": "0.13.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://github.com/mongodb/mongodb-kubernetes-operator",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "apisix-ingress-controller",
-      "version": "1.1.2",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://apisix.apache.org",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "flux",
-      "version": "v2.8.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://fluxcd.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "kyverno",
-      "version": "3.7.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://kyverno.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "fluent-operator",
-      "version": "3.5.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://github.com/fluent/fluent-operator",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "k8up",
-      "version": "4.8.6",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://k8up.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "sloth",
-      "version": "0.15.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://sloth.dev",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "linkerd-crds",
-      "version": "2026.2.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://linkerd.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "gatekeeper",
-      "version": "3.21.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://open-policy-agent.github.io/gatekeeper",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "submariner-operator",
-      "version": "0.22.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://submariner.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "spark-operator",
-      "version": "2.4.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.kubeflow.org/docs/components/spark-operator",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "tekton-pipelines",
-      "version": "v1.10.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://tekton.dev",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "gatekeeper",
-      "version": "3.21.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://open-policy-agent.github.io/gatekeeper",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "eck-operator",
-      "version": "3.3.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Elastic-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "flagger",
-      "version": "1.42.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://flagger.app",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "strimzi-kafka",
-      "version": "0.50.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://strimzi.io",
           "type": "website"
         }
       ]
@@ -876,132 +120,6 @@
       "externalReferences": [
         {
           "url": "https://volcano.sh",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "volcano",
-      "version": "1.14.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://volcano.sh",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "grafana-operator",
-      "version": "5.22.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://grafana.github.io/grafana-operator",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "nginx-ingress",
-      "version": "v5.3.4",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://docs.nginx.com/nginx-ingress-controller",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "pyrra",
-      "version": "0.14.3",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://github.com/pyrra-dev/pyrra",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "flux",
-      "version": "v2.8.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://fluxcd.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "volcano",
-      "version": "1.14.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://volcano.sh",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "velero",
-      "version": "11.4.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://velero.io",
           "type": "website"
         }
       ]
@@ -1026,60 +144,6 @@
     },
     {
       "type": "library",
-      "name": "open-feature-operator",
-      "version": "v0.8.9",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://openfeature.dev",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "volcano",
-      "version": "1.14.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://volcano.sh",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "eck-operator",
-      "version": "3.3.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Elastic-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "name": "gatekeeper",
       "version": "3.21.1",
       "licenses": [
@@ -1092,132 +156,6 @@
       "externalReferences": [
         {
           "url": "https://open-policy-agent.github.io/gatekeeper",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "pg-operator",
-      "version": "2.8.2",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.percona.com/percona-postgresql-kubernetes",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "istio-base",
-      "version": "1.29.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://istio.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "trivy-operator",
-      "version": "0.32.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://aquasecurity.github.io/trivy-operator",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "tigera-operator",
-      "version": "v3.31.4",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.tigera.io/project-calico",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "snapscheduler",
-      "version": "3.5.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "AGPL-3.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://backube.github.io/snapscheduler",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "altinity-clickhouse-operator",
-      "version": "0.26.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://github.com/Altinity/clickhouse-operator",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "kueue",
-      "version": "v0.16.2",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://kueue.sigs.k8s.io",
           "type": "website"
         }
       ]
@@ -1242,8 +180,8 @@
     },
     {
       "type": "library",
-      "name": "opentelemetry-operator",
-      "version": "0.106.0",
+      "name": "longhorn",
+      "version": "1.11.0",
       "licenses": [
         {
           "license": {
@@ -1253,15 +191,15 @@
       ],
       "externalReferences": [
         {
-          "url": "https://opentelemetry.io",
+          "url": "https://longhorn.io",
           "type": "website"
         }
       ]
     },
     {
       "type": "library",
-      "name": "redis-operator",
-      "version": "0.23.0",
+      "name": "mongodb-community-operator",
+      "version": "0.13.0",
       "licenses": [
         {
           "license": {
@@ -1271,15 +209,15 @@
       ],
       "externalReferences": [
         {
-          "url": "https://redis-operator.opstree.dev",
+          "url": "https://github.com/mongodb/mongodb-kubernetes-operator",
           "type": "website"
         }
       ]
     },
     {
       "type": "library",
-      "name": "istio-base",
-      "version": "1.29.0",
+      "name": "flux",
+      "version": "v2.8.1",
       "licenses": [
         {
           "license": {
@@ -1289,15 +227,33 @@
       ],
       "externalReferences": [
         {
-          "url": "https://istio.io",
+          "url": "https://fluxcd.io",
           "type": "website"
         }
       ]
     },
     {
       "type": "library",
-      "name": "rook-ceph",
-      "version": "v1.19.2",
+      "name": "eck-operator",
+      "version": "3.3.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Elastic-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "flux",
+      "version": "v2.8.1",
       "licenses": [
         {
           "license": {
@@ -1307,7 +263,223 @@
       ],
       "externalReferences": [
         {
-          "url": "https://rook.io",
+          "url": "https://fluxcd.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "kargo",
+      "version": "1.9.5",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://kargo.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "vault-secrets-operator",
+      "version": "1.3.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BUSL-1.1"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://developer.hashicorp.com/vault/docs/platform/k8s/vso",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "apisix-ingress-controller",
+      "version": "1.1.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://apisix.apache.org",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "cluster-api",
+      "version": "v1.12.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://cluster-api.sigs.k8s.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "kyverno",
+      "version": "3.7.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://kyverno.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "scylla-operator",
+      "version": "v1.20.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://github.com/scylladb/scylla-operator",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "secrets-store-csi-driver",
+      "version": "1.5.6",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://secrets-store-csi-driver.sigs.k8s.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "sloth",
+      "version": "0.15.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://sloth.dev",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "keptn",
+      "version": "0.11.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://keptn.sh",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "dapr",
+      "version": "1.17.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://dapr.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "hivemq-platform-operator",
+      "version": "0.2.22",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.hivemq.com",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "kyverno",
+      "version": "3.7.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://kyverno.io",
           "type": "website"
         }
       ]
@@ -1326,6 +498,168 @@
       "externalReferences": [
         {
           "url": "https://volcano.sh",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "spark-operator",
+      "version": "2.4.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.kubeflow.org/docs/components/spark-operator",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "eck-operator",
+      "version": "3.3.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Elastic-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "minio-operator",
+      "version": "7.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "AGPL-3.0-or-later"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://min.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "gatekeeper",
+      "version": "3.21.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://open-policy-agent.github.io/gatekeeper",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "eck-operator",
+      "version": "3.3.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Elastic-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "keda",
+      "version": "2.19.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://keda.sh",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "open-feature-operator",
+      "version": "v0.8.9",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://openfeature.dev",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rabbitmq-cluster-operator",
+      "version": "v2.19.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MPL-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.rabbitmq.com/kubernetes/operator/operator-overview",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "kubevirt",
+      "version": "v1.6.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://kubevirt.io",
           "type": "website"
         }
       ]
@@ -1368,168 +702,6 @@
     },
     {
       "type": "library",
-      "name": "zalando-postgres-operator",
-      "version": "1.15.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://postgres-operator.readthedocs.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "minio-operator",
-      "version": "7.1.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "AGPL-3.0-or-later"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://min.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "cloudnative-pg",
-      "version": "0.27.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://cloudnative-pg.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "chaos-mesh",
-      "version": "2.8.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://chaos-mesh.org",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "volcano",
-      "version": "1.14.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://volcano.sh",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "linkerd-crds",
-      "version": "2026.2.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://linkerd.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "prometheus-operator",
-      "version": "v69.8.2",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://prometheus-operator.dev",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "keda",
-      "version": "2.19.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://keda.sh",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "linkerd-crds",
-      "version": "2026.2.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://linkerd.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "name": "eck-operator",
       "version": "3.3.1",
       "licenses": [
@@ -1548,8 +720,8 @@
     },
     {
       "type": "library",
-      "name": "hivemq-platform-operator",
-      "version": "0.2.22",
+      "name": "external-secrets",
+      "version": "v0.14.4",
       "licenses": [
         {
           "license": {
@@ -1559,15 +731,15 @@
       ],
       "externalReferences": [
         {
-          "url": "https://www.hivemq.com",
+          "url": "https://external-secrets.io",
           "type": "website"
         }
       ]
     },
     {
       "type": "library",
-      "name": "contour",
-      "version": "v1.33.2",
+      "name": "fluent-operator",
+      "version": "3.5.0",
       "licenses": [
         {
           "license": {
@@ -1577,7 +749,25 @@
       ],
       "externalReferences": [
         {
-          "url": "https://projectcontour.io",
+          "url": "https://github.com/fluent/fluent-operator",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jaeger-operator",
+      "version": "2.57.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.jaegertracing.io",
           "type": "website"
         }
       ]
@@ -1602,6 +792,906 @@
     },
     {
       "type": "library",
+      "name": "rook-ceph",
+      "version": "v1.19.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://rook.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "gatekeeper",
+      "version": "3.21.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://open-policy-agent.github.io/gatekeeper",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "eck-operator",
+      "version": "3.3.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Elastic-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "flux",
+      "version": "v2.8.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://fluxcd.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "keptn",
+      "version": "0.11.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://keptn.sh",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "redis-operator",
+      "version": "0.23.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://redis-operator.opstree.dev",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "istio-base",
+      "version": "1.29.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://istio.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "sealed-secrets",
+      "version": "2.18.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://sealed-secrets.netlify.app",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "altinity-clickhouse-operator",
+      "version": "0.26.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://github.com/Altinity/clickhouse-operator",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "keptn",
+      "version": "0.11.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://keptn.sh",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "contour",
+      "version": "v1.33.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://projectcontour.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "volcano",
+      "version": "1.14.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://volcano.sh",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "mariadb-operator-crds",
+      "version": "25.10.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://github.com/mariadb-operator/mariadb-operator",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pg-operator",
+      "version": "2.8.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.percona.com/percona-postgresql-kubernetes",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "kyverno",
+      "version": "3.7.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://kyverno.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "volsync",
+      "version": "0.15.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "AGPL-3.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://volsync.readthedocs.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pyrra",
+      "version": "0.14.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://github.com/pyrra-dev/pyrra",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "volcano",
+      "version": "1.14.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://volcano.sh",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "stunner",
+      "version": "1.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://github.com/l7mp/stunner",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "eck-operator",
+      "version": "3.3.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Elastic-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "eck-operator",
+      "version": "3.3.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Elastic-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "linkerd-crds",
+      "version": "2026.2.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://linkerd.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "capsule",
+      "version": "0.12.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://capsule.clastix.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "flux",
+      "version": "v2.8.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://fluxcd.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "eck-operator",
+      "version": "3.3.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Elastic-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tigera-operator",
+      "version": "v3.31.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.tigera.io/project-calico",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "psmdb-operator",
+      "version": "1.22.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.percona.com/percona-server-mongodb-kubernetes",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "gatekeeper",
+      "version": "3.21.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://open-policy-agent.github.io/gatekeeper",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "trivy-operator",
+      "version": "0.32.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://aquasecurity.github.io/trivy-operator",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "gatekeeper",
+      "version": "3.21.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://open-policy-agent.github.io/gatekeeper",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "ps-operator",
+      "version": "1.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.percona.com/percona-server-mysql-kubernetes",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "eck-operator",
+      "version": "3.3.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Elastic-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "grafana-operator",
+      "version": "5.22.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://grafana.github.io/grafana-operator",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "k8up",
+      "version": "4.8.6",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://k8up.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "envoy-gateway",
+      "version": "1.7.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://gateway.envoyproxy.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "gateway-api",
+      "version": "v1.2.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://gateway-api.sigs.k8s.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "nginx-ingress",
+      "version": "v5.3.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://docs.nginx.com/nginx-ingress-controller",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "litmus-core",
+      "version": "3.26.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://litmuschaos.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "gatekeeper",
+      "version": "3.21.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://open-policy-agent.github.io/gatekeeper",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "kueue",
+      "version": "v0.16.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://kueue.sigs.k8s.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "flux",
+      "version": "v2.8.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://fluxcd.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prometheus-operator",
+      "version": "v69.8.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://prometheus-operator.dev",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "volcano",
+      "version": "1.14.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://volcano.sh",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "actions-runner-controller",
+      "version": "0.10.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://github.com/actions/actions-runner-controller",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "vpa",
+      "version": "1.6.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "cert-manager",
+      "version": "v1.17.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://cert-manager.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tigera-operator",
+      "version": "v3.31.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.tigera.io/project-calico",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "flagger",
+      "version": "1.42.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://flagger.app",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "eck-operator",
+      "version": "3.3.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Elastic-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "kyverno",
+      "version": "3.7.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://kyverno.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "kong-ingress",
       "version": "0.22.0",
       "licenses": [
@@ -1614,6 +1704,330 @@
       "externalReferences": [
         {
           "url": "https://docs.konghq.com/kubernetes-ingress-controller",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "velero",
+      "version": "11.4.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://velero.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "opentelemetry-operator",
+      "version": "0.106.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://opentelemetry.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "cloudnative-pg",
+      "version": "0.27.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://cloudnative-pg.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "linkerd-crds",
+      "version": "2026.2.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://linkerd.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pxc-operator",
+      "version": "1.19.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.percona.com/percona-xtradb-cluster-kubernetes",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "knative-serving",
+      "version": "v1.21.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://knative.dev",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tekton-pipelines",
+      "version": "v1.10.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://tekton.dev",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "volcano",
+      "version": "1.14.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://volcano.sh",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "fluent-operator",
+      "version": "3.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://github.com/fluent/fluent-operator",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "nats-nack",
+      "version": "v0.22.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://github.com/nats-io/nack",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "volcano",
+      "version": "1.14.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://volcano.sh",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "gatekeeper",
+      "version": "3.21.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://open-policy-agent.github.io/gatekeeper",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "istio-base",
+      "version": "1.29.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://istio.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "node-feature-discovery",
+      "version": "0.18.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://kubernetes-sigs.github.io/node-feature-discovery",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "traefik",
+      "version": "39.0.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://traefik.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "eck-operator",
+      "version": "3.3.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Elastic-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "istio-base",
+      "version": "1.29.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://istio.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "linkerd-crds",
+      "version": "2026.2.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://linkerd.io",
           "type": "website"
         }
       ]
@@ -1692,8 +2106,8 @@
     },
     {
       "type": "library",
-      "name": "jaeger-operator",
-      "version": "2.57.0",
+      "name": "strimzi-kafka",
+      "version": "0.50.1",
       "licenses": [
         {
           "license": {
@@ -1703,43 +2117,25 @@
       ],
       "externalReferences": [
         {
-          "url": "https://www.jaegertracing.io",
+          "url": "https://strimzi.io",
           "type": "website"
         }
       ]
     },
     {
       "type": "library",
-      "name": "kyverno",
-      "version": "3.7.1",
+      "name": "snapscheduler",
+      "version": "3.5.0",
       "licenses": [
         {
           "license": {
-            "id": "Apache-2.0"
+            "id": "AGPL-3.0"
           }
         }
       ],
       "externalReferences": [
         {
-          "url": "https://kyverno.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "gatekeeper",
-      "version": "3.21.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://open-policy-agent.github.io/gatekeeper",
+          "url": "https://backube.github.io/snapscheduler",
           "type": "website"
         }
       ]
@@ -1764,8 +2160,8 @@
     },
     {
       "type": "library",
-      "name": "volcano",
-      "version": "1.14.1",
+      "name": "chaos-mesh",
+      "version": "2.8.1",
       "licenses": [
         {
           "license": {
@@ -1775,15 +2171,15 @@
       ],
       "externalReferences": [
         {
-          "url": "https://volcano.sh",
+          "url": "https://chaos-mesh.org",
           "type": "website"
         }
       ]
     },
     {
       "type": "library",
-      "name": "keptn",
-      "version": "0.11.0",
+      "name": "submariner-operator",
+      "version": "0.22.1",
       "licenses": [
         {
           "license": {
@@ -1793,349 +2189,7 @@
       ],
       "externalReferences": [
         {
-          "url": "https://keptn.sh",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "tigera-operator",
-      "version": "v3.31.4",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.tigera.io/project-calico",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "kyverno",
-      "version": "3.7.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://kyverno.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "gatekeeper",
-      "version": "3.21.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://open-policy-agent.github.io/gatekeeper",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "psmdb-operator",
-      "version": "1.22.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.percona.com/percona-server-mongodb-kubernetes",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "eck-operator",
-      "version": "3.3.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Elastic-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "keptn",
-      "version": "0.11.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://keptn.sh",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "stunner",
-      "version": "1.1.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://github.com/l7mp/stunner",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "flux",
-      "version": "v2.8.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://fluxcd.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "mariadb-operator-crds",
-      "version": "25.10.4",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://github.com/mariadb-operator/mariadb-operator",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "flux",
-      "version": "v2.8.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://fluxcd.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "longhorn",
-      "version": "1.11.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://longhorn.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "istio-base",
-      "version": "1.29.0",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://istio.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "flux",
-      "version": "v2.8.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://fluxcd.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "eck-operator",
-      "version": "3.3.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Elastic-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://www.elastic.co/guide/en/cloud-on-k8s",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "external-secrets",
-      "version": "v0.14.4",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://external-secrets.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "gatekeeper",
-      "version": "3.21.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://open-policy-agent.github.io/gatekeeper",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "metallb",
-      "version": "0.15.3",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://metallb.universe.tf",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "secrets-store-csi-driver",
-      "version": "1.5.6",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://secrets-store-csi-driver.sigs.k8s.io",
-          "type": "website"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "knative-serving",
-      "version": "v1.21.1",
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ],
-      "externalReferences": [
-        {
-          "url": "https://knative.dev",
+          "url": "https://submariner.io",
           "type": "website"
         }
       ]
