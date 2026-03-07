@@ -1,0 +1,23 @@
+{
+  "schema": "trainingruntime.json",
+  "crd": {
+    "group": "trainer.kubeflow.org",
+    "kind": "TrainingRuntime",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "kubeflow-trainingruntimes",
+    "type": "url",
+    "url": "https://raw.githubusercontent.com/kubeflow/training-operator/v2.1.0/manifests/base/crds/trainer.kubeflow.org_trainingruntimes.yaml",
+    "version": "v2.1.0",
+    "license": "Apache-2.0",
+    "homepage": "https://www.kubeflow.org/docs/components/training"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T07:13:16Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9d2cfd587fb1a0a0627a4e6f1190bf4ae8ad9bdde6b6bcbdc44793e8a3f660e2"
+  }
+}

@@ -65,34 +65,39 @@ func TestGenerate(t *testing.T) {
 	}
 	components := *bom.Components
 
-	// First component has license and homepage
+	// Components are sorted by name: "other-thing" before "test-operator"
+
+	// First component (alphabetically): no license or homepage
 	c0 := components[0]
-	if c0.Name != "test-operator" {
-		t.Errorf("components[0].name = %q, want %q", c0.Name, "test-operator")
+	if c0.Name != "other-thing" {
+		t.Errorf("components[0].name = %q, want %q", c0.Name, "other-thing")
 	}
-	if c0.Version != "v1.0.0" {
-		t.Errorf("components[0].version = %q, want %q", c0.Version, "v1.0.0")
+	if c0.Version != "v2.0.0" {
+		t.Errorf("components[0].version = %q, want %q", c0.Version, "v2.0.0")
 	}
 	if c0.Type != cdx.ComponentTypeLibrary {
 		t.Errorf("components[0].type = %q, want %q", c0.Type, cdx.ComponentTypeLibrary)
 	}
-	if c0.Licenses == nil || len(*c0.Licenses) != 1 || (*c0.Licenses)[0].License.ID != "Apache-2.0" {
-		t.Errorf("components[0].licenses unexpected: %+v", c0.Licenses)
+	if c0.Licenses != nil && len(*c0.Licenses) != 0 {
+		t.Errorf("expected no licenses for component without license, got %d", len(*c0.Licenses))
 	}
-	if c0.ExternalReferences == nil || len(*c0.ExternalReferences) != 1 || (*c0.ExternalReferences)[0].URL != "https://example.com" {
-		t.Errorf("components[0].externalReferences unexpected: %+v", c0.ExternalReferences)
+	if c0.ExternalReferences != nil && len(*c0.ExternalReferences) != 0 {
+		t.Errorf("expected no external refs for component without homepage, got %d", len(*c0.ExternalReferences))
 	}
 
-	// Second component has no license or homepage
+	// Second component (alphabetically): has license and homepage
 	c1 := components[1]
-	if c1.Name != "other-thing" {
-		t.Errorf("components[1].name = %q, want %q", c1.Name, "other-thing")
+	if c1.Name != "test-operator" {
+		t.Errorf("components[1].name = %q, want %q", c1.Name, "test-operator")
 	}
-	if c1.Licenses != nil && len(*c1.Licenses) != 0 {
-		t.Errorf("expected no licenses for component without license, got %d", len(*c1.Licenses))
+	if c1.Version != "v1.0.0" {
+		t.Errorf("components[1].version = %q, want %q", c1.Version, "v1.0.0")
 	}
-	if c1.ExternalReferences != nil && len(*c1.ExternalReferences) != 0 {
-		t.Errorf("expected no external refs for component without homepage, got %d", len(*c1.ExternalReferences))
+	if c1.Licenses == nil || len(*c1.Licenses) != 1 || (*c1.Licenses)[0].License.ID != "Apache-2.0" {
+		t.Errorf("components[1].licenses unexpected: %+v", c1.Licenses)
+	}
+	if c1.ExternalReferences == nil || len(*c1.ExternalReferences) != 1 || (*c1.ExternalReferences)[0].URL != "https://example.com" {
+		t.Errorf("components[1].externalReferences unexpected: %+v", c1.ExternalReferences)
 	}
 }
 

@@ -1,0 +1,23 @@
+{
+  "schema": "trainjob.json",
+  "crd": {
+    "group": "trainer.kubeflow.org",
+    "kind": "TrainJob",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "kubeflow-trainjobs",
+    "type": "url",
+    "url": "https://raw.githubusercontent.com/kubeflow/training-operator/v2.1.0/manifests/base/crds/trainer.kubeflow.org_trainjobs.yaml",
+    "version": "v2.1.0",
+    "license": "Apache-2.0",
+    "homepage": "https://www.kubeflow.org/docs/components/training"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T07:13:16Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "33b8e48b6b8f8c815776baffc0710d09baf043a08fbb61f3982ffb1b1faedc57"
+  }
+}
