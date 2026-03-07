@@ -63,30 +63,48 @@ func extractFromHelm(log zerolog.Logger, src source.Source) ([]CRDSchema, error)
 	}
 	defer os.RemoveAll(tmpDir)
 
-	repoAlias := "crd-schemas-" + src.Name
-
-	// Add and update helm repo
-	log.Debug().Str("repo", src.Repo).Str("alias", repoAlias).Msg("adding helm repo")
-	if err := runHelm(log, "repo", "add", repoAlias, src.Repo, "--force-update"); err != nil {
-		return nil, fmt.Errorf("helm repo add: %w", err)
-	}
-	log.Debug().Str("alias", repoAlias).Msg("updating helm repo")
-	if err := runHelm(log, "repo", "update", repoAlias); err != nil {
-		return nil, fmt.Errorf("helm repo update: %w", err)
-	}
-
-	// Try with and without 'v' prefix
-	helmVersion := strings.TrimPrefix(src.Version, "v")
 	chartDir := filepath.Join(tmpDir, "chart")
-	chartRef := repoAlias + "/" + src.Chart
+	isOCI := strings.HasPrefix(src.Repo, "oci://")
 
-	log.Debug().Str("chart", chartRef).Str("version", helmVersion).Msg("pulling chart")
-	err = runHelm(log, "pull", chartRef, "--version", helmVersion, "--untar", "--untardir", chartDir)
-	if err != nil {
-		log.Debug().Str("version", src.Version).Msg("retrying pull with original version string")
-		err = runHelm(log, "pull", chartRef, "--version", src.Version, "--untar", "--untardir", chartDir)
+	if isOCI {
+		// OCI registries: pull directly, no repo add/update needed.
+		// The chart ref is the full OCI URI with the chart name appended.
+		chartRef := strings.TrimSuffix(src.Repo, "/") + "/" + src.Chart
+		log.Debug().Str("chart", chartRef).Msg("pulling chart from OCI registry")
+
+		helmVersion := strings.TrimPrefix(src.Version, "v")
+		err = runHelm(log, "pull", chartRef, "--version", helmVersion, "--untar", "--untardir", chartDir)
 		if err != nil {
-			return nil, fmt.Errorf("helm pull %s@%s: %w", src.Chart, src.Version, err)
+			log.Debug().Str("version", src.Version).Msg("retrying pull with original version string")
+			err = runHelm(log, "pull", chartRef, "--version", src.Version, "--untar", "--untardir", chartDir)
+			if err != nil {
+				return nil, fmt.Errorf("helm pull %s@%s: %w", chartRef, src.Version, err)
+			}
+		}
+	} else {
+		// HTTP repositories: add repo, update, then pull via alias.
+		repoAlias := "crd-schemas-" + src.Name
+
+		log.Debug().Str("repo", src.Repo).Str("alias", repoAlias).Msg("adding helm repo")
+		if err := runHelm(log, "repo", "add", repoAlias, src.Repo, "--force-update"); err != nil {
+			return nil, fmt.Errorf("helm repo add: %w", err)
+		}
+		log.Debug().Str("alias", repoAlias).Msg("updating helm repo")
+		if err := runHelm(log, "repo", "update", repoAlias); err != nil {
+			return nil, fmt.Errorf("helm repo update: %w", err)
+		}
+
+		helmVersion := strings.TrimPrefix(src.Version, "v")
+		chartRef := repoAlias + "/" + src.Chart
+
+		log.Debug().Str("chart", chartRef).Str("version", helmVersion).Msg("pulling chart")
+		err = runHelm(log, "pull", chartRef, "--version", helmVersion, "--untar", "--untardir", chartDir)
+		if err != nil {
+			log.Debug().Str("version", src.Version).Msg("retrying pull with original version string")
+			err = runHelm(log, "pull", chartRef, "--version", src.Version, "--untar", "--untardir", chartDir)
+			if err != nil {
+				return nil, fmt.Errorf("helm pull %s@%s: %w", src.Chart, src.Version, err)
+			}
 		}
 	}
 

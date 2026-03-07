@@ -41,6 +41,19 @@ sources:
     homepage: https://example.io
 ```
 
+For Helm charts published to OCI registries, use an `oci://` repo URL:
+
+```yaml
+sources:
+  - name: my-operator
+    type: helm
+    repo: oci://ghcr.io/my-org/charts
+    chart: my-operator
+    version: v1.2.3
+    license: Apache-2.0
+    homepage: https://example.io
+```
+
 For URL-based sources (direct manifest download):
 
 ```yaml
@@ -105,13 +118,15 @@ The following popular projects are not currently covered due to technical limita
 - **Karpenter** (`karpenter.sh`) -- The core `kubernetes-sigs/karpenter` repo is a framework library. CRDs are shipped by provider-specific implementations (e.g., `aws/karpenter-provider-aws`), which use OCI registries that require authentication.
 - **CSI Volume Snapshots** (`snapshot.storage.k8s.io`) -- CRDs are distributed as individual files in `kubernetes-csi/external-snapshotter` with no combined manifest. The extractor currently supports single-URL sources only.
 
-### OCI-only distribution
+### Non-standard chart structure
 
-The extractor does not support OCI registries (`oci://`). The following projects only publish Helm charts via OCI:
+- **Kargo** (`kargo.akuity.io`) -- CRDs are placed in a non-standard `resources/crds/` directory inside the Helm chart instead of the conventional `crds/` directory. The `helm template` output also does not include them.
+- **Envoy Gateway** (`gateway.envoyproxy.io`) -- The Helm chart only ships standard Gateway API CRDs (`gateway.networking.k8s.io`), which are already covered by the `gateway-api` source. No Envoy Gateway-specific CRDs are distributed.
 
-- **Actions Runner Controller v2** (`actions.github.com`) -- `ghcr.io/actions/actions-runner-controller-charts`
-- **Kargo** (`kargo.akuity.io`) -- `ghcr.io/akuity/kargo-charts`
-- **Envoy Gateway** (`gateway.envoyproxy.io`) -- `docker.io/envoyproxy/gateway-helm`
+### Authenticated OCI registries
+
+The following projects publish Helm charts exclusively via OCI registries that require authentication:
+
 - **Dragonfly Operator** (`dragonflydb.io`) -- `ghcr.io/dragonflydb/dragonfly-operator`
 - **Crunchy PGO** (`postgres-operator.crunchydata.com`) -- `registry.developers.crunchydata.com`
 - **Kubeflow Training Operator** (`trainer.kubeflow.org`) -- `ghcr.io/kubeflow/charts`

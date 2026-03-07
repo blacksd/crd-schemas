@@ -1,0 +1,24 @@
+{
+  "schema": "ephemeralrunner.json",
+  "crd": {
+    "group": "actions.github.com",
+    "kind": "EphemeralRunner",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "actions-runner-controller",
+    "type": "helm",
+    "repo": "oci://ghcr.io/actions/actions-runner-controller-charts",
+    "chart": "gha-runner-scale-set-controller",
+    "version": "0.10.1",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/actions/actions-runner-controller"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T06:41:33Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4b3ded31763bdd1a08bd1615d35ededf9e6f57b6276e65511a2e6ccf3a5c75f4"
+  }
+}
