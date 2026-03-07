@@ -118,14 +118,6 @@ The following popular projects are not currently covered due to technical limita
 - **Karpenter** (`karpenter.sh`) -- The core `kubernetes-sigs/karpenter` repo is a framework library. CRDs are shipped by provider-specific implementations (e.g., `aws/karpenter-provider-aws`), which use OCI registries that require authentication.
 - **CSI Volume Snapshots** (`snapshot.storage.k8s.io`) -- CRDs are distributed as individual files in `kubernetes-csi/external-snapshotter` with no combined manifest. The extractor currently supports single-URL sources only.
 
-### Authenticated OCI registries
-
-The following projects publish Helm charts exclusively via OCI registries that require authentication:
-
-- **Dragonfly Operator** (`dragonflydb.io`) -- `ghcr.io/dragonflydb/dragonfly-operator`
-- **Crunchy PGO** (`postgres-operator.crunchydata.com`) -- `registry.developers.crunchydata.com`
-- **Kubeflow Training Operator** (`trainer.kubeflow.org`) -- `ghcr.io/kubeflow/charts`
-
 ### Licensing or automation issues
 
 - **EMQX Operator** (`apps.emqx.io`) -- No license declared in the repository.

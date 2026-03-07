@@ -1,0 +1,7 @@
+sources:
+  - name: dragonfly-operator
+    type: url
+    url: https://raw.githubusercontent.com/dragonflydb/dragonfly-operator/v1.4.0/config/crd/bases/dragonflydb.io_dragonflies.yaml
+    version: v1.4.0
+    license: Apache-2.0
+    homepage: https://www.dragonflydb.io

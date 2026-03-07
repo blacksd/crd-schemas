@@ -1,0 +1,23 @@
+{
+  "schema": "clustertrainingruntime.json",
+  "crd": {
+    "group": "trainer.kubeflow.org",
+    "kind": "ClusterTrainingRuntime",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "kubeflow-clustertrainingruntimes",
+    "type": "url",
+    "url": "https://raw.githubusercontent.com/kubeflow/training-operator/v2.1.0/manifests/base/crds/trainer.kubeflow.org_clustertrainingruntimes.yaml",
+    "version": "v2.1.0",
+    "license": "Apache-2.0",
+    "homepage": "https://www.kubeflow.org/docs/components/training"
+  },
+  "extraction": {
+    "timestamp": "2026-03-07T07:13:09Z",
+    "toolVersion": "crd-schemas v0.1.0"
+  },
+  "integrity": {
+    "sha256": "369d93edf61727f0c1cd7d702ccbc8a1025ea3f2d6570aa50ccb000eb1930492"
+  }
+}
