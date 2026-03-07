@@ -98,10 +98,29 @@ Push your branch and open a pull request. CI will:
 
 The following popular projects are not currently covered due to technical limitations:
 
+### No public CRD artifact
+
 - **Cilium** (`cilium.io`) -- CRDs are embedded in the agent binary and not shipped in the Helm chart. No standalone CRD manifest is published.
 - **Crossplane** (`pkg.crossplane.io`, `apiextensions.crossplane.io`) -- CRDs are dynamically generated at runtime by the Crossplane controller. The Helm chart contains no CRD definitions.
 - **Karpenter** (`karpenter.sh`) -- The core `kubernetes-sigs/karpenter` repo is a framework library. CRDs are shipped by provider-specific implementations (e.g., `aws/karpenter-provider-aws`), which use OCI registries that require authentication.
 - **CSI Volume Snapshots** (`snapshot.storage.k8s.io`) -- CRDs are distributed as individual files in `kubernetes-csi/external-snapshotter` with no combined manifest. The extractor currently supports single-URL sources only.
+
+### OCI-only distribution
+
+The extractor does not support OCI registries (`oci://`). The following projects only publish Helm charts via OCI:
+
+- **Actions Runner Controller v2** (`actions.github.com`) -- `ghcr.io/actions/actions-runner-controller-charts`
+- **Kargo** (`kargo.akuity.io`) -- `ghcr.io/akuity/kargo-charts`
+- **Envoy Gateway** (`gateway.envoyproxy.io`) -- `docker.io/envoyproxy/gateway-helm`
+- **Dragonfly Operator** (`dragonflydb.io`) -- `ghcr.io/dragonflydb/dragonfly-operator`
+- **Crunchy PGO** (`postgres-operator.crunchydata.com`) -- `registry.developers.crunchydata.com`
+- **Kubeflow Training Operator** (`trainer.kubeflow.org`) -- `ghcr.io/kubeflow/charts`
+
+### Licensing or automation issues
+
+- **EMQX Operator** (`apps.emqx.io`) -- No license declared in the repository.
+- **MySQL Operator for Kubernetes** (`mysql.oracle.com`) -- Uses Oracle's proprietary licensing, not an SPDX-compatible open-source license.
+- **Apache Flink Operator** (`flink.apache.org`) -- The Helm repository URL is release-version-specific (changes with every release), which breaks Renovate-based version automation.
 
 Contributions that resolve any of these limitations are welcome.
 
