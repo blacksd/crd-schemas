@@ -7,12 +7,23 @@
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Update Helm chart versions in source config files",
+      "description": "Update Helm chart versions in source config files (HTTP repos)",
       "fileMatch": ["^\\.sources/.*\\.yaml$"],
       "matchStrings": [
-        "type:\\s*helm\\n\\s+repo:\\s*(?<registryUrl>[^\\n]+)\\n\\s+chart:\\s*(?<depName>[^\\n]+)\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
+        "type:\\s*helm\\n\\s+repo:\\s*(?<registryUrl>https?://[^\\n]+)\\n\\s+chart:\\s*(?<depName>[^\\n]+)\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
       ],
       "datasourceTemplate": "helm",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": "Update Helm chart versions in source config files (OCI repos)",
+      "fileMatch": ["^\\.sources/.*\\.yaml$"],
+      "matchStrings": [
+        "type:\\s*helm\\n\\s+repo:\\s*oci://(?<registryUrl>[^\\n]+)\\n\\s+chart:\\s*(?<depName>[^\\n]+)\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "{{{registryUrl}}}/{{{depName}}}",
       "versioningTemplate": "semver"
     },
     {
