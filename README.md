@@ -47,7 +47,7 @@ acme.cert-manager.io/v1/challenge.json
 acme.cert-manager.io/v1/order.json
 ```
 
-Each schema has a companion `.provenance.json` file with source metadata and integrity hashes.
+Each schema has a companion `.provenance.json` file with source metadata and integrity hashes. A CycloneDX 1.5 SBOM (`sbom.cdx.json`) lists all sources at each commit. Merges are serialized (strict status checks) so the SBOM always reflects the complete state of all sources.
 
 ## Contributing
 
