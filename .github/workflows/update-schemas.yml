@@ -1,42 +1,27 @@
-name: Update CRD Schemas
+name: Tag Source Versions
 
 on:
   push:
     branches: [main]
     paths:
       - '.sources/**'
-  workflow_dispatch:
 
 concurrency:
-  group: extract-schemas
+  group: tag-versions
   cancel-in-progress: true
 
 permissions:
   contents: write
 
-env:
-  EXTRACTOR_VERSION: v0.1.1
-
 jobs:
-  extract:
-    name: Extract CRD Schemas
+  tag:
+    name: Create version tags
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-
-      - name: Download extractor
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh release download "$EXTRACTOR_VERSION" \
-            --repo blacksd/crd-schema-extractor \
-            --pattern 'crd-schema-extractor_*_linux_amd64.tar.gz' \
-            --output extractor.tar.gz
-          tar -xzf extractor.tar.gz crd-schema-extractor
-          chmod +x crd-schema-extractor
-          mv crd-schema-extractor /usr/local/bin/
-          rm extractor.tar.gz
+        with:
+          fetch-depth: 2
 
       - name: Install yq
         run: |
@@ -50,11 +35,9 @@ jobs:
         with:
           files: .sources/**
 
-      - name: Build tag list from changed sources
-        id: changed
+      - name: Build tag list and create tags
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
-          tags=""
           for f in ${{ steps.changed-files.outputs.all_changed_files }}; do
             if [ -f "$f" ]; then
               count=$(yq ".sources | length" "$f")
@@ -62,88 +45,13 @@ jobs:
                 name=$(yq ".sources[$i].name" "$f")
                 version=$(yq ".sources[$i].version" "$f")
                 if [ -n "$name" ] && [ -n "$version" ]; then
-                  tags="$tags $name/$version"
+                  tag="$name/$version"
+                  echo "Tagging: $tag"
+                  git tag -d "$tag" 2>/dev/null || true
+                  git push origin ":refs/tags/$tag" 2>/dev/null || true
+                  git tag -a "$tag" -m "Schemas extracted from $name $version"
+                  git push origin "$tag"
                 fi
               done
             fi
-          done
-          echo "tags=$tags" >> "$GITHUB_OUTPUT"
-
-      - name: Run extraction
-        run: crd-schema-extractor extract .sources --output .
-
-      - name: Validate extracted schemas
-        run: |
-          failed=0
-
-          # Well-formed JSON
-          for f in $(find . -name '*.json' \
-            -not -path './.git/*' \
-            -not -path './.sources/*' \
-            -not -path './.github/*' \
-            -not -name 'sbom.cdx.json' \
-            -not -name 'source.schema.json' \
-            -not -name 'renovate.json'); do
-            if ! jq empty "$f" 2>/dev/null; then
-              echo "INVALID JSON: $f"
-              failed=1
-            fi
-          done
-
-          # Schema structure
-          for f in $(find . -name '*.json' \
-            -not -path './.git/*' \
-            -not -path './.sources/*' \
-            -not -path './.github/*' \
-            -not -name '*.provenance.json' \
-            -not -name 'sbom.cdx.json' \
-            -not -name 'source.schema.json' \
-            -not -name 'renovate.json'); do
-            if ! jq -e 'has("type") or has("properties") or has("allOf") or has("oneOf") or has("anyOf")' "$f" > /dev/null 2>&1; then
-              echo "MISSING SCHEMA STRUCTURE: $f"
-              failed=1
-            fi
-          done
-
-          # Provenance fields
-          for f in $(find . -name '*.provenance.json' \
-            -not -path './.git/*' \
-            -not -path './.sources/*' \
-            -not -path './.github/*'); do
-            if ! jq -e '.schema and .crd.group and .crd.kind and .crd.apiVersion and .source.name and .integrity.sha256' "$f" > /dev/null 2>&1; then
-              echo "INVALID PROVENANCE: $f"
-              failed=1
-            fi
-          done
-
-          exit $failed
-
-      - name: Commit updated schemas
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Stage all API group directories (DNS names contain dots, other root dirs are dot-prefixed)
-          for dir in */; do
-            git add "$dir"
-          done
-          git add sbom.cdx.json
-
-          if git diff --cached --quiet; then
-            echo "No schema changes detected"
-          else
-            git commit -m "chore: update CRD schemas"
-            git push
-          fi
-
-      - name: Create version tags
-        if: steps.changed.outputs.tags != ''
-        run: |
-          for tag in ${{ steps.changed.outputs.tags }}; do
-            source_name="${tag%%/*}"
-            source_version="${tag##*/}"
-            git tag -d "$tag" 2>/dev/null || true
-            git push origin ":refs/tags/$tag" 2>/dev/null || true
-            git tag -a "$tag" -m "Schemas extracted from $source_name $source_version"
-            git push origin "$tag"
           done
