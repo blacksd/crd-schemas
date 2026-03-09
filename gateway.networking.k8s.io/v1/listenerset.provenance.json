@@ -1,9 +1,9 @@
 {
-  "schema": "udproute.json",
+  "schema": "listenerset.json",
   "crd": {
     "group": "gateway.networking.k8s.io",
-    "kind": "UDPRoute",
-    "apiVersion": "v1alpha2"
+    "kind": "ListenerSet",
+    "apiVersion": "v1"
   },
   "source": {
     "name": "gateway-api",
@@ -18,6 +18,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "e10da90fe26765e87af26ce2c67db48d039aad14ecb53663f2d54e3ea6c76f2d"
+    "sha256": "91f0fe092c0290ac3da1b9475f66d5a3726e53ea2a728e3fba6bd21b789274bd"
   }
 }

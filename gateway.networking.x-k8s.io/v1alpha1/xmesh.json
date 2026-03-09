@@ -1,5 +1,5 @@
 {
-  "description": "GatewayClass describes a class of Gateways available to the user for creating\nGateway resources.\n\nIt is recommended that this resource be used as a template for Gateways. This\nmeans that a Gateway is based on the state of the GatewayClass at the time it\nwas created and changes to the GatewayClass or associated parameters are not\npropagated down to existing Gateways. This recommendation is intended to\nlimit the blast radius of changes to GatewayClass or associated parameters.\nIf implementations choose to propagate GatewayClass changes to existing\nGateways, that MUST be clearly documented by the implementation.\n\nWhenever one or more Gateways are using a GatewayClass, implementations SHOULD\nadd the `gateway-exists-finalizer.gateway.networking.k8s.io` finalizer on the\nassociated GatewayClass. This ensures that a GatewayClass associated with a\nGateway is not deleted while in use.\n\nGatewayClass is a Cluster level resource.",
+  "description": "XMesh defines mesh-wide characteristics of a GAMMA-compliant service mesh.",
   "type": "object",
   "required": [
     "spec"
@@ -17,14 +17,14 @@
       "type": "object"
     },
     "spec": {
-      "description": "Spec defines the desired state of GatewayClass.",
+      "description": "Spec defines the desired state of XMesh.",
       "type": "object",
       "required": [
         "controllerName"
       ],
       "properties": {
         "controllerName": {
-          "description": "ControllerName is the name of the controller that is managing Gateways of\nthis class. The value of this field MUST be a domain prefixed path.\n\nExample: \"example.net/gateway-controller\".\n\nThis field is not mutable and cannot be empty.\n\nSupport: Core",
+          "description": "ControllerName is the name of a controller that is managing Gateway API\nresources for mesh traffic management. The value of this field MUST be a\ndomain prefixed path.\n\nExample: \"example.com/awesome-mesh\".\n\nThis field is not mutable and cannot be empty.\n\nSupport: Core",
           "type": "string",
           "maxLength": 253,
           "minLength": 1,
@@ -37,12 +37,12 @@
           ]
         },
         "description": {
-          "description": "Description helps describe a GatewayClass with more details.",
+          "description": "Description optionally provides a human-readable description of a Mesh.",
           "type": "string",
           "maxLength": 64
         },
         "parametersRef": {
-          "description": "ParametersRef is a reference to a resource that contains the configuration\nparameters corresponding to the GatewayClass. This is optional if the\ncontroller does not require any additional configuration.\n\nParametersRef can reference a standard Kubernetes resource, i.e. ConfigMap,\nor an implementation-specific custom resource. The resource can be\ncluster-scoped or namespace-scoped.\n\nIf the referent cannot be found, refers to an unsupported kind, or when\nthe data within that resource is malformed, the GatewayClass SHOULD be\nrejected with the \"Accepted\" status condition set to \"False\" and an\n\"InvalidParameters\" reason.\n\nA Gateway for this GatewayClass may provide its own `parametersRef`. When both are specified,\nthe merging behavior is implementation specific.\nIt is generally recommended that GatewayClass provides defaults that can be overridden by a Gateway.\n\nSupport: Implementation-specific",
+          "description": "ParametersRef is an optional reference to a resource that contains\nimplementation-specific configuration for this Mesh. If no\nimplementation-specific parameters are needed, this field MUST be\nomitted.\n\nParametersRef can reference a standard Kubernetes resource, i.e.\nConfigMap, or an implementation-specific custom resource. The resource\ncan be cluster-scoped or namespace-scoped.\n\nIf the referent cannot be found, refers to an unsupported kind, or when\nthe data within that resource is malformed, the Mesh MUST be rejected\nwith the \"Accepted\" status condition set to \"False\" and an\n\"InvalidParameters\" reason.\n\nSupport: Implementation-specific",
           "type": "object",
           "required": [
             "group",
@@ -81,7 +81,7 @@
       }
     },
     "status": {
-      "description": "Status defines the current state of GatewayClass.\n\nImplementations MUST populate status on all GatewayClass resources which\nspecify their controller name.",
+      "description": "Status defines the current state of XMesh.",
       "type": "object",
       "default": {
         "conditions": [
@@ -96,7 +96,7 @@
       },
       "properties": {
         "conditions": {
-          "description": "Conditions is the current status from the controller for\nthis GatewayClass.\n\nControllers should prefer to publish conditions using values\nof GatewayClassConditionType for the type of each Condition.",
+          "description": "Conditions is the current status from the controller for\nthis Mesh.\n\nControllers should prefer to publish conditions using values\nof MeshConditionType for the type of each Condition.",
           "type": "array",
           "default": [
             {
@@ -105,6 +105,13 @@
               "reason": "Pending",
               "status": "Unknown",
               "type": "Accepted"
+            },
+            {
+              "lastTransitionTime": "1970-01-01T00:00:00Z",
+              "message": "Waiting for controller",
+              "reason": "Pending",
+              "status": "Unknown",
+              "type": "Programmed"
             }
           ],
           "maxItems": 8,
@@ -165,7 +172,7 @@
           "x-kubernetes-list-type": "map"
         },
         "supportedFeatures": {
-          "description": "SupportedFeatures is the set of features the GatewayClass support.\nIt MUST be sorted in ascending alphabetical order by the Name key.",
+          "description": "SupportedFeatures is the set of features the Mesh support.\nIt MUST be sorted in ascending alphabetical order by the Name key.",
           "type": "array",
           "maxItems": 64,
           "items": {

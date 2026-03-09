@@ -4,7 +4,7 @@
   "specVersion": "1.5",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-03-09T15:33:08Z",
+    "timestamp": "2026-03-09T21:41:32Z",
     "tools": {
       "components": [
         {
@@ -19,7 +19,7 @@
     {
       "type": "library",
       "name": "actions-runner-controller",
-      "version": "0.10.1",
+      "version": "0.13.1",
       "licenses": [
         {
           "license": {
@@ -325,7 +325,7 @@
     {
       "type": "library",
       "name": "dapr",
-      "version": "1.17.0",
+      "version": "1.17.1",
       "licenses": [
         {
           "license": {
@@ -595,7 +595,7 @@
     {
       "type": "library",
       "name": "external-secrets",
-      "version": "0.20.4",
+      "version": "2.1.0",
       "licenses": [
         {
           "license": {
@@ -2053,7 +2053,7 @@
     {
       "type": "library",
       "name": "traefik",
-      "version": "39.0.3",
+      "version": "39.0.5",
       "licenses": [
         {
           "license": {

@@ -1,9 +1,9 @@
 {
-  "schema": "udproute.json",
+  "schema": "backendtlspolicy.json",
   "crd": {
     "group": "gateway.networking.k8s.io",
-    "kind": "UDPRoute",
-    "apiVersion": "v1alpha2"
+    "kind": "BackendTLSPolicy",
+    "apiVersion": "v1"
   },
   "source": {
     "name": "gateway-api",
@@ -18,6 +18,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "e10da90fe26765e87af26ce2c67db48d039aad14ecb53663f2d54e3ea6c76f2d"
+    "sha256": "acb9cf85c1cd451b0739e2f6ba80c44334d2cb7f69a30b1cb44e330a3b777230"
   }
 }

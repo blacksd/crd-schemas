@@ -1,9 +1,9 @@
 {
-  "schema": "udproute.json",
+  "schema": "tlsroute.json",
   "crd": {
     "group": "gateway.networking.k8s.io",
-    "kind": "UDPRoute",
-    "apiVersion": "v1alpha2"
+    "kind": "TLSRoute",
+    "apiVersion": "v1"
   },
   "source": {
     "name": "gateway-api",
@@ -18,6 +18,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "e10da90fe26765e87af26ce2c67db48d039aad14ecb53663f2d54e3ea6c76f2d"
+    "sha256": "d633dbe8fb3d754d74ba9694bdccc2a14369b5aece3eafd139ad768579c29663"
   }
 }
