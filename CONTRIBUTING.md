@@ -13,7 +13,7 @@ We do not accept sources that require authentication, VPN access, or any form of
 
 ## Adding a new CRD source
 
-Each source config file in `sources/` is named after the primary API group it provides (e.g., `cert-manager.io.yaml`). Source configs are validated automatically against `source.schema.json` on every PR.
+Each source config file in `.sources/` is named after the primary API group it provides (e.g., `cert-manager.io.yaml`). Source configs are validated automatically against `source.schema.json` on every PR.
 
 Source files are validated against [`source.schema.json`](source.schema.json). IDEs with YAML schema support can use it for autocompletion:
 
@@ -21,14 +21,14 @@ Source files are validated against [`source.schema.json`](source.schema.json). I
 // .vscode/settings.json
 {
   "yaml.schemas": {
-    "source.schema.json": "sources/*.yaml"
+    "source.schema.json": ".sources/*.yaml"
   }
 }
 ```
 
 ### 1. Create the source file
 
-Create `sources/{api-group}.yaml`:
+Create `.sources/{api-group}.yaml`:
 
 ```yaml
 sources:
@@ -93,10 +93,10 @@ If both `include` and `exclude` are set, `include` takes precedence.
 
 ```bash
 # Extract only your new source
-go run ./cmd/extract/ -source my-operator -debug
+crd-schema-extractor extract .sources --fetch-only my-operator --debug
 
 # Verify the output
-ls schemas/{api-group}/
+ls {api-group}/
 ```
 
 ### 5. Open a PR
@@ -104,8 +104,6 @@ ls schemas/{api-group}/
 Push your branch and open a pull request. CI will:
 
 - Validate your source config against `source.schema.json`
-- Run extraction and upload the resulting schemas as a PR artifact
-- Validate all extracted JSON schemas for well-formedness
 
 ## Known gaps
 

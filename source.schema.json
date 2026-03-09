@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/blacksd/crd-schemas/source.schema.json",
+  "$id": "https://raw.githubusercontent.com/blacksd/crd-schema-extractor/main/source.schema.json",
   "title": "CRD Source Configuration",
-  "description": "Schema for source YAML config files in the sources/ directory.",
+  "description": "Schema for source YAML config files in the .sources/ directory.",
   "type": "object",
   "required": ["sources"],
   "additionalProperties": false,
