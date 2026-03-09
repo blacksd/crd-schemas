@@ -1,9 +1,9 @@
 {
-  "schema": "referencegrant.json",
+  "schema": "tlsroute.json",
   "crd": {
     "group": "gateway.networking.k8s.io",
-    "kind": "ReferenceGrant",
-    "apiVersion": "v1beta1"
+    "kind": "TLSRoute",
+    "apiVersion": "v1"
   },
   "source": {
     "name": "gateway-api",
@@ -18,6 +18,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "5796587f259d67b68a4d069a2b3b1a2af2ebd314541838848cd70a7c8580ed71"
+    "sha256": "d633dbe8fb3d754d74ba9694bdccc2a14369b5aece3eafd139ad768579c29663"
   }
 }

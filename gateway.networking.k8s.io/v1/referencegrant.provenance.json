@@ -3,7 +3,7 @@
   "crd": {
     "group": "gateway.networking.k8s.io",
     "kind": "ReferenceGrant",
-    "apiVersion": "v1beta1"
+    "apiVersion": "v1"
   },
   "source": {
     "name": "gateway-api",

@@ -1,9 +1,9 @@
 {
-  "schema": "referencegrant.json",
+  "schema": "xbackendtrafficpolicy.json",
   "crd": {
-    "group": "gateway.networking.k8s.io",
-    "kind": "ReferenceGrant",
-    "apiVersion": "v1beta1"
+    "group": "gateway.networking.x-k8s.io",
+    "kind": "XBackendTrafficPolicy",
+    "apiVersion": "v1alpha1"
   },
   "source": {
     "name": "gateway-api",
@@ -18,6 +18,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "5796587f259d67b68a4d069a2b3b1a2af2ebd314541838848cd70a7c8580ed71"
+    "sha256": "c4caa3312b65c1c4e0775646e1d80c3417e01e0cfcc6bb45070879378d238373"
   }
 }
