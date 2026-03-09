@@ -3,7 +3,7 @@ name: Validate
 on:
   pull_request:
     paths:
-      - 'sources/**'
+      - '.sources/**'
       - 'source.schema.json'
 
 jobs:
@@ -13,13 +13,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Detect changed source files
+        id: changed-files
+        uses: tj-actions/changed-files@v46
+        with:
+          files: .sources/**
+
       - name: Install check-jsonschema
+        if: steps.changed-files.outputs.any_changed == 'true'
         run: pip install check-jsonschema
 
-      - name: Validate source configs against schema
+      - name: Validate changed source configs against schema
+        if: steps.changed-files.outputs.any_changed == 'true'
         run: |
-          for f in sources/*.yaml sources/*.yml; do
-            [ -f "$f" ] || continue
+          for f in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "Validating $f..."
             check-jsonschema --schemafile source.schema.json "$f"
           done

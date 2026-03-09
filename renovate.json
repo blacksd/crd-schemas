@@ -7,7 +7,7 @@
     {
       "customType": "regex",
       "description": "Update Helm chart versions in source config files",
-      "fileMatch": ["^sources/.*\\.yaml$"],
+      "fileMatch": ["^\\.sources/.*\\.yaml$"],
       "matchStrings": [
         "type:\\s*helm\\n\\s+repo:\\s*(?<registryUrl>[^\\n]+)\\n\\s+chart:\\s*(?<depName>[^\\n]+)\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
       ],
@@ -17,10 +17,21 @@
     {
       "customType": "regex",
       "description": "Update GitHub release URL versions in source config files",
-      "fileMatch": ["^sources/.*\\.yaml$"],
+      "fileMatch": ["^\\.sources/.*\\.yaml$"],
       "matchStrings": [
         "type:\\s*url\\n\\s+url:\\s*https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/(?<currentValue>v[^/]+)/"
       ],
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": "Track crd-schema-extractor version in CI workflow",
+      "fileMatch": ["^\\.github/workflows/update-schemas\\.yml$"],
+      "matchStrings": [
+        "EXTRACTOR_VERSION:\\s*(?<currentValue>v[^\\s]+)"
+      ],
+      "depNameTemplate": "blacksd/crd-schema-extractor",
       "datasourceTemplate": "github-releases",
       "versioningTemplate": "semver"
     }
@@ -28,7 +39,7 @@
   "packageRules": [
     {
       "description": "Group CRD source updates by source file",
-      "matchFileNames": ["sources/**"],
+      "matchFileNames": [".sources/**"],
       "schedule": ["before 6am on Monday"],
       "automerge": false,
       "commitMessagePrefix": "chore(crd):"
