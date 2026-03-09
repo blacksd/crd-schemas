@@ -68,11 +68,7 @@ jobs:
 
       - name: Run extraction
         if: steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          for f in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "Extracting $f..."
-            crd-schema-extractor extract "$f" --output .
-          done
+        run: crd-schema-extractor extract .sources --output .
 
       - name: Validate extracted schemas
         if: steps.changed-files.outputs.any_changed == 'true'
