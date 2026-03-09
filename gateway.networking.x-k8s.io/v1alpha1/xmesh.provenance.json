@@ -1,9 +1,9 @@
 {
-  "schema": "tcproute.json",
+  "schema": "xmesh.json",
   "crd": {
-    "group": "gateway.networking.k8s.io",
-    "kind": "TCPRoute",
-    "apiVersion": "v1alpha2"
+    "group": "gateway.networking.x-k8s.io",
+    "kind": "XMesh",
+    "apiVersion": "v1alpha1"
   },
   "source": {
     "name": "gateway-api",
@@ -18,6 +18,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "d537aa7d0a25262b0e606562ec581e9107dd2f5a27ea420195f97b90209c72b5"
+    "sha256": "6ca06b1c077b895e4896bf1d20254c6d91450ad94983e35017fb20182d15f99d"
   }
 }

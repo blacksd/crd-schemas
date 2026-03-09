@@ -1,9 +1,9 @@
 {
-  "schema": "tcproute.json",
+  "schema": "listenerset.json",
   "crd": {
     "group": "gateway.networking.k8s.io",
-    "kind": "TCPRoute",
-    "apiVersion": "v1alpha2"
+    "kind": "ListenerSet",
+    "apiVersion": "v1"
   },
   "source": {
     "name": "gateway-api",
@@ -18,6 +18,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "d537aa7d0a25262b0e606562ec581e9107dd2f5a27ea420195f97b90209c72b5"
+    "sha256": "91f0fe092c0290ac3da1b9475f66d5a3726e53ea2a728e3fba6bd21b789274bd"
   }
 }
