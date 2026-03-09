@@ -3,6 +3,6 @@ sources:
     type: helm
     repo: oci://ghcr.io/actions/actions-runner-controller-charts
     chart: gha-runner-scale-set-controller
-    version: 0.10.1
+    version: 0.13.1
     license: Apache-2.0
     homepage: https://github.com/actions/actions-runner-controller
