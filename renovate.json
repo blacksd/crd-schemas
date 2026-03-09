@@ -54,6 +54,7 @@
       "matchFileNames": [".sources/**"],
       "schedule": ["before 6am on Monday"],
       "automerge": true,
+      "automergeSchedule": ["at any time"],
       "commitMessagePrefix": "chore(crd):"
     },
     {
