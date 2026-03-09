@@ -52,7 +52,7 @@
     {
       "description": "Group CRD source updates by source file",
       "matchFileNames": [".sources/**"],
-      "schedule": ["before 6am on Monday"],
+      "schedule": ["before 6am every weekday"],
       "automerge": true,
       "automergeSchedule": ["at any time"],
       "commitMessagePrefix": "chore(crd):"
