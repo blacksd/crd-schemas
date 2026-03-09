@@ -60,27 +60,6 @@ jobs:
           mv crd-schema-extractor /usr/local/bin/
           rm extractor.tar.gz
 
-      - name: Install yq
+      - name: Test fetch of changed sources
         if: steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          YQ_VERSION=v4.45.1
-          curl -sSL "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64" -o /usr/local/bin/yq
-          chmod +x /usr/local/bin/yq
-
-      - name: Test extraction of changed sources
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          failed=0
-          for f in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            [ -f "$f" ] || continue
-            count=$(yq '.sources | length' "$f")
-            for i in $(seq 0 $((count - 1))); do
-              name=$(yq ".sources[$i].name" "$f")
-              echo "Testing extraction: $name (from $f)"
-              if ! crd-schema-extractor extract .sources --fetch-only "$name"; then
-                echo "FAILED: $name"
-                failed=1
-              fi
-            done
-          done
-          exit $failed
+        run: crd-schema-extractor extract .sources --fetch-only
