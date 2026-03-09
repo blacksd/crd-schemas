@@ -7,6 +7,10 @@ on:
       - '.sources/**'
   workflow_dispatch:
 
+concurrency:
+  group: extract-schemas
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
