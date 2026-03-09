@@ -1,0 +1,24 @@
+{
+  "schema": "noderesourcetopology.json",
+  "crd": {
+    "group": "topology.node.k8s.io",
+    "kind": "NodeResourceTopology",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "node-feature-discovery",
+    "type": "helm",
+    "repo": "https://kubernetes-sigs.github.io/node-feature-discovery/charts",
+    "chart": "node-feature-discovery",
+    "version": "0.18.3",
+    "license": "Apache-2.0",
+    "homepage": "https://kubernetes-sigs.github.io/node-feature-discovery"
+  },
+  "extraction": {
+    "timestamp": "2026-03-09T13:38:55Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bbf754d29275cda2715fbe34f95ad65f46929af76bb65edd4c1cdb1b41fb1ed2"
+  }
+}

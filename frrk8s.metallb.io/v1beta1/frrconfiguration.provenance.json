@@ -1,0 +1,27 @@
+{
+  "schema": "frrconfiguration.json",
+  "crd": {
+    "group": "frrk8s.metallb.io",
+    "kind": "FRRConfiguration",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "metallb",
+    "type": "helm",
+    "repo": "https://metallb.github.io/metallb",
+    "chart": "metallb",
+    "version": "0.15.3",
+    "license": "Apache-2.0",
+    "homepage": "https://metallb.universe.tf",
+    "include": [
+      "frrk8s.metallb.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-09T13:38:55Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "12ed6c520a11308d1ba632260c77838ef1b4a7bb52b1f1164d9dbd445105ff1a"
+  }
+}

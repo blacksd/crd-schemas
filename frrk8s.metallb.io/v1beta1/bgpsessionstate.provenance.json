@@ -1,0 +1,27 @@
+{
+  "schema": "bgpsessionstate.json",
+  "crd": {
+    "group": "frrk8s.metallb.io",
+    "kind": "BGPSessionState",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "metallb",
+    "type": "helm",
+    "repo": "https://metallb.github.io/metallb",
+    "chart": "metallb",
+    "version": "0.15.3",
+    "license": "Apache-2.0",
+    "homepage": "https://metallb.universe.tf",
+    "include": [
+      "frrk8s.metallb.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-03-09T13:38:55Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "75ff0e305af75d7ad051bf5743e038fc454065ea84f5c7ea5314a2f35008a696"
+  }
+}
