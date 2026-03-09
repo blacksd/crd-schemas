@@ -39,7 +39,7 @@
     {
       "customType": "regex",
       "description": "Track crd-schema-extractor version in CI workflow",
-      "fileMatch": ["^\\.github/workflows/update-schemas\\.yml$"],
+      "fileMatch": ["^\\.github/workflows/validate-extract\\.yml$"],
       "matchStrings": [
         "EXTRACTOR_VERSION:\\s*(?<currentValue>v[^\\s]+)"
       ],

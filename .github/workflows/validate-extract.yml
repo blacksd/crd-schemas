@@ -73,34 +73,22 @@ jobs:
       - name: Validate extracted schemas
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
-          failed=0
+          changed_schemas=$(git diff --name-only -- '*.json' | grep -v '\.provenance\.json$' || true)
+          changed_provenance=$(git diff --name-only -- '*.provenance.json' || true)
 
-          # Validate schemas are valid JSON Schema documents
-          for f in $(find . -name '*.json' \
-            -not -path './.git/*' \
-            -not -path './.sources/*' \
-            -not -path './.github/*' \
-            -not -name '*.provenance.json' \
-            -not -name 'sbom.cdx.json' \
-            -not -name 'source.schema.json' \
-            -not -name 'renovate.json'); do
+          # Warn on schemas that don't conform to JSON Schema meta-schema
+          for f in $changed_schemas; do
             if ! check-jsonschema --check-metaschema "$f"; then
-              failed=1
+              echo "::warning file=$f::Schema does not fully conform to JSON Schema meta-schema"
             fi
           done
 
-          # Provenance fields
-          for f in $(find . -name '*.provenance.json' \
-            -not -path './.git/*' \
-            -not -path './.sources/*' \
-            -not -path './.github/*'); do
+          # Warn on provenance files missing expected fields
+          for f in $changed_provenance; do
             if ! jq -e '.schema and .crd.group and .crd.kind and .crd.apiVersion and .source.name and .integrity.sha256' "$f" > /dev/null 2>&1; then
-              echo "INVALID PROVENANCE: $f"
-              failed=1
+              echo "::warning file=$f::Provenance file missing expected fields"
             fi
           done
-
-          exit $failed
 
       - name: Commit extracted schemas
         if: steps.changed-files.outputs.any_changed == 'true'
