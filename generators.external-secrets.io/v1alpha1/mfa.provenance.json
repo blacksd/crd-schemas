@@ -1,8 +1,8 @@
 {
-  "schema": "vaultdynamicsecret.json",
+  "schema": "mfa.json",
   "crd": {
     "group": "generators.external-secrets.io",
-    "kind": "VaultDynamicSecret",
+    "kind": "MFA",
     "apiVersion": "v1alpha1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "a2940638749c8110b3655e1af74f1732881f2ac69acd9359d7e193b3e94b81a9"
+    "sha256": "75db89a09e65379a5e2fdfb1ecd34ced1f0427a858c6bada742649f32921ead0"
   }
 }
