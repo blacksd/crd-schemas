@@ -20,10 +20,10 @@
       "description": "Update Helm chart versions in source config files (OCI repos)",
       "fileMatch": ["^\\.sources/.*\\.yaml$"],
       "matchStrings": [
-        "type:\\s*helm\\n\\s+repo:\\s*oci://(?<registryUrl>[^\\n]+)\\n\\s+chart:\\s*(?<depName>[^\\n]+)\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
+        "type:\\s*helm\\n\\s+repo:\\s*oci://(?<registry>[^\\n]+)\\n\\s+chart:\\s*(?<chart>[^\\n]+)\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
       ],
       "datasourceTemplate": "docker",
-      "depNameTemplate": "{{{registryUrl}}}/{{{depName}}}",
+      "depNameTemplate": "{{{registry}}}/{{{chart}}}",
       "versioningTemplate": "semver"
     },
     {
