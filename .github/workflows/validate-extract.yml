@@ -97,8 +97,8 @@ jobs:
       - name: Commit extracted schemas
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[crd-extract]"
+          git config user.email "github-actions[crd-extract]@users.noreply.github.com"
 
           # Stage all API group directories (DNS names contain dots, other root dirs are dot-prefixed)
           for dir in */; do
