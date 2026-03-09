@@ -6,6 +6,9 @@ on:
       - '.sources/**'
       - 'source.schema.json'
 
+env:
+  EXTRACTOR_VERSION: v0.1.1
+
 jobs:
   validate-sources:
     name: Validate source configs
@@ -30,3 +33,54 @@ jobs:
             echo "Validating $f..."
             check-jsonschema --schemafile source.schema.json "$f"
           done
+
+  test-extraction:
+    name: Test source extraction
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Detect changed source files
+        id: changed-files
+        uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47
+        with:
+          files: .sources/**
+
+      - name: Download extractor
+        if: steps.changed-files.outputs.any_changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "$EXTRACTOR_VERSION" \
+            --repo blacksd/crd-schema-extractor \
+            --pattern 'crd-schema-extractor_*_linux_amd64.tar.gz' \
+            --output extractor.tar.gz
+          tar -xzf extractor.tar.gz crd-schema-extractor
+          chmod +x crd-schema-extractor
+          mv crd-schema-extractor /usr/local/bin/
+          rm extractor.tar.gz
+
+      - name: Install yq
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          YQ_VERSION=v4.45.1
+          curl -sSL "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64" -o /usr/local/bin/yq
+          chmod +x /usr/local/bin/yq
+
+      - name: Test extraction of changed sources
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          failed=0
+          for f in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            [ -f "$f" ] || continue
+            count=$(yq '.sources | length' "$f")
+            for i in $(seq 0 $((count - 1))); do
+              name=$(yq ".sources[$i].name" "$f")
+              echo "Testing extraction: $name (from $f)"
+              if ! crd-schema-extractor extract .sources --fetch-only "$name"; then
+                echo "FAILED: $name"
+                failed=1
+              fi
+            done
+          done
+          exit $failed
