@@ -13,7 +13,7 @@ kubeconform \
   my-manifests/
 ```
 
-Pin to a specific source version using a git tag instead of `main`:
+Pin to a specific source version by replacing `main` with a git tag (tags follow the `source-name/version` convention, e.g. `cert-manager/v1.17.2`):
 
 ```bash
 kubeconform \
@@ -21,6 +21,8 @@ kubeconform \
   -schema-location 'https://raw.githubusercontent.com/blacksd/crd-schemas/cert-manager/v1.17.2/{{.Group}}/{{.ResourceAPIVersion}}/{{.ResourceKind}}.json' \
   my-manifests/
 ```
+
+> **Note:** Tags created before the flat layout restructuring still use a `schemas/` prefix. For those older tags, insert `schemas/` before `{{.Group}}` in the URL.
 
 For local/offline use, clone the repo and point kubeconform at it directly:
 

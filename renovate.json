@@ -1,7 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "helpers:pinGitHubActionDigests"
   ],
   "customManagers": [
     {
@@ -43,6 +44,11 @@
       "schedule": ["before 6am on Monday"],
       "automerge": false,
       "commitMessagePrefix": "chore(crd):"
+    },
+    {
+      "description": "Pin and update GitHub Actions",
+      "matchManagers": ["github-actions"],
+      "commitMessagePrefix": "chore(ci):"
     }
   ]
 }
