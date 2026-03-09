@@ -62,4 +62,8 @@ jobs:
 
       - name: Test fetch of changed sources
         if: steps.changed-files.outputs.any_changed == 'true'
-        run: crd-schema-extractor extract .sources --fetch-only
+        run: |
+          for f in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "Fetching sources from $f..."
+            crd-schema-extractor extract "$f" --fetch-only
+          done
