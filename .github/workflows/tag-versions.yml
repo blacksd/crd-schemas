@@ -35,6 +35,11 @@ jobs:
         with:
           files: .sources/**
 
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[tag-versions]"
+          git config user.email "github-actions[tag-versions]@users.noreply.github.com"
+
       - name: Build tag list and create tags
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
