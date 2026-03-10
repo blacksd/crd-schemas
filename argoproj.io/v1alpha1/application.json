@@ -81,6 +81,10 @@
               "description": "Limit is the maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.",
               "type": "integer",
               "format": "int64"
+            },
+            "refresh": {
+              "description": "Refresh indicates if the latest revision should be used on retry instead of the initial one (default: false)",
+              "type": "boolean"
             }
           }
         },
@@ -382,6 +386,10 @@
                       "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
                       "type": "boolean"
                     },
+                    "ignoreMissingComponents": {
+                      "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                      "type": "boolean"
+                    },
                     "images": {
                       "description": "Images is a list of Kustomize image override specifications",
                       "type": "array",
@@ -393,6 +401,10 @@
                     "kubeVersion": {
                       "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
                       "type": "string"
+                    },
+                    "labelIncludeTemplates": {
+                      "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                      "type": "boolean"
                     },
                     "labelWithoutSelector": {
                       "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
@@ -815,6 +827,10 @@
                         "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
                         "type": "boolean"
                       },
+                      "ignoreMissingComponents": {
+                        "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                        "type": "boolean"
+                      },
                       "images": {
                         "description": "Images is a list of Kustomize image override specifications",
                         "type": "array",
@@ -826,6 +842,10 @@
                       "kubeVersion": {
                         "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
                         "type": "string"
+                      },
+                      "labelIncludeTemplates": {
+                        "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                        "type": "boolean"
                       },
                       "labelWithoutSelector": {
                         "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
@@ -1381,6 +1401,10 @@
                   "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
                   "type": "boolean"
                 },
+                "ignoreMissingComponents": {
+                  "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                  "type": "boolean"
+                },
                 "images": {
                   "description": "Images is a list of Kustomize image override specifications",
                   "type": "array",
@@ -1392,6 +1416,10 @@
                 "kubeVersion": {
                   "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
                   "type": "string"
+                },
+                "labelIncludeTemplates": {
+                  "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                  "type": "boolean"
                 },
                 "labelWithoutSelector": {
                   "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
@@ -1591,9 +1619,414 @@
                 "targetRevision"
               ],
               "properties": {
+                "directory": {
+                  "description": "Directory specifies path/directory specific options",
+                  "type": "object",
+                  "properties": {
+                    "exclude": {
+                      "description": "Exclude contains a glob pattern to match paths against that should be explicitly excluded from being used during manifest generation",
+                      "type": "string"
+                    },
+                    "include": {
+                      "description": "Include contains a glob pattern to match paths against that should be explicitly included during manifest generation",
+                      "type": "string"
+                    },
+                    "jsonnet": {
+                      "description": "Jsonnet holds options specific to Jsonnet",
+                      "type": "object",
+                      "properties": {
+                        "extVars": {
+                          "description": "ExtVars is a list of Jsonnet External Variables",
+                          "type": "array",
+                          "items": {
+                            "description": "JsonnetVar represents a variable to be passed to jsonnet during manifest generation",
+                            "type": "object",
+                            "required": [
+                              "name",
+                              "value"
+                            ],
+                            "properties": {
+                              "code": {
+                                "type": "boolean"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "libs": {
+                          "description": "Additional library search dirs",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "tlas": {
+                          "description": "TLAS is a list of Jsonnet Top-level Arguments",
+                          "type": "array",
+                          "items": {
+                            "description": "JsonnetVar represents a variable to be passed to jsonnet during manifest generation",
+                            "type": "object",
+                            "required": [
+                              "name",
+                              "value"
+                            ],
+                            "properties": {
+                              "code": {
+                                "type": "boolean"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "recurse": {
+                      "description": "Recurse specifies whether to scan a directory recursively for manifests",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "helm": {
+                  "description": "Helm specifies helm specific options",
+                  "type": "object",
+                  "properties": {
+                    "apiVersions": {
+                      "description": "APIVersions specifies the Kubernetes resource API versions to pass to Helm when templating manifests. By default,\nArgo CD uses the API versions of the target cluster. The format is [group/]version/kind.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "fileParameters": {
+                      "description": "FileParameters are file parameters to the helm template",
+                      "type": "array",
+                      "items": {
+                        "description": "HelmFileParameter is a file parameter that's passed to helm template during manifest generation",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Name is the name of the Helm parameter",
+                            "type": "string"
+                          },
+                          "path": {
+                            "description": "Path is the path to the file containing the values for the Helm parameter",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "ignoreMissingValueFiles": {
+                      "description": "IgnoreMissingValueFiles prevents helm template from failing when valueFiles do not exist locally by not appending them to helm template --values",
+                      "type": "boolean"
+                    },
+                    "kubeVersion": {
+                      "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace is an optional namespace to template with. If left empty, defaults to the app's destination namespace.",
+                      "type": "string"
+                    },
+                    "parameters": {
+                      "description": "Parameters is a list of Helm parameters which are passed to the helm template command upon manifest generation",
+                      "type": "array",
+                      "items": {
+                        "description": "HelmParameter is a parameter that's passed to helm template during manifest generation",
+                        "type": "object",
+                        "properties": {
+                          "forceString": {
+                            "description": "ForceString determines whether to tell Helm to interpret booleans and numbers as strings",
+                            "type": "boolean"
+                          },
+                          "name": {
+                            "description": "Name is the name of the Helm parameter",
+                            "type": "string"
+                          },
+                          "value": {
+                            "description": "Value is the value for the Helm parameter",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "passCredentials": {
+                      "description": "PassCredentials pass credentials to all domains (Helm's --pass-credentials)",
+                      "type": "boolean"
+                    },
+                    "releaseName": {
+                      "description": "ReleaseName is the Helm release name to use. If omitted it will use the application name",
+                      "type": "string"
+                    },
+                    "skipCrds": {
+                      "description": "SkipCrds skips custom resource definition installation step (Helm's --skip-crds)",
+                      "type": "boolean"
+                    },
+                    "skipSchemaValidation": {
+                      "description": "SkipSchemaValidation skips JSON schema validation (Helm's --skip-schema-validation)",
+                      "type": "boolean"
+                    },
+                    "skipTests": {
+                      "description": "SkipTests skips test manifest installation step (Helm's --skip-tests).",
+                      "type": "boolean"
+                    },
+                    "valueFiles": {
+                      "description": "ValuesFiles is a list of Helm value files to use when generating a template",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "values": {
+                      "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
+                      "type": "string"
+                    },
+                    "valuesObject": {
+                      "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                      "type": "object",
+                      "x-kubernetes-preserve-unknown-fields": true
+                    },
+                    "version": {
+                      "description": "Version is the Helm version to use for templating (\"3\")",
+                      "type": "string"
+                    }
+                  }
+                },
+                "kustomize": {
+                  "description": "Kustomize specifies kustomize specific options",
+                  "type": "object",
+                  "properties": {
+                    "apiVersions": {
+                      "description": "APIVersions specifies the Kubernetes resource API versions to pass to Helm when templating manifests. By default,\nArgo CD uses the API versions of the target cluster. The format is [group/]version/kind.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "commonAnnotations": {
+                      "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "commonAnnotationsEnvsubst": {
+                      "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                      "type": "boolean"
+                    },
+                    "commonLabels": {
+                      "description": "CommonLabels is a list of additional labels to add to rendered manifests",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "components": {
+                      "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "forceCommonAnnotations": {
+                      "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
+                      "type": "boolean"
+                    },
+                    "forceCommonLabels": {
+                      "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
+                      "type": "boolean"
+                    },
+                    "ignoreMissingComponents": {
+                      "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                      "type": "boolean"
+                    },
+                    "images": {
+                      "description": "Images is a list of Kustomize image override specifications",
+                      "type": "array",
+                      "items": {
+                        "description": "KustomizeImage represents a Kustomize image definition in the format [old_image_name=]\u003cimage_name\u003e:\u003cimage_tag\u003e",
+                        "type": "string"
+                      }
+                    },
+                    "kubeVersion": {
+                      "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
+                      "type": "string"
+                    },
+                    "labelIncludeTemplates": {
+                      "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                      "type": "boolean"
+                    },
+                    "labelWithoutSelector": {
+                      "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
+                      "type": "boolean"
+                    },
+                    "namePrefix": {
+                      "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                      "type": "string"
+                    },
+                    "nameSuffix": {
+                      "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace sets the namespace that Kustomize adds to all resources",
+                      "type": "string"
+                    },
+                    "patches": {
+                      "description": "Patches is a list of Kustomize patches",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "options": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "boolean"
+                            }
+                          },
+                          "patch": {
+                            "type": "string"
+                          },
+                          "path": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "object",
+                            "properties": {
+                              "annotationSelector": {
+                                "type": "string"
+                              },
+                              "group": {
+                                "type": "string"
+                              },
+                              "kind": {
+                                "type": "string"
+                              },
+                              "labelSelector": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "namespace": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "replicas": {
+                      "description": "Replicas is a list of Kustomize Replicas override specifications",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "count",
+                          "name"
+                        ],
+                        "properties": {
+                          "count": {
+                            "description": "Number of replicas",
+                            "anyOf": [
+                              {
+                                "type": "integer"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "x-kubernetes-int-or-string": true
+                          },
+                          "name": {
+                            "description": "Name of Deployment or StatefulSet",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "version": {
+                      "description": "Version controls which version of Kustomize to use for rendering manifests",
+                      "type": "string"
+                    }
+                  }
+                },
                 "path": {
                   "description": "Path is a directory path within the Git repository where the manifests are located",
                   "type": "string"
+                },
+                "plugin": {
+                  "description": "Plugin specifies config management plugin specific options",
+                  "type": "object",
+                  "properties": {
+                    "env": {
+                      "description": "Env is a list of environment variable entries",
+                      "type": "array",
+                      "items": {
+                        "description": "EnvEntry represents an entry in the application's environment",
+                        "type": "object",
+                        "required": [
+                          "name",
+                          "value"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name is the name of the variable, usually expressed in uppercase",
+                            "type": "string"
+                          },
+                          "value": {
+                            "description": "Value is the value of the variable",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "parameters": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "array": {
+                            "description": "Array is the value of an array type parameter.",
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "map": {
+                            "description": "Map is the value of a map type parameter.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "name": {
+                            "description": "Name is the name identifying a parameter.",
+                            "type": "string"
+                          },
+                          "string": {
+                            "description": "String_ is the value of a string type parameter.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "repoURL": {
                   "description": "RepoURL is the URL to the git repository that contains the application manifests",
@@ -1627,11 +2060,13 @@
               ],
               "properties": {
                 "path": {
-                  "description": "Path is a directory path within the git repository where hydrated manifests should be committed to and synced\nfrom. If hydrateTo is set, this is just the path from which hydrated manifests will be synced.",
-                  "type": "string"
+                  "description": "Path is a directory path within the git repository where hydrated manifests should be committed to and synced\nfrom. The Path should never point to the root of the repo. If hydrateTo is set, this is just the path from which\nhydrated manifests will be synced.",
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^.{2,}|[^./]$"
                 },
                 "targetBranch": {
-                  "description": "TargetBranch is the branch to which hydrated manifests should be committed",
+                  "description": "TargetBranch is the branch from which hydrated manifests will be synced.\nIf HydrateTo is not set, this is also the branch to which hydrated manifests are committed.",
                   "type": "string"
                 }
               }
@@ -1878,6 +2313,10 @@
                     "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
                     "type": "boolean"
                   },
+                  "ignoreMissingComponents": {
+                    "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                    "type": "boolean"
+                  },
                   "images": {
                     "description": "Images is a list of Kustomize image override specifications",
                     "type": "array",
@@ -1889,6 +2328,10 @@
                   "kubeVersion": {
                     "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
                     "type": "string"
+                  },
+                  "labelIncludeTemplates": {
+                    "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                    "type": "boolean"
                   },
                   "labelWithoutSelector": {
                     "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
@@ -2084,6 +2527,10 @@
                   "description": "AllowEmpty allows apps have zero live resources (default: false)",
                   "type": "boolean"
                 },
+                "enabled": {
+                  "description": "Enable allows apps to explicitly control automated sync",
+                  "type": "boolean"
+                },
                 "prune": {
                   "description": "Prune specifies whether to delete resources from the cluster that are not found in the sources anymore as part of automated sync (default: false)",
                   "type": "boolean"
@@ -2139,6 +2586,10 @@
                   "description": "Limit is the maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.",
                   "type": "integer",
                   "format": "int64"
+                },
+                "refresh": {
+                  "description": "Refresh indicates if the latest revision should be used on retry instead of the initial one (default: false)",
+                  "type": "boolean"
                 }
               }
             },
@@ -2198,11 +2649,11 @@
               "format": "date-time"
             },
             "message": {
-              "description": "Message is a human-readable informational message describing the health status",
+              "description": "Message is a human-readable informational message describing the health status\n\nDeprecated: this field is not used and will be removed in a future release.",
               "type": "string"
             },
             "status": {
-              "description": "Status holds the status code of the application or resource",
+              "description": "Status holds the status code of the application",
               "type": "string"
             }
           }
@@ -2495,6 +2946,10 @@
                         "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
                         "type": "boolean"
                       },
+                      "ignoreMissingComponents": {
+                        "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                        "type": "boolean"
+                      },
                       "images": {
                         "description": "Images is a list of Kustomize image override specifications",
                         "type": "array",
@@ -2506,6 +2961,10 @@
                       "kubeVersion": {
                         "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
                         "type": "string"
+                      },
+                      "labelIncludeTemplates": {
+                        "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                        "type": "boolean"
                       },
                       "labelWithoutSelector": {
                         "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
@@ -2928,6 +3387,10 @@
                           "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
                           "type": "boolean"
                         },
+                        "ignoreMissingComponents": {
+                          "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                          "type": "boolean"
+                        },
                         "images": {
                           "description": "Images is a list of Kustomize image override specifications",
                           "type": "array",
@@ -2939,6 +3402,10 @@
                         "kubeVersion": {
                           "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
                           "type": "string"
+                        },
+                        "labelIncludeTemplates": {
+                          "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                          "type": "boolean"
                         },
                         "labelWithoutSelector": {
                           "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
@@ -3212,6 +3679,10 @@
                       "description": "Limit is the maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.",
                       "type": "integer",
                       "format": "int64"
+                    },
+                    "refresh": {
+                      "description": "Refresh indicates if the latest revision should be used on retry instead of the initial one (default: false)",
+                      "type": "boolean"
                     }
                   }
                 },
@@ -3513,6 +3984,10 @@
                               "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
                               "type": "boolean"
                             },
+                            "ignoreMissingComponents": {
+                              "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                              "type": "boolean"
+                            },
                             "images": {
                               "description": "Images is a list of Kustomize image override specifications",
                               "type": "array",
@@ -3524,6 +3999,10 @@
                             "kubeVersion": {
                               "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
                               "type": "string"
+                            },
+                            "labelIncludeTemplates": {
+                              "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                              "type": "boolean"
                             },
                             "labelWithoutSelector": {
                               "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
@@ -3946,6 +4425,10 @@
                                 "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
                                 "type": "boolean"
                               },
+                              "ignoreMissingComponents": {
+                                "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                                "type": "boolean"
+                              },
                               "images": {
                                 "description": "Images is a list of Kustomize image override specifications",
                                 "type": "array",
@@ -3957,6 +4440,10 @@
                               "kubeVersion": {
                                 "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
                                 "type": "string"
+                              },
+                              "labelIncludeTemplates": {
+                                "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                                "type": "boolean"
                               },
                               "labelWithoutSelector": {
                                 "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
@@ -4242,6 +4729,13 @@
                         "description": "HookType specifies the type of the hook. Empty for non-hook resources",
                         "type": "string"
                       },
+                      "images": {
+                        "description": "Images contains the images related to the ResourceResult",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
                       "kind": {
                         "description": "Kind specifies the API kind of the resource",
                         "type": "string"
@@ -4521,6 +5015,10 @@
                           "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
                           "type": "boolean"
                         },
+                        "ignoreMissingComponents": {
+                          "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                          "type": "boolean"
+                        },
                         "images": {
                           "description": "Images is a list of Kustomize image override specifications",
                           "type": "array",
@@ -4532,6 +5030,10 @@
                         "kubeVersion": {
                           "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
                           "type": "string"
+                        },
+                        "labelIncludeTemplates": {
+                          "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                          "type": "boolean"
                         },
                         "labelWithoutSelector": {
                           "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
@@ -4954,6 +5456,10 @@
                             "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
                             "type": "boolean"
                           },
+                          "ignoreMissingComponents": {
+                            "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                            "type": "boolean"
+                          },
                           "images": {
                             "description": "Images is a list of Kustomize image override specifications",
                             "type": "array",
@@ -4965,6 +5471,10 @@
                           "kubeVersion": {
                             "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
                             "type": "string"
+                          },
+                          "labelIncludeTemplates": {
+                            "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                            "type": "boolean"
                           },
                           "labelWithoutSelector": {
                             "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
@@ -5165,18 +5675,19 @@
           "description": "Resources is a list of Kubernetes resources managed by this application",
           "type": "array",
           "items": {
-            "description": "ResourceStatus holds the current sync and health status of a resource\nTODO: describe members of this type",
+            "description": "ResourceStatus holds the current synchronization and health status of a Kubernetes resource.",
             "type": "object",
             "properties": {
               "group": {
+                "description": "Group represents the API group of the resource (e.g., \"apps\" for Deployments).",
                 "type": "string"
               },
               "health": {
-                "description": "HealthStatus contains information about the currently observed health state of an application or resource",
+                "description": "Health indicates the health status of the resource (e.g., Healthy, Degraded, Progressing).",
                 "type": "object",
                 "properties": {
                   "lastTransitionTime": {
-                    "description": "LastTransitionTime is the time the HealthStatus was set or updated",
+                    "description": "LastTransitionTime is the time the HealthStatus was set or updated\n\nDeprecated: this field is not used and will be removed in a future release.",
                     "type": "string",
                     "format": "date-time"
                   },
@@ -5185,38 +5696,46 @@
                     "type": "string"
                   },
                   "status": {
-                    "description": "Status holds the status code of the application or resource",
+                    "description": "Status holds the status code of the resource",
                     "type": "string"
                   }
                 }
               },
               "hook": {
+                "description": "Hook is true if the resource is used as a lifecycle hook in an Argo CD application.",
                 "type": "boolean"
               },
               "kind": {
+                "description": "Kind specifies the type of the resource (e.g., \"Deployment\", \"Service\").",
                 "type": "string"
               },
               "name": {
+                "description": "Name is the unique name of the resource within the namespace.",
                 "type": "string"
               },
               "namespace": {
+                "description": "Namespace defines the Kubernetes namespace where the resource is located.",
                 "type": "string"
               },
               "requiresDeletionConfirmation": {
+                "description": "RequiresDeletionConfirmation is true if the resource requires explicit user confirmation before deletion.",
                 "type": "boolean"
               },
               "requiresPruning": {
+                "description": "RequiresPruning is true if the resource needs to be pruned (deleted) as part of synchronization.",
                 "type": "boolean"
               },
               "status": {
-                "description": "SyncStatusCode is a type which represents possible comparison results",
+                "description": "Status represents the synchronization state of the resource (e.g., Synced, OutOfSync).",
                 "type": "string"
               },
               "syncWave": {
+                "description": "SyncWave determines the order in which resources are applied during a sync operation.\nLower values are applied first.",
                 "type": "integer",
                 "format": "int64"
               },
               "version": {
+                "description": "Version indicates the API version of the resource (e.g., \"v1\", \"v1beta1\").",
                 "type": "string"
               }
             }
@@ -5277,9 +5796,414 @@
                         "targetRevision"
                       ],
                       "properties": {
+                        "directory": {
+                          "description": "Directory specifies path/directory specific options",
+                          "type": "object",
+                          "properties": {
+                            "exclude": {
+                              "description": "Exclude contains a glob pattern to match paths against that should be explicitly excluded from being used during manifest generation",
+                              "type": "string"
+                            },
+                            "include": {
+                              "description": "Include contains a glob pattern to match paths against that should be explicitly included during manifest generation",
+                              "type": "string"
+                            },
+                            "jsonnet": {
+                              "description": "Jsonnet holds options specific to Jsonnet",
+                              "type": "object",
+                              "properties": {
+                                "extVars": {
+                                  "description": "ExtVars is a list of Jsonnet External Variables",
+                                  "type": "array",
+                                  "items": {
+                                    "description": "JsonnetVar represents a variable to be passed to jsonnet during manifest generation",
+                                    "type": "object",
+                                    "required": [
+                                      "name",
+                                      "value"
+                                    ],
+                                    "properties": {
+                                      "code": {
+                                        "type": "boolean"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "value": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "libs": {
+                                  "description": "Additional library search dirs",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "tlas": {
+                                  "description": "TLAS is a list of Jsonnet Top-level Arguments",
+                                  "type": "array",
+                                  "items": {
+                                    "description": "JsonnetVar represents a variable to be passed to jsonnet during manifest generation",
+                                    "type": "object",
+                                    "required": [
+                                      "name",
+                                      "value"
+                                    ],
+                                    "properties": {
+                                      "code": {
+                                        "type": "boolean"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "value": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "recurse": {
+                              "description": "Recurse specifies whether to scan a directory recursively for manifests",
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "helm": {
+                          "description": "Helm specifies helm specific options",
+                          "type": "object",
+                          "properties": {
+                            "apiVersions": {
+                              "description": "APIVersions specifies the Kubernetes resource API versions to pass to Helm when templating manifests. By default,\nArgo CD uses the API versions of the target cluster. The format is [group/]version/kind.",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "fileParameters": {
+                              "description": "FileParameters are file parameters to the helm template",
+                              "type": "array",
+                              "items": {
+                                "description": "HelmFileParameter is a file parameter that's passed to helm template during manifest generation",
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "description": "Name is the name of the Helm parameter",
+                                    "type": "string"
+                                  },
+                                  "path": {
+                                    "description": "Path is the path to the file containing the values for the Helm parameter",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "ignoreMissingValueFiles": {
+                              "description": "IgnoreMissingValueFiles prevents helm template from failing when valueFiles do not exist locally by not appending them to helm template --values",
+                              "type": "boolean"
+                            },
+                            "kubeVersion": {
+                              "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace is an optional namespace to template with. If left empty, defaults to the app's destination namespace.",
+                              "type": "string"
+                            },
+                            "parameters": {
+                              "description": "Parameters is a list of Helm parameters which are passed to the helm template command upon manifest generation",
+                              "type": "array",
+                              "items": {
+                                "description": "HelmParameter is a parameter that's passed to helm template during manifest generation",
+                                "type": "object",
+                                "properties": {
+                                  "forceString": {
+                                    "description": "ForceString determines whether to tell Helm to interpret booleans and numbers as strings",
+                                    "type": "boolean"
+                                  },
+                                  "name": {
+                                    "description": "Name is the name of the Helm parameter",
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "description": "Value is the value for the Helm parameter",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "passCredentials": {
+                              "description": "PassCredentials pass credentials to all domains (Helm's --pass-credentials)",
+                              "type": "boolean"
+                            },
+                            "releaseName": {
+                              "description": "ReleaseName is the Helm release name to use. If omitted it will use the application name",
+                              "type": "string"
+                            },
+                            "skipCrds": {
+                              "description": "SkipCrds skips custom resource definition installation step (Helm's --skip-crds)",
+                              "type": "boolean"
+                            },
+                            "skipSchemaValidation": {
+                              "description": "SkipSchemaValidation skips JSON schema validation (Helm's --skip-schema-validation)",
+                              "type": "boolean"
+                            },
+                            "skipTests": {
+                              "description": "SkipTests skips test manifest installation step (Helm's --skip-tests).",
+                              "type": "boolean"
+                            },
+                            "valueFiles": {
+                              "description": "ValuesFiles is a list of Helm value files to use when generating a template",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "values": {
+                              "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
+                              "type": "string"
+                            },
+                            "valuesObject": {
+                              "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                              "type": "object",
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "version": {
+                              "description": "Version is the Helm version to use for templating (\"3\")",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "kustomize": {
+                          "description": "Kustomize specifies kustomize specific options",
+                          "type": "object",
+                          "properties": {
+                            "apiVersions": {
+                              "description": "APIVersions specifies the Kubernetes resource API versions to pass to Helm when templating manifests. By default,\nArgo CD uses the API versions of the target cluster. The format is [group/]version/kind.",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "commonAnnotations": {
+                              "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "string"
+                              }
+                            },
+                            "commonAnnotationsEnvsubst": {
+                              "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                              "type": "boolean"
+                            },
+                            "commonLabels": {
+                              "description": "CommonLabels is a list of additional labels to add to rendered manifests",
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "string"
+                              }
+                            },
+                            "components": {
+                              "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "forceCommonAnnotations": {
+                              "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
+                              "type": "boolean"
+                            },
+                            "forceCommonLabels": {
+                              "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
+                              "type": "boolean"
+                            },
+                            "ignoreMissingComponents": {
+                              "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                              "type": "boolean"
+                            },
+                            "images": {
+                              "description": "Images is a list of Kustomize image override specifications",
+                              "type": "array",
+                              "items": {
+                                "description": "KustomizeImage represents a Kustomize image definition in the format [old_image_name=]\u003cimage_name\u003e:\u003cimage_tag\u003e",
+                                "type": "string"
+                              }
+                            },
+                            "kubeVersion": {
+                              "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
+                              "type": "string"
+                            },
+                            "labelIncludeTemplates": {
+                              "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                              "type": "boolean"
+                            },
+                            "labelWithoutSelector": {
+                              "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
+                              "type": "boolean"
+                            },
+                            "namePrefix": {
+                              "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                              "type": "string"
+                            },
+                            "nameSuffix": {
+                              "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace sets the namespace that Kustomize adds to all resources",
+                              "type": "string"
+                            },
+                            "patches": {
+                              "description": "Patches is a list of Kustomize patches",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "options": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "patch": {
+                                    "type": "string"
+                                  },
+                                  "path": {
+                                    "type": "string"
+                                  },
+                                  "target": {
+                                    "type": "object",
+                                    "properties": {
+                                      "annotationSelector": {
+                                        "type": "string"
+                                      },
+                                      "group": {
+                                        "type": "string"
+                                      },
+                                      "kind": {
+                                        "type": "string"
+                                      },
+                                      "labelSelector": {
+                                        "type": "string"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "namespace": {
+                                        "type": "string"
+                                      },
+                                      "version": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "replicas": {
+                              "description": "Replicas is a list of Kustomize Replicas override specifications",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "count",
+                                  "name"
+                                ],
+                                "properties": {
+                                  "count": {
+                                    "description": "Number of replicas",
+                                    "anyOf": [
+                                      {
+                                        "type": "integer"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "x-kubernetes-int-or-string": true
+                                  },
+                                  "name": {
+                                    "description": "Name of Deployment or StatefulSet",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "version": {
+                              "description": "Version controls which version of Kustomize to use for rendering manifests",
+                              "type": "string"
+                            }
+                          }
+                        },
                         "path": {
                           "description": "Path is a directory path within the Git repository where the manifests are located",
                           "type": "string"
+                        },
+                        "plugin": {
+                          "description": "Plugin specifies config management plugin specific options",
+                          "type": "object",
+                          "properties": {
+                            "env": {
+                              "description": "Env is a list of environment variable entries",
+                              "type": "array",
+                              "items": {
+                                "description": "EnvEntry represents an entry in the application's environment",
+                                "type": "object",
+                                "required": [
+                                  "name",
+                                  "value"
+                                ],
+                                "properties": {
+                                  "name": {
+                                    "description": "Name is the name of the variable, usually expressed in uppercase",
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "description": "Value is the value of the variable",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "parameters": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "array": {
+                                    "description": "Array is the value of an array type parameter.",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "map": {
+                                    "description": "Map is the value of a map type parameter.",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "name": {
+                                    "description": "Name is the name identifying a parameter.",
+                                    "type": "string"
+                                  },
+                                  "string": {
+                                    "description": "String_ is the value of a string type parameter.",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
                         },
                         "repoURL": {
                           "description": "RepoURL is the URL to the git repository that contains the application manifests",
@@ -5313,11 +6237,13 @@
                       ],
                       "properties": {
                         "path": {
-                          "description": "Path is a directory path within the git repository where hydrated manifests should be committed to and synced\nfrom. If hydrateTo is set, this is just the path from which hydrated manifests will be synced.",
-                          "type": "string"
+                          "description": "Path is a directory path within the git repository where hydrated manifests should be committed to and synced\nfrom. The Path should never point to the root of the repo. If hydrateTo is set, this is just the path from which\nhydrated manifests will be synced.",
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "^.{2,}|[^./]$"
                         },
                         "targetBranch": {
-                          "description": "TargetBranch is the branch to which hydrated manifests should be committed",
+                          "description": "TargetBranch is the branch from which hydrated manifests will be synced.\nIf HydrateTo is not set, this is also the branch to which hydrated manifests are committed.",
                           "type": "string"
                         }
                       }
@@ -5360,9 +6286,414 @@
                         "targetRevision"
                       ],
                       "properties": {
+                        "directory": {
+                          "description": "Directory specifies path/directory specific options",
+                          "type": "object",
+                          "properties": {
+                            "exclude": {
+                              "description": "Exclude contains a glob pattern to match paths against that should be explicitly excluded from being used during manifest generation",
+                              "type": "string"
+                            },
+                            "include": {
+                              "description": "Include contains a glob pattern to match paths against that should be explicitly included during manifest generation",
+                              "type": "string"
+                            },
+                            "jsonnet": {
+                              "description": "Jsonnet holds options specific to Jsonnet",
+                              "type": "object",
+                              "properties": {
+                                "extVars": {
+                                  "description": "ExtVars is a list of Jsonnet External Variables",
+                                  "type": "array",
+                                  "items": {
+                                    "description": "JsonnetVar represents a variable to be passed to jsonnet during manifest generation",
+                                    "type": "object",
+                                    "required": [
+                                      "name",
+                                      "value"
+                                    ],
+                                    "properties": {
+                                      "code": {
+                                        "type": "boolean"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "value": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "libs": {
+                                  "description": "Additional library search dirs",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "tlas": {
+                                  "description": "TLAS is a list of Jsonnet Top-level Arguments",
+                                  "type": "array",
+                                  "items": {
+                                    "description": "JsonnetVar represents a variable to be passed to jsonnet during manifest generation",
+                                    "type": "object",
+                                    "required": [
+                                      "name",
+                                      "value"
+                                    ],
+                                    "properties": {
+                                      "code": {
+                                        "type": "boolean"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "value": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "recurse": {
+                              "description": "Recurse specifies whether to scan a directory recursively for manifests",
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "helm": {
+                          "description": "Helm specifies helm specific options",
+                          "type": "object",
+                          "properties": {
+                            "apiVersions": {
+                              "description": "APIVersions specifies the Kubernetes resource API versions to pass to Helm when templating manifests. By default,\nArgo CD uses the API versions of the target cluster. The format is [group/]version/kind.",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "fileParameters": {
+                              "description": "FileParameters are file parameters to the helm template",
+                              "type": "array",
+                              "items": {
+                                "description": "HelmFileParameter is a file parameter that's passed to helm template during manifest generation",
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "description": "Name is the name of the Helm parameter",
+                                    "type": "string"
+                                  },
+                                  "path": {
+                                    "description": "Path is the path to the file containing the values for the Helm parameter",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "ignoreMissingValueFiles": {
+                              "description": "IgnoreMissingValueFiles prevents helm template from failing when valueFiles do not exist locally by not appending them to helm template --values",
+                              "type": "boolean"
+                            },
+                            "kubeVersion": {
+                              "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace is an optional namespace to template with. If left empty, defaults to the app's destination namespace.",
+                              "type": "string"
+                            },
+                            "parameters": {
+                              "description": "Parameters is a list of Helm parameters which are passed to the helm template command upon manifest generation",
+                              "type": "array",
+                              "items": {
+                                "description": "HelmParameter is a parameter that's passed to helm template during manifest generation",
+                                "type": "object",
+                                "properties": {
+                                  "forceString": {
+                                    "description": "ForceString determines whether to tell Helm to interpret booleans and numbers as strings",
+                                    "type": "boolean"
+                                  },
+                                  "name": {
+                                    "description": "Name is the name of the Helm parameter",
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "description": "Value is the value for the Helm parameter",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "passCredentials": {
+                              "description": "PassCredentials pass credentials to all domains (Helm's --pass-credentials)",
+                              "type": "boolean"
+                            },
+                            "releaseName": {
+                              "description": "ReleaseName is the Helm release name to use. If omitted it will use the application name",
+                              "type": "string"
+                            },
+                            "skipCrds": {
+                              "description": "SkipCrds skips custom resource definition installation step (Helm's --skip-crds)",
+                              "type": "boolean"
+                            },
+                            "skipSchemaValidation": {
+                              "description": "SkipSchemaValidation skips JSON schema validation (Helm's --skip-schema-validation)",
+                              "type": "boolean"
+                            },
+                            "skipTests": {
+                              "description": "SkipTests skips test manifest installation step (Helm's --skip-tests).",
+                              "type": "boolean"
+                            },
+                            "valueFiles": {
+                              "description": "ValuesFiles is a list of Helm value files to use when generating a template",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "values": {
+                              "description": "Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.",
+                              "type": "string"
+                            },
+                            "valuesObject": {
+                              "description": "ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.",
+                              "type": "object",
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "version": {
+                              "description": "Version is the Helm version to use for templating (\"3\")",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "kustomize": {
+                          "description": "Kustomize specifies kustomize specific options",
+                          "type": "object",
+                          "properties": {
+                            "apiVersions": {
+                              "description": "APIVersions specifies the Kubernetes resource API versions to pass to Helm when templating manifests. By default,\nArgo CD uses the API versions of the target cluster. The format is [group/]version/kind.",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "commonAnnotations": {
+                              "description": "CommonAnnotations is a list of additional annotations to add to rendered manifests",
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "string"
+                              }
+                            },
+                            "commonAnnotationsEnvsubst": {
+                              "description": "CommonAnnotationsEnvsubst specifies whether to apply env variables substitution for annotation values",
+                              "type": "boolean"
+                            },
+                            "commonLabels": {
+                              "description": "CommonLabels is a list of additional labels to add to rendered manifests",
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "string"
+                              }
+                            },
+                            "components": {
+                              "description": "Components specifies a list of kustomize components to add to the kustomization before building",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "forceCommonAnnotations": {
+                              "description": "ForceCommonAnnotations specifies whether to force applying common annotations to resources for Kustomize apps",
+                              "type": "boolean"
+                            },
+                            "forceCommonLabels": {
+                              "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
+                              "type": "boolean"
+                            },
+                            "ignoreMissingComponents": {
+                              "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                              "type": "boolean"
+                            },
+                            "images": {
+                              "description": "Images is a list of Kustomize image override specifications",
+                              "type": "array",
+                              "items": {
+                                "description": "KustomizeImage represents a Kustomize image definition in the format [old_image_name=]\u003cimage_name\u003e:\u003cimage_tag\u003e",
+                                "type": "string"
+                              }
+                            },
+                            "kubeVersion": {
+                              "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
+                              "type": "string"
+                            },
+                            "labelIncludeTemplates": {
+                              "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                              "type": "boolean"
+                            },
+                            "labelWithoutSelector": {
+                              "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
+                              "type": "boolean"
+                            },
+                            "namePrefix": {
+                              "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                              "type": "string"
+                            },
+                            "nameSuffix": {
+                              "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace sets the namespace that Kustomize adds to all resources",
+                              "type": "string"
+                            },
+                            "patches": {
+                              "description": "Patches is a list of Kustomize patches",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "options": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "patch": {
+                                    "type": "string"
+                                  },
+                                  "path": {
+                                    "type": "string"
+                                  },
+                                  "target": {
+                                    "type": "object",
+                                    "properties": {
+                                      "annotationSelector": {
+                                        "type": "string"
+                                      },
+                                      "group": {
+                                        "type": "string"
+                                      },
+                                      "kind": {
+                                        "type": "string"
+                                      },
+                                      "labelSelector": {
+                                        "type": "string"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "namespace": {
+                                        "type": "string"
+                                      },
+                                      "version": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "replicas": {
+                              "description": "Replicas is a list of Kustomize Replicas override specifications",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "count",
+                                  "name"
+                                ],
+                                "properties": {
+                                  "count": {
+                                    "description": "Number of replicas",
+                                    "anyOf": [
+                                      {
+                                        "type": "integer"
+                                      },
+                                      {
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "x-kubernetes-int-or-string": true
+                                  },
+                                  "name": {
+                                    "description": "Name of Deployment or StatefulSet",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "version": {
+                              "description": "Version controls which version of Kustomize to use for rendering manifests",
+                              "type": "string"
+                            }
+                          }
+                        },
                         "path": {
                           "description": "Path is a directory path within the Git repository where the manifests are located",
                           "type": "string"
+                        },
+                        "plugin": {
+                          "description": "Plugin specifies config management plugin specific options",
+                          "type": "object",
+                          "properties": {
+                            "env": {
+                              "description": "Env is a list of environment variable entries",
+                              "type": "array",
+                              "items": {
+                                "description": "EnvEntry represents an entry in the application's environment",
+                                "type": "object",
+                                "required": [
+                                  "name",
+                                  "value"
+                                ],
+                                "properties": {
+                                  "name": {
+                                    "description": "Name is the name of the variable, usually expressed in uppercase",
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "description": "Value is the value of the variable",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "parameters": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "array": {
+                                    "description": "Array is the value of an array type parameter.",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "map": {
+                                    "description": "Map is the value of a map type parameter.",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "name": {
+                                    "description": "Name is the name identifying a parameter.",
+                                    "type": "string"
+                                  },
+                                  "string": {
+                                    "description": "String_ is the value of a string type parameter.",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
                         },
                         "repoURL": {
                           "description": "RepoURL is the URL to the git repository that contains the application manifests",
@@ -5396,11 +6727,13 @@
                       ],
                       "properties": {
                         "path": {
-                          "description": "Path is a directory path within the git repository where hydrated manifests should be committed to and synced\nfrom. If hydrateTo is set, this is just the path from which hydrated manifests will be synced.",
-                          "type": "string"
+                          "description": "Path is a directory path within the git repository where hydrated manifests should be committed to and synced\nfrom. The Path should never point to the root of the repo. If hydrateTo is set, this is just the path from which\nhydrated manifests will be synced.",
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "^.{2,}|[^./]$"
                         },
                         "targetBranch": {
-                          "description": "TargetBranch is the branch to which hydrated manifests should be committed",
+                          "description": "TargetBranch is the branch from which hydrated manifests will be synced.\nIf HydrateTo is not set, this is also the branch to which hydrated manifests are committed.",
                           "type": "string"
                         }
                       }
@@ -5756,6 +7089,10 @@
                           "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
                           "type": "boolean"
                         },
+                        "ignoreMissingComponents": {
+                          "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                          "type": "boolean"
+                        },
                         "images": {
                           "description": "Images is a list of Kustomize image override specifications",
                           "type": "array",
@@ -5767,6 +7104,10 @@
                         "kubeVersion": {
                           "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
                           "type": "string"
+                        },
+                        "labelIncludeTemplates": {
+                          "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                          "type": "boolean"
                         },
                         "labelWithoutSelector": {
                           "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
@@ -6189,6 +7530,10 @@
                             "description": "ForceCommonLabels specifies whether to force applying common labels to resources for Kustomize apps",
                             "type": "boolean"
                           },
+                          "ignoreMissingComponents": {
+                            "description": "IgnoreMissingComponents prevents kustomize from failing when components do not exist locally by not appending them to kustomization file",
+                            "type": "boolean"
+                          },
                           "images": {
                             "description": "Images is a list of Kustomize image override specifications",
                             "type": "array",
@@ -6200,6 +7545,10 @@
                           "kubeVersion": {
                             "description": "KubeVersion specifies the Kubernetes API version to pass to Helm when templating manifests. By default, Argo CD\nuses the Kubernetes version of the target cluster.",
                             "type": "string"
+                          },
+                          "labelIncludeTemplates": {
+                            "description": "LabelIncludeTemplates specifies whether to apply common labels to resource templates or not",
+                            "type": "boolean"
                           },
                           "labelWithoutSelector": {
                             "description": "LabelWithoutSelector specifies whether to apply common labels to resource selectors or not",
