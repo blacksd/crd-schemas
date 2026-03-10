@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://charts.jetstack.io",
     "chart": "cert-manager",
-    "version": "v1.17.2",
+    "version": "v1.19.4",
     "license": "Apache-2.0",
     "homepage": "https://cert-manager.io",
     "values": {
@@ -18,10 +18,10 @@
     }
   },
   "extraction": {
-    "timestamp": "2026-03-05T09:57:11Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-03-10T08:29:54Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "807669564bae4ca68e0ffdd89b50b078aa770522d3f2852e2b58f84ffaf312ac"
+    "sha256": "56ad953c253185ea63a49a2c598871e3fbfe1afbf84e7c6f86dbeea7091106fc"
   }
 }

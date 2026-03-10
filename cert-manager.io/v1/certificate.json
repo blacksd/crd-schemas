@@ -22,7 +22,7 @@
       ],
       "properties": {
         "additionalOutputFormats": {
-          "description": "Defines extra output formats of the private key and signed certificate chain\nto be written to this Certificate's target Secret.\n\nThis is a Beta Feature enabled by default. It can be disabled with the\n`--feature-gates=AdditionalCertificateOutputFormats=false` option set on both\nthe controller and webhook components.",
+          "description": "Defines extra output formats of the private key and signed certificate chain\nto be written to this Certificate's target Secret.",
           "type": "array",
           "items": {
             "description": "CertificateAdditionalOutputFormat defines an additional output format of a\nCertificate resource. These contain supplementary data formats of the signed\ncertificate chain and paired private key.",
@@ -40,7 +40,8 @@
                 ]
               }
             }
-          }
+          },
+          "x-kubernetes-list-type": "atomic"
         },
         "commonName": {
           "description": "Requested common name X509 certificate subject attribute.\nMore info: https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6\nNOTE: TLS clients will ignore this value when any subject alternative name is\nset (see https://tools.ietf.org/html/rfc6125#section-6.4.4).\n\nShould have a length of 64 characters or fewer to avoid generating invalid CSRs.\nCannot be set if the `literalSubject` field is set.",
@@ -51,7 +52,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "x-kubernetes-list-type": "atomic"
         },
         "duration": {
           "description": "Requested 'duration' (i.e. lifetime) of the Certificate. Note that the\nissuer may choose to ignore the requested duration, just like any other\nrequested attribute.\n\nIf unset, this defaults to 90 days.\nMinimum accepted duration is 1 hour.\nValue must be in units accepted by Go time.ParseDuration https://golang.org/pkg/time/#ParseDuration.",
@@ -62,7 +64,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "x-kubernetes-list-type": "atomic"
         },
         "encodeUsagesInRequest": {
           "description": "Whether the KeyUsage and ExtKeyUsage extensions should be set in the encoded CSR.\n\nThis option defaults to true, and should only be disabled if the target\nissuer does not support CSRs with these X509 KeyUsage/ ExtKeyUsage extensions.",
@@ -73,7 +76,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "x-kubernetes-list-type": "atomic"
         },
         "isCA": {
           "description": "Requested basic constraints isCA value.\nThe isCA value is used to set the `isCA` field on the created CertificateRequest\nresources. Note that the issuer may choose to ignore the requested isCA value, just\nlike any other requested attribute.\n\nIf true, this will automatically add the `cert sign` usage to the list\nof requested `usages`.",
@@ -87,15 +91,15 @@
           ],
           "properties": {
             "group": {
-              "description": "Group of the resource being referred to.",
+              "description": "Group of the issuer being referred to.\nDefaults to 'cert-manager.io'.",
               "type": "string"
             },
             "kind": {
-              "description": "Kind of the resource being referred to.",
+              "description": "Kind of the issuer being referred to.\nDefaults to 'Issuer'.",
               "type": "string"
             },
             "name": {
-              "description": "Name of the resource being referred to.",
+              "description": "Name of the issuer being referred to.",
               "type": "string"
             }
           }
@@ -175,7 +179,7 @@
                   }
                 },
                 "profile": {
-                  "description": "Profile specifies the key and certificate encryption algorithms and the HMAC algorithm\nused to create the PKCS12 keystore. Default value is `LegacyRC2` for backward compatibility.\n\nIf provided, allowed values are:\n`LegacyRC2`: Deprecated. Not supported by default in OpenSSL 3 or Java 20.\n`LegacyDES`: Less secure algorithm. Use this option for maximal compatibility.\n`Modern2023`: Secure algorithm. Use this option in case you have to always use secure algorithms\n(eg. because of company policy). Please note that the security of the algorithm is not that important\nin reality, because the unencrypted certificate and private key are also stored in the Secret.",
+                  "description": "Profile specifies the key and certificate encryption algorithms and the HMAC algorithm\nused to create the PKCS12 keystore. Default value is `LegacyRC2` for backward compatibility.\n\nIf provided, allowed values are:\n`LegacyRC2`: Deprecated. Not supported by default in OpenSSL 3 or Java 20.\n`LegacyDES`: Less secure algorithm. Use this option for maximal compatibility.\n`Modern2023`: Secure algorithm. Use this option in case you have to always use secure algorithms\n(e.g., because of company policy). Please note that the security of the algorithm is not that important\nin reality, because the unencrypted certificate and private key are also stored in the Secret.",
                   "type": "string",
                   "enum": [
                     "LegacyRC2",
@@ -208,28 +212,32 @@
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "emailAddresses": {
                   "description": "EmailAddresses is a list of Email Addresses that are permitted or excluded.",
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "ipRanges": {
                   "description": "IPRanges is a list of IP Ranges that are permitted or excluded.\nThis should be a valid CIDR notation.",
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "uriDomains": {
                   "description": "URIDomains is a list of URI domains that are permitted or excluded.",
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "x-kubernetes-list-type": "atomic"
                 }
               }
             },
@@ -242,28 +250,32 @@
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "emailAddresses": {
                   "description": "EmailAddresses is a list of Email Addresses that are permitted or excluded.",
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "ipRanges": {
                   "description": "IPRanges is a list of IP Ranges that are permitted or excluded.\nThis should be a valid CIDR notation.",
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "uriDomains": {
                   "description": "URIDomains is a list of URI domains that are permitted or excluded.",
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "x-kubernetes-list-type": "atomic"
                 }
               }
             }
@@ -284,7 +296,8 @@
                 "type": "string"
               }
             }
-          }
+          },
+          "x-kubernetes-list-type": "atomic"
         },
         "privateKey": {
           "description": "Private key options. These include the key algorithm and size, the used\nencoding and the rotation policy.",
@@ -308,7 +321,7 @@
               ]
             },
             "rotationPolicy": {
-              "description": "RotationPolicy controls how private keys should be regenerated when a\nre-issuance is being processed.\n\nIf set to `Never`, a private key will only be generated if one does not\nalready exist in the target `spec.secretName`. If one does exist but it\ndoes not have the correct algorithm or size, a warning will be raised\nto await user intervention.\nIf set to `Always`, a private key matching the specified requirements\nwill be generated whenever a re-issuance occurs.\nDefault is `Never` for backward compatibility.",
+              "description": "RotationPolicy controls how private keys should be regenerated when a\nre-issuance is being processed.\n\nIf set to `Never`, a private key will only be generated if one does not\nalready exist in the target `spec.secretName`. If one does exist but it\ndoes not have the correct algorithm or size, a warning will be raised\nto await user intervention.\nIf set to `Always`, a private key matching the specified requirements\nwill be generated whenever a re-issuance occurs.\nDefault is `Always`.\nThe default was changed from `Never` to `Always` in cert-manager \u003e=v1.18.0.\nThe new default can be disabled by setting the\n`--feature-gates=DefaultPrivateKeyRotationPolicyAlways=false` option on\nthe controller component.",
               "type": "string",
               "enum": [
                 "Never",
@@ -331,7 +344,7 @@
           "format": "int32"
         },
         "revisionHistoryLimit": {
-          "description": "The maximum number of CertificateRequest revisions that are maintained in\nthe Certificate's history. Each revision represents a single `CertificateRequest`\ncreated by this Certificate, either when it was created, renewed, or Spec\nwas changed. Revisions will be removed by oldest first if the number of\nrevisions exceeds this number.\n\nIf set, revisionHistoryLimit must be a value of `1` or greater.\nIf unset (`nil`), revisions will not be garbage collected.\nDefault value is `nil`.",
+          "description": "The maximum number of CertificateRequest revisions that are maintained in\nthe Certificate's history. Each revision represents a single `CertificateRequest`\ncreated by this Certificate, either when it was created, renewed, or Spec\nwas changed. Revisions will be removed by oldest first if the number of\nrevisions exceeds this number.\n\nIf set, revisionHistoryLimit must be a value of `1` or greater.\nDefault value is `1`.",
           "type": "integer",
           "format": "int32"
         },
@@ -359,6 +372,19 @@
             }
           }
         },
+        "signatureAlgorithm": {
+          "description": "Signature algorithm to use.\nAllowed values for RSA keys: SHA256WithRSA, SHA384WithRSA, SHA512WithRSA.\nAllowed values for ECDSA keys: ECDSAWithSHA256, ECDSAWithSHA384, ECDSAWithSHA512.\nAllowed values for Ed25519 keys: PureEd25519.",
+          "type": "string",
+          "enum": [
+            "SHA256WithRSA",
+            "SHA384WithRSA",
+            "SHA512WithRSA",
+            "ECDSAWithSHA256",
+            "ECDSAWithSHA384",
+            "ECDSAWithSHA512",
+            "PureEd25519"
+          ]
+        },
         "subject": {
           "description": "Requested set of X509 certificate subject attributes.\nMore info: https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6\n\nThe common name attribute is specified separately in the `commonName` field.\nCannot be set if the `literalSubject` field is set.",
           "type": "object",
@@ -368,42 +394,48 @@
               "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "x-kubernetes-list-type": "atomic"
             },
             "localities": {
               "description": "Cities to be used on the Certificate.",
               "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "x-kubernetes-list-type": "atomic"
             },
             "organizationalUnits": {
               "description": "Organizational Units to be used on the Certificate.",
               "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "x-kubernetes-list-type": "atomic"
             },
             "organizations": {
               "description": "Organizations to be used on the Certificate.",
               "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "x-kubernetes-list-type": "atomic"
             },
             "postalCodes": {
               "description": "Postal codes to be used on the Certificate.",
               "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "x-kubernetes-list-type": "atomic"
             },
             "provinces": {
               "description": "State/Provinces to be used on the Certificate.",
               "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "x-kubernetes-list-type": "atomic"
             },
             "serialNumber": {
               "description": "Serial number to be used on the Certificate.",
@@ -414,7 +446,8 @@
               "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "x-kubernetes-list-type": "atomic"
             }
           }
         },
@@ -423,7 +456,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "x-kubernetes-list-type": "atomic"
         },
         "usages": {
           "description": "Requested key usages and extended key usages.\nThese usages are used to set the `usages` field on the created CertificateRequest\nresources. If `encodeUsagesInRequest` is unset or set to `true`, the usages\nwill additionally be encoded in the `request` field which contains the CSR blob.\n\nIf unset, defaults to `digital signature` and `key encipherment`.",
@@ -456,7 +490,8 @@
               "microsoft sgc",
               "netscape sgc"
             ]
-          }
+          },
+          "x-kubernetes-list-type": "atomic"
         }
       }
     },
