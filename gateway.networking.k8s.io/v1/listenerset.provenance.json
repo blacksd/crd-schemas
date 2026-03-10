@@ -1,9 +1,9 @@
 {
-  "schema": "gatewayclass.json",
+  "schema": "listenerset.json",
   "crd": {
     "group": "gateway.networking.k8s.io",
-    "kind": "GatewayClass",
-    "apiVersion": "v1beta1"
+    "kind": "ListenerSet",
+    "apiVersion": "v1"
   },
   "source": {
     "name": "gateway-api",
@@ -18,6 +18,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "57f97e6d6205e83fe3b4669ed0c3444677dba94ed42290023d75698a7cccdf96"
+    "sha256": "91f0fe092c0290ac3da1b9475f66d5a3726e53ea2a728e3fba6bd21b789274bd"
   }
 }

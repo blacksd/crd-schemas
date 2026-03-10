@@ -1,9 +1,9 @@
 {
-  "schema": "gatewayclass.json",
+  "schema": "referencegrant.json",
   "crd": {
     "group": "gateway.networking.k8s.io",
-    "kind": "GatewayClass",
-    "apiVersion": "v1beta1"
+    "kind": "ReferenceGrant",
+    "apiVersion": "v1"
   },
   "source": {
     "name": "gateway-api",
@@ -18,6 +18,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "57f97e6d6205e83fe3b4669ed0c3444677dba94ed42290023d75698a7cccdf96"
+    "sha256": "5796587f259d67b68a4d069a2b3b1a2af2ebd314541838848cd70a7c8580ed71"
   }
 }
