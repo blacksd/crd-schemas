@@ -1,0 +1,79 @@
+name: Extract Schemas
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.sources/**'
+
+concurrency:
+  group: extract-schemas
+  cancel-in-progress: true
+
+env:
+  EXTRACTOR_VERSION: v0.1.1
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    name: Extract and commit schemas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          ssh-key: ${{ secrets.EXTRACT_DEPLOY_KEY }}
+
+      - name: Download extractor
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "$EXTRACTOR_VERSION" \
+            --repo blacksd/crd-schema-extractor \
+            --pattern 'crd-schema-extractor_*_linux_amd64.tar.gz' \
+            --output extractor.tar.gz
+          tar -xzf extractor.tar.gz crd-schema-extractor
+          chmod +x crd-schema-extractor
+          mv crd-schema-extractor /usr/local/bin/
+          rm extractor.tar.gz
+
+      - name: Install check-jsonschema
+        run: pip install check-jsonschema
+
+      - name: Run extraction
+        run: crd-schema-extractor extract .sources --output .
+
+      - name: Validate extracted schemas
+        run: |
+          changed_schemas=$(git diff --name-only -- '*.json' | grep -v '\.provenance\.json$' || true)
+          changed_provenance=$(git diff --name-only -- '*.provenance.json' || true)
+
+          for f in $changed_schemas; do
+            if ! check-jsonschema --check-metaschema "$f"; then
+              echo "::warning file=$f::Schema does not fully conform to JSON Schema meta-schema"
+            fi
+          done
+
+          for f in $changed_provenance; do
+            if ! jq -e '.schema and .crd.group and .crd.kind and .crd.apiVersion and .source.name and .integrity.sha256' "$f" > /dev/null 2>&1; then
+              echo "::warning file=$f::Provenance file missing expected fields"
+            fi
+          done
+
+      - name: Commit extracted schemas
+        run: |
+          git config user.name "github-actions[crd-extract]"
+          git config user.email "github-actions[crd-extract]@users.noreply.github.com"
+
+          for dir in */; do
+            git add "$dir"
+          done
+          git add sbom.cdx.json
+
+          if git diff --cached --quiet; then
+            echo "No schema changes detected"
+          else
+            git commit -m "chore: update CRD schemas"
+            git push
+          fi

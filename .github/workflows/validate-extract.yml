@@ -35,12 +35,8 @@ jobs:
     name: Extract schemas
     needs: validate-sources
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-        with:
-          ref: ${{ github.head_ref }}
 
       - name: Detect changed source files
         id: changed-files
@@ -62,49 +58,6 @@ jobs:
           mv crd-schema-extractor /usr/local/bin/
           rm extractor.tar.gz
 
-      - name: Install check-jsonschema
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: pip install check-jsonschema
-
-      - name: Run extraction
+      - name: Run extraction (dry run)
         if: steps.changed-files.outputs.any_changed == 'true'
         run: crd-schema-extractor extract .sources --output .
-
-      - name: Validate extracted schemas
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          changed_schemas=$(git diff --name-only -- '*.json' | grep -v '\.provenance\.json$' || true)
-          changed_provenance=$(git diff --name-only -- '*.provenance.json' || true)
-
-          # Warn on schemas that don't conform to JSON Schema meta-schema
-          for f in $changed_schemas; do
-            if ! check-jsonschema --check-metaschema "$f"; then
-              echo "::warning file=$f::Schema does not fully conform to JSON Schema meta-schema"
-            fi
-          done
-
-          # Warn on provenance files missing expected fields
-          for f in $changed_provenance; do
-            if ! jq -e '.schema and .crd.group and .crd.kind and .crd.apiVersion and .source.name and .integrity.sha256' "$f" > /dev/null 2>&1; then
-              echo "::warning file=$f::Provenance file missing expected fields"
-            fi
-          done
-
-      - name: Commit extracted schemas
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          git config user.name "github-actions[crd-extract]"
-          git config user.email "github-actions[crd-extract]@users.noreply.github.com"
-
-          # Stage all API group directories (DNS names contain dots, other root dirs are dot-prefixed)
-          for dir in */; do
-            git add "$dir"
-          done
-          git add sbom.cdx.json
-
-          if git diff --cached --quiet; then
-            echo "No schema changes detected"
-          else
-            git commit -m "chore: update CRD schemas"
-            git push
-          fi

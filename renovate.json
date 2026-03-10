@@ -4,9 +4,6 @@
     "config:recommended",
     "helpers:pinGitHubActionDigests"
   ],
-  "gitIgnoredAuthors": [
-    "github-actions[crd-extract]@users.noreply.github.com"
-  ],
   "customManagers": [
     {
       "customType": "regex",
@@ -42,7 +39,7 @@
     {
       "customType": "regex",
       "description": "Track crd-schema-extractor version in CI workflow",
-      "fileMatch": ["^\\.github/workflows/validate-extract\\.yml$"],
+      "fileMatch": ["^\\.github/workflows/(validate-extract|extract-schemas)\\.yml$"],
       "matchStrings": [
         "EXTRACTOR_VERSION:\\s*(?<currentValue>v[^\\s]+)"
       ],
