@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://open-policy-agent.github.io/gatekeeper/charts",
     "chart": "gatekeeper",
-    "version": "3.21.1",
+    "version": "3.22.0",
     "license": "Apache-2.0",
     "homepage": "https://open-policy-agent.github.io/gatekeeper",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-03-10T08:33:16Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "47796c985aaf8994f287ffa85c3db6cbcf73bf0a110b2eb9e3653190f89238dc"
+    "sha256": "22908d1125c86844b58483a670a9735418bc06c676b08c4a7dc08d9a23e5771d"
   }
 }
