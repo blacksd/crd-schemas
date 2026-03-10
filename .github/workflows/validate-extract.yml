@@ -58,6 +58,10 @@ jobs:
           mv crd-schema-extractor /usr/local/bin/
           rm extractor.tar.gz
 
-      - name: Run extraction (dry run)
+      - name: Test source extraction
         if: steps.changed-files.outputs.any_changed == 'true'
-        run: crd-schema-extractor extract .sources --output .
+        run: |
+          for f in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "Testing extraction for $f..."
+            crd-schema-extractor extract "$f" --fetch-only
+          done
