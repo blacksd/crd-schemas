@@ -28,7 +28,7 @@ jobs:
         run: |
           for f in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "Validating $f..."
-            check-jsonschema --schemafile source.schema.json "$f"
+            check-jsonschema --schemafile "https://raw.githubusercontent.com/blacksd/crd-schema-extractor/${EXTRACTOR_VERSION}/source.schema.json" "$f"
           done
 
   extract-schemas:

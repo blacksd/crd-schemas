@@ -1,10 +1,9 @@
 name: Tag Source Versions
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.sources/**'
+  workflow_run:
+    workflows: ["Extract Schemas"]
+    types: [completed]
 
 concurrency:
   group: tag-versions
@@ -16,12 +15,14 @@ permissions:
 jobs:
   tag:
     name: Create version tags
+    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
-          fetch-depth: 2
+          ref: main
+          fetch-tags: true
 
       - name: Install yq
         run: |
@@ -29,34 +30,41 @@ jobs:
           curl -sSL "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64" -o /usr/local/bin/yq
           chmod +x /usr/local/bin/yq
 
-      - name: Detect changed source files
-        id: changed-files
-        uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47
-        with:
-          files: .sources/**
-
       - name: Configure git identity
         run: |
           git config user.name "github-actions[tag-versions]"
           git config user.email "github-actions[tag-versions]@users.noreply.github.com"
 
-      - name: Build tag list and create tags
-        if: steps.changed-files.outputs.any_changed == 'true'
+      - name: Verify SBOM and create missing tags
         run: |
-          for f in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            if [ -f "$f" ]; then
-              count=$(yq ".sources | length" "$f")
-              for i in $(seq 0 $((count - 1))); do
-                name=$(yq ".sources[$i].name" "$f")
-                version=$(yq ".sources[$i].version" "$f")
-                if [ -n "$name" ] && [ -n "$version" ]; then
-                  tag="$name/$version"
-                  echo "Tagging: $tag"
-                  git tag -d "$tag" 2>/dev/null || true
-                  git push origin ":refs/tags/$tag" 2>/dev/null || true
-                  git tag -a "$tag" -m "Schemas extracted from $name $version"
-                  git push origin "$tag"
-                fi
-              done
-            fi
+          created=0
+          for f in .sources/*.yaml; do
+            count=$(yq ".sources | length" "$f")
+            for i in $(seq 0 $((count - 1))); do
+              name=$(yq ".sources[$i].name" "$f")
+              version=$(yq ".sources[$i].version" "$f")
+              if [ -z "$name" ] || [ -z "$version" ]; then
+                continue
+              fi
+
+              tag="$name/$version"
+
+              # Skip if tag already exists on remote
+              if git ls-remote --tags origin "refs/tags/$tag" | grep -q .; then
+                continue
+              fi
+
+              # Verify the SBOM contains this source at the expected version
+              sbom_version=$(jq -r --arg name "$name" '.components[] | select(.name == $name) | .version' sbom.cdx.json)
+              if [ "$sbom_version" != "$version" ]; then
+                echo "::error::SBOM mismatch for $name: expected $version, found ${sbom_version:-<missing>}"
+                exit 1
+              fi
+
+              echo "Tagging: $tag"
+              git tag -a "$tag" -m "Schemas extracted from $name $version"
+              git push origin "$tag"
+              created=$((created + 1))
+            done
           done
+          echo "Created $created new tag(s)"
