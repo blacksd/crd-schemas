@@ -3,7 +3,7 @@ sources:
     type: helm
     repo: https://istio-release.storage.googleapis.com/charts
     chart: base
-    version: 1.29.0
+    version: 1.29.1
     license: Apache-2.0
     homepage: https://istio.io
     include:
