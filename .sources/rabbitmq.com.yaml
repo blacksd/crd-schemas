@@ -1,7 +1,7 @@
 sources:
   - name: rabbitmq-cluster-operator
     type: url
-    url: https://github.com/rabbitmq/cluster-operator/releases/download/v2.19.1/cluster-operator.yml
+    url: https://github.com/rabbitmq/cluster-operator/releases/download/v2.19.2/cluster-operator.yml
     version: v2.19.1
     license: MPL-2.0
     homepage: https://www.rabbitmq.com/kubernetes/operator/operator-overview
