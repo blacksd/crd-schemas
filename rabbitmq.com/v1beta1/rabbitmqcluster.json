@@ -7343,11 +7343,11 @@
           "type": "object",
           "properties": {
             "caSecretName": {
-              "description": "Name of a Secret in the same Namespace as the RabbitmqCluster, containing the Certificate Authority's public certificate for TLS.\nThe Secret must store this as ca.crt.\nThis Secret can be created by running `kubectl create secret generic ca-secret --from-file=ca.crt=path/to/ca.crt`\nUsed for mTLS, and TLS for rabbitmq_web_stomp and rabbitmq_web_mqtt.",
+              "description": "Name of a Secret in the same Namespace as the RabbitmqCluster, containing the Certificate Authority's public certificate for TLS.\nThe Secret must store this as ca.crt.\nThis Secret can be created by running `kubectl create secret generic ca-secret --from-file=ca.crt=path/to/ca.crt`\nUsed for mTLS.",
               "type": "string"
             },
             "disableNonTLSListeners": {
-              "description": "When set to true, the RabbitmqCluster disables non-TLS listeners for RabbitMQ, management plugin and for any enabled plugins in the following list: stomp, mqtt, web_stomp, web_mqtt.\nOnly TLS-enabled clients will be able to connect.",
+              "description": "When set to true, the RabbitmqCluster disables non-TLS listeners for RabbitMQ, management plugin and for any enabled plugins in the following list: stomp, mqtt, web_stomp, web_mqtt, web_amqp.\nOnly TLS-enabled clients will be able to connect.",
               "type": "boolean"
             },
             "secretName": {

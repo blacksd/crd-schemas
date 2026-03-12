@@ -8,16 +8,16 @@
   "source": {
     "name": "rabbitmq-cluster-operator",
     "type": "url",
-    "url": "https://github.com/rabbitmq/cluster-operator/releases/download/v2.19.1/cluster-operator.yml",
+    "url": "https://github.com/rabbitmq/cluster-operator/releases/download/v2.19.2/cluster-operator.yml",
     "version": "v2.19.1",
     "license": "MPL-2.0",
     "homepage": "https://www.rabbitmq.com/kubernetes/operator/operator-overview"
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-03-12T06:01:00Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "1672e9698a9208f66e035e9c14901a43b0f53b2852f8968a92cd15add0f5bd30"
+    "sha256": "0c8af17486f3a0cf2a26247ca4238f96b8fca46890545726fdbf4ac87ae947ca"
   }
 }
