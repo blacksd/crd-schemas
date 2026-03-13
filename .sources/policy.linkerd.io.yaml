@@ -3,7 +3,7 @@ sources:
     type: helm
     repo: https://helm.linkerd.io/edge
     chart: linkerd-crds
-    version: 2026.3.1
+    version: 2026.3.2
     license: Apache-2.0
     homepage: https://linkerd.io
     include:
