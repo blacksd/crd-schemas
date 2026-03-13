@@ -1,7 +1,7 @@
 sources:
   - name: knative-eventing
     type: url
-    url: https://github.com/knative/eventing/releases/download/knative-v1.21.0/eventing-crds.yaml
+    url: https://github.com/knative/eventing/releases/download/knative-{version}/eventing-crds.yaml
     version: v1.21.0
     license: Apache-2.0
     homepage: https://knative.dev

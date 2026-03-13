@@ -1,7 +1,7 @@
 sources:
   - name: tekton-pipelines
     type: url
-    url: https://github.com/tektoncd/pipeline/releases/download/v1.10.1/release.yaml
-    version: v1.10.0
+    url: https://github.com/tektoncd/pipeline/releases/download/{version}/release.yaml
+    version: v1.10.1
     license: Apache-2.0
     homepage: https://tekton.dev
