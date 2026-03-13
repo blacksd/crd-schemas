@@ -31,7 +31,17 @@
       "description": "Update GitHub release URL versions in source config files",
       "fileMatch": ["^\\.sources/.*\\.yaml$"],
       "matchStrings": [
-        "type:\\s*url\\n\\s+url:\\s*https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/(?<currentValue>v[^/]+)/"
+        "type:\\s*url\\n\\s+url:\\s*https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/[^\\n]+\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": "Update raw GitHub URL versions in source config files",
+      "fileMatch": ["^\\.sources/.*\\.yaml$"],
+      "matchStrings": [
+        "type:\\s*url\\n\\s+url:\\s*https://raw\\.githubusercontent\\.com/(?<depName>[^/]+/[^/]+)/[^\\n]+\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
       ],
       "datasourceTemplate": "github-releases",
       "versioningTemplate": "semver"

@@ -1,7 +1,7 @@
 sources:
   - name: strimzi-kafka
     type: url
-    url: https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.50.1/strimzi-crds-0.50.1.yaml
+    url: https://github.com/strimzi/strimzi-kafka-operator/releases/download/{version}/strimzi-crds-{version}.yaml
     version: "0.50.1"
     license: Apache-2.0
     homepage: https://strimzi.io

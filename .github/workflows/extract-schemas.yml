@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  EXTRACTOR_VERSION: v0.1.1
+  EXTRACTOR_VERSION: v0.2.0
 
 permissions:
   contents: write

@@ -1,7 +1,7 @@
 sources:
   - name: kueue
     type: url
-    url: https://github.com/kubernetes-sigs/kueue/releases/download/v0.16.2/manifests.yaml
+    url: https://github.com/kubernetes-sigs/kueue/releases/download/{version}/manifests.yaml
     version: v0.16.2
     license: Apache-2.0
     homepage: https://kueue.sigs.k8s.io

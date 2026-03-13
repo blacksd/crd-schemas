@@ -4,7 +4,7 @@ on:
   pull_request:
 
 env:
-  EXTRACTOR_VERSION: v0.1.1
+  EXTRACTOR_VERSION: v0.2.0
 
 jobs:
   validate-sources:

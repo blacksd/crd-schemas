@@ -1,19 +1,19 @@
 sources:
   - name: kubeflow-trainjobs
     type: url
-    url: https://raw.githubusercontent.com/kubeflow/training-operator/v2.1.0/manifests/base/crds/trainer.kubeflow.org_trainjobs.yaml
+    url: https://raw.githubusercontent.com/kubeflow/training-operator/{version}/manifests/base/crds/trainer.kubeflow.org_trainjobs.yaml
     version: v2.1.0
     license: Apache-2.0
     homepage: https://www.kubeflow.org/docs/components/training
   - name: kubeflow-trainingruntimes
     type: url
-    url: https://raw.githubusercontent.com/kubeflow/training-operator/v2.1.0/manifests/base/crds/trainer.kubeflow.org_trainingruntimes.yaml
+    url: https://raw.githubusercontent.com/kubeflow/training-operator/{version}/manifests/base/crds/trainer.kubeflow.org_trainingruntimes.yaml
     version: v2.1.0
     license: Apache-2.0
     homepage: https://www.kubeflow.org/docs/components/training
   - name: kubeflow-clustertrainingruntimes
     type: url
-    url: https://raw.githubusercontent.com/kubeflow/training-operator/v2.1.0/manifests/base/crds/trainer.kubeflow.org_clustertrainingruntimes.yaml
+    url: https://raw.githubusercontent.com/kubeflow/training-operator/{version}/manifests/base/crds/trainer.kubeflow.org_clustertrainingruntimes.yaml
     version: v2.1.0
     license: Apache-2.0
     homepage: https://www.kubeflow.org/docs/components/training

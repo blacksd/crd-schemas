@@ -1,7 +1,7 @@
 sources:
   - name: nginx-ingress
     type: url
-    url: https://raw.githubusercontent.com/nginx/kubernetes-ingress/v5.3.4/deploy/crds.yaml
+    url: https://raw.githubusercontent.com/nginx/kubernetes-ingress/{version}/deploy/crds.yaml
     version: v5.3.4
     license: Apache-2.0
     homepage: https://docs.nginx.com/nginx-ingress-controller
