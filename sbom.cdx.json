@@ -4,7 +4,7 @@
   "specVersion": "1.5",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-03-13T10:14:40Z",
+    "timestamp": "2026-03-16T08:35:12Z",
     "tools": {
       "components": [
         {
@@ -271,7 +271,7 @@
     {
       "type": "library",
       "name": "crunchy-pgadmins",
-      "version": "v5.8.6",
+      "version": "v5.8.7",
       "licenses": [
         {
           "license": {
@@ -289,7 +289,7 @@
     {
       "type": "library",
       "name": "crunchy-pgupgrades",
-      "version": "v5.8.6",
+      "version": "v5.8.7",
       "licenses": [
         {
           "license": {
@@ -307,7 +307,7 @@
     {
       "type": "library",
       "name": "crunchy-postgresclusters",
-      "version": "v5.8.6",
+      "version": "v5.8.7",
       "licenses": [
         {
           "license": {
@@ -901,7 +901,7 @@
     {
       "type": "library",
       "name": "gateway-api",
-      "version": "v1.5.0",
+      "version": "v1.5.1",
       "licenses": [
         {
           "license": {
@@ -1279,7 +1279,7 @@
     {
       "type": "library",
       "name": "kueue",
-      "version": "v0.16.2",
+      "version": "v0.16.3",
       "licenses": [
         {
           "license": {

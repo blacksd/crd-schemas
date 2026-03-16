@@ -8,16 +8,16 @@
   "source": {
     "name": "crunchy-postgresclusters",
     "type": "url",
-    "url": "https://raw.githubusercontent.com/CrunchyData/postgres-operator/v5.8.6/config/crd/bases/postgres-operator.crunchydata.com_postgresclusters.yaml",
-    "version": "v5.8.6",
+    "url": "https://raw.githubusercontent.com/CrunchyData/postgres-operator/{version}/config/crd/bases/postgres-operator.crunchydata.com_postgresclusters.yaml",
+    "version": "v5.8.7",
     "license": "Apache-2.0",
     "homepage": "https://www.crunchydata.com/products/crunchy-postgresql-for-kubernetes"
   },
   "extraction": {
-    "timestamp": "2026-03-07T07:13:23Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-03-16T01:21:38Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "f12ec7b9f3b4c1cf71e8c6ac0ee0a16ff384d7c318ff16bb5287a676900f1f60"
+    "sha256": "4625defec0715211cb14801016585768e6eb661d3fd30904a1a44685c8eaa115"
   }
 }
