@@ -8,7 +8,9 @@
     {
       "customType": "regex",
       "description": "Update Helm chart versions in source config files (HTTP repos)",
-      "fileMatch": ["^\\.sources/.*\\.yaml$"],
+      "managerFilePatterns": [
+        "/^\\.sources/.*\\.yaml$/"
+      ],
       "matchStrings": [
         "type:\\s*helm\\n\\s+repo:\\s*(?<registryUrl>https?://[^\\n]+)\\n\\s+chart:\\s*(?<depName>[^\\n]+)\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
       ],
@@ -18,7 +20,9 @@
     {
       "customType": "regex",
       "description": "Update Helm chart versions in source config files (OCI repos)",
-      "fileMatch": ["^\\.sources/.*\\.yaml$"],
+      "managerFilePatterns": [
+        "/^\\.sources/.*\\.yaml$/"
+      ],
       "matchStrings": [
         "type:\\s*helm\\n\\s+repo:\\s*oci://(?<registry>[^\\n]+)\\n\\s+chart:\\s*(?<chart>[^\\n]+)\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
       ],
@@ -29,7 +33,9 @@
     {
       "customType": "regex",
       "description": "Update GitHub release URL versions in source config files",
-      "fileMatch": ["^\\.sources/.*\\.yaml$"],
+      "managerFilePatterns": [
+        "/^\\.sources/.*\\.yaml$/"
+      ],
       "matchStrings": [
         "type:\\s*url\\n\\s+url:\\s*https://github\\.com/(?<depName>[^/]+/[^/]+)/releases/download/[^\\n]+\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
       ],
@@ -39,7 +45,9 @@
     {
       "customType": "regex",
       "description": "Update raw GitHub URL versions in source config files",
-      "fileMatch": ["^\\.sources/.*\\.yaml$"],
+      "managerFilePatterns": [
+        "/^\\.sources/.*\\.yaml$/"
+      ],
       "matchStrings": [
         "type:\\s*url\\n\\s+url:\\s*https://raw\\.githubusercontent\\.com/(?<depName>[^/]+/[^/]+)/[^\\n]+\\n\\s+version:\\s*(?<currentValue>[^\\n]+)"
       ],
@@ -49,7 +57,9 @@
     {
       "customType": "regex",
       "description": "Track crd-schema-extractor version in CI workflow",
-      "fileMatch": ["^\\.github/workflows/(validate-extract|extract-schemas)\\.yml$"],
+      "managerFilePatterns": [
+        "/^\\.github/workflows/(validate-extract|extract-schemas)\\.yml$/"
+      ],
       "matchStrings": [
         "EXTRACTOR_VERSION:\\s*(?<currentValue>v[^\\s]+)"
       ],
@@ -61,15 +71,23 @@
   "packageRules": [
     {
       "description": "Group CRD source updates by source file",
-      "matchFileNames": [".sources/**"],
-      "schedule": ["before 6am every weekday"],
+      "matchFileNames": [
+        ".sources/**"
+      ],
+      "schedule": [
+        "before 6am every weekday"
+      ],
       "automerge": true,
-      "automergeSchedule": ["at any time"],
+      "automergeSchedule": [
+        "at any time"
+      ],
       "commitMessagePrefix": "chore(crd):"
     },
     {
       "description": "Pin and update GitHub Actions",
-      "matchManagers": ["github-actions"],
+      "matchManagers": [
+        "github-actions"
+      ],
       "commitMessagePrefix": "chore(ci):"
     }
   ]
