@@ -8,16 +8,16 @@
   "source": {
     "name": "crunchy-pgadmins",
     "type": "url",
-    "url": "https://raw.githubusercontent.com/CrunchyData/postgres-operator/v5.8.6/config/crd/bases/postgres-operator.crunchydata.com_pgadmins.yaml",
-    "version": "v5.8.6",
+    "url": "https://raw.githubusercontent.com/CrunchyData/postgres-operator/{version}/config/crd/bases/postgres-operator.crunchydata.com_pgadmins.yaml",
+    "version": "v5.8.7",
     "license": "Apache-2.0",
     "homepage": "https://www.crunchydata.com/products/crunchy-postgresql-for-kubernetes"
   },
   "extraction": {
-    "timestamp": "2026-03-07T07:13:23Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-03-16T01:21:38Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "5a91fe01e025e7543c82f955384d4b673e4562bcb59000c7bb47c57d7555be8f"
+    "sha256": "2a85e74d3e3fa5d3afaedfaeb679613b73753717bd5bdfecc5d0b406aeada935"
   }
 }
