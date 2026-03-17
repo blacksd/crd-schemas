@@ -3,6 +3,6 @@ sources:
     type: helm
     repo: https://grafana.github.io/helm-charts
     chart: grafana-operator
-    version: 5.22.0
+    version: 5.22.2
     license: Apache-2.0
     homepage: https://grafana.github.io/grafana-operator
