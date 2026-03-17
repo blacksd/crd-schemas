@@ -247,7 +247,7 @@
           },
           "x-kubernetes-validations": [
             {
-              "rule": "!has(self.continue)",
+              "rule": "!has(self.__continue__)",
               "message": "continue is invalid on the top level route node"
             },
             {
