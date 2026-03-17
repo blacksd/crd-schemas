@@ -2,7 +2,7 @@ sources:
   - name: flux
     type: url
     url: https://github.com/fluxcd/flux2/releases/download/{version}/install.yaml
-    version: v2.8.2
+    version: v2.8.3
     license: Apache-2.0
     homepage: https://fluxcd.io
     include:
