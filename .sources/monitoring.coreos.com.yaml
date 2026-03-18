@@ -3,6 +3,6 @@ sources:
     type: helm
     repo: https://prometheus-community.github.io/helm-charts
     chart: kube-prometheus-stack
-    version: 82.10.3
+    version: 82.10.5
     license: Apache-2.0
     homepage: https://prometheus-operator.dev
