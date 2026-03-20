@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "prHourlyLimit": 8,
   "extends": [
     "config:recommended",
     "helpers:pinGitHubActionDigests"
