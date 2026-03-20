@@ -1,0 +1,8 @@
+sources:
+  - name: crossplane
+    type: git+github
+    repo: https://github.com/crossplane/crossplane
+    version: v2.2.0
+    license: Apache-2.0
+    homepage: https://crossplane.io
+    path: cluster/crds

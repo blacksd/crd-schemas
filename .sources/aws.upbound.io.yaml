@@ -1,0 +1,8 @@
+sources:
+  - name: provider-upjet-aws
+    type: git+github
+    repo: https://github.com/crossplane-contrib/provider-upjet-aws
+    version: v2.5.0
+    license: Apache-2.0
+    homepage: https://marketplace.upbound.io/providers/upbound/provider-family-aws
+    path: package/crds

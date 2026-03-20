@@ -1,0 +1,8 @@
+sources:
+  - name: cilium
+    type: git+github
+    repo: https://github.com/cilium/cilium
+    version: v1.19.1
+    license: Apache-2.0
+    homepage: https://cilium.io
+    path: pkg/k8s/apis/cilium.io/client/crds

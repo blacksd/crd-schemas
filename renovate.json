@@ -57,6 +57,18 @@
     },
     {
       "customType": "regex",
+      "description": "Update git+github source versions in source config files",
+      "managerFilePatterns": [
+        "/^\\.sources/.*\\.yaml$/"
+      ],
+      "matchStrings": [
+        "type:\\s*git\\+github\\n\\s+repo:\\s*https://github\\.com/(?<depName>[^/]+/[^/]+)\\n(?:\\s+[^\\n]+\\n)*?\\s+version:\\s*(?<currentValue>[^\\n]+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
       "description": "Track crd-schema-extractor version in CI workflow",
       "managerFilePatterns": [
         "/^\\.github/workflows/(validate-extract|extract-schemas)\\.yml$/"
