@@ -1,0 +1,24 @@
+{
+  "schema": "linkedserviceazurefunction.json",
+  "crd": {
+    "group": "datafactory.azure.upbound.io",
+    "kind": "LinkedServiceAzureFunction",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "10a25d07dff9926e40538e0cd22e0c289417c1a2b8ee2e50e5233c6acd513064"
+  }
+}

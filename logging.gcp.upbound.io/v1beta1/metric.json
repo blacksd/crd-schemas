@@ -1,0 +1,784 @@
+{
+  "description": "Metric is the Schema for the Metrics API. Logs-based metric can also be used to extract values from logs and create a a distribution of the values.",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "MetricSpec defines the desired state of Metric",
+      "type": "object",
+      "required": [
+        "forProvider"
+      ],
+      "properties": {
+        "deletionPolicy": {
+          "description": "DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either \"Delete\" or \"Orphan\" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223",
+          "type": "string",
+          "default": "Delete",
+          "enum": [
+            "Orphan",
+            "Delete"
+          ]
+        },
+        "forProvider": {
+          "type": "object",
+          "properties": {
+            "bucketName": {
+              "description": "The resource name of the Log Bucket that owns the Log Metric. Only Log Buckets in projects\nare supported. The bucket has to be in the same project as the metric.",
+              "type": "string"
+            },
+            "bucketNameRef": {
+              "description": "Reference to a ProjectBucketConfig in logging to populate bucketName.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "bucketNameSelector": {
+              "description": "Selector for a ProjectBucketConfig in logging to populate bucketName.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "bucketOptions": {
+              "description": "The bucketOptions are required when the logs-based metric is using a DISTRIBUTION value type and it\ndescribes the bucket boundaries used to create a histogram of the extracted values.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "explicitBuckets": {
+                    "description": "Specifies a set of buckets with arbitrary widths.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "bounds": {
+                          "description": "The values must be monotonically increasing.",
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "exponentialBuckets": {
+                    "description": "Specifies an exponential sequence of buckets that have a width that is proportional to the value of\nthe lower bound. Each bucket represents a constant relative uncertainty on a specific value in the bucket.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "growthFactor": {
+                          "description": "Must be greater than 1.",
+                          "type": "number"
+                        },
+                        "numFiniteBuckets": {
+                          "description": "Must be greater than 0.",
+                          "type": "number"
+                        },
+                        "scale": {
+                          "description": "Must be greater than 0.",
+                          "type": "number"
+                        }
+                      }
+                    }
+                  },
+                  "linearBuckets": {
+                    "description": "Specifies a linear sequence of buckets that all have the same width (except overflow and underflow).\nEach bucket represents a constant absolute uncertainty on the specific value in the bucket.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "numFiniteBuckets": {
+                          "description": "Must be greater than 0.",
+                          "type": "number"
+                        },
+                        "offset": {
+                          "description": "Lower bound of the first bucket.",
+                          "type": "number"
+                        },
+                        "width": {
+                          "description": "Must be greater than 0.",
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": {
+              "description": "A description of this metric, which is used in documentation. The maximum length of the\ndescription is 8000 characters.",
+              "type": "string"
+            },
+            "disabled": {
+              "description": "If set to True, then this metric is disabled and it does not generate any points.",
+              "type": "boolean"
+            },
+            "filter": {
+              "description": "An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced-filters) which\nis used to match log entries.",
+              "type": "string"
+            },
+            "labelExtractors": {
+              "description": "A map from a label key string to an extractor expression which is used to extract data from a log\nentry field and assign as the label value. Each label key specified in the LabelDescriptor must\nhave an associated extractor expression in this map. The syntax of the extractor expression is\nthe same as for the valueExtractor field.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "metricDescriptor": {
+              "description": "The optional metric descriptor associated with the logs-based metric.\nIf unspecified, it uses a default metric descriptor with a DELTA metric kind,\nINT64 value type, with no labels and a unit of \"1\". Such a metric counts the\nnumber of log entries matching the filter expression.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "displayName": {
+                    "description": "A concise name for the metric, which can be displayed in user interfaces. Use sentence case\nwithout an ending period, for example \"Request count\". This field is optional but it is\nrecommended to be set for any metrics associated with user-visible concepts, such as Quota.",
+                    "type": "string"
+                  },
+                  "labels": {
+                    "description": "The set of labels that can be used to describe a specific instance of this metric type. For\nexample, the appengine.googleapis.com/http/server/response_latencies metric type has a label\nfor the HTTP response code, response_code, so you can look at latencies for successful responses\nor just for responses that failed.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "description": "A human-readable description for the label.",
+                          "type": "string"
+                        },
+                        "key": {
+                          "description": "The label key.",
+                          "type": "string"
+                        },
+                        "valueType": {
+                          "description": "Whether the measurement is an integer, a floating-point number, etc.\nSome combinations of metricKind and valueType might not be supported.\nFor counter metrics, set this to INT64.\nPossible values are: BOOL, INT64, DOUBLE, STRING, DISTRIBUTION, MONEY.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "metricKind": {
+                    "description": "Whether the metric records instantaneous values, changes to a value, etc.\nSome combinations of metricKind and valueType might not be supported.\nFor counter metrics, set this to DELTA.\nPossible values are: DELTA, GAUGE, CUMULATIVE.",
+                    "type": "string"
+                  },
+                  "unit": {
+                    "description": "The unit in which the metric value is reported. It is only applicable if the valueType is\nINT64, DOUBLE, or DISTRIBUTION. The supported units are a subset of\nThe Unified Code for Units of Measure standard",
+                    "type": "string"
+                  },
+                  "valueType": {
+                    "description": "Whether the measurement is an integer, a floating-point number, etc.\nSome combinations of metricKind and valueType might not be supported.\nFor counter metrics, set this to INT64.\nPossible values are: BOOL, INT64, DOUBLE, STRING, DISTRIBUTION, MONEY.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            },
+            "valueExtractor": {
+              "description": "A valueExtractor is required when using a distribution logs-based metric to extract the values to\nrecord from a log entry. Two functions are supported for value extraction - EXTRACT(field) or\nREGEXP_EXTRACT(field, regex). The argument are 1. field - The name of the log entry field from which\nthe value is to be extracted. 2. regex - A regular expression using the Google RE2 syntax\n(https://github.com/google/re2/wiki/Syntax) with a single capture group to extract data from the specified\nlog entry field. The value of the field is converted to a string before applying the regex. It is an\nerror to specify a regex that does not include exactly one capture group.",
+              "type": "string"
+            }
+          }
+        },
+        "initProvider": {
+          "description": "THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.",
+          "type": "object",
+          "properties": {
+            "bucketName": {
+              "description": "The resource name of the Log Bucket that owns the Log Metric. Only Log Buckets in projects\nare supported. The bucket has to be in the same project as the metric.",
+              "type": "string"
+            },
+            "bucketNameRef": {
+              "description": "Reference to a ProjectBucketConfig in logging to populate bucketName.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "bucketNameSelector": {
+              "description": "Selector for a ProjectBucketConfig in logging to populate bucketName.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "bucketOptions": {
+              "description": "The bucketOptions are required when the logs-based metric is using a DISTRIBUTION value type and it\ndescribes the bucket boundaries used to create a histogram of the extracted values.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "explicitBuckets": {
+                    "description": "Specifies a set of buckets with arbitrary widths.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "bounds": {
+                          "description": "The values must be monotonically increasing.",
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "exponentialBuckets": {
+                    "description": "Specifies an exponential sequence of buckets that have a width that is proportional to the value of\nthe lower bound. Each bucket represents a constant relative uncertainty on a specific value in the bucket.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "growthFactor": {
+                          "description": "Must be greater than 1.",
+                          "type": "number"
+                        },
+                        "numFiniteBuckets": {
+                          "description": "Must be greater than 0.",
+                          "type": "number"
+                        },
+                        "scale": {
+                          "description": "Must be greater than 0.",
+                          "type": "number"
+                        }
+                      }
+                    }
+                  },
+                  "linearBuckets": {
+                    "description": "Specifies a linear sequence of buckets that all have the same width (except overflow and underflow).\nEach bucket represents a constant absolute uncertainty on the specific value in the bucket.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "numFiniteBuckets": {
+                          "description": "Must be greater than 0.",
+                          "type": "number"
+                        },
+                        "offset": {
+                          "description": "Lower bound of the first bucket.",
+                          "type": "number"
+                        },
+                        "width": {
+                          "description": "Must be greater than 0.",
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": {
+              "description": "A description of this metric, which is used in documentation. The maximum length of the\ndescription is 8000 characters.",
+              "type": "string"
+            },
+            "disabled": {
+              "description": "If set to True, then this metric is disabled and it does not generate any points.",
+              "type": "boolean"
+            },
+            "filter": {
+              "description": "An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced-filters) which\nis used to match log entries.",
+              "type": "string"
+            },
+            "labelExtractors": {
+              "description": "A map from a label key string to an extractor expression which is used to extract data from a log\nentry field and assign as the label value. Each label key specified in the LabelDescriptor must\nhave an associated extractor expression in this map. The syntax of the extractor expression is\nthe same as for the valueExtractor field.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "metricDescriptor": {
+              "description": "The optional metric descriptor associated with the logs-based metric.\nIf unspecified, it uses a default metric descriptor with a DELTA metric kind,\nINT64 value type, with no labels and a unit of \"1\". Such a metric counts the\nnumber of log entries matching the filter expression.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "displayName": {
+                    "description": "A concise name for the metric, which can be displayed in user interfaces. Use sentence case\nwithout an ending period, for example \"Request count\". This field is optional but it is\nrecommended to be set for any metrics associated with user-visible concepts, such as Quota.",
+                    "type": "string"
+                  },
+                  "labels": {
+                    "description": "The set of labels that can be used to describe a specific instance of this metric type. For\nexample, the appengine.googleapis.com/http/server/response_latencies metric type has a label\nfor the HTTP response code, response_code, so you can look at latencies for successful responses\nor just for responses that failed.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "description": "A human-readable description for the label.",
+                          "type": "string"
+                        },
+                        "key": {
+                          "description": "The label key.",
+                          "type": "string"
+                        },
+                        "valueType": {
+                          "description": "Whether the measurement is an integer, a floating-point number, etc.\nSome combinations of metricKind and valueType might not be supported.\nFor counter metrics, set this to INT64.\nPossible values are: BOOL, INT64, DOUBLE, STRING, DISTRIBUTION, MONEY.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "metricKind": {
+                    "description": "Whether the metric records instantaneous values, changes to a value, etc.\nSome combinations of metricKind and valueType might not be supported.\nFor counter metrics, set this to DELTA.\nPossible values are: DELTA, GAUGE, CUMULATIVE.",
+                    "type": "string"
+                  },
+                  "unit": {
+                    "description": "The unit in which the metric value is reported. It is only applicable if the valueType is\nINT64, DOUBLE, or DISTRIBUTION. The supported units are a subset of\nThe Unified Code for Units of Measure standard",
+                    "type": "string"
+                  },
+                  "valueType": {
+                    "description": "Whether the measurement is an integer, a floating-point number, etc.\nSome combinations of metricKind and valueType might not be supported.\nFor counter metrics, set this to INT64.\nPossible values are: BOOL, INT64, DOUBLE, STRING, DISTRIBUTION, MONEY.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            },
+            "valueExtractor": {
+              "description": "A valueExtractor is required when using a distribution logs-based metric to extract the values to\nrecord from a log entry. Two functions are supported for value extraction - EXTRACT(field) or\nREGEXP_EXTRACT(field, regex). The argument are 1. field - The name of the log entry field from which\nthe value is to be extracted. 2. regex - A regular expression using the Google RE2 syntax\n(https://github.com/google/re2/wiki/Syntax) with a single capture group to extract data from the specified\nlog entry field. The value of the field is converted to a string before applying the regex. It is an\nerror to specify a regex that does not include exactly one capture group.",
+              "type": "string"
+            }
+          }
+        },
+        "managementPolicies": {
+          "description": "THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md",
+          "type": "array",
+          "default": [
+            "*"
+          ],
+          "items": {
+            "description": "A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.",
+            "type": "string",
+            "enum": [
+              "Observe",
+              "Create",
+              "Update",
+              "Delete",
+              "LateInitialize",
+              "*"
+            ]
+          }
+        },
+        "providerConfigRef": {
+          "description": "ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.",
+          "type": "object",
+          "default": {
+            "name": "default"
+          },
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the referenced object.",
+              "type": "string"
+            },
+            "policy": {
+              "description": "Policies for referencing.",
+              "type": "object",
+              "properties": {
+                "resolution": {
+                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                  "type": "string",
+                  "default": "Required",
+                  "enum": [
+                    "Required",
+                    "Optional"
+                  ]
+                },
+                "resolve": {
+                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                  "type": "string",
+                  "enum": [
+                    "Always",
+                    "IfNotPresent"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "writeConnectionSecretToRef": {
+          "description": "WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.",
+          "type": "object",
+          "required": [
+            "name",
+            "namespace"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the secret.",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Namespace of the secret.",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "x-kubernetes-validations": [
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.filter) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.filter))",
+          "message": "spec.forProvider.filter is a required parameter"
+        }
+      ]
+    },
+    "status": {
+      "description": "MetricStatus defines the observed state of Metric.",
+      "type": "object",
+      "properties": {
+        "atProvider": {
+          "type": "object",
+          "properties": {
+            "bucketName": {
+              "description": "The resource name of the Log Bucket that owns the Log Metric. Only Log Buckets in projects\nare supported. The bucket has to be in the same project as the metric.",
+              "type": "string"
+            },
+            "bucketOptions": {
+              "description": "The bucketOptions are required when the logs-based metric is using a DISTRIBUTION value type and it\ndescribes the bucket boundaries used to create a histogram of the extracted values.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "explicitBuckets": {
+                    "description": "Specifies a set of buckets with arbitrary widths.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "bounds": {
+                          "description": "The values must be monotonically increasing.",
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "exponentialBuckets": {
+                    "description": "Specifies an exponential sequence of buckets that have a width that is proportional to the value of\nthe lower bound. Each bucket represents a constant relative uncertainty on a specific value in the bucket.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "growthFactor": {
+                          "description": "Must be greater than 1.",
+                          "type": "number"
+                        },
+                        "numFiniteBuckets": {
+                          "description": "Must be greater than 0.",
+                          "type": "number"
+                        },
+                        "scale": {
+                          "description": "Must be greater than 0.",
+                          "type": "number"
+                        }
+                      }
+                    }
+                  },
+                  "linearBuckets": {
+                    "description": "Specifies a linear sequence of buckets that all have the same width (except overflow and underflow).\nEach bucket represents a constant absolute uncertainty on the specific value in the bucket.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "numFiniteBuckets": {
+                          "description": "Must be greater than 0.",
+                          "type": "number"
+                        },
+                        "offset": {
+                          "description": "Lower bound of the first bucket.",
+                          "type": "number"
+                        },
+                        "width": {
+                          "description": "Must be greater than 0.",
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": {
+              "description": "A description of this metric, which is used in documentation. The maximum length of the\ndescription is 8000 characters.",
+              "type": "string"
+            },
+            "disabled": {
+              "description": "If set to True, then this metric is disabled and it does not generate any points.",
+              "type": "boolean"
+            },
+            "filter": {
+              "description": "An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced-filters) which\nis used to match log entries.",
+              "type": "string"
+            },
+            "id": {
+              "description": "an identifier for the resource with format {{name}}",
+              "type": "string"
+            },
+            "labelExtractors": {
+              "description": "A map from a label key string to an extractor expression which is used to extract data from a log\nentry field and assign as the label value. Each label key specified in the LabelDescriptor must\nhave an associated extractor expression in this map. The syntax of the extractor expression is\nthe same as for the valueExtractor field.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "metricDescriptor": {
+              "description": "The optional metric descriptor associated with the logs-based metric.\nIf unspecified, it uses a default metric descriptor with a DELTA metric kind,\nINT64 value type, with no labels and a unit of \"1\". Such a metric counts the\nnumber of log entries matching the filter expression.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "displayName": {
+                    "description": "A concise name for the metric, which can be displayed in user interfaces. Use sentence case\nwithout an ending period, for example \"Request count\". This field is optional but it is\nrecommended to be set for any metrics associated with user-visible concepts, such as Quota.",
+                    "type": "string"
+                  },
+                  "labels": {
+                    "description": "The set of labels that can be used to describe a specific instance of this metric type. For\nexample, the appengine.googleapis.com/http/server/response_latencies metric type has a label\nfor the HTTP response code, response_code, so you can look at latencies for successful responses\nor just for responses that failed.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "description": "A human-readable description for the label.",
+                          "type": "string"
+                        },
+                        "key": {
+                          "description": "The label key.",
+                          "type": "string"
+                        },
+                        "valueType": {
+                          "description": "Whether the measurement is an integer, a floating-point number, etc.\nSome combinations of metricKind and valueType might not be supported.\nFor counter metrics, set this to INT64.\nPossible values are: BOOL, INT64, DOUBLE, STRING, DISTRIBUTION, MONEY.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "metricKind": {
+                    "description": "Whether the metric records instantaneous values, changes to a value, etc.\nSome combinations of metricKind and valueType might not be supported.\nFor counter metrics, set this to DELTA.\nPossible values are: DELTA, GAUGE, CUMULATIVE.",
+                    "type": "string"
+                  },
+                  "unit": {
+                    "description": "The unit in which the metric value is reported. It is only applicable if the valueType is\nINT64, DOUBLE, or DISTRIBUTION. The supported units are a subset of\nThe Unified Code for Units of Measure standard",
+                    "type": "string"
+                  },
+                  "valueType": {
+                    "description": "Whether the measurement is an integer, a floating-point number, etc.\nSome combinations of metricKind and valueType might not be supported.\nFor counter metrics, set this to INT64.\nPossible values are: BOOL, INT64, DOUBLE, STRING, DISTRIBUTION, MONEY.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            },
+            "valueExtractor": {
+              "description": "A valueExtractor is required when using a distribution logs-based metric to extract the values to\nrecord from a log entry. Two functions are supported for value extraction - EXTRACT(field) or\nREGEXP_EXTRACT(field, regex). The argument are 1. field - The name of the log entry field from which\nthe value is to be extracted. 2. regex - A regular expression using the Google RE2 syntax\n(https://github.com/google/re2/wiki/Syntax) with a single capture group to extract data from the specified\nlog entry field. The value of the field is converted to a string before applying the regex. It is an\nerror to specify a regex that does not include exactly one capture group.",
+              "type": "string"
+            }
+          }
+        },
+        "conditions": {
+          "description": "Conditions of the resource.",
+          "type": "array",
+          "items": {
+            "description": "A Condition that may apply to a resource.",
+            "type": "object",
+            "required": [
+              "lastTransitionTime",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time this condition transitioned from one\nstatus to another.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "A Message containing details about this condition's last transition from\none status to another, if any.",
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "ObservedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "type": "integer",
+                "format": "int64"
+              },
+              "reason": {
+                "description": "A Reason for this condition's last transition from one status to another.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of this condition; is it currently True, False, or Unknown?",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of this condition. At most one of each condition type may apply to\na resource at any point in time.",
+                "type": "string"
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

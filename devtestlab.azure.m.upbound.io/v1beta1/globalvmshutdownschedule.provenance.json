@@ -1,0 +1,24 @@
+{
+  "schema": "globalvmshutdownschedule.json",
+  "crd": {
+    "group": "devtestlab.azure.m.upbound.io",
+    "kind": "GlobalVMShutdownSchedule",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7582f0b0d767201b91706b575b965f46ca3b12d3883ae7d3d894284afc39c967"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "sentinelwatchlist.json",
+  "crd": {
+    "group": "securityinsights.azure.m.upbound.io",
+    "kind": "SentinelWatchlist",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "44078a68d2fd4d0f0cd1831972097495dadff1016dfdb9c9b98756895d0d1780"
+  }
+}

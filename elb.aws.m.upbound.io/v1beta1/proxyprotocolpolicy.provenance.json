@@ -1,0 +1,24 @@
+{
+  "schema": "proxyprotocolpolicy.json",
+  "crd": {
+    "group": "elb.aws.m.upbound.io",
+    "kind": "ProxyProtocolPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6de26fb595daf65eadd23041b7ce9d91b8bdc9a95285f1dc7457a510702f7b77"
+  }
+}

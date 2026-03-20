@@ -1,0 +1,24 @@
+{
+  "schema": "slo.json",
+  "crd": {
+    "group": "monitoring.gcp.upbound.io",
+    "kind": "SLO",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b0bcd19f1f4ea4b42f949fa4f94541c5d640ea505975bf8edb8d88d544968c02"
+  }
+}

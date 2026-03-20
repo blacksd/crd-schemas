@@ -1,0 +1,24 @@
+{
+  "schema": "regionsecuritypolicy.json",
+  "crd": {
+    "group": "compute.gcp.m.upbound.io",
+    "kind": "RegionSecurityPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d4b1fc3ce83b1e3ed85f1db7357ff1f01800ac5f6891989d6a9596a53e859f47"
+  }
+}

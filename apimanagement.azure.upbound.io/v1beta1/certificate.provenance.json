@@ -1,0 +1,24 @@
+{
+  "schema": "certificate.json",
+  "crd": {
+    "group": "apimanagement.azure.upbound.io",
+    "kind": "Certificate",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5716c3f70951bd0883a1238c0907745ba5dd98d0c6563015e08b54c18dc7d2a4"
+  }
+}

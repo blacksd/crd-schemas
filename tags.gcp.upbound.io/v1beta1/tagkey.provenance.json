@@ -1,0 +1,24 @@
+{
+  "schema": "tagkey.json",
+  "crd": {
+    "group": "tags.gcp.upbound.io",
+    "kind": "TagKey",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "27e865ebf7516a328004302d0bcc3b27d9ab6b34ab37bebab6af35c08fa414f9"
+  }
+}

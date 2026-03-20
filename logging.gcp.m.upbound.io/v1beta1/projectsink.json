@@ -1,0 +1,527 @@
+{
+  "description": "ProjectSink is the Schema for the ProjectSinks API. Manages a project-level logging sink.",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "ProjectSinkSpec defines the desired state of ProjectSink",
+      "type": "object",
+      "required": [
+        "forProvider"
+      ],
+      "properties": {
+        "forProvider": {
+          "type": "object",
+          "properties": {
+            "bigqueryOptions": {
+              "description": "Options that affect sinks exporting data to BigQuery. Structure documented below.",
+              "type": "object",
+              "properties": {
+                "usePartitionedTables": {
+                  "description": "Whether to use BigQuery's partition tables.\nBy default, Logging creates dated tables based on the log entries' timestamps, e.g. syslog_20170523. With partitioned\ntables the date suffix is no longer present and special query syntax\nhas to be used instead. In both cases, tables are sharded based on UTC timezone.",
+                  "type": "boolean"
+                }
+              }
+            },
+            "customWriterIdentity": {
+              "description": "A user managed service account that will be used to write\nthe log entries. The format must be serviceAccount:some@email. This field can only be specified if you are\nrouting logs to a destination outside this sink's project. If not specified, a Logging service account\nwill automatically be generated.",
+              "type": "string"
+            },
+            "customWriterIdentityRef": {
+              "description": "Reference to a ServiceAccount in cloudplatform to populate customWriterIdentity.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "customWriterIdentitySelector": {
+              "description": "Selector for a ServiceAccount in cloudplatform to populate customWriterIdentity.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "description": {
+              "description": "A description of this sink. The maximum length of the description is 8000 characters.",
+              "type": "string"
+            },
+            "destination": {
+              "description": "The destination of the sink (or, in other words, where logs are written to). Can be a Cloud Storage bucket, a PubSub topic, a BigQuery dataset, a Cloud Logging bucket, or a Google Cloud project. Examples:",
+              "type": "string"
+            },
+            "disabled": {
+              "description": "If set to True, then this sink is disabled and it does not export any log entries.",
+              "type": "boolean"
+            },
+            "exclusions": {
+              "description": "Log entries that match any of the exclusion filters will not be exported. If a log entry is matched by both filter and one of exclusions.filter, it will not be exported.  Can be repeated multiple times for multiple exclusions. Structure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "description": "A description of this exclusion.",
+                    "type": "string"
+                  },
+                  "disabled": {
+                    "description": "If set to True, then this exclusion is disabled and it does not exclude any log entries.",
+                    "type": "boolean"
+                  },
+                  "filter": {
+                    "description": "An advanced logs filter that matches the log entries to be excluded. By using the sample function, you can exclude less than 100% of the matching log entries. See Advanced Log Filters for information on how to\nwrite a filter.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "A client-assigned identifier, such as load-balancer-exclusion. Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. First character has to be alphanumeric.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "filter": {
+              "description": "The filter to apply when exporting logs. Only log entries that match the filter are exported.\nSee Advanced Log Filters for information on how to\nwrite a filter.",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project to create the sink in. If omitted, the project associated with the provider is\nused.",
+              "type": "string"
+            },
+            "uniqueWriterIdentity": {
+              "description": "Whether or not to create a unique identity associated with this sink. If false, then the writer_identity used is serviceAccount:cloud-logs@system.gserviceaccount.com. If true (the default),\nthen a unique service account is created and used for this sink. If you wish to publish logs across projects or utilize\nbigquery_options, you must set unique_writer_identity to true.",
+              "type": "boolean"
+            }
+          }
+        },
+        "initProvider": {
+          "description": "THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.",
+          "type": "object",
+          "properties": {
+            "bigqueryOptions": {
+              "description": "Options that affect sinks exporting data to BigQuery. Structure documented below.",
+              "type": "object",
+              "properties": {
+                "usePartitionedTables": {
+                  "description": "Whether to use BigQuery's partition tables.\nBy default, Logging creates dated tables based on the log entries' timestamps, e.g. syslog_20170523. With partitioned\ntables the date suffix is no longer present and special query syntax\nhas to be used instead. In both cases, tables are sharded based on UTC timezone.",
+                  "type": "boolean"
+                }
+              }
+            },
+            "customWriterIdentity": {
+              "description": "A user managed service account that will be used to write\nthe log entries. The format must be serviceAccount:some@email. This field can only be specified if you are\nrouting logs to a destination outside this sink's project. If not specified, a Logging service account\nwill automatically be generated.",
+              "type": "string"
+            },
+            "customWriterIdentityRef": {
+              "description": "Reference to a ServiceAccount in cloudplatform to populate customWriterIdentity.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "customWriterIdentitySelector": {
+              "description": "Selector for a ServiceAccount in cloudplatform to populate customWriterIdentity.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "description": {
+              "description": "A description of this sink. The maximum length of the description is 8000 characters.",
+              "type": "string"
+            },
+            "destination": {
+              "description": "The destination of the sink (or, in other words, where logs are written to). Can be a Cloud Storage bucket, a PubSub topic, a BigQuery dataset, a Cloud Logging bucket, or a Google Cloud project. Examples:",
+              "type": "string"
+            },
+            "disabled": {
+              "description": "If set to True, then this sink is disabled and it does not export any log entries.",
+              "type": "boolean"
+            },
+            "exclusions": {
+              "description": "Log entries that match any of the exclusion filters will not be exported. If a log entry is matched by both filter and one of exclusions.filter, it will not be exported.  Can be repeated multiple times for multiple exclusions. Structure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "description": "A description of this exclusion.",
+                    "type": "string"
+                  },
+                  "disabled": {
+                    "description": "If set to True, then this exclusion is disabled and it does not exclude any log entries.",
+                    "type": "boolean"
+                  },
+                  "filter": {
+                    "description": "An advanced logs filter that matches the log entries to be excluded. By using the sample function, you can exclude less than 100% of the matching log entries. See Advanced Log Filters for information on how to\nwrite a filter.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "A client-assigned identifier, such as load-balancer-exclusion. Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. First character has to be alphanumeric.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "filter": {
+              "description": "The filter to apply when exporting logs. Only log entries that match the filter are exported.\nSee Advanced Log Filters for information on how to\nwrite a filter.",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project to create the sink in. If omitted, the project associated with the provider is\nused.",
+              "type": "string"
+            },
+            "uniqueWriterIdentity": {
+              "description": "Whether or not to create a unique identity associated with this sink. If false, then the writer_identity used is serviceAccount:cloud-logs@system.gserviceaccount.com. If true (the default),\nthen a unique service account is created and used for this sink. If you wish to publish logs across projects or utilize\nbigquery_options, you must set unique_writer_identity to true.",
+              "type": "boolean"
+            }
+          }
+        },
+        "managementPolicies": {
+          "description": "THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md",
+          "type": "array",
+          "default": [
+            "*"
+          ],
+          "items": {
+            "description": "A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.",
+            "type": "string",
+            "enum": [
+              "Observe",
+              "Create",
+              "Update",
+              "Delete",
+              "LateInitialize",
+              "*"
+            ]
+          }
+        },
+        "providerConfigRef": {
+          "description": "ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.",
+          "type": "object",
+          "default": {
+            "kind": "ClusterProviderConfig",
+            "name": "default"
+          },
+          "required": [
+            "kind",
+            "name"
+          ],
+          "properties": {
+            "kind": {
+              "description": "Kind of the referenced object.",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referenced object.",
+              "type": "string"
+            }
+          }
+        },
+        "writeConnectionSecretToRef": {
+          "description": "WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.",
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the secret.",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "x-kubernetes-validations": [
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.destination) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.destination))",
+          "message": "spec.forProvider.destination is a required parameter"
+        }
+      ]
+    },
+    "status": {
+      "description": "ProjectSinkStatus defines the observed state of ProjectSink.",
+      "type": "object",
+      "properties": {
+        "atProvider": {
+          "type": "object",
+          "properties": {
+            "bigqueryOptions": {
+              "description": "Options that affect sinks exporting data to BigQuery. Structure documented below.",
+              "type": "object",
+              "properties": {
+                "usePartitionedTables": {
+                  "description": "Whether to use BigQuery's partition tables.\nBy default, Logging creates dated tables based on the log entries' timestamps, e.g. syslog_20170523. With partitioned\ntables the date suffix is no longer present and special query syntax\nhas to be used instead. In both cases, tables are sharded based on UTC timezone.",
+                  "type": "boolean"
+                }
+              }
+            },
+            "customWriterIdentity": {
+              "description": "A user managed service account that will be used to write\nthe log entries. The format must be serviceAccount:some@email. This field can only be specified if you are\nrouting logs to a destination outside this sink's project. If not specified, a Logging service account\nwill automatically be generated.",
+              "type": "string"
+            },
+            "description": {
+              "description": "A description of this sink. The maximum length of the description is 8000 characters.",
+              "type": "string"
+            },
+            "destination": {
+              "description": "The destination of the sink (or, in other words, where logs are written to). Can be a Cloud Storage bucket, a PubSub topic, a BigQuery dataset, a Cloud Logging bucket, or a Google Cloud project. Examples:",
+              "type": "string"
+            },
+            "disabled": {
+              "description": "If set to True, then this sink is disabled and it does not export any log entries.",
+              "type": "boolean"
+            },
+            "exclusions": {
+              "description": "Log entries that match any of the exclusion filters will not be exported. If a log entry is matched by both filter and one of exclusions.filter, it will not be exported.  Can be repeated multiple times for multiple exclusions. Structure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "description": "A description of this exclusion.",
+                    "type": "string"
+                  },
+                  "disabled": {
+                    "description": "If set to True, then this exclusion is disabled and it does not exclude any log entries.",
+                    "type": "boolean"
+                  },
+                  "filter": {
+                    "description": "An advanced logs filter that matches the log entries to be excluded. By using the sample function, you can exclude less than 100% of the matching log entries. See Advanced Log Filters for information on how to\nwrite a filter.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "A client-assigned identifier, such as load-balancer-exclusion. Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. First character has to be alphanumeric.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "filter": {
+              "description": "The filter to apply when exporting logs. Only log entries that match the filter are exported.\nSee Advanced Log Filters for information on how to\nwrite a filter.",
+              "type": "string"
+            },
+            "id": {
+              "description": "an identifier for the resource with format projects/{{project}}/sinks/{{name}}",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project to create the sink in. If omitted, the project associated with the provider is\nused.",
+              "type": "string"
+            },
+            "uniqueWriterIdentity": {
+              "description": "Whether or not to create a unique identity associated with this sink. If false, then the writer_identity used is serviceAccount:cloud-logs@system.gserviceaccount.com. If true (the default),\nthen a unique service account is created and used for this sink. If you wish to publish logs across projects or utilize\nbigquery_options, you must set unique_writer_identity to true.",
+              "type": "boolean"
+            },
+            "writerIdentity": {
+              "description": "The identity associated with this sink. This identity must be granted write access to the\nconfigured destination.",
+              "type": "string"
+            }
+          }
+        },
+        "conditions": {
+          "description": "Conditions of the resource.",
+          "type": "array",
+          "items": {
+            "description": "A Condition that may apply to a resource.",
+            "type": "object",
+            "required": [
+              "lastTransitionTime",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time this condition transitioned from one\nstatus to another.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "A Message containing details about this condition's last transition from\none status to another, if any.",
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "ObservedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "type": "integer",
+                "format": "int64"
+              },
+              "reason": {
+                "description": "A Reason for this condition's last transition from one status to another.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of this condition; is it currently True, False, or Unknown?",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of this condition. At most one of each condition type may apply to\na resource at any point in time.",
+                "type": "string"
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

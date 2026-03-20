@@ -1,0 +1,24 @@
+{
+  "schema": "linkedservicesnowflake.json",
+  "crd": {
+    "group": "datafactory.azure.m.upbound.io",
+    "kind": "LinkedServiceSnowflake",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "05212c57b553986b02b4d6ef24ca09ce6119dc5c59d92ea5abfafc40c564b276"
+  }
+}

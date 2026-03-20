@@ -1,0 +1,24 @@
+{
+  "schema": "securityconfiguration.json",
+  "crd": {
+    "group": "glue.aws.upbound.io",
+    "kind": "SecurityConfiguration",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "39c3a2d8e3b7e0ab7c48ba173a285b3f304d1b3ba12d1c5267239edc42c10522"
+  }
+}

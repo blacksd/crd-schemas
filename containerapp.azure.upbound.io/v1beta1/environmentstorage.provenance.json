@@ -1,0 +1,24 @@
+{
+  "schema": "environmentstorage.json",
+  "crd": {
+    "group": "containerapp.azure.upbound.io",
+    "kind": "EnvironmentStorage",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "11dd800c8114ea42596f31a09ae886d6f416a6714288848d8ef3d6a7a1f72abe"
+  }
+}

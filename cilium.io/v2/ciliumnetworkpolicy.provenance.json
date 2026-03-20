@@ -1,0 +1,24 @@
+{
+  "schema": "ciliumnetworkpolicy.json",
+  "crd": {
+    "group": "cilium.io",
+    "kind": "CiliumNetworkPolicy",
+    "apiVersion": "v2"
+  },
+  "source": {
+    "name": "cilium",
+    "type": "git+github",
+    "repo": "https://github.com/cilium/cilium",
+    "path": "pkg/k8s/apis/cilium.io/client/crds",
+    "version": "v1.19.1",
+    "license": "Apache-2.0",
+    "homepage": "https://cilium.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "dad594104e9009ee67b2785fbbbfe1a95b1d9580937c15dbce6e9d9890ac35ab"
+  }
+}

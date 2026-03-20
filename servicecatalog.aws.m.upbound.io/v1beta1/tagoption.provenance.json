@@ -1,0 +1,24 @@
+{
+  "schema": "tagoption.json",
+  "crd": {
+    "group": "servicecatalog.aws.m.upbound.io",
+    "kind": "TagOption",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "02fb1c430b8271c9979b8b54a0178b5bf5ddd730422d0c0c88376ff5c5a85fa5"
+  }
+}

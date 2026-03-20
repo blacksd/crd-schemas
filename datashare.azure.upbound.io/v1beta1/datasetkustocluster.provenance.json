@@ -1,0 +1,24 @@
+{
+  "schema": "datasetkustocluster.json",
+  "crd": {
+    "group": "datashare.azure.upbound.io",
+    "kind": "DataSetKustoCluster",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a2b39bd7ee3921425da5c4fabc479167de198f5e35a7ff7ef17c21a371db54fc"
+  }
+}

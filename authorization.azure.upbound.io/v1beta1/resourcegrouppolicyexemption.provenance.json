@@ -1,0 +1,24 @@
+{
+  "schema": "resourcegrouppolicyexemption.json",
+  "crd": {
+    "group": "authorization.azure.upbound.io",
+    "kind": "ResourceGroupPolicyExemption",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d1e9c50b61932bc41159ae3ad71abd055412fd6ebcc60c4fc28336c19789e0e3"
+  }
+}

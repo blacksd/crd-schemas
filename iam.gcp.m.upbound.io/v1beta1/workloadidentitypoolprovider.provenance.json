@@ -1,0 +1,24 @@
+{
+  "schema": "workloadidentitypoolprovider.json",
+  "crd": {
+    "group": "iam.gcp.m.upbound.io",
+    "kind": "WorkloadIdentityPoolProvider",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d7c757decc0d5db2016fc6ae12df94d35c51ab4128440edf4fd7fb514266e134"
+  }
+}

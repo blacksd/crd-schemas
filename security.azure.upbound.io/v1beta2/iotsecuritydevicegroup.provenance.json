@@ -1,0 +1,24 @@
+{
+  "schema": "iotsecuritydevicegroup.json",
+  "crd": {
+    "group": "security.azure.upbound.io",
+    "kind": "IOTSecurityDeviceGroup",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c2410e2c93ebc22533842b6f7fc16e153a9a647f12c9d2b28adb2b44df7d4937"
+  }
+}

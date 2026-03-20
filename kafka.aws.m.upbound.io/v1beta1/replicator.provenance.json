@@ -1,0 +1,24 @@
+{
+  "schema": "replicator.json",
+  "crd": {
+    "group": "kafka.aws.m.upbound.io",
+    "kind": "Replicator",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e4d92e5110a3ac1cd02fa42b348cc89fdd577f131f4bf97d882a72440dca2b15"
+  }
+}

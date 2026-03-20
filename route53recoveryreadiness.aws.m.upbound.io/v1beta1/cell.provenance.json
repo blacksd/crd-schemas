@@ -1,0 +1,24 @@
+{
+  "schema": "cell.json",
+  "crd": {
+    "group": "route53recoveryreadiness.aws.m.upbound.io",
+    "kind": "Cell",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "02a8fe44c77ce3934374c117c0f63dcd515cd3e60f6f5495a6720127f8e7c634"
+  }
+}

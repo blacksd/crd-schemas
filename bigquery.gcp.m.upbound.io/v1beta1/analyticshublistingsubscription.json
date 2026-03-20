@@ -1,0 +1,942 @@
+{
+  "description": "AnalyticsHubListingSubscription is the Schema for the AnalyticsHubListingSubscriptions API. A Bigquery Analytics Hub listing subscription",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "AnalyticsHubListingSubscriptionSpec defines the desired state of AnalyticsHubListingSubscription",
+      "type": "object",
+      "required": [
+        "forProvider"
+      ],
+      "properties": {
+        "forProvider": {
+          "type": "object",
+          "properties": {
+            "dataExchangeId": {
+              "description": "The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.",
+              "type": "string"
+            },
+            "dataExchangeIdRef": {
+              "description": "Reference to a AnalyticsHubDataExchange in bigquery to populate dataExchangeId.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "dataExchangeIdSelector": {
+              "description": "Selector for a AnalyticsHubDataExchange in bigquery to populate dataExchangeId.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "destinationDataset": {
+              "description": "The destination dataset for this subscription.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "datasetReference": {
+                  "description": "A reference that identifies the destination dataset.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "datasetId": {
+                      "description": "A unique ID for this dataset, without the project name. The ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum length is 1,024 characters.",
+                      "type": "string"
+                    },
+                    "projectId": {
+                      "description": "The ID of the project containing this dataset.",
+                      "type": "string"
+                    },
+                    "projectIdRef": {
+                      "description": "Reference to a Dataset in bigquery to populate projectId.",
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "description": "Name of the referenced object.",
+                          "type": "string"
+                        },
+                        "namespace": {
+                          "description": "Namespace of the referenced object",
+                          "type": "string"
+                        },
+                        "policy": {
+                          "description": "Policies for referencing.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "projectIdSelector": {
+                      "description": "Selector for a Dataset in bigquery to populate projectId.",
+                      "type": "object",
+                      "properties": {
+                        "matchControllerRef": {
+                          "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                          "type": "boolean"
+                        },
+                        "matchLabels": {
+                          "description": "MatchLabels ensures an object with matching labels is selected.",
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        },
+                        "namespace": {
+                          "description": "Namespace for the selector",
+                          "type": "string"
+                        },
+                        "policy": {
+                          "description": "Policies for selection.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "description": {
+                  "description": "A user-friendly description of the dataset.",
+                  "type": "string"
+                },
+                "friendlyName": {
+                  "description": "A descriptive name for the dataset.",
+                  "type": "string"
+                },
+                "labels": {
+                  "description": "The labels associated with this dataset. You can use these to\norganize and group your datasets.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-map-type": "granular"
+                },
+                "location": {
+                  "description": "The geographic location where the dataset should reside.\nSee https://cloud.google.com/bigquery/docs/locations for supported locations.",
+                  "type": "string"
+                }
+              }
+            },
+            "listingId": {
+              "description": "The ID of the listing. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.",
+              "type": "string"
+            },
+            "listingIdRef": {
+              "description": "Reference to a AnalyticsHubListing in bigquery to populate listingId.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "listingIdSelector": {
+              "description": "Selector for a AnalyticsHubListing in bigquery to populate listingId.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "location": {
+              "description": "The name of the location of the data exchange. Distinct from the location of the destination data set.",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            }
+          }
+        },
+        "initProvider": {
+          "description": "THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.",
+          "type": "object",
+          "properties": {
+            "dataExchangeId": {
+              "description": "The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.",
+              "type": "string"
+            },
+            "dataExchangeIdRef": {
+              "description": "Reference to a AnalyticsHubDataExchange in bigquery to populate dataExchangeId.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "dataExchangeIdSelector": {
+              "description": "Selector for a AnalyticsHubDataExchange in bigquery to populate dataExchangeId.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "destinationDataset": {
+              "description": "The destination dataset for this subscription.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "datasetReference": {
+                  "description": "A reference that identifies the destination dataset.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "datasetId": {
+                      "description": "A unique ID for this dataset, without the project name. The ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum length is 1,024 characters.",
+                      "type": "string"
+                    },
+                    "projectId": {
+                      "description": "The ID of the project containing this dataset.",
+                      "type": "string"
+                    },
+                    "projectIdRef": {
+                      "description": "Reference to a Dataset in bigquery to populate projectId.",
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "description": "Name of the referenced object.",
+                          "type": "string"
+                        },
+                        "namespace": {
+                          "description": "Namespace of the referenced object",
+                          "type": "string"
+                        },
+                        "policy": {
+                          "description": "Policies for referencing.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "projectIdSelector": {
+                      "description": "Selector for a Dataset in bigquery to populate projectId.",
+                      "type": "object",
+                      "properties": {
+                        "matchControllerRef": {
+                          "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                          "type": "boolean"
+                        },
+                        "matchLabels": {
+                          "description": "MatchLabels ensures an object with matching labels is selected.",
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        },
+                        "namespace": {
+                          "description": "Namespace for the selector",
+                          "type": "string"
+                        },
+                        "policy": {
+                          "description": "Policies for selection.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "description": {
+                  "description": "A user-friendly description of the dataset.",
+                  "type": "string"
+                },
+                "friendlyName": {
+                  "description": "A descriptive name for the dataset.",
+                  "type": "string"
+                },
+                "labels": {
+                  "description": "The labels associated with this dataset. You can use these to\norganize and group your datasets.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-map-type": "granular"
+                },
+                "location": {
+                  "description": "The geographic location where the dataset should reside.\nSee https://cloud.google.com/bigquery/docs/locations for supported locations.",
+                  "type": "string"
+                }
+              }
+            },
+            "listingId": {
+              "description": "The ID of the listing. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.",
+              "type": "string"
+            },
+            "listingIdRef": {
+              "description": "Reference to a AnalyticsHubListing in bigquery to populate listingId.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "listingIdSelector": {
+              "description": "Selector for a AnalyticsHubListing in bigquery to populate listingId.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "location": {
+              "description": "The name of the location of the data exchange. Distinct from the location of the destination data set.",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            }
+          }
+        },
+        "managementPolicies": {
+          "description": "THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md",
+          "type": "array",
+          "default": [
+            "*"
+          ],
+          "items": {
+            "description": "A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.",
+            "type": "string",
+            "enum": [
+              "Observe",
+              "Create",
+              "Update",
+              "Delete",
+              "LateInitialize",
+              "*"
+            ]
+          }
+        },
+        "providerConfigRef": {
+          "description": "ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.",
+          "type": "object",
+          "default": {
+            "kind": "ClusterProviderConfig",
+            "name": "default"
+          },
+          "required": [
+            "kind",
+            "name"
+          ],
+          "properties": {
+            "kind": {
+              "description": "Kind of the referenced object.",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referenced object.",
+              "type": "string"
+            }
+          }
+        },
+        "writeConnectionSecretToRef": {
+          "description": "WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.",
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the secret.",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "x-kubernetes-validations": [
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.destinationDataset) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.destinationDataset))",
+          "message": "spec.forProvider.destinationDataset is a required parameter"
+        },
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.location) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.location))",
+          "message": "spec.forProvider.location is a required parameter"
+        }
+      ]
+    },
+    "status": {
+      "description": "AnalyticsHubListingSubscriptionStatus defines the observed state of AnalyticsHubListingSubscription.",
+      "type": "object",
+      "properties": {
+        "atProvider": {
+          "type": "object",
+          "properties": {
+            "commercialInfo": {
+              "description": "Commercial info metadata for this subscription. This is set if this is a commercial subscription i.e. if this subscription was created from subscribing to a commercial listing.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "cloudMarketplace": {
+                    "description": "(Output)\nCloud Marketplace commercial metadata for this subscription.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "order": {
+                          "description": "(Output)\nResource name of the Marketplace Order.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "creationTime": {
+              "description": "Timestamp when the subscription was created.",
+              "type": "string"
+            },
+            "dataExchangeId": {
+              "description": "The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.",
+              "type": "string"
+            },
+            "destinationDataset": {
+              "description": "The destination dataset for this subscription.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "datasetReference": {
+                  "description": "A reference that identifies the destination dataset.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "datasetId": {
+                      "description": "A unique ID for this dataset, without the project name. The ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum length is 1,024 characters.",
+                      "type": "string"
+                    },
+                    "projectId": {
+                      "description": "The ID of the project containing this dataset.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "description": {
+                  "description": "A user-friendly description of the dataset.",
+                  "type": "string"
+                },
+                "friendlyName": {
+                  "description": "A descriptive name for the dataset.",
+                  "type": "string"
+                },
+                "labels": {
+                  "description": "The labels associated with this dataset. You can use these to\norganize and group your datasets.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-map-type": "granular"
+                },
+                "location": {
+                  "description": "The geographic location where the dataset should reside.\nSee https://cloud.google.com/bigquery/docs/locations for supported locations.",
+                  "type": "string"
+                }
+              }
+            },
+            "id": {
+              "description": "an identifier for the resource with format projects/{{project}}/locations/{{location}}/subscriptions/{{subscription_id}}",
+              "type": "string"
+            },
+            "lastModifyTime": {
+              "description": "Timestamp when the subscription was last modified.",
+              "type": "string"
+            },
+            "linkedDatasetMap": {
+              "description": "Output only. Map of listing resource names to associated linked resource,\ne.g. projects/123/locations/US/dataExchanges/456/listings/789 -\u003e projects/123/datasets/my_dataset\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "linkedDataset": {
+                    "description": "(Output)\nOutput only. Name of the linked dataset, e.g. projects/subscriberproject/datasets/linkedDataset",
+                    "type": "string"
+                  },
+                  "listing": {
+                    "description": "(Output)\nOutput only. Listing for which linked resource is created.",
+                    "type": "string"
+                  },
+                  "resourceName": {
+                    "description": "The identifier for this object. Format specified above.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "linkedResources": {
+              "description": "Output only. Linked resources created in the subscription. Only contains values if state = STATE_ACTIVE.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "linkedDataset": {
+                    "description": "(Output)\nOutput only. Name of the linked dataset, e.g. projects/subscriberproject/datasets/linkedDataset",
+                    "type": "string"
+                  },
+                  "listing": {
+                    "description": "(Output)\nOutput only. Listing for which linked resource is created.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "listingId": {
+              "description": "The ID of the listing. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.",
+              "type": "string"
+            },
+            "location": {
+              "description": "The name of the location of the data exchange. Distinct from the location of the destination data set.",
+              "type": "string"
+            },
+            "logLinkedDatasetQueryUserEmail": {
+              "description": "Output only. By default, false. If true, the Subscriber agreed to the email sharing mandate that is enabled for Listing.",
+              "type": "boolean"
+            },
+            "name": {
+              "description": "The resource name of the subscription. e.g. \"projects/myproject/locations/US/subscriptions/123\"",
+              "type": "string"
+            },
+            "organizationDisplayName": {
+              "description": "Display name of the project of this subscription.",
+              "type": "string"
+            },
+            "organizationId": {
+              "description": "Organization of the project this subscription belongs to.",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            },
+            "resourceType": {
+              "description": "Listing shared asset type.",
+              "type": "string"
+            },
+            "state": {
+              "description": "Current state of the subscription.",
+              "type": "string"
+            },
+            "subscriberContact": {
+              "description": "Email of the subscriber.",
+              "type": "string"
+            },
+            "subscriptionId": {
+              "description": "The subscription id used to reference the subscription.",
+              "type": "string"
+            }
+          }
+        },
+        "conditions": {
+          "description": "Conditions of the resource.",
+          "type": "array",
+          "items": {
+            "description": "A Condition that may apply to a resource.",
+            "type": "object",
+            "required": [
+              "lastTransitionTime",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time this condition transitioned from one\nstatus to another.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "A Message containing details about this condition's last transition from\none status to another, if any.",
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "ObservedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "type": "integer",
+                "format": "int64"
+              },
+              "reason": {
+                "description": "A Reason for this condition's last transition from one status to another.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of this condition; is it currently True, False, or Unknown?",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of this condition. At most one of each condition type may apply to\na resource at any point in time.",
+                "type": "string"
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

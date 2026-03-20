@@ -1,0 +1,24 @@
+{
+  "schema": "fieldlevelencryptionconfig.json",
+  "crd": {
+    "group": "cloudfront.aws.m.upbound.io",
+    "kind": "FieldLevelEncryptionConfig",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "41f49e05c4b156e2bdaf0a394408f621492d9ad66adc525af72d29e19c82a75a"
+  }
+}

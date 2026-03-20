@@ -1,0 +1,24 @@
+{
+  "schema": "keyring.json",
+  "crd": {
+    "group": "kms.gcp.m.upbound.io",
+    "kind": "KeyRing",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2d4a7f2d92288b4b17caeb42436813debdccbd836e7dbce4ffdc2d24c2e7bc46"
+  }
+}

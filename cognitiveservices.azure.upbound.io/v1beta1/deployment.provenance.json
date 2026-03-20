@@ -1,0 +1,24 @@
+{
+  "schema": "deployment.json",
+  "crd": {
+    "group": "cognitiveservices.azure.upbound.io",
+    "kind": "Deployment",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b8df84019a3eb8910b6c570f53664c247a06cb1f3096a068649da3e713903d91"
+  }
+}

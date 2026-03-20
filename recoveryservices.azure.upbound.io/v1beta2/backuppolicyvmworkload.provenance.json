@@ -1,0 +1,24 @@
+{
+  "schema": "backuppolicyvmworkload.json",
+  "crd": {
+    "group": "recoveryservices.azure.upbound.io",
+    "kind": "BackupPolicyVMWorkload",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e61df7e25faa9459b350f2c3b31d96936970ca79cfb9a030a38db36e3f3d0163"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "tokenvaultcmk.json",
+  "crd": {
+    "group": "bedrockagentcore.aws.upbound.io",
+    "kind": "TokenVaultCmk",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e4fb65eddaa1a2fe1e668c6ad5812e19b3c64d0ed26d2c0c2d956a09a55a160e"
+  }
+}

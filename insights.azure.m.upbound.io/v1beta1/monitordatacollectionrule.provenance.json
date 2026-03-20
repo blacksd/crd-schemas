@@ -1,0 +1,24 @@
+{
+  "schema": "monitordatacollectionrule.json",
+  "crd": {
+    "group": "insights.azure.m.upbound.io",
+    "kind": "MonitorDataCollectionRule",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "140e842c0b2e1ee180d0e8e7b32eb32ac44fd2cbababd72fe7b9ac124feaa091"
+  }
+}

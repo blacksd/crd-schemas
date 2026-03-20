@@ -1,0 +1,24 @@
+{
+  "schema": "functionapp.json",
+  "crd": {
+    "group": "web.azure.upbound.io",
+    "kind": "FunctionApp",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "64f392c5d2d21a566a55f14785709b6817887b7cdc5671f9c8c427f727d2f3cb"
+  }
+}

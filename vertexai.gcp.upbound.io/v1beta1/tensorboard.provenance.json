@@ -1,0 +1,24 @@
+{
+  "schema": "tensorboard.json",
+  "crd": {
+    "group": "vertexai.gcp.upbound.io",
+    "kind": "Tensorboard",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7d9fd056157396b6e87f784387fe8165b6dd412796961813d96eb661c050e92f"
+  }
+}

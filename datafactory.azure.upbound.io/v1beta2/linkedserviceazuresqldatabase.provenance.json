@@ -1,0 +1,24 @@
+{
+  "schema": "linkedserviceazuresqldatabase.json",
+  "crd": {
+    "group": "datafactory.azure.upbound.io",
+    "kind": "LinkedServiceAzureSQLDatabase",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "cb820569a156feba5b567d3fc01fda4de76d5e3ab3870f0db79fbbe6fed47785"
+  }
+}

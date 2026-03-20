@@ -1,0 +1,24 @@
+{
+  "schema": "vpcipv4cidrblockassociation.json",
+  "crd": {
+    "group": "ec2.aws.upbound.io",
+    "kind": "VPCIPv4CidrBlockAssociation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8e5e91f7411cddc4c8983d6f24a22d1ff3b00be40f0a222257cb8b52c69b8395"
+  }
+}

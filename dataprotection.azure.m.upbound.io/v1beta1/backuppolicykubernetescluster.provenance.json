@@ -1,0 +1,24 @@
+{
+  "schema": "backuppolicykubernetescluster.json",
+  "crd": {
+    "group": "dataprotection.azure.m.upbound.io",
+    "kind": "BackupPolicyKubernetesCluster",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d6098a8ebdad1d12d6141548ea6044893c31fed02576a2fc3796cf11affce462"
+  }
+}

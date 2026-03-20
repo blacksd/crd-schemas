@@ -1,0 +1,24 @@
+{
+  "schema": "notificationhubnamespace.json",
+  "crd": {
+    "group": "notificationhubs.azure.m.upbound.io",
+    "kind": "NotificationHubNamespace",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8a51b88024bc71b6ec8c2445a77ada16e319537243651308589b10a7555c91ee"
+  }
+}

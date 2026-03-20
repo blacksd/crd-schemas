@@ -1,0 +1,24 @@
+{
+  "schema": "managerroutingconfiguration.json",
+  "crd": {
+    "group": "network.azure.m.upbound.io",
+    "kind": "ManagerRoutingConfiguration",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "666a212c1e8274766e5da0df66ef6d304564d7302a2b82d085b627f8f89f3b33"
+  }
+}

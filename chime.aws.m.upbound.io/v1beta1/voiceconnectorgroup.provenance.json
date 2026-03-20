@@ -1,0 +1,24 @@
+{
+  "schema": "voiceconnectorgroup.json",
+  "crd": {
+    "group": "chime.aws.m.upbound.io",
+    "kind": "VoiceConnectorGroup",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ea2195a895ac92d9a7e2d8d08f140d4115aa8a235e1b71fc66af36290d266b97"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "internalrange.json",
+  "crd": {
+    "group": "networkconnectivity.gcp.m.upbound.io",
+    "kind": "InternalRange",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "45b78211c7ecd76a096d1ef9ebd99b95f6b01b44f6836d72ac0ce8d8b9d14f3d"
+  }
+}

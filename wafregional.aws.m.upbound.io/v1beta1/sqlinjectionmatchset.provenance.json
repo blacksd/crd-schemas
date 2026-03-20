@@ -1,0 +1,24 @@
+{
+  "schema": "sqlinjectionmatchset.json",
+  "crd": {
+    "group": "wafregional.aws.m.upbound.io",
+    "kind": "SQLInjectionMatchSet",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5360a2e0f1ceb34f1b28d25c0795d14277f2c14bdba407348f879b07a89ac29c"
+  }
+}

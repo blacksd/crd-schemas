@@ -1,0 +1,24 @@
+{
+  "schema": "containerpolicy.json",
+  "crd": {
+    "group": "mediastore.aws.upbound.io",
+    "kind": "ContainerPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7b9f0a96d6fb6a1c88aa91fc9e56ebf99d90ef3d9881b24f543dda17e34c46e2"
+  }
+}

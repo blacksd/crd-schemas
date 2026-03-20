@@ -1,0 +1,24 @@
+{
+  "schema": "virtualdesktophostpool.json",
+  "crd": {
+    "group": "desktopvirtualization.azure.upbound.io",
+    "kind": "VirtualDesktopHostPool",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "57f6601b34d1e29ebaa5c2878b7353cb701fd02169219f38ab4c606093284d63"
+  }
+}

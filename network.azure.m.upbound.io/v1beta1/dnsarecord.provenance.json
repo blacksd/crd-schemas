@@ -1,0 +1,24 @@
+{
+  "schema": "dnsarecord.json",
+  "crd": {
+    "group": "network.azure.m.upbound.io",
+    "kind": "DNSARecord",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0ebb5b5e1f58dcf7129419cc95c4209e056f2c0f8f034bc9d7bc1c13a4912b07"
+  }
+}

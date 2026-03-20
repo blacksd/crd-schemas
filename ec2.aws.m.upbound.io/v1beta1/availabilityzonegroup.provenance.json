@@ -1,0 +1,24 @@
+{
+  "schema": "availabilityzonegroup.json",
+  "crd": {
+    "group": "ec2.aws.m.upbound.io",
+    "kind": "AvailabilityZoneGroup",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ac94beef21f4f54b35ca1e769ef6545e7631cc7e4a0c1b1d0ca1dfcd4a7be4a5"
+  }
+}

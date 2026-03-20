@@ -1,0 +1,24 @@
+{
+  "schema": "regiondiskiammember.json",
+  "crd": {
+    "group": "compute.gcp.upbound.io",
+    "kind": "RegionDiskIAMMember",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "02c7d20bbaeb3bcc7ab27e4a74439b7da6a19bafac640a1e9c662ad67f563fb6"
+  }
+}

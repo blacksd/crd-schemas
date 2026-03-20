@@ -1,0 +1,24 @@
+{
+  "schema": "serverkey.json",
+  "crd": {
+    "group": "dbforpostgresql.azure.upbound.io",
+    "kind": "ServerKey",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "985b35f72a2cbae61ff2084eb8e7d371c954ff4a0f80714160f31317b4007734"
+  }
+}

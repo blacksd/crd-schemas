@@ -1,0 +1,24 @@
+{
+  "schema": "schedulingpolicy.json",
+  "crd": {
+    "group": "batch.aws.upbound.io",
+    "kind": "SchedulingPolicy",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c864cdcc36f7ed06757e98f96eb664689a675944ea8530ad0f99f8933786767c"
+  }
+}

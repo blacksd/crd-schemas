@@ -1,0 +1,24 @@
+{
+  "schema": "loadbalancerbackendaddresspooladdress.json",
+  "crd": {
+    "group": "network.azure.upbound.io",
+    "kind": "LoadBalancerBackendAddressPoolAddress",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4c3913a06f50c7e3461518b6b433cd09e43a4559441939e8c5a0f1b4ae6bd37d"
+  }
+}

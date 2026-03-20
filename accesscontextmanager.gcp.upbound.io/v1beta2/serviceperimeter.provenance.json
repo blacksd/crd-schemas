@@ -1,0 +1,24 @@
+{
+  "schema": "serviceperimeter.json",
+  "crd": {
+    "group": "accesscontextmanager.gcp.upbound.io",
+    "kind": "ServicePerimeter",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5bbae9f8fc429722d3795e6d32237dd9591fb6afed21b792bd1a889a467a63c9"
+  }
+}

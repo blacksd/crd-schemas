@@ -1,0 +1,24 @@
+{
+  "schema": "mssqlfailovergroup.json",
+  "crd": {
+    "group": "sql.azure.upbound.io",
+    "kind": "MSSQLFailoverGroup",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a16728171508f5b580d5248911c739169021bde2793e76715b1926a4eb004548"
+  }
+}

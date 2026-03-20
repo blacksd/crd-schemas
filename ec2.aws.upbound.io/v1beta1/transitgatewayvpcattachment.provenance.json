@@ -1,0 +1,24 @@
+{
+  "schema": "transitgatewayvpcattachment.json",
+  "crd": {
+    "group": "ec2.aws.upbound.io",
+    "kind": "TransitGatewayVPCAttachment",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "61a777882f309ca9f63340b3e90b57d2c65d8e1c40e4951b8f01bb4d3dc44c49"
+  }
+}

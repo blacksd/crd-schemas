@@ -1,0 +1,24 @@
+{
+  "schema": "outputservicebustopic.json",
+  "crd": {
+    "group": "streamanalytics.azure.upbound.io",
+    "kind": "OutputServiceBusTopic",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f295aa9822b19419b15ac38261ac0573afc056a5ae6b2a5c0c73c4b8b01b1c0a"
+  }
+}

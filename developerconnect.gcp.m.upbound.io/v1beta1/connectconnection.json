@@ -1,0 +1,1588 @@
+{
+  "description": "ConnectConnection is the Schema for the ConnectConnections API. A connection for GitHub, GitHub Enterprise, GitLab, and GitLab Enterprise.",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "ConnectConnectionSpec defines the desired state of ConnectConnection",
+      "type": "object",
+      "required": [
+        "forProvider"
+      ],
+      "properties": {
+        "forProvider": {
+          "type": "object",
+          "required": [
+            "location"
+          ],
+          "properties": {
+            "annotations": {
+              "description": "Optional. Allows clients to store small amounts of arbitrary data.\nNote: This field is non-authoritative, and will only manage the annotations present in your configuration.\nPlease refer to the field effective_annotations for all of the annotations present on the resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "bitbucketCloudConfig": {
+              "description": "Configuration for connections to an instance of Bitbucket Cloud.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "readAuthorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook\nevents, formatted as projects/*/secrets/*/versions/*. This is used to\nvalidate and create webhooks.",
+                  "type": "string"
+                },
+                "workspace": {
+                  "description": "Required. The Bitbucket Cloud Workspace ID to be connected to Google Cloud Platform.",
+                  "type": "string"
+                }
+              }
+            },
+            "bitbucketDataCenterConfig": {
+              "description": "Configuration for connections to an instance of Bitbucket Data Center.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "hostUri": {
+                  "description": "Required. The URI of the Bitbucket Data Center host this connection is for.",
+                  "type": "string"
+                },
+                "readAuthorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "Required. The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "Optional. SSL certificate authority to trust when making requests to Bitbucket Data\nCenter.",
+                  "type": "string"
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook\nevents, formatted as projects/*/secrets/*/versions/*. This is used to\nvalidate webhooks.",
+                  "type": "string"
+                }
+              }
+            },
+            "cryptoKeyConfig": {
+              "description": "The crypto key configuration. This field is used by the Customer-managed\nencryption keys (CMEK) feature.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "keyReference": {
+                  "description": "Required. The name of the key which is used to encrypt/decrypt customer data. For key\nin Cloud KMS, the key should be in the format of\nprojects/*/locations/*/keyRings/*/cryptoKeys/*.",
+                  "type": "string"
+                }
+              }
+            },
+            "disabled": {
+              "description": "Optional. If disabled is set to true, functionality is disabled for this connection.\nRepository based API methods and webhooks processing for repositories in\nthis connection will be disabled.",
+              "type": "boolean"
+            },
+            "etag": {
+              "description": "Optional. This checksum is computed by the server based on the value of other\nfields, and may be sent on update and delete requests to ensure the\nclient has an up-to-date value before proceeding.",
+              "type": "string"
+            },
+            "githubConfig": {
+              "description": "Configuration for connections to github.com.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "appInstallationId": {
+                  "description": "Optional. GitHub App installation id.",
+                  "type": "string"
+                },
+                "authorizerCredential": {
+                  "description": "Represents an OAuth token of the account that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "oauthTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the OAuth token that authorizes\nthe connection. Format: projects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    },
+                    "oauthTokenSecretVersionRef": {
+                      "description": "Reference to a SecretVersion in secretmanager to populate oauthTokenSecretVersion.",
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "description": "Name of the referenced object.",
+                          "type": "string"
+                        },
+                        "namespace": {
+                          "description": "Namespace of the referenced object",
+                          "type": "string"
+                        },
+                        "policy": {
+                          "description": "Policies for referencing.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "oauthTokenSecretVersionSelector": {
+                      "description": "Selector for a SecretVersion in secretmanager to populate oauthTokenSecretVersion.",
+                      "type": "object",
+                      "properties": {
+                        "matchControllerRef": {
+                          "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                          "type": "boolean"
+                        },
+                        "matchLabels": {
+                          "description": "MatchLabels ensures an object with matching labels is selected.",
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        },
+                        "namespace": {
+                          "description": "Namespace for the selector",
+                          "type": "string"
+                        },
+                        "policy": {
+                          "description": "Policies for selection.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "githubApp": {
+                  "description": "Required. Immutable. The GitHub Application that was installed to the GitHub user or\norganization.\nPossible values:\nGIT_HUB_APP_UNSPECIFIED\nDEVELOPER_CONNECT\nFIREBASE",
+                  "type": "string"
+                }
+              }
+            },
+            "githubEnterpriseConfig": {
+              "description": "Configuration for connections to an instance of GitHub Enterprise.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "appId": {
+                  "description": "Optional. ID of the GitHub App created from the manifest.",
+                  "type": "string"
+                },
+                "appInstallationId": {
+                  "description": "Optional. ID of the installation of the GitHub App.",
+                  "type": "string"
+                },
+                "hostUri": {
+                  "description": "Required. The URI of the GitHub Enterprise host this connection is for.",
+                  "type": "string"
+                },
+                "privateKeySecretVersion": {
+                  "description": "Optional. SecretManager resource containing the private key of the GitHub App,\nformatted as projects/*/secrets/*/versions/*.",
+                  "type": "string"
+                },
+                "privateKeySecretVersionRef": {
+                  "description": "Reference to a SecretVersion in secretmanager to populate privateKeySecretVersion.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "privateKeySecretVersionSelector": {
+                  "description": "Selector for a SecretVersion in secretmanager to populate privateKeySecretVersion.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "Required. The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "Optional. SSL certificate to use for requests to GitHub Enterprise.",
+                  "type": "string"
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Optional. SecretManager resource containing the webhook secret of the GitHub App,\nformatted as projects/*/secrets/*/versions/*.",
+                  "type": "string"
+                },
+                "webhookSecretSecretVersionRef": {
+                  "description": "Reference to a SecretVersion in secretmanager to populate webhookSecretSecretVersion.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "webhookSecretSecretVersionSelector": {
+                  "description": "Selector for a SecretVersion in secretmanager to populate webhookSecretSecretVersion.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "gitlabConfig": {
+              "description": "Configuration for connections to gitlab.com.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "readAuthorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Required. Immutable. SecretManager resource containing the webhook secret of a GitLab project,\nformatted as projects/*/secrets/*/versions/*. This is used to validate\nwebhooks.",
+                  "type": "string"
+                }
+              }
+            },
+            "gitlabEnterpriseConfig": {
+              "description": "Configuration for connections to an instance of GitLab Enterprise.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "hostUri": {
+                  "description": "Required. The URI of the GitLab Enterprise host this connection is for.",
+                  "type": "string"
+                },
+                "readAuthorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "Required. The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "Optional. SSL Certificate Authority certificate to use for requests to GitLab\nEnterprise instance.",
+                  "type": "string"
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Required. Immutable. SecretManager resource containing the webhook secret of a GitLab project,\nformatted as projects/*/secrets/*/versions/*. This is used to validate\nwebhooks.",
+                  "type": "string"
+                }
+              }
+            },
+            "labels": {
+              "description": "Optional. Labels as key value pairs\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "location": {
+              "description": "Resource ID segment making up resource name. It identifies the resource within its parent collection as described in https://google.aip.dev/122.",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            }
+          }
+        },
+        "initProvider": {
+          "description": "THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.",
+          "type": "object",
+          "properties": {
+            "annotations": {
+              "description": "Optional. Allows clients to store small amounts of arbitrary data.\nNote: This field is non-authoritative, and will only manage the annotations present in your configuration.\nPlease refer to the field effective_annotations for all of the annotations present on the resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "bitbucketCloudConfig": {
+              "description": "Configuration for connections to an instance of Bitbucket Cloud.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "readAuthorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook\nevents, formatted as projects/*/secrets/*/versions/*. This is used to\nvalidate and create webhooks.",
+                  "type": "string"
+                },
+                "workspace": {
+                  "description": "Required. The Bitbucket Cloud Workspace ID to be connected to Google Cloud Platform.",
+                  "type": "string"
+                }
+              }
+            },
+            "bitbucketDataCenterConfig": {
+              "description": "Configuration for connections to an instance of Bitbucket Data Center.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "hostUri": {
+                  "description": "Required. The URI of the Bitbucket Data Center host this connection is for.",
+                  "type": "string"
+                },
+                "readAuthorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "Required. The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "Optional. SSL certificate authority to trust when making requests to Bitbucket Data\nCenter.",
+                  "type": "string"
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook\nevents, formatted as projects/*/secrets/*/versions/*. This is used to\nvalidate webhooks.",
+                  "type": "string"
+                }
+              }
+            },
+            "cryptoKeyConfig": {
+              "description": "The crypto key configuration. This field is used by the Customer-managed\nencryption keys (CMEK) feature.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "keyReference": {
+                  "description": "Required. The name of the key which is used to encrypt/decrypt customer data. For key\nin Cloud KMS, the key should be in the format of\nprojects/*/locations/*/keyRings/*/cryptoKeys/*.",
+                  "type": "string"
+                }
+              }
+            },
+            "disabled": {
+              "description": "Optional. If disabled is set to true, functionality is disabled for this connection.\nRepository based API methods and webhooks processing for repositories in\nthis connection will be disabled.",
+              "type": "boolean"
+            },
+            "etag": {
+              "description": "Optional. This checksum is computed by the server based on the value of other\nfields, and may be sent on update and delete requests to ensure the\nclient has an up-to-date value before proceeding.",
+              "type": "string"
+            },
+            "githubConfig": {
+              "description": "Configuration for connections to github.com.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "appInstallationId": {
+                  "description": "Optional. GitHub App installation id.",
+                  "type": "string"
+                },
+                "authorizerCredential": {
+                  "description": "Represents an OAuth token of the account that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "oauthTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the OAuth token that authorizes\nthe connection. Format: projects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    },
+                    "oauthTokenSecretVersionRef": {
+                      "description": "Reference to a SecretVersion in secretmanager to populate oauthTokenSecretVersion.",
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "description": "Name of the referenced object.",
+                          "type": "string"
+                        },
+                        "namespace": {
+                          "description": "Namespace of the referenced object",
+                          "type": "string"
+                        },
+                        "policy": {
+                          "description": "Policies for referencing.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "oauthTokenSecretVersionSelector": {
+                      "description": "Selector for a SecretVersion in secretmanager to populate oauthTokenSecretVersion.",
+                      "type": "object",
+                      "properties": {
+                        "matchControllerRef": {
+                          "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                          "type": "boolean"
+                        },
+                        "matchLabels": {
+                          "description": "MatchLabels ensures an object with matching labels is selected.",
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        },
+                        "namespace": {
+                          "description": "Namespace for the selector",
+                          "type": "string"
+                        },
+                        "policy": {
+                          "description": "Policies for selection.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "githubApp": {
+                  "description": "Required. Immutable. The GitHub Application that was installed to the GitHub user or\norganization.\nPossible values:\nGIT_HUB_APP_UNSPECIFIED\nDEVELOPER_CONNECT\nFIREBASE",
+                  "type": "string"
+                }
+              }
+            },
+            "githubEnterpriseConfig": {
+              "description": "Configuration for connections to an instance of GitHub Enterprise.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "appId": {
+                  "description": "Optional. ID of the GitHub App created from the manifest.",
+                  "type": "string"
+                },
+                "appInstallationId": {
+                  "description": "Optional. ID of the installation of the GitHub App.",
+                  "type": "string"
+                },
+                "hostUri": {
+                  "description": "Required. The URI of the GitHub Enterprise host this connection is for.",
+                  "type": "string"
+                },
+                "privateKeySecretVersion": {
+                  "description": "Optional. SecretManager resource containing the private key of the GitHub App,\nformatted as projects/*/secrets/*/versions/*.",
+                  "type": "string"
+                },
+                "privateKeySecretVersionRef": {
+                  "description": "Reference to a SecretVersion in secretmanager to populate privateKeySecretVersion.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "privateKeySecretVersionSelector": {
+                  "description": "Selector for a SecretVersion in secretmanager to populate privateKeySecretVersion.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "Required. The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "Optional. SSL certificate to use for requests to GitHub Enterprise.",
+                  "type": "string"
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Optional. SecretManager resource containing the webhook secret of the GitHub App,\nformatted as projects/*/secrets/*/versions/*.",
+                  "type": "string"
+                },
+                "webhookSecretSecretVersionRef": {
+                  "description": "Reference to a SecretVersion in secretmanager to populate webhookSecretSecretVersion.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "webhookSecretSecretVersionSelector": {
+                  "description": "Selector for a SecretVersion in secretmanager to populate webhookSecretSecretVersion.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "gitlabConfig": {
+              "description": "Configuration for connections to gitlab.com.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "readAuthorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Required. Immutable. SecretManager resource containing the webhook secret of a GitLab project,\nformatted as projects/*/secrets/*/versions/*. This is used to validate\nwebhooks.",
+                  "type": "string"
+                }
+              }
+            },
+            "gitlabEnterpriseConfig": {
+              "description": "Configuration for connections to an instance of GitLab Enterprise.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "hostUri": {
+                  "description": "Required. The URI of the GitLab Enterprise host this connection is for.",
+                  "type": "string"
+                },
+                "readAuthorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "Required. The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "Optional. SSL Certificate Authority certificate to use for requests to GitLab\nEnterprise instance.",
+                  "type": "string"
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Required. Immutable. SecretManager resource containing the webhook secret of a GitLab project,\nformatted as projects/*/secrets/*/versions/*. This is used to validate\nwebhooks.",
+                  "type": "string"
+                }
+              }
+            },
+            "labels": {
+              "description": "Optional. Labels as key value pairs\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            }
+          }
+        },
+        "managementPolicies": {
+          "description": "THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md",
+          "type": "array",
+          "default": [
+            "*"
+          ],
+          "items": {
+            "description": "A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.",
+            "type": "string",
+            "enum": [
+              "Observe",
+              "Create",
+              "Update",
+              "Delete",
+              "LateInitialize",
+              "*"
+            ]
+          }
+        },
+        "providerConfigRef": {
+          "description": "ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.",
+          "type": "object",
+          "default": {
+            "kind": "ClusterProviderConfig",
+            "name": "default"
+          },
+          "required": [
+            "kind",
+            "name"
+          ],
+          "properties": {
+            "kind": {
+              "description": "Kind of the referenced object.",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referenced object.",
+              "type": "string"
+            }
+          }
+        },
+        "writeConnectionSecretToRef": {
+          "description": "WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.",
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the secret.",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "description": "ConnectConnectionStatus defines the observed state of ConnectConnection.",
+      "type": "object",
+      "properties": {
+        "atProvider": {
+          "type": "object",
+          "properties": {
+            "annotations": {
+              "description": "Optional. Allows clients to store small amounts of arbitrary data.\nNote: This field is non-authoritative, and will only manage the annotations present in your configuration.\nPlease refer to the field effective_annotations for all of the annotations present on the resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "bitbucketCloudConfig": {
+              "description": "Configuration for connections to an instance of Bitbucket Cloud.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "(Output)\nOutput only. The username associated with this token.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "readAuthorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "(Output)\nOutput only. The username associated with this token.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook\nevents, formatted as projects/*/secrets/*/versions/*. This is used to\nvalidate and create webhooks.",
+                  "type": "string"
+                },
+                "workspace": {
+                  "description": "Required. The Bitbucket Cloud Workspace ID to be connected to Google Cloud Platform.",
+                  "type": "string"
+                }
+              }
+            },
+            "bitbucketDataCenterConfig": {
+              "description": "Configuration for connections to an instance of Bitbucket Data Center.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "(Output)\nOutput only. The username associated with this token.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "hostUri": {
+                  "description": "Required. The URI of the Bitbucket Data Center host this connection is for.",
+                  "type": "string"
+                },
+                "readAuthorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "(Output)\nOutput only. The username associated with this token.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "serverVersion": {
+                  "description": "(Output)\nOutput only. Version of the Bitbucket Data Center server running on the host_uri.",
+                  "type": "string"
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "Required. The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "Optional. SSL certificate authority to trust when making requests to Bitbucket Data\nCenter.",
+                  "type": "string"
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook\nevents, formatted as projects/*/secrets/*/versions/*. This is used to\nvalidate webhooks.",
+                  "type": "string"
+                }
+              }
+            },
+            "createTime": {
+              "description": "Output only. [Output only] Create timestamp",
+              "type": "string"
+            },
+            "cryptoKeyConfig": {
+              "description": "The crypto key configuration. This field is used by the Customer-managed\nencryption keys (CMEK) feature.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "keyReference": {
+                  "description": "Required. The name of the key which is used to encrypt/decrypt customer data. For key\nin Cloud KMS, the key should be in the format of\nprojects/*/locations/*/keyRings/*/cryptoKeys/*.",
+                  "type": "string"
+                }
+              }
+            },
+            "deleteTime": {
+              "description": "Output only. [Output only] Delete timestamp",
+              "type": "string"
+            },
+            "disabled": {
+              "description": "Optional. If disabled is set to true, functionality is disabled for this connection.\nRepository based API methods and webhooks processing for repositories in\nthis connection will be disabled.",
+              "type": "boolean"
+            },
+            "effectiveAnnotations": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "effectiveLabels": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "etag": {
+              "description": "Optional. This checksum is computed by the server based on the value of other\nfields, and may be sent on update and delete requests to ensure the\nclient has an up-to-date value before proceeding.",
+              "type": "string"
+            },
+            "githubConfig": {
+              "description": "Configuration for connections to github.com.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "appInstallationId": {
+                  "description": "Optional. GitHub App installation id.",
+                  "type": "string"
+                },
+                "authorizerCredential": {
+                  "description": "Represents an OAuth token of the account that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "oauthTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the OAuth token that authorizes\nthe connection. Format: projects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "(Output)\nOutput only. The username associated with this token.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "githubApp": {
+                  "description": "Required. Immutable. The GitHub Application that was installed to the GitHub user or\norganization.\nPossible values:\nGIT_HUB_APP_UNSPECIFIED\nDEVELOPER_CONNECT\nFIREBASE",
+                  "type": "string"
+                },
+                "installationUri": {
+                  "description": "(Output)\nOutput only. The URI to navigate to in order to manage the installation associated\nwith this GitHubConfig.",
+                  "type": "string"
+                }
+              }
+            },
+            "githubEnterpriseConfig": {
+              "description": "Configuration for connections to an instance of GitHub Enterprise.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "appId": {
+                  "description": "Optional. ID of the GitHub App created from the manifest.",
+                  "type": "string"
+                },
+                "appInstallationId": {
+                  "description": "Optional. ID of the installation of the GitHub App.",
+                  "type": "string"
+                },
+                "appSlug": {
+                  "description": "(Output)\nOutput only. The URL-friendly name of the GitHub App.",
+                  "type": "string"
+                },
+                "hostUri": {
+                  "description": "Required. The URI of the GitHub Enterprise host this connection is for.",
+                  "type": "string"
+                },
+                "installationUri": {
+                  "description": "(Output)\nOutput only. The URI to navigate to in order to manage the installation associated\nwith this GitHubEnterpriseConfig.",
+                  "type": "string"
+                },
+                "privateKeySecretVersion": {
+                  "description": "Optional. SecretManager resource containing the private key of the GitHub App,\nformatted as projects/*/secrets/*/versions/*.",
+                  "type": "string"
+                },
+                "serverVersion": {
+                  "description": "(Output)\nOutput only. GitHub Enterprise version installed at the host_uri.",
+                  "type": "string"
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "Required. The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "Optional. SSL certificate to use for requests to GitHub Enterprise.",
+                  "type": "string"
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Optional. SecretManager resource containing the webhook secret of the GitHub App,\nformatted as projects/*/secrets/*/versions/*.",
+                  "type": "string"
+                }
+              }
+            },
+            "gitlabConfig": {
+              "description": "Configuration for connections to gitlab.com.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "(Output)\nOutput only. The username associated with this token.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "readAuthorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "(Output)\nOutput only. The username associated with this token.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Required. Immutable. SecretManager resource containing the webhook secret of a GitLab project,\nformatted as projects/*/secrets/*/versions/*. This is used to validate\nwebhooks.",
+                  "type": "string"
+                }
+              }
+            },
+            "gitlabEnterpriseConfig": {
+              "description": "Configuration for connections to an instance of GitLab Enterprise.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "(Output)\nOutput only. The username associated with this token.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "hostUri": {
+                  "description": "Required. The URI of the GitLab Enterprise host this connection is for.",
+                  "type": "string"
+                },
+                "readAuthorizerCredential": {
+                  "description": "Represents a personal access token that authorized the Connection,\nand associated metadata.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "userTokenSecretVersion": {
+                      "description": "Required. A SecretManager resource containing the user token that authorizes\nthe Developer Connect connection. Format:\nprojects/*/secrets/*/versions/*.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "(Output)\nOutput only. The username associated with this token.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "serverVersion": {
+                  "description": "(Output)\nOutput only. Version of the GitLab Enterprise server running on the host_uri.",
+                  "type": "string"
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "Required. The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "Optional. SSL Certificate Authority certificate to use for requests to GitLab\nEnterprise instance.",
+                  "type": "string"
+                },
+                "webhookSecretSecretVersion": {
+                  "description": "Required. Immutable. SecretManager resource containing the webhook secret of a GitLab project,\nformatted as projects/*/secrets/*/versions/*. This is used to validate\nwebhooks.",
+                  "type": "string"
+                }
+              }
+            },
+            "id": {
+              "description": "an identifier for the resource with format projects/{{project}}/locations/{{location}}/connections/{{connection_id}}",
+              "type": "string"
+            },
+            "installationState": {
+              "description": "Describes stage and necessary actions to be taken by the\nuser to complete the installation. Used for GitHub and GitHub Enterprise\nbased connections.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "actionUri": {
+                    "description": "Output only. Link to follow for next action. Empty string if the installation is already\ncomplete.",
+                    "type": "string"
+                  },
+                  "message": {
+                    "description": "Output only. Message of what the user should do next to continue the installation.\nEmpty string if the installation is already complete.",
+                    "type": "string"
+                  },
+                  "stage": {
+                    "description": "(Output)\nOutput only. Current step of the installation process.\nPossible values:\nSTAGE_UNSPECIFIED\nPENDING_CREATE_APP\nPENDING_USER_OAUTH\nPENDING_INSTALL_APP\nCOMPLETE",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "labels": {
+              "description": "Optional. Labels as key value pairs\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "location": {
+              "description": "Resource ID segment making up resource name. It identifies the resource within its parent collection as described in https://google.aip.dev/122.",
+              "type": "string"
+            },
+            "name": {
+              "description": "Identifier. The resource name of the connection, in the format\nprojects/{project}/locations/{location}/connections/{connection_id}.",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            },
+            "reconciling": {
+              "description": "Output only. Set to true when the connection is being set up or updated in the\nbackground.",
+              "type": "boolean"
+            },
+            "terraformLabels": {
+              "description": "The combination of labels configured directly on the resource\nand default labels configured on the provider.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "uid": {
+              "description": "Output only. A system-assigned unique identifier for a the GitRepositoryLink.",
+              "type": "string"
+            },
+            "updateTime": {
+              "description": "Output only. [Output only] Update timestamp",
+              "type": "string"
+            }
+          }
+        },
+        "conditions": {
+          "description": "Conditions of the resource.",
+          "type": "array",
+          "items": {
+            "description": "A Condition that may apply to a resource.",
+            "type": "object",
+            "required": [
+              "lastTransitionTime",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time this condition transitioned from one\nstatus to another.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "A Message containing details about this condition's last transition from\none status to another, if any.",
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "ObservedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "type": "integer",
+                "format": "int64"
+              },
+              "reason": {
+                "description": "A Reason for this condition's last transition from one status to another.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of this condition; is it currently True, False, or Unknown?",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of this condition. At most one of each condition type may apply to\na resource at any point in time.",
+                "type": "string"
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

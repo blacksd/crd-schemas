@@ -1,0 +1,24 @@
+{
+  "schema": "analyticshubdataexchangeiammember.json",
+  "crd": {
+    "group": "bigquery.gcp.upbound.io",
+    "kind": "AnalyticsHubDataExchangeIAMMember",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "282251ea9ebe622af115a7332d7beae1c2792df1eab69e196bb3b8bba32f85bb"
+  }
+}

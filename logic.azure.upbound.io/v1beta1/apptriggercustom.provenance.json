@@ -1,0 +1,24 @@
+{
+  "schema": "apptriggercustom.json",
+  "crd": {
+    "group": "logic.azure.upbound.io",
+    "kind": "AppTriggerCustom",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "32c5660b67572354d3317b60dae43078d280665ddd3d2036b0c0a8c14462b96e"
+  }
+}

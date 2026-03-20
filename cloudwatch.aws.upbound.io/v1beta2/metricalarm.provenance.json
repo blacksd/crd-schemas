@@ -1,0 +1,24 @@
+{
+  "schema": "metricalarm.json",
+  "crd": {
+    "group": "cloudwatch.aws.upbound.io",
+    "kind": "MetricAlarm",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "fb07af0d4470b5b086d801bbce026750fa4e25690b86b2ee906b3d0982a9545e"
+  }
+}

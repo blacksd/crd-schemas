@@ -1,0 +1,24 @@
+{
+  "schema": "sqlcontainer.json",
+  "crd": {
+    "group": "cosmosdb.azure.m.upbound.io",
+    "kind": "SQLContainer",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "945b8c93a4d8df95b5bb697b0dbb0e4aac277d35c3729c1b7ea1c35c3b24b1a5"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "managementgroupsubscriptionassociation.json",
+  "crd": {
+    "group": "management.azure.m.upbound.io",
+    "kind": "ManagementGroupSubscriptionAssociation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "56f4ec0ac756f7c9155d540aca220416789a9c1167e16de37ae1ae90deacbd3c"
+  }
+}

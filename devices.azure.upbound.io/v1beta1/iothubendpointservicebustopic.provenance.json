@@ -1,0 +1,24 @@
+{
+  "schema": "iothubendpointservicebustopic.json",
+  "crd": {
+    "group": "devices.azure.upbound.io",
+    "kind": "IOTHubEndpointServiceBusTopic",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ad670c764c2d8f1fb44a05f17f8d0446161e491d177b4b2569a055de7475ce43"
+  }
+}

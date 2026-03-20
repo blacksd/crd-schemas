@@ -1,0 +1,24 @@
+{
+  "schema": "identityprovidertwitter.json",
+  "crd": {
+    "group": "apimanagement.azure.m.upbound.io",
+    "kind": "IdentityProviderTwitter",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ca648d6033087f04b2f1a7dc99b65f109a59f47c53b8aa9129fd736889a27f8a"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "sshpublickey.json",
+  "crd": {
+    "group": "oslogin.gcp.m.upbound.io",
+    "kind": "SSHPublicKey",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7153a5019a2166b1b5a6f55aae9e95ce7a16e445e92d088f48962b0d786aaeab"
+  }
+}

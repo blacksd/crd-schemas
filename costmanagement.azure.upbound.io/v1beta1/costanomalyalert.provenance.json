@@ -1,0 +1,24 @@
+{
+  "schema": "costanomalyalert.json",
+  "crd": {
+    "group": "costmanagement.azure.upbound.io",
+    "kind": "CostAnomalyAlert",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0c328e9e04376c87bdfead2825b48d24e8f3ad7498ba607f4f85b93fec6fd243"
+  }
+}

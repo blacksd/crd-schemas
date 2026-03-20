@@ -1,0 +1,24 @@
+{
+  "schema": "datasetiambinding.json",
+  "crd": {
+    "group": "bigquery.gcp.m.upbound.io",
+    "kind": "DatasetIAMBinding",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6a625fdff9c47f2be490da98a7212c06b9ff5069e3e2740a84734681d49fb474"
+  }
+}

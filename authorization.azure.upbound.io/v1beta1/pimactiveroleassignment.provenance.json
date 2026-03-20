@@ -1,0 +1,24 @@
+{
+  "schema": "pimactiveroleassignment.json",
+  "crd": {
+    "group": "authorization.azure.upbound.io",
+    "kind": "PimActiveRoleAssignment",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5c9cb1e78ef06bcee64ebc16b15590e10984c0306008daafbbb46685c44a0b4a"
+  }
+}

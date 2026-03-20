@@ -1,0 +1,24 @@
+{
+  "schema": "mongocluster.json",
+  "crd": {
+    "group": "cosmosdb.azure.m.upbound.io",
+    "kind": "MongoCluster",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a44f1bdc1701bff8d0eb8d7418f12fbda46a3cf99e456897588f71b56d3a2d4f"
+  }
+}

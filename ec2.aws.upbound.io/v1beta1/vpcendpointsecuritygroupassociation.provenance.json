@@ -1,0 +1,24 @@
+{
+  "schema": "vpcendpointsecuritygroupassociation.json",
+  "crd": {
+    "group": "ec2.aws.upbound.io",
+    "kind": "VPCEndpointSecurityGroupAssociation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "648b00d59b59b6f54277d09e5bf834c67b3929fa59ba1ba9ad8f5df5a240c931"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "firewall.json",
+  "crd": {
+    "group": "network.azure.upbound.io",
+    "kind": "Firewall",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "256b8f3c943f754de46805b098de409fe48e9978c1a4290b4616209dc4138d11"
+  }
+}

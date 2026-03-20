@@ -1,0 +1,24 @@
+{
+  "schema": "quickconnect.json",
+  "crd": {
+    "group": "connect.aws.upbound.io",
+    "kind": "QuickConnect",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "964c94833ec048ead55fd156b6544a5f3ce9632feae36705c7fe1b4d97c19fa3"
+  }
+}

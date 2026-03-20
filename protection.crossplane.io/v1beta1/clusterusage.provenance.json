@@ -1,0 +1,24 @@
+{
+  "schema": "clusterusage.json",
+  "crd": {
+    "group": "protection.crossplane.io",
+    "kind": "ClusterUsage",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "crossplane",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane/crossplane",
+    "path": "cluster/crds",
+    "version": "v2.2.0",
+    "license": "Apache-2.0",
+    "homepage": "https://crossplane.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "519f1cc13416456cc8731b19e41bc182fef13ca9f011d5142f3850100bc0aea2"
+  }
+}

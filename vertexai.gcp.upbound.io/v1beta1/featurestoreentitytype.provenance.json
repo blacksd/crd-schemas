@@ -1,0 +1,24 @@
+{
+  "schema": "featurestoreentitytype.json",
+  "crd": {
+    "group": "vertexai.gcp.upbound.io",
+    "kind": "FeaturestoreEntitytype",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "3e051e66bd9fc1097f80160f90b6af0bd2261eb8736981851bc1caf988b4a70e"
+  }
+}

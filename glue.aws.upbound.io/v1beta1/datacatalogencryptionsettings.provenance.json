@@ -1,0 +1,24 @@
+{
+  "schema": "datacatalogencryptionsettings.json",
+  "crd": {
+    "group": "glue.aws.upbound.io",
+    "kind": "DataCatalogEncryptionSettings",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b86d33c32872e5fddc2fc18e3432257b88a3da8cdfe85943c0a0422c0f2eaa0e"
+  }
+}

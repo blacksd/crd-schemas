@@ -1,0 +1,24 @@
+{
+  "schema": "virtualhubroutetable.json",
+  "crd": {
+    "group": "network.azure.upbound.io",
+    "kind": "VirtualHubRouteTable",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1aed50b64b8a8dfc8fc426072c7ad6d16c7a642cf6733b503c32e189918aa3d3"
+  }
+}

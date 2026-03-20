@@ -1,0 +1,24 @@
+{
+  "schema": "frontdoorfirewallpolicy.json",
+  "crd": {
+    "group": "cdn.azure.m.upbound.io",
+    "kind": "FrontdoorFirewallPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "476e45636b3d87f8725d9dfdcd98d67fe34e8e71f02655348e3401478c463f86"
+  }
+}

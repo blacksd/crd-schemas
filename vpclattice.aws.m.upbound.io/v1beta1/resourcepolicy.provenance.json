@@ -1,0 +1,24 @@
+{
+  "schema": "resourcepolicy.json",
+  "crd": {
+    "group": "vpclattice.aws.m.upbound.io",
+    "kind": "ResourcePolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2d6e4b015256b4852c6088f8c82ee501894fb66d574e8e4cc38edefc54c30297"
+  }
+}

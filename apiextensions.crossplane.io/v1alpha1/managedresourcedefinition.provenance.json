@@ -1,0 +1,24 @@
+{
+  "schema": "managedresourcedefinition.json",
+  "crd": {
+    "group": "apiextensions.crossplane.io",
+    "kind": "ManagedResourceDefinition",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "crossplane",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane/crossplane",
+    "path": "cluster/crds",
+    "version": "v2.2.0",
+    "license": "Apache-2.0",
+    "homepage": "https://crossplane.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4653dc441d138c709e903fbe2f0942338c7977b82c4abb451fc75273ad2de4ab"
+  }
+}

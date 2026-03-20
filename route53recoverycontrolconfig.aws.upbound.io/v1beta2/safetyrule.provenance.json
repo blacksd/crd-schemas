@@ -1,0 +1,24 @@
+{
+  "schema": "safetyrule.json",
+  "crd": {
+    "group": "route53recoverycontrolconfig.aws.upbound.io",
+    "kind": "SafetyRule",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "87e4f81480b20e5728da057ee1c397e6e0b11fe119a0d44510bbb770b7fcb744"
+  }
+}

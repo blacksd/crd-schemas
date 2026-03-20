@@ -1,0 +1,24 @@
+{
+  "schema": "containerrecipe.json",
+  "crd": {
+    "group": "imagebuilder.aws.m.upbound.io",
+    "kind": "ContainerRecipe",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1a287a99dd21ea6290f8985b9253a78edb0e7e2362d78e7b91e4a6e2f6b4d61e"
+  }
+}

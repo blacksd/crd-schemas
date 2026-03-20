@@ -1,0 +1,24 @@
+{
+  "schema": "webhook.json",
+  "crd": {
+    "group": "dialogflowcx.gcp.upbound.io",
+    "kind": "Webhook",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "29f7255f953dd2173a60a312125e7b23ccb3a60878eb42a7a2ca02c4b022f96e"
+  }
+}

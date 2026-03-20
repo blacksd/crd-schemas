@@ -1,0 +1,24 @@
+{
+  "schema": "signingprofile.json",
+  "crd": {
+    "group": "signer.aws.upbound.io",
+    "kind": "SigningProfile",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b615f468ce8744cfbf70e5856af92d0c8988f3e724d127a46ecc4649eea90c01"
+  }
+}

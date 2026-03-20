@@ -1,0 +1,24 @@
+{
+  "schema": "vpcendpointconnectionnotification.json",
+  "crd": {
+    "group": "ec2.aws.upbound.io",
+    "kind": "VPCEndpointConnectionNotification",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5d6709e3802959303e5ecd15740e58a1da85c5f13e17334244859eb67611ade6"
+  }
+}

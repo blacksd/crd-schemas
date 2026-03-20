@@ -1,0 +1,24 @@
+{
+  "schema": "patchdeployment.json",
+  "crd": {
+    "group": "osconfig.gcp.upbound.io",
+    "kind": "PatchDeployment",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0f6b7efb8b925e03b7c4fdc1d84039b410bed27df65be7867c3ed323a2254d7a"
+  }
+}

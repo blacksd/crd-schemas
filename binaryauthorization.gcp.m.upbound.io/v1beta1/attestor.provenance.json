@@ -1,0 +1,24 @@
+{
+  "schema": "attestor.json",
+  "crd": {
+    "group": "binaryauthorization.gcp.m.upbound.io",
+    "kind": "Attestor",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bfab1f47b48b10fa4edde3a5f2d77af6d3dd88a1738c83419e055117f225d17e"
+  }
+}

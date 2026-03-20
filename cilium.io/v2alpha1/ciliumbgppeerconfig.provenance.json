@@ -1,0 +1,24 @@
+{
+  "schema": "ciliumbgppeerconfig.json",
+  "crd": {
+    "group": "cilium.io",
+    "kind": "CiliumBGPPeerConfig",
+    "apiVersion": "v2alpha1"
+  },
+  "source": {
+    "name": "cilium",
+    "type": "git+github",
+    "repo": "https://github.com/cilium/cilium",
+    "path": "pkg/k8s/apis/cilium.io/client/crds",
+    "version": "v1.19.1",
+    "license": "Apache-2.0",
+    "homepage": "https://cilium.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0fa5261742739f6757f13a190ebd1244dbd4da4b7b35c9bb2db31d2e8c4f5886"
+  }
+}

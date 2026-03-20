@@ -1,0 +1,24 @@
+{
+  "schema": "environmentiammember.json",
+  "crd": {
+    "group": "apigee.gcp.m.upbound.io",
+    "kind": "EnvironmentIAMMember",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ccde9d7d22506c416b98187b8e16f5714da62bf4dc9621f959cae9556cdc9241"
+  }
+}

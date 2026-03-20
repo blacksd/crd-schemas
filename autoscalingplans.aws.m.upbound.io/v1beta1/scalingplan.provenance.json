@@ -1,0 +1,24 @@
+{
+  "schema": "scalingplan.json",
+  "crd": {
+    "group": "autoscalingplans.aws.m.upbound.io",
+    "kind": "ScalingPlan",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1b129ec0b065a4ca2914f2a1240077a8c3a2e59b21974dddb0ec4ac1be14af9b"
+  }
+}

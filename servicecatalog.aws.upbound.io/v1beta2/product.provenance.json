@@ -1,0 +1,24 @@
+{
+  "schema": "product.json",
+  "crd": {
+    "group": "servicecatalog.aws.upbound.io",
+    "kind": "Product",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f5bb6e4ee0de83179ec6db8139ae2876f68ac0ea7798f028f18cf81f0e62f8ce"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "functioneventinvokeconfig.json",
+  "crd": {
+    "group": "lambda.aws.upbound.io",
+    "kind": "FunctionEventInvokeConfig",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1bd247b106dc68193ea9b7de96667fa520ae8f71183e5d5ac4d8aea497679413"
+  }
+}

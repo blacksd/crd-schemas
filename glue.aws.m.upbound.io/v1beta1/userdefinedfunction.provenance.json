@@ -1,0 +1,24 @@
+{
+  "schema": "userdefinedfunction.json",
+  "crd": {
+    "group": "glue.aws.m.upbound.io",
+    "kind": "UserDefinedFunction",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "166bbfeb18d5d39a36c961eea2514b7f2a867fdd2ea2817aedb80fc7b99d6647"
+  }
+}

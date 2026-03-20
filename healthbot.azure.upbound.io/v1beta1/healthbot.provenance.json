@@ -1,0 +1,24 @@
+{
+  "schema": "healthbot.json",
+  "crd": {
+    "group": "healthbot.azure.upbound.io",
+    "kind": "HealthBot",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a4bb8b49b1a579891ee09aa8dd7eb47a6513c4e339af957099633b9545392922"
+  }
+}

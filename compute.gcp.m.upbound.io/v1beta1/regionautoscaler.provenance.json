@@ -1,0 +1,24 @@
+{
+  "schema": "regionautoscaler.json",
+  "crd": {
+    "group": "compute.gcp.m.upbound.io",
+    "kind": "RegionAutoscaler",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d85023afa35b962c3ff73b8f5d56e0adaf3f326b1add2f1b06a0306a36262f9c"
+  }
+}

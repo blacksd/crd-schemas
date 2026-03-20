@@ -1,0 +1,24 @@
+{
+  "schema": "vpcconnector.json",
+  "crd": {
+    "group": "apprunner.aws.m.upbound.io",
+    "kind": "VPCConnector",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e9f4d444766c18baa348bfa29b3608f2a2c822d5bd88f4d4f6bd55b6738e602a"
+  }
+}

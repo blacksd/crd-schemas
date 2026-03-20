@@ -1,0 +1,24 @@
+{
+  "schema": "streaminputiothub.json",
+  "crd": {
+    "group": "streamanalytics.azure.upbound.io",
+    "kind": "StreamInputIOTHub",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "44a5dde8cf273dee76fd139bb87d486d0aa3b0adc6891a41c9afc61f9afb123d"
+  }
+}

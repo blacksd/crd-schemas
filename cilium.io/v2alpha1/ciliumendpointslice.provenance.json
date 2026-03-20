@@ -1,0 +1,24 @@
+{
+  "schema": "ciliumendpointslice.json",
+  "crd": {
+    "group": "cilium.io",
+    "kind": "CiliumEndpointSlice",
+    "apiVersion": "v2alpha1"
+  },
+  "source": {
+    "name": "cilium",
+    "type": "git+github",
+    "repo": "https://github.com/cilium/cilium",
+    "path": "pkg/k8s/apis/cilium.io/client/crds",
+    "version": "v1.19.1",
+    "license": "Apache-2.0",
+    "homepage": "https://cilium.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2028ae037ba42c57fe1c366a1c98610e0b6de8b0fd49454cbdfd3907d81c3ff9"
+  }
+}

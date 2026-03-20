@@ -1,0 +1,24 @@
+{
+  "schema": "environmentconfig.json",
+  "crd": {
+    "group": "apiextensions.crossplane.io",
+    "kind": "EnvironmentConfig",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "crossplane",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane/crossplane",
+    "path": "cluster/crds",
+    "version": "v2.2.0",
+    "license": "Apache-2.0",
+    "homepage": "https://crossplane.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e58f0f96adde92df407a1760e8d8d2f414468197eca9abfe776c0e8f9a48120c"
+  }
+}

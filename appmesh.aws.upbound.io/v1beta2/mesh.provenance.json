@@ -1,0 +1,24 @@
+{
+  "schema": "mesh.json",
+  "crd": {
+    "group": "appmesh.aws.upbound.io",
+    "kind": "Mesh",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2e5f2562bb010bb74af952c820a4d1a403f7d139bb971e3e09c140b95f9fb5fe"
+  }
+}

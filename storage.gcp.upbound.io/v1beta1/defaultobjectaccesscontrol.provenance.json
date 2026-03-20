@@ -1,0 +1,24 @@
+{
+  "schema": "defaultobjectaccesscontrol.json",
+  "crd": {
+    "group": "storage.gcp.upbound.io",
+    "kind": "DefaultObjectAccessControl",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "abffc8d2fd6237171c4f803b16dd1206337f6abc9c3453b17016bfded2d8bfa5"
+  }
+}

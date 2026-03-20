@@ -1,0 +1,24 @@
+{
+  "schema": "application.json",
+  "crd": {
+    "group": "iotcentral.azure.upbound.io",
+    "kind": "Application",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "fef05cb8dec60663ecb848de1ada34fc83ddd75b4307f0900b9ba8e2f3acfaa3"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "membership.json",
+  "crd": {
+    "group": "gkehub.gcp.upbound.io",
+    "kind": "Membership",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0808f19e8480c59ba40c1fb60d8d33d96a2fe62b6b383d952a5498bb13c47f43"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "windowsvirtualmachinescaleset.json",
+  "crd": {
+    "group": "compute.azure.upbound.io",
+    "kind": "WindowsVirtualMachineScaleSet",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d8f2e9d164b6ebf94c51421ee3622d961530ed6b267a2ca2d5f4c1801a2057b2"
+  }
+}

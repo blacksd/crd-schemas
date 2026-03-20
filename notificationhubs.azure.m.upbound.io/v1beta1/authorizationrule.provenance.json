@@ -1,0 +1,24 @@
+{
+  "schema": "authorizationrule.json",
+  "crd": {
+    "group": "notificationhubs.azure.m.upbound.io",
+    "kind": "AuthorizationRule",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d36c467a2365df864244b2b2d6e8139da3c5e1fd33a1e0641d23e00551d15359"
+  }
+}

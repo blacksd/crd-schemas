@@ -1,0 +1,24 @@
+{
+  "schema": "ciliumpodippool.json",
+  "crd": {
+    "group": "cilium.io",
+    "kind": "CiliumPodIPPool",
+    "apiVersion": "v2alpha1"
+  },
+  "source": {
+    "name": "cilium",
+    "type": "git+github",
+    "repo": "https://github.com/cilium/cilium",
+    "path": "pkg/k8s/apis/cilium.io/client/crds",
+    "version": "v1.19.1",
+    "license": "Apache-2.0",
+    "homepage": "https://cilium.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b4f1df695859d6c1ce14d2e2ca6227b50762aa9d202c7e0ca89d98eb865a9197"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "rediscacheaccesspolicyassignment.json",
+  "crd": {
+    "group": "cache.azure.upbound.io",
+    "kind": "RedisCacheAccessPolicyAssignment",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "fe6238a76fcb4fe6565d12b9a4a883027dd0fb747f16b29697d7381c6ae3dee3"
+  }
+}

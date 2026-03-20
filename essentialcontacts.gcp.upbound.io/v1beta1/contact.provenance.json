@@ -1,0 +1,24 @@
+{
+  "schema": "contact.json",
+  "crd": {
+    "group": "essentialcontacts.gcp.upbound.io",
+    "kind": "Contact",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bb7c2545c39e4f30c2679bf0379918ec5067885cd0139ac4cfad857058194b05"
+  }
+}

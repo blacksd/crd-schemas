@@ -1,0 +1,24 @@
+{
+  "schema": "cryptokeyiammember.json",
+  "crd": {
+    "group": "kms.gcp.upbound.io",
+    "kind": "CryptoKeyIAMMember",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1b74717c8f6980e76a42802003ca07d960b3c659ffd94281825b0d72416ded0d"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "service.json",
+  "crd": {
+    "group": "cloudrun.gcp.upbound.io",
+    "kind": "Service",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "69f9aafe623fe7e6b2c30ca85dae8036753f2d8f70b5dba4186116f66249254f"
+  }
+}

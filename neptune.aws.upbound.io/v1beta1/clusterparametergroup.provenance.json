@@ -1,0 +1,24 @@
+{
+  "schema": "clusterparametergroup.json",
+  "crd": {
+    "group": "neptune.aws.upbound.io",
+    "kind": "ClusterParameterGroup",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "dfb72309cdc5286127af845d3f25d478a06983f53d9db4ba9ddf80f4e8bc6dfd"
+  }
+}

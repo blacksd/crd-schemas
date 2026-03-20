@@ -1,0 +1,24 @@
+{
+  "schema": "iothubdpssharedaccesspolicy.json",
+  "crd": {
+    "group": "devices.azure.upbound.io",
+    "kind": "IOTHubDPSSharedAccessPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "36667023a29de1b7775fb1175ab055d8d00140ec59b29ed986157d80dde32f23"
+  }
+}

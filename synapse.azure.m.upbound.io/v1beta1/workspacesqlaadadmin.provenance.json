@@ -1,0 +1,24 @@
+{
+  "schema": "workspacesqlaadadmin.json",
+  "crd": {
+    "group": "synapse.azure.m.upbound.io",
+    "kind": "WorkspaceSQLAADAdmin",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a42dd6cddcde06f1ce34935871c8b04d70c043bb007eaadf31720ae19851539a"
+  }
+}

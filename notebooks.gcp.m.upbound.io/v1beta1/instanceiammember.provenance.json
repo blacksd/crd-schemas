@@ -1,0 +1,24 @@
+{
+  "schema": "instanceiammember.json",
+  "crd": {
+    "group": "notebooks.gcp.m.upbound.io",
+    "kind": "InstanceIAMMember",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "359f29df33b925cba0961b93c4e3e27ec10ff90455f4b90d753b83e048b367f0"
+  }
+}

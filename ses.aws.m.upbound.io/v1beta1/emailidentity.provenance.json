@@ -1,0 +1,24 @@
+{
+  "schema": "emailidentity.json",
+  "crd": {
+    "group": "ses.aws.m.upbound.io",
+    "kind": "EmailIdentity",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5e263a660c3b8678f74b5450c26b5a26d9e016fc6d97ade4a5cc7f530f071781"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "managedfolderiammember.json",
+  "crd": {
+    "group": "storage.gcp.upbound.io",
+    "kind": "ManagedFolderIAMMember",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "64c18af083f333a834f055810d0c24e779513909f5f93f93f0c6b988ed247471"
+  }
+}

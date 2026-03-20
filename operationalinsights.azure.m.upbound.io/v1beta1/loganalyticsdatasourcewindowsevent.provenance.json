@@ -1,0 +1,24 @@
+{
+  "schema": "loganalyticsdatasourcewindowsevent.json",
+  "crd": {
+    "group": "operationalinsights.azure.m.upbound.io",
+    "kind": "LogAnalyticsDataSourceWindowsEvent",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9001a64b091f278220e6512ed2d910ac395d6786f4b6b0f5acdc9da61d05cadc"
+  }
+}

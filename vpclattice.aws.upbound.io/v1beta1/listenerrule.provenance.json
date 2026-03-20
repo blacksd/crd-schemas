@@ -1,0 +1,24 @@
+{
+  "schema": "listenerrule.json",
+  "crd": {
+    "group": "vpclattice.aws.upbound.io",
+    "kind": "ListenerRule",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "49b20fdb558513c2c173c89bda797fbbff66c3c631ef96d935cf90eb758d4b40"
+  }
+}

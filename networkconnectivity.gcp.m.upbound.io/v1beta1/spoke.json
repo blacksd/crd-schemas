@@ -1,0 +1,2084 @@
+{
+  "description": "Spoke is the Schema for the Spokes API. The NetworkConnectivity Spoke resource",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "SpokeSpec defines the desired state of Spoke",
+      "type": "object",
+      "required": [
+        "forProvider"
+      ],
+      "properties": {
+        "forProvider": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "description": "An optional description of the spoke.",
+              "type": "string"
+            },
+            "group": {
+              "description": "The name of the group that this spoke is associated with.",
+              "type": "string"
+            },
+            "groupRef": {
+              "description": "Reference to a Group in networkconnectivity to populate group.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "groupSelector": {
+              "description": "Selector for a Group in networkconnectivity to populate group.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "hub": {
+              "description": "Immutable. The URI of the hub that this spoke is attached to.",
+              "type": "string"
+            },
+            "hubRef": {
+              "description": "Reference to a Hub in networkconnectivity to populate hub.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "hubSelector": {
+              "description": "Selector for a Hub in networkconnectivity to populate hub.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "labels": {
+              "description": "Optional labels in key:value format. For more information about labels, see Requirements for labels.\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "linkedInterconnectAttachments": {
+              "description": "A collection of VLAN attachment resources. These resources should be redundant attachments that all advertise the same prefixes to Google Cloud. Alternatively, in active/passive configurations, all attachments should be capable of advertising the same prefixes.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "includeImportRanges": {
+                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "siteToSiteDataTransfer": {
+                  "description": "A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.",
+                  "type": "boolean"
+                },
+                "uris": {
+                  "description": "The URIs of linked interconnect attachment resources",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "urisRefs": {
+                  "description": "References to InterconnectAttachment in compute to populate uris.",
+                  "type": "array",
+                  "items": {
+                    "description": "A NamespacedReference to a named object.",
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the referenced object.",
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "description": "Namespace of the referenced object",
+                        "type": "string"
+                      },
+                      "policy": {
+                        "description": "Policies for referencing.",
+                        "type": "object",
+                        "properties": {
+                          "resolution": {
+                            "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                            "type": "string",
+                            "default": "Required",
+                            "enum": [
+                              "Required",
+                              "Optional"
+                            ]
+                          },
+                          "resolve": {
+                            "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                            "type": "string",
+                            "enum": [
+                              "Always",
+                              "IfNotPresent"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "urisSelector": {
+                  "description": "Selector for a list of InterconnectAttachment in compute to populate uris.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "linkedProducerVpcNetwork": {
+              "description": "Producer VPC network that is associated with the spoke.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "excludeExportRanges": {
+                  "description": "IP ranges encompassing the subnets to be excluded from peering.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "IP ranges allowed to be included from peering.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "network": {
+                  "description": "The URI of the Service Consumer VPC that the Producer VPC is peered with.",
+                  "type": "string"
+                },
+                "networkRef": {
+                  "description": "Reference to a Network in compute to populate network.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "networkSelector": {
+                  "description": "Selector for a Network in compute to populate network.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "peering": {
+                  "description": "The name of the VPC peering between the Service Consumer VPC and the Producer VPC (defined in the Tenant project) which is added to the NCC hub. This peering must be in ACTIVE state.",
+                  "type": "string"
+                },
+                "peeringRef": {
+                  "description": "Reference to a Connection in servicenetworking to populate peering.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "peeringSelector": {
+                  "description": "Selector for a Connection in servicenetworking to populate peering.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "linkedRouterApplianceInstances": {
+              "description": "The URIs of linked Router appliance resources\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "includeImportRanges": {
+                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "instances": {
+                  "description": "The list of router appliance instances\nStructure is documented below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ipAddress": {
+                        "description": "The IP address on the VM to use for peering.",
+                        "type": "string"
+                      },
+                      "virtualMachine": {
+                        "description": "The URI of the virtual machine resource",
+                        "type": "string"
+                      },
+                      "virtualMachineRef": {
+                        "description": "Reference to a Instance in compute to populate virtualMachine.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "description": "Namespace of the referenced object",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "virtualMachineSelector": {
+                        "description": "Selector for a Instance in compute to populate virtualMachine.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "namespace": {
+                            "description": "Namespace for the selector",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "siteToSiteDataTransfer": {
+                  "description": "A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.",
+                  "type": "boolean"
+                }
+              }
+            },
+            "linkedVpcNetwork": {
+              "description": "VPC network that is associated with the spoke.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "excludeExportRanges": {
+                  "description": "IP ranges encompassing the subnets to be excluded from peering.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "IP ranges allowed to be included from peering.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "uri": {
+                  "description": "The URI of the VPC network resource.",
+                  "type": "string"
+                },
+                "uriRef": {
+                  "description": "Reference to a Network in compute to populate uri.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "uriSelector": {
+                  "description": "Selector for a Network in compute to populate uri.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "linkedVpnTunnels": {
+              "description": "The URIs of linked VPN tunnel resources\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "includeImportRanges": {
+                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "siteToSiteDataTransfer": {
+                  "description": "A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.",
+                  "type": "boolean"
+                },
+                "uris": {
+                  "description": "The URIs of linked VPN tunnel resources.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "urisRefs": {
+                  "description": "References to VPNTunnel in compute to populate uris.",
+                  "type": "array",
+                  "items": {
+                    "description": "A NamespacedReference to a named object.",
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the referenced object.",
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "description": "Namespace of the referenced object",
+                        "type": "string"
+                      },
+                      "policy": {
+                        "description": "Policies for referencing.",
+                        "type": "object",
+                        "properties": {
+                          "resolution": {
+                            "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                            "type": "string",
+                            "default": "Required",
+                            "enum": [
+                              "Required",
+                              "Optional"
+                            ]
+                          },
+                          "resolve": {
+                            "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                            "type": "string",
+                            "enum": [
+                              "Always",
+                              "IfNotPresent"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "urisSelector": {
+                  "description": "Selector for a list of VPNTunnel in compute to populate uris.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "location": {
+              "description": "The location for the resource",
+              "type": "string"
+            },
+            "name": {
+              "description": "Immutable. The name of the spoke. Spoke names must be unique.",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            }
+          }
+        },
+        "initProvider": {
+          "description": "THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.",
+          "type": "object",
+          "properties": {
+            "description": {
+              "description": "An optional description of the spoke.",
+              "type": "string"
+            },
+            "group": {
+              "description": "The name of the group that this spoke is associated with.",
+              "type": "string"
+            },
+            "groupRef": {
+              "description": "Reference to a Group in networkconnectivity to populate group.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "groupSelector": {
+              "description": "Selector for a Group in networkconnectivity to populate group.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "hub": {
+              "description": "Immutable. The URI of the hub that this spoke is attached to.",
+              "type": "string"
+            },
+            "hubRef": {
+              "description": "Reference to a Hub in networkconnectivity to populate hub.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "hubSelector": {
+              "description": "Selector for a Hub in networkconnectivity to populate hub.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "labels": {
+              "description": "Optional labels in key:value format. For more information about labels, see Requirements for labels.\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "linkedInterconnectAttachments": {
+              "description": "A collection of VLAN attachment resources. These resources should be redundant attachments that all advertise the same prefixes to Google Cloud. Alternatively, in active/passive configurations, all attachments should be capable of advertising the same prefixes.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "includeImportRanges": {
+                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "siteToSiteDataTransfer": {
+                  "description": "A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.",
+                  "type": "boolean"
+                },
+                "uris": {
+                  "description": "The URIs of linked interconnect attachment resources",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "urisRefs": {
+                  "description": "References to InterconnectAttachment in compute to populate uris.",
+                  "type": "array",
+                  "items": {
+                    "description": "A NamespacedReference to a named object.",
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the referenced object.",
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "description": "Namespace of the referenced object",
+                        "type": "string"
+                      },
+                      "policy": {
+                        "description": "Policies for referencing.",
+                        "type": "object",
+                        "properties": {
+                          "resolution": {
+                            "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                            "type": "string",
+                            "default": "Required",
+                            "enum": [
+                              "Required",
+                              "Optional"
+                            ]
+                          },
+                          "resolve": {
+                            "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                            "type": "string",
+                            "enum": [
+                              "Always",
+                              "IfNotPresent"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "urisSelector": {
+                  "description": "Selector for a list of InterconnectAttachment in compute to populate uris.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "linkedProducerVpcNetwork": {
+              "description": "Producer VPC network that is associated with the spoke.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "excludeExportRanges": {
+                  "description": "IP ranges encompassing the subnets to be excluded from peering.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "IP ranges allowed to be included from peering.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "network": {
+                  "description": "The URI of the Service Consumer VPC that the Producer VPC is peered with.",
+                  "type": "string"
+                },
+                "networkRef": {
+                  "description": "Reference to a Network in compute to populate network.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "networkSelector": {
+                  "description": "Selector for a Network in compute to populate network.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "peering": {
+                  "description": "The name of the VPC peering between the Service Consumer VPC and the Producer VPC (defined in the Tenant project) which is added to the NCC hub. This peering must be in ACTIVE state.",
+                  "type": "string"
+                },
+                "peeringRef": {
+                  "description": "Reference to a Connection in servicenetworking to populate peering.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "peeringSelector": {
+                  "description": "Selector for a Connection in servicenetworking to populate peering.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "linkedRouterApplianceInstances": {
+              "description": "The URIs of linked Router appliance resources\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "includeImportRanges": {
+                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "instances": {
+                  "description": "The list of router appliance instances\nStructure is documented below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ipAddress": {
+                        "description": "The IP address on the VM to use for peering.",
+                        "type": "string"
+                      },
+                      "virtualMachine": {
+                        "description": "The URI of the virtual machine resource",
+                        "type": "string"
+                      },
+                      "virtualMachineRef": {
+                        "description": "Reference to a Instance in compute to populate virtualMachine.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "description": "Namespace of the referenced object",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "virtualMachineSelector": {
+                        "description": "Selector for a Instance in compute to populate virtualMachine.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "namespace": {
+                            "description": "Namespace for the selector",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "siteToSiteDataTransfer": {
+                  "description": "A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.",
+                  "type": "boolean"
+                }
+              }
+            },
+            "linkedVpcNetwork": {
+              "description": "VPC network that is associated with the spoke.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "excludeExportRanges": {
+                  "description": "IP ranges encompassing the subnets to be excluded from peering.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "IP ranges allowed to be included from peering.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "uri": {
+                  "description": "The URI of the VPC network resource.",
+                  "type": "string"
+                },
+                "uriRef": {
+                  "description": "Reference to a Network in compute to populate uri.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "uriSelector": {
+                  "description": "Selector for a Network in compute to populate uri.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "linkedVpnTunnels": {
+              "description": "The URIs of linked VPN tunnel resources\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "includeImportRanges": {
+                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "siteToSiteDataTransfer": {
+                  "description": "A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.",
+                  "type": "boolean"
+                },
+                "uris": {
+                  "description": "The URIs of linked VPN tunnel resources.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "urisRefs": {
+                  "description": "References to VPNTunnel in compute to populate uris.",
+                  "type": "array",
+                  "items": {
+                    "description": "A NamespacedReference to a named object.",
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the referenced object.",
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "description": "Namespace of the referenced object",
+                        "type": "string"
+                      },
+                      "policy": {
+                        "description": "Policies for referencing.",
+                        "type": "object",
+                        "properties": {
+                          "resolution": {
+                            "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                            "type": "string",
+                            "default": "Required",
+                            "enum": [
+                              "Required",
+                              "Optional"
+                            ]
+                          },
+                          "resolve": {
+                            "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                            "type": "string",
+                            "enum": [
+                              "Always",
+                              "IfNotPresent"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "urisSelector": {
+                  "description": "Selector for a list of VPNTunnel in compute to populate uris.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "location": {
+              "description": "The location for the resource",
+              "type": "string"
+            },
+            "name": {
+              "description": "Immutable. The name of the spoke. Spoke names must be unique.",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            }
+          }
+        },
+        "managementPolicies": {
+          "description": "THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md",
+          "type": "array",
+          "default": [
+            "*"
+          ],
+          "items": {
+            "description": "A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.",
+            "type": "string",
+            "enum": [
+              "Observe",
+              "Create",
+              "Update",
+              "Delete",
+              "LateInitialize",
+              "*"
+            ]
+          }
+        },
+        "providerConfigRef": {
+          "description": "ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.",
+          "type": "object",
+          "default": {
+            "kind": "ClusterProviderConfig",
+            "name": "default"
+          },
+          "required": [
+            "kind",
+            "name"
+          ],
+          "properties": {
+            "kind": {
+              "description": "Kind of the referenced object.",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referenced object.",
+              "type": "string"
+            }
+          }
+        },
+        "writeConnectionSecretToRef": {
+          "description": "WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.",
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the secret.",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "x-kubernetes-validations": [
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.location) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.location))",
+          "message": "spec.forProvider.location is a required parameter"
+        },
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.name))",
+          "message": "spec.forProvider.name is a required parameter"
+        }
+      ]
+    },
+    "status": {
+      "description": "SpokeStatus defines the observed state of Spoke.",
+      "type": "object",
+      "properties": {
+        "atProvider": {
+          "type": "object",
+          "properties": {
+            "createTime": {
+              "description": "Output only. The time the spoke was created.",
+              "type": "string"
+            },
+            "description": {
+              "description": "An optional description of the spoke.",
+              "type": "string"
+            },
+            "effectiveLabels": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "group": {
+              "description": "The name of the group that this spoke is associated with.",
+              "type": "string"
+            },
+            "hub": {
+              "description": "Immutable. The URI of the hub that this spoke is attached to.",
+              "type": "string"
+            },
+            "id": {
+              "description": "an identifier for the resource with format projects/{{project}}/locations/{{location}}/spokes/{{name}}",
+              "type": "string"
+            },
+            "labels": {
+              "description": "Optional labels in key:value format. For more information about labels, see Requirements for labels.\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "linkedInterconnectAttachments": {
+              "description": "A collection of VLAN attachment resources. These resources should be redundant attachments that all advertise the same prefixes to Google Cloud. Alternatively, in active/passive configurations, all attachments should be capable of advertising the same prefixes.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "includeImportRanges": {
+                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "siteToSiteDataTransfer": {
+                  "description": "A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.",
+                  "type": "boolean"
+                },
+                "uris": {
+                  "description": "The URIs of linked interconnect attachment resources",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "linkedProducerVpcNetwork": {
+              "description": "Producer VPC network that is associated with the spoke.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "excludeExportRanges": {
+                  "description": "IP ranges encompassing the subnets to be excluded from peering.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "IP ranges allowed to be included from peering.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "network": {
+                  "description": "The URI of the Service Consumer VPC that the Producer VPC is peered with.",
+                  "type": "string"
+                },
+                "peering": {
+                  "description": "The name of the VPC peering between the Service Consumer VPC and the Producer VPC (defined in the Tenant project) which is added to the NCC hub. This peering must be in ACTIVE state.",
+                  "type": "string"
+                },
+                "producerNetwork": {
+                  "description": "(Output)\nThe URI of the Producer VPC.",
+                  "type": "string"
+                }
+              }
+            },
+            "linkedRouterApplianceInstances": {
+              "description": "The URIs of linked Router appliance resources\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "includeImportRanges": {
+                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "instances": {
+                  "description": "The list of router appliance instances\nStructure is documented below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ipAddress": {
+                        "description": "The IP address on the VM to use for peering.",
+                        "type": "string"
+                      },
+                      "virtualMachine": {
+                        "description": "The URI of the virtual machine resource",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "siteToSiteDataTransfer": {
+                  "description": "A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.",
+                  "type": "boolean"
+                }
+              }
+            },
+            "linkedVpcNetwork": {
+              "description": "VPC network that is associated with the spoke.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "excludeExportRanges": {
+                  "description": "IP ranges encompassing the subnets to be excluded from peering.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "IP ranges allowed to be included from peering.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "uri": {
+                  "description": "The URI of the VPC network resource.",
+                  "type": "string"
+                }
+              }
+            },
+            "linkedVpnTunnels": {
+              "description": "The URIs of linked VPN tunnel resources\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "includeImportRanges": {
+                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "siteToSiteDataTransfer": {
+                  "description": "A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.",
+                  "type": "boolean"
+                },
+                "uris": {
+                  "description": "The URIs of linked VPN tunnel resources.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "location": {
+              "description": "The location for the resource",
+              "type": "string"
+            },
+            "name": {
+              "description": "Immutable. The name of the spoke. Spoke names must be unique.",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            },
+            "reasons": {
+              "description": "The reasons for the current state in the lifecycle\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "description": "The code associated with this reason.",
+                    "type": "string"
+                  },
+                  "message": {
+                    "description": "Human-readable details about this reason.",
+                    "type": "string"
+                  },
+                  "userDetails": {
+                    "description": "Additional information provided by the user in the RejectSpoke call.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "state": {
+              "description": "Output only. The current lifecycle state of this spoke.",
+              "type": "string"
+            },
+            "terraformLabels": {
+              "description": "The combination of labels configured directly on the resource\nand default labels configured on the provider.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "uniqueId": {
+              "description": "Output only. The Google-generated UUID for the spoke. This value is unique across all spoke resources. If a spoke is deleted and another with the same name is created, the new spoke is assigned a different unique_id.",
+              "type": "string"
+            },
+            "updateTime": {
+              "description": "Output only. The time the spoke was last updated.",
+              "type": "string"
+            }
+          }
+        },
+        "conditions": {
+          "description": "Conditions of the resource.",
+          "type": "array",
+          "items": {
+            "description": "A Condition that may apply to a resource.",
+            "type": "object",
+            "required": [
+              "lastTransitionTime",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time this condition transitioned from one\nstatus to another.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "A Message containing details about this condition's last transition from\none status to another, if any.",
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "ObservedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "type": "integer",
+                "format": "int64"
+              },
+              "reason": {
+                "description": "A Reason for this condition's last transition from one status to another.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of this condition; is it currently True, False, or Unknown?",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of this condition. At most one of each condition type may apply to\na resource at any point in time.",
+                "type": "string"
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

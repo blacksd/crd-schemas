@@ -1,0 +1,24 @@
+{
+  "schema": "firewallpolicyassociation.json",
+  "crd": {
+    "group": "compute.gcp.m.upbound.io",
+    "kind": "FirewallPolicyAssociation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "797fa6d0fd04c31026380581fdf43322e773a576d431d8d0f8d1e5ba0c0033bc"
+  }
+}

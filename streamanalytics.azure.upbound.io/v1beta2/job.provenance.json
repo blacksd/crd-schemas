@@ -1,0 +1,24 @@
+{
+  "schema": "job.json",
+  "crd": {
+    "group": "streamanalytics.azure.upbound.io",
+    "kind": "Job",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9412b50e07bf813c79668693729c722eeafe666a1defe2d472a83d833faaea1c"
+  }
+}

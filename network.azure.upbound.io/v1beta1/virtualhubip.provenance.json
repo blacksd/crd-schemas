@@ -1,0 +1,24 @@
+{
+  "schema": "virtualhubip.json",
+  "crd": {
+    "group": "network.azure.upbound.io",
+    "kind": "VirtualHubIP",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "02aa76e70de8c15a9e3e6b4761081396140bc6c3ad978d86310a194a68a64729"
+  }
+}

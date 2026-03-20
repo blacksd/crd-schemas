@@ -1,0 +1,24 @@
+{
+  "schema": "litereservation.json",
+  "crd": {
+    "group": "pubsub.gcp.m.upbound.io",
+    "kind": "LiteReservation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1acd29ef9067b220f36b5b5b7a662b1b8f2d287a4c6045ddb7a804f7f0f547b3"
+  }
+}

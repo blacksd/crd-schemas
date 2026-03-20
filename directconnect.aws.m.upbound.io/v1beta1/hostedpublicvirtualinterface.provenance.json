@@ -1,0 +1,24 @@
+{
+  "schema": "hostedpublicvirtualinterface.json",
+  "crd": {
+    "group": "directconnect.aws.m.upbound.io",
+    "kind": "HostedPublicVirtualInterface",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "853cb4655e5e2cb576f486a2f7671f903ee5915414a03018c1c9a03f474b10b2"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "idsendpoint.json",
+  "crd": {
+    "group": "cloud.gcp.upbound.io",
+    "kind": "IdsEndpoint",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c1450496ab27977dbdb9aad39f7e4c56de573e28b18387f27ac312de3160f26b"
+  }
+}

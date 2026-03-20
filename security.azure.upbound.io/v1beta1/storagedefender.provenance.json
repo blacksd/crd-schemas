@@ -1,0 +1,24 @@
+{
+  "schema": "storagedefender.json",
+  "crd": {
+    "group": "security.azure.upbound.io",
+    "kind": "StorageDefender",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "338aeeff96df262ae4cb6ae05e5e3fb32e878ae2fc18dbc3c8011593d3d7b2ac"
+  }
+}

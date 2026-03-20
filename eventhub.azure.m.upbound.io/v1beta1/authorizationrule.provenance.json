@@ -1,0 +1,24 @@
+{
+  "schema": "authorizationrule.json",
+  "crd": {
+    "group": "eventhub.azure.m.upbound.io",
+    "kind": "AuthorizationRule",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ff120f41547fe5ca62b1b66d9f05064469344f6c2c6b38a517c12f166b31514e"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "frontdoorcustomhttpsconfiguration.json",
+  "crd": {
+    "group": "network.azure.upbound.io",
+    "kind": "FrontdoorCustomHTTPSConfiguration",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "3b62ac67cd9a8523ee357d52e857fda99641aa31e4c258b5a0c8e6190f4762e0"
+  }
+}

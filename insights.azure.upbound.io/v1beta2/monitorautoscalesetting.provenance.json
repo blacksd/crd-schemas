@@ -1,0 +1,24 @@
+{
+  "schema": "monitorautoscalesetting.json",
+  "crd": {
+    "group": "insights.azure.upbound.io",
+    "kind": "MonitorAutoscaleSetting",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c88399a912f555f488faf6fb584f46f00e43950bb8abe5364fcb05e5a113dc98"
+  }
+}

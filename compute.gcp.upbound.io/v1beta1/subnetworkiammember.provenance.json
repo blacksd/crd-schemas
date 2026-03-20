@@ -1,0 +1,24 @@
+{
+  "schema": "subnetworkiammember.json",
+  "crd": {
+    "group": "compute.gcp.upbound.io",
+    "kind": "SubnetworkIAMMember",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2326cc60bafb9117b41432a18602ee8eded67b3eea9b0eb8f81d18e192e6a1d9"
+  }
+}

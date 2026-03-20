@@ -1,0 +1,24 @@
+{
+  "schema": "workforce.json",
+  "crd": {
+    "group": "sagemaker.aws.m.upbound.io",
+    "kind": "Workforce",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4a802478d9c88dc30f33ea7a32094cba997cbe60f0f5305fdf6bbf769d4eefbf"
+  }
+}

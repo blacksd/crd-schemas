@@ -1,0 +1,24 @@
+{
+  "schema": "scopemap.json",
+  "crd": {
+    "group": "containerregistry.azure.m.upbound.io",
+    "kind": "ScopeMap",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c10cf78bc3c87b91f9ad23e13aa63d87dd88fb00a88a6a05cd32939d30f58ded"
+  }
+}

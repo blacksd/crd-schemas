@@ -1,0 +1,24 @@
+{
+  "schema": "fleetstackassociation.json",
+  "crd": {
+    "group": "appstream.aws.m.upbound.io",
+    "kind": "FleetStackAssociation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "28b23fa9bbbe6c20ecb11c1f46853d8f3805a37b14bf01c1ee95393b8d2a40b0"
+  }
+}

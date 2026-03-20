@@ -1,0 +1,24 @@
+{
+  "schema": "springcloudjavadeployment.json",
+  "crd": {
+    "group": "appplatform.azure.upbound.io",
+    "kind": "SpringCloudJavaDeployment",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "28bde1def396c6fbae4a032d4d03c44831bf38f13f251392d6a8a9d6e195203e"
+  }
+}

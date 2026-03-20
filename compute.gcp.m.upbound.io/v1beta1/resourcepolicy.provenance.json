@@ -1,0 +1,24 @@
+{
+  "schema": "resourcepolicy.json",
+  "crd": {
+    "group": "compute.gcp.m.upbound.io",
+    "kind": "ResourcePolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5054f608216aff9a425948c28642049d7cd793e75d9a11509467781d64af8f7f"
+  }
+}

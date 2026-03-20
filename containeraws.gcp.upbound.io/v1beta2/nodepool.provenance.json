@@ -1,0 +1,24 @@
+{
+  "schema": "nodepool.json",
+  "crd": {
+    "group": "containeraws.gcp.upbound.io",
+    "kind": "NodePool",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "98f4e3a423c4983d06b294bb79ddeb6e1bf8503807b7663987c5b56b4f6d24d2"
+  }
+}

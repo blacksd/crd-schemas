@@ -1,0 +1,24 @@
+{
+  "schema": "routemap.json",
+  "crd": {
+    "group": "network.azure.upbound.io",
+    "kind": "RouteMap",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "13a98fe51cff9d3d7b12c70c3f710b2e6e1dd458fd69f620da2f84c2021fedf4"
+  }
+}

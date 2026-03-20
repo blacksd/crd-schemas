@@ -1,0 +1,24 @@
+{
+  "schema": "deploymentruntimeconfig.json",
+  "crd": {
+    "group": "pkg.crossplane.io",
+    "kind": "DeploymentRuntimeConfig",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "crossplane",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane/crossplane",
+    "path": "cluster/crds",
+    "version": "v2.2.0",
+    "license": "Apache-2.0",
+    "homepage": "https://crossplane.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "213b40ae3569539f9c85108b3c7cec37bbdb39efaa9fb8e61e61134132f7e12d"
+  }
+}

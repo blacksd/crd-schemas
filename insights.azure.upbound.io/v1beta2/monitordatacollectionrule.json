@@ -1,0 +1,2898 @@
+{
+  "description": "MonitorDataCollectionRule is the Schema for the MonitorDataCollectionRules API. Manages a Data Collection Rule.",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "MonitorDataCollectionRuleSpec defines the desired state of MonitorDataCollectionRule",
+      "type": "object",
+      "required": [
+        "forProvider"
+      ],
+      "properties": {
+        "deletionPolicy": {
+          "description": "DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either \"Delete\" or \"Orphan\" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223",
+          "type": "string",
+          "default": "Delete",
+          "enum": [
+            "Orphan",
+            "Delete"
+          ]
+        },
+        "forProvider": {
+          "type": "object",
+          "properties": {
+            "dataCollectionEndpointId": {
+              "description": "The resource ID of the Data Collection Endpoint that this rule can be used with.",
+              "type": "string"
+            },
+            "dataCollectionEndpointIdRef": {
+              "description": "Reference to a MonitorDataCollectionEndpoint in insights to populate dataCollectionEndpointId.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "dataCollectionEndpointIdSelector": {
+              "description": "Selector for a MonitorDataCollectionEndpoint in insights to populate dataCollectionEndpointId.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "dataFlow": {
+              "description": "One or more data_flow blocks as defined below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "builtInTransform": {
+                    "description": "The built-in transform to transform stream data.",
+                    "type": "string"
+                  },
+                  "destinations": {
+                    "description": "Specifies a list of destination names. A azure_monitor_metrics data source only allows for stream of kind Microsoft-InsightsMetrics.",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "outputStream": {
+                    "description": "The output stream of the transform. Only required if the data flow changes data to a different stream.",
+                    "type": "string"
+                  },
+                  "streams": {
+                    "description": "Specifies a list of streams. Possible values include but not limited to Microsoft-Event, Microsoft-InsightsMetrics, Microsoft-Perf, Microsoft-Syslog, Microsoft-WindowsEvent, and Microsoft-PrometheusMetrics.",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "transformKql": {
+                    "description": "The KQL query to transform stream data.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "dataSources": {
+              "description": "A data_sources block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.",
+              "type": "object",
+              "properties": {
+                "dataImport": {
+                  "description": "A data_import block as defined above.",
+                  "type": "object",
+                  "properties": {
+                    "eventHubDataSource": {
+                      "description": "An event_hub_data_source block as defined below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "consumerGroup": {
+                            "description": "The Event Hub consumer group name.",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                            "type": "string"
+                          },
+                          "stream": {
+                            "description": "The stream to collect from Event Hub. Possible value should be a custom stream name.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "extension": {
+                  "description": "One or more extension blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "extensionJson": {
+                        "description": "A JSON String which specifies the extension setting.",
+                        "type": "string"
+                      },
+                      "extensionName": {
+                        "description": "The name of the VM extension.",
+                        "type": "string"
+                      },
+                      "inputDataSources": {
+                        "description": "Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: performance_counter, windows_event_log,and syslog.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "iisLog": {
+                  "description": "One or more iis_log blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "logDirectories": {
+                        "description": "Specifies a list of absolute paths where the log files are located.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "logFile": {
+                  "description": "One or more log_file blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "filePatterns": {
+                        "description": "Specifies a list of file patterns where the log files are located. For example, C:\\\\JavaLogs\\\\*.log.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "format": {
+                        "description": "The data format of the log files. Possible values are text and json.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "settings": {
+                        "description": "A settings block as defined below.",
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "description": "A text block as defined below.",
+                            "type": "object",
+                            "properties": {
+                              "recordStartTimestampFormat": {
+                                "description": "The timestamp format of the text log files. Possible values are ISO 8601, YYYY-MM-DD HH:MM:SS, M/D/YYYY HH:MM:SS AM/PM, Mon DD, YYYY HH:MM:SS, yyMMdd HH:mm:ss, ddMMyy HH:mm:ss, MMM d hh:mm:ss, dd/MMM/yyyy:HH:mm:ss zzz,and yyyy-MM-ddTHH:mm:ssK.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "performanceCounter": {
+                  "description": "One or more performance_counter blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "counterSpecifiers": {
+                        "description": "Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command typeperf. Please see this document for more information.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "samplingFrequencyInSeconds": {
+                        "description": "The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 1800 inclusive. sampling_frequency_in_seconds must be equal to 60 seconds for counters collected with Microsoft-InsightsMetrics stream.",
+                        "type": "number"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "platformTelemetry": {
+                  "description": "One or more platform_telemetry blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "prometheusForwarder": {
+                  "description": "One or more prometheus_forwarder blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "labelIncludeFilter": {
+                        "description": "One or more label_include_filter blocks as defined above.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "description": "The label of the filter. This label should be unique across all label_include_fileter block. Possible value is microsoft_metrics_include_label.",
+                              "type": "string"
+                            },
+                            "value": {
+                              "description": "The value of the filter.",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "syslog": {
+                  "description": "One or more syslog blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "facilityNames": {
+                        "description": "Specifies a list of facility names. Use a wildcard * to collect logs for all facility names. Possible values are alert, *, audit, auth, authpriv, clock, cron, daemon, ftp, kern, local5, local4, local1, local7, local6, local3, local2, local0, lpr, mail, mark, news, nopri, ntp, syslog, user and uucp.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "logLevels": {
+                        "description": "Specifies a list of log levels. Use a wildcard * to collect logs for all log levels. Possible values are Debug, Info, Notice, Warning, Error, Critical, Alert, Emergency,and *.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "windowsEventLog": {
+                  "description": "One or more windows_event_log blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "xPathQueries": {
+                        "description": "Specifies a list of Windows Event Log queries in XPath expression. Please see this document for more information.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "windowsFirewallLog": {
+                  "description": "One or more windows_firewall_log blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": {
+              "description": "The description of the Data Collection Rule.",
+              "type": "string"
+            },
+            "destinations": {
+              "description": "A destinations block as defined below.",
+              "type": "object",
+              "properties": {
+                "azureMonitorMetrics": {
+                  "description": "A azure_monitor_metrics block as defined above.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "eventHub": {
+                  "description": "One or more event_hub blocks as defined below.",
+                  "type": "object",
+                  "properties": {
+                    "eventHubId": {
+                      "description": "The resource ID of the Event Hub.",
+                      "type": "string"
+                    },
+                    "eventHubIdRef": {
+                      "description": "Reference to a EventHub in eventhub to populate eventHubId.",
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "description": "Name of the referenced object.",
+                          "type": "string"
+                        },
+                        "policy": {
+                          "description": "Policies for referencing.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "eventHubIdSelector": {
+                      "description": "Selector for a EventHub in eventhub to populate eventHubId.",
+                      "type": "object",
+                      "properties": {
+                        "matchControllerRef": {
+                          "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                          "type": "boolean"
+                        },
+                        "matchLabels": {
+                          "description": "MatchLabels ensures an object with matching labels is selected.",
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        },
+                        "policy": {
+                          "description": "Policies for selection.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "name": {
+                      "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "eventHubDirect": {
+                  "description": "One or more event_hub blocks as defined below.",
+                  "type": "object",
+                  "properties": {
+                    "eventHubId": {
+                      "description": "The resource ID of the Event Hub.",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "logAnalytics": {
+                  "description": "One or more log_analytics blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "workspaceResourceId": {
+                        "description": "The ID of a Log Analytic Workspace resource.",
+                        "type": "string"
+                      },
+                      "workspaceResourceIdRef": {
+                        "description": "Reference to a Workspace in operationalinsights to populate workspaceResourceId.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "workspaceResourceIdSelector": {
+                        "description": "Selector for a Workspace in operationalinsights to populate workspaceResourceId.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "monitorAccount": {
+                  "description": "One or more monitor_account blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "monitorAccountId": {
+                        "description": "The resource ID of the Monitor Account.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "storageBlob": {
+                  "description": "One or more storage_blob blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "containerName": {
+                        "description": "The Storage Container name.",
+                        "type": "string"
+                      },
+                      "containerNameRef": {
+                        "description": "Reference to a Container in storage to populate containerName.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "containerNameSelector": {
+                        "description": "Selector for a Container in storage to populate containerName.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "storageAccountId": {
+                        "description": "The resource ID of the Storage Account.",
+                        "type": "string"
+                      },
+                      "storageAccountIdRef": {
+                        "description": "Reference to a Account in storage to populate storageAccountId.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "storageAccountIdSelector": {
+                        "description": "Selector for a Account in storage to populate storageAccountId.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "storageBlobDirect": {
+                  "description": "One or more storage_blob_direct blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "containerName": {
+                        "description": "The Storage Container name.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "storageAccountId": {
+                        "description": "The resource ID of the Storage Account.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "storageTableDirect": {
+                  "description": "One or more storage_table_direct blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "storageAccountId": {
+                        "description": "The resource ID of the Storage Account.",
+                        "type": "string"
+                      },
+                      "tableName": {
+                        "description": "The Storage Table name.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "identity": {
+              "description": "An identity block as defined below.",
+              "type": "object",
+              "properties": {
+                "identityIds": {
+                  "description": "A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-list-type": "set"
+                },
+                "identityIdsRefs": {
+                  "description": "References to UserAssignedIdentity in managedidentity to populate identityIds.",
+                  "type": "array",
+                  "items": {
+                    "description": "A Reference to a named object.",
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the referenced object.",
+                        "type": "string"
+                      },
+                      "policy": {
+                        "description": "Policies for referencing.",
+                        "type": "object",
+                        "properties": {
+                          "resolution": {
+                            "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                            "type": "string",
+                            "default": "Required",
+                            "enum": [
+                              "Required",
+                              "Optional"
+                            ]
+                          },
+                          "resolve": {
+                            "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                            "type": "string",
+                            "enum": [
+                              "Always",
+                              "IfNotPresent"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "identityIdsSelector": {
+                  "description": "Selector for a list of UserAssignedIdentity in managedidentity to populate identityIds.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "type": {
+                  "description": "Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are SystemAssigned and UserAssigned.",
+                  "type": "string"
+                }
+              }
+            },
+            "kind": {
+              "description": "The kind of the Data Collection Rule. Possible values are Linux, Windows, AgentDirectToStore and WorkspaceTransforms. A rule of kind Linux does not allow for windows_event_log data sources. And a rule of kind Windows does not allow for syslog data sources. If kind is not specified, all kinds of data sources are allowed.",
+              "type": "string"
+            },
+            "location": {
+              "description": "The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.",
+              "type": "string"
+            },
+            "resourceGroupName": {
+              "description": "The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.",
+              "type": "string"
+            },
+            "resourceGroupNameRef": {
+              "description": "Reference to a ResourceGroup in azure to populate resourceGroupName.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "resourceGroupNameSelector": {
+              "description": "Selector for a ResourceGroup in azure to populate resourceGroupName.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "streamDeclaration": {
+              "description": "A stream_declaration block as defined below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "column": {
+                    "description": "One or more column blocks as defined above.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are SystemAssigned and UserAssigned.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "streamName": {
+                    "description": "The name of the custom stream. This name should be unique across all stream_declaration blocks and must begin with a prefix of Custom-.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "tags": {
+              "description": "A mapping of tags which should be assigned to the Data Collection Rule.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            }
+          }
+        },
+        "initProvider": {
+          "description": "THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.",
+          "type": "object",
+          "properties": {
+            "dataCollectionEndpointId": {
+              "description": "The resource ID of the Data Collection Endpoint that this rule can be used with.",
+              "type": "string"
+            },
+            "dataCollectionEndpointIdRef": {
+              "description": "Reference to a MonitorDataCollectionEndpoint in insights to populate dataCollectionEndpointId.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "dataCollectionEndpointIdSelector": {
+              "description": "Selector for a MonitorDataCollectionEndpoint in insights to populate dataCollectionEndpointId.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "dataFlow": {
+              "description": "One or more data_flow blocks as defined below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "builtInTransform": {
+                    "description": "The built-in transform to transform stream data.",
+                    "type": "string"
+                  },
+                  "destinations": {
+                    "description": "Specifies a list of destination names. A azure_monitor_metrics data source only allows for stream of kind Microsoft-InsightsMetrics.",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "outputStream": {
+                    "description": "The output stream of the transform. Only required if the data flow changes data to a different stream.",
+                    "type": "string"
+                  },
+                  "streams": {
+                    "description": "Specifies a list of streams. Possible values include but not limited to Microsoft-Event, Microsoft-InsightsMetrics, Microsoft-Perf, Microsoft-Syslog, Microsoft-WindowsEvent, and Microsoft-PrometheusMetrics.",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "transformKql": {
+                    "description": "The KQL query to transform stream data.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "dataSources": {
+              "description": "A data_sources block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.",
+              "type": "object",
+              "properties": {
+                "dataImport": {
+                  "description": "A data_import block as defined above.",
+                  "type": "object",
+                  "properties": {
+                    "eventHubDataSource": {
+                      "description": "An event_hub_data_source block as defined below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "consumerGroup": {
+                            "description": "The Event Hub consumer group name.",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                            "type": "string"
+                          },
+                          "stream": {
+                            "description": "The stream to collect from Event Hub. Possible value should be a custom stream name.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "extension": {
+                  "description": "One or more extension blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "extensionJson": {
+                        "description": "A JSON String which specifies the extension setting.",
+                        "type": "string"
+                      },
+                      "extensionName": {
+                        "description": "The name of the VM extension.",
+                        "type": "string"
+                      },
+                      "inputDataSources": {
+                        "description": "Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: performance_counter, windows_event_log,and syslog.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "iisLog": {
+                  "description": "One or more iis_log blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "logDirectories": {
+                        "description": "Specifies a list of absolute paths where the log files are located.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "logFile": {
+                  "description": "One or more log_file blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "filePatterns": {
+                        "description": "Specifies a list of file patterns where the log files are located. For example, C:\\\\JavaLogs\\\\*.log.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "format": {
+                        "description": "The data format of the log files. Possible values are text and json.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "settings": {
+                        "description": "A settings block as defined below.",
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "description": "A text block as defined below.",
+                            "type": "object",
+                            "properties": {
+                              "recordStartTimestampFormat": {
+                                "description": "The timestamp format of the text log files. Possible values are ISO 8601, YYYY-MM-DD HH:MM:SS, M/D/YYYY HH:MM:SS AM/PM, Mon DD, YYYY HH:MM:SS, yyMMdd HH:mm:ss, ddMMyy HH:mm:ss, MMM d hh:mm:ss, dd/MMM/yyyy:HH:mm:ss zzz,and yyyy-MM-ddTHH:mm:ssK.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "performanceCounter": {
+                  "description": "One or more performance_counter blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "counterSpecifiers": {
+                        "description": "Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command typeperf. Please see this document for more information.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "samplingFrequencyInSeconds": {
+                        "description": "The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 1800 inclusive. sampling_frequency_in_seconds must be equal to 60 seconds for counters collected with Microsoft-InsightsMetrics stream.",
+                        "type": "number"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "platformTelemetry": {
+                  "description": "One or more platform_telemetry blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "prometheusForwarder": {
+                  "description": "One or more prometheus_forwarder blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "labelIncludeFilter": {
+                        "description": "One or more label_include_filter blocks as defined above.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "description": "The label of the filter. This label should be unique across all label_include_fileter block. Possible value is microsoft_metrics_include_label.",
+                              "type": "string"
+                            },
+                            "value": {
+                              "description": "The value of the filter.",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "syslog": {
+                  "description": "One or more syslog blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "facilityNames": {
+                        "description": "Specifies a list of facility names. Use a wildcard * to collect logs for all facility names. Possible values are alert, *, audit, auth, authpriv, clock, cron, daemon, ftp, kern, local5, local4, local1, local7, local6, local3, local2, local0, lpr, mail, mark, news, nopri, ntp, syslog, user and uucp.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "logLevels": {
+                        "description": "Specifies a list of log levels. Use a wildcard * to collect logs for all log levels. Possible values are Debug, Info, Notice, Warning, Error, Critical, Alert, Emergency,and *.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "windowsEventLog": {
+                  "description": "One or more windows_event_log blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "xPathQueries": {
+                        "description": "Specifies a list of Windows Event Log queries in XPath expression. Please see this document for more information.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "windowsFirewallLog": {
+                  "description": "One or more windows_firewall_log blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": {
+              "description": "The description of the Data Collection Rule.",
+              "type": "string"
+            },
+            "destinations": {
+              "description": "A destinations block as defined below.",
+              "type": "object",
+              "properties": {
+                "azureMonitorMetrics": {
+                  "description": "A azure_monitor_metrics block as defined above.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "eventHub": {
+                  "description": "One or more event_hub blocks as defined below.",
+                  "type": "object",
+                  "properties": {
+                    "eventHubId": {
+                      "description": "The resource ID of the Event Hub.",
+                      "type": "string"
+                    },
+                    "eventHubIdRef": {
+                      "description": "Reference to a EventHub in eventhub to populate eventHubId.",
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "description": "Name of the referenced object.",
+                          "type": "string"
+                        },
+                        "policy": {
+                          "description": "Policies for referencing.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "eventHubIdSelector": {
+                      "description": "Selector for a EventHub in eventhub to populate eventHubId.",
+                      "type": "object",
+                      "properties": {
+                        "matchControllerRef": {
+                          "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                          "type": "boolean"
+                        },
+                        "matchLabels": {
+                          "description": "MatchLabels ensures an object with matching labels is selected.",
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        },
+                        "policy": {
+                          "description": "Policies for selection.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "name": {
+                      "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "eventHubDirect": {
+                  "description": "One or more event_hub blocks as defined below.",
+                  "type": "object",
+                  "properties": {
+                    "eventHubId": {
+                      "description": "The resource ID of the Event Hub.",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "logAnalytics": {
+                  "description": "One or more log_analytics blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "workspaceResourceId": {
+                        "description": "The ID of a Log Analytic Workspace resource.",
+                        "type": "string"
+                      },
+                      "workspaceResourceIdRef": {
+                        "description": "Reference to a Workspace in operationalinsights to populate workspaceResourceId.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "workspaceResourceIdSelector": {
+                        "description": "Selector for a Workspace in operationalinsights to populate workspaceResourceId.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "monitorAccount": {
+                  "description": "One or more monitor_account blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "monitorAccountId": {
+                        "description": "The resource ID of the Monitor Account.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "storageBlob": {
+                  "description": "One or more storage_blob blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "containerName": {
+                        "description": "The Storage Container name.",
+                        "type": "string"
+                      },
+                      "containerNameRef": {
+                        "description": "Reference to a Container in storage to populate containerName.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "containerNameSelector": {
+                        "description": "Selector for a Container in storage to populate containerName.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "storageAccountId": {
+                        "description": "The resource ID of the Storage Account.",
+                        "type": "string"
+                      },
+                      "storageAccountIdRef": {
+                        "description": "Reference to a Account in storage to populate storageAccountId.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "storageAccountIdSelector": {
+                        "description": "Selector for a Account in storage to populate storageAccountId.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "storageBlobDirect": {
+                  "description": "One or more storage_blob_direct blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "containerName": {
+                        "description": "The Storage Container name.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "storageAccountId": {
+                        "description": "The resource ID of the Storage Account.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "storageTableDirect": {
+                  "description": "One or more storage_table_direct blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "storageAccountId": {
+                        "description": "The resource ID of the Storage Account.",
+                        "type": "string"
+                      },
+                      "tableName": {
+                        "description": "The Storage Table name.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "identity": {
+              "description": "An identity block as defined below.",
+              "type": "object",
+              "properties": {
+                "identityIds": {
+                  "description": "A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-list-type": "set"
+                },
+                "identityIdsRefs": {
+                  "description": "References to UserAssignedIdentity in managedidentity to populate identityIds.",
+                  "type": "array",
+                  "items": {
+                    "description": "A Reference to a named object.",
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the referenced object.",
+                        "type": "string"
+                      },
+                      "policy": {
+                        "description": "Policies for referencing.",
+                        "type": "object",
+                        "properties": {
+                          "resolution": {
+                            "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                            "type": "string",
+                            "default": "Required",
+                            "enum": [
+                              "Required",
+                              "Optional"
+                            ]
+                          },
+                          "resolve": {
+                            "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                            "type": "string",
+                            "enum": [
+                              "Always",
+                              "IfNotPresent"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "identityIdsSelector": {
+                  "description": "Selector for a list of UserAssignedIdentity in managedidentity to populate identityIds.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "type": {
+                  "description": "Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are SystemAssigned and UserAssigned.",
+                  "type": "string"
+                }
+              }
+            },
+            "kind": {
+              "description": "The kind of the Data Collection Rule. Possible values are Linux, Windows, AgentDirectToStore and WorkspaceTransforms. A rule of kind Linux does not allow for windows_event_log data sources. And a rule of kind Windows does not allow for syslog data sources. If kind is not specified, all kinds of data sources are allowed.",
+              "type": "string"
+            },
+            "location": {
+              "description": "The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.",
+              "type": "string"
+            },
+            "streamDeclaration": {
+              "description": "A stream_declaration block as defined below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "column": {
+                    "description": "One or more column blocks as defined above.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are SystemAssigned and UserAssigned.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "streamName": {
+                    "description": "The name of the custom stream. This name should be unique across all stream_declaration blocks and must begin with a prefix of Custom-.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "tags": {
+              "description": "A mapping of tags which should be assigned to the Data Collection Rule.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            }
+          }
+        },
+        "managementPolicies": {
+          "description": "THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md",
+          "type": "array",
+          "default": [
+            "*"
+          ],
+          "items": {
+            "description": "A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.",
+            "type": "string",
+            "enum": [
+              "Observe",
+              "Create",
+              "Update",
+              "Delete",
+              "LateInitialize",
+              "*"
+            ]
+          }
+        },
+        "providerConfigRef": {
+          "description": "ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.",
+          "type": "object",
+          "default": {
+            "name": "default"
+          },
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the referenced object.",
+              "type": "string"
+            },
+            "policy": {
+              "description": "Policies for referencing.",
+              "type": "object",
+              "properties": {
+                "resolution": {
+                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                  "type": "string",
+                  "default": "Required",
+                  "enum": [
+                    "Required",
+                    "Optional"
+                  ]
+                },
+                "resolve": {
+                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                  "type": "string",
+                  "enum": [
+                    "Always",
+                    "IfNotPresent"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "writeConnectionSecretToRef": {
+          "description": "WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.",
+          "type": "object",
+          "required": [
+            "name",
+            "namespace"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the secret.",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Namespace of the secret.",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "x-kubernetes-validations": [
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.dataFlow) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.dataFlow))",
+          "message": "spec.forProvider.dataFlow is a required parameter"
+        },
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.destinations) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.destinations))",
+          "message": "spec.forProvider.destinations is a required parameter"
+        },
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.location) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.location))",
+          "message": "spec.forProvider.location is a required parameter"
+        }
+      ]
+    },
+    "status": {
+      "description": "MonitorDataCollectionRuleStatus defines the observed state of MonitorDataCollectionRule.",
+      "type": "object",
+      "properties": {
+        "atProvider": {
+          "type": "object",
+          "properties": {
+            "dataCollectionEndpointId": {
+              "description": "The resource ID of the Data Collection Endpoint that this rule can be used with.",
+              "type": "string"
+            },
+            "dataFlow": {
+              "description": "One or more data_flow blocks as defined below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "builtInTransform": {
+                    "description": "The built-in transform to transform stream data.",
+                    "type": "string"
+                  },
+                  "destinations": {
+                    "description": "Specifies a list of destination names. A azure_monitor_metrics data source only allows for stream of kind Microsoft-InsightsMetrics.",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "outputStream": {
+                    "description": "The output stream of the transform. Only required if the data flow changes data to a different stream.",
+                    "type": "string"
+                  },
+                  "streams": {
+                    "description": "Specifies a list of streams. Possible values include but not limited to Microsoft-Event, Microsoft-InsightsMetrics, Microsoft-Perf, Microsoft-Syslog, Microsoft-WindowsEvent, and Microsoft-PrometheusMetrics.",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "transformKql": {
+                    "description": "The KQL query to transform stream data.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "dataSources": {
+              "description": "A data_sources block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.",
+              "type": "object",
+              "properties": {
+                "dataImport": {
+                  "description": "A data_import block as defined above.",
+                  "type": "object",
+                  "properties": {
+                    "eventHubDataSource": {
+                      "description": "An event_hub_data_source block as defined below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "consumerGroup": {
+                            "description": "The Event Hub consumer group name.",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                            "type": "string"
+                          },
+                          "stream": {
+                            "description": "The stream to collect from Event Hub. Possible value should be a custom stream name.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "extension": {
+                  "description": "One or more extension blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "extensionJson": {
+                        "description": "A JSON String which specifies the extension setting.",
+                        "type": "string"
+                      },
+                      "extensionName": {
+                        "description": "The name of the VM extension.",
+                        "type": "string"
+                      },
+                      "inputDataSources": {
+                        "description": "Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: performance_counter, windows_event_log,and syslog.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "iisLog": {
+                  "description": "One or more iis_log blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "logDirectories": {
+                        "description": "Specifies a list of absolute paths where the log files are located.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "logFile": {
+                  "description": "One or more log_file blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "filePatterns": {
+                        "description": "Specifies a list of file patterns where the log files are located. For example, C:\\\\JavaLogs\\\\*.log.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "format": {
+                        "description": "The data format of the log files. Possible values are text and json.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "settings": {
+                        "description": "A settings block as defined below.",
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "description": "A text block as defined below.",
+                            "type": "object",
+                            "properties": {
+                              "recordStartTimestampFormat": {
+                                "description": "The timestamp format of the text log files. Possible values are ISO 8601, YYYY-MM-DD HH:MM:SS, M/D/YYYY HH:MM:SS AM/PM, Mon DD, YYYY HH:MM:SS, yyMMdd HH:mm:ss, ddMMyy HH:mm:ss, MMM d hh:mm:ss, dd/MMM/yyyy:HH:mm:ss zzz,and yyyy-MM-ddTHH:mm:ssK.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "performanceCounter": {
+                  "description": "One or more performance_counter blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "counterSpecifiers": {
+                        "description": "Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command typeperf. Please see this document for more information.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "samplingFrequencyInSeconds": {
+                        "description": "The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 1800 inclusive. sampling_frequency_in_seconds must be equal to 60 seconds for counters collected with Microsoft-InsightsMetrics stream.",
+                        "type": "number"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "platformTelemetry": {
+                  "description": "One or more platform_telemetry blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "prometheusForwarder": {
+                  "description": "One or more prometheus_forwarder blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "labelIncludeFilter": {
+                        "description": "One or more label_include_filter blocks as defined above.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "description": "The label of the filter. This label should be unique across all label_include_fileter block. Possible value is microsoft_metrics_include_label.",
+                              "type": "string"
+                            },
+                            "value": {
+                              "description": "The value of the filter.",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "syslog": {
+                  "description": "One or more syslog blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "facilityNames": {
+                        "description": "Specifies a list of facility names. Use a wildcard * to collect logs for all facility names. Possible values are alert, *, audit, auth, authpriv, clock, cron, daemon, ftp, kern, local5, local4, local1, local7, local6, local3, local2, local0, lpr, mail, mark, news, nopri, ntp, syslog, user and uucp.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "logLevels": {
+                        "description": "Specifies a list of log levels. Use a wildcard * to collect logs for all log levels. Possible values are Debug, Info, Notice, Warning, Error, Critical, Alert, Emergency,and *.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "windowsEventLog": {
+                  "description": "One or more windows_event_log blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "xPathQueries": {
+                        "description": "Specifies a list of Windows Event Log queries in XPath expression. Please see this document for more information.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "windowsFirewallLog": {
+                  "description": "One or more windows_firewall_log blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "streams": {
+                        "description": "Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "description": {
+              "description": "The description of the Data Collection Rule.",
+              "type": "string"
+            },
+            "destinations": {
+              "description": "A destinations block as defined below.",
+              "type": "object",
+              "properties": {
+                "azureMonitorMetrics": {
+                  "description": "A azure_monitor_metrics block as defined above.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "eventHub": {
+                  "description": "One or more event_hub blocks as defined below.",
+                  "type": "object",
+                  "properties": {
+                    "eventHubId": {
+                      "description": "The resource ID of the Event Hub.",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "eventHubDirect": {
+                  "description": "One or more event_hub blocks as defined below.",
+                  "type": "object",
+                  "properties": {
+                    "eventHubId": {
+                      "description": "The resource ID of the Event Hub.",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "logAnalytics": {
+                  "description": "One or more log_analytics blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "workspaceResourceId": {
+                        "description": "The ID of a Log Analytic Workspace resource.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "monitorAccount": {
+                  "description": "One or more monitor_account blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "monitorAccountId": {
+                        "description": "The resource ID of the Monitor Account.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "storageBlob": {
+                  "description": "One or more storage_blob blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "containerName": {
+                        "description": "The Storage Container name.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "storageAccountId": {
+                        "description": "The resource ID of the Storage Account.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "storageBlobDirect": {
+                  "description": "One or more storage_blob_direct blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "containerName": {
+                        "description": "The Storage Container name.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "storageAccountId": {
+                        "description": "The resource ID of the Storage Account.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "storageTableDirect": {
+                  "description": "One or more storage_table_direct blocks as defined below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                        "type": "string"
+                      },
+                      "storageAccountId": {
+                        "description": "The resource ID of the Storage Account.",
+                        "type": "string"
+                      },
+                      "tableName": {
+                        "description": "The Storage Table name.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "id": {
+              "description": "The ID of the Data Collection Rule.",
+              "type": "string"
+            },
+            "identity": {
+              "description": "An identity block as defined below.",
+              "type": "object",
+              "properties": {
+                "identityIds": {
+                  "description": "A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-list-type": "set"
+                },
+                "principalId": {
+                  "description": "The Principal ID associated with this Managed Service Identity.",
+                  "type": "string"
+                },
+                "tenantId": {
+                  "description": "The Tenant ID associated with this Managed Service Identity.",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are SystemAssigned and UserAssigned.",
+                  "type": "string"
+                }
+              }
+            },
+            "immutableId": {
+              "description": "The immutable ID of the Data Collection Rule.",
+              "type": "string"
+            },
+            "kind": {
+              "description": "The kind of the Data Collection Rule. Possible values are Linux, Windows, AgentDirectToStore and WorkspaceTransforms. A rule of kind Linux does not allow for windows_event_log data sources. And a rule of kind Windows does not allow for syslog data sources. If kind is not specified, all kinds of data sources are allowed.",
+              "type": "string"
+            },
+            "location": {
+              "description": "The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.",
+              "type": "string"
+            },
+            "resourceGroupName": {
+              "description": "The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.",
+              "type": "string"
+            },
+            "streamDeclaration": {
+              "description": "A stream_declaration block as defined below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "column": {
+                    "description": "One or more column blocks as defined above.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.",
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are SystemAssigned and UserAssigned.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "streamName": {
+                    "description": "The name of the custom stream. This name should be unique across all stream_declaration blocks and must begin with a prefix of Custom-.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "tags": {
+              "description": "A mapping of tags which should be assigned to the Data Collection Rule.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            }
+          }
+        },
+        "conditions": {
+          "description": "Conditions of the resource.",
+          "type": "array",
+          "items": {
+            "description": "A Condition that may apply to a resource.",
+            "type": "object",
+            "required": [
+              "lastTransitionTime",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time this condition transitioned from one\nstatus to another.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "A Message containing details about this condition's last transition from\none status to another, if any.",
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "ObservedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "type": "integer",
+                "format": "int64"
+              },
+              "reason": {
+                "description": "A Reason for this condition's last transition from one status to another.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of this condition; is it currently True, False, or Unknown?",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of this condition. At most one of each condition type may apply to\na resource at any point in time.",
+                "type": "string"
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

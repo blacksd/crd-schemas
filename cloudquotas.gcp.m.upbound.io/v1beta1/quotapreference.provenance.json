@@ -1,0 +1,24 @@
+{
+  "schema": "quotapreference.json",
+  "crd": {
+    "group": "cloudquotas.gcp.m.upbound.io",
+    "kind": "QuotaPreference",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "88fe5651a9f75ea6b30140d73e3613ccaef5f9b3ff91ea225e2731b1ff0e7b07"
+  }
+}

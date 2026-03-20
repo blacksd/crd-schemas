@@ -1,0 +1,24 @@
+{
+  "schema": "lbsslnegotiationpolicy.json",
+  "crd": {
+    "group": "elb.aws.m.upbound.io",
+    "kind": "LBSSLNegotiationPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9d3a0a4d545f5bc6d164ba35a9de9b26dfc22328ccc2a2303955e048f485831a"
+  }
+}

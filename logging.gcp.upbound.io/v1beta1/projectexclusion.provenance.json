@@ -1,0 +1,24 @@
+{
+  "schema": "projectexclusion.json",
+  "crd": {
+    "group": "logging.gcp.upbound.io",
+    "kind": "ProjectExclusion",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f1517be8ec0f10ffc37f0edb56e76ac8b1d0129bd3a2d50424229d1f8a936e11"
+  }
+}

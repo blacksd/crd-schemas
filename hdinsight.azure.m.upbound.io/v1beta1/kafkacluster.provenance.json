@@ -1,0 +1,24 @@
+{
+  "schema": "kafkacluster.json",
+  "crd": {
+    "group": "hdinsight.azure.m.upbound.io",
+    "kind": "KafkaCluster",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b8905f46cf136d7f4cb9c80a2c822c1f54d774a2ac21cac2297db90b03afe9cb"
+  }
+}

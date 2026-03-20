@@ -1,0 +1,24 @@
+{
+  "schema": "codetoolssetting.json",
+  "crd": {
+    "group": "gemini.gcp.upbound.io",
+    "kind": "CodeToolsSetting",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "818c388cb38d396521fcb6e8026dd540754e0f1736bb9d1081d0c4dc0e334552"
+  }
+}

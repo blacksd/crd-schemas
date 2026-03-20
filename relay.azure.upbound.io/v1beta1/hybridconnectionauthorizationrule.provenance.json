@@ -1,0 +1,24 @@
+{
+  "schema": "hybridconnectionauthorizationrule.json",
+  "crd": {
+    "group": "relay.azure.upbound.io",
+    "kind": "HybridConnectionAuthorizationRule",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "61503979439056c25b61b3be1774db911fd10356981a81110c72ba114a733722"
+  }
+}

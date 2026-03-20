@@ -1,0 +1,24 @@
+{
+  "schema": "sqlroleassignment.json",
+  "crd": {
+    "group": "cosmosdb.azure.m.upbound.io",
+    "kind": "SQLRoleAssignment",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f7ddb4bf44dddac7d8c3d1fa527c9915ae602aa5d4b275957930a1bdbe0d8faa"
+  }
+}

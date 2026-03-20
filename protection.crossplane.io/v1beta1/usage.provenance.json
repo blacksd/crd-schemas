@@ -1,0 +1,24 @@
+{
+  "schema": "usage.json",
+  "crd": {
+    "group": "protection.crossplane.io",
+    "kind": "Usage",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "crossplane",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane/crossplane",
+    "path": "cluster/crds",
+    "version": "v2.2.0",
+    "license": "Apache-2.0",
+    "homepage": "https://crossplane.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2bdce3baa33b91f3932255fc00e292a6bb1613217b62073bfac07b9d0143e48c"
+  }
+}

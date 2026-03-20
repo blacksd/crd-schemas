@@ -1,0 +1,24 @@
+{
+  "schema": "ciliumloadbalancerippool.json",
+  "crd": {
+    "group": "cilium.io",
+    "kind": "CiliumLoadBalancerIPPool",
+    "apiVersion": "v2alpha1"
+  },
+  "source": {
+    "name": "cilium",
+    "type": "git+github",
+    "repo": "https://github.com/cilium/cilium",
+    "path": "pkg/k8s/apis/cilium.io/client/crds",
+    "version": "v1.19.1",
+    "license": "Apache-2.0",
+    "homepage": "https://cilium.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "94f36342135f19a46470373cdfbbfc92107c0e1fc558f577aa25b94d39bc0fc5"
+  }
+}

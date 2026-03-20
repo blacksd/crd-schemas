@@ -1,0 +1,24 @@
+{
+  "schema": "policyvirtualmachineconfigurationassignment.json",
+  "crd": {
+    "group": "guestconfiguration.azure.upbound.io",
+    "kind": "PolicyVirtualMachineConfigurationAssignment",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6e98d4075ee464b8efd09d1c82bea71b407e20507f5be04eea9a60eaf5bcefc6"
+  }
+}

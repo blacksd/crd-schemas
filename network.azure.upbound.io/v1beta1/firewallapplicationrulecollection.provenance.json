@@ -1,0 +1,24 @@
+{
+  "schema": "firewallapplicationrulecollection.json",
+  "crd": {
+    "group": "network.azure.upbound.io",
+    "kind": "FirewallApplicationRuleCollection",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "dc66cc483505a093a39ee9af74c6d9736a29c312828e42f0c2b6d8f3af835fdc"
+  }
+}

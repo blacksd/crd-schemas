@@ -1,0 +1,24 @@
+{
+  "schema": "spoke.json",
+  "crd": {
+    "group": "networkconnectivity.gcp.upbound.io",
+    "kind": "Spoke",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "456115c9d25ab75c6973e284f90acb8e20521c2ab3b0ae9efe6b9f5799a8ed09"
+  }
+}

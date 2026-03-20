@@ -1,0 +1,24 @@
+{
+  "schema": "customermanagedpolicyattachment.json",
+  "crd": {
+    "group": "ssoadmin.aws.upbound.io",
+    "kind": "CustomerManagedPolicyAttachment",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "44b9f794e8b65f8006dbdde841d33a858b2e16fb5c7f3c7d83d7b56ee46592bd"
+  }
+}

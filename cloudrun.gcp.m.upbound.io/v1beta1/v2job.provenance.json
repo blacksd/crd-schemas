@@ -1,0 +1,24 @@
+{
+  "schema": "v2job.json",
+  "crd": {
+    "group": "cloudrun.gcp.m.upbound.io",
+    "kind": "V2Job",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f5b3f0617de357b207db2d834fb9ca755236b6e4a464d239611d66687b312e4d"
+  }
+}

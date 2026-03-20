@@ -1,0 +1,24 @@
+{
+  "schema": "applicationloadbalancer.json",
+  "crd": {
+    "group": "servicenetworking.azure.m.upbound.io",
+    "kind": "ApplicationLoadBalancer",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0b7a737f90d09c45a7953928a918d65badf26ab1da9789e89173fa3d0f8140cc"
+  }
+}

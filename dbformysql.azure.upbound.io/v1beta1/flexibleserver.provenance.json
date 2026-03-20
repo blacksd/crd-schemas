@@ -1,0 +1,24 @@
+{
+  "schema": "flexibleserver.json",
+  "crd": {
+    "group": "dbformysql.azure.upbound.io",
+    "kind": "FlexibleServer",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "75d93a9eb9f05fea1d93044028469e17f5556467972b58e10fbf268fcace004c"
+  }
+}

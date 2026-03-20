@@ -1,0 +1,24 @@
+{
+  "schema": "routefilter.json",
+  "crd": {
+    "group": "network.azure.m.upbound.io",
+    "kind": "RouteFilter",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4017e37822610cc596b267236442d026d1f1d487f240331f0924c9b583bd86dd"
+  }
+}

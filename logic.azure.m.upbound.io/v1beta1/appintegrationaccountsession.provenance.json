@@ -1,0 +1,24 @@
+{
+  "schema": "appintegrationaccountsession.json",
+  "crd": {
+    "group": "logic.azure.m.upbound.io",
+    "kind": "AppIntegrationAccountSession",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "500bd1415e654683fce781c5a845580c83032d95891e63e6aff384ad6c417032"
+  }
+}

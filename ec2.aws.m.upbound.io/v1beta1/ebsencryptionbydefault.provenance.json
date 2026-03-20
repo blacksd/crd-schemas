@@ -1,0 +1,24 @@
+{
+  "schema": "ebsencryptionbydefault.json",
+  "crd": {
+    "group": "ec2.aws.m.upbound.io",
+    "kind": "EBSEncryptionByDefault",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9b464510f0bbeec1b132c51fe7fe4096fa49d9f0c2880502827ab73957ea36f6"
+  }
+}

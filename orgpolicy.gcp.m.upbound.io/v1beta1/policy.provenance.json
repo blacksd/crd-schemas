@@ -1,0 +1,24 @@
+{
+  "schema": "policy.json",
+  "crd": {
+    "group": "orgpolicy.gcp.m.upbound.io",
+    "kind": "Policy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "defb2717388de60c5d89d5253531af5f87f00c66661d5082e7de3c127f393a1c"
+  }
+}

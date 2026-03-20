@@ -1,0 +1,24 @@
+{
+  "schema": "botconnection.json",
+  "crd": {
+    "group": "botservice.azure.upbound.io",
+    "kind": "BotConnection",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "44d2ad83682911ed0096a6ea259031011e2f401bc22748b95203f5446b4f7355"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "cluster.json",
+  "crd": {
+    "group": "kafka.aws.upbound.io",
+    "kind": "Cluster",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "cfa31e5812c842f52d4505d877e217131e7c29f69e98ff3f86e1420c5ad2ddce"
+  }
+}

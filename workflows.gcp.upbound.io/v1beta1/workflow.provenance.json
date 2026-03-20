@@ -1,0 +1,24 @@
+{
+  "schema": "workflow.json",
+  "crd": {
+    "group": "workflows.gcp.upbound.io",
+    "kind": "Workflow",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2d0ecb42168e0a4452bf043f6b40b196f5db17bd0a4eef33bfaeaf64d6215b62"
+  }
+}

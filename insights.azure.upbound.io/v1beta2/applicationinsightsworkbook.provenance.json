@@ -1,0 +1,24 @@
+{
+  "schema": "applicationinsightsworkbook.json",
+  "crd": {
+    "group": "insights.azure.upbound.io",
+    "kind": "ApplicationInsightsWorkbook",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ccf1bb98395a85fb449e6763efa60a789d8032d762edd3aff945d7f8df1956f0"
+  }
+}

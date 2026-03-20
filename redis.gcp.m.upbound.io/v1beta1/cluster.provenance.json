@@ -1,0 +1,24 @@
+{
+  "schema": "cluster.json",
+  "crd": {
+    "group": "redis.gcp.m.upbound.io",
+    "kind": "Cluster",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e9fccce2565b7385ac113d865379acf955b750183e6e123b0925a99d4b44e719"
+  }
+}

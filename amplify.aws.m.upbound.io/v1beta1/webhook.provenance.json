@@ -1,0 +1,24 @@
+{
+  "schema": "webhook.json",
+  "crd": {
+    "group": "amplify.aws.m.upbound.io",
+    "kind": "Webhook",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1ae65dea8591d2097496f7f4a1ad6b1b5c4eb088fd78e14a1e2d4b089f7efd1d"
+  }
+}

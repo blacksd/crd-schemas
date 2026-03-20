@@ -1,0 +1,24 @@
+{
+  "schema": "roledefinition.json",
+  "crd": {
+    "group": "authorization.azure.upbound.io",
+    "kind": "RoleDefinition",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "96a35983e1dc176f4b2c7550014cf4a8862ebb35be6fcd72653672a0ffe95a9e"
+  }
+}

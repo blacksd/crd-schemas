@@ -1,0 +1,24 @@
+{
+  "schema": "mssqlservermicrosoftsupportauditingpolicy.json",
+  "crd": {
+    "group": "sql.azure.m.upbound.io",
+    "kind": "MSSQLServerMicrosoftSupportAuditingPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0277ef77982b428fd054cba56f7a93d19ae2df2091b0199544d8545171adbb8f"
+  }
+}

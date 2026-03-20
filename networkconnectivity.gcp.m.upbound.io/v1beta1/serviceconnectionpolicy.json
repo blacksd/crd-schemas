@@ -1,0 +1,792 @@
+{
+  "description": "ServiceConnectionPolicy is the Schema for the ServiceConnectionPolicys API. Manage Service Connection Policies.",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "ServiceConnectionPolicySpec defines the desired state of ServiceConnectionPolicy",
+      "type": "object",
+      "required": [
+        "forProvider"
+      ],
+      "properties": {
+        "forProvider": {
+          "type": "object",
+          "required": [
+            "location"
+          ],
+          "properties": {
+            "description": {
+              "description": "Free-text description of the resource.",
+              "type": "string"
+            },
+            "labels": {
+              "description": "User-defined labels.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "location": {
+              "description": "The location of the ServiceConnectionPolicy.",
+              "type": "string"
+            },
+            "network": {
+              "description": "The resource path of the consumer network. Example: - projects/{projectNumOrId}/global/networks/{resourceId}.",
+              "type": "string"
+            },
+            "networkRef": {
+              "description": "Reference to a Network in compute to populate network.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "networkSelector": {
+              "description": "Selector for a Network in compute to populate network.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            },
+            "pscConfig": {
+              "description": "Configuration used for Private Service Connect connections. Used when Infrastructure is PSC.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "allowedGoogleProducersResourceHierarchyLevel": {
+                  "description": "List of Projects, Folders, or Organizations from where the Producer instance can be within. For example,\na network administrator can provide both 'organizations/foo' and 'projects/bar' as\nallowed_google_producers_resource_hierarchy_levels. This allowlists this network to connect with any Producer\ninstance within the 'foo' organization or the 'bar' project. By default,\nallowedGoogleProducersResourceHierarchyLevel is empty. The format for each\nallowedGoogleProducersResourceHierarchyLevel is / where is one of 'projects', 'folders', or 'organizations'\nand is either the ID or the number of the resource type. Format for each\nallowedGoogleProducersResourceHierarchyLevel value: 'projects/' or 'folders/' or 'organizations/' Eg.\n[projects/my-project-id, projects/567, folders/891, organizations/123]",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "limit": {
+                  "description": "Max number of PSC connections for this policy.",
+                  "type": "string"
+                },
+                "producerInstanceLocation": {
+                  "description": "ProducerInstanceLocation is used to specify which authorization mechanism to use to determine which projects\nthe Producer instance can be within.\nPossible values are: PRODUCER_INSTANCE_LOCATION_UNSPECIFIED, CUSTOM_RESOURCE_HIERARCHY_LEVELS.",
+                  "type": "string"
+                },
+                "subnetworks": {
+                  "description": "IDs of the subnetworks or fully qualified identifiers for the subnetworks",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "subnetworksRefs": {
+                  "description": "References to Subnetwork in compute to populate subnetworks.",
+                  "type": "array",
+                  "items": {
+                    "description": "A NamespacedReference to a named object.",
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the referenced object.",
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "description": "Namespace of the referenced object",
+                        "type": "string"
+                      },
+                      "policy": {
+                        "description": "Policies for referencing.",
+                        "type": "object",
+                        "properties": {
+                          "resolution": {
+                            "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                            "type": "string",
+                            "default": "Required",
+                            "enum": [
+                              "Required",
+                              "Optional"
+                            ]
+                          },
+                          "resolve": {
+                            "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                            "type": "string",
+                            "enum": [
+                              "Always",
+                              "IfNotPresent"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "subnetworksSelector": {
+                  "description": "Selector for a list of Subnetwork in compute to populate subnetworks.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "serviceClass": {
+              "description": "The service class identifier for which this ServiceConnectionPolicy is for. The service class identifier is a unique, symbolic representation of a ServiceClass.\nIt is provided by the Service Producer. Google services have a prefix of gcp. For example, gcp-cloud-sql. 3rd party services do not. For example, test-service-a3dfcx.",
+              "type": "string"
+            }
+          }
+        },
+        "initProvider": {
+          "description": "THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.",
+          "type": "object",
+          "properties": {
+            "description": {
+              "description": "Free-text description of the resource.",
+              "type": "string"
+            },
+            "labels": {
+              "description": "User-defined labels.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "network": {
+              "description": "The resource path of the consumer network. Example: - projects/{projectNumOrId}/global/networks/{resourceId}.",
+              "type": "string"
+            },
+            "networkRef": {
+              "description": "Reference to a Network in compute to populate network.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "networkSelector": {
+              "description": "Selector for a Network in compute to populate network.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            },
+            "pscConfig": {
+              "description": "Configuration used for Private Service Connect connections. Used when Infrastructure is PSC.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "allowedGoogleProducersResourceHierarchyLevel": {
+                  "description": "List of Projects, Folders, or Organizations from where the Producer instance can be within. For example,\na network administrator can provide both 'organizations/foo' and 'projects/bar' as\nallowed_google_producers_resource_hierarchy_levels. This allowlists this network to connect with any Producer\ninstance within the 'foo' organization or the 'bar' project. By default,\nallowedGoogleProducersResourceHierarchyLevel is empty. The format for each\nallowedGoogleProducersResourceHierarchyLevel is / where is one of 'projects', 'folders', or 'organizations'\nand is either the ID or the number of the resource type. Format for each\nallowedGoogleProducersResourceHierarchyLevel value: 'projects/' or 'folders/' or 'organizations/' Eg.\n[projects/my-project-id, projects/567, folders/891, organizations/123]",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "limit": {
+                  "description": "Max number of PSC connections for this policy.",
+                  "type": "string"
+                },
+                "producerInstanceLocation": {
+                  "description": "ProducerInstanceLocation is used to specify which authorization mechanism to use to determine which projects\nthe Producer instance can be within.\nPossible values are: PRODUCER_INSTANCE_LOCATION_UNSPECIFIED, CUSTOM_RESOURCE_HIERARCHY_LEVELS.",
+                  "type": "string"
+                },
+                "subnetworks": {
+                  "description": "IDs of the subnetworks or fully qualified identifiers for the subnetworks",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "subnetworksRefs": {
+                  "description": "References to Subnetwork in compute to populate subnetworks.",
+                  "type": "array",
+                  "items": {
+                    "description": "A NamespacedReference to a named object.",
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the referenced object.",
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "description": "Namespace of the referenced object",
+                        "type": "string"
+                      },
+                      "policy": {
+                        "description": "Policies for referencing.",
+                        "type": "object",
+                        "properties": {
+                          "resolution": {
+                            "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                            "type": "string",
+                            "default": "Required",
+                            "enum": [
+                              "Required",
+                              "Optional"
+                            ]
+                          },
+                          "resolve": {
+                            "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                            "type": "string",
+                            "enum": [
+                              "Always",
+                              "IfNotPresent"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "subnetworksSelector": {
+                  "description": "Selector for a list of Subnetwork in compute to populate subnetworks.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "serviceClass": {
+              "description": "The service class identifier for which this ServiceConnectionPolicy is for. The service class identifier is a unique, symbolic representation of a ServiceClass.\nIt is provided by the Service Producer. Google services have a prefix of gcp. For example, gcp-cloud-sql. 3rd party services do not. For example, test-service-a3dfcx.",
+              "type": "string"
+            }
+          }
+        },
+        "managementPolicies": {
+          "description": "THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md",
+          "type": "array",
+          "default": [
+            "*"
+          ],
+          "items": {
+            "description": "A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.",
+            "type": "string",
+            "enum": [
+              "Observe",
+              "Create",
+              "Update",
+              "Delete",
+              "LateInitialize",
+              "*"
+            ]
+          }
+        },
+        "providerConfigRef": {
+          "description": "ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.",
+          "type": "object",
+          "default": {
+            "kind": "ClusterProviderConfig",
+            "name": "default"
+          },
+          "required": [
+            "kind",
+            "name"
+          ],
+          "properties": {
+            "kind": {
+              "description": "Kind of the referenced object.",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referenced object.",
+              "type": "string"
+            }
+          }
+        },
+        "writeConnectionSecretToRef": {
+          "description": "WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.",
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the secret.",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "x-kubernetes-validations": [
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.serviceClass) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.serviceClass))",
+          "message": "spec.forProvider.serviceClass is a required parameter"
+        }
+      ]
+    },
+    "status": {
+      "description": "ServiceConnectionPolicyStatus defines the observed state of ServiceConnectionPolicy.",
+      "type": "object",
+      "properties": {
+        "atProvider": {
+          "type": "object",
+          "properties": {
+            "createTime": {
+              "description": "The timestamp when the resource was created.",
+              "type": "string"
+            },
+            "description": {
+              "description": "Free-text description of the resource.",
+              "type": "string"
+            },
+            "effectiveLabels": {
+              "description": "for all of the labels present on the resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "etag": {
+              "description": "The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.",
+              "type": "string"
+            },
+            "id": {
+              "description": "an identifier for the resource with format projects/{{project}}/locations/{{location}}/serviceConnectionPolicies/{{name}}",
+              "type": "string"
+            },
+            "infrastructure": {
+              "description": "The type of underlying resources used to create the connection.",
+              "type": "string"
+            },
+            "labels": {
+              "description": "User-defined labels.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "location": {
+              "description": "The location of the ServiceConnectionPolicy.",
+              "type": "string"
+            },
+            "network": {
+              "description": "The resource path of the consumer network. Example: - projects/{projectNumOrId}/global/networks/{resourceId}.",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            },
+            "pscConfig": {
+              "description": "Configuration used for Private Service Connect connections. Used when Infrastructure is PSC.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "allowedGoogleProducersResourceHierarchyLevel": {
+                  "description": "List of Projects, Folders, or Organizations from where the Producer instance can be within. For example,\na network administrator can provide both 'organizations/foo' and 'projects/bar' as\nallowed_google_producers_resource_hierarchy_levels. This allowlists this network to connect with any Producer\ninstance within the 'foo' organization or the 'bar' project. By default,\nallowedGoogleProducersResourceHierarchyLevel is empty. The format for each\nallowedGoogleProducersResourceHierarchyLevel is / where is one of 'projects', 'folders', or 'organizations'\nand is either the ID or the number of the resource type. Format for each\nallowedGoogleProducersResourceHierarchyLevel value: 'projects/' or 'folders/' or 'organizations/' Eg.\n[projects/my-project-id, projects/567, folders/891, organizations/123]",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "limit": {
+                  "description": "Max number of PSC connections for this policy.",
+                  "type": "string"
+                },
+                "producerInstanceLocation": {
+                  "description": "ProducerInstanceLocation is used to specify which authorization mechanism to use to determine which projects\nthe Producer instance can be within.\nPossible values are: PRODUCER_INSTANCE_LOCATION_UNSPECIFIED, CUSTOM_RESOURCE_HIERARCHY_LEVELS.",
+                  "type": "string"
+                },
+                "subnetworks": {
+                  "description": "IDs of the subnetworks or fully qualified identifiers for the subnetworks",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "pscConnections": {
+              "description": "Information about each Private Service Connect connection.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "consumerAddress": {
+                    "description": "The resource reference of the consumer address.",
+                    "type": "string"
+                  },
+                  "consumerForwardingRule": {
+                    "description": "The resource reference of the PSC Forwarding Rule within the consumer VPC.",
+                    "type": "string"
+                  },
+                  "consumerTargetProject": {
+                    "description": "The project where the PSC connection is created.",
+                    "type": "string"
+                  },
+                  "error": {
+                    "description": "The most recent error during operating this connection.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "description": "The status code, which should be an enum value of [google.rpc.Code][].",
+                        "type": "number"
+                      },
+                      "details": {
+                        "description": "(Output)\nA list of messages that carry the error details.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "message": {
+                        "description": "A developer-facing error message.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "errorInfo": {
+                    "description": "The error info for the latest error during operating this connection.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "domain": {
+                        "description": "The logical grouping to which the \"reason\" belongs.",
+                        "type": "string"
+                      },
+                      "metadata": {
+                        "description": "Additional structured details about this error.",
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "x-kubernetes-map-type": "granular"
+                      },
+                      "reason": {
+                        "description": "The reason of the error.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "errorType": {
+                    "description": "The error type indicates whether the error is consumer facing, producer\nfacing or system internal.\nPossible values are: CONNECTION_ERROR_TYPE_UNSPECIFIED, ERROR_INTERNAL, ERROR_CONSUMER_SIDE, ERROR_PRODUCER_SIDE.",
+                    "type": "string"
+                  },
+                  "gceOperation": {
+                    "description": "The last Compute Engine operation to setup PSC connection.",
+                    "type": "string"
+                  },
+                  "pscConnectionId": {
+                    "description": "The PSC connection id of the PSC forwarding rule.",
+                    "type": "string"
+                  },
+                  "state": {
+                    "description": "The state of the PSC connection.\nPossible values are: STATE_UNSPECIFIED, ACTIVE, CREATING, DELETING, FAILED.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "serviceClass": {
+              "description": "The service class identifier for which this ServiceConnectionPolicy is for. The service class identifier is a unique, symbolic representation of a ServiceClass.\nIt is provided by the Service Producer. Google services have a prefix of gcp. For example, gcp-cloud-sql. 3rd party services do not. For example, test-service-a3dfcx.",
+              "type": "string"
+            },
+            "terraformLabels": {
+              "description": "The combination of labels configured directly on the resource\nand default labels configured on the provider.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "updateTime": {
+              "description": "The timestamp when the resource was updated.",
+              "type": "string"
+            }
+          }
+        },
+        "conditions": {
+          "description": "Conditions of the resource.",
+          "type": "array",
+          "items": {
+            "description": "A Condition that may apply to a resource.",
+            "type": "object",
+            "required": [
+              "lastTransitionTime",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time this condition transitioned from one\nstatus to another.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "A Message containing details about this condition's last transition from\none status to another, if any.",
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "ObservedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "type": "integer",
+                "format": "int64"
+              },
+              "reason": {
+                "description": "A Reason for this condition's last transition from one status to another.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of this condition; is it currently True, False, or Unknown?",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of this condition. At most one of each condition type may apply to\na resource at any point in time.",
+                "type": "string"
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

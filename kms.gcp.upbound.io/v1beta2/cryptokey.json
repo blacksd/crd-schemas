@@ -1,0 +1,446 @@
+{
+  "description": "CryptoKey is the Schema for the CryptoKeys API. A",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "CryptoKeySpec defines the desired state of CryptoKey",
+      "type": "object",
+      "required": [
+        "forProvider"
+      ],
+      "properties": {
+        "deletionPolicy": {
+          "description": "DeletionPolicy specifies what will happen to the underlying external\nwhen this managed resource is deleted - either \"Delete\" or \"Orphan\" the\nexternal resource.\nThis field is planned to be deprecated in favor of the ManagementPolicies\nfield in a future release. Currently, both could be set independently and\nnon-default values would be honored if the feature flag is enabled.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223",
+          "type": "string",
+          "default": "Delete",
+          "enum": [
+            "Orphan",
+            "Delete"
+          ]
+        },
+        "forProvider": {
+          "type": "object",
+          "properties": {
+            "cryptoKeyBackend": {
+              "description": "The resource name of the backend environment associated with all CryptoKeyVersions within this CryptoKey.\nThe resource name is in the format \"projects//locations//ekmConnections/*\" and only applies to \"EXTERNAL_VPC\" keys.",
+              "type": "string"
+            },
+            "destroyScheduledDuration": {
+              "description": "The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED.\nIf not specified at creation time, the default duration is 30 days.",
+              "type": "string"
+            },
+            "importOnly": {
+              "description": "Whether this key may contain imported versions only.",
+              "type": "boolean"
+            },
+            "keyRing": {
+              "description": "The KeyRing that this key belongs to.\nFormat: 'projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}'.",
+              "type": "string"
+            },
+            "keyRingRef": {
+              "description": "Reference to a KeyRing in kms to populate keyRing.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "keyRingSelector": {
+              "description": "Selector for a KeyRing in kms to populate keyRing.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "labels": {
+              "description": "Labels with user-defined metadata to apply to this resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "purpose": {
+              "description": "The immutable purpose of this CryptoKey. See the\npurpose reference\nfor possible inputs.\nDefault value is \"ENCRYPT_DECRYPT\".",
+              "type": "string"
+            },
+            "rotationPeriod": {
+              "description": "Every time this period passes, generate a new CryptoKeyVersion and set it as the primary.\nThe first rotation will take place after the specified period. The rotation period has\nthe format of a decimal number with up to 9 fractional digits, followed by the\nletter s (seconds). It must be greater than a day (ie, 86400).",
+              "type": "string"
+            },
+            "skipInitialVersionCreation": {
+              "description": "If set to true, the request will create a CryptoKey without any CryptoKeyVersions.\nYou must use the google_kms_crypto_key_version resource to create a new CryptoKeyVersion\nor google_kms_key_ring_import_job resource to import the CryptoKeyVersion.",
+              "type": "boolean"
+            },
+            "versionTemplate": {
+              "description": "A template describing settings for new crypto key versions.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "algorithm": {
+                  "description": "The algorithm to use when creating a version based on this template.\nSee the algorithm reference for possible inputs.",
+                  "type": "string"
+                },
+                "protectionLevel": {
+                  "description": "The protection level to use when creating a version based on this template. Possible values include \"SOFTWARE\", \"HSM\", \"EXTERNAL\", \"EXTERNAL_VPC\". Defaults to \"SOFTWARE\".",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "initProvider": {
+          "description": "THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.",
+          "type": "object",
+          "properties": {
+            "cryptoKeyBackend": {
+              "description": "The resource name of the backend environment associated with all CryptoKeyVersions within this CryptoKey.\nThe resource name is in the format \"projects//locations//ekmConnections/*\" and only applies to \"EXTERNAL_VPC\" keys.",
+              "type": "string"
+            },
+            "destroyScheduledDuration": {
+              "description": "The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED.\nIf not specified at creation time, the default duration is 30 days.",
+              "type": "string"
+            },
+            "importOnly": {
+              "description": "Whether this key may contain imported versions only.",
+              "type": "boolean"
+            },
+            "labels": {
+              "description": "Labels with user-defined metadata to apply to this resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "purpose": {
+              "description": "The immutable purpose of this CryptoKey. See the\npurpose reference\nfor possible inputs.\nDefault value is \"ENCRYPT_DECRYPT\".",
+              "type": "string"
+            },
+            "rotationPeriod": {
+              "description": "Every time this period passes, generate a new CryptoKeyVersion and set it as the primary.\nThe first rotation will take place after the specified period. The rotation period has\nthe format of a decimal number with up to 9 fractional digits, followed by the\nletter s (seconds). It must be greater than a day (ie, 86400).",
+              "type": "string"
+            },
+            "skipInitialVersionCreation": {
+              "description": "If set to true, the request will create a CryptoKey without any CryptoKeyVersions.\nYou must use the google_kms_crypto_key_version resource to create a new CryptoKeyVersion\nor google_kms_key_ring_import_job resource to import the CryptoKeyVersion.",
+              "type": "boolean"
+            },
+            "versionTemplate": {
+              "description": "A template describing settings for new crypto key versions.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "algorithm": {
+                  "description": "The algorithm to use when creating a version based on this template.\nSee the algorithm reference for possible inputs.",
+                  "type": "string"
+                },
+                "protectionLevel": {
+                  "description": "The protection level to use when creating a version based on this template. Possible values include \"SOFTWARE\", \"HSM\", \"EXTERNAL\", \"EXTERNAL_VPC\". Defaults to \"SOFTWARE\".",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "managementPolicies": {
+          "description": "THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nThis field is planned to replace the DeletionPolicy field in a future\nrelease. Currently, both could be set independently and non-default\nvalues would be honored if the feature flag is enabled. If both are\ncustom, the DeletionPolicy field will be ignored.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md",
+          "type": "array",
+          "default": [
+            "*"
+          ],
+          "items": {
+            "description": "A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.",
+            "type": "string",
+            "enum": [
+              "Observe",
+              "Create",
+              "Update",
+              "Delete",
+              "LateInitialize",
+              "*"
+            ]
+          }
+        },
+        "providerConfigRef": {
+          "description": "ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.",
+          "type": "object",
+          "default": {
+            "name": "default"
+          },
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the referenced object.",
+              "type": "string"
+            },
+            "policy": {
+              "description": "Policies for referencing.",
+              "type": "object",
+              "properties": {
+                "resolution": {
+                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                  "type": "string",
+                  "default": "Required",
+                  "enum": [
+                    "Required",
+                    "Optional"
+                  ]
+                },
+                "resolve": {
+                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                  "type": "string",
+                  "enum": [
+                    "Always",
+                    "IfNotPresent"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "writeConnectionSecretToRef": {
+          "description": "WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.",
+          "type": "object",
+          "required": [
+            "name",
+            "namespace"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the secret.",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Namespace of the secret.",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "description": "CryptoKeyStatus defines the observed state of CryptoKey.",
+      "type": "object",
+      "properties": {
+        "atProvider": {
+          "type": "object",
+          "properties": {
+            "cryptoKeyBackend": {
+              "description": "The resource name of the backend environment associated with all CryptoKeyVersions within this CryptoKey.\nThe resource name is in the format \"projects//locations//ekmConnections/*\" and only applies to \"EXTERNAL_VPC\" keys.",
+              "type": "string"
+            },
+            "destroyScheduledDuration": {
+              "description": "The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED.\nIf not specified at creation time, the default duration is 30 days.",
+              "type": "string"
+            },
+            "effectiveLabels": {
+              "description": "for all of the labels present on the resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "id": {
+              "description": "an identifier for the resource with format {{key_ring}}/cryptoKeys/{{name}}",
+              "type": "string"
+            },
+            "importOnly": {
+              "description": "Whether this key may contain imported versions only.",
+              "type": "boolean"
+            },
+            "keyRing": {
+              "description": "The KeyRing that this key belongs to.\nFormat: 'projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}'.",
+              "type": "string"
+            },
+            "labels": {
+              "description": "Labels with user-defined metadata to apply to this resource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "primary": {
+              "description": "A copy of the primary CryptoKeyVersion that will be used by cryptoKeys.encrypt when this CryptoKey is given in EncryptRequest.name.\nKeys with purpose ENCRYPT_DECRYPT may have a primary. For other keys, this field will be unset.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "(Output)\nThe resource name for this CryptoKeyVersion.",
+                    "type": "string"
+                  },
+                  "state": {
+                    "description": "(Output)\nThe current state of the CryptoKeyVersion.",
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "purpose": {
+              "description": "The immutable purpose of this CryptoKey. See the\npurpose reference\nfor possible inputs.\nDefault value is \"ENCRYPT_DECRYPT\".",
+              "type": "string"
+            },
+            "rotationPeriod": {
+              "description": "Every time this period passes, generate a new CryptoKeyVersion and set it as the primary.\nThe first rotation will take place after the specified period. The rotation period has\nthe format of a decimal number with up to 9 fractional digits, followed by the\nletter s (seconds). It must be greater than a day (ie, 86400).",
+              "type": "string"
+            },
+            "skipInitialVersionCreation": {
+              "description": "If set to true, the request will create a CryptoKey without any CryptoKeyVersions.\nYou must use the google_kms_crypto_key_version resource to create a new CryptoKeyVersion\nor google_kms_key_ring_import_job resource to import the CryptoKeyVersion.",
+              "type": "boolean"
+            },
+            "terraformLabels": {
+              "description": "The combination of labels configured directly on the resource\nand default labels configured on the provider.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
+            "versionTemplate": {
+              "description": "A template describing settings for new crypto key versions.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "algorithm": {
+                  "description": "The algorithm to use when creating a version based on this template.\nSee the algorithm reference for possible inputs.",
+                  "type": "string"
+                },
+                "protectionLevel": {
+                  "description": "The protection level to use when creating a version based on this template. Possible values include \"SOFTWARE\", \"HSM\", \"EXTERNAL\", \"EXTERNAL_VPC\". Defaults to \"SOFTWARE\".",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "conditions": {
+          "description": "Conditions of the resource.",
+          "type": "array",
+          "items": {
+            "description": "A Condition that may apply to a resource.",
+            "type": "object",
+            "required": [
+              "lastTransitionTime",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time this condition transitioned from one\nstatus to another.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "A Message containing details about this condition's last transition from\none status to another, if any.",
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "ObservedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "type": "integer",
+                "format": "int64"
+              },
+              "reason": {
+                "description": "A Reason for this condition's last transition from one status to another.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of this condition; is it currently True, False, or Unknown?",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of this condition. At most one of each condition type may apply to\na resource at any point in time.",
+                "type": "string"
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

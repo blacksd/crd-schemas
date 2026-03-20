@@ -1,0 +1,24 @@
+{
+  "schema": "deidentifytemplate.json",
+  "crd": {
+    "group": "datalossprevention.gcp.m.upbound.io",
+    "kind": "DeidentifyTemplate",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "666e744c3f9b305e7185d29e20a0a5acc60242afba106534cfbd827bcfae9dcc"
+  }
+}

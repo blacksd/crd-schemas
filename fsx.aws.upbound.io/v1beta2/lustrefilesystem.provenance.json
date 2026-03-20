@@ -1,0 +1,24 @@
+{
+  "schema": "lustrefilesystem.json",
+  "crd": {
+    "group": "fsx.aws.upbound.io",
+    "kind": "LustreFileSystem",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d6d119daaaf406201518a920c1bcc2ceaf2ed4496c57a9e8e91e49e8f0872bc8"
+  }
+}

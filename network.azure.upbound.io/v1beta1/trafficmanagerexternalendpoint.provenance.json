@@ -1,0 +1,24 @@
+{
+  "schema": "trafficmanagerexternalendpoint.json",
+  "crd": {
+    "group": "network.azure.upbound.io",
+    "kind": "TrafficManagerExternalEndpoint",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "af67917dbe1cafd5f0e6a710cd56c490a61f2215315e50c5c318195377ab4df3"
+  }
+}

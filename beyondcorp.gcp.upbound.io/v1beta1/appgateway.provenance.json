@@ -1,0 +1,24 @@
+{
+  "schema": "appgateway.json",
+  "crd": {
+    "group": "beyondcorp.gcp.upbound.io",
+    "kind": "AppGateway",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2470238b008b2404967651ae229d90237127c482117ddfd4cf238f69ce690c29"
+  }
+}

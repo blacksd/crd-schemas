@@ -1,0 +1,24 @@
+{
+  "schema": "bucketreplicationconfiguration.json",
+  "crd": {
+    "group": "s3.aws.m.upbound.io",
+    "kind": "BucketReplicationConfiguration",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "52ee0d0b65acdf3e7e4c133dbad4da5c9929a521add5377a6a2427e124d0b81c"
+  }
+}

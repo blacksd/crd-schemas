@@ -1,0 +1,24 @@
+{
+  "schema": "ciliumgatewayclassconfig.json",
+  "crd": {
+    "group": "cilium.io",
+    "kind": "CiliumGatewayClassConfig",
+    "apiVersion": "v2alpha1"
+  },
+  "source": {
+    "name": "cilium",
+    "type": "git+github",
+    "repo": "https://github.com/cilium/cilium",
+    "path": "pkg/k8s/apis/cilium.io/client/crds",
+    "version": "v1.19.1",
+    "license": "Apache-2.0",
+    "homepage": "https://cilium.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ebf5ac919cab0b0f4253dd9fb4aae331632a8b8f82a943d803fae5d56fe71238"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "hpccacheblobnfstarget.json",
+  "crd": {
+    "group": "storagecache.azure.m.upbound.io",
+    "kind": "HPCCacheBlobNFSTarget",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5f6c0a19bca06f2109c9ce723ee04479cd763d221a39a84f47d2d70e408c8e2a"
+  }
+}

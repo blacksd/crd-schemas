@@ -1,0 +1,24 @@
+{
+  "schema": "lifecyclepolicy.json",
+  "crd": {
+    "group": "ecr.aws.m.upbound.io",
+    "kind": "LifecyclePolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b522861787a281dba2d4977e2a0a4f2e56c580e926c656d93649f7578132737b"
+  }
+}

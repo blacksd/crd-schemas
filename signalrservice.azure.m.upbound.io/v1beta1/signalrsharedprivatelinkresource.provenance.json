@@ -1,0 +1,24 @@
+{
+  "schema": "signalrsharedprivatelinkresource.json",
+  "crd": {
+    "group": "signalrservice.azure.m.upbound.io",
+    "kind": "SignalrSharedPrivateLinkResource",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "987bfc01e06769cdabdd6d2c0370d7528089ecb41d7c0830b8d988e8ee0f9bf9"
+  }
+}

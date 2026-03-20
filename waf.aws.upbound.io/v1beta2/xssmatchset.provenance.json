@@ -1,0 +1,24 @@
+{
+  "schema": "xssmatchset.json",
+  "crd": {
+    "group": "waf.aws.upbound.io",
+    "kind": "XSSMatchSet",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b739416f2ab78b8fe89c4ed1e096e0856273b271d1fcb2989f02eeb00b9c71c8"
+  }
+}

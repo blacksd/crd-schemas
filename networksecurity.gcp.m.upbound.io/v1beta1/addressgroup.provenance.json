@@ -1,0 +1,24 @@
+{
+  "schema": "addressgroup.json",
+  "crd": {
+    "group": "networksecurity.gcp.m.upbound.io",
+    "kind": "AddressGroup",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ba65eae31a8b28e9266ffe0d77721d4ea1ea674b3ffe62dcec40b0e50cbb0eaa"
+  }
+}

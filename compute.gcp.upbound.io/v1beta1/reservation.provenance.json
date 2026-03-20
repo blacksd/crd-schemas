@@ -1,0 +1,24 @@
+{
+  "schema": "reservation.json",
+  "crd": {
+    "group": "compute.gcp.upbound.io",
+    "kind": "Reservation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7da10d8640fc1c066b4b3bb2fb83356e7365231fdc1d9c7ad9cfb3e6f6b91b49"
+  }
+}

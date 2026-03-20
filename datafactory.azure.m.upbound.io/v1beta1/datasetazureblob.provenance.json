@@ -1,0 +1,24 @@
+{
+  "schema": "datasetazureblob.json",
+  "crd": {
+    "group": "datafactory.azure.m.upbound.io",
+    "kind": "DataSetAzureBlob",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ab09644b7032256bd4ccd9404addf46c377249a3e8239e6cdaffe6f32046f69c"
+  }
+}

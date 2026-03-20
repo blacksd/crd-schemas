@@ -1,0 +1,24 @@
+{
+  "schema": "privatednstxtrecord.json",
+  "crd": {
+    "group": "network.azure.m.upbound.io",
+    "kind": "PrivateDNSTXTRecord",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e54ccd0ced9e84f0353c80bb2cfe43c7e441dbd10b68be9d826fb05a8f46d0ca"
+  }
+}

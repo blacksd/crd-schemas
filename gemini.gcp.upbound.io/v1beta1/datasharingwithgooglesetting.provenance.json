@@ -1,0 +1,24 @@
+{
+  "schema": "datasharingwithgooglesetting.json",
+  "crd": {
+    "group": "gemini.gcp.upbound.io",
+    "kind": "DataSharingWithGoogleSetting",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "95f32e9cb23a327c523b6a6bf717ba752adad14a5e118fcfc7d36418ad12dd35"
+  }
+}

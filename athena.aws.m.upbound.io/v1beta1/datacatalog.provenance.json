@@ -1,0 +1,24 @@
+{
+  "schema": "datacatalog.json",
+  "crd": {
+    "group": "athena.aws.m.upbound.io",
+    "kind": "DataCatalog",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6a4b094c47ee96a8addf9018010d530f29737d40b73aa21ca0385f8105e5c91e"
+  }
+}

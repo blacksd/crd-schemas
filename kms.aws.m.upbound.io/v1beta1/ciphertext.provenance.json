@@ -1,0 +1,24 @@
+{
+  "schema": "ciphertext.json",
+  "crd": {
+    "group": "kms.aws.m.upbound.io",
+    "kind": "Ciphertext",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "cf1dc7eedfc5668db5776f14139356b7c0d7c6dcd6239c9e7d28eccdc088bc8a"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "projectiamauditconfig.json",
+  "crd": {
+    "group": "cloudplatform.gcp.upbound.io",
+    "kind": "ProjectIAMAuditConfig",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "767534ff43c00945c01926b6649369f2db4d318c9ec01be91238c4c00a73110c"
+  }
+}

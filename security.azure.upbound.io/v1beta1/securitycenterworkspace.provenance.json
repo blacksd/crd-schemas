@@ -1,0 +1,24 @@
+{
+  "schema": "securitycenterworkspace.json",
+  "crd": {
+    "group": "security.azure.upbound.io",
+    "kind": "SecurityCenterWorkspace",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "92f2f8a3085b3d8a5ef72ca00aa760cc15e09f0c17461395e4dd78af44d4147d"
+  }
+}

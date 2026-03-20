@@ -1,0 +1,24 @@
+{
+  "schema": "ruleset.json",
+  "crd": {
+    "group": "firebaserules.gcp.upbound.io",
+    "kind": "Ruleset",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "cd7ea91bb7889540d04f6a7bae8f7c533465eeba9782d55dd7c0bafd4fca6151"
+  }
+}

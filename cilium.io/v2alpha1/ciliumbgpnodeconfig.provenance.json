@@ -1,0 +1,24 @@
+{
+  "schema": "ciliumbgpnodeconfig.json",
+  "crd": {
+    "group": "cilium.io",
+    "kind": "CiliumBGPNodeConfig",
+    "apiVersion": "v2alpha1"
+  },
+  "source": {
+    "name": "cilium",
+    "type": "git+github",
+    "repo": "https://github.com/cilium/cilium",
+    "path": "pkg/k8s/apis/cilium.io/client/crds",
+    "version": "v1.19.1",
+    "license": "Apache-2.0",
+    "homepage": "https://cilium.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4f06f7426da6e55bf622b5f66677f99c4ec4e3e50f25368ca844f95b7d7d6198"
+  }
+}

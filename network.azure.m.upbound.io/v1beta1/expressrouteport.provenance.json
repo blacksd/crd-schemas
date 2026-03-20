@@ -1,0 +1,24 @@
+{
+  "schema": "expressrouteport.json",
+  "crd": {
+    "group": "network.azure.m.upbound.io",
+    "kind": "ExpressRoutePort",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c2012adf72e27644cbc419218845e05f39ebd525564c6553ed69b09982cdb76c"
+  }
+}

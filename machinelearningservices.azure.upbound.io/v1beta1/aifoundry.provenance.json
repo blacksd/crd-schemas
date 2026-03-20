@@ -1,0 +1,24 @@
+{
+  "schema": "aifoundry.json",
+  "crd": {
+    "group": "machinelearningservices.azure.upbound.io",
+    "kind": "AIFoundry",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "19fb13e98ef51363065be1d56e16b30dd36792086a2ad355fe871b232d3e2821"
+  }
+}

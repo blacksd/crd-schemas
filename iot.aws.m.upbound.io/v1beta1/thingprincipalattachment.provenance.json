@@ -1,0 +1,24 @@
+{
+  "schema": "thingprincipalattachment.json",
+  "crd": {
+    "group": "iot.aws.m.upbound.io",
+    "kind": "ThingPrincipalAttachment",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0526b033c44a267ae981735048dcdd97015803e9ec6c028f926bd6c12cb1f535"
+  }
+}

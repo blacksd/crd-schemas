@@ -1,0 +1,24 @@
+{
+  "schema": "accountsettingdefault.json",
+  "crd": {
+    "group": "ecs.aws.m.upbound.io",
+    "kind": "AccountSettingDefault",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c9f1c99fd7bc6530d259fcd07a94801c2879b7b60d603256862f27e2d89083a9"
+  }
+}

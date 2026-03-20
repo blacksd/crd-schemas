@@ -1,0 +1,24 @@
+{
+  "schema": "locationtagbinding.json",
+  "crd": {
+    "group": "tags.gcp.m.upbound.io",
+    "kind": "LocationTagBinding",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "41535b2359d94544a77b37da8f49ad8aadc559509b9d7b77a5d336d2ce5de476"
+  }
+}

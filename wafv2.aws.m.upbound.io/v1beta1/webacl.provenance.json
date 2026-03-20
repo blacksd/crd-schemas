@@ -1,0 +1,24 @@
+{
+  "schema": "webacl.json",
+  "crd": {
+    "group": "wafv2.aws.m.upbound.io",
+    "kind": "WebACL",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "163ccd9b237ca3fcfa39e2b2194689a1b1020a77e77f5f37a9d92dda778cfb10"
+  }
+}

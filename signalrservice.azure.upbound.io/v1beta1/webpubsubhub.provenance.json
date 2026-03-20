@@ -1,0 +1,24 @@
+{
+  "schema": "webpubsubhub.json",
+  "crd": {
+    "group": "signalrservice.azure.upbound.io",
+    "kind": "WebPubsubHub",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "934b34dd92670c9e11f5b9e9c9c34aef3279f608c76f9575469f41684da06c47"
+  }
+}

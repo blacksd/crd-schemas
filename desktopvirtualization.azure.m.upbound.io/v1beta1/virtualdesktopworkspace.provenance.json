@@ -1,0 +1,24 @@
+{
+  "schema": "virtualdesktopworkspace.json",
+  "crd": {
+    "group": "desktopvirtualization.azure.m.upbound.io",
+    "kind": "VirtualDesktopWorkspace",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "993c605dd7fca482f85a67c856a7da8ed95ddbc628f4344d931c90c89668bf41"
+  }
+}

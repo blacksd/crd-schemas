@@ -1,0 +1,24 @@
+{
+  "schema": "resourceassociation.json",
+  "crd": {
+    "group": "ram.aws.m.upbound.io",
+    "kind": "ResourceAssociation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4c2ebc63a8e590d5d9645bfcb922dc26a12440ef60987aa92d1642fbaf80addc"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "instanceroleassociation.json",
+  "crd": {
+    "group": "rds.aws.m.upbound.io",
+    "kind": "InstanceRoleAssociation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "020f1cb4c7918407d6f0a8cb8490f19c3e9243c495e7709d78161ebc65131ea8"
+  }
+}

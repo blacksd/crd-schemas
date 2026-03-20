@@ -1,0 +1,24 @@
+{
+  "schema": "networkinterfacesecuritygroupassociation.json",
+  "crd": {
+    "group": "network.azure.m.upbound.io",
+    "kind": "NetworkInterfaceSecurityGroupAssociation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7cb343ff5696371893c895f4822c303f1fcf9d2d1d0dcb496e388b84c0842fca"
+  }
+}

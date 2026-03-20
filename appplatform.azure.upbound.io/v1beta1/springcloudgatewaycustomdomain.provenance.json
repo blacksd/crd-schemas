@@ -1,0 +1,24 @@
+{
+  "schema": "springcloudgatewaycustomdomain.json",
+  "crd": {
+    "group": "appplatform.azure.upbound.io",
+    "kind": "SpringCloudGatewayCustomDomain",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "2019cf18c27ebf0cc40a9a4a2b4dbf589a7147e685f8360bd69f56491b36f462"
+  }
+}

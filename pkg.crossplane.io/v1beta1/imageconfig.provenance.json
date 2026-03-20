@@ -1,0 +1,24 @@
+{
+  "schema": "imageconfig.json",
+  "crd": {
+    "group": "pkg.crossplane.io",
+    "kind": "ImageConfig",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "crossplane",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane/crossplane",
+    "path": "cluster/crds",
+    "version": "v2.2.0",
+    "license": "Apache-2.0",
+    "homepage": "https://crossplane.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8455598c1a8082abf3da4945918bc4fab7d66fa58eddc345a1922d39cfa40269"
+  }
+}

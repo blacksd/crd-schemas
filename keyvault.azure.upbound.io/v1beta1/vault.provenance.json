@@ -1,0 +1,24 @@
+{
+  "schema": "vault.json",
+  "crd": {
+    "group": "keyvault.azure.upbound.io",
+    "kind": "Vault",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "912d7dae6e295f2519285a2941e2c4b4bb01e0a8fedf5ce7a2952502852a0a8f"
+  }
+}

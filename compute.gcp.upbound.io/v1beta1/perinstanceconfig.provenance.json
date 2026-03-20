@@ -1,0 +1,24 @@
+{
+  "schema": "perinstanceconfig.json",
+  "crd": {
+    "group": "compute.gcp.upbound.io",
+    "kind": "PerInstanceConfig",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4504fa438333d0fa5e9c86891d649d04726814515479fd2f979ff3f1029ff588"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "sslcert.json",
+  "crd": {
+    "group": "sql.gcp.upbound.io",
+    "kind": "SSLCert",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "3ebb9556f21a8e1f9f86a5fb2c304d893bd7620fc68c91354c608a29ca6c99ca"
+  }
+}

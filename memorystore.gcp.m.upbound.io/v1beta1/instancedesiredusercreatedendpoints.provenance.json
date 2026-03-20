@@ -1,0 +1,24 @@
+{
+  "schema": "instancedesiredusercreatedendpoints.json",
+  "crd": {
+    "group": "memorystore.gcp.m.upbound.io",
+    "kind": "InstanceDesiredUserCreatedEndpoints",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "141d052d0358c1545d8ffb3d55b2123ba46bf46dda512191357c724a3e54eeb9"
+  }
+}

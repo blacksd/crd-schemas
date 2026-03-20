@@ -1,0 +1,24 @@
+{
+  "schema": "tenantdefaultsupportedidpconfig.json",
+  "crd": {
+    "group": "identityplatform.gcp.upbound.io",
+    "kind": "TenantDefaultSupportedIdPConfig",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "be62631db40a945719037e14e6613ac552e1cc757654bf3a88afd3fe089ddcf8"
+  }
+}

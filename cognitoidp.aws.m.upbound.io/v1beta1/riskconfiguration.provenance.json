@@ -1,0 +1,24 @@
+{
+  "schema": "riskconfiguration.json",
+  "crd": {
+    "group": "cognitoidp.aws.m.upbound.io",
+    "kind": "RiskConfiguration",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "83fa983509fe072fb4c1bad7e27d018ced33e7d1b9ed4a0d6e4e762f6b6cafe6"
+  }
+}

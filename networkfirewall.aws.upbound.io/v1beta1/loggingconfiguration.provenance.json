@@ -1,0 +1,24 @@
+{
+  "schema": "loggingconfiguration.json",
+  "crd": {
+    "group": "networkfirewall.aws.upbound.io",
+    "kind": "LoggingConfiguration",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5012eac21f7af9b778fff254a5aee951af35d25925ff5ae7da486bf36fea52ee"
+  }
+}

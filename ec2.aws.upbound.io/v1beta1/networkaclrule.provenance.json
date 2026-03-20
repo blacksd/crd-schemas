@@ -1,0 +1,24 @@
+{
+  "schema": "networkaclrule.json",
+  "crd": {
+    "group": "ec2.aws.upbound.io",
+    "kind": "NetworkACLRule",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4e5cccd0f24ebaa3c008df24eaa9d316fe0e375ef0cfc9271ad9b5928eac336b"
+  }
+}

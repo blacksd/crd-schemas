@@ -1,0 +1,24 @@
+{
+  "schema": "ciliumclusterwideenvoyconfig.json",
+  "crd": {
+    "group": "cilium.io",
+    "kind": "CiliumClusterwideEnvoyConfig",
+    "apiVersion": "v2"
+  },
+  "source": {
+    "name": "cilium",
+    "type": "git+github",
+    "repo": "https://github.com/cilium/cilium",
+    "path": "pkg/k8s/apis/cilium.io/client/crds",
+    "version": "v1.19.1",
+    "license": "Apache-2.0",
+    "homepage": "https://cilium.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f3c1b0935d751ebb8bfc29157063681622873ad5b78b156c3e8bc50616719dde"
+  }
+}

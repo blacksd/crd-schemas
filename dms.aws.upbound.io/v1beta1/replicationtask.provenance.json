@@ -1,0 +1,24 @@
+{
+  "schema": "replicationtask.json",
+  "crd": {
+    "group": "dms.aws.upbound.io",
+    "kind": "ReplicationTask",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a6f72040926525399432c9e336fc28886d89daa413f9896ebc1d213320a9de28"
+  }
+}

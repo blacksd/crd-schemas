@@ -1,0 +1,24 @@
+{
+  "schema": "windowsvirtualmachine.json",
+  "crd": {
+    "group": "compute.azure.upbound.io",
+    "kind": "WindowsVirtualMachine",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a8482a5021d929f01e9cd433dd4e4a58898f0a03c268836f6d0f90f85ba959c0"
+  }
+}

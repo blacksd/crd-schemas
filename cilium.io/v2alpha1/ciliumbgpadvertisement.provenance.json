@@ -1,0 +1,24 @@
+{
+  "schema": "ciliumbgpadvertisement.json",
+  "crd": {
+    "group": "cilium.io",
+    "kind": "CiliumBGPAdvertisement",
+    "apiVersion": "v2alpha1"
+  },
+  "source": {
+    "name": "cilium",
+    "type": "git+github",
+    "repo": "https://github.com/cilium/cilium",
+    "path": "pkg/k8s/apis/cilium.io/client/crds",
+    "version": "v1.19.1",
+    "license": "Apache-2.0",
+    "homepage": "https://cilium.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0d13ce414bf222764bc9f4edd65aa72d4a15265a1c9b4db63df02e90d93311d2"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "gremlingraph.json",
+  "crd": {
+    "group": "cosmosdb.azure.m.upbound.io",
+    "kind": "GremlinGraph",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a980ebe7ce5d325cbc73c8213ba5a88bb4d024f7f640323b4e6bfef9076f79e6"
+  }
+}

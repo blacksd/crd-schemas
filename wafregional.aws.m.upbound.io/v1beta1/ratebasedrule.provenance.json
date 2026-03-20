@@ -1,0 +1,24 @@
+{
+  "schema": "ratebasedrule.json",
+  "crd": {
+    "group": "wafregional.aws.m.upbound.io",
+    "kind": "RateBasedRule",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7ca4899a2be888f4780c0a4e930877e0dee2c633795657224b079a7b9b9adb4b"
+  }
+}

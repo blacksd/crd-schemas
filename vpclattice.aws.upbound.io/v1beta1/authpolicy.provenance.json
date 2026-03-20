@@ -1,0 +1,24 @@
+{
+  "schema": "authpolicy.json",
+  "crd": {
+    "group": "vpclattice.aws.upbound.io",
+    "kind": "AuthPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ef0c151f6af85a3151b5eb1d4d5d1d35138b706e83e166b3e648439fe12b9368"
+  }
+}

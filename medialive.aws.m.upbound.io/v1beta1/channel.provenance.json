@@ -1,0 +1,24 @@
+{
+  "schema": "channel.json",
+  "crd": {
+    "group": "medialive.aws.m.upbound.io",
+    "kind": "Channel",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "849a42df5615b58b5ca5e8479c1efc06fb63a7efdd21602e5b032c3cdd968c00"
+  }
+}

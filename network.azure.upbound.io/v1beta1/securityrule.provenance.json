@@ -1,0 +1,24 @@
+{
+  "schema": "securityrule.json",
+  "crd": {
+    "group": "network.azure.upbound.io",
+    "kind": "SecurityRule",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f4523004c1af57a47b92fb06e6e3647cbf7a22991f0867665fab458d4f25df77"
+  }
+}

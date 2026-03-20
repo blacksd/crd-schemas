@@ -1,0 +1,24 @@
+{
+  "schema": "healthcaremedtechservice.json",
+  "crd": {
+    "group": "healthcareapis.azure.m.upbound.io",
+    "kind": "HealthcareMedtechService",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "becb1c9f735d32f1716d24d6c601bf3aaad49f4f9f01cb9e901f2fea37ac7537"
+  }
+}

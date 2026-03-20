@@ -1,0 +1,24 @@
+{
+  "schema": "profile.json",
+  "crd": {
+    "group": "rolesanywhere.aws.upbound.io",
+    "kind": "Profile",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5a655425194a53e8b8c7a7c2984da9b6ac328457d45b30c1eef2f36c91bfb17e"
+  }
+}

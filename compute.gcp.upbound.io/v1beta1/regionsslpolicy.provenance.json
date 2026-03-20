@@ -1,0 +1,24 @@
+{
+  "schema": "regionsslpolicy.json",
+  "crd": {
+    "group": "compute.gcp.upbound.io",
+    "kind": "RegionSSLPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "61c2c564a44f5149205c7355042114f401bedd4f1e88b970dd6ce1d3a53d5cb0"
+  }
+}

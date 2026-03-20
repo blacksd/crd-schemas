@@ -1,0 +1,24 @@
+{
+  "schema": "botchannelslack.json",
+  "crd": {
+    "group": "botservice.azure.m.upbound.io",
+    "kind": "BotChannelSlack",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5c146e7357fba184d2d4fc480f46ce69a4e912830d2606e5ff4fb2cc13af8467"
+  }
+}

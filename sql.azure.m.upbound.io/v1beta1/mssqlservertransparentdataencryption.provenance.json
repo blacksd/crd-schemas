@@ -1,0 +1,24 @@
+{
+  "schema": "mssqlservertransparentdataencryption.json",
+  "crd": {
+    "group": "sql.azure.m.upbound.io",
+    "kind": "MSSQLServerTransparentDataEncryption",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1d5060dba239fb57567209a96031fe15ea67e59f001bf0bbddb36d1c59db6d19"
+  }
+}

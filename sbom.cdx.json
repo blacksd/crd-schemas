@@ -4,7 +4,7 @@
   "specVersion": "1.5",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-03-20T13:28:43Z",
+    "timestamp": "2026-03-20T19:02:52Z",
     "tools": {
       "components": [
         {
@@ -216,6 +216,24 @@
     },
     {
       "type": "library",
+      "name": "cilium",
+      "version": "v1.19.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://cilium.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "cloudnative-pg",
       "version": "0.27.1",
       "licenses": [
@@ -264,6 +282,24 @@
       "externalReferences": [
         {
           "url": "https://projectcontour.io",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "crossplane",
+      "version": "v2.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://crossplane.io",
           "type": "website"
         }
       ]
@@ -1668,6 +1704,60 @@
       "externalReferences": [
         {
           "url": "https://prometheus-operator.dev",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "provider-upjet-aws",
+      "version": "v2.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://marketplace.upbound.io/providers/upbound/provider-family-aws",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "provider-upjet-azure",
+      "version": "v2.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://marketplace.upbound.io/providers/upbound/provider-family-azure",
+          "type": "website"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "provider-upjet-gcp",
+      "version": "v2.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp",
           "type": "website"
         }
       ]

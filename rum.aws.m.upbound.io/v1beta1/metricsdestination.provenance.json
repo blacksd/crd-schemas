@@ -1,0 +1,24 @@
+{
+  "schema": "metricsdestination.json",
+  "crd": {
+    "group": "rum.aws.m.upbound.io",
+    "kind": "MetricsDestination",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a0981d60fef5a436a3d75664d9c0ab5d81d1bca8539376bc7ef3e8b6a2e66c7c"
+  }
+}

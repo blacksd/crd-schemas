@@ -1,0 +1,24 @@
+{
+  "schema": "folderbucketconfig.json",
+  "crd": {
+    "group": "logging.gcp.upbound.io",
+    "kind": "FolderBucketConfig",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "debe3343cfcd94ea163f11894ff898287357a6513eaf9b675ca0f0eae7d75883"
+  }
+}

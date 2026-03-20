@@ -1,0 +1,24 @@
+{
+  "schema": "queueredriveallowpolicy.json",
+  "crd": {
+    "group": "sqs.aws.upbound.io",
+    "kind": "QueueRedriveAllowPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "80bb099a2a2737baa81622f91e3fac3169db3ac54404899d0c17654a801e8bee"
+  }
+}

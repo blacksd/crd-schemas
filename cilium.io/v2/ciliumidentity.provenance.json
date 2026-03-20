@@ -1,0 +1,24 @@
+{
+  "schema": "ciliumidentity.json",
+  "crd": {
+    "group": "cilium.io",
+    "kind": "CiliumIdentity",
+    "apiVersion": "v2"
+  },
+  "source": {
+    "name": "cilium",
+    "type": "git+github",
+    "repo": "https://github.com/cilium/cilium",
+    "path": "pkg/k8s/apis/cilium.io/client/crds",
+    "version": "v1.19.1",
+    "license": "Apache-2.0",
+    "homepage": "https://cilium.io"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "fcf0f8e92742fe1ad81b28ca797cfbbef10cba11c1f6dc00c67353ac2ef6cce6"
+  }
+}

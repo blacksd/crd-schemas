@@ -1,0 +1,24 @@
+{
+  "schema": "placeindex.json",
+  "crd": {
+    "group": "location.aws.upbound.io",
+    "kind": "PlaceIndex",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "dd0bc3a6c85df9427fba034a2299a17018056ffef67e1dcf8a21e21db6c8011e"
+  }
+}

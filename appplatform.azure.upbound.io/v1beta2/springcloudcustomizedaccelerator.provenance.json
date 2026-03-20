@@ -1,0 +1,24 @@
+{
+  "schema": "springcloudcustomizedaccelerator.json",
+  "crd": {
+    "group": "appplatform.azure.upbound.io",
+    "kind": "SpringCloudCustomizedAccelerator",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "fa712e5684381239af2ebb44729cf21f64a85c6622f9e0aadf8f27350e94ec07"
+  }
+}

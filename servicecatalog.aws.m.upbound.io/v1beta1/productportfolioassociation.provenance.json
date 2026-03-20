@@ -1,0 +1,24 @@
+{
+  "schema": "productportfolioassociation.json",
+  "crd": {
+    "group": "servicecatalog.aws.m.upbound.io",
+    "kind": "ProductPortfolioAssociation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "0778b62546948c40efe6d45982fa4822d485d81ab3f21213db0a34d44838645b"
+  }
+}

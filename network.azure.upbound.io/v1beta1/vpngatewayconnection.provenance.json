@@ -1,0 +1,24 @@
+{
+  "schema": "vpngatewayconnection.json",
+  "crd": {
+    "group": "network.azure.upbound.io",
+    "kind": "VPNGatewayConnection",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "951484f850f7468daac4f057497ecf4ace877c7bb1e50e23e797e297352582e2"
+  }
+}

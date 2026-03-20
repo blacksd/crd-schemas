@@ -1,0 +1,24 @@
+{
+  "schema": "siterecoveryreplicationpolicy.json",
+  "crd": {
+    "group": "recoveryservices.azure.m.upbound.io",
+    "kind": "SiteRecoveryReplicationPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1886669cf33360ce4e3651d84e8ea2a3012880bf815ad841fb32cb3351cef01b"
+  }
+}

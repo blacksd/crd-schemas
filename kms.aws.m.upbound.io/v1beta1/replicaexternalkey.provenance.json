@@ -1,0 +1,24 @@
+{
+  "schema": "replicaexternalkey.json",
+  "crd": {
+    "group": "kms.aws.m.upbound.io",
+    "kind": "ReplicaExternalKey",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "591a716bbc4e80376063a00484083b78f32f8040b80fd6c2b3e713b3d6515a9a"
+  }
+}

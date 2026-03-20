@@ -1,0 +1,24 @@
+{
+  "schema": "samlprovider.json",
+  "crd": {
+    "group": "iam.aws.upbound.io",
+    "kind": "SAMLProvider",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "172f3fec95aabb0ee6f3be5c11d6116cefe24b0625def4822c53864e96094354"
+  }
+}

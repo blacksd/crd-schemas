@@ -1,0 +1,24 @@
+{
+  "schema": "redisenterprisecluster.json",
+  "crd": {
+    "group": "cache.azure.m.upbound.io",
+    "kind": "RedisEnterpriseCluster",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "91ac665b959aecdf4f457d3fc4331335b654df9ba51ffd4254e931ad77009b0b"
+  }
+}

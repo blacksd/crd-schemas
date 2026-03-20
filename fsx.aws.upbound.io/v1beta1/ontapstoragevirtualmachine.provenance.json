@@ -1,0 +1,24 @@
+{
+  "schema": "ontapstoragevirtualmachine.json",
+  "crd": {
+    "group": "fsx.aws.upbound.io",
+    "kind": "OntapStorageVirtualMachine",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c23dfdae557964e9169be505e305c5c6cd37be8361e92e70cbdd04d16400e76b"
+  }
+}

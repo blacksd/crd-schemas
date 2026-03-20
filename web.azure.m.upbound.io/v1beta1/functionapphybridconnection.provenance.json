@@ -1,0 +1,24 @@
+{
+  "schema": "functionapphybridconnection.json",
+  "crd": {
+    "group": "web.azure.m.upbound.io",
+    "kind": "FunctionAppHybridConnection",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7dc393bf5b03ef4890f618816a0fe18e36099a623fe7328c69d89e1fb5044272"
+  }
+}

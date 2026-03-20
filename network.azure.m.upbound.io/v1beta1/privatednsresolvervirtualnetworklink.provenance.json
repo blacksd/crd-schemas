@@ -1,0 +1,24 @@
+{
+  "schema": "privatednsresolvervirtualnetworklink.json",
+  "crd": {
+    "group": "network.azure.m.upbound.io",
+    "kind": "PrivateDNSResolverVirtualNetworkLink",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6bea04eed84d76dc0828b6efb525c50d07dc5de97cc57af063e7bd74c4dc5f20"
+  }
+}

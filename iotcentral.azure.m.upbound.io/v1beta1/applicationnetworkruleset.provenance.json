@@ -1,0 +1,24 @@
+{
+  "schema": "applicationnetworkruleset.json",
+  "crd": {
+    "group": "iotcentral.azure.m.upbound.io",
+    "kind": "ApplicationNetworkRuleSet",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "32b85ea2d71dc90f9b1b601fae8027f495f799944a6a003f0d6879b0f4d7d2ff"
+  }
+}

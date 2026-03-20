@@ -1,0 +1,24 @@
+{
+  "schema": "tenant.json",
+  "crd": {
+    "group": "identityplatform.gcp.m.upbound.io",
+    "kind": "Tenant",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "80687e1ef4698b57ecce680cb68d3fd2ead1fc0b3b06a12bf53c81a5d437e5f7"
+  }
+}

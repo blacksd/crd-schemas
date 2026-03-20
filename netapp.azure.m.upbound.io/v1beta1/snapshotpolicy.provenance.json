@@ -1,0 +1,24 @@
+{
+  "schema": "snapshotpolicy.json",
+  "crd": {
+    "group": "netapp.azure.m.upbound.io",
+    "kind": "SnapshotPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b4d1e2afa2207f941e350d81de15c87dc083f988b217284d4b2870a644130ad5"
+  }
+}

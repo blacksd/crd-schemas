@@ -1,0 +1,24 @@
+{
+  "schema": "virtualdesktopworkspaceapplicationgroupassociation.json",
+  "crd": {
+    "group": "desktopvirtualization.azure.m.upbound.io",
+    "kind": "VirtualDesktopWorkspaceApplicationGroupAssociation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9a29328e2b49271acb70ea739921cdc1c6e0281d08563e6335996e5035a277fd"
+  }
+}

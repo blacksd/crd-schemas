@@ -1,0 +1,24 @@
+{
+  "schema": "outputpowerbi.json",
+  "crd": {
+    "group": "streamanalytics.azure.upbound.io",
+    "kind": "OutputPowerBI",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "cff12a05bba0293c41225c99188b619b79551e054ccc7ddb796b0fd7632d6f88"
+  }
+}

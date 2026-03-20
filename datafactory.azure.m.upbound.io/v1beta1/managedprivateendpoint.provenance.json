@@ -1,0 +1,24 @@
+{
+  "schema": "managedprivateendpoint.json",
+  "crd": {
+    "group": "datafactory.azure.m.upbound.io",
+    "kind": "ManagedPrivateEndpoint",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a97509bb8f2ac4f8290496886b849303f8587ea4a6f5d7dc2837bec7b309ee92"
+  }
+}

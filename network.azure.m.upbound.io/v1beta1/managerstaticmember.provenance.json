@@ -1,0 +1,24 @@
+{
+  "schema": "managerstaticmember.json",
+  "crd": {
+    "group": "network.azure.m.upbound.io",
+    "kind": "ManagerStaticMember",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d57f381debbd0a91115e1fd8881db42908f0e0a29f9127a9b00a72a1279525db"
+  }
+}

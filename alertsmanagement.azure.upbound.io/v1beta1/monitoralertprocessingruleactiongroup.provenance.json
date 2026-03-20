@@ -1,0 +1,24 @@
+{
+  "schema": "monitoralertprocessingruleactiongroup.json",
+  "crd": {
+    "group": "alertsmanagement.azure.upbound.io",
+    "kind": "MonitorAlertProcessingRuleActionGroup",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "9883d3b282c905c61ac94b75fd98732e75b1513b79a42c0661760a5893f94ac3"
+  }
+}

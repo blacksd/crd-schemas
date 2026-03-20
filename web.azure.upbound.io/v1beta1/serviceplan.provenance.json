@@ -1,0 +1,24 @@
+{
+  "schema": "serviceplan.json",
+  "crd": {
+    "group": "web.azure.upbound.io",
+    "kind": "ServicePlan",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.5.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-03-20T19:02:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "d90d71e5c10e9e2befcb3b76efd009b7035176492d5bd62b8b69c24337ea24b8"
+  }
+}
