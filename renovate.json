@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "prHourlyLimit": 8,
+  "prHourlyLimit": 10,
   "extends": [
     "config:recommended",
     "helpers:pinGitHubActionDigests"
@@ -88,7 +88,7 @@
         ".sources/**"
       ],
       "schedule": [
-        "before 6am every weekday"
+        "before 6am"
       ],
       "automerge": true,
       "automergeSchedule": [
