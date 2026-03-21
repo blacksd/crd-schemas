@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://argoproj.github.io/argo-helm",
     "chart": "argo-rollouts",
-    "version": "2.40.6",
+    "version": "2.40.8",
     "license": "Apache-2.0",
     "homepage": "https://argoproj.github.io/rollouts",
     "include": [
@@ -22,10 +22,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-03-21T10:05:27Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "4e315250e743f78dbf39bc48462a70260e06a280a8cd783a7139bee68b556491"
+    "sha256": "a9511dd58b029f948c60a7291ad1ed43414b11a8c948ecbac217a73e707ad806"
   }
 }
