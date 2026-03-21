@@ -3,6 +3,6 @@ sources:
     type: helm
     repo: https://scylla-operator-charts.storage.googleapis.com/stable
     chart: scylla-operator
-    version: v1.20.0
+    version: v1.20.1
     license: Apache-2.0
     homepage: https://github.com/scylladb/scylla-operator
