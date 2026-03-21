@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://k8up-io.github.io/k8up",
     "chart": "k8up",
-    "version": "4.8.6",
+    "version": "4.8.7",
     "license": "Apache-2.0",
     "homepage": "https://k8up.io"
   },
   "extraction": {
-    "timestamp": "2026-03-07T06:28:38Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-03-21T10:07:50Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "fb2565135d1fab117ab3f4f14cb8e2b34aa02ac98824ad30ee7c5b6103ba0f65"
+    "sha256": "2bec5890f6e79ce75fd8fdaf537f97ce4478fe86615d472327116084106a7bf8"
   }
 }
