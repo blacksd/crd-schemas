@@ -1,0 +1,8 @@
+sources:
+  - name: grafana-alloy
+    type: helm
+    repo: https://grafana.github.io/helm-charts
+    chart: alloy
+    version: 1.6.2
+    license: Apache-2.0
+    homepage: https://grafana.com/docs/alloy/latest/

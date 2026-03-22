@@ -1,0 +1,8 @@
+sources:
+  - name: gpu-operator
+    type: helm
+    repo: https://helm.ngc.nvidia.com/nvidia
+    chart: gpu-operator
+    version: v26.3.0
+    license: Apache-2.0
+    homepage: https://github.com/NVIDIA/gpu-operator

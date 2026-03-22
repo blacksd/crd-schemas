@@ -1,0 +1,8 @@
+sources:
+  - name: dynatrace-operator
+    type: git+github
+    repo: https://github.com/Dynatrace/dynatrace-operator
+    version: v1.8.1
+    license: Apache-2.0
+    homepage: https://github.com/Dynatrace/dynatrace-operator
+    path: config/crd/bases

@@ -1,0 +1,8 @@
+sources:
+  - name: datadog-operator
+    type: git+github
+    repo: https://github.com/DataDog/datadog-operator
+    version: v1.24.0
+    license: Apache-2.0
+    homepage: https://github.com/DataDog/datadog-operator
+    path: config/crd/bases/v1
