@@ -1,0 +1,8 @@
+sources:
+  - name: victoria-metrics-operator-crds
+    type: helm
+    repo: https://victoriametrics.github.io/helm-charts/
+    chart: victoria-metrics-operator-crds
+    version: 0.8.0
+    license: Apache-2.0
+    homepage: https://github.com/VictoriaMetrics/operator

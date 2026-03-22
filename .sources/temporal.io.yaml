@@ -1,0 +1,8 @@
+sources:
+  - name: temporal-operator
+    type: helm
+    repo: https://alexandrevilain.github.io/temporal-operator
+    chart: temporal-operator
+    version: 0.6.0
+    license: Apache-2.0
+    homepage: https://github.com/alexandrevilain/temporal-operator
