@@ -1,0 +1,24 @@
+{
+  "schema": "nodeclaim.json",
+  "crd": {
+    "group": "karpenter.sh",
+    "kind": "NodeClaim",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "karpenter",
+    "type": "helm",
+    "repo": "oci://public.ecr.aws/karpenter",
+    "chart": "karpenter",
+    "version": "v1.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://karpenter.sh"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T08:17:21Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f468b268318f656731944325fde64a1e1021e8b2ab7d419145bfe4bafc2dd7bb"
+  }
+}

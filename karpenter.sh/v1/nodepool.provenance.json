@@ -1,0 +1,24 @@
+{
+  "schema": "nodepool.json",
+  "crd": {
+    "group": "karpenter.sh",
+    "kind": "NodePool",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "karpenter",
+    "type": "helm",
+    "repo": "oci://public.ecr.aws/karpenter",
+    "chart": "karpenter",
+    "version": "v1.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://karpenter.sh"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T08:17:21Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "00064c0ff13c561fdf9b1ed74790bf22453dd0b238521da7efbeb3ed182b5931"
+  }
+}
