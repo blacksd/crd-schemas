@@ -8,16 +8,16 @@
   "source": {
     "name": "dragonfly-operator",
     "type": "url",
-    "url": "https://raw.githubusercontent.com/dragonflydb/dragonfly-operator/v1.4.0/config/crd/bases/dragonflydb.io_dragonflies.yaml",
-    "version": "v1.4.0",
+    "url": "https://raw.githubusercontent.com/dragonflydb/dragonfly-operator/{version}/config/crd/bases/dragonflydb.io_dragonflies.yaml",
+    "version": "v1.5.0",
     "license": "Apache-2.0",
     "homepage": "https://www.dragonflydb.io"
   },
   "extraction": {
-    "timestamp": "2026-03-07T07:13:04Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-03-22T01:57:36Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "1cdd7125db776b69645c3eba58311feaaf20b472f09d10516505f9888a566b19"
+    "sha256": "e450fc52b3b003092bac4a35cfa97fde49e6eee62d5f1f567886aabd6f223751"
   }
 }
