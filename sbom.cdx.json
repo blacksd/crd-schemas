@@ -4,7 +4,7 @@
   "specVersion": "1.5",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-03-22T06:01:50Z",
+    "timestamp": "2026-03-22T07:23:04Z",
     "tools": {
       "components": [
         {
@@ -1243,7 +1243,7 @@
     {
       "type": "library",
       "name": "kubeflow-clustertrainingruntimes",
-      "version": "v2.1.0",
+      "version": "v2.2.0",
       "licenses": [
         {
           "license": {
@@ -1261,7 +1261,7 @@
     {
       "type": "library",
       "name": "kubeflow-trainingruntimes",
-      "version": "v2.1.0",
+      "version": "v2.2.0",
       "licenses": [
         {
           "license": {
@@ -1279,7 +1279,7 @@
     {
       "type": "library",
       "name": "kubeflow-trainjobs",
-      "version": "v2.1.0",
+      "version": "v2.2.0",
       "licenses": [
         {
           "license": {

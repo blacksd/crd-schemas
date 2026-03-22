@@ -8,16 +8,16 @@
   "source": {
     "name": "kubeflow-clustertrainingruntimes",
     "type": "url",
-    "url": "https://raw.githubusercontent.com/kubeflow/training-operator/v2.1.0/manifests/base/crds/trainer.kubeflow.org_clustertrainingruntimes.yaml",
-    "version": "v2.1.0",
+    "url": "https://raw.githubusercontent.com/kubeflow/training-operator/{version}/manifests/base/crds/trainer.kubeflow.org_clustertrainingruntimes.yaml",
+    "version": "v2.2.0",
     "license": "Apache-2.0",
     "homepage": "https://www.kubeflow.org/docs/components/training"
   },
   "extraction": {
-    "timestamp": "2026-03-07T07:13:09Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-03-22T07:23:04Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "369d93edf61727f0c1cd7d702ccbc8a1025ea3f2d6570aa50ccb000eb1930492"
+    "sha256": "51e755c157742db1c6f3ecce96c775d8331e4e210b9c8010c4aca5620053b4c9"
   }
 }

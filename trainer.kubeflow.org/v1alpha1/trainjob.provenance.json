@@ -8,16 +8,16 @@
   "source": {
     "name": "kubeflow-trainjobs",
     "type": "url",
-    "url": "https://raw.githubusercontent.com/kubeflow/training-operator/v2.1.0/manifests/base/crds/trainer.kubeflow.org_trainjobs.yaml",
-    "version": "v2.1.0",
+    "url": "https://raw.githubusercontent.com/kubeflow/training-operator/{version}/manifests/base/crds/trainer.kubeflow.org_trainjobs.yaml",
+    "version": "v2.2.0",
     "license": "Apache-2.0",
     "homepage": "https://www.kubeflow.org/docs/components/training"
   },
   "extraction": {
-    "timestamp": "2026-03-07T07:13:16Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-03-22T07:23:04Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "33b8e48b6b8f8c815776baffc0710d09baf043a08fbb61f3982ffb1b1faedc57"
+    "sha256": "95b50f44b08dcafed7e762aee7698dbe06b2eb63b1069a80f11f3ac37f24869c"
   }
 }
