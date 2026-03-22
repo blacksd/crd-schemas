@@ -1,0 +1,53 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:3c1c67b6-e9a7-4383-af70-f27ef20c6d03",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T07:28:09Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "crd-schemas",
+          "version": "crd-schema-extractor v0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "cert-manager",
+      "version": "v1.20.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://cert-manager.io",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "helm"
+        },
+        {
+          "name": "crd-schemas:source:repo",
+          "value": "https://charts.jetstack.io"
+        },
+        {
+          "name": "crd-schemas:source:chart",
+          "value": "cert-manager"
+        }
+      ]
+    }
+  ]
+}

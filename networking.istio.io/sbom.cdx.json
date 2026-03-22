@@ -1,0 +1,53 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:d1c7386f-a7b5-4bf7-9427-f422fb8dfba1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T07:28:09Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "crd-schemas",
+          "version": "crd-schema-extractor v0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "istio-base",
+      "version": "1.29.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://istio.io",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "helm"
+        },
+        {
+          "name": "crd-schemas:source:repo",
+          "value": "https://istio-release.storage.googleapis.com/charts"
+        },
+        {
+          "name": "crd-schemas:source:chart",
+          "value": "base"
+        }
+      ]
+    }
+  ]
+}

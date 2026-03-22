@@ -1,0 +1,53 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:bbd308a9-62d6-4963-8deb-62dced98535c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T07:28:09Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "crd-schemas",
+          "version": "crd-schema-extractor v0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "node-feature-discovery",
+      "version": "0.18.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://kubernetes-sigs.github.io/node-feature-discovery",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "helm"
+        },
+        {
+          "name": "crd-schemas:source:repo",
+          "value": "https://kubernetes-sigs.github.io/node-feature-discovery/charts"
+        },
+        {
+          "name": "crd-schemas:source:chart",
+          "value": "node-feature-discovery"
+        }
+      ]
+    }
+  ]
+}

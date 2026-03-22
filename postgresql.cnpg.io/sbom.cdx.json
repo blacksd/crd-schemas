@@ -1,0 +1,53 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:cb5c3d98-e6bd-484a-80f0-ded1453828f6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T07:28:09Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "crd-schemas",
+          "version": "crd-schema-extractor v0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "cloudnative-pg",
+      "version": "0.27.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://cloudnative-pg.io",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "helm"
+        },
+        {
+          "name": "crd-schemas:source:repo",
+          "value": "https://cloudnative-pg.github.io/charts"
+        },
+        {
+          "name": "crd-schemas:source:chart",
+          "value": "cloudnative-pg"
+        }
+      ]
+    }
+  ]
+}

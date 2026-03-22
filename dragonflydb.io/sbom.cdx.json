@@ -1,0 +1,49 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:0afe16ba-dd5d-4b08-94c5-c55960030038",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T07:28:09Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "crd-schemas",
+          "version": "crd-schema-extractor v0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "dragonfly-operator",
+      "version": "v1.5.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.dragonflydb.io",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "url"
+        },
+        {
+          "name": "crd-schemas:source:url",
+          "value": "https://raw.githubusercontent.com/dragonflydb/dragonfly-operator/{version}/config/crd/bases/dragonflydb.io_dragonflies.yaml"
+        }
+      ]
+    }
+  ]
+}

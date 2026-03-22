@@ -1,0 +1,105 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:beb2e698-bb54-4737-88da-b2d87caac245",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T07:28:09Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "crd-schemas",
+          "version": "crd-schema-extractor v0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "kubeflow-clustertrainingruntimes",
+      "version": "v2.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.kubeflow.org/docs/components/training",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "url"
+        },
+        {
+          "name": "crd-schemas:source:url",
+          "value": "https://raw.githubusercontent.com/kubeflow/training-operator/{version}/manifests/base/crds/trainer.kubeflow.org_clustertrainingruntimes.yaml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "kubeflow-trainingruntimes",
+      "version": "v2.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.kubeflow.org/docs/components/training",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "url"
+        },
+        {
+          "name": "crd-schemas:source:url",
+          "value": "https://raw.githubusercontent.com/kubeflow/training-operator/{version}/manifests/base/crds/trainer.kubeflow.org_trainingruntimes.yaml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "kubeflow-trainjobs",
+      "version": "v2.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.kubeflow.org/docs/components/training",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "url"
+        },
+        {
+          "name": "crd-schemas:source:url",
+          "value": "https://raw.githubusercontent.com/kubeflow/training-operator/{version}/manifests/base/crds/trainer.kubeflow.org_trainjobs.yaml"
+        }
+      ]
+    }
+  ]
+}

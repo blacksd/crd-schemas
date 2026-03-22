@@ -1,0 +1,53 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:8da431ec-c6dc-465a-84d3-18179dbc19e1",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T07:28:09Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "crd-schemas",
+          "version": "crd-schema-extractor v0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "secrets-store-csi-driver",
+      "version": "1.5.6",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://secrets-store-csi-driver.sigs.k8s.io",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "helm"
+        },
+        {
+          "name": "crd-schemas:source:repo",
+          "value": "https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts"
+        },
+        {
+          "name": "crd-schemas:source:chart",
+          "value": "secrets-store-csi-driver"
+        }
+      ]
+    }
+  ]
+}

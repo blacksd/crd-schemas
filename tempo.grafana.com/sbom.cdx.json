@@ -1,0 +1,49 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:fe8a4793-4de8-4a9d-b972-94914fe38a37",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T07:28:09Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "crd-schemas",
+          "version": "crd-schema-extractor v0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "tempo-operator",
+      "version": "v0.20.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "AGPL-3.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://grafana.com/docs/tempo/latest/setup/operator",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "url"
+        },
+        {
+          "name": "crd-schemas:source:url",
+          "value": "https://github.com/grafana/tempo-operator/releases/download/{version}/tempo-operator.yaml"
+        }
+      ]
+    }
+  ]
+}

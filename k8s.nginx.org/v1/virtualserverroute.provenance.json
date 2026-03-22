@@ -8,16 +8,16 @@
   "source": {
     "name": "nginx-ingress",
     "type": "url",
-    "url": "https://raw.githubusercontent.com/nginx/kubernetes-ingress/v5.3.4/deploy/crds.yaml",
-    "version": "v5.3.4",
+    "url": "https://raw.githubusercontent.com/nginx/kubernetes-ingress/{version}/deploy/crds.yaml",
+    "version": "v5.4.0",
     "license": "Apache-2.0",
     "homepage": "https://docs.nginx.com/nginx-ingress-controller"
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-03-22T07:28:09Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "8e7e3d533fb058f41eb4e3193a587bc7f58c30ea9bd33d8dea8368d968afff6e"
+    "sha256": "0dff61ff10ab54a4ed4c172bc255e93e1433f4a677777558b51b93b99bb08dab"
   }
 }

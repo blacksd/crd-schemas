@@ -1,0 +1,149 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:3d4be913-f98a-40f4-842d-7f7629af0465",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T07:28:09Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "crd-schemas",
+          "version": "crd-schema-extractor v0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "argo-cd",
+      "version": "9.4.15",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://argoproj.github.io/cd",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "helm"
+        },
+        {
+          "name": "crd-schemas:source:repo",
+          "value": "https://argoproj.github.io/argo-helm"
+        },
+        {
+          "name": "crd-schemas:source:chart",
+          "value": "argo-cd"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "argo-events",
+      "version": "2.4.21",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://argoproj.github.io/argo-events",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "helm"
+        },
+        {
+          "name": "crd-schemas:source:repo",
+          "value": "https://argoproj.github.io/argo-helm"
+        },
+        {
+          "name": "crd-schemas:source:chart",
+          "value": "argo-events"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "argo-rollouts",
+      "version": "2.40.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://argoproj.github.io/rollouts",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "helm"
+        },
+        {
+          "name": "crd-schemas:source:repo",
+          "value": "https://argoproj.github.io/argo-helm"
+        },
+        {
+          "name": "crd-schemas:source:chart",
+          "value": "argo-rollouts"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "argo-workflows",
+      "version": "0.47.5",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://argoproj.github.io/workflows",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "helm"
+        },
+        {
+          "name": "crd-schemas:source:repo",
+          "value": "https://argoproj.github.io/argo-helm"
+        },
+        {
+          "name": "crd-schemas:source:chart",
+          "value": "argo-workflows"
+        }
+      ]
+    }
+  ]
+}

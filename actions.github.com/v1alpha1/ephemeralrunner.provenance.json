@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "oci://ghcr.io/actions/actions-runner-controller-charts",
     "chart": "gha-runner-scale-set-controller",
-    "version": "0.13.1",
+    "version": "0.14.0",
     "license": "Apache-2.0",
     "homepage": "https://github.com/actions/actions-runner-controller"
   },
   "extraction": {
-    "timestamp": "2026-03-10T07:58:58Z",
+    "timestamp": "2026-03-22T07:28:09Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "b9d2fe4e8a462a624c6185a86c2c7a11e464a33029e99d513afd3f65c2912a07"
+    "sha256": "66d2dd1fb2bd2ab4530e09c063549063e321ed98d991906cf803cc27bbb15800"
   }
 }

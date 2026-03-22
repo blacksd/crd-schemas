@@ -278,6 +278,85 @@
             }
           ]
         },
+        "cors": {
+          "description": "The CORS policy configures Cross-Origin Resource Sharing headers",
+          "type": "object",
+          "required": [
+            "allowOrigin"
+          ],
+          "properties": {
+            "allowCredentials": {
+              "description": "AllowCredentials indicates whether the response to the request can be exposed when the credentials flag is true.\nWhen used as part of a response to a preflight request, this indicates whether the actual request can be made using credentials.",
+              "type": "boolean",
+              "default": false
+            },
+            "allowHeaders": {
+              "description": "AllowHeaders defines the headers that are allowed in cross-origin requests.\nCommon safe headers: [\"Accept\", \"Accept-Language\", \"Content-Language\", \"Content-Type\"]\nCustom headers: [\"Authorization\", \"X-Requested-With\", \"X-Custom-Header\"]",
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "x-kubernetes-validations": [
+                {
+                  "rule": "self.all(header, header != '')",
+                  "message": "header name cannot be empty"
+                }
+              ]
+            },
+            "allowMethods": {
+              "description": "AllowMethods defines the HTTP methods that are allowed for cross-origin requests.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "x-kubernetes-validations": [
+                {
+                  "rule": "self.all(method, method != '')",
+                  "message": "method name cannot be empty"
+                }
+              ]
+            },
+            "allowOrigin": {
+              "description": "AllowOrigin defines the origins that are allowed to make cross-origin requests.\nCan be exact domains, single wildcards, or \"*\" for all origins.\nExamples: [\"https://example.com\", \"https://*.mydomain.com\", \"*\"]\nSecurity: When allowCredentials is true, wildcard \"*\" is not allowed per CORS specification.\nThe server must specify explicit origins for credentialed requests.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              },
+              "x-kubernetes-validations": [
+                {
+                  "rule": "self.all(origin, origin != '')",
+                  "message": "origin cannot be empty"
+                }
+              ]
+            },
+            "exposeHeaders": {
+              "description": "ExposeHeaders defines the headers that browsers are allowed to access.\nUse this field to expose additional custom headers to the browser.\nExample: [\"X-Total-Count\", \"X-Page-Size\", \"X-RateLimit-Remaining\"]\nNote: Set-Cookie headers cannot be exposed via CORS per official MDN specification.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "x-kubernetes-validations": [
+                {
+                  "rule": "self.all(header, header != '')",
+                  "message": "header name cannot be empty"
+                }
+              ]
+            },
+            "maxAge": {
+              "description": "MaxAge defines how long (in seconds) the results of a preflight request can be cached.\nDefault: 86400 (24 hours). Maximum recommended value is 86400 (24 hours).",
+              "type": "integer",
+              "default": 86400,
+              "minimum": 0
+            }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "!(self.allowOrigin.exists(origin, origin == '*') \u0026\u0026 has(self.allowCredentials) \u0026\u0026 self.allowCredentials == true)",
+              "message": "cannot use wildcard '*' for allowOrigin when allowCredentials is true for security reasons"
+            }
+          ]
+        },
         "egressMTLS": {
           "description": "The EgressMTLS policy configures upstreams authentication and certificate verification.",
           "type": "object",

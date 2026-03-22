@@ -1,0 +1,49 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:95e6005e-62ac-486c-91cf-4af0ef96917a",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-03-22T07:28:09Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "crd-schemas",
+          "version": "crd-schema-extractor v0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "rabbitmq-cluster-operator",
+      "version": "v2.19.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "MPL-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://www.rabbitmq.com/kubernetes/operator/operator-overview",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "url"
+        },
+        {
+          "name": "crd-schemas:source:url",
+          "value": "https://github.com/rabbitmq/cluster-operator/releases/download/{version}/cluster-operator.yml"
+        }
+      ]
+    }
+  ]
+}
