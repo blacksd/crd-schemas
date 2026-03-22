@@ -1,0 +1,24 @@
+{
+  "schema": "bundle.json",
+  "crd": {
+    "group": "trust.cert-manager.io",
+    "kind": "Bundle",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "trust-manager",
+    "type": "git+github",
+    "repo": "https://github.com/cert-manager/trust-manager",
+    "path": "deploy/crds",
+    "version": "v0.22.0",
+    "license": "Apache-2.0",
+    "homepage": "https://cert-manager.io/docs/trust/trust-manager/"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a2b09afda02afcdcd88250d2a71c8679ff06603713b173ec7aafb2d8e80759fc"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "vmalert.json",
+  "crd": {
+    "group": "operator.victoriametrics.com",
+    "kind": "VMAlert",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "victoria-metrics-operator-crds",
+    "type": "helm",
+    "repo": "https://victoriametrics.github.io/helm-charts/",
+    "chart": "victoria-metrics-operator-crds",
+    "version": "0.8.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/VictoriaMetrics/operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a32469e899d1e149ce282b2fadca10f9e0dd28dfbcc956298798506faf4824bf"
+  }
+}

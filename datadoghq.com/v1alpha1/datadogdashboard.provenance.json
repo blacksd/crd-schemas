@@ -1,0 +1,24 @@
+{
+  "schema": "datadogdashboard.json",
+  "crd": {
+    "group": "datadoghq.com",
+    "kind": "DatadogDashboard",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "datadog-operator",
+    "type": "git+github",
+    "repo": "https://github.com/DataDog/datadog-operator",
+    "path": "config/crd/bases/v1",
+    "version": "v1.24.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/DataDog/datadog-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "f4b35bb41cac6a6b4a9e306ac8ba3dd6e23c942e8b5ee77be3ba2e86947dbe90"
+  }
+}

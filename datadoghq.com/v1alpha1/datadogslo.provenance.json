@@ -1,0 +1,24 @@
+{
+  "schema": "datadogslo.json",
+  "crd": {
+    "group": "datadoghq.com",
+    "kind": "DatadogSLO",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "datadog-operator",
+    "type": "git+github",
+    "repo": "https://github.com/DataDog/datadog-operator",
+    "path": "config/crd/bases/v1",
+    "version": "v1.24.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/DataDog/datadog-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "5ae745ba0b2c94f2472ef93e3e8cffe0e1a3b9738dd03c4ca61753af1d873bca"
+  }
+}

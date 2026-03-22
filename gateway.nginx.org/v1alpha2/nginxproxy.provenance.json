@@ -1,0 +1,24 @@
+{
+  "schema": "nginxproxy.json",
+  "crd": {
+    "group": "gateway.nginx.org",
+    "kind": "NginxProxy",
+    "apiVersion": "v1alpha2"
+  },
+  "source": {
+    "name": "nginx-gateway-fabric",
+    "type": "git+github",
+    "repo": "https://github.com/nginx/nginx-gateway-fabric",
+    "path": "config/crd/bases",
+    "version": "v2.4.2",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/nginx/nginx-gateway-fabric"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ab29c5623fa5b06249c25e207790e04bcd36828cc10028e83e011bcd1397eb4a"
+  }
+}

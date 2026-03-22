@@ -1,0 +1,24 @@
+{
+  "schema": "snippetspolicy.json",
+  "crd": {
+    "group": "gateway.nginx.org",
+    "kind": "SnippetsPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "nginx-gateway-fabric",
+    "type": "git+github",
+    "repo": "https://github.com/nginx/nginx-gateway-fabric",
+    "path": "config/crd/bases",
+    "version": "v2.4.2",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/nginx/nginx-gateway-fabric"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "dcb7787f0058fc3b3521b2265a601d820c8b5a617dedbbc362fd035e8b3a59c5"
+  }
+}

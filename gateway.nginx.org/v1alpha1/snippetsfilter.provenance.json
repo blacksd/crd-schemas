@@ -1,0 +1,24 @@
+{
+  "schema": "snippetsfilter.json",
+  "crd": {
+    "group": "gateway.nginx.org",
+    "kind": "SnippetsFilter",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "nginx-gateway-fabric",
+    "type": "git+github",
+    "repo": "https://github.com/nginx/nginx-gateway-fabric",
+    "path": "config/crd/bases",
+    "version": "v2.4.2",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/nginx/nginx-gateway-fabric"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1e7a418d8010661cdd98323aa027981d4635cae19a6035f341b3154323aa72c7"
+  }
+}

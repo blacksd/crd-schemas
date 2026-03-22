@@ -1,0 +1,200 @@
+{
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "type": "object",
+      "required": [
+        "groups"
+      ],
+      "properties": {
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "rules"
+            ],
+            "properties": {
+              "concurrency": {
+                "type": "integer"
+              },
+              "eval_alignment": {
+                "type": "boolean"
+              },
+              "eval_delay": {
+                "type": "string"
+              },
+              "eval_offset": {
+                "type": "string"
+              },
+              "headers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "interval": {
+                "type": "string"
+              },
+              "labels": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
+              "limit": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "notifier_headers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "params": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "rules": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "alert": {
+                      "type": "string"
+                    },
+                    "annotations": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "debug": {
+                      "type": "boolean"
+                    },
+                    "expr": {
+                      "type": "string"
+                    },
+                    "for": {
+                      "type": "string"
+                    },
+                    "keep_firing_for": {
+                      "type": "string"
+                    },
+                    "labels": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "record": {
+                      "type": "string"
+                    },
+                    "update_entries_limit": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              },
+              "tenant": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "lastTransitionTime",
+              "lastUpdateTime",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "lastUpdateTime": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "type": "string",
+                "maxLength": 32768
+              },
+              "observedGeneration": {
+                "type": "integer",
+                "format": "int64",
+                "minimum": 0
+              },
+              "reason": {
+                "type": "string",
+                "maxLength": 1024,
+                "minLength": 1
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "maxLength": 316
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "observedGeneration": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "updateStatus": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

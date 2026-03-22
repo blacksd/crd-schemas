@@ -1,0 +1,24 @@
+{
+  "schema": "edgeconnect.json",
+  "crd": {
+    "group": "dynatrace.com",
+    "kind": "EdgeConnect",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "dynatrace-operator",
+    "type": "git+github",
+    "repo": "https://github.com/Dynatrace/dynatrace-operator",
+    "path": "config/crd/bases",
+    "version": "v1.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/Dynatrace/dynatrace-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bf73d89c7effaff952da0789289103553684cc89d65693080e447a8a318b8eae"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "backendconfigpolicy.json",
+  "crd": {
+    "group": "gateway.kgateway.dev",
+    "kind": "BackendConfigPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "kgateway-crds",
+    "type": "helm",
+    "repo": "oci://cr.kgateway.dev/kgateway-dev/charts",
+    "chart": "kgateway-crds",
+    "version": "v2.2.2",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/kgateway-dev/kgateway"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "00399eebd6a15a1125a8ea137ce4266cd8212c4c552e6909f1558abdd0045dd9"
+  }
+}

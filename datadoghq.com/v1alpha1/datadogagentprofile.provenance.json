@@ -1,0 +1,24 @@
+{
+  "schema": "datadogagentprofile.json",
+  "crd": {
+    "group": "datadoghq.com",
+    "kind": "DatadogAgentProfile",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "datadog-operator",
+    "type": "git+github",
+    "repo": "https://github.com/DataDog/datadog-operator",
+    "path": "config/crd/bases/v1",
+    "version": "v1.24.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/DataDog/datadog-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7dc5e8c8427d72bb121741e4ccf9d6d359eb280bdc59016c230551874d0ac7cc"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "observabilitypolicy.json",
+  "crd": {
+    "group": "gateway.nginx.org",
+    "kind": "ObservabilityPolicy",
+    "apiVersion": "v1alpha2"
+  },
+  "source": {
+    "name": "nginx-gateway-fabric",
+    "type": "git+github",
+    "repo": "https://github.com/nginx/nginx-gateway-fabric",
+    "path": "config/crd/bases",
+    "version": "v2.4.2",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/nginx/nginx-gateway-fabric"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "15175efc6eb7fc4df80cab6c25c1d487fbe3eb0b87ad9e05ec954f362d736a91"
+  }
+}

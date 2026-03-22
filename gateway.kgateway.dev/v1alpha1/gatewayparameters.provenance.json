@@ -1,0 +1,24 @@
+{
+  "schema": "gatewayparameters.json",
+  "crd": {
+    "group": "gateway.kgateway.dev",
+    "kind": "GatewayParameters",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "kgateway-crds",
+    "type": "helm",
+    "repo": "oci://cr.kgateway.dev/kgateway-dev/charts",
+    "chart": "kgateway-crds",
+    "version": "v2.2.2",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/kgateway-dev/kgateway"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e595e4989550ef359c31cdd4ffd9e9de30701030cd8bb30184e1b1eb2866659c"
+  }
+}

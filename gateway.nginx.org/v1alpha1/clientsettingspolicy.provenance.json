@@ -1,0 +1,24 @@
+{
+  "schema": "clientsettingspolicy.json",
+  "crd": {
+    "group": "gateway.nginx.org",
+    "kind": "ClientSettingsPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "nginx-gateway-fabric",
+    "type": "git+github",
+    "repo": "https://github.com/nginx/nginx-gateway-fabric",
+    "path": "config/crd/bases",
+    "version": "v2.4.2",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/nginx/nginx-gateway-fabric"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "032470070db1d69e5ba178fecbc0cd3f56177631718a4c9a0c436f6106ca5ed4"
+  }
+}

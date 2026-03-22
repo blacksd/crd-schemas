@@ -1,0 +1,24 @@
+{
+  "schema": "temporalnamespace.json",
+  "crd": {
+    "group": "temporal.io",
+    "kind": "TemporalNamespace",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "temporal-operator",
+    "type": "helm",
+    "repo": "https://alexandrevilain.github.io/temporal-operator",
+    "chart": "temporal-operator",
+    "version": "0.6.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/alexandrevilain/temporal-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e8a455e6545a13c32d30978818b10d031b106fe014e242f65c4be17e994b1f48"
+  }
+}

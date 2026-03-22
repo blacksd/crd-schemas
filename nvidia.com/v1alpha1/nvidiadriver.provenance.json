@@ -1,0 +1,24 @@
+{
+  "schema": "nvidiadriver.json",
+  "crd": {
+    "group": "nvidia.com",
+    "kind": "NVIDIADriver",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "gpu-operator",
+    "type": "helm",
+    "repo": "https://helm.ngc.nvidia.com/nvidia",
+    "chart": "gpu-operator",
+    "version": "v26.3.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/NVIDIA/gpu-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8823f7e654b9833e32137db5414a42633be9c346fc9ff38a623b19499e2eaede"
+  }
+}

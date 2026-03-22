@@ -1,0 +1,24 @@
+{
+  "schema": "recorder.json",
+  "crd": {
+    "group": "tailscale.com",
+    "kind": "Recorder",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "tailscale-operator",
+    "type": "git+github",
+    "repo": "https://github.com/tailscale/tailscale",
+    "path": "cmd/k8s-operator/deploy/crds",
+    "version": "v1.96.3",
+    "license": "BSD-3-Clause",
+    "homepage": "https://tailscale.com/kb/1236/kubernetes-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e91079749ec079bb0a62d6f7133cf7970bbb2dbff3b9ac9e6a2f7b6ae69d64c3"
+  }
+}

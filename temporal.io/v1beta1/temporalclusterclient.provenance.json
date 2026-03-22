@@ -1,0 +1,24 @@
+{
+  "schema": "temporalclusterclient.json",
+  "crd": {
+    "group": "temporal.io",
+    "kind": "TemporalClusterClient",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "temporal-operator",
+    "type": "helm",
+    "repo": "https://alexandrevilain.github.io/temporal-operator",
+    "chart": "temporal-operator",
+    "version": "0.6.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/alexandrevilain/temporal-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "37fad760a6e00757b082b2f12d7c04d018ac82962fa0e954d054aa3aea603866"
+  }
+}

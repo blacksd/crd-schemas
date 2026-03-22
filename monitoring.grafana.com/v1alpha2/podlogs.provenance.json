@@ -1,0 +1,24 @@
+{
+  "schema": "podlogs.json",
+  "crd": {
+    "group": "monitoring.grafana.com",
+    "kind": "PodLogs",
+    "apiVersion": "v1alpha2"
+  },
+  "source": {
+    "name": "grafana-alloy",
+    "type": "helm",
+    "repo": "https://grafana.github.io/helm-charts",
+    "chart": "alloy",
+    "version": "1.6.2",
+    "license": "Apache-2.0",
+    "homepage": "https://grafana.com/docs/alloy/latest/"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "315dba055b2bd5ab3858940c0630f9034420d8306fc33a29b2f49d14680b64ba"
+  }
+}

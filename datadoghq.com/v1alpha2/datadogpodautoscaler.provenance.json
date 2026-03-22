@@ -1,0 +1,24 @@
+{
+  "schema": "datadogpodautoscaler.json",
+  "crd": {
+    "group": "datadoghq.com",
+    "kind": "DatadogPodAutoscaler",
+    "apiVersion": "v1alpha2"
+  },
+  "source": {
+    "name": "datadog-operator",
+    "type": "git+github",
+    "repo": "https://github.com/DataDog/datadog-operator",
+    "path": "config/crd/bases/v1",
+    "version": "v1.24.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/DataDog/datadog-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "3483d8b3bacc5a83b3f3e748439f849db3ffcbd38d428075dc11dca93b408e45"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "listenerpolicy.json",
+  "crd": {
+    "group": "gateway.kgateway.dev",
+    "kind": "ListenerPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "kgateway-crds",
+    "type": "helm",
+    "repo": "oci://cr.kgateway.dev/kgateway-dev/charts",
+    "chart": "kgateway-crds",
+    "version": "v2.2.2",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/kgateway-dev/kgateway"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "22f50ab8f76a8e6b70dc70a1f3feae888138c3a00d85d4f74f136b66f856c895"
+  }
+}

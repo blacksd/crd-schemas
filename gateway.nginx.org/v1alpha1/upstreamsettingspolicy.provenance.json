@@ -1,0 +1,24 @@
+{
+  "schema": "upstreamsettingspolicy.json",
+  "crd": {
+    "group": "gateway.nginx.org",
+    "kind": "UpstreamSettingsPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "nginx-gateway-fabric",
+    "type": "git+github",
+    "repo": "https://github.com/nginx/nginx-gateway-fabric",
+    "path": "config/crd/bases",
+    "version": "v2.4.2",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/nginx/nginx-gateway-fabric"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e861ad099d599d9abaf7cc382574d598d9174648b7fc5b0a170a6b3000ebbe4b"
+  }
+}

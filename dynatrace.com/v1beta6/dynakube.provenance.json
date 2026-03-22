@@ -1,0 +1,24 @@
+{
+  "schema": "dynakube.json",
+  "crd": {
+    "group": "dynatrace.com",
+    "kind": "DynaKube",
+    "apiVersion": "v1beta6"
+  },
+  "source": {
+    "name": "dynatrace-operator",
+    "type": "git+github",
+    "repo": "https://github.com/Dynatrace/dynatrace-operator",
+    "path": "config/crd/bases",
+    "version": "v1.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/Dynatrace/dynatrace-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e06591a77ac6aa266ee74f8ea0d8ba3fe6dbce0bed2418d983e38d08116f1f23"
+  }
+}

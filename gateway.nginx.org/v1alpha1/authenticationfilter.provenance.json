@@ -1,0 +1,24 @@
+{
+  "schema": "authenticationfilter.json",
+  "crd": {
+    "group": "gateway.nginx.org",
+    "kind": "AuthenticationFilter",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "nginx-gateway-fabric",
+    "type": "git+github",
+    "repo": "https://github.com/nginx/nginx-gateway-fabric",
+    "path": "config/crd/bases",
+    "version": "v2.4.2",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/nginx/nginx-gateway-fabric"
+  },
+  "extraction": {
+    "timestamp": "2026-03-22T09:09:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7f2e36ddd39dbb67d25b2c4800b707a1faf46437548edcdfb8aa0f7c3ee941ab"
+  }
+}
