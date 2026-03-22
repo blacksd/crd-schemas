@@ -123,10 +123,6 @@ Push your branch and open a pull request. CI will:
 
 The following popular projects are not currently covered due to technical limitations:
 
-### No public CRD artifact
-
-- **Karpenter** (`karpenter.sh`) -- The core `kubernetes-sigs/karpenter` repo is a framework library. CRDs are shipped by provider-specific implementations (e.g., `aws/karpenter-provider-aws`), which use OCI registries that require authentication.
-
 ### Licensing or automation issues
 
 - **EMQX Operator** (`apps.emqx.io`) -- No license declared in the repository.

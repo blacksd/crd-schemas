@@ -1,0 +1,8 @@
+sources:
+  - name: karpenter
+    type: helm
+    repo: oci://public.ecr.aws/karpenter
+    chart: karpenter
+    version: v1.10.0
+    license: Apache-2.0
+    homepage: https://karpenter.sh
