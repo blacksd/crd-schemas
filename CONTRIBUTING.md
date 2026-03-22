@@ -13,15 +13,15 @@ We do not accept sources that require authentication, VPN access, or any form of
 
 ## Adding a new CRD source
 
-Each source config file in `.sources/` is named after the primary API group it provides (e.g., `cert-manager.io.yaml`). Source configs are validated automatically against `source.schema.json` on every PR.
+Each source config file in `.sources/` is named after the primary API group it provides (e.g., `cert-manager.io.yaml`). Source configs are validated automatically against the [upstream schema](https://raw.githubusercontent.com/blacksd/crd-schema-extractor/v1.0.0/source.schema.json) on every PR.
 
-Source files are validated against [`source.schema.json`](source.schema.json). IDEs with YAML schema support can use it for autocompletion:
+IDEs with YAML schema support can use the upstream schema URL for autocompletion:
 
 ```jsonc
 // .vscode/settings.json
 {
   "yaml.schemas": {
-    "source.schema.json": ".sources/*.yaml"
+    "https://raw.githubusercontent.com/blacksd/crd-schema-extractor/v1.0.0/source.schema.json": ".sources/*.yaml"
   }
 }
 ```
@@ -33,7 +33,7 @@ Create `.sources/{api-group}.yaml`:
 ```yaml
 sources:
   - name: my-operator          # unique, lowercase, alphanumeric with hyphens
-    type: helm                  # "helm" or "url"
+    type: helm                  # "helm", "url", or "git+github"
     repo: https://charts.example.io
     chart: my-operator
     version: v1.2.3
@@ -66,13 +66,26 @@ sources:
     homepage: https://example.io
 ```
 
+For GitHub repositories that commit CRD YAML files directly (not via Helm or release assets):
+
+```yaml
+sources:
+  - name: my-project
+    type: git+github
+    repo: https://github.com/org/project
+    version: v1.2.3
+    license: Apache-2.0
+    homepage: https://example.io
+    path: path/to/crds          # optional: restrict scan to a subdirectory
+```
+
 ### 2. Required fields
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | string | Unique identifier. Lowercase, alphanumeric, hyphens only. |
-| `type` | string | `helm` or `url`. |
-| `repo` | string | Helm repository URL. Required for `helm` type. |
+| `type` | string | `helm`, `url`, or `git+github`. |
+| `repo` | string | Helm repository URL or GitHub repository URL. Required for `helm` and `git+github` types. |
 | `chart` | string | Helm chart name. Required for `helm` type. |
 | `url` | string | Manifest URL. Required for `url` type. |
 | `version` | string | Upstream version to extract. Must start with a digit or `v`. |
@@ -83,6 +96,7 @@ sources:
 
 | Field | Type | Description |
 |-------|------|-------------|
+| `path` | string | Subdirectory to scan for CRD files. Useful for `git+github` sources in large repositories. |
 | `values` | map | Helm `--set` key-value pairs for charts that gate CRDs behind values. |
 | `include` | list | Allowlist of kinds to keep. Supports `Kind`, `group/Kind`, `group/*`. |
 | `exclude` | list | Denylist of kinds to drop. Same pattern syntax as `include`. |
@@ -103,7 +117,7 @@ ls {api-group}/
 
 Push your branch and open a pull request. CI will:
 
-- Validate your source config against `source.schema.json`
+- Validate your source config against the upstream source schema
 
 ## Known gaps
 
@@ -111,10 +125,7 @@ The following popular projects are not currently covered due to technical limita
 
 ### No public CRD artifact
 
-- **Cilium** (`cilium.io`) -- CRDs are embedded in the agent binary and not shipped in the Helm chart. No standalone CRD manifest is published.
-- **Crossplane** (`pkg.crossplane.io`, `apiextensions.crossplane.io`) -- CRDs are dynamically generated at runtime by the Crossplane controller. The Helm chart contains no CRD definitions.
 - **Karpenter** (`karpenter.sh`) -- The core `kubernetes-sigs/karpenter` repo is a framework library. CRDs are shipped by provider-specific implementations (e.g., `aws/karpenter-provider-aws`), which use OCI registries that require authentication.
-- **CSI Volume Snapshots** (`snapshot.storage.k8s.io`) -- CRDs are distributed as individual files in `kubernetes-csi/external-snapshotter` with no combined manifest. The extractor currently supports single-URL sources only.
 
 ### Licensing or automation issues
 
