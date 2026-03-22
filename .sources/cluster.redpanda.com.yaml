@@ -1,8 +1,0 @@
-sources:
-  - name: redpanda-operator
-    type: git+github
-    repo: https://github.com/redpanda-data/redpanda-operator
-    version: operator/v25.3.2
-    license: Apache-2.0
-    homepage: https://github.com/redpanda-data/redpanda-operator
-    path: operator/config/crd/bases
