@@ -1,4 +1,5 @@
 {
+  "description": "WorkflowArtifactGCTask specifies the Artifacts that need to be deleted as well as the status of deletion",
   "type": "object",
   "required": [
     "metadata",
@@ -6,15 +7,18 @@
   ],
   "properties": {
     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
       "type": "string"
     },
     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
       "type": "string"
     },
     "metadata": {
       "type": "object"
     },
     "spec": {
+      "description": "ArtifactGCSpec specifies the Artifacts that need to be deleted.\nAll nested field descriptions have been dropped due to Kubernetes size limitations.",
       "type": "object",
       "properties": {
         "artifactsByNode": {
@@ -618,6 +622,27 @@
                       },
                       "useSDKCreds": {
                         "type": "boolean"
+                      }
+                    }
+                  },
+                  "plugin": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "configuration": {
+                        "type": "string"
+                      },
+                      "connectionTimeoutSeconds": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
                       }
                     }
                   },
@@ -1372,10 +1397,13 @@
                     },
                     "mode": {
                       "type": "integer",
-                      "format": "int32"
+                      "format": "int32",
+                      "maximum": 511,
+                      "minimum": 0
                     },
                     "name": {
-                      "type": "string"
+                      "type": "string",
+                      "pattern": "^[-a-zA-Z0-9_{}.]+$"
                     },
                     "optional": {
                       "type": "boolean"
@@ -1459,6 +1487,27 @@
                     },
                     "path": {
                       "type": "string"
+                    },
+                    "plugin": {
+                      "type": "object",
+                      "required": [
+                        "key"
+                      ],
+                      "properties": {
+                        "configuration": {
+                          "type": "string"
+                        },
+                        "connectionTimeoutSeconds": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
                     },
                     "raw": {
                       "type": "object",
@@ -1629,28 +1678,36 @@
       }
     },
     "status": {
+      "description": "ArtifactGCStatus describes the result of the deletion",
       "type": "object",
       "properties": {
         "artifactResultsByNode": {
+          "description": "ArtifactResultsByNode maps Node name to result",
           "type": "object",
           "additionalProperties": {
+            "description": "ArtifactResultNodeStatus describes the result of the deletion on a given node",
             "type": "object",
             "properties": {
               "artifactResults": {
+                "description": "ArtifactResults maps Artifact name to result of the deletion",
                 "type": "object",
                 "additionalProperties": {
+                  "description": "ArtifactResult describes the result of attempting to delete a given Artifact",
                   "type": "object",
                   "required": [
                     "name"
                   ],
                   "properties": {
                     "error": {
+                      "description": "Error is an optional error message which should be set if Success==false",
                       "type": "string"
                     },
                     "name": {
+                      "description": "Name is the name of the Artifact",
                       "type": "string"
                     },
                     "success": {
+                      "description": "Success describes whether the deletion succeeded",
                       "type": "boolean"
                     }
                   }
