@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://vmware-tanzu.github.io/helm-charts",
     "chart": "velero",
-    "version": "11.4.0",
+    "version": "12.0.0",
     "license": "Apache-2.0",
     "homepage": "https://velero.io"
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-03-23T17:23:32Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "117a074390ea37225c89c0644c09720e6dce11202543857c3ef9740c49a7925b"
+    "sha256": "71eee60ce96b93bb08b5522aafc880a79e54889b797266c93c129d6d9a9d61a4"
   }
 }
