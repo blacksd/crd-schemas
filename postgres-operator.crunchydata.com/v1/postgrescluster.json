@@ -3918,7 +3918,25 @@
                     }
                   }
                 }
-              }
+              },
+              "x-kubernetes-validations": [
+                {
+                  "rule": "!self.?log.path.hasValue() || self.log.path.startsWith(\"/volumes/\")",
+                  "message": "pgbackrest sidecar log path is restricted to an existing additional volume"
+                },
+                {
+                  "rule": "!self.?repoHost.log.path.hasValue() || self.repoHost.volumes.additional.exists(x, self.repoHost.log.path.startsWith(\"/volumes/\"+x.name))",
+                  "message": "repo host log path is restricted to an existing additional volume"
+                },
+                {
+                  "rule": "!self.?jobs.log.path.hasValue() || self.jobs.volumes.additional.exists(x, self.jobs.log.path.startsWith(\"/volumes/\"+x.name))",
+                  "message": "backup jobs log path is restricted to an existing additional volume"
+                },
+                {
+                  "rule": "!self.?global[\"log-path\"].hasValue()",
+                  "message": "pgbackrest log-path must be set via the various log.path fields in the spec"
+                }
+              ]
             },
             "snapshots": {
               "description": "VolumeSnapshot configuration",
@@ -4318,6 +4336,11 @@
                 {
                   "rule": "!has(self.log_file_mode)",
                   "message": "log_file_mode cannot be changed"
+                },
+                {
+                  "rule": "self.?log_directory.optMap(v, type(v) == string \u0026\u0026 (v == \"log\" || v.startsWith(\"/volumes\") || [\"/pgdata\",\"/pgtmp\",\"/pgwal\",\"/volumes\"].exists(p, v == (p + \"/logs/postgres\") || v.startsWith(p + \"/logs/postgres/\")))).orValue(true)",
+                  "message": "must start with \"/pgdata/logs/postgres\", \"/pgtmp/logs/postgres\", \"/pgwal/logs/postgres\", \"/volumes\", or be \"log\" to keep logs inside PGDATA",
+                  "fieldPath": ".log_directory"
                 }
               ]
             }
@@ -7015,6 +7038,7 @@
         "instances": {
           "description": "Specifies one or more sets of PostgreSQL pods that replicate data for\nthis cluster.",
           "type": "array",
+          "maxItems": 16,
           "minItems": 1,
           "items": {
             "type": "object",
@@ -14170,7 +14194,13 @@
                     }
                   }
                 }
-              }
+              },
+              "x-kubernetes-validations": [
+                {
+                  "rule": "self.?config.global.logfile.optMap(f, f.startsWith(\"/tmp/logs/pgbouncer/\") || (self.?volumes.additional.hasValue() \u0026\u0026 self.volumes.additional.exists(v, f.startsWith(\"/volumes/\" + v.name)))).orValue(true)",
+                  "message": "config.global.logfile destination is restricted to '/tmp/logs/pgbouncer/' or an existing additional volume"
+                }
+              ]
             }
           }
         },
@@ -14375,7 +14405,7 @@
           }
         },
         "userInterface": {
-          "description": "The specification of a user interface that connects to PostgreSQL.",
+          "description": "The specification of a user interface that connects to PostgreSQL. -- DEPRECATED",
           "type": "object",
           "required": [
             "pgAdmin"
@@ -15936,7 +15966,13 @@
                 }
               }
             }
-          }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "type(self) == null_type",
+              "message": "userInterface not available in v1"
+            }
+          ]
         },
         "users": {
           "description": "Users to create inside PostgreSQL and the databases they should access.\nThe default creates one user that can access one database matching the\nPostgresCluster name. An empty list creates no users. Removing a user\nfrom this list does NOT drop the user nor revoke their access.",
@@ -16012,6 +16048,26 @@
         {
           "rule": "!has(self.?config.parameters.ssl_groups) || self.postgresVersion \u003e 17",
           "message": "The ssl_groups parameter is only available in pg18 and greater"
+        },
+        {
+          "rule": "self.?config.parameters.log_directory.optMap(v, type(v) != string || !v.startsWith(\"/pgtmp/logs/postgres\") || self.instances.all(i, i.?volumes.temp.hasValue())).orValue(true)",
+          "message": "all instances need \"volumes.temp\" to log in \"/pgtmp\"",
+          "fieldPath": ".config.parameters.log_directory"
+        },
+        {
+          "rule": "self.?config.parameters.log_directory.optMap(v, type(v) != string || !v.startsWith(\"/pgwal/logs/postgres\") || self.instances.all(i, i.?walVolumeClaimSpec.hasValue())).orValue(true)",
+          "message": "all instances need \"walVolumeClaimSpec\" to log in \"/pgwal\"",
+          "fieldPath": ".config.parameters.log_directory"
+        },
+        {
+          "rule": "self.?config.parameters.log_directory.optMap(v, type(v) != string || !v.startsWith(\"/volumes\") || self.instances.all(i, i.?volumes.additional.hasValue() \u0026\u0026 i.volumes.additional.exists(volume, v.startsWith(\"/volumes/\" + volume.name)))).orValue(true)",
+          "message": "all instances need an additional volume to log in \"/volumes\"",
+          "fieldPath": ".config.parameters.log_directory"
+        },
+        {
+          "rule": "self.?backups.pgbackrest.log.path.optMap(v, !v.startsWith(\"/volumes\") || self.instances.all(i, i.?volumes.additional.hasValue() \u0026\u0026 i.volumes.additional.exists(volume, v.startsWith(\"/volumes/\" + volume.name)))).orValue(true)",
+          "message": "all instances need an additional volume for pgbackrest sidecar to log in \"/volumes\"",
+          "fieldPath": ".backups.pgbackrest.log.path"
         }
       ]
     },

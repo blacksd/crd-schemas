@@ -9,15 +9,15 @@
     "name": "crunchy-pgupgrades",
     "type": "url",
     "url": "https://raw.githubusercontent.com/CrunchyData/postgres-operator/{version}/config/crd/bases/postgres-operator.crunchydata.com_pgupgrades.yaml",
-    "version": "v5.8.7",
+    "version": "v6.0.1",
     "license": "Apache-2.0",
     "homepage": "https://www.crunchydata.com/products/crunchy-postgresql-for-kubernetes"
   },
   "extraction": {
-    "timestamp": "2026-03-16T01:21:38Z",
+    "timestamp": "2026-03-23T10:07:26Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "a25708407c4ed3d1845d3923eb325e9c42b72ececa99ccb1cc746e8c26d5d434"
+    "sha256": "95084868cb444960555d71537c9f3d564a635f8db0c4f88fd660ae0d7bda4e7b"
   }
 }

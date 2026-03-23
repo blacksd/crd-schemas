@@ -791,7 +791,7 @@
         "imagePullPolicy": {
           "description": "ImagePullPolicy is used to determine when Kubernetes will attempt to\npull (download) container images.\nMore info: https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy",
           "type": "string",
-          "maxLength": 15,
+          "maxLength": 12,
           "enum": [
             "Always",
             "Never",
@@ -881,14 +881,6 @@
               "type": "object",
               "additionalProperties": {
                 "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                "anyOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ],
                 "x-kubernetes-int-or-string": true
               }
             },
@@ -897,14 +889,6 @@
               "type": "object",
               "additionalProperties": {
                 "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                "anyOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ],
                 "x-kubernetes-int-or-string": true
               }
             }
@@ -951,7 +935,7 @@
         "transferMethod": {
           "description": "The method pg_upgrade should use to transfer files to the new cluster.\nMore info: https://www.postgresql.org/docs/current/pgupgrade.html",
           "type": "string",
-          "maxLength": 15,
+          "maxLength": 13,
           "enum": [
             "Clone",
             "Copy",
@@ -1018,6 +1002,7 @@
               "status": {
                 "description": "status of the condition, one of True, False, Unknown.",
                 "type": "string",
+                "maxLength": 7,
                 "enum": [
                   "True",
                   "False",

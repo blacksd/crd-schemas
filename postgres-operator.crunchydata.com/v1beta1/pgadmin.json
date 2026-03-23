@@ -990,14 +990,6 @@
                                 "divisor": {
                                   "description": "Specifies the output format of the exposed resources, defaults to \"1\"",
                                   "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                                  "anyOf": [
-                                    {
-                                      "type": "integer"
-                                    },
-                                    {
-                                      "type": "string"
-                                    }
-                                  ],
                                   "x-kubernetes-int-or-string": true
                                 },
                                 "resource": {
@@ -1300,14 +1292,6 @@
                   "type": "object",
                   "additionalProperties": {
                     "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                    "anyOf": [
-                      {
-                        "type": "integer"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ],
                     "x-kubernetes-int-or-string": true
                   }
                 },
@@ -1316,14 +1300,6 @@
                   "type": "object",
                   "additionalProperties": {
                     "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                    "anyOf": [
-                      {
-                        "type": "integer"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ],
                     "x-kubernetes-int-or-string": true
                   }
                 }
@@ -1410,7 +1386,7 @@
         "imagePullPolicy": {
           "description": "ImagePullPolicy is used to determine when Kubernetes will attempt to\npull (download) container images.\nMore info: https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy",
           "type": "string",
-          "maxLength": 15,
+          "maxLength": 12,
           "enum": [
             "Always",
             "Never",
@@ -1583,14 +1559,6 @@
                               "divisor": {
                                 "description": "Specifies the output format of the exposed resources, defaults to \"1\"",
                                 "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                                "anyOf": [
-                                  {
-                                    "type": "integer"
-                                  },
-                                  {
-                                    "type": "string"
-                                  }
-                                ],
                                 "x-kubernetes-int-or-string": true
                               },
                               "resource": {
@@ -1817,14 +1785,6 @@
                                     "divisor": {
                                       "description": "Specifies the output format of the exposed resources, defaults to \"1\"",
                                       "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                                      "anyOf": [
-                                        {
-                                          "type": "integer"
-                                        },
-                                        {
-                                          "type": "string"
-                                        }
-                                      ],
                                       "x-kubernetes-int-or-string": true
                                     },
                                     "resource": {
@@ -2171,14 +2131,6 @@
                   "type": "object",
                   "additionalProperties": {
                     "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                    "anyOf": [
-                      {
-                        "type": "integer"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ],
                     "x-kubernetes-int-or-string": true
                   }
                 },
@@ -2187,14 +2139,6 @@
                   "type": "object",
                   "additionalProperties": {
                     "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                    "anyOf": [
-                      {
-                        "type": "integer"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ],
                     "x-kubernetes-int-or-string": true
                   }
                 }
@@ -2258,14 +2202,6 @@
               "type": "object",
               "additionalProperties": {
                 "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                "anyOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ],
                 "x-kubernetes-int-or-string": true
               }
             },
@@ -2274,14 +2210,6 @@
               "type": "object",
               "additionalProperties": {
                 "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                "anyOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ],
                 "x-kubernetes-int-or-string": true
               }
             }
@@ -2429,7 +2357,7 @@
               "role": {
                 "description": "Role determines whether the user has admin privileges or not.\nDefaults to User. Valid options are Administrator and User.",
                 "type": "string",
-                "maxLength": 15,
+                "maxLength": 13,
                 "enum": [
                   "Administrator",
                   "User"
@@ -2445,6 +2373,94 @@
             "username"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "volumes": {
+          "description": "PGAdminVolumesSpec defines the configuration for pgAdmin additional volumes",
+          "type": "object",
+          "properties": {
+            "additional": {
+              "description": "Additional pre-existing volumes to add to the pod.",
+              "type": "array",
+              "maxItems": 10,
+              "items": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "claimName": {
+                    "description": "Name of an existing PersistentVolumeClaim.",
+                    "type": "string",
+                    "maxLength": 253,
+                    "minLength": 1,
+                    "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?([.][a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
+                  },
+                  "containers": {
+                    "description": "The names of containers in which to mount this volume.\nThe default mounts the volume in *all* containers. An empty list does not mount the volume to any containers.",
+                    "type": "array",
+                    "maxItems": 10,
+                    "items": {
+                      "type": "string",
+                      "maxLength": 63,
+                      "minLength": 1,
+                      "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+                    },
+                    "x-kubernetes-list-type": "set"
+                  },
+                  "image": {
+                    "description": "Reference to an image or OCI artifact.\nMore info: https://kubernetes.io/docs/concepts/storage/volumes#image",
+                    "type": "object",
+                    "required": [
+                      "reference"
+                    ],
+                    "properties": {
+                      "pullPolicy": {
+                        "description": "Policy for pulling OCI objects. Possible values are:\nAlways: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails.\nNever: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn't present.\nIfNotPresent: the kubelet pulls if the reference isn't already present on disk. Container creation will fail if the reference isn't present and the pull fails.\nDefaults to Always if :latest tag is specified, or IfNotPresent otherwise.",
+                        "type": "string",
+                        "maxLength": 12,
+                        "enum": [
+                          "Always",
+                          "Never",
+                          "IfNotPresent"
+                        ]
+                      },
+                      "reference": {
+                        "description": "Required: Image or artifact reference to be used.\nBehaves in the same way as pod.spec.containers[*].image.\nPull secrets will be assembled in the same way as for the container image by looking up node credentials, SA image pull secrets, and pod spec image pull secrets.\nMore info: https://kubernetes.io/docs/concepts/containers/images\nThis field is optional to allow higher level config management to default or override\ncontainer images in workload controllers like Deployments and StatefulSets.",
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "name": {
+                    "description": "The name of the directory in which to mount this volume.\nVolumes are mounted in containers at `/volumes/{name}`.",
+                    "type": "string",
+                    "maxLength": 55,
+                    "minLength": 1,
+                    "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+                  },
+                  "readOnly": {
+                    "description": "When true, mount the volume read-only, otherwise read-write. Defaults to false.",
+                    "type": "boolean"
+                  }
+                },
+                "x-kubernetes-map-type": "atomic",
+                "x-kubernetes-validations": [
+                  {
+                    "rule": "has(self.claimName) != has(self.image)",
+                    "message": "you must set only one of image or claimName"
+                  },
+                  {
+                    "rule": "!has(self.image) || !has(self.readOnly) || self.readOnly",
+                    "message": "image volumes must be readOnly"
+                  }
+                ]
+              },
+              "x-kubernetes-list-map-keys": [
+                "name"
+              ],
+              "x-kubernetes-list-type": "map"
+            }
+          }
         }
       }
     },
@@ -2492,6 +2508,7 @@
               "status": {
                 "description": "status of the condition, one of True, False, Unknown.",
                 "type": "string",
+                "maxLength": 7,
                 "enum": [
                   "True",
                   "False",
