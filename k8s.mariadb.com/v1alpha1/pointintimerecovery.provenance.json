@@ -1,8 +1,8 @@
 {
-  "schema": "externalmariadb.json",
+  "schema": "pointintimerecovery.json",
   "crd": {
     "group": "k8s.mariadb.com",
-    "kind": "ExternalMariaDB",
+    "kind": "PointInTimeRecovery",
     "apiVersion": "v1alpha1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "bb5ad37571ce30ad934902f681f90ca1e1e8e3c06681957b282b16a58548fc09"
+    "sha256": "a63d14f645b7910a40141767da2a3ee9c59d20974748b35769e8437829c2139d"
   }
 }
