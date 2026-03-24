@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:07a8c038-93be-44d3-817a-ed0e89180e29",
-  "version": 1,
+  "version": 2,
   "metadata": {
-    "timestamp": "2026-03-22T07:28:09Z",
+    "timestamp": "2026-03-24T10:14:06Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "cilium",
-      "version": "v1.19.1",
+      "version": "v1.19.2",
       "licenses": [
         {
           "license": {
