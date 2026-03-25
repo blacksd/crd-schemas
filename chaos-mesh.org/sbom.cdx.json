@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:b7b5c108-9ee1-4c91-8b5f-2f023b6d6b8f",
-  "version": 1,
+  "version": 2,
   "metadata": {
-    "timestamp": "2026-03-22T07:28:09Z",
+    "timestamp": "2026-03-25T05:39:56Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "chaos-mesh",
-      "version": "2.8.1",
+      "version": "2.8.2",
       "licenses": [
         {
           "license": {
