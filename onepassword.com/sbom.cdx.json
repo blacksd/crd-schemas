@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:36289e3c-9dc2-424a-93da-4d735f4b68c3",
-  "version": 1,
+  "version": 2,
   "metadata": {
-    "timestamp": "2026-03-22T09:09:12Z",
+    "timestamp": "2026-03-25T10:00:01Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "1password-connect",
-      "version": "2.4.0",
+      "version": "2.4.1",
       "licenses": [
         {
           "license": {
