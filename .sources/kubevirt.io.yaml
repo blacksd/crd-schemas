@@ -2,6 +2,6 @@ sources:
   - name: kubevirt
     type: url
     url: https://github.com/kubevirt/kubevirt/releases/download/{version}/kubevirt-operator.yaml
-    version: v1.7.2
+    version: v1.8.0
     license: Apache-2.0
     homepage: https://kubevirt.io
