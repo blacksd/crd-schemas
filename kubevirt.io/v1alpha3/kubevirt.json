@@ -412,6 +412,14 @@
                   "description": "For each requested virtual CPU, CPUAllocationRatio defines how much physical CPU to request per VMI\nfrom the hosting node. The value is in fraction of a CPU thread (or core on non-hyperthreaded nodes).\nFor example, a value of 1 means 1 physical CPU thread per VMI CPU thread.\nA value of 100 would be 1% of a physical thread allocated for each requested VMI thread.\nThis option has no effect on VMIs that request dedicated CPUs. More information at:\nhttps://kubevirt.io/user-guide/operations/node_overcommit/#node-cpu-allocation-ratio\nDefaults to 10",
                   "type": "integer"
                 },
+                "disabledFeatureGates": {
+                  "description": "DisabledFeatureGates specifies a list of experimental feature gates to disable.\nA feature gate must not appear in both FeatureGates and DisabledFeatureGates.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-list-type": "atomic"
+                },
                 "diskVerification": {
                   "description": "DiskVerification holds container disks verification limits",
                   "type": "object",
@@ -434,11 +442,12 @@
                   }
                 },
                 "featureGates": {
-                  "description": "FeatureGates is the list of experimental features to enable. Defaults to none",
+                  "description": "FeatureGates specifies a list of experimental feature gates to enable. Defaults to none.\nA feature gate must not appear in both FeatureGates and DisabledFeatureGates.",
                   "type": "array",
                   "items": {
                     "type": "string"
-                  }
+                  },
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "logVerbosity": {
                   "description": "LogVerbosity sets log verbosity level of  various components",
@@ -549,6 +558,26 @@
                 }
               }
             },
+            "hypervisors": {
+              "description": "Hypervisors holds information regarding the hypervisor configurations supported on this cluster.",
+              "type": "array",
+              "maxItems": 1,
+              "items": {
+                "description": "HypervisorConfiguration holds information regarding the hypervisor present on cluster nodes.",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Name is the name of the hypervisor.\nSupported values are: \"kvm\", \"hyperv-direct\".",
+                    "type": "string",
+                    "enum": [
+                      "kvm",
+                      "hyperv-direct"
+                    ]
+                  }
+                }
+              },
+              "x-kubernetes-list-type": "atomic"
+            },
             "imagePullPolicy": {
               "description": "PullPolicy describes a policy for if/when to pull a container image",
               "type": "string"
@@ -658,6 +687,10 @@
               "description": "MediatedDevicesConfiguration holds information about MDEV types to be defined, if available",
               "type": "object",
               "properties": {
+                "enabled": {
+                  "description": "Enable the creation and removal of mediated devices by virt-handler\nReplaces the deprecated DisableMDEVConfiguration feature gate\nDefaults to true",
+                  "type": "boolean"
+                },
                 "mediatedDeviceTypes": {
                   "type": "array",
                   "items": {
@@ -782,10 +815,16 @@
                 "unsafeMigrationOverride": {
                   "description": "UnsafeMigrationOverride allows live migrations to occur even if the compatibility check\nindicates the migration will be unsafe to the guest. Defaults to false",
                   "type": "boolean"
+                },
+                "utilityVolumesTimeout": {
+                  "description": "UtilityVolumesTimeout is the maximum number of seconds a migration can wait in Pending state\nfor utility volumes to be detached. If utility volumes are still present after this timeout,\nthe migration will be marked as Failed. Defaults to 150",
+                  "type": "integer",
+                  "format": "int64"
                 }
               }
             },
             "minCPUModel": {
+              "description": "deprecated",
               "type": "string"
             },
             "network": {
@@ -980,6 +1019,14 @@
                 }
               }
             },
+            "roleAggregationStrategy": {
+              "description": "RoleAggregationStrategy controls whether RBAC cluster roles should be aggregated\nto the default Kubernetes roles (admin, edit, view).\nWhen set to \"AggregateToDefault\" (default) or not specified, the aggregate-to-* labels are added to the cluster roles.\nWhen set to \"Manual\", the labels are not added, and roles will not be aggregated to the default roles.\nSetting this field to \"Manual\" requires the OptOutRoleAggregation feature gate to be enabled.\nThis is an Alpha feature and subject to change.",
+              "type": "string",
+              "enum": [
+                "AggregateToDefault",
+                "Manual"
+              ]
+            },
             "seccompConfiguration": {
               "description": "SeccompConfiguration holds Seccomp configuration for Kubevirt components",
               "type": "object",
@@ -1115,6 +1162,18 @@
                   ]
                 }
               }
+            },
+            "virtTemplateDeployment": {
+              "description": "VirtTemplateDeployment controls the deployment of virt-template components",
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "description": "Enabled controls the deployment of virt-template resources, defaults to True when feature gate is enabled.",
+                  "type": "boolean",
+                  "nullable": true
+                }
+              },
+              "nullable": true
             },
             "virtualMachineInstancesPerNode": {
               "type": "integer"
@@ -1751,7 +1810,7 @@
                       "type": "object",
                       "properties": {
                         "preferredDuringSchedulingIgnoredDuringExecution": {
-                          "description": "The scheduler will prefer to schedule pods to nodes that satisfy\nthe anti-affinity expressions specified by this field, but it may choose\na node that violates one or more of the expressions. The node that is\nmost preferred is the one with the greatest sum of weights, i.e.\nfor each node that meets all of the scheduling requirements (resource\nrequest, requiredDuringScheduling anti-affinity expressions, etc.),\ncompute a sum by iterating through the elements of this field and adding\n\"weight\" to the sum if the node has pods which matches the corresponding podAffinityTerm; the\nnode(s) with the highest sum are the most preferred.",
+                          "description": "The scheduler will prefer to schedule pods to nodes that satisfy\nthe anti-affinity expressions specified by this field, but it may choose\na node that violates one or more of the expressions. The node that is\nmost preferred is the one with the greatest sum of weights, i.e.\nfor each node that meets all of the scheduling requirements (resource\nrequest, requiredDuringScheduling anti-affinity expressions, etc.),\ncompute a sum by iterating through the elements of this field and subtracting\n\"weight\" from the sum if the node has pods which matches the corresponding podAffinityTerm; the\nnode(s) with the highest sum are the most preferred.",
                           "type": "array",
                           "items": {
                             "description": "The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)",
@@ -2614,7 +2673,7 @@
                       "type": "object",
                       "properties": {
                         "preferredDuringSchedulingIgnoredDuringExecution": {
-                          "description": "The scheduler will prefer to schedule pods to nodes that satisfy\nthe anti-affinity expressions specified by this field, but it may choose\na node that violates one or more of the expressions. The node that is\nmost preferred is the one with the greatest sum of weights, i.e.\nfor each node that meets all of the scheduling requirements (resource\nrequest, requiredDuringScheduling anti-affinity expressions, etc.),\ncompute a sum by iterating through the elements of this field and adding\n\"weight\" to the sum if the node has pods which matches the corresponding podAffinityTerm; the\nnode(s) with the highest sum are the most preferred.",
+                          "description": "The scheduler will prefer to schedule pods to nodes that satisfy\nthe anti-affinity expressions specified by this field, but it may choose\na node that violates one or more of the expressions. The node that is\nmost preferred is the one with the greatest sum of weights, i.e.\nfor each node that meets all of the scheduling requirements (resource\nrequest, requiredDuringScheduling anti-affinity expressions, etc.),\ncompute a sum by iterating through the elements of this field and subtracting\n\"weight\" from the sum if the node has pods which matches the corresponding podAffinityTerm; the\nnode(s) with the highest sum are the most preferred.",
                           "type": "array",
                           "items": {
                             "description": "The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)",
