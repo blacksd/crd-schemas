@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:674392c1-e57d-463a-b5e5-bd0f1adadc40",
-  "version": 1,
+  "version": 2,
   "metadata": {
-    "timestamp": "2026-03-22T07:28:09Z",
+    "timestamp": "2026-03-26T17:40:50Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "k8up",
-      "version": "4.8.7",
+      "version": "4.9.0",
       "licenses": [
         {
           "license": {
