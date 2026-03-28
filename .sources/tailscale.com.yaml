@@ -2,7 +2,7 @@ sources:
   - name: tailscale-operator
     type: git+github
     repo: https://github.com/tailscale/tailscale
-    version: v1.96.3
+    version: v1.96.4
     license: BSD-3-Clause
     homepage: https://tailscale.com/kb/1236/kubernetes-operator
     path: cmd/k8s-operator/deploy/crds
