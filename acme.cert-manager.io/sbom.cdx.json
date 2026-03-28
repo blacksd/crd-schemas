@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:3c1c67b6-e9a7-4383-af70-f27ef20c6d03",
-  "version": 1,
+  "version": 2,
   "metadata": {
-    "timestamp": "2026-03-22T07:28:09Z",
+    "timestamp": "2026-03-28T08:41:10Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "cert-manager",
-      "version": "v1.20.0",
+      "version": "v1.20.1",
       "licenses": [
         {
           "license": {
