@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:cb9214d2-617f-473f-9f9e-21daadea93a4",
-  "version": 20,
+  "version": 21,
   "metadata": {
-    "timestamp": "2026-03-28T09:11:17Z",
+    "timestamp": "2026-03-31T06:07:38Z",
     "tools": {
       "components": [
         {
@@ -19,8 +19,8 @@
   "components": [
     {
       "type": "library",
-      "name": "gpu-operator",
-      "version": "v26.3.0",
+      "name": "node-feature-discovery",
+      "version": "0.18.3",
       "licenses": [
         {
           "license": {
@@ -30,7 +30,7 @@
       ],
       "externalReferences": [
         {
-          "url": "https://github.com/NVIDIA/gpu-operator",
+          "url": "https://kubernetes-sigs.github.io/node-feature-discovery",
           "type": "website"
         }
       ],
@@ -41,11 +41,11 @@
         },
         {
           "name": "crd-schemas:source:repo",
-          "value": "https://helm.ngc.nvidia.com/nvidia"
+          "value": "https://kubernetes-sigs.github.io/node-feature-discovery/charts"
         },
         {
           "name": "crd-schemas:source:chart",
-          "value": "gpu-operator"
+          "value": "node-feature-discovery"
         }
       ]
     }
