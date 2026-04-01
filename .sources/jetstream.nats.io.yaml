@@ -2,6 +2,6 @@ sources:
   - name: nats-nack
     type: url
     url: https://github.com/nats-io/nack/releases/download/{version}/crds.yml
-    version: v0.22.3
+    version: v0.22.4
     license: Apache-2.0
     homepage: https://github.com/nats-io/nack
