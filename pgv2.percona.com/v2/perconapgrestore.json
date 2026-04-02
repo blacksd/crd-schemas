@@ -1,5 +1,4 @@
 {
-  "description": "PerconaPGRestore is the CRD that defines a Percona PostgreSQL Restore",
   "type": "object",
   "required": [
     "metadata",
@@ -7,11 +6,9 @@
   ],
   "properties": {
     "apiVersion": {
-      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
       "type": "string"
     },
     "kind": {
-      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
       "type": "string"
     },
     "metadata": {
@@ -20,27 +17,218 @@
     "spec": {
       "type": "object",
       "required": [
-        "pgCluster",
-        "repoName"
+        "pgCluster"
       ],
       "properties": {
+        "containerOptions": {
+          "type": "object",
+          "properties": {
+            "env": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  },
+                  "valueFrom": {
+                    "type": "object",
+                    "properties": {
+                      "configMapKeyRef": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "fieldRef": {
+                        "type": "object",
+                        "required": [
+                          "fieldPath"
+                        ],
+                        "properties": {
+                          "apiVersion": {
+                            "type": "string"
+                          },
+                          "fieldPath": {
+                            "type": "string"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "fileKeyRef": {
+                        "type": "object",
+                        "required": [
+                          "key",
+                          "path",
+                          "volumeName"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "optional": {
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "path": {
+                            "type": "string"
+                          },
+                          "volumeName": {
+                            "type": "string"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "resourceFieldRef": {
+                        "type": "object",
+                        "required": [
+                          "resource"
+                        ],
+                        "properties": {
+                          "containerName": {
+                            "type": "string"
+                          },
+                          "divisor": {
+                            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                            "anyOf": [
+                              {
+                                "type": "integer"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "x-kubernetes-int-or-string": true
+                          },
+                          "resource": {
+                            "type": "string"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secretKeyRef": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "envFrom": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "configMapRef": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "prefix": {
+                    "type": "string"
+                  },
+                  "secretRef": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  }
+                }
+              }
+            }
+          }
+        },
         "options": {
-          "description": "Command line options to include when running the pgBackRest restore command.\nhttps://pgbackrest.org/command.html#command-restore",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
         "pgCluster": {
-          "description": "The name of the PerconaPGCluster to perform restore.",
-          "type": "string"
+          "type": "string",
+          "x-kubernetes-validations": [
+            {
+              "rule": "self == oldSelf",
+              "message": "pgCluster is an immutable field"
+            }
+          ]
         },
         "repoName": {
-          "description": "The name of the pgBackRest repo within the source PostgresCluster that contains the backups\nthat should be utilized to perform a pgBackRest restore when initializing the data source\nfor the new PostgresCluster.",
           "type": "string",
-          "pattern": "^repo[1-4]"
+          "pattern": "^repo[1-4]",
+          "x-kubernetes-validations": [
+            {
+              "rule": "self == oldSelf",
+              "message": "repoName is an immutable field"
+            }
+          ]
+        },
+        "volumeSnapshotBackupName": {
+          "type": "string",
+          "x-kubernetes-validations": [
+            {
+              "rule": "self == oldSelf",
+              "message": "volumeSnapshotBackupName is an immutable field"
+            }
+          ]
         }
-      }
+      },
+      "x-kubernetes-validations": [
+        {
+          "rule": "((has(self.repoName) \u0026\u0026 self.repoName != \"\") || (has(self.volumeSnapshotBackupName) \u0026\u0026 self.volumeSnapshotBackupName != \"\"))",
+          "message": "either repoName or volumeSnapshotBackupName must be set"
+        }
+      ]
     },
     "status": {
       "type": "object",
