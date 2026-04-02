@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:fed2292f-a889-4fd9-a668-70ebbe2f4863",
-  "version": 1,
+  "version": 2,
   "metadata": {
-    "timestamp": "2026-03-22T07:28:09Z",
+    "timestamp": "2026-04-02T04:27:00Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "eck-operator",
-      "version": "3.3.1",
+      "version": "3.3.2",
       "licenses": [
         {
           "license": {
