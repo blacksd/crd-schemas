@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://cloudnative-pg.github.io/charts",
     "chart": "cloudnative-pg",
-    "version": "0.27.1",
+    "version": "0.28.0",
     "license": "Apache-2.0",
     "homepage": "https://cloudnative-pg.io"
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-04-02T00:54:16Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "f092045ab92df0af54cf3f8a377d82c4967f80e8d5c95889be25b1fadc521729"
+    "sha256": "0b84136ba7be2bd2a9983464a6afb8e525210a2ab0cbb7e6d103f7da4ce84d3e"
   }
 }
