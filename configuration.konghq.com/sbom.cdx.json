@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:b048da6f-1e82-429f-91c7-ebea1d2ab634",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-03-22T13:49:01Z",
+    "timestamp": "2026-04-04T01:32:21Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "kong-ingress",
-      "version": "0.23.0",
+      "version": "0.24.0",
       "licenses": [
         {
           "license": {
