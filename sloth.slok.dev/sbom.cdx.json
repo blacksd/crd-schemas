@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:5ea78f8e-fe47-4165-ae0a-2eb44586e5ef",
-  "version": 1,
+  "version": 2,
   "metadata": {
-    "timestamp": "2026-03-22T07:28:09Z",
+    "timestamp": "2026-04-05T05:36:19Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "sloth",
-      "version": "0.15.0",
+      "version": "0.16.0",
       "licenses": [
         {
           "license": {
