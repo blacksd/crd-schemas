@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://prometheus-community.github.io/helm-charts",
     "chart": "kube-prometheus-stack",
-    "version": "82.10.1",
+    "version": "83.0.0",
     "license": "Apache-2.0",
     "homepage": "https://prometheus-operator.dev"
   },
   "extraction": {
-    "timestamp": "2026-03-09T15:33:08Z",
+    "timestamp": "2026-04-07T04:57:35Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "1c56bcdc1286f9016fd1d15495cb427bd6a81758aba788dcaea3ebe6af7a8a44"
+    "sha256": "6195fd8f3d8b6fba1a85edb44e39dc51559d22b81fe0dc7b6a1955fa6da9137a"
   }
 }

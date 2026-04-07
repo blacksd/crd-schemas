@@ -1534,7 +1534,7 @@
             "type": "object",
             "properties": {
               "authorization": {
-                "description": "authorization defines the  header configuration to authenticate against the DigitalOcean API.\nCannot be set at the same time as `oauth2`.",
+                "description": "authorization defines the header configuration to authenticate against the DigitalOcean API.\nCannot be set at the same time as `oauth2`.",
                 "type": "object",
                 "properties": {
                   "credentials": {
@@ -1941,7 +1941,7 @@
                 "pattern": "^(0|(([0-9]+)y)?(([0-9]+)w)?(([0-9]+)d)?(([0-9]+)h)?(([0-9]+)m)?(([0-9]+)s)?(([0-9]+)ms)?)$"
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.",
+                "description": "tlsConfig defines the TLS configuration to connect to the DigitalOcean API.",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -2160,7 +2160,7 @@
             ],
             "properties": {
               "authorization": {
-                "description": "authorization defines the  header configuration to authenticate against the DigitalOcean API.\nCannot be set at the same time as `oauth2`.",
+                "description": "authorization defines the header configuration to authenticate against the Docker daemon.\nCannot be set at the same time as `oauth2`.",
                 "type": "object",
                 "properties": {
                   "credentials": {
@@ -2261,7 +2261,8 @@
                   "properties": {
                     "name": {
                       "description": "name of the Filter.",
-                      "type": "string"
+                      "type": "string",
+                      "minLength": 1
                     },
                     "values": {
                       "description": "values defines values to filter on.",
@@ -2285,9 +2286,10 @@
                 "type": "boolean"
               },
               "host": {
-                "description": "host defines the address of the docker daemon",
+                "description": "host defines the address of the docker daemon.",
                 "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "pattern": "^[a-zA-Z][a-zA-Z0-9+.-]*://.+$"
               },
               "hostNetworkingHost": {
                 "description": "hostNetworkingHost defines the host to use if the container is in host networking mode.",
@@ -2665,7 +2667,7 @@
                 "pattern": "^(0|(([0-9]+)y)?(([0-9]+)w)?(([0-9]+)d)?(([0-9]+)h)?(([0-9]+)m)?(([0-9]+)s)?(([0-9]+)ms)?)$"
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.",
+                "description": "tlsConfig defines the TLS configuration to connect to the Docker daemon.",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -2840,7 +2842,7 @@
             ],
             "properties": {
               "authorization": {
-                "description": "authorization defines the  header configuration to authenticate against the DigitalOcean API.\nCannot be set at the same time as `oauth2`.",
+                "description": "authorization defines the header configuration to authenticate against the Docker Swarm API.\nCannot be set at the same time as `oauth2`.",
                 "type": "object",
                 "properties": {
                   "credentials": {
@@ -2941,7 +2943,8 @@
                   "properties": {
                     "name": {
                       "description": "name of the Filter.",
-                      "type": "string"
+                      "type": "string",
+                      "minLength": 1
                     },
                     "values": {
                       "description": "values defines values to filter on.",
@@ -3345,7 +3348,7 @@
                 ]
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.",
+                "description": "tlsConfig defines the TLS configuration to connect to the Docker Swarm daemon.",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -3555,7 +3558,8 @@
                   "properties": {
                     "name": {
                       "description": "name of the Filter.",
-                      "type": "string"
+                      "type": "string",
+                      "minLength": 1
                     },
                     "values": {
                       "description": "values defines values to filter on.",
@@ -3668,7 +3672,7 @@
                 "x-kubernetes-map-type": "atomic"
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.\nIt requires Prometheus \u003e= v2.41.0",
+                "description": "tlsConfig defines the TLS configuration to connect to the EC2 API.\nIt requires Prometheus \u003e= v2.41.0",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -3850,7 +3854,7 @@
             ],
             "properties": {
               "authorization": {
-                "description": "authorization defines the  header configuration to authenticate against the DigitalOcean API.\nCannot be set at the same time as `oauth2`.",
+                "description": "authorization defines the header configuration to authenticate against the Eureka server.\nCannot be set at the same time as `oauth2`.",
                 "type": "object",
                 "properties": {
                   "credentials": {
@@ -4304,11 +4308,10 @@
               "server": {
                 "description": "server defines the URL to connect to the Eureka server.",
                 "type": "string",
-                "minLength": 1,
-                "pattern": "^http(s)?://.+$"
+                "pattern": "^https?://.+$"
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.",
+                "description": "tlsConfig defines the TLS configuration to connect to the Eureka server.",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -4568,7 +4571,7 @@
             ],
             "properties": {
               "authorization": {
-                "description": "authorization defines the  header configuration to authenticate against the DigitalOcean API.\nCannot be set at the same time as `oauth2`.",
+                "description": "authorization defines the header configuration to authenticate against the Hetzner API.\nCannot be set at the same time as `oauth2`.",
                 "type": "object",
                 "properties": {
                   "credentials": {
@@ -5042,7 +5045,7 @@
                 ]
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.",
+                "description": "tlsConfig defines the TLS configuration to connect to the Hetzner API.",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -5839,8 +5842,7 @@
               "url": {
                 "description": "url defines the URL from which the targets are fetched.",
                 "type": "string",
-                "minLength": 1,
-                "pattern": "^http(s)?://.+$"
+                "pattern": "^https?://.+$"
               }
             }
           }
@@ -5857,7 +5859,7 @@
             ],
             "properties": {
               "authorization": {
-                "description": "authorization defines the  header configuration to authenticate against the IONOS.\nCannot be set at the same time as `oauth2`.",
+                "description": "authorization defines the header configuration to authenticate against the IONOS API.\nCannot be set at the same time as `oauth2`.",
                 "type": "object",
                 "properties": {
                   "credentials": {
@@ -6269,7 +6271,7 @@
                 "pattern": "^(0|(([0-9]+)y)?(([0-9]+)w)?(([0-9]+)d)?(([0-9]+)h)?(([0-9]+)m)?(([0-9]+)s)?(([0-9]+)ms)?)$"
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.",
+                "description": "tlsConfig defines the TLS configuration to connect to the IONOS API.",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -7158,7 +7160,7 @@
             ],
             "properties": {
               "authorization": {
-                "description": "authorization defines the  header configuration to authenticate against the DigitalOcean API.\nCannot be set at the same time as `oauth2`.",
+                "description": "authorization defines the header configuration to authenticate against the Kuma control plane.\nCannot be set at the same time as `oauth2`.",
                 "type": "object",
                 "properties": {
                   "credentials": {
@@ -7625,7 +7627,7 @@
                 "pattern": "^https?://.+$"
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.",
+                "description": "tlsConfig defines the TLS configuration to connect to the Kuma control plane.",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -7834,7 +7836,7 @@
                 "x-kubernetes-map-type": "atomic"
               },
               "authorization": {
-                "description": "authorization defines the  header configuration to authenticate against the DigitalOcean API.\nCannot be set at the same time as `oauth2`.",
+                "description": "authorization defines the header configuration to authenticate against the Lightsail API.\nCannot be set at the same time as `oauth2`.",
                 "type": "object",
                 "properties": {
                   "credentials": {
@@ -8330,7 +8332,7 @@
                 "x-kubernetes-map-type": "atomic"
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.",
+                "description": "tlsConfig defines the TLS configuration to connect to the Lightsail API.",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -8501,7 +8503,7 @@
             "type": "object",
             "properties": {
               "authorization": {
-                "description": "authorization defines the  header configuration to authenticate against the DigitalOcean API.\nCannot be set at the same time as `oauth2`.",
+                "description": "authorization defines the header configuration to authenticate against the Linode API.\nCannot be set at the same time as `oauth2`.",
                 "type": "object",
                 "properties": {
                   "credentials": {
@@ -8918,7 +8920,7 @@
                 "minLength": 1
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.",
+                "description": "tlsConfig defines the TLS configuration to connect to the Linode API.",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -9210,7 +9212,7 @@
                 "type": "boolean"
               },
               "authorization": {
-                "description": "authorization defines the  header configuration to authenticate against the DigitalOcean API.\nCannot be set at the same time as `oauth2`.",
+                "description": "authorization defines the header configuration to authenticate against the Nomad API.\nCannot be set at the same time as `oauth2`.",
                 "type": "object",
                 "properties": {
                   "credentials": {
@@ -9672,14 +9674,14 @@
               "server": {
                 "description": "server defines the Nomad server address to connect to for service discovery.\nThis should be the full URL including protocol (e.g., \"https://nomad.example.com:4646\").",
                 "type": "string",
-                "minLength": 1
+                "pattern": "^https?://.+$"
               },
               "tagSeparator": {
                 "description": "tagSeparator defines the separator used to join multiple tags.\nThis determines how Nomad service tags are concatenated into Prometheus labels.",
                 "type": "string"
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.",
+                "description": "tlsConfig defines the TLS configuration to connect to the Nomad API.",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -10224,7 +10226,7 @@
               "identityEndpoint": {
                 "description": "identityEndpoint defines the HTTP endpoint that is required to work with\nthe Identity API of the appropriate version.",
                 "type": "string",
-                "pattern": "^http(s)?:\\/\\/.+$"
+                "pattern": "^https?://.+$"
               },
               "password": {
                 "description": "password defines the password for the Identity V2 and V3 APIs. Consult with your provider's\ncontrol panel to discover your account's preferred method of authentication.",
@@ -10607,7 +10609,7 @@
             ],
             "properties": {
               "authorization": {
-                "description": "authorization defines the  header configuration to authenticate against the DigitalOcean API.\nCannot be set at the same time as `oauth2`.",
+                "description": "authorization defines the header configuration to authenticate against the PuppetDB API.\nCannot be set at the same time as `oauth2`.",
                 "type": "object",
                 "properties": {
                   "credentials": {
@@ -11075,7 +11077,7 @@
                 "pattern": "^(0|(([0-9]+)y)?(([0-9]+)w)?(([0-9]+)d)?(([0-9]+)h)?(([0-9]+)m)?(([0-9]+)s)?(([0-9]+)ms)?)$"
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.",
+                "description": "tlsConfig defines the TLS configuration to connect to the PuppetDB server.",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -11238,8 +11240,7 @@
               "url": {
                 "description": "url defines the URL of the PuppetDB root query endpoint.",
                 "type": "string",
-                "minLength": 1,
-                "pattern": "^http(s)?://.+$"
+                "pattern": "^https?://.+$"
               }
             }
           }
@@ -11339,7 +11340,7 @@
               "apiURL": {
                 "description": "apiURL defines the API URL to use when doing the server listing requests.",
                 "type": "string",
-                "pattern": "^http(s)?://.+$"
+                "pattern": "^https?://.+$"
               },
               "enableHTTP2": {
                 "description": "enableHTTP2 defines whether to enable HTTP2.",
@@ -11457,7 +11458,7 @@
                 "x-kubernetes-list-type": "set"
               },
               "tlsConfig": {
-                "description": "tlsConfig defines the TLS configuration to connect to the Consul API.",
+                "description": "tlsConfig defines the TLS configuration to connect to the Scaleway API.",
                 "type": "object",
                 "properties": {
                   "ca": {
@@ -11698,8 +11699,9 @@
                 "type": "array",
                 "minItems": 1,
                 "items": {
-                  "description": "Target represents a target for Prometheus to scrape\nkubebuilder:validation:MinLength:=1",
-                  "type": "string"
+                  "description": "Target represents a target for Prometheus to scrape",
+                  "type": "string",
+                  "minLength": 1
                 },
                 "x-kubernetes-list-type": "set"
               }
