@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:767023a7-4125-41d9-837a-580354465f72",
-  "version": 1,
+  "version": 2,
   "metadata": {
-    "timestamp": "2026-03-22T07:28:09Z",
+    "timestamp": "2026-04-09T02:01:40Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "cluster-api",
-      "version": "v1.12.4",
+      "version": "v1.12.5",
       "licenses": [
         {
           "license": {
