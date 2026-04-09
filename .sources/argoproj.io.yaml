@@ -3,7 +3,7 @@ sources:
     type: helm
     repo: https://argoproj.github.io/argo-helm
     chart: argo-cd
-    version: 9.4.17
+    version: 9.5.0
     license: Apache-2.0
     homepage: https://argoproj.github.io/cd
     include:
