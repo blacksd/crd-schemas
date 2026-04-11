@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:f52a0e3f-fa61-4bc7-b108-baf9f72f6869",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-03-27T01:38:30Z",
+    "timestamp": "2026-04-11T02:01:01Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "dapr",
-      "version": "1.17.3",
+      "version": "1.17.4",
       "licenses": [
         {
           "license": {
