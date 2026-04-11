@@ -1322,6 +1322,10 @@
                                   "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
                                 }
                               }
+                            },
+                            "vaultRole": {
+                              "description": "VaultRole specifies the Vault role to use for TLS certificate authentication.",
+                              "type": "string"
                             }
                           }
                         },
