@@ -3,6 +3,6 @@ sources:
     type: helm
     repo: oci://cr.kgateway.dev/kgateway-dev/charts
     chart: kgateway-crds
-    version: v2.2.2
+    version: v2.2.3
     license: Apache-2.0
     homepage: https://github.com/kgateway-dev/kgateway
