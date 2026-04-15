@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://docs.tigera.io/calico/charts",
     "chart": "tigera-operator",
-    "version": "v3.31.4",
+    "version": "v3.31.5",
     "license": "Apache-2.0",
     "homepage": "https://www.tigera.io/project-calico",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-04-15T09:36:44Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "6650d576f1ae984ddecfebf1b85266c4c23049cb11f7c86d465e860a4e36e60b"
+    "sha256": "6e85b0e9538538f407982f846ffb7f53c4b3a8ffda86bcbf7092507b53ad1975"
   }
 }
