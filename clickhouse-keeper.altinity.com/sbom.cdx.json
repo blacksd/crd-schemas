@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:518bb079-91fa-4c5e-b2ac-3a92873eac5a",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-03-26T01:36:22Z",
+    "timestamp": "2026-04-17T20:58:19Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "altinity-clickhouse-operator",
-      "version": "0.26.2",
+      "version": "0.26.3",
       "licenses": [
         {
           "license": {
