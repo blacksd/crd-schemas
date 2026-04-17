@@ -2,6 +2,6 @@ sources:
   - name: rabbitmq-cluster-operator
     type: url
     url: https://github.com/rabbitmq/cluster-operator/releases/download/{version}/cluster-operator.yml
-    version: v2.20.0
+    version: v2.20.1
     license: MPL-2.0
     homepage: https://www.rabbitmq.com/kubernetes/operator/operator-overview
