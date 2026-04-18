@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://helm.ngc.nvidia.com/nvidia",
     "chart": "gpu-operator",
-    "version": "v26.3.0",
+    "version": "v26.3.1",
     "license": "Apache-2.0",
     "homepage": "https://github.com/NVIDIA/gpu-operator"
   },
   "extraction": {
-    "timestamp": "2026-03-22T09:09:12Z",
+    "timestamp": "2026-04-18T14:14:46Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "99944145b0d303804915ee85b156bbfbbe38d27c0aaf29a37dd3458400ff9246"
+    "sha256": "2c4622ecfafc5a9dde787a974ed9d9c8c220dd38e9d44b80c20bddd1042a3897"
   }
 }

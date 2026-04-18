@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:2c14dc73-9661-4e4b-acc1-00d1cb5dd4ec",
-  "version": 1,
+  "version": 2,
   "metadata": {
-    "timestamp": "2026-03-22T09:09:12Z",
+    "timestamp": "2026-04-18T14:14:46Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "gpu-operator",
-      "version": "v26.3.0",
+      "version": "v26.3.1",
       "licenses": [
         {
           "license": {
