@@ -3,6 +3,6 @@ sources:
     type: helm
     repo: https://percona.github.io/percona-helm-charts
     chart: pxc-operator
-    version: 1.19.0
+    version: 1.19.1
     license: Apache-2.0
     homepage: https://www.percona.com/percona-xtradb-cluster-kubernetes
