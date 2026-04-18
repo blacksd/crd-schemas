@@ -481,7 +481,7 @@
           "x-kubernetes-list-type": "map"
         },
         "defaultCAVersion": {
-          "description": "defaultCAVersion is the version of the default CA package used for this ClusterBundle\nwhen resolving default CAs, if applicable.\nThis field is populated only when spec.includeDefaultCAs is set to true.\nClusterBundles resolved from identical sets of default CA certificates will report\nthe same defaultCAVersion value.",
+          "description": "defaultCAVersion is the version of the default CA package used for this ClusterBundle\nwhen resolving default CAs, if applicable.\nThis field is populated only when default CAs are configured via spec.defaultCAs.\nClusterBundles resolved from identical sets of default CA certificates will report\nthe same defaultCAVersion value.",
           "type": "string",
           "maxLength": 253,
           "minLength": 1

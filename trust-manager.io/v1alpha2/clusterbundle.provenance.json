@@ -10,15 +10,15 @@
     "type": "git+github",
     "repo": "https://github.com/cert-manager/trust-manager",
     "path": "deploy/crds",
-    "version": "v0.22.0",
+    "version": "v0.22.1",
     "license": "Apache-2.0",
     "homepage": "https://cert-manager.io/docs/trust/trust-manager/"
   },
   "extraction": {
-    "timestamp": "2026-03-22T09:09:12Z",
+    "timestamp": "2026-04-18T00:33:36Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "78bd8e3181930205772e58a1b62c434d016a9b3e89174ab6b10c984f54af244c"
+    "sha256": "d1e77260a4aa7aaded044730422886e0a8f21c6e07559403d1e4d1110afb7d05"
   }
 }
