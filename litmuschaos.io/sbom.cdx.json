@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:40f7a043-b49b-4a90-88e6-93cb5ebf17d3",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-03-24T14:17:47Z",
+    "timestamp": "2026-04-19T17:58:38Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "litmus-core",
-      "version": "3.27.0",
+      "version": "3.28.1",
       "licenses": [
         {
           "license": {
