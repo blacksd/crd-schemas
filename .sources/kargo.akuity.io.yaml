@@ -3,7 +3,7 @@ sources:
     type: helm
     repo: oci://ghcr.io/akuity/kargo-charts
     chart: kargo
-    version: 1.9.6
+    version: 1.10.0
     license: Apache-2.0
     homepage: https://kargo.io
     values:
