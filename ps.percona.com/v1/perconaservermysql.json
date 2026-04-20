@@ -15,9 +15,6 @@
       "properties": {
         "backup": {
           "type": "object",
-          "required": [
-            "image"
-          ],
           "properties": {
             "backoffLimit": {
               "type": "integer",
@@ -335,16 +332,6 @@
               "properties": {
                 "binlogServer": {
                   "type": "object",
-                  "required": [
-                    "connectTimeout",
-                    "idleTime",
-                    "image",
-                    "readTimeout",
-                    "serverId",
-                    "size",
-                    "storage",
-                    "writeTimeout"
-                  ],
                   "properties": {
                     "affinity": {
                       "type": "object",
@@ -1000,12 +987,21 @@
                         "type": "string"
                       }
                     },
+                    "checkpointInterval": {
+                      "type": "string",
+                      "default": "30s"
+                    },
+                    "checkpointSize": {
+                      "type": "string",
+                      "default": "16M"
+                    },
                     "configuration": {
                       "type": "string"
                     },
                     "connectTimeout": {
                       "type": "integer",
-                      "format": "int32"
+                      "format": "int32",
+                      "default": 30
                     },
                     "containerSecurityContext": {
                       "type": "object",
@@ -1285,7 +1281,8 @@
                     },
                     "idleTime": {
                       "type": "integer",
-                      "format": "int32"
+                      "format": "int32",
+                      "default": 30
                     },
                     "image": {
                       "type": "string"
@@ -1614,6 +1611,10 @@
                         }
                       }
                     },
+                    "logLevel": {
+                      "type": "string",
+                      "default": "info"
+                    },
                     "nodeSelector": {
                       "type": "object",
                       "additionalProperties": {
@@ -1770,7 +1771,8 @@
                     },
                     "readTimeout": {
                       "type": "integer",
-                      "format": "int32"
+                      "format": "int32",
+                      "default": 30
                     },
                     "readinessProbe": {
                       "type": "object",
@@ -1954,6 +1956,10 @@
                         }
                       }
                     },
+                    "rewriteFileSize": {
+                      "type": "string",
+                      "default": "128M"
+                    },
                     "runtimeClassName": {
                       "type": "string"
                     },
@@ -1970,6 +1976,10 @@
                     "size": {
                       "type": "integer",
                       "format": "int32"
+                    },
+                    "sslMode": {
+                      "type": "string",
+                      "default": "verify_identity"
                     },
                     "startupProbe": {
                       "type": "object",
@@ -2121,9 +2131,6 @@
                             },
                             "region": {
                               "type": "string"
-                            },
-                            "storageClass": {
-                              "type": "string"
                             }
                           }
                         }
@@ -2231,192 +2238,41 @@
                         }
                       }
                     },
-                    "volumeSpec": {
-                      "type": "object",
-                      "properties": {
-                        "emptyDir": {
-                          "type": "object",
-                          "properties": {
-                            "medium": {
-                              "type": "string"
-                            },
-                            "sizeLimit": {
-                              "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                              "anyOf": [
-                                {
-                                  "type": "integer"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ],
-                              "x-kubernetes-int-or-string": true
-                            }
-                          }
-                        },
-                        "hostPath": {
-                          "type": "object",
-                          "required": [
-                            "path"
-                          ],
-                          "properties": {
-                            "path": {
-                              "type": "string"
-                            },
-                            "type": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "persistentVolumeClaim": {
-                          "type": "object",
-                          "properties": {
-                            "accessModes": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "x-kubernetes-list-type": "atomic"
-                            },
-                            "dataSource": {
-                              "type": "object",
-                              "required": [
-                                "kind",
-                                "name"
-                              ],
-                              "properties": {
-                                "apiGroup": {
-                                  "type": "string"
-                                },
-                                "kind": {
-                                  "type": "string"
-                                },
-                                "name": {
-                                  "type": "string"
-                                }
-                              },
-                              "x-kubernetes-map-type": "atomic"
-                            },
-                            "dataSourceRef": {
-                              "type": "object",
-                              "required": [
-                                "kind",
-                                "name"
-                              ],
-                              "properties": {
-                                "apiGroup": {
-                                  "type": "string"
-                                },
-                                "kind": {
-                                  "type": "string"
-                                },
-                                "name": {
-                                  "type": "string"
-                                },
-                                "namespace": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "resources": {
-                              "type": "object",
-                              "properties": {
-                                "limits": {
-                                  "type": "object",
-                                  "additionalProperties": {
-                                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                                    "anyOf": [
-                                      {
-                                        "type": "integer"
-                                      },
-                                      {
-                                        "type": "string"
-                                      }
-                                    ],
-                                    "x-kubernetes-int-or-string": true
-                                  }
-                                },
-                                "requests": {
-                                  "type": "object",
-                                  "additionalProperties": {
-                                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                                    "anyOf": [
-                                      {
-                                        "type": "integer"
-                                      },
-                                      {
-                                        "type": "string"
-                                      }
-                                    ],
-                                    "x-kubernetes-int-or-string": true
-                                  }
-                                }
-                              }
-                            },
-                            "selector": {
-                              "type": "object",
-                              "properties": {
-                                "matchExpressions": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "object",
-                                    "required": [
-                                      "key",
-                                      "operator"
-                                    ],
-                                    "properties": {
-                                      "key": {
-                                        "type": "string"
-                                      },
-                                      "operator": {
-                                        "type": "string"
-                                      },
-                                      "values": {
-                                        "type": "array",
-                                        "items": {
-                                          "type": "string"
-                                        },
-                                        "x-kubernetes-list-type": "atomic"
-                                      }
-                                    }
-                                  },
-                                  "x-kubernetes-list-type": "atomic"
-                                },
-                                "matchLabels": {
-                                  "type": "object",
-                                  "additionalProperties": {
-                                    "type": "string"
-                                  }
-                                }
-                              },
-                              "x-kubernetes-map-type": "atomic"
-                            },
-                            "storageClassName": {
-                              "type": "string"
-                            },
-                            "volumeAttributesClassName": {
-                              "type": "string"
-                            },
-                            "volumeMode": {
-                              "type": "string"
-                            },
-                            "volumeName": {
-                              "type": "string"
-                            }
-                          }
-                        }
-                      }
+                    "verifyChecksum": {
+                      "type": "boolean",
+                      "default": true
                     },
                     "writeTimeout": {
                       "type": "integer",
-                      "format": "int32"
+                      "format": "int32",
+                      "default": 30
                     }
-                  }
+                  },
+                  "x-kubernetes-validations": [
+                    {
+                      "rule": "!has(self.size) || self.size \u003c= 1",
+                      "message": "binlogServer size cannot be more than 1"
+                    }
+                  ]
                 },
                 "enabled": {
                   "type": "boolean"
                 }
-              }
+              },
+              "x-kubernetes-validations": [
+                {
+                  "rule": "!(has(self.enabled) \u0026\u0026 self.enabled) || has(self.binlogServer)",
+                  "message": "binlogServer is required when pitr is enabled"
+                },
+                {
+                  "rule": "!(has(self.enabled) \u0026\u0026 self.enabled) || !has(self.binlogServer) || (has(self.binlogServer.image) \u0026\u0026 self.binlogServer.image != '')",
+                  "message": "binlogServer.image is required when pitr is enabled"
+                },
+                {
+                  "rule": "!(has(self.enabled) \u0026\u0026 self.enabled) || !has(self.binlogServer) || (has(self.binlogServer.size) \u0026\u0026 self.binlogServer.size \u003e 0)",
+                  "message": "binlogServer.size is required when pitr is enabled"
+                }
+              ]
             },
             "resources": {
               "type": "object",
@@ -2495,6 +2351,14 @@
                   },
                   "storageName": {
                     "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "default": "full",
+                    "enum": [
+                      "full",
+                      "incremental"
+                    ]
                   }
                 }
               }
@@ -3683,9 +3547,6 @@
                       },
                       "region": {
                         "type": "string"
-                      },
-                      "storageClass": {
-                        "type": "string"
                       }
                     }
                   },
@@ -4194,10 +4055,6 @@
         },
         "mysql": {
           "type": "object",
-          "required": [
-            "image",
-            "size"
-          ],
           "properties": {
             "affinity": {
               "type": "object",
@@ -4857,7 +4714,12 @@
               "type": "boolean"
             },
             "clusterType": {
-              "type": "string"
+              "type": "string",
+              "default": "group-replication",
+              "enum": [
+                "group-replication",
+                "async"
+              ]
             },
             "configuration": {
               "type": "string"
@@ -6961,6 +6823,12 @@
                                 },
                                 "signerName": {
                                   "type": "string"
+                                },
+                                "userAnnotations": {
+                                  "type": "object",
+                                  "additionalProperties": {
+                                    "type": "string"
+                                  }
                                 }
                               }
                             },
@@ -8762,14 +8630,20 @@
                 }
               }
             }
-          }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "has(self.image) \u0026\u0026 size(self.image) \u003e 0",
+              "message": "mysql.image is required"
+            },
+            {
+              "rule": "has(self.size) \u0026\u0026 self.size \u003e 0",
+              "message": "mysql.size must be greater than 0"
+            }
+          ]
         },
         "orchestrator": {
           "type": "object",
-          "required": [
-            "image",
-            "size"
-          ],
           "properties": {
             "affinity": {
               "type": "object",
@@ -10642,193 +10516,24 @@
                   }
                 }
               }
-            },
-            "volumeSpec": {
-              "type": "object",
-              "properties": {
-                "emptyDir": {
-                  "type": "object",
-                  "properties": {
-                    "medium": {
-                      "type": "string"
-                    },
-                    "sizeLimit": {
-                      "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                      "anyOf": [
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "type": "string"
-                        }
-                      ],
-                      "x-kubernetes-int-or-string": true
-                    }
-                  }
-                },
-                "hostPath": {
-                  "type": "object",
-                  "required": [
-                    "path"
-                  ],
-                  "properties": {
-                    "path": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "persistentVolumeClaim": {
-                  "type": "object",
-                  "properties": {
-                    "accessModes": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      },
-                      "x-kubernetes-list-type": "atomic"
-                    },
-                    "dataSource": {
-                      "type": "object",
-                      "required": [
-                        "kind",
-                        "name"
-                      ],
-                      "properties": {
-                        "apiGroup": {
-                          "type": "string"
-                        },
-                        "kind": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        }
-                      },
-                      "x-kubernetes-map-type": "atomic"
-                    },
-                    "dataSourceRef": {
-                      "type": "object",
-                      "required": [
-                        "kind",
-                        "name"
-                      ],
-                      "properties": {
-                        "apiGroup": {
-                          "type": "string"
-                        },
-                        "kind": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "namespace": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "resources": {
-                      "type": "object",
-                      "properties": {
-                        "limits": {
-                          "type": "object",
-                          "additionalProperties": {
-                            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                            "anyOf": [
-                              {
-                                "type": "integer"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ],
-                            "x-kubernetes-int-or-string": true
-                          }
-                        },
-                        "requests": {
-                          "type": "object",
-                          "additionalProperties": {
-                            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                            "anyOf": [
-                              {
-                                "type": "integer"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ],
-                            "x-kubernetes-int-or-string": true
-                          }
-                        }
-                      }
-                    },
-                    "selector": {
-                      "type": "object",
-                      "properties": {
-                        "matchExpressions": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "required": [
-                              "key",
-                              "operator"
-                            ],
-                            "properties": {
-                              "key": {
-                                "type": "string"
-                              },
-                              "operator": {
-                                "type": "string"
-                              },
-                              "values": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                },
-                                "x-kubernetes-list-type": "atomic"
-                              }
-                            }
-                          },
-                          "x-kubernetes-list-type": "atomic"
-                        },
-                        "matchLabels": {
-                          "type": "object",
-                          "additionalProperties": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "x-kubernetes-map-type": "atomic"
-                    },
-                    "storageClassName": {
-                      "type": "string"
-                    },
-                    "volumeAttributesClassName": {
-                      "type": "string"
-                    },
-                    "volumeMode": {
-                      "type": "string"
-                    },
-                    "volumeName": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
             }
-          }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "!(has(self.enabled) \u0026\u0026 self.enabled) || (has(self.image) \u0026\u0026 size(self.image) \u003e 0)",
+              "message": "orchestrator.image is required when orchestrator is enabled"
+            },
+            {
+              "rule": "!(has(self.enabled) \u0026\u0026 self.enabled) || (has(self.size) \u0026\u0026 self.size \u003e 0)",
+              "message": "orchestrator.size must be greater than 0 when orchestrator is enabled"
+            }
+          ]
         },
         "pause": {
           "type": "boolean"
         },
         "pmm": {
           "type": "object",
-          "required": [
-            "image"
-          ],
           "properties": {
             "containerSecurityContext": {
               "type": "object",
@@ -11262,17 +10967,19 @@
             "serverHost": {
               "type": "string"
             }
-          }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "!(has(self.enabled) \u0026\u0026 self.enabled) || (has(self.image) \u0026\u0026 size(self.image) \u003e 0)",
+              "message": "pmm.image is required when pmm is enabled"
+            }
+          ]
         },
         "proxy": {
           "type": "object",
           "properties": {
             "haproxy": {
               "type": "object",
-              "required": [
-                "image",
-                "size"
-              ],
               "properties": {
                 "affinity": {
                   "type": "object",
@@ -13145,191 +12852,21 @@
                       }
                     }
                   }
-                },
-                "volumeSpec": {
-                  "type": "object",
-                  "properties": {
-                    "emptyDir": {
-                      "type": "object",
-                      "properties": {
-                        "medium": {
-                          "type": "string"
-                        },
-                        "sizeLimit": {
-                          "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                          "anyOf": [
-                            {
-                              "type": "integer"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ],
-                          "x-kubernetes-int-or-string": true
-                        }
-                      }
-                    },
-                    "hostPath": {
-                      "type": "object",
-                      "required": [
-                        "path"
-                      ],
-                      "properties": {
-                        "path": {
-                          "type": "string"
-                        },
-                        "type": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "persistentVolumeClaim": {
-                      "type": "object",
-                      "properties": {
-                        "accessModes": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "x-kubernetes-list-type": "atomic"
-                        },
-                        "dataSource": {
-                          "type": "object",
-                          "required": [
-                            "kind",
-                            "name"
-                          ],
-                          "properties": {
-                            "apiGroup": {
-                              "type": "string"
-                            },
-                            "kind": {
-                              "type": "string"
-                            },
-                            "name": {
-                              "type": "string"
-                            }
-                          },
-                          "x-kubernetes-map-type": "atomic"
-                        },
-                        "dataSourceRef": {
-                          "type": "object",
-                          "required": [
-                            "kind",
-                            "name"
-                          ],
-                          "properties": {
-                            "apiGroup": {
-                              "type": "string"
-                            },
-                            "kind": {
-                              "type": "string"
-                            },
-                            "name": {
-                              "type": "string"
-                            },
-                            "namespace": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "resources": {
-                          "type": "object",
-                          "properties": {
-                            "limits": {
-                              "type": "object",
-                              "additionalProperties": {
-                                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                                "anyOf": [
-                                  {
-                                    "type": "integer"
-                                  },
-                                  {
-                                    "type": "string"
-                                  }
-                                ],
-                                "x-kubernetes-int-or-string": true
-                              }
-                            },
-                            "requests": {
-                              "type": "object",
-                              "additionalProperties": {
-                                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                                "anyOf": [
-                                  {
-                                    "type": "integer"
-                                  },
-                                  {
-                                    "type": "string"
-                                  }
-                                ],
-                                "x-kubernetes-int-or-string": true
-                              }
-                            }
-                          }
-                        },
-                        "selector": {
-                          "type": "object",
-                          "properties": {
-                            "matchExpressions": {
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "required": [
-                                  "key",
-                                  "operator"
-                                ],
-                                "properties": {
-                                  "key": {
-                                    "type": "string"
-                                  },
-                                  "operator": {
-                                    "type": "string"
-                                  },
-                                  "values": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    },
-                                    "x-kubernetes-list-type": "atomic"
-                                  }
-                                }
-                              },
-                              "x-kubernetes-list-type": "atomic"
-                            },
-                            "matchLabels": {
-                              "type": "object",
-                              "additionalProperties": {
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "x-kubernetes-map-type": "atomic"
-                        },
-                        "storageClassName": {
-                          "type": "string"
-                        },
-                        "volumeAttributesClassName": {
-                          "type": "string"
-                        },
-                        "volumeMode": {
-                          "type": "string"
-                        },
-                        "volumeName": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
                 }
-              }
+              },
+              "x-kubernetes-validations": [
+                {
+                  "rule": "!(has(self.enabled) \u0026\u0026 self.enabled) || (has(self.image) \u0026\u0026 size(self.image) \u003e 0)",
+                  "message": "haproxy.image is required when haproxy is enabled"
+                },
+                {
+                  "rule": "!(has(self.enabled) \u0026\u0026 self.enabled) || (has(self.size) \u0026\u0026 self.size \u003e 0)",
+                  "message": "haproxy.size must be greater than 0 when haproxy is enabled"
+                }
+              ]
             },
             "router": {
               "type": "object",
-              "required": [
-                "image",
-                "size"
-              ],
               "properties": {
                 "affinity": {
                   "type": "object",
@@ -15242,184 +14779,18 @@
                       }
                     }
                   }
-                },
-                "volumeSpec": {
-                  "type": "object",
-                  "properties": {
-                    "emptyDir": {
-                      "type": "object",
-                      "properties": {
-                        "medium": {
-                          "type": "string"
-                        },
-                        "sizeLimit": {
-                          "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                          "anyOf": [
-                            {
-                              "type": "integer"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ],
-                          "x-kubernetes-int-or-string": true
-                        }
-                      }
-                    },
-                    "hostPath": {
-                      "type": "object",
-                      "required": [
-                        "path"
-                      ],
-                      "properties": {
-                        "path": {
-                          "type": "string"
-                        },
-                        "type": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "persistentVolumeClaim": {
-                      "type": "object",
-                      "properties": {
-                        "accessModes": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "x-kubernetes-list-type": "atomic"
-                        },
-                        "dataSource": {
-                          "type": "object",
-                          "required": [
-                            "kind",
-                            "name"
-                          ],
-                          "properties": {
-                            "apiGroup": {
-                              "type": "string"
-                            },
-                            "kind": {
-                              "type": "string"
-                            },
-                            "name": {
-                              "type": "string"
-                            }
-                          },
-                          "x-kubernetes-map-type": "atomic"
-                        },
-                        "dataSourceRef": {
-                          "type": "object",
-                          "required": [
-                            "kind",
-                            "name"
-                          ],
-                          "properties": {
-                            "apiGroup": {
-                              "type": "string"
-                            },
-                            "kind": {
-                              "type": "string"
-                            },
-                            "name": {
-                              "type": "string"
-                            },
-                            "namespace": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "resources": {
-                          "type": "object",
-                          "properties": {
-                            "limits": {
-                              "type": "object",
-                              "additionalProperties": {
-                                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                                "anyOf": [
-                                  {
-                                    "type": "integer"
-                                  },
-                                  {
-                                    "type": "string"
-                                  }
-                                ],
-                                "x-kubernetes-int-or-string": true
-                              }
-                            },
-                            "requests": {
-                              "type": "object",
-                              "additionalProperties": {
-                                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
-                                "anyOf": [
-                                  {
-                                    "type": "integer"
-                                  },
-                                  {
-                                    "type": "string"
-                                  }
-                                ],
-                                "x-kubernetes-int-or-string": true
-                              }
-                            }
-                          }
-                        },
-                        "selector": {
-                          "type": "object",
-                          "properties": {
-                            "matchExpressions": {
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "required": [
-                                  "key",
-                                  "operator"
-                                ],
-                                "properties": {
-                                  "key": {
-                                    "type": "string"
-                                  },
-                                  "operator": {
-                                    "type": "string"
-                                  },
-                                  "values": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    },
-                                    "x-kubernetes-list-type": "atomic"
-                                  }
-                                }
-                              },
-                              "x-kubernetes-list-type": "atomic"
-                            },
-                            "matchLabels": {
-                              "type": "object",
-                              "additionalProperties": {
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "x-kubernetes-map-type": "atomic"
-                        },
-                        "storageClassName": {
-                          "type": "string"
-                        },
-                        "volumeAttributesClassName": {
-                          "type": "string"
-                        },
-                        "volumeMode": {
-                          "type": "string"
-                        },
-                        "volumeName": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
                 }
-              }
+              },
+              "x-kubernetes-validations": [
+                {
+                  "rule": "!(has(self.enabled) \u0026\u0026 self.enabled) || (has(self.image) \u0026\u0026 size(self.image) \u003e 0)",
+                  "message": "router.image is required when router is enabled"
+                },
+                {
+                  "rule": "!(has(self.enabled) \u0026\u0026 self.enabled) || (has(self.size) \u0026\u0026 self.size \u003e 0)",
+                  "message": "router.size must be greater than 0 when router is enabled"
+                }
+              ]
             }
           }
         },
@@ -15459,9 +14830,6 @@
         },
         "toolkit": {
           "type": "object",
-          "required": [
-            "image"
-          ],
           "properties": {
             "containerSecurityContext": {
               "type": "object",
@@ -16188,11 +15556,20 @@
                 }
               }
             }
-          }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "has(self.image) \u0026\u0026 size(self.image) \u003e 0",
+              "message": "toolkit.image is required"
+            }
+          ]
         },
         "unsafeFlags": {
           "type": "object",
           "properties": {
+            "backupNonReadyCluster": {
+              "type": "boolean"
+            },
             "mysqlSize": {
               "type": "boolean"
             },
@@ -16281,6 +15658,28 @@
       "properties": {
         "backupVersion": {
           "type": "string"
+        },
+        "binlogServer": {
+          "type": "object",
+          "properties": {
+            "imageID": {
+              "type": "string"
+            },
+            "ready": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "size": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "state": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          }
         },
         "conditions": {
           "type": "array",

@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:b1cf10c1-a20b-4694-997c-ff729da80ce1",
-  "version": 1,
+  "version": 2,
   "metadata": {
-    "timestamp": "2026-03-22T07:28:09Z",
+    "timestamp": "2026-04-20T14:07:50Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "ps-operator",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "licenses": [
         {
           "license": {

@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://percona.github.io/percona-helm-charts",
     "chart": "ps-operator",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "license": "Apache-2.0",
     "homepage": "https://www.percona.com/percona-server-mysql-kubernetes"
   },
   "extraction": {
-    "timestamp": "2026-03-05T16:56:41Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-04-20T14:07:50Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "5cde2d21cf7a9d8f70cd60903a54b5adbf66c085f0e6eff8a3b2d12338e11757"
+    "sha256": "7ee1624fa24bc3a8344c7e3c52c673c35829485edfd021e03be31ad5d5056baa"
   }
 }
