@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://l7mp.io/stunner",
     "chart": "stunner",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "license": "MIT",
     "homepage": "https://github.com/l7mp/stunner",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-07T06:29:09Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-04-20T01:18:49Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "fc37ab5dfb529a05b1ae67368ca6da4be80beb5e377c2d2c205c248919bce412"
+    "sha256": "901a85d2d03ecac2518ef9518bc5d08c3380988201d4153db98de604966ffacb"
   }
 }
