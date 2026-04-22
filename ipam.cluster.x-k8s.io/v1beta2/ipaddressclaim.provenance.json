@@ -8,16 +8,16 @@
   "source": {
     "name": "cluster-api",
     "type": "url",
-    "url": "https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.12.3/core-components.yaml",
-    "version": "v1.12.3",
+    "url": "https://github.com/kubernetes-sigs/cluster-api/releases/download/{version}/core-components.yaml",
+    "version": "v1.13.0",
     "license": "Apache-2.0",
     "homepage": "https://cluster-api.sigs.k8s.io"
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-04-22T20:35:08Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "e9adb3c02e72a2324b7c9a46c350dad8fb9527d4100603ced74bd59934ed91d0"
+    "sha256": "791b108cc393375f772e3742f7ae77365a3ae0dd24125173ab88fcc1f368a403"
   }
 }
