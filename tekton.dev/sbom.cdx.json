@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:54302ee3-3b59-4ad4-8aca-19f97e6e7c43",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-03-31T12:37:45Z",
+    "timestamp": "2026-04-22T05:28:23Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "tekton-pipelines",
-      "version": "v1.11.0",
+      "version": "v1.11.1",
       "licenses": [
         {
           "license": {
