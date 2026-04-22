@@ -9,7 +9,7 @@
     "name": "flux",
     "type": "url",
     "url": "https://github.com/fluxcd/flux2/releases/download/{version}/install.yaml",
-    "version": "v2.8.5",
+    "version": "v2.8.6",
     "license": "Apache-2.0",
     "homepage": "https://fluxcd.io",
     "include": [
@@ -17,10 +17,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-04-10T00:34:13Z",
+    "timestamp": "2026-04-22T01:19:34Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "ce9390670df2df66d6bbd2885218b53a41b63b7be8019e20f4fbe67f6ac918c6"
+    "sha256": "962cdaa28cd2e9330b2e6ab205f0cefa78632b576f75d967a6b803306de99522"
   }
 }
