@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://flagger.app",
     "chart": "flagger",
-    "version": "1.42.0",
+    "version": "1.43.0",
     "license": "Apache-2.0",
     "homepage": "https://flagger.app",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-05T14:58:26Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-04-23T15:45:45Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "bbc4ff643903bf0a37559ccd6423b725fe415592cacfc1d8cac2b9d4edf43cae"
+    "sha256": "ccaeae2d5df0d1e0d80826cc0c80a3c77b66a0880756c4455d4b9b249d247a53"
   }
 }
