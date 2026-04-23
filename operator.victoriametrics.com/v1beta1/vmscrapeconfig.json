@@ -58,6 +58,82 @@
                   "ManagedIdentity"
                 ]
               },
+              "authorization": {
+                "type": "object",
+                "properties": {
+                  "credentials": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "credentialsFile": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              },
+              "basicAuth": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "password_file": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  }
+                }
+              },
               "clientID": {
                 "type": "string"
               },
@@ -83,8 +159,314 @@
               "environment": {
                 "type": "string"
               },
+              "followRedirects": {
+                "type": "boolean"
+              },
+              "oauth2": {
+                "type": "object",
+                "required": [
+                  "client_id",
+                  "token_url"
+                ],
+                "properties": {
+                  "client_id": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "client_secret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "client_secret_file": {
+                    "type": "string"
+                  },
+                  "endpoint_params": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "proxy_url": {
+                    "type": "string"
+                  },
+                  "scopes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "token_url": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
               "port": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int32"
+              },
+              "proxyURL": {
+                "type": "string"
+              },
+              "proxy_client_config": {
+                "type": "object",
+                "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "credentials": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "credentialsFile": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "basic_auth": {
+                    "type": "object",
+                    "properties": {
+                      "password": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "password_file": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "bearer_token": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "nullable": true,
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "bearer_token_file": {
+                    "type": "string"
+                  },
+                  "oauth2": {
+                    "type": "object",
+                    "required": [
+                      "client_id",
+                      "token_url"
+                    ],
+                    "properties": {
+                      "client_id": {
+                        "type": "object",
+                        "properties": {
+                          "configMap": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "secret": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          }
+                        }
+                      },
+                      "client_secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "client_secret_file": {
+                        "type": "string"
+                      },
+                      "endpoint_params": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "proxy_url": {
+                        "type": "string"
+                      },
+                      "scopes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tls_config": {
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "token_url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  }
+                }
               },
               "resourceGroup": {
                 "type": "string"
@@ -95,6 +477,131 @@
               },
               "tenantID": {
                 "type": "string"
+              },
+              "tlsConfig": {
+                "type": "object",
+                "properties": {
+                  "ca": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "caFile": {
+                    "type": "string"
+                  },
+                  "cert": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "certFile": {
+                    "type": "string"
+                  },
+                  "insecureSkipVerify": {
+                    "type": "boolean"
+                  },
+                  "keyFile": {
+                    "type": "string"
+                  },
+                  "keySecret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "serverName": {
+                    "type": "string"
+                  }
+                }
               }
             }
           }
@@ -379,6 +886,36 @@
               "proxy_client_config": {
                 "type": "object",
                 "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "credentials": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "credentialsFile": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
                   "basic_auth": {
                     "type": "object",
                     "properties": {
@@ -442,10 +979,107 @@
                         "type": "boolean"
                       }
                     },
+                    "nullable": true,
                     "x-kubernetes-map-type": "atomic"
                   },
                   "bearer_token_file": {
                     "type": "string"
+                  },
+                  "oauth2": {
+                    "type": "object",
+                    "required": [
+                      "client_id",
+                      "token_url"
+                    ],
+                    "properties": {
+                      "client_id": {
+                        "type": "object",
+                        "properties": {
+                          "configMap": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "secret": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          }
+                        }
+                      },
+                      "client_secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "client_secret_file": {
+                        "type": "string"
+                      },
+                      "endpoint_params": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "proxy_url": {
+                        "type": "string"
+                      },
+                      "scopes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tls_config": {
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "token_url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
                   },
                   "tls_config": {
                     "x-kubernetes-preserve-unknown-fields": true
@@ -662,6 +1296,52 @@
                   }
                 }
               },
+              "basicAuth": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "password_file": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  }
+                }
+              },
               "followRedirects": {
                 "type": "boolean"
               },
@@ -762,7 +1442,8 @@
                 }
               },
               "port": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int32"
               },
               "proxyURL": {
                 "type": "string"
@@ -770,6 +1451,36 @@
               "proxy_client_config": {
                 "type": "object",
                 "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "credentials": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "credentialsFile": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
                   "basic_auth": {
                     "type": "object",
                     "properties": {
@@ -833,15 +1544,115 @@
                         "type": "boolean"
                       }
                     },
+                    "nullable": true,
                     "x-kubernetes-map-type": "atomic"
                   },
                   "bearer_token_file": {
                     "type": "string"
                   },
+                  "oauth2": {
+                    "type": "object",
+                    "required": [
+                      "client_id",
+                      "token_url"
+                    ],
+                    "properties": {
+                      "client_id": {
+                        "type": "object",
+                        "properties": {
+                          "configMap": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "secret": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          }
+                        }
+                      },
+                      "client_secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "client_secret_file": {
+                        "type": "string"
+                      },
+                      "endpoint_params": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "proxy_url": {
+                        "type": "string"
+                      },
+                      "scopes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tls_config": {
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "token_url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
                   "tls_config": {
                     "x-kubernetes-preserve-unknown-fields": true
                   }
                 }
+              },
+              "server": {
+                "type": "string"
               },
               "tlsConfig": {
                 "type": "object",
@@ -987,7 +1798,8 @@
                 }
               },
               "port": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int32"
               },
               "type": {
                 "type": "string",
@@ -1047,7 +1859,8 @@
                 }
               },
               "port": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int32"
               },
               "region": {
                 "type": "string"
@@ -1073,6 +1886,523 @@
                   }
                 },
                 "x-kubernetes-map-type": "atomic"
+              }
+            }
+          }
+        },
+        "eurekaSDConfigs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "authorization": {
+                "type": "object",
+                "properties": {
+                  "credentials": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "credentialsFile": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              },
+              "basicAuth": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "password_file": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  }
+                }
+              },
+              "followRedirects": {
+                "type": "boolean"
+              },
+              "oauth2": {
+                "type": "object",
+                "required": [
+                  "client_id",
+                  "token_url"
+                ],
+                "properties": {
+                  "client_id": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "client_secret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "client_secret_file": {
+                    "type": "string"
+                  },
+                  "endpoint_params": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "proxy_url": {
+                    "type": "string"
+                  },
+                  "scopes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "token_url": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "proxyURL": {
+                "type": "string"
+              },
+              "proxy_client_config": {
+                "type": "object",
+                "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "credentials": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "credentialsFile": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "basic_auth": {
+                    "type": "object",
+                    "properties": {
+                      "password": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "password_file": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "bearer_token": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "nullable": true,
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "bearer_token_file": {
+                    "type": "string"
+                  },
+                  "oauth2": {
+                    "type": "object",
+                    "required": [
+                      "client_id",
+                      "token_url"
+                    ],
+                    "properties": {
+                      "client_id": {
+                        "type": "object",
+                        "properties": {
+                          "configMap": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "secret": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          }
+                        }
+                      },
+                      "client_secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "client_secret_file": {
+                        "type": "string"
+                      },
+                      "endpoint_params": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "proxy_url": {
+                        "type": "string"
+                      },
+                      "scopes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tls_config": {
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "token_url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  }
+                }
+              },
+              "server": {
+                "type": "string"
+              },
+              "tlsConfig": {
+                "type": "object",
+                "properties": {
+                  "ca": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "caFile": {
+                    "type": "string"
+                  },
+                  "cert": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "certFile": {
+                    "type": "string"
+                  },
+                  "insecureSkipVerify": {
+                    "type": "boolean"
+                  },
+                  "keyFile": {
+                    "type": "string"
+                  },
+                  "keySecret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "serverName": {
+                    "type": "string"
+                  }
+                }
               }
             }
           }
@@ -1111,7 +2441,8 @@
                 "type": "string"
               },
               "port": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int32"
               },
               "project": {
                 "type": "string",
@@ -1122,6 +2453,536 @@
               },
               "zone": {
                 "x-kubernetes-preserve-unknown-fields": true
+              }
+            }
+          }
+        },
+        "hetznerSDConfigs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "role"
+            ],
+            "properties": {
+              "authorization": {
+                "type": "object",
+                "properties": {
+                  "credentials": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "credentialsFile": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              },
+              "basicAuth": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "password_file": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  }
+                }
+              },
+              "followRedirects": {
+                "type": "boolean"
+              },
+              "oauth2": {
+                "type": "object",
+                "required": [
+                  "client_id",
+                  "token_url"
+                ],
+                "properties": {
+                  "client_id": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "client_secret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "client_secret_file": {
+                    "type": "string"
+                  },
+                  "endpoint_params": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "proxy_url": {
+                    "type": "string"
+                  },
+                  "scopes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "token_url": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "port": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "proxyURL": {
+                "type": "string"
+              },
+              "proxy_client_config": {
+                "type": "object",
+                "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "credentials": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "credentialsFile": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "basic_auth": {
+                    "type": "object",
+                    "properties": {
+                      "password": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "password_file": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "bearer_token": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "nullable": true,
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "bearer_token_file": {
+                    "type": "string"
+                  },
+                  "oauth2": {
+                    "type": "object",
+                    "required": [
+                      "client_id",
+                      "token_url"
+                    ],
+                    "properties": {
+                      "client_id": {
+                        "type": "object",
+                        "properties": {
+                          "configMap": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "secret": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          }
+                        }
+                      },
+                      "client_secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "client_secret_file": {
+                        "type": "string"
+                      },
+                      "endpoint_params": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "proxy_url": {
+                        "type": "string"
+                      },
+                      "scopes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tls_config": {
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "token_url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  }
+                }
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "robot",
+                  "Robot",
+                  "hcloud",
+                  "Cloud"
+                ]
+              },
+              "tlsConfig": {
+                "type": "object",
+                "properties": {
+                  "ca": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "caFile": {
+                    "type": "string"
+                  },
+                  "cert": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "certFile": {
+                    "type": "string"
+                  },
+                  "insecureSkipVerify": {
+                    "type": "boolean"
+                  },
+                  "keyFile": {
+                    "type": "string"
+                  },
+                  "keySecret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "serverName": {
+                    "type": "string"
+                  }
+                }
               }
             }
           }
@@ -1216,12 +3077,141 @@
                   }
                 }
               },
+              "followRedirects": {
+                "type": "boolean"
+              },
+              "oauth2": {
+                "type": "object",
+                "required": [
+                  "client_id",
+                  "token_url"
+                ],
+                "properties": {
+                  "client_id": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "client_secret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "client_secret_file": {
+                    "type": "string"
+                  },
+                  "endpoint_params": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "proxy_url": {
+                    "type": "string"
+                  },
+                  "scopes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "token_url": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
               "proxyURL": {
                 "type": "string"
               },
               "proxy_client_config": {
                 "type": "object",
                 "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "credentials": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "credentialsFile": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
                   "basic_auth": {
                     "type": "object",
                     "properties": {
@@ -1285,10 +3275,107 @@
                         "type": "boolean"
                       }
                     },
+                    "nullable": true,
                     "x-kubernetes-map-type": "atomic"
                   },
                   "bearer_token_file": {
                     "type": "string"
+                  },
+                  "oauth2": {
+                    "type": "object",
+                    "required": [
+                      "client_id",
+                      "token_url"
+                    ],
+                    "properties": {
+                      "client_id": {
+                        "type": "object",
+                        "properties": {
+                          "configMap": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "secret": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          }
+                        }
+                      },
+                      "client_secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "client_secret_file": {
+                        "type": "string"
+                      },
+                      "endpoint_params": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "proxy_url": {
+                        "type": "string"
+                      },
+                      "scopes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tls_config": {
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "token_url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
                   },
                   "tls_config": {
                     "x-kubernetes-preserve-unknown-fields": true
@@ -1648,6 +3735,36 @@
               "proxy_client_config": {
                 "type": "object",
                 "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "credentials": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "credentialsFile": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
                   "basic_auth": {
                     "type": "object",
                     "properties": {
@@ -1711,10 +3828,107 @@
                         "type": "boolean"
                       }
                     },
+                    "nullable": true,
                     "x-kubernetes-map-type": "atomic"
                   },
                   "bearer_token_file": {
                     "type": "string"
+                  },
+                  "oauth2": {
+                    "type": "object",
+                    "required": [
+                      "client_id",
+                      "token_url"
+                    ],
+                    "properties": {
+                      "client_id": {
+                        "type": "object",
+                        "properties": {
+                          "configMap": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "secret": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          }
+                        }
+                      },
+                      "client_secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "client_secret_file": {
+                        "type": "string"
+                      },
+                      "endpoint_params": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "proxy_url": {
+                        "type": "string"
+                      },
+                      "scopes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tls_config": {
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "token_url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
                   },
                   "tls_config": {
                     "x-kubernetes-preserve-unknown-fields": true
@@ -1763,6 +3977,530 @@
                   "role"
                 ],
                 "x-kubernetes-list-type": "map"
+              },
+              "tlsConfig": {
+                "type": "object",
+                "properties": {
+                  "ca": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "caFile": {
+                    "type": "string"
+                  },
+                  "cert": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "certFile": {
+                    "type": "string"
+                  },
+                  "insecureSkipVerify": {
+                    "type": "boolean"
+                  },
+                  "keyFile": {
+                    "type": "string"
+                  },
+                  "keySecret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "serverName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "kumaSDConfigs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "server"
+            ],
+            "properties": {
+              "authorization": {
+                "type": "object",
+                "properties": {
+                  "credentials": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "credentialsFile": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              },
+              "basicAuth": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "password_file": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  }
+                }
+              },
+              "clientID": {
+                "type": "string"
+              },
+              "followRedirects": {
+                "type": "boolean"
+              },
+              "oauth2": {
+                "type": "object",
+                "required": [
+                  "client_id",
+                  "token_url"
+                ],
+                "properties": {
+                  "client_id": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "client_secret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "client_secret_file": {
+                    "type": "string"
+                  },
+                  "endpoint_params": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "proxy_url": {
+                    "type": "string"
+                  },
+                  "scopes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "token_url": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "proxyURL": {
+                "type": "string"
+              },
+              "proxy_client_config": {
+                "type": "object",
+                "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "credentials": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "credentialsFile": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "basic_auth": {
+                    "type": "object",
+                    "properties": {
+                      "password": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "password_file": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "bearer_token": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "nullable": true,
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "bearer_token_file": {
+                    "type": "string"
+                  },
+                  "oauth2": {
+                    "type": "object",
+                    "required": [
+                      "client_id",
+                      "token_url"
+                    ],
+                    "properties": {
+                      "client_id": {
+                        "type": "object",
+                        "properties": {
+                          "configMap": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "secret": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          }
+                        }
+                      },
+                      "client_secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "client_secret_file": {
+                        "type": "string"
+                      },
+                      "endpoint_params": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "proxy_url": {
+                        "type": "string"
+                      },
+                      "scopes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tls_config": {
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "token_url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  }
+                }
+              },
+              "server": {
+                "type": "string",
+                "minLength": 1
               },
               "tlsConfig": {
                 "type": "object",
@@ -2144,6 +4882,36 @@
               "proxy_client_config": {
                 "type": "object",
                 "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "credentials": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "credentialsFile": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
                   "basic_auth": {
                     "type": "object",
                     "properties": {
@@ -2207,10 +4975,107 @@
                         "type": "boolean"
                       }
                     },
+                    "nullable": true,
                     "x-kubernetes-map-type": "atomic"
                   },
                   "bearer_token_file": {
                     "type": "string"
+                  },
+                  "oauth2": {
+                    "type": "object",
+                    "required": [
+                      "client_id",
+                      "token_url"
+                    ],
+                    "properties": {
+                      "client_id": {
+                        "type": "object",
+                        "properties": {
+                          "configMap": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "secret": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          }
+                        }
+                      },
+                      "client_secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "client_secret_file": {
+                        "type": "string"
+                      },
+                      "endpoint_params": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "proxy_url": {
+                        "type": "string"
+                      },
+                      "scopes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tls_config": {
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "token_url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
                   },
                   "tls_config": {
                     "x-kubernetes-preserve-unknown-fields": true
@@ -2528,7 +5393,8 @@
                 "x-kubernetes-map-type": "atomic"
               },
               "port": {
-                "type": "integer"
+                "type": "integer",
+                "format": "int32"
               },
               "projectID": {
                 "type": "string"
@@ -2683,6 +5549,580 @@
             }
           }
         },
+        "ovhcloudSDConfigs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "applicationKey",
+              "applicationSecret",
+              "consumerKey",
+              "service"
+            ],
+            "properties": {
+              "applicationKey": {
+                "type": "string",
+                "minLength": 1
+              },
+              "applicationSecret": {
+                "type": "object",
+                "required": [
+                  "key"
+                ],
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string",
+                    "default": ""
+                  },
+                  "optional": {
+                    "type": "boolean"
+                  }
+                },
+                "x-kubernetes-map-type": "atomic"
+              },
+              "authorization": {
+                "type": "object",
+                "properties": {
+                  "credentials": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "credentialsFile": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              },
+              "basicAuth": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "password_file": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  }
+                }
+              },
+              "consumerKey": {
+                "type": "object",
+                "required": [
+                  "key"
+                ],
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string",
+                    "default": ""
+                  },
+                  "optional": {
+                    "type": "boolean"
+                  }
+                },
+                "x-kubernetes-map-type": "atomic"
+              },
+              "endpoint": {
+                "type": "string"
+              },
+              "followRedirects": {
+                "type": "boolean"
+              },
+              "oauth2": {
+                "type": "object",
+                "required": [
+                  "client_id",
+                  "token_url"
+                ],
+                "properties": {
+                  "client_id": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "client_secret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "client_secret_file": {
+                    "type": "string"
+                  },
+                  "endpoint_params": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "proxy_url": {
+                    "type": "string"
+                  },
+                  "scopes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "token_url": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "proxyURL": {
+                "type": "string"
+              },
+              "proxy_client_config": {
+                "type": "object",
+                "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "credentials": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "credentialsFile": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "basic_auth": {
+                    "type": "object",
+                    "properties": {
+                      "password": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "password_file": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "bearer_token": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "nullable": true,
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "bearer_token_file": {
+                    "type": "string"
+                  },
+                  "oauth2": {
+                    "type": "object",
+                    "required": [
+                      "client_id",
+                      "token_url"
+                    ],
+                    "properties": {
+                      "client_id": {
+                        "type": "object",
+                        "properties": {
+                          "configMap": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "secret": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          }
+                        }
+                      },
+                      "client_secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "client_secret_file": {
+                        "type": "string"
+                      },
+                      "endpoint_params": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "proxy_url": {
+                        "type": "string"
+                      },
+                      "scopes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tls_config": {
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "token_url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  }
+                }
+              },
+              "service": {
+                "type": "string",
+                "enum": [
+                  "vps",
+                  "VPS",
+                  "dedicated_server",
+                  "DedicatedServer"
+                ]
+              },
+              "tlsConfig": {
+                "type": "object",
+                "properties": {
+                  "ca": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "caFile": {
+                    "type": "string"
+                  },
+                  "cert": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "certFile": {
+                    "type": "string"
+                  },
+                  "insecureSkipVerify": {
+                    "type": "boolean"
+                  },
+                  "keyFile": {
+                    "type": "string"
+                  },
+                  "keySecret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "serverName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
         "params": {
           "type": "object",
           "additionalProperties": {
@@ -2697,6 +6137,537 @@
         },
         "proxyURL": {
           "type": "string"
+        },
+        "puppetDBSDConfigs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "query",
+              "url"
+            ],
+            "properties": {
+              "authorization": {
+                "type": "object",
+                "properties": {
+                  "credentials": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "credentialsFile": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              },
+              "basicAuth": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "password_file": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  }
+                }
+              },
+              "followRedirects": {
+                "type": "boolean"
+              },
+              "includeParameters": {
+                "type": "boolean"
+              },
+              "oauth2": {
+                "type": "object",
+                "required": [
+                  "client_id",
+                  "token_url"
+                ],
+                "properties": {
+                  "client_id": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "client_secret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "client_secret_file": {
+                    "type": "string"
+                  },
+                  "endpoint_params": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "proxy_url": {
+                    "type": "string"
+                  },
+                  "scopes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "token_url": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "port": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "proxyURL": {
+                "type": "string"
+              },
+              "proxy_client_config": {
+                "type": "object",
+                "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "credentials": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "credentialsFile": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "basic_auth": {
+                    "type": "object",
+                    "properties": {
+                      "password": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "password_file": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "bearer_token": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "nullable": true,
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "bearer_token_file": {
+                    "type": "string"
+                  },
+                  "oauth2": {
+                    "type": "object",
+                    "required": [
+                      "client_id",
+                      "token_url"
+                    ],
+                    "properties": {
+                      "client_id": {
+                        "type": "object",
+                        "properties": {
+                          "configMap": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "secret": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          }
+                        }
+                      },
+                      "client_secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "client_secret_file": {
+                        "type": "string"
+                      },
+                      "endpoint_params": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "proxy_url": {
+                        "type": "string"
+                      },
+                      "scopes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tls_config": {
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "token_url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  }
+                }
+              },
+              "query": {
+                "type": "string"
+              },
+              "tlsConfig": {
+                "type": "object",
+                "properties": {
+                  "ca": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "caFile": {
+                    "type": "string"
+                  },
+                  "cert": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "certFile": {
+                    "type": "string"
+                  },
+                  "insecureSkipVerify": {
+                    "type": "boolean"
+                  },
+                  "keyFile": {
+                    "type": "string"
+                  },
+                  "keySecret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "serverName": {
+                    "type": "string"
+                  }
+                }
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          }
         },
         "relabelConfigs": {
           "type": "array",
@@ -2943,6 +6914,36 @@
             "proxy_client_config": {
               "type": "object",
               "properties": {
+                "authorization": {
+                  "type": "object",
+                  "properties": {
+                    "credentials": {
+                      "type": "object",
+                      "required": [
+                        "key"
+                      ],
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "optional": {
+                          "type": "boolean"
+                        }
+                      },
+                      "x-kubernetes-map-type": "atomic"
+                    },
+                    "credentialsFile": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                },
                 "basic_auth": {
                   "type": "object",
                   "properties": {
@@ -3006,10 +7007,107 @@
                       "type": "boolean"
                     }
                   },
+                  "nullable": true,
                   "x-kubernetes-map-type": "atomic"
                 },
                 "bearer_token_file": {
                   "type": "string"
+                },
+                "oauth2": {
+                  "type": "object",
+                  "required": [
+                    "client_id",
+                    "token_url"
+                  ],
+                  "properties": {
+                    "client_id": {
+                      "type": "object",
+                      "properties": {
+                        "configMap": {
+                          "type": "object",
+                          "required": [
+                            "key"
+                          ],
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string",
+                              "default": ""
+                            },
+                            "optional": {
+                              "type": "boolean"
+                            }
+                          },
+                          "x-kubernetes-map-type": "atomic"
+                        },
+                        "secret": {
+                          "type": "object",
+                          "required": [
+                            "key"
+                          ],
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string",
+                              "default": ""
+                            },
+                            "optional": {
+                              "type": "boolean"
+                            }
+                          },
+                          "x-kubernetes-map-type": "atomic"
+                        }
+                      }
+                    },
+                    "client_secret": {
+                      "type": "object",
+                      "required": [
+                        "key"
+                      ],
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "optional": {
+                          "type": "boolean"
+                        }
+                      },
+                      "x-kubernetes-map-type": "atomic"
+                    },
+                    "client_secret_file": {
+                      "type": "string"
+                    },
+                    "endpoint_params": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "proxy_url": {
+                      "type": "string"
+                    },
+                    "scopes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "tls_config": {
+                      "x-kubernetes-preserve-unknown-fields": true
+                    },
+                    "token_url": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
                 },
                 "tls_config": {
                   "x-kubernetes-preserve-unknown-fields": true
@@ -3024,6 +7122,539 @@
             },
             "stream_parse": {
               "type": "boolean"
+            }
+          }
+        },
+        "vultrSDConfigs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "authorization": {
+                "type": "object",
+                "properties": {
+                  "credentials": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "credentialsFile": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              },
+              "basicAuth": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "password_file": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  }
+                }
+              },
+              "firewallGroupID": {
+                "type": "string"
+              },
+              "followRedirects": {
+                "type": "boolean"
+              },
+              "hostname": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "mainIP": {
+                "type": "string"
+              },
+              "oauth2": {
+                "type": "object",
+                "required": [
+                  "client_id",
+                  "token_url"
+                ],
+                "properties": {
+                  "client_id": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "client_secret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "client_secret_file": {
+                    "type": "string"
+                  },
+                  "endpoint_params": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "proxy_url": {
+                    "type": "string"
+                  },
+                  "scopes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "token_url": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "port": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "proxyURL": {
+                "type": "string"
+              },
+              "proxy_client_config": {
+                "type": "object",
+                "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "credentials": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "credentialsFile": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "basic_auth": {
+                    "type": "object",
+                    "properties": {
+                      "password": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "password_file": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "bearer_token": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "nullable": true,
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "bearer_token_file": {
+                    "type": "string"
+                  },
+                  "oauth2": {
+                    "type": "object",
+                    "required": [
+                      "client_id",
+                      "token_url"
+                    ],
+                    "properties": {
+                      "client_id": {
+                        "type": "object",
+                        "properties": {
+                          "configMap": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "secret": {
+                            "type": "object",
+                            "required": [
+                              "key"
+                            ],
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "default": ""
+                              },
+                              "optional": {
+                                "type": "boolean"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          }
+                        }
+                      },
+                      "client_secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "client_secret_file": {
+                        "type": "string"
+                      },
+                      "endpoint_params": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "proxy_url": {
+                        "type": "string"
+                      },
+                      "scopes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tls_config": {
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "token_url": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "tls_config": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  }
+                }
+              },
+              "region": {
+                "type": "string"
+              },
+              "tlsConfig": {
+                "type": "object",
+                "properties": {
+                  "ca": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "caFile": {
+                    "type": "string"
+                  },
+                  "cert": {
+                    "type": "object",
+                    "properties": {
+                      "configMap": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "secret": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "optional": {
+                            "type": "boolean"
+                          }
+                        },
+                        "x-kubernetes-map-type": "atomic"
+                      }
+                    }
+                  },
+                  "certFile": {
+                    "type": "string"
+                  },
+                  "insecureSkipVerify": {
+                    "type": "boolean"
+                  },
+                  "keyFile": {
+                    "type": "string"
+                  },
+                  "keySecret": {
+                    "type": "object",
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "optional": {
+                        "type": "boolean"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "serverName": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
         }

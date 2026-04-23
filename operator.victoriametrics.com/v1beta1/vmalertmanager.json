@@ -26,6 +26,14 @@
           "type": "object",
           "x-kubernetes-preserve-unknown-fields": true
         },
+        "arbitraryFSAccessThroughSMs": {
+          "type": "object",
+          "properties": {
+            "deny": {
+              "type": "boolean"
+            }
+          }
+        },
         "claimTemplates": {
           "type": "array",
           "items": {
@@ -290,6 +298,9 @@
           "type": "string"
         },
         "clusterDomainName": {
+          "type": "string"
+        },
+        "componentVersion": {
           "type": "string"
         },
         "configMaps": {
@@ -1550,7 +1561,7 @@
             "endpoint": {
               "type": "string"
             },
-            "http_headers": {
+            "headers": {
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -1889,6 +1900,9 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastAppliedSpec": {
+          "x-kubernetes-preserve-unknown-fields": true
         },
         "observedGeneration": {
           "type": "integer",

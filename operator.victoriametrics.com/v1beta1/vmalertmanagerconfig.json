@@ -160,6 +160,12 @@
                           },
                           "x-kubernetes-map-type": "atomic"
                         },
+                        "follow_redirects": {
+                          "type": "boolean"
+                        },
+                        "noProxy": {
+                          "type": "string"
+                        },
                         "oauth2": {
                           "type": "object",
                           "required": [
@@ -256,8 +262,37 @@
                             }
                           }
                         },
+                        "proxyConnectHeader": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "key"
+                              ],
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "default": ""
+                                },
+                                "optional": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "x-kubernetes-map-type": "atomic"
+                            }
+                          }
+                        },
+                        "proxyFromEnvironment": {
+                          "type": "boolean"
+                        },
                         "proxyURL": {
-                          "type": "string"
+                          "type": "string",
+                          "pattern": "^(http|https|socks5)://.+$"
                         },
                         "tls_config": {
                           "type": "object",
@@ -733,6 +768,146 @@
                   }
                 }
               },
+              "mattermost_configs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "text"
+                  ],
+                  "properties": {
+                    "attachments": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "author_icon": {
+                            "type": "string"
+                          },
+                          "author_link": {
+                            "type": "string"
+                          },
+                          "author_name": {
+                            "type": "string"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "fallback": {
+                            "type": "string"
+                          },
+                          "fields": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "short": {
+                                  "type": "boolean"
+                                },
+                                "title": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "footer": {
+                            "type": "string"
+                          },
+                          "footer_icon": {
+                            "type": "string"
+                          },
+                          "image_url": {
+                            "type": "string"
+                          },
+                          "pretext": {
+                            "type": "string"
+                          },
+                          "text": {
+                            "type": "string"
+                          },
+                          "thumb_url": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "title_link": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "channel": {
+                      "type": "string"
+                    },
+                    "http_config": {
+                      "x-kubernetes-preserve-unknown-fields": true
+                    },
+                    "icon_emoji": {
+                      "type": "string"
+                    },
+                    "icon_url": {
+                      "type": "string"
+                    },
+                    "priority": {
+                      "type": "object",
+                      "properties": {
+                        "persistent_notifications": {
+                          "type": "boolean"
+                        },
+                        "priority": {
+                          "type": "string"
+                        },
+                        "requested_ack": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "props": {
+                      "type": "object",
+                      "properties": {
+                        "card": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "send_resolved": {
+                      "type": "boolean"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "url_secret": {
+                      "type": "object",
+                      "required": [
+                        "key"
+                      ],
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "optional": {
+                          "type": "boolean"
+                        }
+                      },
+                      "x-kubernetes-map-type": "atomic"
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
               "msteams_configs": {
                 "type": "array",
                 "items": {
@@ -839,6 +1014,12 @@
                           },
                           "x-kubernetes-map-type": "atomic"
                         },
+                        "follow_redirects": {
+                          "type": "boolean"
+                        },
+                        "noProxy": {
+                          "type": "string"
+                        },
                         "oauth2": {
                           "type": "object",
                           "required": [
@@ -935,8 +1116,37 @@
                             }
                           }
                         },
+                        "proxyConnectHeader": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "key"
+                              ],
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "default": ""
+                                },
+                                "optional": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "x-kubernetes-map-type": "atomic"
+                            }
+                          }
+                        },
+                        "proxyFromEnvironment": {
+                          "type": "boolean"
+                        },
                         "proxyURL": {
-                          "type": "string"
+                          "type": "string",
+                          "pattern": "^(http|https|socks5)://.+$"
                         },
                         "tls_config": {
                           "type": "object",
@@ -1722,6 +1932,9 @@
                     "title_link": {
                       "type": "string"
                     },
+                    "update_message": {
+                      "type": "boolean"
+                    },
                     "username": {
                       "type": "string"
                     }
@@ -1843,6 +2056,12 @@
                           },
                           "x-kubernetes-map-type": "atomic"
                         },
+                        "follow_redirects": {
+                          "type": "boolean"
+                        },
+                        "noProxy": {
+                          "type": "string"
+                        },
                         "oauth2": {
                           "type": "object",
                           "required": [
@@ -1939,8 +2158,37 @@
                             }
                           }
                         },
+                        "proxyConnectHeader": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "key"
+                              ],
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "default": ""
+                                },
+                                "optional": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "x-kubernetes-map-type": "atomic"
+                            }
+                          }
+                        },
+                        "proxyFromEnvironment": {
+                          "type": "boolean"
+                        },
                         "proxyURL": {
-                          "type": "string"
+                          "type": "string",
+                          "pattern": "^(http|https|socks5)://.+$"
                         },
                         "tls_config": {
                           "type": "object",
@@ -2341,6 +2589,12 @@
                           },
                           "x-kubernetes-map-type": "atomic"
                         },
+                        "follow_redirects": {
+                          "type": "boolean"
+                        },
+                        "noProxy": {
+                          "type": "string"
+                        },
                         "oauth2": {
                           "type": "object",
                           "required": [
@@ -2437,8 +2691,37 @@
                             }
                           }
                         },
+                        "proxyConnectHeader": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "key"
+                              ],
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "default": ""
+                                },
+                                "optional": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "x-kubernetes-map-type": "atomic"
+                            }
+                          }
+                        },
+                        "proxyFromEnvironment": {
+                          "type": "boolean"
+                        },
                         "proxyURL": {
-                          "type": "string"
+                          "type": "string",
+                          "pattern": "^(http|https|socks5)://.+$"
                         },
                         "tls_config": {
                           "type": "object",
@@ -2697,6 +2980,12 @@
                           },
                           "x-kubernetes-map-type": "atomic"
                         },
+                        "follow_redirects": {
+                          "type": "boolean"
+                        },
+                        "noProxy": {
+                          "type": "string"
+                        },
                         "oauth2": {
                           "type": "object",
                           "required": [
@@ -2793,8 +3082,37 @@
                             }
                           }
                         },
+                        "proxyConnectHeader": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "key"
+                              ],
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "default": ""
+                                },
+                                "optional": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "x-kubernetes-map-type": "atomic"
+                            }
+                          }
+                        },
+                        "proxyFromEnvironment": {
+                          "type": "boolean"
+                        },
                         "proxyURL": {
-                          "type": "string"
+                          "type": "string",
+                          "pattern": "^(http|https|socks5)://.+$"
                         },
                         "tls_config": {
                           "type": "object",
@@ -3115,6 +3433,12 @@
                           },
                           "x-kubernetes-map-type": "atomic"
                         },
+                        "follow_redirects": {
+                          "type": "boolean"
+                        },
+                        "noProxy": {
+                          "type": "string"
+                        },
                         "oauth2": {
                           "type": "object",
                           "required": [
@@ -3211,8 +3535,37 @@
                             }
                           }
                         },
+                        "proxyConnectHeader": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "key"
+                              ],
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "default": ""
+                                },
+                                "optional": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "x-kubernetes-map-type": "atomic"
+                            }
+                          }
+                        },
+                        "proxyFromEnvironment": {
+                          "type": "boolean"
+                        },
                         "proxyURL": {
-                          "type": "string"
+                          "type": "string",
+                          "pattern": "^(http|https|socks5)://.+$"
                         },
                         "tls_config": {
                           "type": "object",

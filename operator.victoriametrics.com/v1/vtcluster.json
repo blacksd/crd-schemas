@@ -39,6 +39,9 @@
               "type": "object",
               "x-kubernetes-preserve-unknown-fields": true
             },
+            "componentVersion": {
+              "type": "string"
+            },
             "configMaps": {
               "type": "array",
               "items": {
@@ -692,6 +695,30 @@
                               "Auto",
                               "Off"
                             ]
+                          },
+                          "oomBumpUpRatio": {
+                            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                            "anyOf": [
+                              {
+                                "type": "integer"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "x-kubernetes-int-or-string": true
+                          },
+                          "oomMinBumpUp": {
+                            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                            "anyOf": [
+                              {
+                                "type": "integer"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "x-kubernetes-int-or-string": true
                           }
                         }
                       }
@@ -790,6 +817,9 @@
             "affinity": {
               "type": "object",
               "x-kubernetes-preserve-unknown-fields": true
+            },
+            "componentVersion": {
+              "type": "string"
             },
             "configMaps": {
               "type": "array",
@@ -1458,6 +1488,30 @@
                               "Auto",
                               "Off"
                             ]
+                          },
+                          "oomBumpUpRatio": {
+                            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                            "anyOf": [
+                              {
+                                "type": "integer"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "x-kubernetes-int-or-string": true
+                          },
+                          "oomMinBumpUp": {
+                            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                            "anyOf": [
+                              {
+                                "type": "integer"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "x-kubernetes-int-or-string": true
                           }
                         }
                       }
@@ -1528,6 +1582,9 @@
                 "type": "object",
                 "x-kubernetes-preserve-unknown-fields": true
               }
+            },
+            "componentVersion": {
+              "type": "string"
             },
             "configMaps": {
               "type": "array",
@@ -2783,6 +2840,30 @@
                               "Auto",
                               "Off"
                             ]
+                          },
+                          "oomBumpUpRatio": {
+                            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                            "anyOf": [
+                              {
+                                "type": "integer"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "x-kubernetes-int-or-string": true
+                          },
+                          "oomMinBumpUp": {
+                            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                            "anyOf": [
+                              {
+                                "type": "integer"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "x-kubernetes-int-or-string": true
                           }
                         }
                       }
@@ -2897,6 +2978,9 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastAppliedSpec": {
+          "x-kubernetes-preserve-unknown-fields": true
         },
         "observedGeneration": {
           "type": "integer",

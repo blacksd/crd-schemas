@@ -281,11 +281,52 @@
             }
           }
         },
+        "componentVersion": {
+          "type": "string"
+        },
         "configMaps": {
           "type": "array",
           "items": {
             "type": "string"
           }
+        },
+        "configNamespaceSelector": {
+          "type": "object",
+          "properties": {
+            "matchExpressions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "key",
+                  "operator"
+                ],
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "operator": {
+                    "type": "string"
+                  },
+                  "values": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "x-kubernetes-list-type": "atomic"
+                  }
+                }
+              },
+              "x-kubernetes-list-type": "atomic"
+            },
+            "matchLabels": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "x-kubernetes-map-type": "atomic"
         },
         "configRawYaml": {
           "type": "string"
@@ -305,6 +346,44 @@
             },
             "optional": {
               "type": "boolean"
+            }
+          },
+          "x-kubernetes-map-type": "atomic"
+        },
+        "configSelector": {
+          "type": "object",
+          "properties": {
+            "matchExpressions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "key",
+                  "operator"
+                ],
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "operator": {
+                    "type": "string"
+                  },
+                  "values": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "x-kubernetes-list-type": "atomic"
+                  }
+                }
+              },
+              "x-kubernetes-list-type": "atomic"
+            },
+            "matchLabels": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
             }
           },
           "x-kubernetes-map-type": "atomic"
@@ -1255,6 +1334,9 @@
           "type": "object",
           "x-kubernetes-preserve-unknown-fields": true
         },
+        "selectAllByDefault": {
+          "type": "boolean"
+        },
         "server": {
           "type": "object",
           "properties": {
@@ -1288,7 +1370,8 @@
           "x-kubernetes-preserve-unknown-fields": true
         },
         "shardCount": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int32"
         },
         "startupProbe": {
           "type": "object",
@@ -1977,6 +2060,9 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastAppliedSpec": {
+          "x-kubernetes-preserve-unknown-fields": true
         },
         "observedGeneration": {
           "type": "integer",
