@@ -3,7 +3,7 @@ sources:
     type: helm
     repo: https://flagger.app
     chart: flagger
-    version: 1.42.0
+    version: 1.43.0
     license: Apache-2.0
     homepage: https://flagger.app
     include:
