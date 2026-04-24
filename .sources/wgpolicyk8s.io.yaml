@@ -3,7 +3,7 @@ sources:
     type: helm
     repo: https://kyverno.github.io/kyverno
     chart: kyverno
-    version: 3.7.1
+    version: 3.7.2
     license: Apache-2.0
     homepage: https://kyverno.io
     include:
