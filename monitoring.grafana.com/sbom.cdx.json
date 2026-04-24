@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:14265e37-487a-4ab9-9b8c-009a82087f8e",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-04-03T08:56:17Z",
+    "timestamp": "2026-04-24T11:04:56Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "grafana-alloy",
-      "version": "1.7.0",
+      "version": "1.8.0",
       "licenses": [
         {
           "license": {
