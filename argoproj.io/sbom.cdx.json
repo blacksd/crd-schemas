@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:3d4be913-f98a-40f4-842d-7f7629af0465",
-  "version": 14,
+  "version": 15,
   "metadata": {
-    "timestamp": "2026-04-24T02:14:51Z",
+    "timestamp": "2026-04-25T01:07:35Z",
     "tools": {
       "components": [
         {
@@ -116,7 +116,7 @@
     {
       "type": "library",
       "name": "argo-workflows",
-      "version": "1.0.12",
+      "version": "1.0.13",
       "licenses": [
         {
           "license": {
