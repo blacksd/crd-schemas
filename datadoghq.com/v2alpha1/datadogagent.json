@@ -37,6 +37,20 @@
                       "description": "ClusterAgentCommunicationEnabled enables communication between Agent sidecars and the Cluster Agent.\nDefault : true",
                       "type": "boolean"
                     },
+                    "clusterAgentTlsVerification": {
+                      "description": "ClusterAgentTLSVerification configures TLS verification for Agent sidecar to Cluster Agent communication.",
+                      "type": "object",
+                      "properties": {
+                        "copyCaConfigMap": {
+                          "description": "CopyCaConfigMap enables automatic creation of a ConfigMap containing the Cluster Agent's CA certificate\nin namespaces where sidecar injection occurs.\nDefault: false",
+                          "type": "boolean"
+                        },
+                        "enabled": {
+                          "description": "Enabled enables TLS verification for agent sidecars communicating with the Cluster Agent.\nDefault: false",
+                          "type": "boolean"
+                        }
+                      }
+                    },
                     "enabled": {
                       "description": "Enabled enables Sidecar injections.\nDefault: false",
                       "type": "boolean"
@@ -603,6 +617,26 @@
                     }
                   }
                 },
+                "probe": {
+                  "description": "Probe holds the admission controller connectivity probe configuration.",
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "description": "Enabled enables the admission controller connectivity probe.\nThe probe periodically sends dry-run ConfigMap creation requests to verify the\nwebhook is reachable from the API server. Requires Cluster Agent 7.78.0+.\nDefault: true",
+                      "type": "boolean"
+                    },
+                    "gracePeriod": {
+                      "description": "GracePeriod is the number of seconds to wait at startup before the first probe.\nDefault: 60",
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "interval": {
+                      "description": "Interval is the number of seconds between probe executions.\nDefault: 60",
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  }
+                },
                 "registry": {
                   "description": "Registry defines an image registry for the admission controller.",
                   "type": "string"
@@ -1156,7 +1190,7 @@
                   }
                 },
                 "enabled": {
-                  "description": "Enabled enables Cloud Security Posture Management.\nDefault: false",
+                  "description": "Enabled enables Cloud Security Posture Management, including Docker and Kubernetes benchmarks.\nDefault: false",
                   "type": "boolean"
                 },
                 "hostBenchmarks": {
@@ -1164,7 +1198,7 @@
                   "type": "object",
                   "properties": {
                     "enabled": {
-                      "description": "Enabled enables host benchmarks.\nDefault: true",
+                      "description": "Enabled enables Linux host benchmarks. Requires `features.cspm.enabled` to be set to `true`.\nDefault: true",
                       "type": "boolean"
                     }
                   }
@@ -2436,11 +2470,11 @@
                   "type": "boolean"
                 },
                 "networkStats": {
-                  "description": "Enables the service discovery network stats collection.\nDefault: true",
+                  "description": "DEPRECATED: NetworkStats is no longer configurable and will be ignored. Scheduled for removal in v1.28.",
                   "type": "object",
                   "properties": {
                     "enabled": {
-                      "description": "Enables the Service Discovery Network Stats feature.\nDefault: true",
+                      "description": "DEPRECATED: this field is ignored.",
                       "type": "boolean"
                     }
                   }
@@ -2562,9 +2596,231 @@
               "description": "CSI contains configuration for Datadog CSI Driver",
               "type": "object",
               "properties": {
-                "enabled": {
-                  "description": "Enables the usage of CSI driver in Datadog Agent.\nRequires installation of Datadog CSI Driver https://github.com/DataDog/helm-charts/tree/main/charts/datadog-csi-driver\nDefault: false",
+                "autoManage": {
+                  "description": "AutoManage controls whether the operator automatically manages the DatadogCSIDriver\ncustom resource on behalf of this DatadogAgent. Set to false to hand ownership over to a\nDatadogCSIDriver CR that you maintain yourself (useful for migrations where you need\ncustomizations not exposed on the DatadogAgent spec). When toggled from true to false,\nthe operator cleans up the DDA-owned DatadogCSIDriver CR; you are then responsible for\nproviding a replacement so CSI continues to work.\nDefault: true",
                   "type": "boolean"
+                },
+                "enabled": {
+                  "description": "Enables the usage of CSI driver in Datadog Agent. When the operator is started with\n`--datadogCSIDriverEnabled=true`, it will also install the driver by creating a\nDatadogCSIDriver custom resource, unless a cluster-scoped `k8s.csi.datadoghq.com`\nCSIDriver is already present, in which case it defers to the existing installation\n(e.g. from the Datadog CSI driver Helm chart).\nDefault: false",
+                  "type": "boolean"
+                },
+                "nodeAffinity": {
+                  "description": "NodeAffinity specifies node affinity scheduling rules for CSI driver DaemonSet pods.",
+                  "type": "object",
+                  "properties": {
+                    "preferredDuringSchedulingIgnoredDuringExecution": {
+                      "description": "The scheduler will prefer to schedule pods to nodes that satisfy\nthe affinity expressions specified by this field, but it may choose\na node that violates one or more of the expressions. The node that is\nmost preferred is the one with the greatest sum of weights, i.e.\nfor each node that meets all of the scheduling requirements (resource\nrequest, requiredDuringScheduling affinity expressions, etc.),\ncompute a sum by iterating through the elements of this field and adding\n\"weight\" to the sum if the node matches the corresponding matchExpressions; the\nnode(s) with the highest sum are the most preferred.",
+                      "type": "array",
+                      "items": {
+                        "description": "An empty preferred scheduling term matches all objects with implicit weight 0\n(i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).",
+                        "type": "object",
+                        "required": [
+                          "preference",
+                          "weight"
+                        ],
+                        "properties": {
+                          "preference": {
+                            "description": "A node selector term, associated with the corresponding weight.",
+                            "type": "object",
+                            "properties": {
+                              "matchExpressions": {
+                                "description": "A list of node selector requirements by node's labels.",
+                                "type": "array",
+                                "items": {
+                                  "description": "A node selector requirement is a selector that contains values, a key, and an operator\nthat relates the key and values.",
+                                  "type": "object",
+                                  "required": [
+                                    "key",
+                                    "operator"
+                                  ],
+                                  "properties": {
+                                    "key": {
+                                      "description": "The label key that the selector applies to.",
+                                      "type": "string"
+                                    },
+                                    "operator": {
+                                      "description": "Represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                                      "type": "string"
+                                    },
+                                    "values": {
+                                      "description": "An array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. If the operator is Gt or Lt, the values\narray must have a single element, which will be interpreted as an integer.\nThis array is replaced during a strategic merge patch.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "x-kubernetes-list-type": "atomic"
+                                    }
+                                  }
+                                },
+                                "x-kubernetes-list-type": "atomic"
+                              },
+                              "matchFields": {
+                                "description": "A list of node selector requirements by node's fields.",
+                                "type": "array",
+                                "items": {
+                                  "description": "A node selector requirement is a selector that contains values, a key, and an operator\nthat relates the key and values.",
+                                  "type": "object",
+                                  "required": [
+                                    "key",
+                                    "operator"
+                                  ],
+                                  "properties": {
+                                    "key": {
+                                      "description": "The label key that the selector applies to.",
+                                      "type": "string"
+                                    },
+                                    "operator": {
+                                      "description": "Represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                                      "type": "string"
+                                    },
+                                    "values": {
+                                      "description": "An array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. If the operator is Gt or Lt, the values\narray must have a single element, which will be interpreted as an integer.\nThis array is replaced during a strategic merge patch.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "x-kubernetes-list-type": "atomic"
+                                    }
+                                  }
+                                },
+                                "x-kubernetes-list-type": "atomic"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "weight": {
+                            "description": "Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.",
+                            "type": "integer",
+                            "format": "int32"
+                          }
+                        }
+                      },
+                      "x-kubernetes-list-type": "atomic"
+                    },
+                    "requiredDuringSchedulingIgnoredDuringExecution": {
+                      "description": "If the affinity requirements specified by this field are not met at\nscheduling time, the pod will not be scheduled onto the node.\nIf the affinity requirements specified by this field cease to be met\nat some point during pod execution (e.g. due to an update), the system\nmay or may not try to eventually evict the pod from its node.",
+                      "type": "object",
+                      "required": [
+                        "nodeSelectorTerms"
+                      ],
+                      "properties": {
+                        "nodeSelectorTerms": {
+                          "description": "Required. A list of node selector terms. The terms are ORed.",
+                          "type": "array",
+                          "items": {
+                            "description": "A null or empty node selector term matches no objects. The requirements of\nthem are ANDed.\nThe TopologySelectorTerm type implements a subset of the NodeSelectorTerm.",
+                            "type": "object",
+                            "properties": {
+                              "matchExpressions": {
+                                "description": "A list of node selector requirements by node's labels.",
+                                "type": "array",
+                                "items": {
+                                  "description": "A node selector requirement is a selector that contains values, a key, and an operator\nthat relates the key and values.",
+                                  "type": "object",
+                                  "required": [
+                                    "key",
+                                    "operator"
+                                  ],
+                                  "properties": {
+                                    "key": {
+                                      "description": "The label key that the selector applies to.",
+                                      "type": "string"
+                                    },
+                                    "operator": {
+                                      "description": "Represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                                      "type": "string"
+                                    },
+                                    "values": {
+                                      "description": "An array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. If the operator is Gt or Lt, the values\narray must have a single element, which will be interpreted as an integer.\nThis array is replaced during a strategic merge patch.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "x-kubernetes-list-type": "atomic"
+                                    }
+                                  }
+                                },
+                                "x-kubernetes-list-type": "atomic"
+                              },
+                              "matchFields": {
+                                "description": "A list of node selector requirements by node's fields.",
+                                "type": "array",
+                                "items": {
+                                  "description": "A node selector requirement is a selector that contains values, a key, and an operator\nthat relates the key and values.",
+                                  "type": "object",
+                                  "required": [
+                                    "key",
+                                    "operator"
+                                  ],
+                                  "properties": {
+                                    "key": {
+                                      "description": "The label key that the selector applies to.",
+                                      "type": "string"
+                                    },
+                                    "operator": {
+                                      "description": "Represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                                      "type": "string"
+                                    },
+                                    "values": {
+                                      "description": "An array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. If the operator is Gt or Lt, the values\narray must have a single element, which will be interpreted as an integer.\nThis array is replaced during a strategic merge patch.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "x-kubernetes-list-type": "atomic"
+                                    }
+                                  }
+                                },
+                                "x-kubernetes-list-type": "atomic"
+                              }
+                            },
+                            "x-kubernetes-map-type": "atomic"
+                          },
+                          "x-kubernetes-list-type": "atomic"
+                        }
+                      },
+                      "x-kubernetes-map-type": "atomic"
+                    }
+                  }
+                },
+                "nodeSelector": {
+                  "description": "NodeSelector is a map of key-value pairs for CSI driver DaemonSet pod node selection.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "tolerations": {
+                  "description": "Tolerations configure the CSI driver DaemonSet pod tolerations.",
+                  "type": "array",
+                  "items": {
+                    "description": "The pod this Toleration is attached to tolerates any taint that matches\nthe triple \u003ckey,value,effect\u003e using the matching operator \u003coperator\u003e.",
+                    "type": "object",
+                    "properties": {
+                      "effect": {
+                        "description": "Effect indicates the taint effect to match. Empty means match all taint effects.\nWhen specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.",
+                        "type": "string"
+                      },
+                      "key": {
+                        "description": "Key is the taint key that the toleration applies to. Empty means match all taint keys.\nIf the key is empty, operator must be Exists; this combination means to match all values and all keys.",
+                        "type": "string"
+                      },
+                      "operator": {
+                        "description": "Operator represents a key's relationship to the value.\nValid operators are Exists, Equal, Lt, and Gt. Defaults to Equal.\nExists is equivalent to wildcard for value, so that a pod can\ntolerate all taints of a particular category.\nLt and Gt perform numeric comparisons (requires feature gate TaintTolerationComparisonOperators).",
+                        "type": "string"
+                      },
+                      "tolerationSeconds": {
+                        "description": "TolerationSeconds represents the period of time the toleration (which must be\nof effect NoExecute, otherwise this field is ignored) tolerates the taint. By default,\nit is not set, which means tolerate the taint forever (do not evict). Zero and\nnegative values will be treated as 0 (evict immediately) by the system.",
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "value": {
+                        "description": "Value is the taint value the toleration matches to.\nIf the operator is Exists, the value should be empty, otherwise just a regular string.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "x-kubernetes-list-type": "atomic"
                 }
               }
             },
@@ -3352,6 +3608,10 @@
             },
             "useFIPSAgent": {
               "description": "UseFIPSAgent enables the FIPS flavor of the Agent. If 'true', the FIPS proxy will always be disabled.\nDefault: 'false'",
+              "type": "boolean"
+            },
+            "useVSock": {
+              "description": "UseVSock allows the use of VSock communication between the Agent and containerized workloads.\nDefault: 'false'",
               "type": "boolean"
             }
           }
@@ -7791,6 +8051,28 @@
           ],
           "x-kubernetes-list-type": "map"
         },
+        "experiment": {
+          "description": "Experiment tracks the state of an active or recent Fleet Automation experiment.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "ID is the unique experiment ID sent by Fleet Automation.",
+              "type": "string"
+            },
+            "phase": {
+              "description": "Phase is the current state of the experiment.",
+              "type": "string",
+              "enum": [
+                "running",
+                "stopped",
+                "rollback",
+                "timeout",
+                "promoted",
+                "aborted"
+              ]
+            }
+          }
+        },
         "otelAgentGateway": {
           "description": "The actual state of the OTel Agent Gateway as a deployment.",
           "type": "object",
@@ -7870,6 +8152,20 @@
                         "clusterAgentCommunicationEnabled": {
                           "description": "ClusterAgentCommunicationEnabled enables communication between Agent sidecars and the Cluster Agent.\nDefault : true",
                           "type": "boolean"
+                        },
+                        "clusterAgentTlsVerification": {
+                          "description": "ClusterAgentTLSVerification configures TLS verification for Agent sidecar to Cluster Agent communication.",
+                          "type": "object",
+                          "properties": {
+                            "copyCaConfigMap": {
+                              "description": "CopyCaConfigMap enables automatic creation of a ConfigMap containing the Cluster Agent's CA certificate\nin namespaces where sidecar injection occurs.\nDefault: false",
+                              "type": "boolean"
+                            },
+                            "enabled": {
+                              "description": "Enabled enables TLS verification for agent sidecars communicating with the Cluster Agent.\nDefault: false",
+                              "type": "boolean"
+                            }
+                          }
                         },
                         "enabled": {
                           "description": "Enabled enables Sidecar injections.\nDefault: false",
@@ -8437,6 +8733,26 @@
                         }
                       }
                     },
+                    "probe": {
+                      "description": "Probe holds the admission controller connectivity probe configuration.",
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "description": "Enabled enables the admission controller connectivity probe.\nThe probe periodically sends dry-run ConfigMap creation requests to verify the\nwebhook is reachable from the API server. Requires Cluster Agent 7.78.0+.\nDefault: true",
+                          "type": "boolean"
+                        },
+                        "gracePeriod": {
+                          "description": "GracePeriod is the number of seconds to wait at startup before the first probe.\nDefault: 60",
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "interval": {
+                          "description": "Interval is the number of seconds between probe executions.\nDefault: 60",
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      }
+                    },
                     "registry": {
                       "description": "Registry defines an image registry for the admission controller.",
                       "type": "string"
@@ -8990,7 +9306,7 @@
                       }
                     },
                     "enabled": {
-                      "description": "Enabled enables Cloud Security Posture Management.\nDefault: false",
+                      "description": "Enabled enables Cloud Security Posture Management, including Docker and Kubernetes benchmarks.\nDefault: false",
                       "type": "boolean"
                     },
                     "hostBenchmarks": {
@@ -8998,7 +9314,7 @@
                       "type": "object",
                       "properties": {
                         "enabled": {
-                          "description": "Enabled enables host benchmarks.\nDefault: true",
+                          "description": "Enabled enables Linux host benchmarks. Requires `features.cspm.enabled` to be set to `true`.\nDefault: true",
                           "type": "boolean"
                         }
                       }
@@ -10270,11 +10586,11 @@
                       "type": "boolean"
                     },
                     "networkStats": {
-                      "description": "Enables the service discovery network stats collection.\nDefault: true",
+                      "description": "DEPRECATED: NetworkStats is no longer configurable and will be ignored. Scheduled for removal in v1.28.",
                       "type": "object",
                       "properties": {
                         "enabled": {
-                          "description": "Enables the Service Discovery Network Stats feature.\nDefault: true",
+                          "description": "DEPRECATED: this field is ignored.",
                           "type": "boolean"
                         }
                       }

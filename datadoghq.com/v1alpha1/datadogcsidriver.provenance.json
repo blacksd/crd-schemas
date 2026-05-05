@@ -1,8 +1,8 @@
 {
-  "schema": "datadogagentinternal.json",
+  "schema": "datadogcsidriver.json",
   "crd": {
     "group": "datadoghq.com",
-    "kind": "DatadogAgentInternal",
+    "kind": "DatadogCSIDriver",
     "apiVersion": "v1alpha1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "54418a7c42cf7b0681569fc74f060fa0a8ff67a73f42bc3683ab488585189f7d"
+    "sha256": "ddcd44e91d7e9f71f4a134c2b460576e112b9f36e04cc9b78c60bc08f7e99bdb"
   }
 }
