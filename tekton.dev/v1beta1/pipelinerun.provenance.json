@@ -9,15 +9,15 @@
     "name": "tekton-pipelines",
     "type": "url",
     "url": "https://github.com/tektoncd/pipeline/releases/download/{version}/release.yaml",
-    "version": "v1.11.0",
+    "version": "v1.12.0",
     "license": "Apache-2.0",
     "homepage": "https://tekton.dev"
   },
   "extraction": {
-    "timestamp": "2026-03-31T12:37:45Z",
+    "timestamp": "2026-05-05T13:09:12Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "0cdbc012876142f20bd83f224167c4c9512661bd8bd33612c1639f319cd6290d"
+    "sha256": "551701cc4306701500059bc9d6c16b6c6ca5ff73a822b7ca365fdfdd2bb1b778"
   }
 }

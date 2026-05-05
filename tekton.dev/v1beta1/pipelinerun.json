@@ -2360,7 +2360,7 @@
                     }
                   },
                   "cloudEvents": {
-                    "description": "Deprecated: Removed in v0.44.0.\nCloudEvents",
+                    "description": "CloudEvents",
                     "type": "array",
                     "items": {
                       "description": "CloudEventDelivery",
