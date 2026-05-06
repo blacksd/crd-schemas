@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:2ca91b0d-92d7-4ca4-9dc3-02f09f37c47d",
-  "version": 1,
+  "version": 2,
   "metadata": {
-    "timestamp": "2026-03-22T07:28:09Z",
+    "timestamp": "2026-05-06T00:49:46Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "longhorn",
-      "version": "1.11.1",
+      "version": "1.11.2",
       "licenses": [
         {
           "license": {
