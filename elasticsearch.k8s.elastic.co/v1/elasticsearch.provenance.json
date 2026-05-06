@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://helm.elastic.co",
     "chart": "eck-operator",
-    "version": "3.3.1",
+    "version": "3.4.0",
     "license": "Elastic-2.0",
     "homepage": "https://www.elastic.co/guide/en/cloud-on-k8s",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-05T14:58:26Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-05-06T08:49:50Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "0a4541e2c48fcf9c68efc3a7b8e3f797ad80e6b8cbf54e8a772286029e3f01fe"
+    "sha256": "40820efb2ca1432c9e320394b01d9e01380d9ca17623aa5ebbd535bf2e2613ed"
   }
 }
