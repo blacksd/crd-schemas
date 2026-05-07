@@ -411,11 +411,11 @@
                       "type": "boolean"
                     },
                     "namePrefix": {
-                      "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                      "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                       "type": "string"
                     },
                     "nameSuffix": {
-                      "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                      "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                       "type": "string"
                     },
                     "namespace": {
@@ -852,11 +852,11 @@
                         "type": "boolean"
                       },
                       "namePrefix": {
-                        "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                        "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                         "type": "string"
                       },
                       "nameSuffix": {
-                        "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                        "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                         "type": "string"
                       },
                       "namespace": {
@@ -1426,11 +1426,11 @@
                   "type": "boolean"
                 },
                 "namePrefix": {
-                  "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                  "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                   "type": "string"
                 },
                 "nameSuffix": {
-                  "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                  "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                   "type": "string"
                 },
                 "namespace": {
@@ -1870,11 +1870,11 @@
                       "type": "boolean"
                     },
                     "namePrefix": {
-                      "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                      "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                       "type": "string"
                     },
                     "nameSuffix": {
-                      "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                      "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                       "type": "string"
                     },
                     "namespace": {
@@ -2338,11 +2338,11 @@
                     "type": "boolean"
                   },
                   "namePrefix": {
-                    "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                    "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                     "type": "string"
                   },
                   "nameSuffix": {
-                    "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                    "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                     "type": "string"
                   },
                   "namespace": {
@@ -2971,11 +2971,11 @@
                         "type": "boolean"
                       },
                       "namePrefix": {
-                        "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                        "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                         "type": "string"
                       },
                       "nameSuffix": {
-                        "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                        "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                         "type": "string"
                       },
                       "namespace": {
@@ -3412,11 +3412,11 @@
                           "type": "boolean"
                         },
                         "namePrefix": {
-                          "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                          "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                           "type": "string"
                         },
                         "nameSuffix": {
-                          "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                          "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                           "type": "string"
                         },
                         "namespace": {
@@ -3593,7 +3593,7 @@
           }
         },
         "observedAt": {
-          "description": "ObservedAt indicates when the application state was updated without querying latest git state\nDeprecated: controller no longer updates ObservedAt field",
+          "description": "ObservedAt indicates when the application state was updated without querying latest git state\n\nDeprecated: controller no longer updates ObservedAt field",
           "type": "string",
           "format": "date-time"
         },
@@ -4009,11 +4009,11 @@
                               "type": "boolean"
                             },
                             "namePrefix": {
-                              "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                              "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                               "type": "string"
                             },
                             "nameSuffix": {
-                              "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                              "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                               "type": "string"
                             },
                             "namespace": {
@@ -4450,11 +4450,11 @@
                                 "type": "boolean"
                               },
                               "namePrefix": {
-                                "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                                "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                                 "type": "string"
                               },
                               "nameSuffix": {
-                                "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                                "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                                 "type": "string"
                               },
                               "namespace": {
@@ -5040,11 +5040,11 @@
                           "type": "boolean"
                         },
                         "namePrefix": {
-                          "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                          "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                           "type": "string"
                         },
                         "nameSuffix": {
-                          "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                          "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                           "type": "string"
                         },
                         "namespace": {
@@ -5481,11 +5481,11 @@
                             "type": "boolean"
                           },
                           "namePrefix": {
-                            "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                            "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                             "type": "string"
                           },
                           "nameSuffix": {
-                            "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                            "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                             "type": "string"
                           },
                           "namespace": {
@@ -6047,11 +6047,11 @@
                               "type": "boolean"
                             },
                             "namePrefix": {
-                              "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                              "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                               "type": "string"
                             },
                             "nameSuffix": {
-                              "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                              "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                               "type": "string"
                             },
                             "namespace": {
@@ -6537,11 +6537,11 @@
                               "type": "boolean"
                             },
                             "namePrefix": {
-                              "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                              "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                               "type": "string"
                             },
                             "nameSuffix": {
-                              "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                              "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                               "type": "string"
                             },
                             "namespace": {
@@ -7114,11 +7114,11 @@
                           "type": "boolean"
                         },
                         "namePrefix": {
-                          "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                          "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                           "type": "string"
                         },
                         "nameSuffix": {
-                          "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                          "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                           "type": "string"
                         },
                         "namespace": {
@@ -7555,11 +7555,11 @@
                             "type": "boolean"
                           },
                           "namePrefix": {
-                            "description": "NamePrefix is a prefix appended to resources for Kustomize apps",
+                            "description": "NamePrefix overrides the namePrefix in the kustomization.yaml for Kustomize apps",
                             "type": "string"
                           },
                           "nameSuffix": {
-                            "description": "NameSuffix is a suffix appended to resources for Kustomize apps",
+                            "description": "NameSuffix overrides the nameSuffix in the kustomization.yaml for Kustomize apps",
                             "type": "string"
                           },
                           "namespace": {
