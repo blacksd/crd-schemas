@@ -1,8 +1,8 @@
 {
-  "schema": "proxysettingspolicy.json",
+  "schema": "wafpolicy.json",
   "crd": {
     "group": "gateway.nginx.org",
-    "kind": "ProxySettingsPolicy",
+    "kind": "WAFPolicy",
     "apiVersion": "v1alpha1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "1587c7b05d775fc2d5aeaba2825ae6ec386a1454e0b690dac3666de43960f274"
+    "sha256": "d19f600f43bf4568975699703d8f01dc44e0ebe3b3314ce70512c69f74db9deb"
   }
 }
