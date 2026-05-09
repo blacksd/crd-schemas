@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:d35b2dbf-f899-4105-b926-ae5c4804c4d4",
-  "version": 1,
+  "version": 2,
   "metadata": {
-    "timestamp": "2026-03-22T07:28:09Z",
+    "timestamp": "2026-05-09T13:12:19Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "volcano",
-      "version": "1.14.1",
+      "version": "1.14.2",
       "licenses": [
         {
           "license": {
