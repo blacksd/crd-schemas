@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:cb5c3d98-e6bd-484a-80f0-ded1453828f6",
-  "version": 3,
+  "version": 4,
   "metadata": {
-    "timestamp": "2026-05-12T04:55:17Z",
+    "timestamp": "2026-05-13T04:33:15Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "cloudnative-pg",
-      "version": "0.28.1",
+      "version": "0.28.2",
       "licenses": [
         {
           "license": {
