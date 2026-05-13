@@ -8,16 +8,16 @@
   "source": {
     "name": "nats-nack",
     "type": "url",
-    "url": "https://github.com/nats-io/nack/releases/download/v0.22.3/crds.yml",
-    "version": "v0.22.3",
+    "url": "https://github.com/nats-io/nack/releases/download/{version}/crds.yml",
+    "version": "v0.23.0",
     "license": "Apache-2.0",
     "homepage": "https://github.com/nats-io/nack"
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-05-13T22:01:52Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "be9b7c62b56bac3c9b2a3b92f0b0b796a4d8031c66a13fc5b6fd10fec8443477"
+    "sha256": "84adac78df4ea789a580578608888cc9f7e6e251e7301e21c31b91e263966112"
   }
 }
