@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "oci://docker.io/envoyproxy",
     "chart": "gateway-crds-helm",
-    "version": "1.7.1",
+    "version": "1.8.0",
     "license": "Apache-2.0",
     "homepage": "https://gateway.envoyproxy.io",
     "values": {
@@ -21,10 +21,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-13T09:44:04Z",
+    "timestamp": "2026-05-14T20:35:17Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "986f74567f5a9a003e87c66b19fa2c07fabc80c8834967e7f3233b8178479136"
+    "sha256": "fae7b1b03501ffe63d20eb58fa6625709d3c4716172fb79ea84d5ec99ebfae4c"
   }
 }
