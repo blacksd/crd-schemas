@@ -5363,6 +5363,14 @@
                               ],
                               "x-kubernetes-list-type": "map"
                             },
+                            "schedulingGroup": {
+                              "type": "object",
+                              "properties": {
+                                "podGroupName": {
+                                  "type": "string"
+                                }
+                              }
+                            },
                             "securityContext": {
                               "type": "object",
                               "properties": {
@@ -6820,24 +6828,6 @@
                                 "name"
                               ],
                               "x-kubernetes-list-type": "map"
-                            },
-                            "workloadRef": {
-                              "type": "object",
-                              "required": [
-                                "name",
-                                "podGroup"
-                              ],
-                              "properties": {
-                                "name": {
-                                  "type": "string"
-                                },
-                                "podGroup": {
-                                  "type": "string"
-                                },
-                                "podGroupReplicaKey": {
-                                  "type": "string"
-                                }
-                              }
                             }
                           }
                         }
@@ -7129,7 +7119,13 @@
             "envConfig": {
               "description": "Modify to add to the rabbitmq-env.conf file. Modifying this property on an existing RabbitmqCluster will trigger a StatefulSet rolling restart and will cause rabbitmq downtime.\nFor more information on env config, see https://www.rabbitmq.com/man/rabbitmq-env.conf.5.html",
               "type": "string",
-              "maxLength": 100000
+              "maxLength": 100000,
+              "x-kubernetes-validations": [
+                {
+                  "rule": "!self.contains('$(') \u0026\u0026 !self.contains('`')",
+                  "message": "envConfig must not contain shell command substitution ('$(...)' or backticks)"
+                }
+              ]
             },
             "erlangInetConfig": {
               "description": "Erlang Inet configuration to apply to the Erlang VM running rabbit.\nSee also: https://www.erlang.org/doc/apps/erts/inet_cfg.html",
