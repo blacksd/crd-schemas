@@ -17,6 +17,14 @@
           "type": "object",
           "x-kubernetes-preserve-unknown-fields": true
         },
+        "arbitraryFSAccessThroughSMs": {
+          "type": "object",
+          "properties": {
+            "deny": {
+              "type": "boolean"
+            }
+          }
+        },
         "componentVersion": {
           "type": "string"
         },
@@ -159,7 +167,8 @@
                       "VTCluster/vtinsert",
                       "VTCluster/vtselect",
                       "VTCluster/vtstorage",
-                      "VTSingle"
+                      "VTSingle",
+                      "VMAnomaly"
                     ]
                   },
                   "name": {
@@ -1800,7 +1809,8 @@
                           "VTCluster/vtinsert",
                           "VTCluster/vtselect",
                           "VTCluster/vtstorage",
-                          "VTSingle"
+                          "VTSingle",
+                          "VMAnomaly"
                         ]
                       },
                       "name": {

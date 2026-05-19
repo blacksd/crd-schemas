@@ -708,6 +708,14 @@
                     }
                   }
                 },
+                "arbitraryFSAccessThroughSMs": {
+                  "type": "object",
+                  "properties": {
+                    "deny": {
+                      "type": "boolean"
+                    }
+                  }
+                },
                 "componentVersion": {
                   "type": "string"
                 },
@@ -1956,7 +1964,8 @@
                               "VTCluster/vtinsert",
                               "VTCluster/vtselect",
                               "VTCluster/vtstorage",
-                              "VTSingle"
+                              "VTSingle",
+                              "VMAnomaly"
                             ]
                           },
                           "name": {
@@ -6361,7 +6370,8 @@
                                   "VTCluster/vtinsert",
                                   "VTCluster/vtselect",
                                   "VTCluster/vtstorage",
-                                  "VTSingle"
+                                  "VTSingle",
+                                  "VMAnomaly"
                                 ]
                               },
                               "name": {
@@ -14765,6 +14775,15 @@
               },
               "remoteWrite": {
                 "x-kubernetes-preserve-unknown-fields": true
+              },
+              "trafficMode": {
+                "type": "string",
+                "enum": [
+                  "read-only",
+                  "write-only",
+                  "read-write",
+                  "maintenance"
+                ]
               },
               "vmagent": {
                 "type": "object",
