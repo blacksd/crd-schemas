@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://istio-release.storage.googleapis.com/charts",
     "chart": "base",
-    "version": "1.29.0",
+    "version": "1.30.0",
     "license": "Apache-2.0",
     "homepage": "https://istio.io",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-05-19T05:41:34Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "c8550575a7cdd0072ccf8f6c881bbc7b63a0d6ee8af69076838bd642ca77bf54"
+    "sha256": "9bddad67137ec9cd10311dfd761a7f7fcf5a88300b4e2915a8bb133c95968fc2"
   }
 }

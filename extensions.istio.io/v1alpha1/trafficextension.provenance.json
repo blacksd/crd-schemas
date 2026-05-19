@@ -1,9 +1,9 @@
 {
-  "schema": "envoyfilter.json",
+  "schema": "trafficextension.json",
   "crd": {
-    "group": "networking.istio.io",
-    "kind": "EnvoyFilter",
-    "apiVersion": "v1alpha3"
+    "group": "extensions.istio.io",
+    "kind": "TrafficExtension",
+    "apiVersion": "v1alpha1"
   },
   "source": {
     "name": "istio-base",
@@ -14,7 +14,7 @@
     "license": "Apache-2.0",
     "homepage": "https://istio.io",
     "include": [
-      "networking.istio.io/*"
+      "extensions.istio.io/*"
     ]
   },
   "extraction": {
@@ -22,6 +22,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "808a0db7901d3ecb5f9f692fc4e0173e41db9d5f0a742bad5669615218580050"
+    "sha256": "2d00da89556d25d32e783e504da19e0db920d85ce2ca0035832024e7f114419e"
   }
 }
