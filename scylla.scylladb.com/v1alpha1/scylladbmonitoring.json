@@ -133,17 +133,8 @@
                         "description": "type is the type of the datasource. Only \"prometheus\" is supported.",
                         "type": "string",
                         "default": "Prometheus",
-                        "allOf": [
-                          {
-                            "enum": [
-                              "Prometheus"
-                            ]
-                          },
-                          {
-                            "enum": [
-                              "Prometheus"
-                            ]
-                          }
+                        "enum": [
+                          "Prometheus"
                         ]
                       },
                       "url": {
@@ -2198,7 +2189,7 @@
         "type": {
           "description": "type determines the platform type of the monitoring setup.",
           "type": "string",
-          "default": "SaaS",
+          "default": "Platform",
           "enum": [
             "SaaS",
             "Platform"
