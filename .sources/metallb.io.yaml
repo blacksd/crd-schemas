@@ -3,7 +3,7 @@ sources:
     type: helm
     repo: https://metallb.github.io/metallb
     chart: metallb
-    version: 0.15.3
+    version: 0.16.0
     license: Apache-2.0
     homepage: https://metallb.universe.tf
     include:
