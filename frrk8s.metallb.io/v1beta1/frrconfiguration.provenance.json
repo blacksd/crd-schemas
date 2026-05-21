@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://metallb.github.io/metallb",
     "chart": "metallb",
-    "version": "0.15.3",
+    "version": "0.16.0",
     "license": "Apache-2.0",
     "homepage": "https://metallb.universe.tf",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-09T13:38:55Z",
+    "timestamp": "2026-05-21T14:35:39Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "12ed6c520a11308d1ba632260c77838ef1b4a7bb52b1f1164d9dbd445105ff1a"
+    "sha256": "6eb16fba5595fc67403131075f31a4a9d78e992b63dce72ae0b7ab9e31f11979"
   }
 }

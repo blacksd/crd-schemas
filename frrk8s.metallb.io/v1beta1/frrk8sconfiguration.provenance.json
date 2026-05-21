@@ -1,8 +1,8 @@
 {
-  "schema": "bgpadvertisement.json",
+  "schema": "frrk8sconfiguration.json",
   "crd": {
-    "group": "metallb.io",
-    "kind": "BGPAdvertisement",
+    "group": "frrk8s.metallb.io",
+    "kind": "FRRK8sConfiguration",
     "apiVersion": "v1beta1"
   },
   "source": {
@@ -14,7 +14,7 @@
     "license": "Apache-2.0",
     "homepage": "https://metallb.universe.tf",
     "include": [
-      "metallb.io/*"
+      "frrk8s.metallb.io/*"
     ]
   },
   "extraction": {
@@ -22,6 +22,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "1852560441ee1f06fbf876ed153af0a68d987b5c7f4764565c1210ff751948be"
+    "sha256": "7ec0e812f7c72029e841eadfd700a65bae4e04f4b30282ecf99f903e559e2cb7"
   }
 }
