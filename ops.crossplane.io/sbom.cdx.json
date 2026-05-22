@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:02288ed0-7c1c-4e79-a69c-d247242125a0",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-04-21T01:16:04Z",
+    "timestamp": "2026-05-22T18:46:59Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "crossplane",
-      "version": "v2.2.1",
+      "version": "v2.3.0",
       "licenses": [
         {
           "license": {
