@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:4522c6cd-61a0-4cab-94c7-a549a18e43b6",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-04-10T09:52:31Z",
+    "timestamp": "2026-05-22T14:14:51Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "sealed-secrets",
-      "version": "2.18.5",
+      "version": "2.18.6",
       "licenses": [
         {
           "license": {
