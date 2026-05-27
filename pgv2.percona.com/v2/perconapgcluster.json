@@ -6622,6 +6622,9 @@
             },
             "volumeSnapshots": {
               "type": "object",
+              "required": [
+                "className"
+              ],
               "properties": {
                 "className": {
                   "type": "string"
@@ -6657,13 +6660,7 @@
                   "type": "string",
                   "minLength": 6
                 }
-              },
-              "x-kubernetes-validations": [
-                {
-                  "rule": "has(self.className) \u0026\u0026 self.className != \"\"",
-                  "message": "className is required"
-                }
-              ]
+              }
             }
           },
           "x-kubernetes-validations": [

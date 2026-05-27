@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://percona.github.io/percona-helm-charts",
     "chart": "pg-operator",
-    "version": "2.9.0",
+    "version": "3.0.0",
     "license": "Apache-2.0",
     "homepage": "https://www.percona.com/percona-postgresql-kubernetes",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-04-02T09:20:51Z",
+    "timestamp": "2026-05-27T05:55:57Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "3035ee257921446e66a35a6b905d88f1713acce22490ef4894bb1747037495bf"
+    "sha256": "61ed8b3701ebe32786481237f36568d31dcc48afb080e12adaa6657d348e0fd0"
   }
 }
