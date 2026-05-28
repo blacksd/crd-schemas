@@ -85,7 +85,7 @@
         "localASN": {
           "description": "LocalASN allows advertising a different AS number to the peer using BGP's\nlocal-as feature. When set, MetalLB will advertise this ASN to the peer\nvia \"neighbor \u003cpeer\u003e local-as \u003cASN\u003e no-prepend replace-as\", overriding\nthe router-level MyASN for this specific session.\nNot supported in native BGP mode.",
           "type": "integer",
-          "format": "int32",
+          "format": "int64",
           "maximum": 4294967295,
           "minimum": 1
         },
