@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://open-feature.github.io/open-feature-operator",
     "chart": "open-feature-operator",
-    "version": "v0.9.1",
+    "version": "v0.9.2",
     "license": "Apache-2.0",
     "homepage": "https://openfeature.dev"
   },
   "extraction": {
-    "timestamp": "2026-05-02T05:26:52Z",
+    "timestamp": "2026-05-28T10:05:08Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "35a06d0ab417e4fe8c447c94319987ab1aaabf6ebdef1f363e2310a347f62524"
+    "sha256": "b299bf283796650ad70dd2f9c2a691dc2fb7bcac1cc7f05ac79898867e947a07"
   }
 }
