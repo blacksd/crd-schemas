@@ -2333,7 +2333,7 @@
           "type": "string"
         },
         "grpcServerTlsConfig": {
-          "description": "grpcServerTlsConfig defines the gRPC server from which Thanos Querier reads\nrecorded rule data.\n\nNote: Currently only the `minVersion`, `caFile`, `certFile`, and `keyFile` fields are supported.",
+          "description": "grpcServerTlsConfig defines the gRPC server from which Thanos Querier reads\nrecorded rule data.\n\nNote: Currently only the `minVersion`, `caFile`, `certFile`, `keyFile`, `cipherSuites` and `curves` fields are supported.",
           "type": "object",
           "properties": {
             "ca": {
@@ -2447,6 +2447,24 @@
             "certFile": {
               "description": "certFile defines the path to the client cert file in the Prometheus container for the targets.",
               "type": "string"
+            },
+            "cipherSuites": {
+              "description": "cipherSuites defines the list of supported cipher suites for TLS\nversions up to TLS 1.2.\n\nIf not defined, the Go default cipher suites are used.\nAvailable cipher suites are documented in the Go documentation:\nhttps://golang.org/pkg/crypto/tls/#pkg-constants\n\nIt requires Thanos \u003e= v0.42.0. Note that the operator doesn't verify if\nthe Thanos version supports the provided values.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              },
+              "x-kubernetes-list-type": "set"
+            },
+            "curves": {
+              "description": "curves defines the list of preferred elliptic curves for\nTLS handshakes.\n\nIf not defined, the Go default curves are used.\nAvailable curves are documented in the Go documentation:\nhttps://golang.org/pkg/crypto/tls/#CurveID\n\nIt requires Thanos \u003e= v0.42.0. Note that the operator doesn't verify if\nthe Thanos version supports the provided values.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              },
+              "x-kubernetes-list-type": "set"
             },
             "insecureSkipVerify": {
               "description": "insecureSkipVerify defines how to disable target certificate validation.",
@@ -4784,6 +4802,11 @@
                     },
                     "x-kubernetes-map-type": "atomic"
                   },
+                  "externalId": {
+                    "description": "externalId defines the external ID used when assuming an AWS role. Can only be used with roleArn.\nIt requires Prometheus \u003e= v3.11.0 or Alertmanager \u003e= v0.33.0. Currently not supported by Thanos.",
+                    "type": "string",
+                    "minLength": 1
+                  },
                   "profile": {
                     "description": "profile defines the named AWS profile used to authenticate.",
                     "type": "string"
@@ -4823,7 +4846,13 @@
                     "description": "useFIPSSTSEndpoint defines the FIPS mode for the AWS STS endpoint.\nIt requires Prometheus \u003e= v2.54.0.",
                     "type": "boolean"
                   }
-                }
+                },
+                "x-kubernetes-validations": [
+                  {
+                    "rule": "!has(self.externalId) || has(self.roleArn)",
+                    "message": "externalId can only be used when roleArn is specified"
+                  }
+                ]
               },
               "tlsConfig": {
                 "description": "tlsConfig to use for the URL.",

@@ -1231,6 +1231,11 @@
                         },
                         "x-kubernetes-map-type": "atomic"
                       },
+                      "externalId": {
+                        "description": "externalId defines the external ID used when assuming an AWS role. Can only be used with roleArn.\nIt requires Prometheus \u003e= v3.11.0 or Alertmanager \u003e= v0.33.0. Currently not supported by Thanos.",
+                        "type": "string",
+                        "minLength": 1
+                      },
                       "profile": {
                         "description": "profile defines the named AWS profile used to authenticate.",
                         "type": "string"
@@ -1270,7 +1275,13 @@
                         "description": "useFIPSSTSEndpoint defines the FIPS mode for the AWS STS endpoint.\nIt requires Prometheus \u003e= v2.54.0.",
                         "type": "boolean"
                       }
-                    }
+                    },
+                    "x-kubernetes-validations": [
+                      {
+                        "rule": "!has(self.externalId) || has(self.roleArn)",
+                        "message": "externalId can only be used when roleArn is specified"
+                      }
+                    ]
                   },
                   "timeout": {
                     "description": "timeout defines a per-target Alertmanager timeout when pushing alerts.",
@@ -6602,6 +6613,11 @@
                     },
                     "x-kubernetes-map-type": "atomic"
                   },
+                  "externalId": {
+                    "description": "externalId defines the external ID used when assuming an AWS role. Can only be used with roleArn.\nIt requires Prometheus \u003e= v3.11.0 or Alertmanager \u003e= v0.33.0. Currently not supported by Thanos.",
+                    "type": "string",
+                    "minLength": 1
+                  },
                   "profile": {
                     "description": "profile defines the named AWS profile used to authenticate.",
                     "type": "string"
@@ -6641,7 +6657,13 @@
                     "description": "useFIPSSTSEndpoint defines the FIPS mode for the AWS STS endpoint.\nIt requires Prometheus \u003e= v2.54.0.",
                     "type": "boolean"
                   }
-                }
+                },
+                "x-kubernetes-validations": [
+                  {
+                    "rule": "!has(self.externalId) || has(self.roleArn)",
+                    "message": "externalId can only be used when roleArn is specified"
+                  }
+                ]
               },
               "tlsConfig": {
                 "description": "tlsConfig to use for the URL.",
@@ -7529,7 +7551,7 @@
           "type": "boolean"
         },
         "scrapeConfigNamespaceSelector": {
-          "description": "scrapeConfigNamespaceSelector defines the namespaces to match for ScrapeConfig discovery. An empty label selector\nmatches all namespaces. A null label selector matches the current\nnamespace only.\n\nNote that the ScrapeConfig custom resource definition is currently at Alpha level.",
+          "description": "scrapeConfigNamespaceSelector defines the namespaces to match for ScrapeConfig discovery. An empty label selector\nmatches all namespaces. A null label selector matches the current\nnamespace only.\n\nNote that the ScrapeConfig custom resource definition is currently at Alpha level\nand will be graduated to Beta in a future release.",
           "type": "object",
           "properties": {
             "matchExpressions": {
@@ -7574,7 +7596,7 @@
           "x-kubernetes-map-type": "atomic"
         },
         "scrapeConfigSelector": {
-          "description": "scrapeConfigSelector defines the scrapeConfigs to be selected for target discovery. An empty label\nselector matches all objects. A null label selector matches no objects.\n\nIf `spec.serviceMonitorSelector`, `spec.podMonitorSelector`, `spec.probeSelector`\nand `spec.scrapeConfigSelector` are null, the Prometheus configuration is unmanaged.\nThe Prometheus operator will ensure that the Prometheus configuration's\nSecret exists, but it is the responsibility of the user to provide the raw\ngzipped Prometheus configuration under the `prometheus.yaml.gz` key.\nThis behavior is *deprecated* and will be removed in the next major version\nof the custom resource definition. It is recommended to use\n`spec.additionalScrapeConfigs` instead.\n\nNote that the ScrapeConfig custom resource definition is currently at Alpha level.",
+          "description": "scrapeConfigSelector defines the scrapeConfigs to be selected for target discovery. An empty label\nselector matches all objects. A null label selector matches no objects.\n\nIf `spec.serviceMonitorSelector`, `spec.podMonitorSelector`, `spec.probeSelector`\nand `spec.scrapeConfigSelector` are null, the Prometheus configuration is unmanaged.\nThe Prometheus operator will ensure that the Prometheus configuration's\nSecret exists, but it is the responsibility of the user to provide the raw\ngzipped Prometheus configuration under the `prometheus.yaml.gz` key.\nThis behavior is *deprecated* and will be removed in the next major version\nof the custom resource definition. It is recommended to use\n`spec.additionalScrapeConfigs` instead.\n\nNote that the ScrapeConfig custom resource definition is currently at Alpha level\nand will be graduated to Beta in a future release.",
           "type": "object",
           "properties": {
             "matchExpressions": {
@@ -7925,14 +7947,14 @@
           "type": "object",
           "properties": {
             "retain": {
-              "description": "retain defines the config for retention when the retention policy is set to `Retain`.\nThis field is ineffective as of now.",
+              "description": "retain defines the config for retention when the retention policy is set\nto `Retain`.\n\nIf not defined, the operator will use the retention duration configured\nfor the Prometheus data. If the resource uses size-based retention, the\nshard(s) are kept forever (unless manually deleted).",
               "type": "object",
               "required": [
                 "retentionPeriod"
               ],
               "properties": {
                 "retentionPeriod": {
-                  "description": "retentionPeriod defines the retentionPeriod for shard retention policy.",
+                  "description": "retentionPeriod defines how long the scaled-down shard(s) need to be\nkept before being deleted.",
                   "type": "string",
                   "pattern": "^(0|(([0-9]+)y)?(([0-9]+)w)?(([0-9]+)d)?(([0-9]+)h)?(([0-9]+)m)?(([0-9]+)s)?(([0-9]+)ms)?)$"
                 }
@@ -7947,6 +7969,44 @@
               ]
             }
           }
+        },
+        "shardingStrategy": {
+          "description": "shardingStrategy defines the sharding strategy for distributing scraped targets across Prometheus shards.\n\nWhen not defined, the operator defaults to the 'Address' mode which distributes\ntargets based on a hash of the target address.",
+          "type": "object",
+          "properties": {
+            "mode": {
+              "description": "mode defines the sharding mode. Can be 'Address' or 'Topology'.\n\n'Address' is the default mode and distributes targets across shards\nbased on a hash of the target address.\n\n'Topology' enables zone-aware sharding where each shard is assigned to a\nspecific topology zone and only scrapes targets in that zone.\n(Alpha) Using the 'Topology' mode requires the `PrometheusTopologySharding`\nfeature gate to be enabled.",
+              "type": "string",
+              "enum": [
+                "Address",
+                "Topology"
+              ]
+            },
+            "topology": {
+              "description": "topology defines the configuration for topology-aware sharding.\nThis field is only valid when mode is set to 'Topology'.",
+              "type": "object",
+              "properties": {
+                "externalLabelName": {
+                  "description": "externalLabelName defines the name of the Prometheus external label used\nto communicate the topology zone assigned to the Prometheus instance.\nIf not defined, it defaults to \"zone\".\nIf set to the empty string, no external label is added to the Prometheus configuration.",
+                  "type": "string"
+                },
+                "values": {
+                  "description": "values defines the list of topology values (e.g. zone names) to be used\nfor sharding. The configured number of shards must be greater than or\nequal to the number of values.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-list-type": "atomic"
+                }
+              }
+            }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "!has(self.topology) || (has(self.mode) \u0026\u0026 self.mode == 'Topology')",
+              "message": "topology can only be defined when mode is set to 'Topology'"
+            }
+          ]
         },
         "shards": {
           "description": "shards defines the number of shards to distribute the scraped targets onto.\n\n`spec.replicas` multiplied by `spec.shards` is the total number of Pods\nbeing created.\n\nWhen not defined, the operator assumes only one shard.\n\nNote that scaling down shards will not reshard data onto the remaining\ninstances, it must be manually moved. Increasing shards will not reshard\ndata either but it will continue to be available from the same\ninstances. To query globally, use either\n* Thanos sidecar + querier for query federation and Thanos Ruler for rules.\n* Remote-write to send metrics to a central location.\n\nBy default, the sharding of targets is performed on:\n* The `__address__` target's metadata label for PodMonitor,\nServiceMonitor and ScrapeConfig resources.\n* The `__param_target__` label for Probe resources.\n\nUsers can define their own sharding implementation by setting the\n`__tmp_hash` label during the target discovery with relabeling\nconfiguration (either in the monitoring resources or via scrape class).\n\nYou can also disable sharding on a specific target by setting the\n`__tmp_disable_sharding` label with relabeling configuration. When\nthe label value isn't empty, all Prometheus shards will scrape the target.",
@@ -8557,7 +8617,7 @@
               "type": "boolean"
             },
             "grpcServerTlsConfig": {
-              "description": "grpcServerTlsConfig defines the TLS parameters for the gRPC server providing the StoreAPI.\n\nNote: Currently only the `minVersion`, `caFile`, `certFile`, and `keyFile` fields are supported.",
+              "description": "grpcServerTlsConfig defines the TLS parameters for the gRPC server providing the StoreAPI.\n\nNote: Currently only the `minVersion`, `caFile`, `certFile`, `keyFile`, `cipherSuites` and `curves` fields are supported.",
               "type": "object",
               "properties": {
                 "ca": {
@@ -8671,6 +8731,24 @@
                 "certFile": {
                   "description": "certFile defines the path to the client cert file in the Prometheus container for the targets.",
                   "type": "string"
+                },
+                "cipherSuites": {
+                  "description": "cipherSuites defines the list of supported cipher suites for TLS\nversions up to TLS 1.2.\n\nIf not defined, the Go default cipher suites are used.\nAvailable cipher suites are documented in the Go documentation:\nhttps://golang.org/pkg/crypto/tls/#pkg-constants\n\nIt requires Thanos \u003e= v0.42.0. Note that the operator doesn't verify if\nthe Thanos version supports the provided values.",
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-list-type": "set"
+                },
+                "curves": {
+                  "description": "curves defines the list of preferred elliptic curves for\nTLS handshakes.\n\nIf not defined, the Go default curves are used.\nAvailable curves are documented in the Go documentation:\nhttps://golang.org/pkg/crypto/tls/#CurveID\n\nIt requires Thanos \u003e= v0.42.0. Note that the operator doesn't verify if\nthe Thanos version supports the provided values.",
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-list-type": "set"
                 },
                 "insecureSkipVerify": {
                   "description": "insecureSkipVerify defines how to disable target certificate validation.",
@@ -11117,7 +11195,13 @@
             }
           }
         }
-      }
+      },
+      "x-kubernetes-validations": [
+        {
+          "rule": "!has(self.shardingStrategy) || !has(self.shardingStrategy.mode) || self.shardingStrategy.mode != 'Topology' || !has(self.shardingStrategy.topology) || !has(self.shardingStrategy.topology.values) || self.shardingStrategy.topology.values.size() == 0 || (has(self.shards) ? self.shards : 1) \u003e= self.shardingStrategy.topology.values.size()",
+          "message": "shards must be greater than or equal to the number of topology values when sharding strategy mode is Topology"
+        }
+      ]
     },
     "status": {
       "description": "status defines the most recent observed status of the Prometheus cluster. Read-only.\nMore info:\nhttps://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#spec-and-status",
