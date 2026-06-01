@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://volcano-sh.github.io/helm-charts",
     "chart": "volcano",
-    "version": "1.14.1",
+    "version": "1.15.0",
     "license": "Apache-2.0",
     "homepage": "https://volcano.sh",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-05T16:55:41Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-06-01T04:39:42Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "d3dd684741f0af1305b9e3177401e009ef4c83244f9ef02bbc3294f583e5862b"
+    "sha256": "fdc75776b1d8a40534a989d88c66a0f51d493e7b0caa8a8f41663038edc5774a"
   }
 }

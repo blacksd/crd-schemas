@@ -92,8 +92,7 @@
                     },
                     "highestTierName": {
                       "type": "string",
-                      "maxLength": 253,
-                      "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
+                      "maxLength": 253
                     },
                     "mode": {
                       "type": "string",
@@ -242,8 +241,7 @@
                               },
                               "highestTierName": {
                                 "type": "string",
-                                "maxLength": 253,
-                                "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
+                                "maxLength": 253
                               },
                               "mode": {
                                 "type": "string",
@@ -5841,6 +5839,12 @@
                                                   },
                                                   "signerName": {
                                                     "type": "string"
+                                                  },
+                                                  "userAnnotations": {
+                                                    "type": "object",
+                                                    "additionalProperties": {
+                                                      "type": "string"
+                                                    }
                                                   }
                                                 }
                                               },
@@ -6118,6 +6122,24 @@
                                   "name"
                                 ],
                                 "x-kubernetes-list-type": "map"
+                              },
+                              "workloadRef": {
+                                "type": "object",
+                                "required": [
+                                  "name",
+                                  "podGroup"
+                                ],
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "podGroup": {
+                                    "type": "string"
+                                  },
+                                  "podGroupReplicaKey": {
+                                    "type": "string"
+                                  }
+                                }
                               }
                             }
                           }
