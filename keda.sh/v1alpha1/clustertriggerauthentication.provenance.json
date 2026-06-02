@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://kedacore.github.io/charts",
     "chart": "keda",
-    "version": "2.19.0",
+    "version": "2.20.0",
     "license": "Apache-2.0",
     "homepage": "https://keda.sh"
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-06-02T14:54:41Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "c9b06e3b4f701fdf07a2d4501c02974d162a10bed297e06facbe1dbb37fad236"
+    "sha256": "50fe7563fe1ad764ff24f0176f99927da45227d54017c11fabb9b9ec4555d4b9"
   }
 }
