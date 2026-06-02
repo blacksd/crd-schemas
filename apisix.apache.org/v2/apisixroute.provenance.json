@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://charts.apiseven.com",
     "chart": "apisix-ingress-controller",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "license": "Apache-2.0",
     "homepage": "https://apisix.apache.org",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-07T06:28:02Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-06-02T08:52:09Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "354b50c9339f4fc8d0ad5227cb94655f9c8a6c023686bbc7b4deffac3fb4fb33"
+    "sha256": "bd4e2b07e8ce46e2a82aa99fdb6e0f4d7048f9fa51e7863b91644b7d7fd451d2"
   }
 }
