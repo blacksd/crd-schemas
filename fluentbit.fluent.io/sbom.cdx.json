@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:349f92ed-6419-4d4d-aacc-f13dccbc14d1",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-05-02T17:13:13Z",
+    "timestamp": "2026-06-03T01:50:03Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "fluent-operator",
-      "version": "4.0.0",
+      "version": "4.1.0",
       "licenses": [
         {
           "license": {
