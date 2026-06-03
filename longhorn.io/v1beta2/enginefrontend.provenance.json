@@ -1,8 +1,8 @@
 {
-  "schema": "volume.json",
+  "schema": "enginefrontend.json",
   "crd": {
     "group": "longhorn.io",
-    "kind": "Volume",
+    "kind": "EngineFrontend",
     "apiVersion": "v1beta2"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "47da2621d6e707e545517e4c68727f59822e8d72686f82db5e8c6c429e8a1137"
+    "sha256": "d8515d91aea60d10a47e911e4d721a69b95ab6862b7a7fb40d65aa7e6fb0f3c8"
   }
 }
