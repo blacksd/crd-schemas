@@ -1,8 +1,8 @@
 {
-  "schema": "cephcluster.json",
+  "schema": "cephobjectstoreaccount.json",
   "crd": {
     "group": "ceph.rook.io",
-    "kind": "CephCluster",
+    "kind": "CephObjectStoreAccount",
     "apiVersion": "v1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "3195a129fefb5aa145808712bff53b7f9c1dbe3d378478d09901324081e14548"
+    "sha256": "f4904320ec1a01c161c607fae7f54ef3cfe79fb8ff9b0cf952246b36588273fa"
   }
 }
