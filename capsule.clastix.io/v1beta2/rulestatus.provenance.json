@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://projectcapsule.github.io/charts",
     "chart": "capsule",
-    "version": "0.13.1",
+    "version": "0.13.2",
     "license": "Apache-2.0",
     "homepage": "https://capsule.clastix.io"
   },
   "extraction": {
-    "timestamp": "2026-05-31T05:45:04Z",
+    "timestamp": "2026-06-04T10:39:59Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "2d59a503813cc2e7b0cb88d7f197efca3548a27e501a66ddbe61975a288a5329"
+    "sha256": "a363c66b7112260dc8419f894a729d1e57dc2d3d78a9dd21164b4758244d1994"
   }
 }
