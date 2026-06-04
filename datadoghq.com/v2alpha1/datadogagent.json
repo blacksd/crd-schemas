@@ -1091,6 +1091,16 @@
                     "enabled": {
                       "description": "Enabled enables the cluster autoscaling product.\n(Requires Cluster Agent 7.74.0+)\nDefault: false",
                       "type": "boolean"
+                    },
+                    "spot": {
+                      "description": "Spot contains the configuration for the spot instance scheduling sub-feature.\nRequires cluster autoscaling to be enabled.\n(Requires Cluster Agent 7.79.0+)",
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "description": "Enabled enables the cluster spot scheduling product.\n(Requires Cluster Agent 7.79.0+)\nDefault: false",
+                          "type": "boolean"
+                        }
+                      }
                     }
                   }
                 },
@@ -1323,7 +1333,7 @@
                   "type": "object",
                   "properties": {
                     "enabled": {
-                      "description": "Enabled configures the Data Plane to handle DogStatsD traffic.\nWhen enabled, DogStatsD is disabled in the Core Agent.\nDefault: false",
+                      "description": "Enabled configures the Data Plane to handle DogStatsD traffic.\nWhen set to false, DogStatsD is handled by the Core Agent instead.\nDefault: true",
                       "type": "boolean"
                     }
                   }
@@ -2441,6 +2451,22 @@
                   "description": "Enable this option to activate SBOM collection.\nDefault: false",
                   "type": "boolean"
                 },
+                "enrichment": {
+                  "description": "SBOMEnrichmentConfig contains SBOM enrichment configuration.",
+                  "type": "object",
+                  "properties": {
+                    "usage": {
+                      "description": "Usage contains configuration for the \"package in use\" enrichment.",
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "description": "Enable this option to activate SBOM enrichment with runtime \"package in use\" detection.\nRequires system-probe for eBPF-based file access tracking.\nDefault: false",
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                },
                 "host": {
                   "description": "SBOMTypeConfig contains configuration for a SBOM collection type.",
                   "type": "object",
@@ -2466,7 +2492,7 @@
               "type": "object",
               "properties": {
                 "enabled": {
-                  "description": "Enables the service discovery check.\nDefault: false",
+                  "description": "Enables the service discovery check.\nDefault: true when omitted and the node Agent image is \u003e= 7.78.0. Otherwise false.\nIf the image version cannot be determined, it is treated as latest.",
                   "type": "boolean"
                 },
                 "networkStats": {
@@ -8056,7 +8082,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "description": "ID is the unique experiment ID sent by Fleet Automation.",
+              "description": "ID is the RC task ID that triggered this experiment state.",
               "type": "string"
             },
             "phase": {
@@ -8064,12 +8090,23 @@
               "type": "string",
               "enum": [
                 "running",
-                "stopped",
-                "rollback",
-                "timeout",
+                "terminated",
                 "promoted",
                 "aborted"
               ]
+            },
+            "startTaskID": {
+              "description": "StartTaskID is the Fleet Automation task identifier that drove the\ntransition into phase=Running. Captured from the daemon's pending\nannotations and preserved across daemon restarts. On local timeout\nthe daemon uses it to report TaskState_ERROR for the original start\ntask, so Fleet Automation gets an explicit terminal failure tied to\nthe task it sent rather than inferring termination from a cleared\nexperimentConfigVersion.",
+              "type": "string"
+            },
+            "startedAt": {
+              "description": "StartedAt is the wall-clock time at which the experiment first\ntransitioned to phase=Running. Used as the anchor for the\nexperiment timeout. Decoupled from ControllerRevision metadata so\nthe timeout decision does not depend on revision creation\ntimestamps (which can be stale for re-used revisions).",
+              "type": "string",
+              "format": "date-time"
+            },
+            "terminationReason": {
+              "description": "TerminationReason distinguishes why the experiment was terminated.\nOnly set when Phase is \"terminated\".",
+              "type": "string"
             }
           }
         },
@@ -9207,6 +9244,16 @@
                         "enabled": {
                           "description": "Enabled enables the cluster autoscaling product.\n(Requires Cluster Agent 7.74.0+)\nDefault: false",
                           "type": "boolean"
+                        },
+                        "spot": {
+                          "description": "Spot contains the configuration for the spot instance scheduling sub-feature.\nRequires cluster autoscaling to be enabled.\n(Requires Cluster Agent 7.79.0+)",
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "description": "Enabled enables the cluster spot scheduling product.\n(Requires Cluster Agent 7.79.0+)\nDefault: false",
+                              "type": "boolean"
+                            }
+                          }
                         }
                       }
                     },
@@ -9439,7 +9486,7 @@
                       "type": "object",
                       "properties": {
                         "enabled": {
-                          "description": "Enabled configures the Data Plane to handle DogStatsD traffic.\nWhen enabled, DogStatsD is disabled in the Core Agent.\nDefault: false",
+                          "description": "Enabled configures the Data Plane to handle DogStatsD traffic.\nWhen set to false, DogStatsD is handled by the Core Agent instead.\nDefault: true",
                           "type": "boolean"
                         }
                       }
@@ -10557,6 +10604,22 @@
                       "description": "Enable this option to activate SBOM collection.\nDefault: false",
                       "type": "boolean"
                     },
+                    "enrichment": {
+                      "description": "SBOMEnrichmentConfig contains SBOM enrichment configuration.",
+                      "type": "object",
+                      "properties": {
+                        "usage": {
+                          "description": "Usage contains configuration for the \"package in use\" enrichment.",
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "description": "Enable this option to activate SBOM enrichment with runtime \"package in use\" detection.\nRequires system-probe for eBPF-based file access tracking.\nDefault: false",
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      }
+                    },
                     "host": {
                       "description": "SBOMTypeConfig contains configuration for a SBOM collection type.",
                       "type": "object",
@@ -10582,7 +10645,7 @@
                   "type": "object",
                   "properties": {
                     "enabled": {
-                      "description": "Enables the service discovery check.\nDefault: false",
+                      "description": "Enables the service discovery check.\nDefault: true when omitted and the node Agent image is \u003e= 7.78.0. Otherwise false.\nIf the image version cannot be determined, it is treated as latest.",
                       "type": "boolean"
                     },
                     "networkStats": {

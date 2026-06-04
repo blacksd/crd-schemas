@@ -1,9 +1,9 @@
 {
-  "schema": "datadogpodautoscaler.json",
+  "schema": "datadoginstrumentation.json",
   "crd": {
     "group": "datadoghq.com",
-    "kind": "DatadogPodAutoscaler",
-    "apiVersion": "v1alpha2"
+    "kind": "DatadogInstrumentation",
+    "apiVersion": "v1alpha1"
   },
   "source": {
     "name": "datadog-operator",
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "cc088f064881affc7f275bd2d0b47ef3429ac9fd6efd732c6ad3a714e2858753"
+    "sha256": "78654a1725e90ffe219b957abd950c507d10b835fbcf19a729c271fb6bc0a1eb"
   }
 }
