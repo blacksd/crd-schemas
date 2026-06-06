@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://percona.github.io/percona-helm-charts",
     "chart": "pxc-operator",
-    "version": "1.19.0",
+    "version": "1.20.0",
     "license": "Apache-2.0",
     "homepage": "https://www.percona.com/percona-xtradb-cluster-kubernetes"
   },
   "extraction": {
-    "timestamp": "2026-03-05T16:56:28Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-06-06T20:40:59Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "7eb3294c3a581e255e610346a8d6f4072d7d51d008ae6b806c1302d1bd391a35"
+    "sha256": "2f5eb3a6d0d6b0d49c483b3b26cf42c1a986c1beca059c5d92f6a1c593d82882"
   }
 }
