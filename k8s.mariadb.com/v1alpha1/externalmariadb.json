@@ -139,7 +139,7 @@
           "description": "ImagePullSecrets is the list of pull Secrets to be used to pull the image.",
           "type": "array",
           "items": {
-            "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#localobjectreference-v1-core.",
+            "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#localobjectreference-v1-core.",
             "type": "object",
             "properties": {
               "name": {
@@ -261,6 +261,13 @@
                   "type": "string",
                   "default": ""
                 }
+              }
+            },
+            "serverCertAdditionalNames": {
+              "description": "ServerCertAdditionalNames is a list of additional certificate common names",
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             },
             "serverCertIssuerRef": {

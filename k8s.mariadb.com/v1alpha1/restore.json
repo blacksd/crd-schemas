@@ -29,13 +29,13 @@
               "type": "boolean"
             },
             "nodeAffinity": {
-              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#nodeaffinity-v1-core",
+              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#nodeaffinity-v1-core",
               "type": "object",
               "properties": {
                 "preferredDuringSchedulingIgnoredDuringExecution": {
                   "type": "array",
                   "items": {
-                    "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#preferredschedulingterm-v1-core",
+                    "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#preferredschedulingterm-v1-core",
                     "type": "object",
                     "required": [
                       "preference",
@@ -43,13 +43,13 @@
                     ],
                     "properties": {
                       "preference": {
-                        "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#nodeselectorterm-v1-core",
+                        "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#nodeselectorterm-v1-core",
                         "type": "object",
                         "properties": {
                           "matchExpressions": {
                             "type": "array",
                             "items": {
-                              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#nodeselectorrequirement-v1-core",
+                              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#nodeselectorrequirement-v1-core",
                               "type": "object",
                               "required": [
                                 "key",
@@ -77,7 +77,7 @@
                           "matchFields": {
                             "type": "array",
                             "items": {
-                              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#nodeselectorrequirement-v1-core",
+                              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#nodeselectorrequirement-v1-core",
                               "type": "object",
                               "required": [
                                 "key",
@@ -113,7 +113,7 @@
                   "x-kubernetes-list-type": "atomic"
                 },
                 "requiredDuringSchedulingIgnoredDuringExecution": {
-                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#nodeselector-v1-core",
+                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#nodeselector-v1-core",
                   "type": "object",
                   "required": [
                     "nodeSelectorTerms"
@@ -122,13 +122,13 @@
                     "nodeSelectorTerms": {
                       "type": "array",
                       "items": {
-                        "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#nodeselectorterm-v1-core",
+                        "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#nodeselectorterm-v1-core",
                         "type": "object",
                         "properties": {
                           "matchExpressions": {
                             "type": "array",
                             "items": {
-                              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#nodeselectorrequirement-v1-core",
+                              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#nodeselectorrequirement-v1-core",
                               "type": "object",
                               "required": [
                                 "key",
@@ -156,7 +156,7 @@
                           "matchFields": {
                             "type": "array",
                             "items": {
-                              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#nodeselectorrequirement-v1-core",
+                              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#nodeselectorrequirement-v1-core",
                               "type": "object",
                               "required": [
                                 "key",
@@ -190,13 +190,13 @@
               }
             },
             "podAntiAffinity": {
-              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#podantiaffinity-v1-core.",
+              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#podantiaffinity-v1-core.",
               "type": "object",
               "properties": {
                 "preferredDuringSchedulingIgnoredDuringExecution": {
                   "type": "array",
                   "items": {
-                    "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#weightedpodaffinityterm-v1-core.",
+                    "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#weightedpodaffinityterm-v1-core.",
                     "type": "object",
                     "required": [
                       "podAffinityTerm",
@@ -204,20 +204,20 @@
                     ],
                     "properties": {
                       "podAffinityTerm": {
-                        "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#podaffinityterm-v1-core.",
+                        "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#podaffinityterm-v1-core.",
                         "type": "object",
                         "required": [
                           "topologyKey"
                         ],
                         "properties": {
                           "labelSelector": {
-                            "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#labelselector-v1-meta",
+                            "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#labelselector-v1-meta",
                             "type": "object",
                             "properties": {
                               "matchExpressions": {
                                 "type": "array",
                                 "items": {
-                                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#labelselectorrequirement-v1-meta",
+                                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#labelselectorrequirement-v1-meta",
                                   "type": "object",
                                   "required": [
                                     "key",
@@ -266,20 +266,20 @@
                 "requiredDuringSchedulingIgnoredDuringExecution": {
                   "type": "array",
                   "items": {
-                    "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#podaffinityterm-v1-core.",
+                    "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#podaffinityterm-v1-core.",
                     "type": "object",
                     "required": [
                       "topologyKey"
                     ],
                     "properties": {
                       "labelSelector": {
-                        "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#labelselector-v1-meta",
+                        "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#labelselector-v1-meta",
                         "type": "object",
                         "properties": {
                           "matchExpressions": {
                             "type": "array",
                             "items": {
-                              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#labelselectorrequirement-v1-meta",
+                              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#labelselectorrequirement-v1-meta",
                               "type": "object",
                               "required": [
                                 "key",
@@ -354,7 +354,7 @@
           "description": "ImagePullSecrets is the list of pull Secrets to be used to pull the image.",
           "type": "array",
           "items": {
-            "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#localobjectreference-v1-core.",
+            "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#localobjectreference-v1-core.",
             "type": "object",
             "properties": {
               "name": {
@@ -879,7 +879,7 @@
               "type": "object",
               "properties": {
                 "csi": {
-                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#csivolumesource-v1-core.",
+                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#csivolumesource-v1-core.",
                   "type": "object",
                   "required": [
                     "driver"
@@ -892,7 +892,7 @@
                       "type": "string"
                     },
                     "nodePublishSecretRef": {
-                      "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#localobjectreference-v1-core.",
+                      "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#localobjectreference-v1-core.",
                       "type": "object",
                       "properties": {
                         "name": {
@@ -913,7 +913,7 @@
                   }
                 },
                 "emptyDir": {
-                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#emptydirvolumesource-v1-core.",
+                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#emptydirvolumesource-v1-core.",
                   "type": "object",
                   "properties": {
                     "medium": {
@@ -935,7 +935,7 @@
                   }
                 },
                 "hostPath": {
-                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#hostpathvolumesource-v1-core",
+                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#hostpathvolumesource-v1-core",
                   "type": "object",
                   "required": [
                     "path"
@@ -950,7 +950,7 @@
                   }
                 },
                 "nfs": {
-                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#nfsvolumesource-v1-core.",
+                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#nfsvolumesource-v1-core.",
                   "type": "object",
                   "required": [
                     "path",
@@ -969,7 +969,7 @@
                   }
                 },
                 "persistentVolumeClaim": {
-                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#persistentvolumeclaimvolumesource-v1-core.",
+                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#persistentvolumeclaimvolumesource-v1-core.",
                   "type": "object",
                   "required": [
                     "claimName"
@@ -1028,7 +1028,7 @@
           "type": "object",
           "properties": {
             "csi": {
-              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#csivolumesource-v1-core.",
+              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#csivolumesource-v1-core.",
               "type": "object",
               "required": [
                 "driver"
@@ -1041,7 +1041,7 @@
                   "type": "string"
                 },
                 "nodePublishSecretRef": {
-                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#localobjectreference-v1-core.",
+                  "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#localobjectreference-v1-core.",
                   "type": "object",
                   "properties": {
                     "name": {
@@ -1062,7 +1062,7 @@
               }
             },
             "emptyDir": {
-              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#emptydirvolumesource-v1-core.",
+              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#emptydirvolumesource-v1-core.",
               "type": "object",
               "properties": {
                 "medium": {
@@ -1084,7 +1084,7 @@
               }
             },
             "hostPath": {
-              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#hostpathvolumesource-v1-core",
+              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#hostpathvolumesource-v1-core",
               "type": "object",
               "required": [
                 "path"
@@ -1099,7 +1099,7 @@
               }
             },
             "nfs": {
-              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#nfsvolumesource-v1-core.",
+              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#nfsvolumesource-v1-core.",
               "type": "object",
               "required": [
                 "path",
@@ -1118,7 +1118,7 @@
               }
             },
             "persistentVolumeClaim": {
-              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#persistentvolumeclaimvolumesource-v1-core.",
+              "description": "Refer to the Kubernetes docs: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#persistentvolumeclaimvolumesource-v1-core.",
               "type": "object",
               "required": [
                 "claimName"
