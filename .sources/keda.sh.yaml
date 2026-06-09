@@ -3,6 +3,6 @@ sources:
     type: helm
     repo: https://kedacore.github.io/charts
     chart: keda
-    version: 2.20.0
+    version: 2.20.1
     license: Apache-2.0
     homepage: https://keda.sh
