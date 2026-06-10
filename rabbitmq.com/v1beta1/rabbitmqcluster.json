@@ -7488,6 +7488,13 @@
             }
           }
         },
+        "deprecatedFeaturesUsed": {
+          "description": "DeprecatedFeaturesUsed exposes whether there are deprecated features in-use in a RabbitMQ server.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "observedGeneration": {
           "description": "observedGeneration is the most recent successful generation observed for this RabbitmqCluster. It corresponds to the\nRabbitmqCluster's generation, which is updated on mutation by the API Server.",
           "type": "integer",
