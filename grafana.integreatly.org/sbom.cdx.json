@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:d29ba828-b69d-432e-9b27-c3825c9e124a",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-05-22T21:54:34Z",
+    "timestamp": "2026-06-10T15:55:27Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "grafana-operator",
-      "version": "5.23.0",
+      "version": "5.24.0",
       "licenses": [
         {
           "license": {

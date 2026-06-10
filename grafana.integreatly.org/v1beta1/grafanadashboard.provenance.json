@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://grafana.github.io/helm-charts",
     "chart": "grafana-operator",
-    "version": "5.22.0",
+    "version": "5.24.0",
     "license": "Apache-2.0",
     "homepage": "https://grafana.github.io/grafana-operator"
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-06-10T15:55:27Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "d1e6da11e4b2cc4219abd01bb31da7f5765dc4b935589d66aee9a9dcc494e897"
+    "sha256": "4d7cc30d3328d6a5857b8a7b3562cb71d6482bc4cd26620ce9974ad799e7f324"
   }
 }
