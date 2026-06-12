@@ -16836,7 +16836,7 @@
                           }
                         },
                         "globalName": {
-                          "description": "GlobalName exports an output artifact to the global scope, making it available as\n'{{workflow.outputs.artifacts.XXXX}} and in workflow.status.outputs.artifacts",
+                          "description": "GlobalName exports an output artifact to the global scope, making it available as\nworkflow.outputs.artifacts.XXXX and in workflow.status.outputs.artifacts",
                           "type": "string"
                         },
                         "hdfs": {
@@ -17572,7 +17572,7 @@
                           }
                         },
                         "globalName": {
-                          "description": "GlobalName exports an output parameter to the global scope, making it available as\n'{{workflow.outputs.parameters.XXXX}} and in workflow.status.outputs.parameters",
+                          "description": "GlobalName exports an output parameter to the global scope, making it available as\nworkflow.outputs.parameters.XXXX and in workflow.status.outputs.parameters",
                           "type": "string"
                         },
                         "name": {
@@ -17632,7 +17632,7 @@
                               "type": "string"
                             },
                             "parameter": {
-                              "description": "Parameter reference to a step or dag task in which to retrieve an output parameter value from\n(e.g. '{{steps.mystep.outputs.myparam}}')",
+                              "description": "Parameter reference to a step or dag task in which to retrieve an output parameter value from\n(e.g. steps.mystep.outputs.myparam)",
                               "type": "string"
                             },
                             "path": {
