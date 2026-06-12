@@ -1,0 +1,24 @@
+{
+  "schema": "bucketabac.json",
+  "crd": {
+    "group": "s3.aws.upbound.io",
+    "kind": "BucketAbac",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.6.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-06-12T23:30:06Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a28605295f6a759d7e6f1571d18d1135dcaca577c2f879a066e5b30eae4e3246"
+  }
+}
