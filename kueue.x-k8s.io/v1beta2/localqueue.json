@@ -178,7 +178,7 @@
         "flavorsReservation": {
           "description": "flavorsReservation are the reserved quotas, by flavor currently in use by the\nworkloads assigned to this LocalQueue.",
           "type": "array",
-          "maxItems": 16,
+          "maxItems": 64,
           "items": {
             "type": "object",
             "required": [
@@ -195,7 +195,7 @@
               "resources": {
                 "description": "resources lists the quota usage for the resources in this flavor.",
                 "type": "array",
-                "maxItems": 16,
+                "maxItems": 64,
                 "items": {
                   "type": "object",
                   "required": [
@@ -236,7 +236,7 @@
         "flavorsUsage": {
           "description": "flavorsUsage are the used quotas, by flavor currently in use by the\nworkloads assigned to this LocalQueue.",
           "type": "array",
-          "maxItems": 16,
+          "maxItems": 64,
           "items": {
             "type": "object",
             "required": [
@@ -253,7 +253,7 @@
               "resources": {
                 "description": "resources lists the quota usage for the resources in this flavor.",
                 "type": "array",
-                "maxItems": 16,
+                "maxItems": 64,
                 "items": {
                   "type": "object",
                   "required": [
