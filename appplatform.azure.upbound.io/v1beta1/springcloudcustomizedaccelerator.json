@@ -1,5 +1,5 @@
 {
-  "description": "SpringCloudCustomizedAccelerator is the Schema for the SpringCloudCustomizedAccelerators API. Manages a Spring Cloud Customized Accelerator.",
+  "description": "SpringCloudCustomizedAccelerator is the Schema for the SpringCloudCustomizedAccelerators API. Manages a Spring Cloud Customized Accelerator.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -312,7 +312,33 @@
                     "type": "array",
                     "items": {
                       "type": "object",
+                      "required": [
+                        "passwordSecretRef"
+                      ],
                       "properties": {
+                        "passwordSecretRef": {
+                          "description": "Specifies the password of git repository basic auth.",
+                          "type": "object",
+                          "required": [
+                            "key",
+                            "name",
+                            "namespace"
+                          ],
+                          "properties": {
+                            "key": {
+                              "description": "The key to select.",
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "Name of the secret.",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace of the secret.",
+                              "type": "string"
+                            }
+                          }
+                        },
                         "username": {
                           "description": "Specifies the username of git repository basic auth.",
                           "type": "string"
@@ -349,10 +375,59 @@
                     "type": "array",
                     "items": {
                       "type": "object",
+                      "required": [
+                        "privateKeySecretRef"
+                      ],
                       "properties": {
                         "hostKeyAlgorithm": {
                           "description": "Specifies the SSH Key algorithm of git repository basic auth.",
                           "type": "string"
+                        },
+                        "hostKeySecretRef": {
+                          "description": "Specifies the Public SSH Key of git repository basic auth.",
+                          "type": "object",
+                          "required": [
+                            "key",
+                            "name",
+                            "namespace"
+                          ],
+                          "properties": {
+                            "key": {
+                              "description": "The key to select.",
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "Name of the secret.",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace of the secret.",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "privateKeySecretRef": {
+                          "description": "Specifies the Private SSH Key of git repository basic auth.",
+                          "type": "object",
+                          "required": [
+                            "key",
+                            "name",
+                            "namespace"
+                          ],
+                          "properties": {
+                            "key": {
+                              "description": "The key to select.",
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "Name of the secret.",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace of the secret.",
+                              "type": "string"
+                            }
+                          }
                         }
                       }
                     }
