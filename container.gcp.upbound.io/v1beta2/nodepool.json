@@ -454,8 +454,27 @@
                     "insecureKubeletReadonlyPortEnabled": {
                       "type": "string"
                     },
+                    "memoryManager": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        }
+                      }
+                    },
                     "podPidsLimit": {
                       "type": "number"
+                    },
+                    "topologyManager": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        },
+                        "scope": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 },
@@ -1194,8 +1213,27 @@
                     "insecureKubeletReadonlyPortEnabled": {
                       "type": "string"
                     },
+                    "memoryManager": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        }
+                      }
+                    },
                     "podPidsLimit": {
                       "type": "number"
+                    },
+                    "topologyManager": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        },
+                        "scope": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 },
@@ -2063,8 +2101,27 @@
                     "insecureKubeletReadonlyPortEnabled": {
                       "type": "string"
                     },
+                    "memoryManager": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        }
+                      }
+                    },
                     "podPidsLimit": {
                       "type": "number"
+                    },
+                    "topologyManager": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        },
+                        "scope": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 },

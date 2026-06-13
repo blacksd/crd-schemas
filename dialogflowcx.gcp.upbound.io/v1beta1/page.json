@@ -1,5 +1,5 @@
 {
-  "description": "Page is the Schema for the Pages API. A Dialogflow CX conversation (session) can be described and visualized as a state machine.",
+  "description": "Page is the Schema for the Pages API. A Dialogflow CX conversation (session) can be described and visualized as a state machine.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

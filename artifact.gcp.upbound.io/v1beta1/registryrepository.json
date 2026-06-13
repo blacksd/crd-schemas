@@ -1,5 +1,5 @@
 {
-  "description": "RegistryRepository is the Schema for the RegistryRepositorys API. A repository for storing artifacts",
+  "description": "RegistryRepository is the Schema for the RegistryRepositorys API. A repository for storing artifacts\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

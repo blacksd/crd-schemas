@@ -1,5 +1,5 @@
 {
-  "description": "CryptoKey is the Schema for the CryptoKeys API. A",
+  "description": "CryptoKey is the Schema for the CryptoKeys API. A\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

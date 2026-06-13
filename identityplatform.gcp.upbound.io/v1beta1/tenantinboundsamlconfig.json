@@ -1,5 +1,5 @@
 {
-  "description": "TenantInboundSAMLConfig is the Schema for the TenantInboundSAMLConfigs API. Inbound SAML configuration for a Identity Toolkit tenant.",
+  "description": "TenantInboundSAMLConfig is the Schema for the TenantInboundSAMLConfigs API. Inbound SAML configuration for a Identity Toolkit tenant.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

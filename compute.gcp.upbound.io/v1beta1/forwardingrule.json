@@ -1,5 +1,5 @@
 {
-  "description": "ForwardingRule is the Schema for the ForwardingRules API. A ForwardingRule resource.",
+  "description": "ForwardingRule is the Schema for the ForwardingRules API. A ForwardingRule resource.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

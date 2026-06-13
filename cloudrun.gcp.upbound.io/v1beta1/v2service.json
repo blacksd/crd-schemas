@@ -1,5 +1,5 @@
 {
-  "description": "V2Service is the Schema for the V2Services API. Service acts as a top-level container that manages a set of configurations and revision templates which implement a network service.",
+  "description": "V2Service is the Schema for the V2Services API. Service acts as a top-level container that manages a set of configurations and revision templates which implement a network service.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -245,12 +245,12 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "maxInstanceCount": {
-                    "description": "Maximum number of serving instances that this resource should have.",
+                  "manualInstanceCount": {
+                    "description": "Total instance count for the service in manual scaling mode. This number of instances is divided among all revisions with specified traffic based on the percent of traffic they are receiving.",
                     "type": "number"
                   },
                   "minInstanceCount": {
-                    "description": "Minimum number of serving instances that this resource should have.",
+                    "description": "Minimum number of serving instances that this resource should have. Defaults to 0. Must not be greater than maximum instance count.",
                     "type": "number"
                   },
                   "scalingMode": {
@@ -724,16 +724,12 @@
                       "type": "object",
                       "properties": {
                         "maxInstanceCount": {
-                          "description": "Maximum number of serving instances that this resource should have.",
+                          "description": "Maximum number of serving instances that this resource should have. Must not be less than minimum instance count. If absent, Cloud Run will calculate\na default value based on the project's available container instances quota in the region and specified instance size.",
                           "type": "number"
                         },
                         "minInstanceCount": {
-                          "description": "Minimum number of serving instances that this resource should have.",
+                          "description": "Minimum number of serving instances that this resource should have. Defaults to 0. Must not be greater than maximum instance count.",
                           "type": "number"
-                        },
-                        "scalingMode": {
-                          "description": "The scaling mode for the service.\nPossible values are: AUTOMATIC, MANUAL.",
-                          "type": "string"
                         }
                       }
                     }
@@ -1383,8 +1379,8 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "maxInstanceCount": {
-                    "description": "Maximum number of serving instances that this resource should have.",
+                  "manualInstanceCount": {
+                    "description": "Total instance count for the service in manual scaling mode.",
                     "type": "number"
                   },
                   "minInstanceCount": {
@@ -1862,16 +1858,12 @@
                       "type": "object",
                       "properties": {
                         "maxInstanceCount": {
-                          "description": "Maximum number of serving instances that this resource should have.",
+                          "description": "Maximum number of serving instances that this resource should have. Must not be less than minimum instance count. If absent, Cloud Run will calculate\na default value based on the project's available container instances quota in the region and specified instance size.",
                           "type": "number"
                         },
                         "minInstanceCount": {
-                          "description": "Minimum number of serving instances that this resource should have.",
+                          "description": "Minimum number of serving instances that this resource should have. Defaults to 0. Must not be greater than maximum instance count.",
                           "type": "number"
-                        },
-                        "scalingMode": {
-                          "description": "The scaling mode for the service.\nPossible values are: AUTOMATIC, MANUAL.",
-                          "type": "string"
                         }
                       }
                     }
@@ -2643,8 +2635,8 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "maxInstanceCount": {
-                    "description": "Maximum number of serving instances that this resource should have.",
+                  "manualInstanceCount": {
+                    "description": "Total instance count for the service in manual scaling mode.",
                     "type": "number"
                   },
                   "minInstanceCount": {
@@ -3063,16 +3055,12 @@
                       "type": "object",
                       "properties": {
                         "maxInstanceCount": {
-                          "description": "Maximum number of serving instances that this resource should have.",
+                          "description": "Maximum number of serving instances that this resource should have. Must not be less than minimum instance count. If absent, Cloud Run will calculate\na default value based on the project's available container instances quota in the region and specified instance size.",
                           "type": "number"
                         },
                         "minInstanceCount": {
-                          "description": "Minimum number of serving instances that this resource should have.",
+                          "description": "Minimum number of serving instances that this resource should have. Defaults to 0. Must not be greater than maximum instance count.",
                           "type": "number"
-                        },
-                        "scalingMode": {
-                          "description": "The scaling mode for the service.\nPossible values are: AUTOMATIC, MANUAL.",
-                          "type": "string"
                         }
                       }
                     }
@@ -3370,6 +3358,13 @@
             "uri": {
               "description": "The main URI in which this Service is serving traffic.",
               "type": "string"
+            },
+            "urls": {
+              "description": "All URLs serving traffic for this Service.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           }
         },

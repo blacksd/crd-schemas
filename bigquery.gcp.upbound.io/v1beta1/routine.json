@@ -1,5 +1,5 @@
 {
-  "description": "Routine is the Schema for the Routines API. A user-defined function or a stored procedure that belongs to a Dataset",
+  "description": "Routine is the Schema for the Routines API. A user-defined function or a stored procedure that belongs to a Dataset\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

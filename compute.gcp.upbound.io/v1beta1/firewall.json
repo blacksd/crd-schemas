@@ -1,5 +1,5 @@
 {
-  "description": "Firewall is the Schema for the Firewalls API. Each network has its own firewall controlling access to and from the instances.",
+  "description": "Firewall is the Schema for the Firewalls API. Each network has its own firewall controlling access to and from the instances.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

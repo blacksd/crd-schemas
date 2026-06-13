@@ -1,5 +1,5 @@
 {
-  "description": "AlertPolicy is the Schema for the AlertPolicys API. A description of the conditions under which some aspect of your system is considered to be \"unhealthy\" and the ways to notify people or services about this state.",
+  "description": "AlertPolicy is the Schema for the AlertPolicys API. A description of the conditions under which some aspect of your system is considered to be \"unhealthy\" and the ways to notify people or services about this state.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

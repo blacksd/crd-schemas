@@ -1,5 +1,5 @@
 {
-  "description": "InspectTemplate is the Schema for the InspectTemplates API. An inspect job template.",
+  "description": "InspectTemplate is the Schema for the InspectTemplates API. An inspect job template.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

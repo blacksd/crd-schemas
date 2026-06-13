@@ -1,5 +1,5 @@
 {
-  "description": "Lake is the Schema for the Lakes API. The Dataplex Lake resource",
+  "description": "Lake is the Schema for the Lakes API. The Dataplex Lake resource\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

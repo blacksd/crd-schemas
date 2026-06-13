@@ -1,5 +1,5 @@
 {
-  "description": "Connection is the Schema for the Connections API. A connection allows BigQuery connections to external data sources.",
+  "description": "Connection is the Schema for the Connections API. A connection allows BigQuery connections to external data sources.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -633,7 +633,33 @@
                     "type": "array",
                     "items": {
                       "type": "object",
+                      "required": [
+                        "passwordSecretRef"
+                      ],
                       "properties": {
+                        "passwordSecretRef": {
+                          "description": "Password for database.\nNote: This property is sensitive and will not be displayed in the plan.",
+                          "type": "object",
+                          "required": [
+                            "key",
+                            "name",
+                            "namespace"
+                          ],
+                          "properties": {
+                            "key": {
+                              "description": "The key to select.",
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "Name of the secret.",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace of the secret.",
+                              "type": "string"
+                            }
+                          }
+                        },
                         "username": {
                           "description": "Username for database.",
                           "type": "string"

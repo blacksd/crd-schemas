@@ -463,7 +463,7 @@
                   "type": "string"
                 },
                 "state": {
-                  "description": "ENCRYPTED or DECRYPTED",
+                  "description": "ENCRYPTED, ALL_OBJECTS_ENCRYPTION_ENABLED or DECRYPTED.",
                   "type": "string"
                 }
               }
@@ -1255,9 +1255,29 @@
                       "description": "only port is enabled for newly created node pools in the cluster. It is strongly recommended to set this to FALSE. Possible values: TRUE, FALSE.",
                       "type": "string"
                     },
+                    "memoryManager": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        }
+                      }
+                    },
                     "podPidsLimit": {
                       "description": "Controls the maximum number of processes allowed to run in a pod. The value must be greater than or equal to 1024 and less than 4194304.",
                       "type": "number"
+                    },
+                    "topologyManager": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        },
+                        "scope": {
+                          "description": "Whether or not to enable GKE Auto-Monitoring. Supported values include: ALL, NONE.",
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 },
@@ -2588,7 +2608,7 @@
                   "type": "string"
                 },
                 "state": {
-                  "description": "ENCRYPTED or DECRYPTED",
+                  "description": "ENCRYPTED, ALL_OBJECTS_ENCRYPTION_ENABLED or DECRYPTED.",
                   "type": "string"
                 }
               }
@@ -3376,9 +3396,29 @@
                       "description": "only port is enabled for newly created node pools in the cluster. It is strongly recommended to set this to FALSE. Possible values: TRUE, FALSE.",
                       "type": "string"
                     },
+                    "memoryManager": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        }
+                      }
+                    },
                     "podPidsLimit": {
                       "description": "Controls the maximum number of processes allowed to run in a pod. The value must be greater than or equal to 1024 and less than 4194304.",
                       "type": "number"
+                    },
+                    "topologyManager": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        },
+                        "scope": {
+                          "description": "Whether or not to enable GKE Auto-Monitoring. Supported values include: ALL, NONE.",
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 },
@@ -4784,7 +4824,7 @@
                   "type": "string"
                 },
                 "state": {
-                  "description": "ENCRYPTED or DECRYPTED",
+                  "description": "ENCRYPTED, ALL_OBJECTS_ENCRYPTION_ENABLED or DECRYPTED.",
                   "type": "string"
                 }
               }
@@ -5567,9 +5607,29 @@
                       "description": "only port is enabled for newly created node pools in the cluster. It is strongly recommended to set this to FALSE. Possible values: TRUE, FALSE.",
                       "type": "string"
                     },
+                    "memoryManager": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        }
+                      }
+                    },
                     "podPidsLimit": {
                       "description": "Controls the maximum number of processes allowed to run in a pod. The value must be greater than or equal to 1024 and less than 4194304.",
                       "type": "number"
+                    },
+                    "topologyManager": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        },
+                        "scope": {
+                          "description": "Whether or not to enable GKE Auto-Monitoring. Supported values include: ALL, NONE.",
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 },
@@ -6251,9 +6311,29 @@
                             "description": "only port is enabled for newly created node pools in the cluster. It is strongly recommended to set this to FALSE. Possible values: TRUE, FALSE.",
                             "type": "string"
                           },
+                          "memoryManager": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              }
+                            }
+                          },
                           "podPidsLimit": {
                             "description": "Controls the maximum number of processes allowed to run in a pod. The value must be greater than or equal to 1024 and less than 4194304.",
                             "type": "number"
+                          },
+                          "topologyManager": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              },
+                              "scope": {
+                                "description": "Whether or not to enable GKE Auto-Monitoring. Supported values include: ALL, NONE.",
+                                "type": "string"
+                              }
+                            }
                           }
                         }
                       },

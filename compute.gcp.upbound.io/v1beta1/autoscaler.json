@@ -1,5 +1,5 @@
 {
-  "description": "Autoscaler is the Schema for the Autoscalers API. Represents an Autoscaler resource.",
+  "description": "Autoscaler is the Schema for the Autoscalers API. Represents an Autoscaler resource.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

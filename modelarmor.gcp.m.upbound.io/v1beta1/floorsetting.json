@@ -1,0 +1,918 @@
+{
+  "description": "FloorSetting is the Schema for the FloorSettings API. Model Armor floor settings define rules that dictate minimum requirements for all Model Armor templates created at a specific point in the Google Cloud resource hierarchy (that is, at an organization, folder, or project level).",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "FloorSettingSpec defines the desired state of FloorSetting",
+      "type": "object",
+      "required": [
+        "forProvider"
+      ],
+      "properties": {
+        "forProvider": {
+          "type": "object",
+          "required": [
+            "location",
+            "parent"
+          ],
+          "properties": {
+            "aiPlatformFloorSetting": {
+              "description": "AI Platform floor setting.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "enableCloudLogging": {
+                  "description": "If true, log Model Armor filter results to Cloud Logging.",
+                  "type": "boolean"
+                },
+                "inspectAndBlock": {
+                  "description": "If true, Model Armor filters will be run in inspect and block mode.\nRequests that trip Model Armor filters will be blocked.",
+                  "type": "boolean"
+                },
+                "inspectOnly": {
+                  "description": "If true, Model Armor filters will be run in inspect only mode. No action\nwill be taken on the request.",
+                  "type": "boolean"
+                }
+              }
+            },
+            "enableFloorSettingEnforcement": {
+              "description": "Floor Settings enforcement status.",
+              "type": "boolean"
+            },
+            "filterConfig": {
+              "description": "Filters configuration.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "maliciousUriFilterSettings": {
+                  "description": "Malicious URI filter settings.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "filterEnforcement": {
+                      "description": "Tells whether Prompt injection and Jailbreak filter is enabled or\ndisabled.\nPossible values:\nENABLED\nDISABLED",
+                      "type": "string"
+                    }
+                  }
+                },
+                "piAndJailbreakFilterSettings": {
+                  "description": "Prompt injection and Jailbreak Filter settings.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "confidenceLevel": {
+                      "description": "Possible values:\nLOW_AND_ABOVE\nMEDIUM_AND_ABOVE\nHIGH",
+                      "type": "string"
+                    },
+                    "filterEnforcement": {
+                      "description": "Tells whether Prompt injection and Jailbreak filter is enabled or\ndisabled.\nPossible values:\nENABLED\nDISABLED",
+                      "type": "string"
+                    }
+                  }
+                },
+                "raiSettings": {
+                  "description": "Responsible AI Filter settings.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "raiFilters": {
+                      "description": "List of Responsible AI filters enabled for template.\nStructure is documented below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "confidenceLevel": {
+                            "description": "Possible values:\nLOW_AND_ABOVE\nMEDIUM_AND_ABOVE\nHIGH",
+                            "type": "string"
+                          },
+                          "filterType": {
+                            "description": "Possible values:\nSEXUALLY_EXPLICIT\nHATE_SPEECH\nHARASSMENT\nDANGEROUS",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "sdpSettings": {
+                  "description": "Sensitive Data Protection settings.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "advancedConfig": {
+                      "description": "Sensitive Data Protection Advanced configuration.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "deidentifyTemplate": {
+                          "description": "Optional Sensitive Data Protection Deidentify template resource name.\nIf provided then DeidentifyContent action is performed during Sanitization\nusing this template and inspect template. The De-identified data will\nbe returned in SdpDeidentifyResult.\nNote that all info-types present in the deidentify template must be present\nin inspect template.\ne.g.\nprojects/{project}/locations/{location}/deidentifyTemplates/{deidentify_template}",
+                          "type": "string"
+                        },
+                        "deidentifyTemplateRef": {
+                          "description": "Reference to a DeidentifyTemplate in datalossprevention to populate deidentifyTemplate.",
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the referenced object.",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace of the referenced object",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for referencing.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "deidentifyTemplateSelector": {
+                          "description": "Selector for a DeidentifyTemplate in datalossprevention to populate deidentifyTemplate.",
+                          "type": "object",
+                          "properties": {
+                            "matchControllerRef": {
+                              "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                              "type": "boolean"
+                            },
+                            "matchLabels": {
+                              "description": "MatchLabels ensures an object with matching labels is selected.",
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "string"
+                              }
+                            },
+                            "namespace": {
+                              "description": "Namespace for the selector",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for selection.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "inspectTemplate": {
+                          "description": "Sensitive Data Protection inspect template resource name\nIf only inspect template is provided (de-identify template not provided),\nthen Sensitive Data Protection InspectContent action is performed during\nSanitization. All Sensitive Data Protection findings identified during\ninspection will be returned as SdpFinding in SdpInsepctionResult.\ne.g:-\nprojects/{project}/locations/{location}/inspectTemplates/{inspect_template}",
+                          "type": "string"
+                        },
+                        "inspectTemplateRef": {
+                          "description": "Reference to a InspectTemplate in datalossprevention to populate inspectTemplate.",
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the referenced object.",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace of the referenced object",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for referencing.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "inspectTemplateSelector": {
+                          "description": "Selector for a InspectTemplate in datalossprevention to populate inspectTemplate.",
+                          "type": "object",
+                          "properties": {
+                            "matchControllerRef": {
+                              "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                              "type": "boolean"
+                            },
+                            "matchLabels": {
+                              "description": "MatchLabels ensures an object with matching labels is selected.",
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "string"
+                              }
+                            },
+                            "namespace": {
+                              "description": "Namespace for the selector",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for selection.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "basicConfig": {
+                      "description": "Sensitive Data Protection basic configuration.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "filterEnforcement": {
+                          "description": "Tells whether Prompt injection and Jailbreak filter is enabled or\ndisabled.\nPossible values:\nENABLED\nDISABLED",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "floorSettingMetadata": {
+              "description": "Metadata to enable multi language detection via floor setting.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "multiLanguageDetection": {
+                  "description": "Metadata for multi language detection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "enableMultiLanguageDetection": {
+                      "description": "If true, multi language detection will be enabled.",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            },
+            "integratedServices": {
+              "description": "List of integrated services for which the floor setting is applicable.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "location": {
+              "description": "Resource ID segment making up resource name. It identifies the resource within its parent collection as described in https://google.aip.dev/122.",
+              "type": "string"
+            },
+            "parent": {
+              "description": "Will be any one of these:",
+              "type": "string"
+            }
+          }
+        },
+        "initProvider": {
+          "description": "THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.",
+          "type": "object",
+          "properties": {
+            "aiPlatformFloorSetting": {
+              "description": "AI Platform floor setting.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "enableCloudLogging": {
+                  "description": "If true, log Model Armor filter results to Cloud Logging.",
+                  "type": "boolean"
+                },
+                "inspectAndBlock": {
+                  "description": "If true, Model Armor filters will be run in inspect and block mode.\nRequests that trip Model Armor filters will be blocked.",
+                  "type": "boolean"
+                },
+                "inspectOnly": {
+                  "description": "If true, Model Armor filters will be run in inspect only mode. No action\nwill be taken on the request.",
+                  "type": "boolean"
+                }
+              }
+            },
+            "enableFloorSettingEnforcement": {
+              "description": "Floor Settings enforcement status.",
+              "type": "boolean"
+            },
+            "filterConfig": {
+              "description": "Filters configuration.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "maliciousUriFilterSettings": {
+                  "description": "Malicious URI filter settings.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "filterEnforcement": {
+                      "description": "Tells whether Prompt injection and Jailbreak filter is enabled or\ndisabled.\nPossible values:\nENABLED\nDISABLED",
+                      "type": "string"
+                    }
+                  }
+                },
+                "piAndJailbreakFilterSettings": {
+                  "description": "Prompt injection and Jailbreak Filter settings.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "confidenceLevel": {
+                      "description": "Possible values:\nLOW_AND_ABOVE\nMEDIUM_AND_ABOVE\nHIGH",
+                      "type": "string"
+                    },
+                    "filterEnforcement": {
+                      "description": "Tells whether Prompt injection and Jailbreak filter is enabled or\ndisabled.\nPossible values:\nENABLED\nDISABLED",
+                      "type": "string"
+                    }
+                  }
+                },
+                "raiSettings": {
+                  "description": "Responsible AI Filter settings.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "raiFilters": {
+                      "description": "List of Responsible AI filters enabled for template.\nStructure is documented below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "confidenceLevel": {
+                            "description": "Possible values:\nLOW_AND_ABOVE\nMEDIUM_AND_ABOVE\nHIGH",
+                            "type": "string"
+                          },
+                          "filterType": {
+                            "description": "Possible values:\nSEXUALLY_EXPLICIT\nHATE_SPEECH\nHARASSMENT\nDANGEROUS",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "sdpSettings": {
+                  "description": "Sensitive Data Protection settings.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "advancedConfig": {
+                      "description": "Sensitive Data Protection Advanced configuration.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "deidentifyTemplate": {
+                          "description": "Optional Sensitive Data Protection Deidentify template resource name.\nIf provided then DeidentifyContent action is performed during Sanitization\nusing this template and inspect template. The De-identified data will\nbe returned in SdpDeidentifyResult.\nNote that all info-types present in the deidentify template must be present\nin inspect template.\ne.g.\nprojects/{project}/locations/{location}/deidentifyTemplates/{deidentify_template}",
+                          "type": "string"
+                        },
+                        "deidentifyTemplateRef": {
+                          "description": "Reference to a DeidentifyTemplate in datalossprevention to populate deidentifyTemplate.",
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the referenced object.",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace of the referenced object",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for referencing.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "deidentifyTemplateSelector": {
+                          "description": "Selector for a DeidentifyTemplate in datalossprevention to populate deidentifyTemplate.",
+                          "type": "object",
+                          "properties": {
+                            "matchControllerRef": {
+                              "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                              "type": "boolean"
+                            },
+                            "matchLabels": {
+                              "description": "MatchLabels ensures an object with matching labels is selected.",
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "string"
+                              }
+                            },
+                            "namespace": {
+                              "description": "Namespace for the selector",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for selection.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "inspectTemplate": {
+                          "description": "Sensitive Data Protection inspect template resource name\nIf only inspect template is provided (de-identify template not provided),\nthen Sensitive Data Protection InspectContent action is performed during\nSanitization. All Sensitive Data Protection findings identified during\ninspection will be returned as SdpFinding in SdpInsepctionResult.\ne.g:-\nprojects/{project}/locations/{location}/inspectTemplates/{inspect_template}",
+                          "type": "string"
+                        },
+                        "inspectTemplateRef": {
+                          "description": "Reference to a InspectTemplate in datalossprevention to populate inspectTemplate.",
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the referenced object.",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace of the referenced object",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for referencing.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "inspectTemplateSelector": {
+                          "description": "Selector for a InspectTemplate in datalossprevention to populate inspectTemplate.",
+                          "type": "object",
+                          "properties": {
+                            "matchControllerRef": {
+                              "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                              "type": "boolean"
+                            },
+                            "matchLabels": {
+                              "description": "MatchLabels ensures an object with matching labels is selected.",
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "string"
+                              }
+                            },
+                            "namespace": {
+                              "description": "Namespace for the selector",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for selection.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "basicConfig": {
+                      "description": "Sensitive Data Protection basic configuration.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "filterEnforcement": {
+                          "description": "Tells whether Prompt injection and Jailbreak filter is enabled or\ndisabled.\nPossible values:\nENABLED\nDISABLED",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "floorSettingMetadata": {
+              "description": "Metadata to enable multi language detection via floor setting.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "multiLanguageDetection": {
+                  "description": "Metadata for multi language detection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "enableMultiLanguageDetection": {
+                      "description": "If true, multi language detection will be enabled.",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            },
+            "integratedServices": {
+              "description": "List of integrated services for which the floor setting is applicable.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "managementPolicies": {
+          "description": "THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md",
+          "type": "array",
+          "default": [
+            "*"
+          ],
+          "items": {
+            "description": "A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.",
+            "type": "string",
+            "enum": [
+              "Observe",
+              "Create",
+              "Update",
+              "Delete",
+              "LateInitialize",
+              "*"
+            ]
+          }
+        },
+        "providerConfigRef": {
+          "description": "ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.",
+          "type": "object",
+          "default": {
+            "kind": "ClusterProviderConfig",
+            "name": "default"
+          },
+          "required": [
+            "kind",
+            "name"
+          ],
+          "properties": {
+            "kind": {
+              "description": "Kind of the referenced object.",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referenced object.",
+              "type": "string"
+            }
+          }
+        },
+        "writeConnectionSecretToRef": {
+          "description": "WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.",
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the secret.",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "x-kubernetes-validations": [
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.filterConfig) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.filterConfig))",
+          "message": "spec.forProvider.filterConfig is a required parameter"
+        }
+      ]
+    },
+    "status": {
+      "description": "FloorSettingStatus defines the observed state of FloorSetting.",
+      "type": "object",
+      "properties": {
+        "atProvider": {
+          "type": "object",
+          "properties": {
+            "aiPlatformFloorSetting": {
+              "description": "AI Platform floor setting.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "enableCloudLogging": {
+                  "description": "If true, log Model Armor filter results to Cloud Logging.",
+                  "type": "boolean"
+                },
+                "inspectAndBlock": {
+                  "description": "If true, Model Armor filters will be run in inspect and block mode.\nRequests that trip Model Armor filters will be blocked.",
+                  "type": "boolean"
+                },
+                "inspectOnly": {
+                  "description": "If true, Model Armor filters will be run in inspect only mode. No action\nwill be taken on the request.",
+                  "type": "boolean"
+                }
+              }
+            },
+            "createTime": {
+              "description": "[Output only] Create timestamp",
+              "type": "string"
+            },
+            "enableFloorSettingEnforcement": {
+              "description": "Floor Settings enforcement status.",
+              "type": "boolean"
+            },
+            "filterConfig": {
+              "description": "Filters configuration.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "maliciousUriFilterSettings": {
+                  "description": "Malicious URI filter settings.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "filterEnforcement": {
+                      "description": "Tells whether Prompt injection and Jailbreak filter is enabled or\ndisabled.\nPossible values:\nENABLED\nDISABLED",
+                      "type": "string"
+                    }
+                  }
+                },
+                "piAndJailbreakFilterSettings": {
+                  "description": "Prompt injection and Jailbreak Filter settings.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "confidenceLevel": {
+                      "description": "Possible values:\nLOW_AND_ABOVE\nMEDIUM_AND_ABOVE\nHIGH",
+                      "type": "string"
+                    },
+                    "filterEnforcement": {
+                      "description": "Tells whether Prompt injection and Jailbreak filter is enabled or\ndisabled.\nPossible values:\nENABLED\nDISABLED",
+                      "type": "string"
+                    }
+                  }
+                },
+                "raiSettings": {
+                  "description": "Responsible AI Filter settings.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "raiFilters": {
+                      "description": "List of Responsible AI filters enabled for template.\nStructure is documented below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "confidenceLevel": {
+                            "description": "Possible values:\nLOW_AND_ABOVE\nMEDIUM_AND_ABOVE\nHIGH",
+                            "type": "string"
+                          },
+                          "filterType": {
+                            "description": "Possible values:\nSEXUALLY_EXPLICIT\nHATE_SPEECH\nHARASSMENT\nDANGEROUS",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "sdpSettings": {
+                  "description": "Sensitive Data Protection settings.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "advancedConfig": {
+                      "description": "Sensitive Data Protection Advanced configuration.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "deidentifyTemplate": {
+                          "description": "Optional Sensitive Data Protection Deidentify template resource name.\nIf provided then DeidentifyContent action is performed during Sanitization\nusing this template and inspect template. The De-identified data will\nbe returned in SdpDeidentifyResult.\nNote that all info-types present in the deidentify template must be present\nin inspect template.\ne.g.\nprojects/{project}/locations/{location}/deidentifyTemplates/{deidentify_template}",
+                          "type": "string"
+                        },
+                        "inspectTemplate": {
+                          "description": "Sensitive Data Protection inspect template resource name\nIf only inspect template is provided (de-identify template not provided),\nthen Sensitive Data Protection InspectContent action is performed during\nSanitization. All Sensitive Data Protection findings identified during\ninspection will be returned as SdpFinding in SdpInsepctionResult.\ne.g:-\nprojects/{project}/locations/{location}/inspectTemplates/{inspect_template}",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "basicConfig": {
+                      "description": "Sensitive Data Protection basic configuration.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "filterEnforcement": {
+                          "description": "Tells whether Prompt injection and Jailbreak filter is enabled or\ndisabled.\nPossible values:\nENABLED\nDISABLED",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "floorSettingMetadata": {
+              "description": "Metadata to enable multi language detection via floor setting.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "multiLanguageDetection": {
+                  "description": "Metadata for multi language detection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "enableMultiLanguageDetection": {
+                      "description": "If true, multi language detection will be enabled.",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            },
+            "id": {
+              "description": "an identifier for the resource with format {{parent}}/locations/{{location}}/floorSetting",
+              "type": "string"
+            },
+            "integratedServices": {
+              "description": "List of integrated services for which the floor setting is applicable.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "location": {
+              "description": "Resource ID segment making up resource name. It identifies the resource within its parent collection as described in https://google.aip.dev/122.",
+              "type": "string"
+            },
+            "name": {
+              "description": "Identifier. The resource name.",
+              "type": "string"
+            },
+            "parent": {
+              "description": "Will be any one of these:",
+              "type": "string"
+            },
+            "updateTime": {
+              "description": "[Output only] Update timestamp",
+              "type": "string"
+            }
+          }
+        },
+        "conditions": {
+          "description": "Conditions of the resource.",
+          "type": "array",
+          "items": {
+            "description": "A Condition that may apply to a resource.",
+            "type": "object",
+            "required": [
+              "lastTransitionTime",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time this condition transitioned from one\nstatus to another.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "A Message containing details about this condition's last transition from\none status to another, if any.",
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "ObservedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "type": "integer",
+                "format": "int64"
+              },
+              "reason": {
+                "description": "A Reason for this condition's last transition from one status to another.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of this condition; is it currently True, False, or Unknown?",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of this condition. At most one of each condition type may apply to\na resource at any point in time.",
+                "type": "string"
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "description": "AgentPool is the Schema for the AgentPools API. Represents an On-Premises Agent pool.",
+  "description": "AgentPool is the Schema for the AgentPools API. Represents an On-Premises Agent pool.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

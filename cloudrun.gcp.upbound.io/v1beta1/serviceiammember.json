@@ -1,5 +1,5 @@
 {
-  "description": "ServiceIAMMember is the Schema for the ServiceIAMMembers API. \u003cno value\u003e",
+  "description": "ServiceIAMMember is the Schema for the ServiceIAMMembers API. \u003cno value\u003e\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

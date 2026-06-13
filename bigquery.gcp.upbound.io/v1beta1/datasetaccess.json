@@ -1,5 +1,5 @@
 {
-  "description": "DatasetAccess is the Schema for the DatasetAccesss API. Gives dataset access for a single entity.",
+  "description": "DatasetAccess is the Schema for the DatasetAccesss API. Gives dataset access for a single entity.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

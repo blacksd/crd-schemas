@@ -1,5 +1,5 @@
 {
-  "description": "RouterNAT is the Schema for the RouterNATs API. A NAT service created in a router.",
+  "description": "RouterNAT is the Schema for the RouterNATs API. A NAT service created in a router.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -69,6 +69,14 @@
               "description": "Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.",
               "type": "number"
             },
+            "initialNatIps": {
+              "description": "Self-links of NAT IPs to be used as initial value for creation alongside a RouterNatAddress resource.\nConflicts with natIps and drainNatIps. Only valid if natIpAllocateOption is set to MANUAL_ONLY.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "x-kubernetes-list-type": "set"
+            },
             "logConfig": {
               "description": "Configuration for logging on NAT\nStructure is documented below.",
               "type": "array",
@@ -93,6 +101,19 @@
             "minPortsPerVm": {
               "description": "Minimum number of ports allocated to a VM from this NAT. Defaults to 64 for static port allocation and 32 dynamic port allocation if not set.",
               "type": "number"
+            },
+            "nat64Subnetwork": {
+              "description": "One or more subnetwork NAT configurations whose traffic should be translated by NAT64 Gateway.\nOnly used if source_subnetwork_ip_ranges_to_nat64 is set to LIST_OF_IPV6_SUBNETWORKS\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Self-link of the subnetwork resource that will use NAT64",
+                    "type": "string"
+                  }
+                }
+              }
             },
             "natIpAllocateOption": {
               "description": "How external IPs should be allocated for this NAT. Valid values are\nAUTO_ONLY for only allowing NAT IPs allocated by Google Cloud\nPlatform, or MANUAL_ONLY for only user-allocated NAT IP addresses.\nPossible values are: MANUAL_ONLY, AUTO_ONLY.",
@@ -500,6 +521,10 @@
               "description": "How NAT should be configured per Subnetwork.\nIf ALL_SUBNETWORKS_ALL_IP_RANGES, all of the\nIP ranges in every Subnetwork are allowed to Nat.\nIf ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, all of the primary IP\nranges in every Subnetwork are allowed to Nat.\nLIST_OF_SUBNETWORKS: A list of Subnetworks are allowed to Nat\n(specified in the field subnetwork below). Note that if this field\ncontains ALL_SUBNETWORKS_ALL_IP_RANGES or\nALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, then there should not be any\nother RouterNat section in any Router for this network in this region.\nPossible values are: ALL_SUBNETWORKS_ALL_IP_RANGES, ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, LIST_OF_SUBNETWORKS.",
               "type": "string"
             },
+            "sourceSubnetworkIpRangesToNat64": {
+              "description": "Specify the Nat option for NAT64, which can take one of the following values:\nALL_IPV6_SUBNETWORKS: All of the IP ranges in every Subnetwork are allowed to Nat.\nLIST_OF_IPV6_SUBNETWORKS: A list of Subnetworks are allowed to Nat (specified in the field nat64Subnetwork below).\nPossible values are: ALL_IPV6_SUBNETWORKS, LIST_OF_IPV6_SUBNETWORKS.",
+              "type": "string"
+            },
             "subnetwork": {
               "description": "One or more subnetwork NAT configurations. Only used if\nsource_subnetwork_ip_ranges_to_nat is set to LIST_OF_SUBNETWORKS\nStructure is documented below.",
               "type": "array",
@@ -617,6 +642,10 @@
               "description": "Timeout (in seconds) for TCP transitory connections.\nDefaults to 30s if not set.",
               "type": "number"
             },
+            "type": {
+              "description": "Indicates whether this NAT is used for public or private IP translation.\nPossible values are: PUBLIC, PRIVATE.",
+              "type": "string"
+            },
             "udpIdleTimeoutSec": {
               "description": "Timeout (in seconds) for UDP connections. Defaults to 30s if not set.",
               "type": "number"
@@ -658,6 +687,14 @@
               "description": "Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.",
               "type": "number"
             },
+            "initialNatIps": {
+              "description": "Self-links of NAT IPs to be used as initial value for creation alongside a RouterNatAddress resource.\nConflicts with natIps and drainNatIps. Only valid if natIpAllocateOption is set to MANUAL_ONLY.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "x-kubernetes-list-type": "set"
+            },
             "logConfig": {
               "description": "Configuration for logging on NAT\nStructure is documented below.",
               "type": "array",
@@ -682,6 +719,19 @@
             "minPortsPerVm": {
               "description": "Minimum number of ports allocated to a VM from this NAT. Defaults to 64 for static port allocation and 32 dynamic port allocation if not set.",
               "type": "number"
+            },
+            "nat64Subnetwork": {
+              "description": "One or more subnetwork NAT configurations whose traffic should be translated by NAT64 Gateway.\nOnly used if source_subnetwork_ip_ranges_to_nat64 is set to LIST_OF_IPV6_SUBNETWORKS\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Self-link of the subnetwork resource that will use NAT64",
+                    "type": "string"
+                  }
+                }
+              }
             },
             "natIpAllocateOption": {
               "description": "How external IPs should be allocated for this NAT. Valid values are\nAUTO_ONLY for only allowing NAT IPs allocated by Google Cloud\nPlatform, or MANUAL_ONLY for only user-allocated NAT IP addresses.\nPossible values are: MANUAL_ONLY, AUTO_ONLY.",
@@ -1005,6 +1055,10 @@
               "description": "How NAT should be configured per Subnetwork.\nIf ALL_SUBNETWORKS_ALL_IP_RANGES, all of the\nIP ranges in every Subnetwork are allowed to Nat.\nIf ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, all of the primary IP\nranges in every Subnetwork are allowed to Nat.\nLIST_OF_SUBNETWORKS: A list of Subnetworks are allowed to Nat\n(specified in the field subnetwork below). Note that if this field\ncontains ALL_SUBNETWORKS_ALL_IP_RANGES or\nALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, then there should not be any\nother RouterNat section in any Router for this network in this region.\nPossible values are: ALL_SUBNETWORKS_ALL_IP_RANGES, ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, LIST_OF_SUBNETWORKS.",
               "type": "string"
             },
+            "sourceSubnetworkIpRangesToNat64": {
+              "description": "Specify the Nat option for NAT64, which can take one of the following values:\nALL_IPV6_SUBNETWORKS: All of the IP ranges in every Subnetwork are allowed to Nat.\nLIST_OF_IPV6_SUBNETWORKS: A list of Subnetworks are allowed to Nat (specified in the field nat64Subnetwork below).\nPossible values are: ALL_IPV6_SUBNETWORKS, LIST_OF_IPV6_SUBNETWORKS.",
+              "type": "string"
+            },
             "subnetwork": {
               "description": "One or more subnetwork NAT configurations. Only used if\nsource_subnetwork_ip_ranges_to_nat is set to LIST_OF_SUBNETWORKS\nStructure is documented below.",
               "type": "array",
@@ -1121,6 +1175,10 @@
             "tcpTransitoryIdleTimeoutSec": {
               "description": "Timeout (in seconds) for TCP transitory connections.\nDefaults to 30s if not set.",
               "type": "number"
+            },
+            "type": {
+              "description": "Indicates whether this NAT is used for public or private IP translation.\nIf unspecified, it defaults to PUBLIC.\nDefault value is PUBLIC.\nPossible values are: PUBLIC, PRIVATE.",
+              "type": "string"
             },
             "udpIdleTimeoutSec": {
               "description": "Timeout (in seconds) for UDP connections. Defaults to 30s if not set.",
@@ -1254,6 +1312,14 @@
               "description": "an identifier for the resource with format {{project}}/{{region}}/{{router}}/{{name}}",
               "type": "string"
             },
+            "initialNatIps": {
+              "description": "Self-links of NAT IPs to be used as initial value for creation alongside a RouterNatAddress resource.\nConflicts with natIps and drainNatIps. Only valid if natIpAllocateOption is set to MANUAL_ONLY.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "x-kubernetes-list-type": "set"
+            },
             "logConfig": {
               "description": "Configuration for logging on NAT\nStructure is documented below.",
               "type": "array",
@@ -1278,6 +1344,19 @@
             "minPortsPerVm": {
               "description": "Minimum number of ports allocated to a VM from this NAT. Defaults to 64 for static port allocation and 32 dynamic port allocation if not set.",
               "type": "number"
+            },
+            "nat64Subnetwork": {
+              "description": "One or more subnetwork NAT configurations whose traffic should be translated by NAT64 Gateway.\nOnly used if source_subnetwork_ip_ranges_to_nat64 is set to LIST_OF_IPV6_SUBNETWORKS\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Self-link of the subnetwork resource that will use NAT64",
+                    "type": "string"
+                  }
+                }
+              }
             },
             "natIpAllocateOption": {
               "description": "How external IPs should be allocated for this NAT. Valid values are\nAUTO_ONLY for only allowing NAT IPs allocated by Google Cloud\nPlatform, or MANUAL_ONLY for only user-allocated NAT IP addresses.\nPossible values are: MANUAL_ONLY, AUTO_ONLY.",
@@ -1369,6 +1448,10 @@
               "description": "How NAT should be configured per Subnetwork.\nIf ALL_SUBNETWORKS_ALL_IP_RANGES, all of the\nIP ranges in every Subnetwork are allowed to Nat.\nIf ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, all of the primary IP\nranges in every Subnetwork are allowed to Nat.\nLIST_OF_SUBNETWORKS: A list of Subnetworks are allowed to Nat\n(specified in the field subnetwork below). Note that if this field\ncontains ALL_SUBNETWORKS_ALL_IP_RANGES or\nALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, then there should not be any\nother RouterNat section in any Router for this network in this region.\nPossible values are: ALL_SUBNETWORKS_ALL_IP_RANGES, ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, LIST_OF_SUBNETWORKS.",
               "type": "string"
             },
+            "sourceSubnetworkIpRangesToNat64": {
+              "description": "Specify the Nat option for NAT64, which can take one of the following values:\nALL_IPV6_SUBNETWORKS: All of the IP ranges in every Subnetwork are allowed to Nat.\nLIST_OF_IPV6_SUBNETWORKS: A list of Subnetworks are allowed to Nat (specified in the field nat64Subnetwork below).\nPossible values are: ALL_IPV6_SUBNETWORKS, LIST_OF_IPV6_SUBNETWORKS.",
+              "type": "string"
+            },
             "subnetwork": {
               "description": "One or more subnetwork NAT configurations. Only used if\nsource_subnetwork_ip_ranges_to_nat is set to LIST_OF_SUBNETWORKS\nStructure is documented below.",
               "type": "array",
@@ -1409,6 +1492,10 @@
             "tcpTransitoryIdleTimeoutSec": {
               "description": "Timeout (in seconds) for TCP transitory connections.\nDefaults to 30s if not set.",
               "type": "number"
+            },
+            "type": {
+              "description": "Indicates whether this NAT is used for public or private IP translation.\nPossible values are: PUBLIC, PRIVATE.",
+              "type": "string"
             },
             "udpIdleTimeoutSec": {
               "description": "Timeout (in seconds) for UDP connections. Defaults to 30s if not set.",

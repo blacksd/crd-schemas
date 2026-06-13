@@ -1,5 +1,5 @@
 {
-  "description": "Tensorboard is the Schema for the Tensorboards API. Tensorboard is a physical database that stores users' training metrics.",
+  "description": "Tensorboard is the Schema for the Tensorboards API. Tensorboard is a physical database that stores users' training metrics.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

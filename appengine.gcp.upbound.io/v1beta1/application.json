@@ -1,5 +1,5 @@
 {
-  "description": "Application is the Schema for the Applications API. Allows management of an App Engine application.",
+  "description": "Application is the Schema for the Applications API. Allows management of an App Engine application.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -219,6 +219,9 @@
               "type": "array",
               "items": {
                 "type": "object",
+                "required": [
+                  "oauth2ClientSecretSecretRef"
+                ],
                 "properties": {
                   "enabled": {
                     "description": "Whether the serving infrastructure will authenticate and authorize all incoming requests.\n(default is false)",
@@ -227,6 +230,29 @@
                   "oauth2ClientId": {
                     "description": "OAuth2 client ID to use for the authentication flow.",
                     "type": "string"
+                  },
+                  "oauth2ClientSecretSecretRef": {
+                    "description": "OAuth2 client secret to use for the authentication flow.\nThe SHA-256 hash of the value is returned in the oauth2ClientSecretSha256 field.",
+                    "type": "object",
+                    "required": [
+                      "key",
+                      "name",
+                      "namespace"
+                    ],
+                    "properties": {
+                      "key": {
+                        "description": "The key to select.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the secret.",
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "description": "Namespace of the secret.",
+                        "type": "string"
+                      }
+                    }
                   }
                 }
               }

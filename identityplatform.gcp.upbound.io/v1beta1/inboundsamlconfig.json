@@ -1,5 +1,5 @@
 {
-  "description": "InboundSAMLConfig is the Schema for the InboundSAMLConfigs API. Inbound SAML configuration for a Identity Toolkit project.",
+  "description": "InboundSAMLConfig is the Schema for the InboundSAMLConfigs API. Inbound SAML configuration for a Identity Toolkit project.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

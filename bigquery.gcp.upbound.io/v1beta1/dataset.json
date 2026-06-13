@@ -1,5 +1,5 @@
 {
-  "description": "Dataset is the Schema for the Datasets API. Datasets allow you to organize and control access to your tables.",
+  "description": "Dataset is the Schema for the Datasets API. Datasets allow you to organize and control access to your tables.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

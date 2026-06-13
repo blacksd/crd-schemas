@@ -1,5 +1,5 @@
 {
-  "description": "SLO is the Schema for the SLOs API. A Service-Level Objective (SLO) describes the level of desired good service.",
+  "description": "SLO is the Schema for the SLOs API. A Service-Level Objective (SLO) describes the level of desired good service.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

@@ -1,5 +1,5 @@
 {
-  "description": "BucketObject is the Schema for the BucketObjects API. Creates a new object inside a specified bucket",
+  "description": "BucketObject is the Schema for the BucketObjects API. Creates a new object inside a specified bucket\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -358,10 +358,36 @@
               "type": "array",
               "items": {
                 "type": "object",
+                "required": [
+                  "encryptionKeySecretRef"
+                ],
                 "properties": {
                   "encryptionAlgorithm": {
                     "description": "Encryption algorithm. Default: AES256",
                     "type": "string"
+                  },
+                  "encryptionKeySecretRef": {
+                    "description": "Base64 encoded Customer-Supplied Encryption Key.",
+                    "type": "object",
+                    "required": [
+                      "key",
+                      "name",
+                      "namespace"
+                    ],
+                    "properties": {
+                      "key": {
+                        "description": "The key to select.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the secret.",
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "description": "Namespace of the secret.",
+                        "type": "string"
+                      }
+                    }
                   }
                 }
               }

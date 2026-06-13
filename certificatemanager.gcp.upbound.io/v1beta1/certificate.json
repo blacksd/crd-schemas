@@ -1,5 +1,5 @@
 {
-  "description": "Certificate is the Schema for the Certificates API. Certificate represents a HTTP-reachable backend for a Certificate.",
+  "description": "Certificate is the Schema for the Certificates API. Certificate represents a HTTP-reachable backend for a Certificate.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

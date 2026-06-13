@@ -1,5 +1,5 @@
 {
-  "description": "Queue is the Schema for the Queues API. A named resource to which messages are sent by publishers.",
+  "description": "Queue is the Schema for the Queues API. A named resource to which messages are sent by publishers.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

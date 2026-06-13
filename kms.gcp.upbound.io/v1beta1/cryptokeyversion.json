@@ -1,5 +1,5 @@
 {
-  "description": "CryptoKeyVersion is the Schema for the CryptoKeyVersions API. A",
+  "description": "CryptoKeyVersion is the Schema for the CryptoKeyVersions API. A\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -348,15 +348,24 @@
                       "properties": {
                         "caviumCerts": {
                           "description": "Cavium certificate chain corresponding to the attestation.",
-                          "type": "string"
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
                         },
                         "googleCardCerts": {
                           "description": "Google card certificate chain corresponding to the attestation.",
-                          "type": "string"
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
                         },
                         "googlePartitionCerts": {
                           "description": "Google partition certificate chain corresponding to the attestation.",
-                          "type": "string"
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
                         }
                       }
                     }

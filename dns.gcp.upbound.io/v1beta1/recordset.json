@@ -1,5 +1,5 @@
 {
-  "description": "RecordSet is the Schema for the RecordSets API. Manages a set of DNS records within Google Cloud DNS.",
+  "description": "RecordSet is the Schema for the RecordSets API. Manages a set of DNS records within Google Cloud DNS.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

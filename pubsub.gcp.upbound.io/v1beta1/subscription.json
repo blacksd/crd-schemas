@@ -1,5 +1,5 @@
 {
-  "description": "Subscription is the Schema for the Subscriptions API. A named resource representing the stream of messages from a single, specific topic, to be delivered to the subscribing application.",
+  "description": "Subscription is the Schema for the Subscriptions API. A named resource representing the stream of messages from a single, specific topic, to be delivered to the subscribing application.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -48,6 +48,86 @@
                   "dropUnknownFields": {
                     "description": "When true and use_topic_schema or use_table_schema is true, any fields that are a part of the topic schema or message schema that\nare not part of the BigQuery table schema are dropped when writing to BigQuery. Otherwise, the schemas must be kept in sync\nand any messages with extra fields are not written and remain in the subscription's backlog.",
                     "type": "boolean"
+                  },
+                  "serviceAccountEmail": {
+                    "description": "The service account to use to write to BigQuery. If not specified, the Pub/Sub\nservice agent,\nservice-{project_number}@gcp-sa-pubsub.iam.gserviceaccount.com, is used.",
+                    "type": "string"
+                  },
+                  "serviceAccountEmailRef": {
+                    "description": "Reference to a ServiceAccount in cloudplatform to populate serviceAccountEmail.",
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the referenced object.",
+                        "type": "string"
+                      },
+                      "policy": {
+                        "description": "Policies for referencing.",
+                        "type": "object",
+                        "properties": {
+                          "resolution": {
+                            "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                            "type": "string",
+                            "default": "Required",
+                            "enum": [
+                              "Required",
+                              "Optional"
+                            ]
+                          },
+                          "resolve": {
+                            "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                            "type": "string",
+                            "enum": [
+                              "Always",
+                              "IfNotPresent"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "serviceAccountEmailSelector": {
+                    "description": "Selector for a ServiceAccount in cloudplatform to populate serviceAccountEmail.",
+                    "type": "object",
+                    "properties": {
+                      "matchControllerRef": {
+                        "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                        "type": "boolean"
+                      },
+                      "matchLabels": {
+                        "description": "MatchLabels ensures an object with matching labels is selected.",
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "policy": {
+                        "description": "Policies for selection.",
+                        "type": "object",
+                        "properties": {
+                          "resolution": {
+                            "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                            "type": "string",
+                            "default": "Required",
+                            "enum": [
+                              "Required",
+                              "Optional"
+                            ]
+                          },
+                          "resolve": {
+                            "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                            "type": "string",
+                            "enum": [
+                              "Always",
+                              "IfNotPresent"
+                            ]
+                          }
+                        }
+                      }
+                    }
                   },
                   "table": {
                     "description": "The name of the table to which to write data, of the form {projectId}:{datasetId}.{tableId}",
@@ -537,6 +617,86 @@
                   "dropUnknownFields": {
                     "description": "When true and use_topic_schema or use_table_schema is true, any fields that are a part of the topic schema or message schema that\nare not part of the BigQuery table schema are dropped when writing to BigQuery. Otherwise, the schemas must be kept in sync\nand any messages with extra fields are not written and remain in the subscription's backlog.",
                     "type": "boolean"
+                  },
+                  "serviceAccountEmail": {
+                    "description": "The service account to use to write to BigQuery. If not specified, the Pub/Sub\nservice agent,\nservice-{project_number}@gcp-sa-pubsub.iam.gserviceaccount.com, is used.",
+                    "type": "string"
+                  },
+                  "serviceAccountEmailRef": {
+                    "description": "Reference to a ServiceAccount in cloudplatform to populate serviceAccountEmail.",
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the referenced object.",
+                        "type": "string"
+                      },
+                      "policy": {
+                        "description": "Policies for referencing.",
+                        "type": "object",
+                        "properties": {
+                          "resolution": {
+                            "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                            "type": "string",
+                            "default": "Required",
+                            "enum": [
+                              "Required",
+                              "Optional"
+                            ]
+                          },
+                          "resolve": {
+                            "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                            "type": "string",
+                            "enum": [
+                              "Always",
+                              "IfNotPresent"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "serviceAccountEmailSelector": {
+                    "description": "Selector for a ServiceAccount in cloudplatform to populate serviceAccountEmail.",
+                    "type": "object",
+                    "properties": {
+                      "matchControllerRef": {
+                        "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                        "type": "boolean"
+                      },
+                      "matchLabels": {
+                        "description": "MatchLabels ensures an object with matching labels is selected.",
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      },
+                      "policy": {
+                        "description": "Policies for selection.",
+                        "type": "object",
+                        "properties": {
+                          "resolution": {
+                            "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                            "type": "string",
+                            "default": "Required",
+                            "enum": [
+                              "Required",
+                              "Optional"
+                            ]
+                          },
+                          "resolve": {
+                            "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                            "type": "string",
+                            "enum": [
+                              "Always",
+                              "IfNotPresent"
+                            ]
+                          }
+                        }
+                      }
+                    }
                   },
                   "table": {
                     "description": "The name of the table to which to write data, of the form {projectId}:{datasetId}.{tableId}",
@@ -1107,6 +1267,10 @@
                   "dropUnknownFields": {
                     "description": "When true and use_topic_schema or use_table_schema is true, any fields that are a part of the topic schema or message schema that\nare not part of the BigQuery table schema are dropped when writing to BigQuery. Otherwise, the schemas must be kept in sync\nand any messages with extra fields are not written and remain in the subscription's backlog.",
                     "type": "boolean"
+                  },
+                  "serviceAccountEmail": {
+                    "description": "The service account to use to write to BigQuery. If not specified, the Pub/Sub\nservice agent,\nservice-{project_number}@gcp-sa-pubsub.iam.gserviceaccount.com, is used.",
+                    "type": "string"
                   },
                   "table": {
                     "description": "The name of the table to which to write data, of the form {projectId}:{datasetId}.{tableId}",

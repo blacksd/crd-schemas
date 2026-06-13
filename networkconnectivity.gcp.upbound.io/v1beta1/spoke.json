@@ -1,5 +1,5 @@
 {
-  "description": "Spoke is the Schema for the Spokes API. The NetworkConnectivity Spoke resource",
+  "description": "Spoke is the Schema for the Spokes API. The NetworkConnectivity Spoke resource\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -42,6 +42,82 @@
             "group": {
               "description": "The name of the group that this spoke is associated with.",
               "type": "string"
+            },
+            "groupRef": {
+              "description": "Reference to a Group in networkconnectivity to populate group.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "groupSelector": {
+              "description": "Selector for a Group in networkconnectivity to populate group.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
             },
             "hub": {
               "description": "Immutable. The URI of the hub that this spoke is attached to.",
@@ -769,6 +845,82 @@
             "group": {
               "description": "The name of the group that this spoke is associated with.",
               "type": "string"
+            },
+            "groupRef": {
+              "description": "Reference to a Group in networkconnectivity to populate group.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "groupSelector": {
+              "description": "Selector for a Group in networkconnectivity to populate group.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
             },
             "hub": {
               "description": "Immutable. The URI of the hub that this spoke is attached to.",

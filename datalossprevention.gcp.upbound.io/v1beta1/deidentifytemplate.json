@@ -1,5 +1,5 @@
 {
-  "description": "DeidentifyTemplate is the Schema for the DeidentifyTemplates API. Allows creation of templates to de-identify content.",
+  "description": "DeidentifyTemplate is the Schema for the DeidentifyTemplates API. Allows creation of templates to de-identify content.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -4827,7 +4827,35 @@
                                                               "description": "Unwrapped crypto key. Using raw keys is prone to security risks due to accidentally leaking the key. Choose another type of key if possible.\nStructure is documented below.",
                                                               "type": "array",
                                                               "items": {
-                                                                "type": "object"
+                                                                "type": "object",
+                                                                "required": [
+                                                                  "keySecretRef"
+                                                                ],
+                                                                "properties": {
+                                                                  "keySecretRef": {
+                                                                    "description": "A 128/192/256 bit key.\nA base64-encoded string.",
+                                                                    "type": "object",
+                                                                    "required": [
+                                                                      "key",
+                                                                      "name",
+                                                                      "namespace"
+                                                                    ],
+                                                                    "properties": {
+                                                                      "key": {
+                                                                        "description": "The key to select.",
+                                                                        "type": "string"
+                                                                      },
+                                                                      "name": {
+                                                                        "description": "Name of the secret.",
+                                                                        "type": "string"
+                                                                      },
+                                                                      "namespace": {
+                                                                        "description": "Namespace of the secret.",
+                                                                        "type": "string"
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
                                                               }
                                                             }
                                                           }
@@ -4912,7 +4940,35 @@
                                                               "description": "Unwrapped crypto key. Using raw keys is prone to security risks due to accidentally leaking the key. Choose another type of key if possible.\nStructure is documented below.",
                                                               "type": "array",
                                                               "items": {
-                                                                "type": "object"
+                                                                "type": "object",
+                                                                "required": [
+                                                                  "keySecretRef"
+                                                                ],
+                                                                "properties": {
+                                                                  "keySecretRef": {
+                                                                    "description": "A 128/192/256 bit key.\nA base64-encoded string.",
+                                                                    "type": "object",
+                                                                    "required": [
+                                                                      "key",
+                                                                      "name",
+                                                                      "namespace"
+                                                                    ],
+                                                                    "properties": {
+                                                                      "key": {
+                                                                        "description": "The key to select.",
+                                                                        "type": "string"
+                                                                      },
+                                                                      "name": {
+                                                                        "description": "Name of the secret.",
+                                                                        "type": "string"
+                                                                      },
+                                                                      "namespace": {
+                                                                        "description": "Namespace of the secret.",
+                                                                        "type": "string"
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
                                                               }
                                                             }
                                                           }
@@ -4984,7 +5040,35 @@
                                                               "description": "Unwrapped crypto key. Using raw keys is prone to security risks due to accidentally leaking the key. Choose another type of key if possible.\nStructure is documented below.",
                                                               "type": "array",
                                                               "items": {
-                                                                "type": "object"
+                                                                "type": "object",
+                                                                "required": [
+                                                                  "keySecretRef"
+                                                                ],
+                                                                "properties": {
+                                                                  "keySecretRef": {
+                                                                    "description": "A 128/192/256 bit key.\nA base64-encoded string.",
+                                                                    "type": "object",
+                                                                    "required": [
+                                                                      "key",
+                                                                      "name",
+                                                                      "namespace"
+                                                                    ],
+                                                                    "properties": {
+                                                                      "key": {
+                                                                        "description": "The key to select.",
+                                                                        "type": "string"
+                                                                      },
+                                                                      "name": {
+                                                                        "description": "Name of the secret.",
+                                                                        "type": "string"
+                                                                      },
+                                                                      "namespace": {
+                                                                        "description": "Namespace of the secret.",
+                                                                        "type": "string"
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
                                                               }
                                                             }
                                                           }
@@ -5090,7 +5174,35 @@
                                                               "description": "Unwrapped crypto key. Using raw keys is prone to security risks due to accidentally leaking the key. Choose another type of key if possible.\nStructure is documented below.",
                                                               "type": "array",
                                                               "items": {
-                                                                "type": "object"
+                                                                "type": "object",
+                                                                "required": [
+                                                                  "keySecretRef"
+                                                                ],
+                                                                "properties": {
+                                                                  "keySecretRef": {
+                                                                    "description": "A 128/192/256 bit key.\nA base64-encoded string.",
+                                                                    "type": "object",
+                                                                    "required": [
+                                                                      "key",
+                                                                      "name",
+                                                                      "namespace"
+                                                                    ],
+                                                                    "properties": {
+                                                                      "key": {
+                                                                        "description": "The key to select.",
+                                                                        "type": "string"
+                                                                      },
+                                                                      "name": {
+                                                                        "description": "Name of the secret.",
+                                                                        "type": "string"
+                                                                      },
+                                                                      "namespace": {
+                                                                        "description": "Namespace of the secret.",
+                                                                        "type": "string"
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
                                                               }
                                                             }
                                                           }

@@ -1,5 +1,5 @@
 {
-  "description": "Database is the Schema for the Databases API. A Cloud Spanner Database which is hosted on a Spanner instance.",
+  "description": "Database is the Schema for the Databases API. A Cloud Spanner Database which is hosted on a Spanner instance.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

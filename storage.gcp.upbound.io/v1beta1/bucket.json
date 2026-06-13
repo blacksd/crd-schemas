@@ -1,5 +1,5 @@
 {
-  "description": "Bucket is the Schema for the Buckets API. Creates a new bucket in Google Cloud Storage.",
+  "description": "Bucket is the Schema for the Buckets API. Creates a new bucket in Google Cloud Storage.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

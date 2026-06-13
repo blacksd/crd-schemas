@@ -1,5 +1,5 @@
 {
-  "description": "Flow is the Schema for the Flows API. Flows represents the conversation flows when you build your chatbot agent.",
+  "description": "Flow is the Schema for the Flows API. Flows represents the conversation flows when you build your chatbot agent.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

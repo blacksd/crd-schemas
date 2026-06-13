@@ -1,5 +1,5 @@
 {
-  "description": "StoredInfoType is the Schema for the StoredInfoTypes API. Allows creation of custom info types.",
+  "description": "StoredInfoType is the Schema for the StoredInfoTypes API. Allows creation of custom info types.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

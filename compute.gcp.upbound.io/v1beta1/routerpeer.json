@@ -1,5 +1,5 @@
 {
-  "description": "RouterPeer is the Schema for the RouterPeers API. BGP information that must be configured into the routing stack to establish BGP peering.",
+  "description": "RouterPeer is the Schema for the RouterPeers API. BGP information that must be configured into the routing stack to establish BGP peering.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -807,7 +807,33 @@
               "type": "array",
               "items": {
                 "type": "object",
+                "required": [
+                  "keySecretRef"
+                ],
                 "properties": {
+                  "keySecretRef": {
+                    "description": "The MD5 authentication key for this BGP peer. Maximum length is 80 characters. Can only contain printable ASCII characters",
+                    "type": "object",
+                    "required": [
+                      "key",
+                      "name",
+                      "namespace"
+                    ],
+                    "properties": {
+                      "key": {
+                        "description": "The key to select.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the secret.",
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "description": "Namespace of the secret.",
+                        "type": "string"
+                      }
+                    }
+                  },
                   "name": {
                     "description": "Name of this BGP peer. The name must be 1-63 characters long,\nand comply with RFC1035. Specifically, the name must be 1-63 characters\nlong and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which\nmeans the first character must be a lowercase letter, and all\nfollowing characters must be a dash, lowercase letter, or digit,\nexcept the last character, which cannot be a dash.",
                     "type": "string"

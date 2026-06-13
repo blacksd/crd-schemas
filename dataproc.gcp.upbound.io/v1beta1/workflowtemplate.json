@@ -1,5 +1,5 @@
 {
-  "description": "WorkflowTemplate is the Schema for the WorkflowTemplates API. A Workflow Template is a reusable workflow configuration.",
+  "description": "WorkflowTemplate is the Schema for the WorkflowTemplates API. A Workflow Template is a reusable workflow configuration.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -41,6 +41,19 @@
             "dagTimeout": {
               "description": "(Beta only) Optional. Timeout duration for the DAG of jobs. You can use \"s\", \"m\", \"h\", and \"d\" suffixes for second, minute, hour, and day duration values, respectively. The timeout duration must be from 10 minutes (\"10m\") to 24 hours (\"24h\" or \"1d\"). The timer begins when the first job is submitted. If the workflow is running at the end of the timeout period, any remaining jobs are cancelled, the workflow is ended, and if the workflow was running on a (/dataproc/docs/concepts/workflows/using-workflows#configuring_or_selecting_a_cluster), the cluster is deleted.",
               "type": "string"
+            },
+            "encryptionConfig": {
+              "description": "Encryption settings for the cluster.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "kmsKey": {
+                    "description": "The uri of the KMS key used to encrypt various sensitive files.",
+                    "type": "string"
+                  }
+                }
+              }
             },
             "jobs": {
               "description": "Required. The Directed Acyclic Graph of Jobs to submit.",
@@ -1286,6 +1299,19 @@
             "dagTimeout": {
               "description": "(Beta only) Optional. Timeout duration for the DAG of jobs. You can use \"s\", \"m\", \"h\", and \"d\" suffixes for second, minute, hour, and day duration values, respectively. The timeout duration must be from 10 minutes (\"10m\") to 24 hours (\"24h\" or \"1d\"). The timer begins when the first job is submitted. If the workflow is running at the end of the timeout period, any remaining jobs are cancelled, the workflow is ended, and if the workflow was running on a (/dataproc/docs/concepts/workflows/using-workflows#configuring_or_selecting_a_cluster), the cluster is deleted.",
               "type": "string"
+            },
+            "encryptionConfig": {
+              "description": "Encryption settings for the cluster.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "kmsKey": {
+                    "description": "The uri of the KMS key used to encrypt various sensitive files.",
+                    "type": "string"
+                  }
+                }
+              }
             },
             "jobs": {
               "description": "Required. The Directed Acyclic Graph of Jobs to submit.",
@@ -2629,6 +2655,19 @@
                 "type": "string"
               },
               "x-kubernetes-map-type": "granular"
+            },
+            "encryptionConfig": {
+              "description": "Encryption settings for the cluster.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "kmsKey": {
+                    "description": "The uri of the KMS key used to encrypt various sensitive files.",
+                    "type": "string"
+                  }
+                }
+              }
             },
             "id": {
               "description": "an identifier for the resource with format projects/{{project}}/locations/{{location}}/workflowTemplates/{{name}}",

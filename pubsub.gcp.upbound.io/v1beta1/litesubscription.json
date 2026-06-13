@@ -1,5 +1,5 @@
 {
-  "description": "LiteSubscription is the Schema for the LiteSubscriptions API. A named resource representing the stream of messages from a single, specific topic, to be delivered to the subscribing application.",
+  "description": "LiteSubscription is the Schema for the LiteSubscriptions API. A named resource representing the stream of messages from a single, specific topic, to be delivered to the subscribing application.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

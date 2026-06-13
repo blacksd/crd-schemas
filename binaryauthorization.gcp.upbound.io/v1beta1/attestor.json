@@ -1,5 +1,5 @@
 {
-  "description": "Attestor is the Schema for the Attestors API. An attestor that attests to container image artifacts.",
+  "description": "Attestor is the Schema for the Attestors API. An attestor that attests to container image artifacts.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

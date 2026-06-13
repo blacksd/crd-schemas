@@ -1,5 +1,5 @@
 {
-  "description": "Table is the Schema for the Tables API. Creates a table resource in a dataset for Google BigQuery.",
+  "description": "Table is the Schema for the Tables API. Creates a table resource in a dataset for Google BigQuery.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

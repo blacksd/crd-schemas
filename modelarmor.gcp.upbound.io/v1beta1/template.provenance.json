@@ -1,0 +1,24 @@
+{
+  "schema": "template.json",
+  "crd": {
+    "group": "modelarmor.gcp.upbound.io",
+    "kind": "Template",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.6.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-06-13T18:11:17Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "be75027aaa04bc324f71f7b5517c31030c3fe2c9304b88c0c22bf77cac96c706"
+  }
+}

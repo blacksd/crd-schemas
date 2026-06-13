@@ -1,5 +1,5 @@
 {
-  "description": "Cluster is the Schema for the Clusters API. Creates a Google Kubernetes Engine (GKE) cluster.",
+  "description": "Cluster is the Schema for the Clusters API. Creates a Google Kubernetes Engine (GKE) cluster.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -1470,9 +1470,35 @@
                           "description": "only port is enabled for newly created node pools in the cluster. It is strongly recommended to set this to FALSE. Possible values: TRUE, FALSE.",
                           "type": "string"
                         },
+                        "memoryManager": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
                         "podPidsLimit": {
                           "description": "Controls the maximum number of processes allowed to run in a pod. The value must be greater than or equal to 1024 and less than 4194304.",
                           "type": "number"
+                        },
+                        "topologyManager": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              },
+                              "scope": {
+                                "description": "Whether or not to enable GKE Auto-Monitoring. Supported values include: ALL, NONE.",
+                                "type": "string"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -3877,9 +3903,35 @@
                           "description": "only port is enabled for newly created node pools in the cluster. It is strongly recommended to set this to FALSE. Possible values: TRUE, FALSE.",
                           "type": "string"
                         },
+                        "memoryManager": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
                         "podPidsLimit": {
                           "description": "Controls the maximum number of processes allowed to run in a pod. The value must be greater than or equal to 1024 and less than 4194304.",
                           "type": "number"
+                        },
+                        "topologyManager": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              },
+                              "scope": {
+                                "description": "Whether or not to enable GKE Auto-Monitoring. Supported values include: ALL, NONE.",
+                                "type": "string"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -6384,9 +6436,35 @@
                           "description": "only port is enabled for newly created node pools in the cluster. It is strongly recommended to set this to FALSE. Possible values: TRUE, FALSE.",
                           "type": "string"
                         },
+                        "memoryManager": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
                         "podPidsLimit": {
                           "description": "Controls the maximum number of processes allowed to run in a pod. The value must be greater than or equal to 1024 and less than 4194304.",
                           "type": "number"
+                        },
+                        "topologyManager": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              },
+                              "scope": {
+                                "description": "Whether or not to enable GKE Auto-Monitoring. Supported values include: ALL, NONE.",
+                                "type": "string"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -7149,9 +7227,35 @@
                                 "description": "only port is enabled for newly created node pools in the cluster. It is strongly recommended to set this to FALSE. Possible values: TRUE, FALSE.",
                                 "type": "string"
                               },
+                              "memoryManager": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "policy": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              },
                               "podPidsLimit": {
                                 "description": "Controls the maximum number of processes allowed to run in a pod. The value must be greater than or equal to 1024 and less than 4194304.",
                                 "type": "number"
+                              },
+                              "topologyManager": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "policy": {
+                                      "type": "string"
+                                    },
+                                    "scope": {
+                                      "description": "Whether or not to enable GKE Auto-Monitoring. Supported values include: ALL, NONE.",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
                               }
                             }
                           }

@@ -1,5 +1,5 @@
 {
-  "description": "NodePool is the Schema for the NodePools API. Manages a GKE NodePool resource.",
+  "description": "NodePool is the Schema for the NodePools API. Manages a GKE NodePool resource.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
@@ -512,8 +512,33 @@
                         "insecureKubeletReadonlyPortEnabled": {
                           "type": "string"
                         },
+                        "memoryManager": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
                         "podPidsLimit": {
                           "type": "number"
+                        },
+                        "topologyManager": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              },
+                              "scope": {
+                                "type": "string"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -1349,8 +1374,33 @@
                         "insecureKubeletReadonlyPortEnabled": {
                           "type": "string"
                         },
+                        "memoryManager": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
                         "podPidsLimit": {
                           "type": "number"
+                        },
+                        "topologyManager": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              },
+                              "scope": {
+                                "type": "string"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -2314,8 +2364,33 @@
                         "insecureKubeletReadonlyPortEnabled": {
                           "type": "string"
                         },
+                        "memoryManager": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
                         "podPidsLimit": {
                           "type": "number"
+                        },
+                        "topologyManager": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "policy": {
+                                "type": "string"
+                              },
+                              "scope": {
+                                "type": "string"
+                              }
+                            }
+                          }
                         }
                       }
                     }

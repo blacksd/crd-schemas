@@ -1,5 +1,5 @@
 {
-  "description": "Service is the Schema for the Services API. A Service is a discrete, autonomous, and network-accessible unit, designed to solve an individual concern.",
+  "description": "Service is the Schema for the Services API. A Service is a discrete, autonomous, and network-accessible unit, designed to solve an individual concern.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

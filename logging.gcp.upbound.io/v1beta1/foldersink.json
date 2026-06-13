@@ -1,5 +1,5 @@
 {
-  "description": "FolderSink is the Schema for the FolderSinks API. Manages a folder-level logging sink.",
+  "description": "FolderSink is the Schema for the FolderSinks API. Manages a folder-level logging sink.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

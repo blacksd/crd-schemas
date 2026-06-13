@@ -1,5 +1,5 @@
 {
-  "description": "BackupBackupPlan is the Schema for the BackupBackupPlans API. Represents a Backup Plan instance.",
+  "description": "BackupBackupPlan is the Schema for the BackupBackupPlans API. Represents a Backup Plan instance.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"

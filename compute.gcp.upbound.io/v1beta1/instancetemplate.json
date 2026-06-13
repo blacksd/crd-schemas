@@ -1,5 +1,5 @@
 {
-  "description": "InstanceTemplate is the Schema for the InstanceTemplates API. Manages a VM instance template resource within GCE.",
+  "description": "InstanceTemplate is the Schema for the InstanceTemplates API. Manages a VM instance template resource within GCE.\nDeprecated: This API version (v1beta1) has been deprecated in release v2.6.0.",
   "type": "object",
   "required": [
     "spec"
