@@ -269,6 +269,9 @@
         "dnsPolicy": {
           "type": "string"
         },
+        "enableServiceLinks": {
+          "type": "boolean"
+        },
         "enforcedNamespaceLabel": {
           "type": "string"
         },
@@ -895,6 +898,10 @@
         },
         "port": {
           "type": "string"
+        },
+        "preStopSleepSeconds": {
+          "type": "integer",
+          "format": "int32"
         },
         "priorityClassName": {
           "type": "string"

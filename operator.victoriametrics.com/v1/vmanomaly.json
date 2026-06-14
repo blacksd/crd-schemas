@@ -444,6 +444,9 @@
         "dnsPolicy": {
           "type": "string"
         },
+        "enableServiceLinks": {
+          "type": "boolean"
+        },
         "extraArgs": {
           "type": "object",
           "additionalProperties": {
@@ -981,6 +984,10 @@
         "port": {
           "type": "string"
         },
+        "preStopSleepSeconds": {
+          "type": "integer",
+          "format": "int32"
+        },
         "priorityClassName": {
           "type": "string"
         },
@@ -1087,6 +1094,9 @@
             },
             "maxPointsPerQuery": {
               "type": "integer"
+            },
+            "offset": {
+              "type": "string"
             },
             "queryFromLastSeenTimestamp": {
               "type": "boolean"
@@ -1345,7 +1355,6 @@
             },
             "maxConcurrentTasks": {
               "type": "integer",
-              "maximum": 20,
               "minimum": 1
             },
             "pathPrefix": {
@@ -1356,6 +1365,9 @@
             },
             "uiDefaultState": {
               "type": "string"
+            },
+            "useReaderConnectionSettings": {
+              "type": "boolean"
             }
           }
         },
@@ -1842,6 +1854,10 @@
                   "x-kubernetes-map-type": "atomic"
                 }
               }
+            },
+            "connectionRetryAttempts": {
+              "type": "integer",
+              "minimum": 1
             },
             "datasourceURL": {
               "type": "string"

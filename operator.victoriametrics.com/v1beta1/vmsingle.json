@@ -414,7 +414,50 @@
         "dnsPolicy": {
           "type": "string"
         },
+        "downsampling": {
+          "type": "object",
+          "properties": {
+            "dedupInterval": {
+              "type": "string"
+            },
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "periods"
+                ],
+                "properties": {
+                  "filter": {
+                    "type": "string"
+                  },
+                  "periods": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "interval",
+                        "offset"
+                      ],
+                      "properties": {
+                        "interval": {
+                          "type": "string"
+                        },
+                        "offset": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "enableKubernetesAPISelectors": {
+          "type": "boolean"
+        },
+        "enableServiceLinks": {
           "type": "boolean"
         },
         "enforcedNamespaceLabel": {
@@ -1139,6 +1182,10 @@
         "port": {
           "type": "string"
         },
+        "preStopSleepSeconds": {
+          "type": "integer",
+          "format": "int32"
+        },
         "priorityClassName": {
           "type": "string"
         },
@@ -1368,6 +1415,24 @@
                   }
                 ],
                 "x-kubernetes-int-or-string": true
+              }
+            }
+          }
+        },
+        "retentionFilters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "filter",
+              "retention"
+            ],
+            "properties": {
+              "filter": {
+                "type": "string"
+              },
+              "retention": {
+                "type": "string"
               }
             }
           }
