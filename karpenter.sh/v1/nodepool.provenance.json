@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "oci://public.ecr.aws/karpenter",
     "chart": "karpenter",
-    "version": "1.11.0",
+    "version": "1.13.0",
     "license": "Apache-2.0",
     "homepage": "https://karpenter.sh"
   },
   "extraction": {
-    "timestamp": "2026-04-07T00:55:46Z",
+    "timestamp": "2026-06-15T03:01:58Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "b2eb2892acb3394d6fc282db773fa628a47b4fe09c374210b0af143abce80c04"
+    "sha256": "5625311ba6ec124020a2cdc37cb028764fc31421f94656e6cd4bee51046bc627"
   }
 }
