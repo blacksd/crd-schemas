@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://dapr.github.io/helm-charts",
     "chart": "dapr",
-    "version": "1.17.2",
+    "version": "1.18.1",
     "license": "Apache-2.0",
     "homepage": "https://dapr.io"
   },
   "extraction": {
-    "timestamp": "2026-03-20T08:41:44Z",
+    "timestamp": "2026-06-18T23:14:14Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "175f95b677b1b80db8a09c10b095f19242fe577ea58796a1403c182cdfc56de8"
+    "sha256": "86a29365d2298e11acf87ea1bf3db3cde3b6e56446ec4d7398b0776423d9b195"
   }
 }
