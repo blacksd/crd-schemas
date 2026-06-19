@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:5930716a-89c0-4e2d-84a7-2507ffcbcbed",
-  "version": 7,
+  "version": 8,
   "metadata": {
-    "timestamp": "2026-06-13T00:30:02Z",
+    "timestamp": "2026-06-19T02:54:38Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "kgateway-crds",
-      "version": "2.3.3",
+      "version": "2.3.4",
       "licenses": [
         {
           "license": {
