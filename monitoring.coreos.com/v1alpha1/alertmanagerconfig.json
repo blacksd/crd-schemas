@@ -699,7 +699,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -1681,7 +1681,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -2372,7 +2372,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -3133,7 +3133,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -3912,7 +3912,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -4693,7 +4693,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -5524,7 +5524,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -6413,7 +6413,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -7149,7 +7149,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -7953,7 +7953,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -8687,7 +8687,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -9371,7 +9371,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -10036,7 +10036,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
@@ -10252,6 +10252,11 @@
                       "type": "integer",
                       "format": "int32",
                       "minimum": 0
+                    },
+                    "payload": {
+                      "description": "payload define custom payload to be sent to the webhook endpoint.\nThis is an advanced configuration option that allows you\nto define a custom payload using Go templates.\nIt requires Alertmanager \u003e= v0.32.0.",
+                      "type": "string",
+                      "minLength": 1
                     },
                     "sendResolved": {
                       "description": "sendResolved defines whether or not to notify about resolved alerts.",
@@ -10768,7 +10773,7 @@
                             "tokenUrl": {
                               "description": "tokenUrl defines the URL to fetch the token from.",
                               "type": "string",
-                              "minLength": 1
+                              "pattern": "^(http|https)://.+$"
                             }
                           }
                         },
