@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:938f0f3d-14a2-46c6-a411-718c83c5736c",
-  "version": 4,
+  "version": 5,
   "metadata": {
-    "timestamp": "2026-06-05T22:49:50Z",
+    "timestamp": "2026-06-25T10:55:16Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "istio-base",
-      "version": "1.30.1",
+      "version": "1.30.2",
       "licenses": [
         {
           "license": {
