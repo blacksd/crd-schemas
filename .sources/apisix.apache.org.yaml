@@ -3,7 +3,7 @@ sources:
     type: helm
     repo: https://charts.apiseven.com
     chart: apisix-ingress-controller
-    version: 1.2.0
+    version: 1.2.1
     license: Apache-2.0
     homepage: https://apisix.apache.org
     include:
