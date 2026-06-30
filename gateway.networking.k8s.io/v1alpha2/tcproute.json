@@ -103,7 +103,7 @@
             ],
             "properties": {
               "backendRefs": {
-                "description": "BackendRefs defines the backend(s) where matching requests should be\nsent. If unspecified or invalid (refers to a nonexistent resource or a\nService with no endpoints), the underlying implementation MUST actively\nreject connection attempts to this backend. Connection rejections must\nrespect weight; if an invalid backend is requested to have 80% of\nconnections, then 80% of connections must be rejected instead.\n\nSupport: Core for Kubernetes Service\n\nSupport: Extended for Kubernetes ServiceImport\n\nSupport: Implementation-specific for any other resource\n\nSupport for weight: Extended",
+                "description": "BackendRefs defines the backend(s) where matching requests should be\nsent. If unspecified or invalid (refers to a nonexistent resource or a\nService with no endpoints), the underlying implementation MUST actively\nreject connection attempts to this backend. Connection rejections must\nrespect weight; if an invalid backend is requested to have 80% of\nconnections, then 80% of connections must be rejected instead.\n\nSupport: Core for Kubernetes Service",
                 "type": "array",
                 "maxItems": 16,
                 "minItems": 1,
@@ -168,7 +168,7 @@
                 "x-kubernetes-list-type": "atomic"
               },
               "name": {
-                "description": "Name is the name of the route rule. This name MUST be unique within a Route if it is set.\n\nSupport: Extended",
+                "description": "Name is the name of the route rule. This name MUST be unique within a Route if it is set.",
                 "type": "string",
                 "maxLength": 253,
                 "minLength": 1,

@@ -1,9 +1,9 @@
 {
-  "schema": "httproute.json",
+  "schema": "tcproute.json",
   "crd": {
     "group": "gateway.networking.k8s.io",
-    "kind": "HTTPRoute",
-    "apiVersion": "v1beta1"
+    "kind": "TCPRoute",
+    "apiVersion": "v1"
   },
   "source": {
     "name": "gateway-api",
@@ -18,6 +18,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "9c110f4643387e82f86a430bb13b943f0ce7777cb847d27c76a2f3cb5a36865c"
+    "sha256": "f6d4f24409ca56fec1cb982a06d3a18fcb096face20ee0b3c29478b34a963e24"
   }
 }
