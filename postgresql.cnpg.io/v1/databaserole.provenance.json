@@ -1,8 +1,8 @@
 {
-  "schema": "database.json",
+  "schema": "databaserole.json",
   "crd": {
     "group": "postgresql.cnpg.io",
-    "kind": "Database",
+    "kind": "DatabaseRole",
     "apiVersion": "v1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "33c8e2983ec6eb61fa8f25b71137da327dafa21f945ffcdadae016885605de28"
+    "sha256": "aeac906571f45603504da4f13ce918e7871cc1741889dcca231216cb21dcb9ad"
   }
 }
