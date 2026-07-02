@@ -10,15 +10,15 @@
     "type": "git+github",
     "repo": "https://github.com/DataDog/datadog-operator",
     "path": "config/crd/bases/v1",
-    "version": "v1.27.0",
+    "version": "v1.28.0",
     "license": "Apache-2.0",
     "homepage": "https://github.com/DataDog/datadog-operator"
   },
   "extraction": {
-    "timestamp": "2026-06-04T17:48:05Z",
+    "timestamp": "2026-07-02T05:39:54Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "a75c19d499c2e12d55293a464fb61fd0b87f51cb0873e543661dc17d1938b41e"
+    "sha256": "95bb478be17965c60c9b547cf80367cc8472ee9b9b47f0990e19d812eb982b7a"
   }
 }
