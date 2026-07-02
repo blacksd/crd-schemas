@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:120d48c1-2105-4ae5-b0e1-467f29a30e90",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-05-06T13:13:55Z",
+    "timestamp": "2026-07-02T02:56:20Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "vault-secrets-operator",
-      "version": "1.4.0",
+      "version": "1.4.1",
       "licenses": [
         {
           "license": {
