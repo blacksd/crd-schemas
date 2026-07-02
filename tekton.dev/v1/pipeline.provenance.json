@@ -8,16 +8,16 @@
   "source": {
     "name": "tekton-pipelines",
     "type": "url",
-    "url": "https://github.com/tektoncd/pipeline/releases/download/v1.10.0/release.yaml",
-    "version": "v1.10.0",
+    "url": "https://github.com/tektoncd/pipeline/releases/download/{version}/release.yaml",
+    "version": "v1.14.0",
     "license": "Apache-2.0",
     "homepage": "https://tekton.dev"
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-07-02T22:04:23Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "9bd9fe5c333aa2136d0e175f9f95294aa34d2500d7fdc153f387fd94d6e87b5d"
+    "sha256": "841c6cf2f056dc02fa23cbb8795b2b400297e8bb7668f7b0e4b79bf9ef3791b5"
   }
 }
