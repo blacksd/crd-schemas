@@ -1210,6 +1210,21 @@
                 }
               }
             },
+            "encryptionKeySecret": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "default": "encryptionKey"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
             "gcs": {
               "type": "object",
               "required": [

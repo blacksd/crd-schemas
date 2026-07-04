@@ -132,6 +132,21 @@
             "enabled": {
               "type": "boolean"
             },
+            "encryptionKeySecret": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "default": "encryptionKey"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
             "image": {
               "type": "string"
             },
@@ -2261,10 +2276,6 @@
               },
               "x-kubernetes-validations": [
                 {
-                  "rule": "!(has(self.enabled) \u0026\u0026 self.enabled) || has(self.binlogServer)",
-                  "message": "binlogServer is required when pitr is enabled"
-                },
-                {
                   "rule": "!(has(self.enabled) \u0026\u0026 self.enabled) || !has(self.binlogServer) || (has(self.binlogServer.image) \u0026\u0026 self.binlogServer.image != '')",
                   "message": "binlogServer.image is required when pitr is enabled"
                 },
@@ -3310,6 +3321,21 @@
                       }
                     }
                   },
+                  "encryptionKeySecret": {
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "default": "encryptionKey"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  },
                   "gcs": {
                     "type": "object",
                     "required": [
@@ -3841,6 +3867,9 @@
               }
             }
           }
+        },
+        "clusterServiceDNSSuffix": {
+          "type": "string"
         },
         "crVersion": {
           "type": "string"
@@ -4713,6 +4742,19 @@
             "autoRecovery": {
               "type": "boolean"
             },
+            "bootstrap": {
+              "type": "object",
+              "properties": {
+                "mode": {
+                  "type": "string",
+                  "default": "auto",
+                  "enum": [
+                    "auto",
+                    "manual"
+                  ]
+                }
+              }
+            },
             "clusterType": {
               "type": "string",
               "default": "group-replication",
@@ -4999,6 +5041,9 @@
             "expose": {
               "type": "object",
               "properties": {
+                "allocateLoadBalancerNodePorts": {
+                  "type": "boolean"
+                },
                 "annotations": {
                   "type": "object",
                   "additionalProperties": {
@@ -5034,6 +5079,9 @@
             "exposePrimary": {
               "type": "object",
               "properties": {
+                "allocateLoadBalancerNodePorts": {
+                  "type": "boolean"
+                },
                 "annotations": {
                   "type": "object",
                   "additionalProperties": {
@@ -9580,6 +9628,9 @@
             "expose": {
               "type": "object",
               "properties": {
+                "allocateLoadBalancerNodePorts": {
+                  "type": "boolean"
+                },
                 "annotations": {
                   "type": "object",
                   "additionalProperties": {
@@ -10643,6 +10694,9 @@
                   }
                 }
               }
+            },
+            "customClusterName": {
+              "type": "string"
             },
             "enabled": {
               "type": "boolean"
@@ -11916,6 +11970,9 @@
                 "expose": {
                   "type": "object",
                   "properties": {
+                    "allocateLoadBalancerNodePorts": {
+                      "type": "boolean"
+                    },
                     "annotations": {
                       "type": "object",
                       "additionalProperties": {
@@ -12620,6 +12677,65 @@
                 },
                 "serviceAccountName": {
                   "type": "string"
+                },
+                "sidecarResources": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "claims": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "request": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "x-kubernetes-list-map-keys": [
+                          "name"
+                        ],
+                        "x-kubernetes-list-type": "map"
+                      },
+                      "limits": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ],
+                          "x-kubernetes-int-or-string": true
+                        }
+                      },
+                      "requests": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ],
+                          "x-kubernetes-int-or-string": true
+                        }
+                      }
+                    }
+                  }
                 },
                 "size": {
                   "type": "integer",
@@ -13803,6 +13919,9 @@
                 "expose": {
                   "type": "object",
                   "properties": {
+                    "allocateLoadBalancerNodePorts": {
+                      "type": "boolean"
+                    },
                     "annotations": {
                       "type": "object",
                       "additionalProperties": {
@@ -14800,6 +14919,86 @@
         "sslSecretName": {
           "type": "string"
         },
+        "storageScaling": {
+          "type": "object",
+          "properties": {
+            "autoscaling": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "growthStep": {
+                  "default": "2Gi",
+                  "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "x-kubernetes-int-or-string": true,
+                  "x-kubernetes-validations": [
+                    {
+                      "rule": "isQuantity(self)",
+                      "message": "growthStep must be a valid Kubernetes quantity (e.g., '2Gi')"
+                    },
+                    {
+                      "rule": "sign(quantity(self)) == 1",
+                      "message": "growthStep must be a positive quantity"
+                    }
+                  ]
+                },
+                "maxSize": {
+                  "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "x-kubernetes-int-or-string": true,
+                  "x-kubernetes-validations": [
+                    {
+                      "rule": "isQuantity(self)",
+                      "message": "maxSize must be a valid Kubernetes quantity (e.g., '2Gi')"
+                    },
+                    {
+                      "rule": "sign(quantity(self)) == 1",
+                      "message": "maxSize must be a positive quantity"
+                    },
+                    {
+                      "rule": "quantity(self).compareTo(quantity('1Gi')) \u003e= 0",
+                      "message": "maxSize should be at least 1Gi"
+                    }
+                  ]
+                },
+                "triggerThresholdPercent": {
+                  "type": "integer",
+                  "default": 80,
+                  "maximum": 95,
+                  "minimum": 50
+                }
+              }
+            },
+            "enableExternalAutoscaling": {
+              "type": "boolean"
+            },
+            "enableVolumeScaling": {
+              "type": "boolean"
+            }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "!has(self.autoscaling) || !has(self.autoscaling.enabled) || !self.autoscaling.enabled || self.enableVolumeScaling",
+              "message": "autoscaling cannot be enabled when enableVolumeScaling is disabled"
+            }
+          ]
+        },
         "tls": {
           "type": "object",
           "properties": {
@@ -15753,6 +15952,9 @@
         "host": {
           "type": "string"
         },
+        "innodbClusterName": {
+          "type": "string"
+        },
         "mysql": {
           "type": "object",
           "properties": {
@@ -15824,6 +16026,28 @@
         },
         "state": {
           "type": "string"
+        },
+        "storageAutoscaling": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "currentSize": {
+                "type": "string"
+              },
+              "lastError": {
+                "type": "string"
+              },
+              "lastResizeTime": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "resizeCount": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
         },
         "toolkitVersion": {
           "type": "string"

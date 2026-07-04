@@ -1,8 +1,8 @@
 {
-  "schema": "perconaservermysqlbackup.json",
+  "schema": "perconaservermysqlclusterset.json",
   "crd": {
     "group": "ps.percona.com",
-    "kind": "PerconaServerMySQLBackup",
+    "kind": "PerconaServerMySQLClusterSet",
     "apiVersion": "v1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "5698ed376d871dde2e52643993592616bf002c48e0564d7911644918720cda37"
+    "sha256": "1252c75d1287384c33ffe11e086ff15634abe68d5b65441c54aca28201ddc984"
   }
 }
