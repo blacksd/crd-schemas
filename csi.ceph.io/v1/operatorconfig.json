@@ -877,7 +877,7 @@
                   "type": "boolean"
                 },
                 "replicas": {
-                  "description": "Set replicas for controller plugin's deployment. Defaults to 2",
+                  "description": "Set replicas for controller plugin's deployment.\nIf not set, defaults to 2 or to the number of available nodes\non single-node clusters. When OperatorConfig specifies a replica\ncount, it is used as the default for all drivers.",
                   "type": "integer",
                   "format": "int32",
                   "minimum": 1
