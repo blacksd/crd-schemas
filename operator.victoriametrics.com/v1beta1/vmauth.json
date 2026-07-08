@@ -191,9 +191,15 @@
                         },
                         "namespace": {
                           "type": "string"
+                        },
+                        "useExtraService": {
+                          "type": "boolean"
                         }
                       }
                     }
+                  },
+                  "useExtraService": {
+                    "type": "boolean"
                   }
                 }
               },
@@ -1717,6 +1723,22 @@
         "unauthorizedUserAccessSpec": {
           "type": "object",
           "properties": {
+            "access_log": {
+              "type": "object",
+              "properties": {
+                "filters": {
+                  "type": "object",
+                  "properties": {
+                    "skip_status_codes": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "default_url": {
               "type": "array",
               "items": {
@@ -1840,9 +1862,15 @@
                             },
                             "namespace": {
                               "type": "string"
+                            },
+                            "useExtraService": {
+                              "type": "boolean"
                             }
                           }
                         }
+                      },
+                      "useExtraService": {
+                        "type": "boolean"
                       }
                     }
                   },
@@ -2196,6 +2224,9 @@
           ]
         },
         "useDefaultResources": {
+          "type": "boolean"
+        },
+        "useLegacyNaming": {
           "type": "boolean"
         },
         "useProxyProtocol": {

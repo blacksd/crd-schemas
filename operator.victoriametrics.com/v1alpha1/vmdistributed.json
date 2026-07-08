@@ -16,6 +16,13 @@
     "spec": {
       "type": "object",
       "properties": {
+        "backendType": {
+          "type": "string",
+          "enum": [
+            "VMCluster",
+            "VMSingle"
+          ]
+        },
         "license": {
           "type": "object",
           "properties": {
@@ -1988,9 +1995,15 @@
                                 },
                                 "namespace": {
                                   "type": "string"
+                                },
+                                "useExtraService": {
+                                  "type": "boolean"
                                 }
                               }
                             }
+                          },
+                          "useExtraService": {
+                            "type": "boolean"
                           }
                         }
                       },
@@ -6278,6 +6291,22 @@
                 "unauthorizedUserAccessSpec": {
                   "type": "object",
                   "properties": {
+                    "access_log": {
+                      "type": "object",
+                      "properties": {
+                        "filters": {
+                          "type": "object",
+                          "properties": {
+                            "skip_status_codes": {
+                              "type": "array",
+                              "items": {
+                                "type": "integer"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
                     "default_url": {
                       "type": "array",
                       "items": {
@@ -6401,9 +6430,15 @@
                                     },
                                     "namespace": {
                                       "type": "string"
+                                    },
+                                    "useExtraService": {
+                                      "type": "boolean"
                                     }
                                   }
                                 }
+                              },
+                              "useExtraService": {
+                                "type": "boolean"
                               }
                             }
                           },
@@ -6757,6 +6792,9 @@
                   ]
                 },
                 "useDefaultResources": {
+                  "type": "boolean"
+                },
+                "useLegacyNaming": {
                   "type": "boolean"
                 },
                 "useProxyProtocol": {
@@ -14839,6 +14877,17 @@
                   "x-kubernetes-preserve-unknown-fields": true
                 }
               }
+            },
+            "vmsingle": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "spec": {
+                  "x-kubernetes-preserve-unknown-fields": true
+                }
+              }
             }
           }
         },
@@ -21373,6 +21422,17 @@
                 }
               },
               "vmcluster": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "spec": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  }
+                }
+              },
+              "vmsingle": {
                 "type": "object",
                 "properties": {
                   "name": {

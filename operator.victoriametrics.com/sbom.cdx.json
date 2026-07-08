@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:c9b7bf5c-a2b9-4fa4-a50b-eb57e7c3618b",
-  "version": 6,
+  "version": 7,
   "metadata": {
-    "timestamp": "2026-06-20T17:11:37Z",
+    "timestamp": "2026-07-08T15:12:33Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "victoria-metrics-operator-crds",
-      "version": "0.12.0",
+      "version": "0.13.1",
       "licenses": [
         {
           "license": {

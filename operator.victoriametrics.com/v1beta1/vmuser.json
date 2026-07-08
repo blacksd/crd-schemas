@@ -16,6 +16,22 @@
         "targetRefs"
       ],
       "properties": {
+        "access_log": {
+          "type": "object",
+          "properties": {
+            "filters": {
+              "type": "object",
+              "properties": {
+                "skip_status_codes": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
         "bearerToken": {
           "type": "string"
         },
@@ -243,9 +259,15 @@
                         },
                         "namespace": {
                           "type": "string"
+                        },
+                        "useExtraService": {
+                          "type": "boolean"
                         }
                       }
                     }
+                  },
+                  "useExtraService": {
+                    "type": "boolean"
                   }
                 }
               },
@@ -538,6 +560,9 @@
             }
           },
           "x-kubernetes-map-type": "atomic"
+        },
+        "useLegacyNaming": {
+          "type": "boolean"
         },
         "username": {
           "type": "string"
