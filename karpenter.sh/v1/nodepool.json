@@ -96,12 +96,13 @@
               "pattern": "^(([0-9]+(s|m|h))+|Never)$"
             },
             "consolidationPolicy": {
-              "description": "ConsolidationPolicy describes which nodes Karpenter can disrupt through its consolidation\nalgorithm. This policy defaults to \"WhenEmptyOrUnderutilized\" if not specified\nWhen replicas is set, ConsolidationPolicy is simply ignored",
+              "description": "ConsolidationPolicy describes which nodes Karpenter can disrupt through its consolidation\nalgorithm. This policy defaults to \"WhenEmptyOrUnderutilized\" if not specified.\nValid values: \"WhenEmpty\", \"WhenEmptyOrUnderutilized\", \"Balanced\".\nWhen replicas is set, ConsolidationPolicy is simply ignored.",
               "type": "string",
               "default": "WhenEmptyOrUnderutilized",
               "enum": [
                 "WhenEmpty",
-                "WhenEmptyOrUnderutilized"
+                "WhenEmptyOrUnderutilized",
+                "Balanced"
               ]
             }
           }
