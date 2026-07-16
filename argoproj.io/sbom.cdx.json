@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:3d4be913-f98a-40f4-842d-7f7629af0465",
-  "version": 46,
+  "version": 47,
   "metadata": {
-    "timestamp": "2026-07-10T02:13:30Z",
+    "timestamp": "2026-07-16T10:13:37Z",
     "tools": {
       "components": [
         {
@@ -52,7 +52,7 @@
     {
       "type": "library",
       "name": "argo-events",
-      "version": "2.4.22",
+      "version": "2.4.23",
       "licenses": [
         {
           "license": {
