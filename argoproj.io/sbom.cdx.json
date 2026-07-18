@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:3d4be913-f98a-40f4-842d-7f7629af0465",
-  "version": 48,
+  "version": 49,
   "metadata": {
-    "timestamp": "2026-07-16T12:46:39Z",
+    "timestamp": "2026-07-18T16:27:30Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "argo-cd",
-      "version": "10.1.3",
+      "version": "10.1.4",
       "licenses": [
         {
           "license": {
