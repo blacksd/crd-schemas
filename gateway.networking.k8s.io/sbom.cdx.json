@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:3be21612-1ebb-4d61-be67-13faded704d6",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-06-30T11:36:08Z",
+    "timestamp": "2026-07-18T01:14:52Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "gateway-api",
-      "version": "v1.6.0",
+      "version": "v1.6.1",
       "licenses": [
         {
           "license": {
