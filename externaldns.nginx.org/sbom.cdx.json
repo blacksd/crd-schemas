@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:1c42692e-8dba-4b73-bf69-7062d6507a07",
-  "version": 7,
+  "version": 8,
   "metadata": {
-    "timestamp": "2026-07-16T01:46:34Z",
+    "timestamp": "2026-07-18T09:28:36Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "nginx-ingress",
-      "version": "v5.5.3",
+      "version": "v5.5.4",
       "licenses": [
         {
           "license": {
