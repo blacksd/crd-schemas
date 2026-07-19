@@ -1,8 +1,8 @@
 {
-  "schema": "grafana.json",
+  "schema": "gitlabdeploytoken.json",
   "crd": {
     "group": "generators.external-secrets.io",
-    "kind": "Grafana",
+    "kind": "GitlabDeployToken",
     "apiVersion": "v1alpha1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "459f2b7cdef5a57b2c7dbfb4ca5b718113ad061599dabff69da35931da5d4d43"
+    "sha256": "981edf79ffafbdb76c659151405a7165df2129cd2365b3080e834e9ec698bf5d"
   }
 }
