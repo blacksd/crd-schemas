@@ -32,9 +32,9 @@
           "minimum": 1
         },
         "podSets": {
-          "description": "podSets is a list of sets of homogeneous pods, each described by a Pod spec\nand a count.\nThere must be at least one element and at most 10.\npodSets cannot be changed.",
+          "description": "podSets is a list of sets of homogeneous pods, each described by a Pod spec\nand a count.\nThere must be at least one element and at most 18.\npodSets cannot be changed.",
           "type": "array",
-          "maxItems": 10,
+          "maxItems": 18,
           "minItems": 1,
           "items": {
             "type": "object",
@@ -7152,7 +7152,7 @@
             "podSetAssignments": {
               "description": "podSetAssignments hold the admission results for each of the .spec.podSets entries.",
               "type": "array",
-              "maxItems": 10,
+              "maxItems": 18,
               "items": {
                 "type": "object",
                 "required": [
@@ -7291,7 +7291,7 @@
               "podSetUpdates": {
                 "description": "podSetUpdates contains a list of pod set modifications suggested by AdmissionChecks.",
                 "type": "array",
-                "maxItems": 10,
+                "maxItems": 18,
                 "items": {
                   "description": "PodSetUpdate contains a list of pod set modifications suggested by AdmissionChecks.\nThe modifications should be additive only - modifications of already existing keys\nor having the same key provided by multiple AdmissionChecks is not allowed and will\nresult in failure during workload admission.",
                   "type": "object",
@@ -7488,7 +7488,7 @@
         "reclaimablePods": {
           "description": "reclaimablePods keeps track of the number pods within a podset for which\nthe resource reservation is no longer needed.",
           "type": "array",
-          "maxItems": 10,
+          "maxItems": 18,
           "items": {
             "type": "object",
             "required": [
@@ -7535,7 +7535,7 @@
         "resourceRequests": {
           "description": "resourceRequests provides a detailed view of the resources that were\nrequested by a non-admitted workload when it was considered for admission.\nIf admission is non-null, resourceRequests will be empty because\nadmission.resourceUsage contains the detailed information.",
           "type": "array",
-          "maxItems": 10,
+          "maxItems": 18,
           "items": {
             "type": "object",
             "required": [
@@ -7655,7 +7655,7 @@
       "message": "priorityClassName is immutable while workload quota reserved and priorityClassSource is not equal to kueue.x-k8s.io/workloadpriorityclass"
     },
     {
-      "rule": "(has(oldSelf.status) \u0026\u0026 has(oldSelf.status.conditions) \u0026\u0026 oldSelf.status.conditions.exists(c, c.type == 'QuotaReserved' \u0026\u0026 c.status == 'True')) \u0026\u0026 (has(self.status) \u0026\u0026 has(self.status.conditions) \u0026\u0026 self.status.conditions.exists(c, c.type == 'QuotaReserved' \u0026\u0026 c.status == 'True')) \u0026\u0026 has(oldSelf.spec.queueName) \u0026\u0026 has(self.spec.queueName) ? oldSelf.spec.queueName == self.spec.queueName : true",
+      "rule": "((has(oldSelf.status) \u0026\u0026 has(oldSelf.status.conditions) \u0026\u0026 oldSelf.status.conditions.exists(c, c.type == 'QuotaReserved' \u0026\u0026 c.status == 'True')) \u0026\u0026 (has(self.status) \u0026\u0026 has(self.status.conditions) \u0026\u0026 self.status.conditions.exists(c, c.type == 'QuotaReserved' \u0026\u0026 c.status == 'True'))) ? ((has(oldSelf.spec.queueName) == has(self.spec.queueName)) \u0026\u0026 (!has(oldSelf.spec.queueName) || oldSelf.spec.queueName == self.spec.queueName)) : true",
       "message": "queueName is immutable while workload quota reserved"
     },
     {

@@ -9,15 +9,15 @@
     "name": "kueue",
     "type": "url",
     "url": "https://github.com/kubernetes-sigs/kueue/releases/download/{version}/manifests.yaml",
-    "version": "v0.18.0",
+    "version": "v0.19.0",
     "license": "Apache-2.0",
     "homepage": "https://kueue.sigs.k8s.io"
   },
   "extraction": {
-    "timestamp": "2026-05-30T12:32:08Z",
+    "timestamp": "2026-07-23T22:04:27Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "e875eb980e17ab084685d8ce55e13b4de7456acbdd9604ea62d73c8c3113ce67"
+    "sha256": "1f1e244a0016486d07884683adf132b58ee1ca053a63815307c2079be603b5aa"
   }
 }
