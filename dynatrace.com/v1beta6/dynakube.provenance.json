@@ -10,15 +10,15 @@
     "type": "git+github",
     "repo": "https://github.com/Dynatrace/dynatrace-operator",
     "path": "config/crd/bases",
-    "version": "v1.9.0",
+    "version": "v1.10.1",
     "license": "Apache-2.0",
     "homepage": "https://github.com/Dynatrace/dynatrace-operator"
   },
   "extraction": {
-    "timestamp": "2026-04-14T13:10:35Z",
+    "timestamp": "2026-07-23T14:54:52Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "c9c870641dfb0ec126f4397f648e1b2de084440d377f89538e037a6e7ba5f327"
+    "sha256": "bc77a4467bde390580da4919bacd7f7e54f77e9f3109f66199cf67d99b05f23f"
   }
 }

@@ -2656,6 +2656,62 @@
             "enabled": {
               "type": "boolean"
             },
+            "initResources": {
+              "type": "object",
+              "properties": {
+                "claims": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "name"
+                    ],
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "request": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "x-kubernetes-list-map-keys": [
+                    "name"
+                  ],
+                  "x-kubernetes-list-type": "map"
+                },
+                "limits": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "x-kubernetes-int-or-string": true
+                  }
+                },
+                "requests": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "x-kubernetes-int-or-string": true
+                  }
+                }
+              }
+            },
             "namespaceSelector": {
               "type": "object",
               "properties": {
@@ -2705,6 +2761,12 @@
             "applicationMonitoring": {
               "type": "object",
               "properties": {
+                "additionalResourceAttributes": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
                 "codeModulesImage": {
                   "type": "string"
                 },
@@ -2819,6 +2881,12 @@
             "classicFullStack": {
               "type": "object",
               "properties": {
+                "additionalResourceAttributes": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
                 "annotations": {
                   "type": "object",
                   "additionalProperties": {
@@ -3109,6 +3177,12 @@
             "cloudNativeFullStack": {
               "type": "object",
               "properties": {
+                "additionalResourceAttributes": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
                 "annotations": {
                   "type": "object",
                   "additionalProperties": {
@@ -3507,6 +3581,12 @@
             "hostMonitoring": {
               "type": "object",
               "properties": {
+                "additionalResourceAttributes": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
                 "annotations": {
                   "type": "object",
                   "additionalProperties": {
@@ -3799,6 +3879,12 @@
         "otlpExporterConfiguration": {
           "type": "object",
           "properties": {
+            "additionalResourceAttributes": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
             "namespaceSelector": {
               "type": "object",
               "properties": {
@@ -3869,6 +3955,15 @@
             }
           }
         },
+        "publicRegistryOverride": {
+          "type": "string"
+        },
+        "resourceAttributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
         "skipCertCheck": {
           "type": "boolean"
         },
@@ -3911,6 +4006,10 @@
                 "imageRef": {
                   "type": "object",
                   "properties": {
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9]+:([a-f0-9]+|[A-F0-9]+)$"
+                    },
                     "pullPolicy": {
                       "type": "string",
                       "enum": [
@@ -4381,6 +4480,10 @@
                 "imageRef": {
                   "type": "object",
                   "properties": {
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9]+:([a-f0-9]+|[A-F0-9]+)$"
+                    },
                     "pullPolicy": {
                       "type": "string",
                       "enum": [
@@ -4702,6 +4805,10 @@
                 "imageRef": {
                   "type": "object",
                   "properties": {
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9]+:([a-f0-9]+|[A-F0-9]+)$"
+                    },
                     "pullPolicy": {
                       "type": "string",
                       "enum": [
@@ -4858,6 +4965,10 @@
                 "imageRef": {
                   "type": "object",
                   "properties": {
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9]+:([a-f0-9]+|[A-F0-9]+)$"
+                    },
                     "pullPolicy": {
                       "type": "string",
                       "enum": [
@@ -4876,6 +4987,12 @@
                   }
                 },
                 "labels": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "nodeSelector": {
                   "type": "object",
                   "additionalProperties": {
                     "type": "string"
@@ -5057,6 +5174,10 @@
                 "imageRef": {
                   "type": "object",
                   "properties": {
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9]+:([a-f0-9]+|[A-F0-9]+)$"
+                    },
                     "pullPolicy": {
                       "type": "string",
                       "enum": [
@@ -5158,6 +5279,25 @@
             }
           }
         },
+        "apiToken": {
+          "type": "object",
+          "properties": {
+            "availableOptionalScopes": {
+              "type": "object",
+              "properties": {
+                "settingsRead": {
+                  "type": "boolean"
+                },
+                "settingsWrite": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "platform": {
+              "type": "boolean"
+            }
+          }
+        },
         "codeModules": {
           "type": "object",
           "properties": {
@@ -5229,15 +5369,6 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
-        },
-        "dynatraceApi": {
-          "type": "object",
-          "properties": {
-            "lastTokenScopeRequest": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
         },
         "kspm": {
           "type": "object",
