@@ -21,6 +21,31 @@
         "description": "For future implementation where users might manage RuleStatus CRs themselves",
         "type": "object",
         "properties": {
+          "audience": {
+            "description": "Audience limits this rule to matching request subjects.\nAn empty audience matches every request.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "kind",
+                "name"
+              ],
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "User",
+                    "Group",
+                    "ServiceAccount",
+                    "Custom"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "enforce": {
             "description": "Enforcement for given rule",
             "type": "object",
@@ -34,6 +59,64 @@
                   "deny",
                   "audit"
                 ]
+              },
+              "ingress": {
+                "description": "Enforcement for Ingress and Gateway API resource hostnames.",
+                "type": "object",
+                "properties": {
+                  "hostnames": {
+                    "description": "Hostnames defines allowed, denied, or audited hostname expressions.\nA resource targeted by an allow or deny rule must declare non-empty values\nin all hostname fields. Audit-only rules record missing hostnames without\ndenying them.",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "description": "At least one of Exact or Exp must be set.\nBoth may be set together.",
+                      "type": "object",
+                      "properties": {
+                        "exact": {
+                          "description": "Exact matches one of the provided values exactly.",
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "exp": {
+                          "description": "Exp matches regular expression.",
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "negate": {
+                          "description": "Negate regular Expression",
+                          "type": "boolean",
+                          "default": false
+                        }
+                      },
+                      "x-kubernetes-validations": [
+                        {
+                          "rule": "has(self.exact) || has(self.exp)",
+                          "message": "at least one of exact or exp must be set"
+                        }
+                      ]
+                    }
+                  },
+                  "types": {
+                    "description": "Types defines the resource kinds to which hostname enforcement applies.",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "Ingress",
+                        "Route",
+                        "ListenerSet",
+                        "HTTPRoute",
+                        "Gateway",
+                        "TLSRoute",
+                        "GRPCRoute"
+                      ]
+                    }
+                  }
+                }
               },
               "metadata": {
                 "description": "Enforcement for object metadata on namespaced resources.",
@@ -51,6 +134,14 @@
                       "additionalProperties": {
                         "type": "object",
                         "properties": {
+                          "default": {
+                            "description": "Default is applied by admission mutation when the concrete metadata key is absent.\nIt is not reconciled after admission.",
+                            "type": "string"
+                          },
+                          "managed": {
+                            "description": "Managed is enforced by admission mutation and reconciled by the RuleStatus\ncontroller using server-side apply when the rule configuration changes.",
+                            "type": "string"
+                          },
                           "required": {
                             "description": "Required enforces that the metadata key must be present.\n\nThis is mainly meaningful with action=allow. Deny and audit rules remain\nvalue matchers and do not require missing metadata to exist.",
                             "type": "boolean",
@@ -115,6 +206,14 @@
                       "additionalProperties": {
                         "type": "object",
                         "properties": {
+                          "default": {
+                            "description": "Default is applied by admission mutation when the concrete metadata key is absent.\nIt is not reconciled after admission.",
+                            "type": "string"
+                          },
+                          "managed": {
+                            "description": "Managed is enforced by admission mutation and reconciled by the RuleStatus\ncontroller using server-side apply when the rule configuration changes.",
+                            "type": "string"
+                          },
                           "required": {
                             "description": "Required enforces that the metadata key must be present.\n\nThis is mainly meaningful with action=allow. Deny and audit rules remain\nvalue matchers and do not require missing metadata to exist.",
                             "type": "boolean",
@@ -447,6 +546,31 @@
           "description": "Deprecated: use Rules.\nRule contains a legacy flattened view and cannot fully represent action-aware rules.",
           "type": "object",
           "properties": {
+            "audience": {
+              "description": "Audience limits this rule to matching request subjects.\nAn empty audience matches every request.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "name"
+                ],
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "User",
+                      "Group",
+                      "ServiceAccount",
+                      "Custom"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
             "enforce": {
               "description": "Enforcement for given rule",
               "type": "object",
@@ -460,6 +584,64 @@
                     "deny",
                     "audit"
                   ]
+                },
+                "ingress": {
+                  "description": "Enforcement for Ingress and Gateway API resource hostnames.",
+                  "type": "object",
+                  "properties": {
+                    "hostnames": {
+                      "description": "Hostnames defines allowed, denied, or audited hostname expressions.\nA resource targeted by an allow or deny rule must declare non-empty values\nin all hostname fields. Audit-only rules record missing hostnames without\ndenying them.",
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "description": "At least one of Exact or Exp must be set.\nBoth may be set together.",
+                        "type": "object",
+                        "properties": {
+                          "exact": {
+                            "description": "Exact matches one of the provided values exactly.",
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "exp": {
+                            "description": "Exp matches regular expression.",
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "negate": {
+                            "description": "Negate regular Expression",
+                            "type": "boolean",
+                            "default": false
+                          }
+                        },
+                        "x-kubernetes-validations": [
+                          {
+                            "rule": "has(self.exact) || has(self.exp)",
+                            "message": "at least one of exact or exp must be set"
+                          }
+                        ]
+                      }
+                    },
+                    "types": {
+                      "description": "Types defines the resource kinds to which hostname enforcement applies.",
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "Ingress",
+                          "Route",
+                          "ListenerSet",
+                          "HTTPRoute",
+                          "Gateway",
+                          "TLSRoute",
+                          "GRPCRoute"
+                        ]
+                      }
+                    }
+                  }
                 },
                 "metadata": {
                   "description": "Enforcement for object metadata on namespaced resources.",
@@ -477,6 +659,14 @@
                         "additionalProperties": {
                           "type": "object",
                           "properties": {
+                            "default": {
+                              "description": "Default is applied by admission mutation when the concrete metadata key is absent.\nIt is not reconciled after admission.",
+                              "type": "string"
+                            },
+                            "managed": {
+                              "description": "Managed is enforced by admission mutation and reconciled by the RuleStatus\ncontroller using server-side apply when the rule configuration changes.",
+                              "type": "string"
+                            },
                             "required": {
                               "description": "Required enforces that the metadata key must be present.\n\nThis is mainly meaningful with action=allow. Deny and audit rules remain\nvalue matchers and do not require missing metadata to exist.",
                               "type": "boolean",
@@ -541,6 +731,14 @@
                         "additionalProperties": {
                           "type": "object",
                           "properties": {
+                            "default": {
+                              "description": "Default is applied by admission mutation when the concrete metadata key is absent.\nIt is not reconciled after admission.",
+                              "type": "string"
+                            },
+                            "managed": {
+                              "description": "Managed is enforced by admission mutation and reconciled by the RuleStatus\ncontroller using server-side apply when the rule configuration changes.",
+                              "type": "string"
+                            },
                             "required": {
                               "description": "Required enforces that the metadata key must be present.\n\nThis is mainly meaningful with action=allow. Deny and audit rules remain\nvalue matchers and do not require missing metadata to exist.",
                               "type": "boolean",
@@ -808,6 +1006,31 @@
             "description": "For future implementation where users might manage RuleStatus CRs themselves",
             "type": "object",
             "properties": {
+              "audience": {
+                "description": "Audience limits this rule to matching request subjects.\nAn empty audience matches every request.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "kind",
+                    "name"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "User",
+                        "Group",
+                        "ServiceAccount",
+                        "Custom"
+                      ]
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
               "enforce": {
                 "description": "Enforcement for given rule",
                 "type": "object",
@@ -821,6 +1044,64 @@
                       "deny",
                       "audit"
                     ]
+                  },
+                  "ingress": {
+                    "description": "Enforcement for Ingress and Gateway API resource hostnames.",
+                    "type": "object",
+                    "properties": {
+                      "hostnames": {
+                        "description": "Hostnames defines allowed, denied, or audited hostname expressions.\nA resource targeted by an allow or deny rule must declare non-empty values\nin all hostname fields. Audit-only rules record missing hostnames without\ndenying them.",
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                          "description": "At least one of Exact or Exp must be set.\nBoth may be set together.",
+                          "type": "object",
+                          "properties": {
+                            "exact": {
+                              "description": "Exact matches one of the provided values exactly.",
+                              "type": "array",
+                              "minItems": 1,
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "exp": {
+                              "description": "Exp matches regular expression.",
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "negate": {
+                              "description": "Negate regular Expression",
+                              "type": "boolean",
+                              "default": false
+                            }
+                          },
+                          "x-kubernetes-validations": [
+                            {
+                              "rule": "has(self.exact) || has(self.exp)",
+                              "message": "at least one of exact or exp must be set"
+                            }
+                          ]
+                        }
+                      },
+                      "types": {
+                        "description": "Types defines the resource kinds to which hostname enforcement applies.",
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "Ingress",
+                            "Route",
+                            "ListenerSet",
+                            "HTTPRoute",
+                            "Gateway",
+                            "TLSRoute",
+                            "GRPCRoute"
+                          ]
+                        }
+                      }
+                    }
                   },
                   "metadata": {
                     "description": "Enforcement for object metadata on namespaced resources.",
@@ -838,6 +1119,14 @@
                           "additionalProperties": {
                             "type": "object",
                             "properties": {
+                              "default": {
+                                "description": "Default is applied by admission mutation when the concrete metadata key is absent.\nIt is not reconciled after admission.",
+                                "type": "string"
+                              },
+                              "managed": {
+                                "description": "Managed is enforced by admission mutation and reconciled by the RuleStatus\ncontroller using server-side apply when the rule configuration changes.",
+                                "type": "string"
+                              },
                               "required": {
                                 "description": "Required enforces that the metadata key must be present.\n\nThis is mainly meaningful with action=allow. Deny and audit rules remain\nvalue matchers and do not require missing metadata to exist.",
                                 "type": "boolean",
@@ -902,6 +1191,14 @@
                           "additionalProperties": {
                             "type": "object",
                             "properties": {
+                              "default": {
+                                "description": "Default is applied by admission mutation when the concrete metadata key is absent.\nIt is not reconciled after admission.",
+                                "type": "string"
+                              },
+                              "managed": {
+                                "description": "Managed is enforced by admission mutation and reconciled by the RuleStatus\ncontroller using server-side apply when the rule configuration changes.",
+                                "type": "string"
+                              },
                               "required": {
                                 "description": "Required enforces that the metadata key must be present.\n\nThis is mainly meaningful with action=allow. Deny and audit rules remain\nvalue matchers and do not require missing metadata to exist.",
                                 "type": "boolean",
