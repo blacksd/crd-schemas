@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://altinity.github.io/clickhouse-operator",
     "chart": "altinity-clickhouse-operator",
-    "version": "0.27.1",
+    "version": "0.27.2",
     "license": "Apache-2.0",
     "homepage": "https://github.com/Altinity/clickhouse-operator",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-06-05T02:00:46Z",
+    "timestamp": "2026-07-24T09:12:41Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "1addd09f26fc0d12724933023c241e9dcf00a58ac95544730e24d2a184254c70"
+    "sha256": "87e98a43aaa6a3ae7032113764231452210dc387eb0dfb817084310b3fc4111e"
   }
 }
