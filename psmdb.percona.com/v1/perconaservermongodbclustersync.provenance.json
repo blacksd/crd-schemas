@@ -1,8 +1,8 @@
 {
-  "schema": "perconaservermongodb.json",
+  "schema": "perconaservermongodbclustersync.json",
   "crd": {
     "group": "psmdb.percona.com",
-    "kind": "PerconaServerMongoDB",
+    "kind": "PerconaServerMongoDBClusterSync",
     "apiVersion": "v1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "e2ed0f4517cd86901b709d923865e7c8ee2d8a7a97c3654bbcad4a46bc3e93aa"
+    "sha256": "7a33dd9a1f0a2c823f31e64a6e3c4b8be9fd8f11826b90473f76998b7d1a479d"
   }
 }
