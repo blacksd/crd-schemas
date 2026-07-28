@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://opensource.zalando.com/postgres-operator/charts/postgres-operator",
     "chart": "postgres-operator",
-    "version": "1.15.1",
+    "version": "2.0.0",
     "license": "MIT",
     "homepage": "https://postgres-operator.readthedocs.io"
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-07-28T11:48:35Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "1208c8e244adff7c04c04b295eb44b3e9991bb57350bfcdcfe59dfbb73921f87"
+    "sha256": "68300b2744287a65cb7acc31cf241361e863892088c57e20a1de5bffd7ea154e"
   }
 }
