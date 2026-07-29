@@ -3,6 +3,6 @@ sources:
     type: helm
     repo: https://charts.rook.io/release
     chart: rook-ceph
-    version: v1.20.2
+    version: v1.20.3
     license: Apache-2.0
     homepage: https://rook.io
