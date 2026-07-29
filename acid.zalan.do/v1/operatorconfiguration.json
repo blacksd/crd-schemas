@@ -249,19 +249,7 @@
               }
             },
             "infrastructure_roles_secret_name": {
-              "description": "NamespacedName comprises a resource name, with a mandatory namespace,\nrendered as \"\u003cnamespace\u003e/\u003cname\u003e\".  Being a type captures intent and\nhelps make sure that UIDs, namespaced names and non-namespaced names\ndo not get conflated in code.  For most use cases, namespace and name\nwill already have been format validated at the API entry point, so we\ndon't do that here.  Where that's not the case (e.g. in testing),\nconsider using NamespacedNameOrDie() in testing.go in this package.\n\nfrom: https://github.com/kubernetes/apimachinery/blob/master/pkg/types/namespacedname.go",
-              "type": "object",
-              "required": [
-                "name"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "namespace": {
-                  "type": "string"
-                }
-              }
+              "type": "string"
             },
             "infrastructure_roles_secrets": {
               "description": "namespaced name of the secret containing infrastructure roles names and passwords",
@@ -287,18 +275,7 @@
                   },
                   "secretname": {
                     "description": "Name of a secret which describes the role, and optionally name of a\nconfigmap with an extra information",
-                    "type": "object",
-                    "required": [
-                      "name"
-                    ],
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "namespace": {
-                        "type": "string"
-                      }
-                    }
+                    "type": "string"
                   },
                   "template": {
                     "type": "boolean"
@@ -491,19 +468,8 @@
             },
             "oauth_token_secret_name": {
               "description": "namespaced name of the secret containing the OAuth2 token to pass to the teams API",
-              "type": "object",
-              "default": "postgres-operator",
-              "required": [
-                "name"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "namespace": {
-                  "type": "string"
-                }
-              }
+              "type": "string",
+              "default": "postgres-operator"
             },
             "pdb_master_label_selector": {
               "type": "boolean",
@@ -529,18 +495,7 @@
             },
             "pod_environment_configmap": {
               "description": "namespaced name of the ConfigMap with environment variables to populate on every pod",
-              "type": "object",
-              "required": [
-                "name"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "namespace": {
-                  "type": "string"
-                }
-              }
+              "type": "string"
             },
             "pod_environment_secret": {
               "type": "string"
