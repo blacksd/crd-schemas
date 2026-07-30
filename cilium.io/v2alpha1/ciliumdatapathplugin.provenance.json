@@ -1,9 +1,9 @@
 {
-  "schema": "ciliumnetworkpolicy.json",
+  "schema": "ciliumdatapathplugin.json",
   "crd": {
     "group": "cilium.io",
-    "kind": "CiliumNetworkPolicy",
-    "apiVersion": "v2"
+    "kind": "CiliumDatapathPlugin",
+    "apiVersion": "v2alpha1"
   },
   "source": {
     "name": "cilium",
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "00469fd2d5fd6425ca4bf19ea6f65878acea78530e52054684d451bdc0fd1ad3"
+    "sha256": "56c1465c8feebb908a55aaddc465eaea77ffbfef8f3edef321f176da199140a4"
   }
 }

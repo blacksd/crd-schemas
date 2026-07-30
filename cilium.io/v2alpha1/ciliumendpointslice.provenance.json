@@ -10,15 +10,15 @@
     "type": "git+github",
     "repo": "https://github.com/cilium/cilium",
     "path": "pkg/k8s/apis/cilium.io/client/crds",
-    "version": "v1.19.1",
+    "version": "v1.20.0",
     "license": "Apache-2.0",
     "homepage": "https://cilium.io"
   },
   "extraction": {
-    "timestamp": "2026-03-20T19:02:52Z",
+    "timestamp": "2026-07-30T11:07:14Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "2028ae037ba42c57fe1c366a1c98610e0b6de8b0fd49454cbdfd3907d81c3ff9"
+    "sha256": "4ff6de7eb0cc5b5e1a9e4960e26bc5ba3e192f24d07be5a385d3c756b29295d0"
   }
 }
