@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:aa5a3e91-a912-4825-a9b9-5ce3ef376df3",
-  "version": 3,
+  "version": 4,
   "metadata": {
-    "timestamp": "2026-06-27T08:36:27Z",
+    "timestamp": "2026-08-04T11:08:37Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "apisix-ingress-controller",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "licenses": [
         {
           "license": {
