@@ -218,8 +218,29 @@
               "description": "A collection of VLAN attachment resources. These resources should be redundant attachments that all advertise the same prefixes to Google Cloud. Alternatively, in active/passive configurations, all attachments should be capable of advertising the same prefixes.\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "excludeExportRanges": {
+                  "description": "Dynamic routes overlapped/encompassed by exclude export ranges are excluded during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "excludeImportRanges": {
+                  "description": "Hub routes overlapped/encompassed by exclude import ranges are excluded during import from hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "Dynamic routes fully encompassed by include export ranges are included during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "includeImportRanges": {
-                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "description": "Hub routes fully encompassed by include import ranges are included during import from hub.\n\"ALL_IPV4_RANGES\" or IPv4 CIDR ranges are allowed.",
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -526,8 +547,29 @@
               "description": "The URIs of linked Router appliance resources\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "excludeExportRanges": {
+                  "description": "Dynamic routes overlapped/encompassed by exclude export ranges are excluded during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "excludeImportRanges": {
+                  "description": "Hub routes overlapped/encompassed by exclude import ranges are excluded during import from hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "Dynamic routes fully encompassed by include export ranges are included during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "includeImportRanges": {
-                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "description": "Hub routes fully encompassed by include import ranges are included during import from hub.\n\"ALL_IPV4_RANGES\" or IPv4 CIDR ranges are allowed.",
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -752,8 +794,29 @@
               "description": "The URIs of linked VPN tunnel resources\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "excludeExportRanges": {
+                  "description": "Dynamic routes overlapped/encompassed by exclude export ranges are excluded during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "excludeImportRanges": {
+                  "description": "Hub routes overlapped/encompassed by exclude import ranges are excluded during import from hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "Dynamic routes fully encompassed by include export ranges are included during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "includeImportRanges": {
-                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "description": "Hub routes fully encompassed by include import ranges are included during import from hub.\n\"ALL_IPV4_RANGES\" or IPv4 CIDR ranges are allowed.",
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1070,8 +1133,29 @@
               "description": "A collection of VLAN attachment resources. These resources should be redundant attachments that all advertise the same prefixes to Google Cloud. Alternatively, in active/passive configurations, all attachments should be capable of advertising the same prefixes.\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "excludeExportRanges": {
+                  "description": "Dynamic routes overlapped/encompassed by exclude export ranges are excluded during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "excludeImportRanges": {
+                  "description": "Hub routes overlapped/encompassed by exclude import ranges are excluded during import from hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "Dynamic routes fully encompassed by include export ranges are included during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "includeImportRanges": {
-                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "description": "Hub routes fully encompassed by include import ranges are included during import from hub.\n\"ALL_IPV4_RANGES\" or IPv4 CIDR ranges are allowed.",
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1378,8 +1462,29 @@
               "description": "The URIs of linked Router appliance resources\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "excludeExportRanges": {
+                  "description": "Dynamic routes overlapped/encompassed by exclude export ranges are excluded during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "excludeImportRanges": {
+                  "description": "Hub routes overlapped/encompassed by exclude import ranges are excluded during import from hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "Dynamic routes fully encompassed by include export ranges are included during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "includeImportRanges": {
-                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "description": "Hub routes fully encompassed by include import ranges are included during import from hub.\n\"ALL_IPV4_RANGES\" or IPv4 CIDR ranges are allowed.",
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1604,8 +1709,29 @@
               "description": "The URIs of linked VPN tunnel resources\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "excludeExportRanges": {
+                  "description": "Dynamic routes overlapped/encompassed by exclude export ranges are excluded during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "excludeImportRanges": {
+                  "description": "Hub routes overlapped/encompassed by exclude import ranges are excluded during import from hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "Dynamic routes fully encompassed by include export ranges are included during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "includeImportRanges": {
-                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "description": "Hub routes fully encompassed by include import ranges are included during import from hub.\n\"ALL_IPV4_RANGES\" or IPv4 CIDR ranges are allowed.",
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1803,6 +1929,10 @@
               "description": "Output only. The time the spoke was created.",
               "type": "string"
             },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
             "description": {
               "description": "An optional description of the spoke.",
               "type": "string"
@@ -1838,8 +1968,29 @@
               "description": "A collection of VLAN attachment resources. These resources should be redundant attachments that all advertise the same prefixes to Google Cloud. Alternatively, in active/passive configurations, all attachments should be capable of advertising the same prefixes.\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "excludeExportRanges": {
+                  "description": "Dynamic routes overlapped/encompassed by exclude export ranges are excluded during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "excludeImportRanges": {
+                  "description": "Hub routes overlapped/encompassed by exclude import ranges are excluded during import from hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "Dynamic routes fully encompassed by include export ranges are included during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "includeImportRanges": {
-                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "description": "Hub routes fully encompassed by include import ranges are included during import from hub.\n\"ALL_IPV4_RANGES\" or IPv4 CIDR ranges are allowed.",
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1894,8 +2045,29 @@
               "description": "The URIs of linked Router appliance resources\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "excludeExportRanges": {
+                  "description": "Dynamic routes overlapped/encompassed by exclude export ranges are excluded during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "excludeImportRanges": {
+                  "description": "Hub routes overlapped/encompassed by exclude import ranges are excluded during import from hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "Dynamic routes fully encompassed by include export ranges are included during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "includeImportRanges": {
-                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "description": "Hub routes fully encompassed by include import ranges are included during import from hub.\n\"ALL_IPV4_RANGES\" or IPv4 CIDR ranges are allowed.",
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1952,8 +2124,29 @@
               "description": "The URIs of linked VPN tunnel resources\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "excludeExportRanges": {
+                  "description": "Dynamic routes overlapped/encompassed by exclude export ranges are excluded during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "excludeImportRanges": {
+                  "description": "Hub routes overlapped/encompassed by exclude import ranges are excluded during import from hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "includeExportRanges": {
+                  "description": "Dynamic routes fully encompassed by include export ranges are included during export to hub.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "includeImportRanges": {
-                  "description": "IP ranges allowed to be included during import from hub (does not control transit connectivity).\nThe only allowed value for now is \"ALL_IPV4_RANGES\".",
+                  "description": "Hub routes fully encompassed by include import ranges are included during import from hub.\n\"ALL_IPV4_RANGES\" or IPv4 CIDR ranges are allowed.",
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -2072,6 +2265,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

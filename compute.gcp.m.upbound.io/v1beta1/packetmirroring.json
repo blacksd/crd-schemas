@@ -127,6 +127,10 @@
               "description": "A human-readable description of the rule.",
               "type": "string"
             },
+            "enable": {
+              "description": "Indicates whether or not this packet mirroring takes effect. If set to FALSE, this packet mirroring\npolicy will not be enforced on the network. The default is TRUE.\nPossible values are: TRUE, FALSE.",
+              "type": "string"
+            },
             "filter": {
               "description": "A filter for mirrored traffic.  If unset, all traffic is mirrored.\nStructure is documented below.",
               "type": "object",
@@ -261,6 +265,90 @@
                       "url": {
                         "description": "The URL of the subnetwork where this rule should be active.",
                         "type": "string"
+                      },
+                      "urlRef": {
+                        "description": "Reference to a Subnetwork in compute to populate url.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "description": "Namespace of the referenced object",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "urlSelector": {
+                        "description": "Selector for a Subnetwork in compute to populate url.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "namespace": {
+                            "description": "Namespace for the selector",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -484,6 +572,10 @@
               "description": "A human-readable description of the rule.",
               "type": "string"
             },
+            "enable": {
+              "description": "Indicates whether or not this packet mirroring takes effect. If set to FALSE, this packet mirroring\npolicy will not be enforced on the network. The default is TRUE.\nPossible values are: TRUE, FALSE.",
+              "type": "string"
+            },
             "filter": {
               "description": "A filter for mirrored traffic.  If unset, all traffic is mirrored.\nStructure is documented below.",
               "type": "object",
@@ -618,6 +710,90 @@
                       "url": {
                         "description": "The URL of the subnetwork where this rule should be active.",
                         "type": "string"
+                      },
+                      "urlRef": {
+                        "description": "Reference to a Subnetwork in compute to populate url.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "description": "Namespace of the referenced object",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "urlSelector": {
+                        "description": "Selector for a Subnetwork in compute to populate url.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "namespace": {
+                            "description": "Namespace for the selector",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -822,8 +998,16 @@
                 }
               }
             },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
             "description": {
               "description": "A human-readable description of the rule.",
+              "type": "string"
+            },
+            "enable": {
+              "description": "Indicates whether or not this packet mirroring takes effect. If set to FALSE, this packet mirroring\npolicy will not be enforced on the network. The default is TRUE.\nPossible values are: TRUE, FALSE.",
               "type": "string"
             },
             "filter": {
@@ -962,6 +1146,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

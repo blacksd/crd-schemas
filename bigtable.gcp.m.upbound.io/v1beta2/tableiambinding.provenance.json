@@ -1,0 +1,24 @@
+{
+  "schema": "tableiambinding.json",
+  "crd": {
+    "group": "bigtable.gcp.m.upbound.io",
+    "kind": "TableIAMBinding",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.6.1",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-08-04T04:44:19Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "491059c9239c2ed3b205a6d925579b5b3f7ed3a0abd85499e310418eafaccbb9"
+  }
+}

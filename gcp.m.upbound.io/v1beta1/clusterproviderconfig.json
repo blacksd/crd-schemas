@@ -24,6 +24,10 @@
         "projectID"
       ],
       "properties": {
+        "billingProject": {
+          "description": "BillingProject is the project name (not numerical ID) to attribute API\nrequests to. Only used when userProjectOverride is true.",
+          "type": "string"
+        },
         "credentials": {
           "description": "Credentials required to authenticate to this provider.",
           "type": "object",
@@ -182,6 +186,10 @@
               "message": "when maxDelay is omitted it defaults to 60s; baseDelay must be \u003c= 60s"
             }
           ]
+        },
+        "userProjectOverride": {
+          "description": "UserProjectOverride enables attributing API requests to the project in\nbillingProject (or, when that is unset, the resource's project) by\nsending the X-Goog-User-Project header, instead of attributing them to\nthe credential's home project.",
+          "type": "boolean"
         }
       }
     },

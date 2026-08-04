@@ -277,6 +277,10 @@
                       }
                     }
                   }
+                },
+                "textConfig": {
+                  "description": "If set, message data will be written to Cloud Storage in text format.\nStructure is documented below.",
+                  "type": "object"
                 }
               }
             },
@@ -418,6 +422,118 @@
               "items": {
                 "type": "object",
                 "properties": {
+                  "aiInference": {
+                    "description": "AI Inference. Specifies the Vertex AI endpoint that inference\nrequests built from the Pub/Sub message data and provided parameters will\nbe sent to.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "endpoint": {
+                        "description": "The endpoint to a Vertex AI model of the form\nprojects/{project}/locations/{location}/endpoints/{endpoint} or\nprojects/{project}/locations/{location}/publishers/{publisher}/models/{model}.\nVertex AI API requests will be sent to this endpoint.",
+                        "type": "string"
+                      },
+                      "serviceAccountEmail": {
+                        "description": "Service account email to be used for generating the OIDC token.\nThe caller (for subscriptions.create, subscriptions.patch, and\nsubscriptions.modifyPushConfig RPCs) must have the\niam.serviceAccounts.actAs permission for the service account.",
+                        "type": "string"
+                      },
+                      "serviceAccountEmailRef": {
+                        "description": "Reference to a ServiceAccount in cloudplatform to populate serviceAccountEmail.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "description": "Namespace of the referenced object",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "serviceAccountEmailSelector": {
+                        "description": "Selector for a ServiceAccount in cloudplatform to populate serviceAccountEmail.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "namespace": {
+                            "description": "Namespace for the selector",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "unstructuredInference": {
+                        "description": "Configuration for making inferences using arbitrary JSON payloads.\nStructure is documented below.",
+                        "type": "object",
+                        "properties": {
+                          "parameters": {
+                            "description": "A parameters object to be included in each inference request.\nThe parameters object is combined with the data field of the Pub/Sub\nmessage to form the inference request.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "x-kubernetes-map-type": "granular"
+                          }
+                        }
+                      }
+                    }
+                  },
                   "disabled": {
                     "description": "Controls whether or not to use this transform. If not set or false,\nthe transform will be applied to messages. Default: true.",
                     "type": "boolean"
@@ -502,6 +618,14 @@
                   "type": "string"
                 }
               }
+            },
+            "tags": {
+              "description": "Input only. Resource manager tags to be bound to the subscription. Tag\nkeys and values have the same definition as resource manager tags. Keys\nmust be in the format tagKeys/{tag_key_id}, and values are in the format\ntagValues/456. The field is ignored when empty. The field is immutable and\ncauses resource replacement when mutated. This field is only set at create\ntime and modifying this field after creation will trigger recreation. To\napply tags to an existing resource, see the google_tags_tag_value\nresource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
             },
             "topic": {
               "description": "A reference to a Topic resource, of the form projects/{project}/topics/{{name}}\n(as in the id property of a google_pubsub_topic), or just a topic name if\nthe topic is in the same project as the subscription.",
@@ -848,6 +972,10 @@
                       }
                     }
                   }
+                },
+                "textConfig": {
+                  "description": "If set, message data will be written to Cloud Storage in text format.\nStructure is documented below.",
+                  "type": "object"
                 }
               }
             },
@@ -989,6 +1117,118 @@
               "items": {
                 "type": "object",
                 "properties": {
+                  "aiInference": {
+                    "description": "AI Inference. Specifies the Vertex AI endpoint that inference\nrequests built from the Pub/Sub message data and provided parameters will\nbe sent to.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "endpoint": {
+                        "description": "The endpoint to a Vertex AI model of the form\nprojects/{project}/locations/{location}/endpoints/{endpoint} or\nprojects/{project}/locations/{location}/publishers/{publisher}/models/{model}.\nVertex AI API requests will be sent to this endpoint.",
+                        "type": "string"
+                      },
+                      "serviceAccountEmail": {
+                        "description": "Service account email to be used for generating the OIDC token.\nThe caller (for subscriptions.create, subscriptions.patch, and\nsubscriptions.modifyPushConfig RPCs) must have the\niam.serviceAccounts.actAs permission for the service account.",
+                        "type": "string"
+                      },
+                      "serviceAccountEmailRef": {
+                        "description": "Reference to a ServiceAccount in cloudplatform to populate serviceAccountEmail.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "namespace": {
+                            "description": "Namespace of the referenced object",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "serviceAccountEmailSelector": {
+                        "description": "Selector for a ServiceAccount in cloudplatform to populate serviceAccountEmail.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "namespace": {
+                            "description": "Namespace for the selector",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "unstructuredInference": {
+                        "description": "Configuration for making inferences using arbitrary JSON payloads.\nStructure is documented below.",
+                        "type": "object",
+                        "properties": {
+                          "parameters": {
+                            "description": "A parameters object to be included in each inference request.\nThe parameters object is combined with the data field of the Pub/Sub\nmessage to form the inference request.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "x-kubernetes-map-type": "granular"
+                          }
+                        }
+                      }
+                    }
+                  },
                   "disabled": {
                     "description": "Controls whether or not to use this transform. If not set or false,\nthe transform will be applied to messages. Default: true.",
                     "type": "boolean"
@@ -1073,6 +1313,14 @@
                   "type": "string"
                 }
               }
+            },
+            "tags": {
+              "description": "Input only. Resource manager tags to be bound to the subscription. Tag\nkeys and values have the same definition as resource manager tags. Keys\nmust be in the format tagKeys/{tag_key_id}, and values are in the format\ntagValues/456. The field is ignored when empty. The field is immutable and\ncauses resource replacement when mutated. This field is only set at create\ntime and modifying this field after creation will trigger recreation. To\napply tags to an existing resource, see the google_tags_tag_value\nresource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
             },
             "topic": {
               "description": "A reference to a Topic resource, of the form projects/{project}/topics/{{name}}\n(as in the id property of a google_pubsub_topic), or just a topic name if\nthe topic is in the same project as the subscription.",
@@ -1314,6 +1562,16 @@
                 "state": {
                   "description": "(Output)\nAn output-only field that indicates whether or not the subscription can receive messages.",
                   "type": "string"
+                },
+                "textConfig": {
+                  "description": "If set, message data will be written to Cloud Storage in text format.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "state": {
+                      "description": "(Output)\nOutput only. Placeholder to allow the empty text_config block.",
+                      "type": "string"
+                    }
+                  }
                 }
               }
             },
@@ -1330,6 +1588,10 @@
                   "type": "number"
                 }
               }
+            },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
             },
             "effectiveLabels": {
               "description": "for all of the labels present on the resource.",
@@ -1383,6 +1645,34 @@
               "items": {
                 "type": "object",
                 "properties": {
+                  "aiInference": {
+                    "description": "AI Inference. Specifies the Vertex AI endpoint that inference\nrequests built from the Pub/Sub message data and provided parameters will\nbe sent to.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "endpoint": {
+                        "description": "The endpoint to a Vertex AI model of the form\nprojects/{project}/locations/{location}/endpoints/{endpoint} or\nprojects/{project}/locations/{location}/publishers/{publisher}/models/{model}.\nVertex AI API requests will be sent to this endpoint.",
+                        "type": "string"
+                      },
+                      "serviceAccountEmail": {
+                        "description": "Service account email to be used for generating the OIDC token.\nThe caller (for subscriptions.create, subscriptions.patch, and\nsubscriptions.modifyPushConfig RPCs) must have the\niam.serviceAccounts.actAs permission for the service account.",
+                        "type": "string"
+                      },
+                      "unstructuredInference": {
+                        "description": "Configuration for making inferences using arbitrary JSON payloads.\nStructure is documented below.",
+                        "type": "object",
+                        "properties": {
+                          "parameters": {
+                            "description": "A parameters object to be included in each inference request.\nThe parameters object is combined with the data field of the Pub/Sub\nmessage to form the inference request.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "x-kubernetes-map-type": "granular"
+                          }
+                        }
+                      }
+                    }
+                  },
                   "disabled": {
                     "description": "Controls whether or not to use this transform. If not set or false,\nthe transform will be applied to messages. Default: true.",
                     "type": "boolean"
@@ -1468,6 +1758,14 @@
                 }
               }
             },
+            "tags": {
+              "description": "Input only. Resource manager tags to be bound to the subscription. Tag\nkeys and values have the same definition as resource manager tags. Keys\nmust be in the format tagKeys/{tag_key_id}, and values are in the format\ntagValues/456. The field is ignored when empty. The field is immutable and\ncauses resource replacement when mutated. This field is only set at create\ntime and modifying this field after creation will trigger recreation. To\napply tags to an existing resource, see the google_tags_tag_value\nresource.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
+            },
             "terraformLabels": {
               "description": "The combination of labels configured directly on the resource\nand default labels configured on the provider.",
               "type": "object",
@@ -1527,6 +1825,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

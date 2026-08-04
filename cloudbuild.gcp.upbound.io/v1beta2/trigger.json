@@ -518,6 +518,52 @@
               "description": "Human-readable description of the trigger.",
               "type": "string"
             },
+            "developerConnectEventConfig": {
+              "description": "Configuration for triggers that respond to Developer Connect events.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "gitRepositoryLink": {
+                  "description": "The Developer Connect Git repository link, formatted as projects/*/locations/*/connections/*/gitRepositoryLink/*.",
+                  "type": "string"
+                },
+                "pullRequest": {
+                  "description": "Filter to match changes in pull requests.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "branch": {
+                      "description": "Regex of branches to match.\nThe syntax of the regular expressions accepted is the syntax accepted by\nRE2 and described at https://github.com/google/re2/wiki/Syntax",
+                      "type": "string"
+                    },
+                    "commentControl": {
+                      "description": "Configure builds to run whether a repository owner or collaborator need to comment /gcbrun.\nPossible values are: COMMENTS_DISABLED, COMMENTS_ENABLED, COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY.",
+                      "type": "string"
+                    },
+                    "invertRegex": {
+                      "description": "Only trigger a build if the revision regex does NOT match the revision regex.",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "push": {
+                  "description": "Filter to match changes in refs like branches and tags.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "branch": {
+                      "description": "Regex of branches to match.\nThe syntax of the regular expressions accepted is the syntax accepted by\nRE2 and described at https://github.com/google/re2/wiki/Syntax",
+                      "type": "string"
+                    },
+                    "invertRegex": {
+                      "description": "Only trigger a build if the revision regex does NOT match the revision regex.",
+                      "type": "boolean"
+                    },
+                    "tag": {
+                      "description": "Regex of tags to match.\nThe syntax of the regular expressions accepted is the syntax accepted by\nRE2 and described at https://github.com/google/re2/wiki/Syntax",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
             "disabled": {
               "description": "Whether the trigger is disabled or not. If true, the trigger will never result in a build.",
               "type": "boolean"
@@ -565,7 +611,7 @@
               }
             },
             "github": {
-              "description": "Describes the configuration of a trigger that creates a build whenever a GitHub event is received.\nOne of trigger_template, github, pubsub_config or webhook_config must be provided.\nStructure is documented below.",
+              "description": "Describes the configuration of a trigger that creates a build whenever a GitHub event is received.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "enterpriseConfigResourceName": {
@@ -649,7 +695,7 @@
               "type": "string"
             },
             "pubsubConfig": {
-              "description": "PubsubConfig describes the configuration of a trigger that creates\na build whenever a Pub/Sub message is published.\nOne of trigger_template, github, pubsub_config webhook_config or source_to_build must be provided.\nStructure is documented below.",
+              "description": "PubsubConfig describes the configuration of a trigger that creates\na build whenever a Pub/Sub message is published.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "serviceAccountEmail": {
@@ -865,7 +911,7 @@
               }
             },
             "sourceToBuild": {
-              "description": "The repo and ref of the repository from which to build.\nThis field is used only for those triggers that do not respond to SCM events.\nTriggers that respond to such events build source at whatever commit caused the event.\nThis field is currently only used by Webhook, Pub/Sub, Manual, and Cron triggers.\nOne of trigger_template, github, pubsub_config webhook_config or source_to_build must be provided.\nStructure is documented below.",
+              "description": "The repo and ref of the repository from which to build.\nThis field is used only for those triggers that do not respond to SCM events.\nTriggers that respond to such events build source at whatever commit caused the event.\nThis field is currently only used by Webhook, Pub/Sub, Manual, and Cron triggers.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "bitbucketServerConfig": {
@@ -910,7 +956,7 @@
               }
             },
             "triggerTemplate": {
-              "description": "Template describing the types of source changes to trigger a build.\nBranch and tag names in trigger templates are interpreted as regular\nexpressions. Any branch or tag change that matches that regular\nexpression will trigger a build.\nOne of trigger_template, github, pubsub_config, webhook_config or source_to_build must be provided.\nStructure is documented below.",
+              "description": "Template describing the types of source changes to trigger a build.\nBranch and tag names in trigger templates are interpreted as regular\nexpressions. Any branch or tag change that matches that regular\nexpression will trigger a build.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "branchName": {
@@ -944,7 +990,7 @@
               }
             },
             "webhookConfig": {
-              "description": "WebhookConfig describes the configuration of a trigger that creates\na build whenever a webhook is sent to a trigger's webhook URL.\nOne of trigger_template, github, pubsub_config webhook_config or source_to_build must be provided.\nStructure is documented below.",
+              "description": "WebhookConfig describes the configuration of a trigger that creates\na build whenever a webhook is sent to a trigger's webhook URL.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "secret": {
@@ -1518,6 +1564,52 @@
               "description": "Human-readable description of the trigger.",
               "type": "string"
             },
+            "developerConnectEventConfig": {
+              "description": "Configuration for triggers that respond to Developer Connect events.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "gitRepositoryLink": {
+                  "description": "The Developer Connect Git repository link, formatted as projects/*/locations/*/connections/*/gitRepositoryLink/*.",
+                  "type": "string"
+                },
+                "pullRequest": {
+                  "description": "Filter to match changes in pull requests.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "branch": {
+                      "description": "Regex of branches to match.\nThe syntax of the regular expressions accepted is the syntax accepted by\nRE2 and described at https://github.com/google/re2/wiki/Syntax",
+                      "type": "string"
+                    },
+                    "commentControl": {
+                      "description": "Configure builds to run whether a repository owner or collaborator need to comment /gcbrun.\nPossible values are: COMMENTS_DISABLED, COMMENTS_ENABLED, COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY.",
+                      "type": "string"
+                    },
+                    "invertRegex": {
+                      "description": "Only trigger a build if the revision regex does NOT match the revision regex.",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "push": {
+                  "description": "Filter to match changes in refs like branches and tags.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "branch": {
+                      "description": "Regex of branches to match.\nThe syntax of the regular expressions accepted is the syntax accepted by\nRE2 and described at https://github.com/google/re2/wiki/Syntax",
+                      "type": "string"
+                    },
+                    "invertRegex": {
+                      "description": "Only trigger a build if the revision regex does NOT match the revision regex.",
+                      "type": "boolean"
+                    },
+                    "tag": {
+                      "description": "Regex of tags to match.\nThe syntax of the regular expressions accepted is the syntax accepted by\nRE2 and described at https://github.com/google/re2/wiki/Syntax",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
             "disabled": {
               "description": "Whether the trigger is disabled or not. If true, the trigger will never result in a build.",
               "type": "boolean"
@@ -1565,7 +1657,7 @@
               }
             },
             "github": {
-              "description": "Describes the configuration of a trigger that creates a build whenever a GitHub event is received.\nOne of trigger_template, github, pubsub_config or webhook_config must be provided.\nStructure is documented below.",
+              "description": "Describes the configuration of a trigger that creates a build whenever a GitHub event is received.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "enterpriseConfigResourceName": {
@@ -1649,7 +1741,7 @@
               "type": "string"
             },
             "pubsubConfig": {
-              "description": "PubsubConfig describes the configuration of a trigger that creates\na build whenever a Pub/Sub message is published.\nOne of trigger_template, github, pubsub_config webhook_config or source_to_build must be provided.\nStructure is documented below.",
+              "description": "PubsubConfig describes the configuration of a trigger that creates\na build whenever a Pub/Sub message is published.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "serviceAccountEmail": {
@@ -1865,7 +1957,7 @@
               }
             },
             "sourceToBuild": {
-              "description": "The repo and ref of the repository from which to build.\nThis field is used only for those triggers that do not respond to SCM events.\nTriggers that respond to such events build source at whatever commit caused the event.\nThis field is currently only used by Webhook, Pub/Sub, Manual, and Cron triggers.\nOne of trigger_template, github, pubsub_config webhook_config or source_to_build must be provided.\nStructure is documented below.",
+              "description": "The repo and ref of the repository from which to build.\nThis field is used only for those triggers that do not respond to SCM events.\nTriggers that respond to such events build source at whatever commit caused the event.\nThis field is currently only used by Webhook, Pub/Sub, Manual, and Cron triggers.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "bitbucketServerConfig": {
@@ -1910,7 +2002,7 @@
               }
             },
             "triggerTemplate": {
-              "description": "Template describing the types of source changes to trigger a build.\nBranch and tag names in trigger templates are interpreted as regular\nexpressions. Any branch or tag change that matches that regular\nexpression will trigger a build.\nOne of trigger_template, github, pubsub_config, webhook_config or source_to_build must be provided.\nStructure is documented below.",
+              "description": "Template describing the types of source changes to trigger a build.\nBranch and tag names in trigger templates are interpreted as regular\nexpressions. Any branch or tag change that matches that regular\nexpression will trigger a build.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "branchName": {
@@ -1944,7 +2036,7 @@
               }
             },
             "webhookConfig": {
-              "description": "WebhookConfig describes the configuration of a trigger that creates\na build whenever a webhook is sent to a trigger's webhook URL.\nOne of trigger_template, github, pubsub_config webhook_config or source_to_build must be provided.\nStructure is documented below.",
+              "description": "WebhookConfig describes the configuration of a trigger that creates\na build whenever a webhook is sent to a trigger's webhook URL.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "secret": {
@@ -2616,9 +2708,63 @@
               "description": "Time when the trigger was created.",
               "type": "string"
             },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
             "description": {
               "description": "Human-readable description of the trigger.",
               "type": "string"
+            },
+            "developerConnectEventConfig": {
+              "description": "Configuration for triggers that respond to Developer Connect events.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "gitRepositoryLink": {
+                  "description": "The Developer Connect Git repository link, formatted as projects/*/locations/*/connections/*/gitRepositoryLink/*.",
+                  "type": "string"
+                },
+                "gitRepositoryLinkType": {
+                  "description": "(Output)\nThe type of DeveloperConnect GitRepositoryLink.",
+                  "type": "string"
+                },
+                "pullRequest": {
+                  "description": "Filter to match changes in pull requests.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "branch": {
+                      "description": "Regex of branches to match.\nThe syntax of the regular expressions accepted is the syntax accepted by\nRE2 and described at https://github.com/google/re2/wiki/Syntax",
+                      "type": "string"
+                    },
+                    "commentControl": {
+                      "description": "Configure builds to run whether a repository owner or collaborator need to comment /gcbrun.\nPossible values are: COMMENTS_DISABLED, COMMENTS_ENABLED, COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY.",
+                      "type": "string"
+                    },
+                    "invertRegex": {
+                      "description": "Only trigger a build if the revision regex does NOT match the revision regex.",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "push": {
+                  "description": "Filter to match changes in refs like branches and tags.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "branch": {
+                      "description": "Regex of branches to match.\nThe syntax of the regular expressions accepted is the syntax accepted by\nRE2 and described at https://github.com/google/re2/wiki/Syntax",
+                      "type": "string"
+                    },
+                    "invertRegex": {
+                      "description": "Only trigger a build if the revision regex does NOT match the revision regex.",
+                      "type": "boolean"
+                    },
+                    "tag": {
+                      "description": "Regex of tags to match.\nThe syntax of the regular expressions accepted is the syntax accepted by\nRE2 and described at https://github.com/google/re2/wiki/Syntax",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
             },
             "disabled": {
               "description": "Whether the trigger is disabled or not. If true, the trigger will never result in a build.",
@@ -2667,7 +2813,7 @@
               }
             },
             "github": {
-              "description": "Describes the configuration of a trigger that creates a build whenever a GitHub event is received.\nOne of trigger_template, github, pubsub_config or webhook_config must be provided.\nStructure is documented below.",
+              "description": "Describes the configuration of a trigger that creates a build whenever a GitHub event is received.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "enterpriseConfigResourceName": {
@@ -2755,7 +2901,7 @@
               "type": "string"
             },
             "pubsubConfig": {
-              "description": "PubsubConfig describes the configuration of a trigger that creates\na build whenever a Pub/Sub message is published.\nOne of trigger_template, github, pubsub_config webhook_config or source_to_build must be provided.\nStructure is documented below.",
+              "description": "PubsubConfig describes the configuration of a trigger that creates\na build whenever a Pub/Sub message is published.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "serviceAccountEmail": {
@@ -2827,7 +2973,7 @@
               "type": "string"
             },
             "sourceToBuild": {
-              "description": "The repo and ref of the repository from which to build.\nThis field is used only for those triggers that do not respond to SCM events.\nTriggers that respond to such events build source at whatever commit caused the event.\nThis field is currently only used by Webhook, Pub/Sub, Manual, and Cron triggers.\nOne of trigger_template, github, pubsub_config webhook_config or source_to_build must be provided.\nStructure is documented below.",
+              "description": "The repo and ref of the repository from which to build.\nThis field is used only for those triggers that do not respond to SCM events.\nTriggers that respond to such events build source at whatever commit caused the event.\nThis field is currently only used by Webhook, Pub/Sub, Manual, and Cron triggers.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "bitbucketServerConfig": {
@@ -2876,7 +3022,7 @@
               "type": "string"
             },
             "triggerTemplate": {
-              "description": "Template describing the types of source changes to trigger a build.\nBranch and tag names in trigger templates are interpreted as regular\nexpressions. Any branch or tag change that matches that regular\nexpression will trigger a build.\nOne of trigger_template, github, pubsub_config, webhook_config or source_to_build must be provided.\nStructure is documented below.",
+              "description": "Template describing the types of source changes to trigger a build.\nBranch and tag names in trigger templates are interpreted as regular\nexpressions. Any branch or tag change that matches that regular\nexpression will trigger a build.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "branchName": {
@@ -2910,7 +3056,7 @@
               }
             },
             "webhookConfig": {
-              "description": "WebhookConfig describes the configuration of a trigger that creates\na build whenever a webhook is sent to a trigger's webhook URL.\nOne of trigger_template, github, pubsub_config webhook_config or source_to_build must be provided.\nStructure is documented below.",
+              "description": "WebhookConfig describes the configuration of a trigger that creates\na build whenever a webhook is sent to a trigger's webhook URL.\nStructure is documented below.",
               "type": "object",
               "properties": {
                 "secret": {
@@ -2970,6 +3116,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

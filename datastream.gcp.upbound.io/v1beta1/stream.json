@@ -42,6 +42,51 @@
               "description": "Backfill strategy to automatically backfill the Stream's objects. Specific objects can be excluded.\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "mongodbExcludedObjects": {
+                  "description": "MongoDB data source objects to avoid backfilling.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "databases": {
+                      "description": "MongoDB databases in the cluster.\nStructure is documented below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "collections": {
+                            "description": "Collections in the database.\nStructure is documented below.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "collection": {
+                                  "description": "The MongoDB collection name.",
+                                  "type": "string"
+                                },
+                                "fields": {
+                                  "description": "Fields in the Salesforce object. When unspecified as part of include/exclude objects, includes/excludes everything/nothing.\nStructure is documented below.",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "field": {
+                                        "description": "Field name.",
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "database": {
+                            "description": "The database name.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
                 "mysqlExcludedObjects": {
                   "description": "MySQL data source objects to avoid backfilling.\nStructure is documented below.",
                   "type": "object",
@@ -53,7 +98,7 @@
                         "type": "object",
                         "properties": {
                           "database": {
-                            "description": "Database name.",
+                            "description": "The database name.",
                             "type": "string"
                           },
                           "mysqlTables": {
@@ -73,7 +118,7 @@
                                         "type": "string"
                                       },
                                       "column": {
-                                        "description": "Column name.",
+                                        "description": "The partitioning column.",
                                         "type": "string"
                                       },
                                       "dataType": {
@@ -130,7 +175,7 @@
                                     "type": "object",
                                     "properties": {
                                       "column": {
-                                        "description": "Column name.",
+                                        "description": "The partitioning column.",
                                         "type": "string"
                                       },
                                       "dataType": {
@@ -148,7 +193,7 @@
                             }
                           },
                           "schema": {
-                            "description": "Schema name.",
+                            "description": "The schema name.",
                             "type": "string"
                           }
                         }
@@ -179,7 +224,7 @@
                                     "type": "object",
                                     "properties": {
                                       "column": {
-                                        "description": "Column name.",
+                                        "description": "The partitioning column.",
                                         "type": "string"
                                       },
                                       "dataType": {
@@ -209,7 +254,7 @@
                             }
                           },
                           "schema": {
-                            "description": "Schema name.",
+                            "description": "The schema name.",
                             "type": "string"
                           }
                         }
@@ -241,8 +286,53 @@
                             }
                           },
                           "objectName": {
-                            "description": "Name of object in Salesforce Org.",
+                            "description": "The Salesforce object name.",
                             "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "spannerExcludedObjects": {
+                  "description": "Spanner objects to avoid backfilling.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "schemas": {
+                      "description": "SQL Server schemas/databases in the database server\nStructure is documented below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "schema": {
+                            "description": "The schema name.",
+                            "type": "string"
+                          },
+                          "tables": {
+                            "description": "Tables in the database.\nStructure is documented below.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "columns": {
+                                  "description": "SQL Server columns in the schema. When unspecified as part of include/exclude objects, includes/excludes everything.\nStructure is documented below.",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "column": {
+                                        "description": "The partitioning column.",
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "table": {
+                                  "description": "Table name.",
+                                  "type": "string"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -260,7 +350,7 @@
                         "type": "object",
                         "properties": {
                           "schema": {
-                            "description": "Schema name.",
+                            "description": "The schema name.",
                             "type": "string"
                           },
                           "tables": {
@@ -276,7 +366,7 @@
                                     "type": "object",
                                     "properties": {
                                       "column": {
-                                        "description": "Column name.",
+                                        "description": "The partitioning column.",
                                         "type": "string"
                                       },
                                       "dataType": {
@@ -544,8 +634,88 @@
                               "type": "string"
                             },
                             "location": {
-                              "description": "The geographic location where the dataset should reside.\nSee https://cloud.google.com/bigquery/docs/locations for supported locations.",
+                              "description": "The name of the location this stream is located in.",
                               "type": "string"
+                            }
+                          }
+                        },
+                        "projectId": {
+                          "description": "Optional. The project id of the BigQuery dataset. If not specified, the project will be inferred from the stream resource.",
+                          "type": "string"
+                        },
+                        "projectIdRef": {
+                          "description": "Reference to a Project in cloudplatform to populate projectId.",
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the referenced object.",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for referencing.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "projectIdSelector": {
+                          "description": "Selector for a Project in cloudplatform to populate projectId.",
+                          "type": "object",
+                          "properties": {
+                            "matchControllerRef": {
+                              "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                              "type": "boolean"
+                            },
+                            "matchLabels": {
+                              "description": "MatchLabels ensures an object with matching labels is selected.",
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "string"
+                              }
+                            },
+                            "policy": {
+                              "description": "Policies for selection.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
                             }
                           }
                         }
@@ -642,7 +812,7 @@
                       "type": "object"
                     },
                     "fileRotationInterval": {
-                      "description": "The maximum duration for which new events are added before a file is closed and a new file is created.\nA duration in seconds with up to nine fractional digits, terminated by 's'. Example: \"3.5s\". Defaults to 900s.",
+                      "description": "The maximum duration for which new events are added before a file is closed and a new file is created.\nValues within the range of 15-60 seconds are allowed.\nA duration in seconds with up to nine fractional digits, terminated by 's'. Example: \"3.5s\".",
                       "type": "string"
                     },
                     "fileRotationMb": {
@@ -691,10 +861,303 @@
               "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
               "type": "string"
             },
+            "ruleSets": {
+              "description": "Rule sets to apply to the stream.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "customizationRules": {
+                    "description": "List of customization rules to apply.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "bigqueryClustering": {
+                          "description": "BigQuery clustering rule.\nStructure is documented below.",
+                          "type": "object",
+                          "properties": {
+                            "columns": {
+                              "description": "SQL Server columns in the schema. When unspecified as part of include/exclude objects, includes/excludes everything.\nStructure is documented below.",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "bigqueryPartitioning": {
+                          "description": "BigQuery partitioning rule.\nStructure is documented below.",
+                          "type": "object",
+                          "properties": {
+                            "ingestionTimePartition": {
+                              "description": "A nested object resource.\nStructure is documented below.",
+                              "type": "object",
+                              "properties": {
+                                "partitioningTimeGranularity": {
+                                  "description": "Partition granularity.\nPossible values are: PARTITIONING_TIME_GRANULARITY_UNSPECIFIED, PARTITIONING_TIME_GRANULARITY_HOUR, PARTITIONING_TIME_GRANULARITY_DAY, PARTITIONING_TIME_GRANULARITY_MONTH, PARTITIONING_TIME_GRANULARITY_YEAR.",
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "integerRangePartition": {
+                              "description": "A nested object resource.\nStructure is documented below.",
+                              "type": "object",
+                              "properties": {
+                                "column": {
+                                  "description": "The partitioning column.",
+                                  "type": "string"
+                                },
+                                "end": {
+                                  "description": "The ending value for range partitioning (exclusive).",
+                                  "type": "number"
+                                },
+                                "interval": {
+                                  "description": "The interval of each range within the partition.",
+                                  "type": "number"
+                                },
+                                "start": {
+                                  "description": "The starting value for range partitioning (inclusive).",
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "requirePartitionFilter": {
+                              "description": "If true, queries over the table require a partition filter.",
+                              "type": "boolean"
+                            },
+                            "timeUnitPartition": {
+                              "description": "A nested object resource.\nStructure is documented below.",
+                              "type": "object",
+                              "properties": {
+                                "column": {
+                                  "description": "The partitioning column.",
+                                  "type": "string"
+                                },
+                                "partitioningTimeGranularity": {
+                                  "description": "Partition granularity.\nPossible values are: PARTITIONING_TIME_GRANULARITY_UNSPECIFIED, PARTITIONING_TIME_GRANULARITY_HOUR, PARTITIONING_TIME_GRANULARITY_DAY, PARTITIONING_TIME_GRANULARITY_MONTH, PARTITIONING_TIME_GRANULARITY_YEAR.",
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "objectFilter": {
+                    "description": "Object filter to apply the customization rules to.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "sourceObjectIdentifier": {
+                        "description": "Specific source object identifier.\nStructure is documented below.",
+                        "type": "object",
+                        "properties": {
+                          "mongodbIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "collection": {
+                                "description": "The MongoDB collection name.",
+                                "type": "string"
+                              },
+                              "database": {
+                                "description": "The database name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "mysqlIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "database": {
+                                "description": "The database name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "oracleIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "postgresqlIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "salesforceIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "objectName": {
+                                "description": "The Salesforce object name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "spannerIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "sqlServerIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "sourceConfig": {
               "description": "Source connection profile configuration.\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "mongodbSourceConfig": {
+                  "description": "MongoDB source configuration.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "excludeObjects": {
+                      "description": "SQL Server objects to exclude from the stream.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "databases": {
+                          "description": "MongoDB databases in the cluster.\nStructure is documented below.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "collections": {
+                                "description": "Collections in the database.\nStructure is documented below.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "collection": {
+                                      "description": "The MongoDB collection name.",
+                                      "type": "string"
+                                    },
+                                    "fields": {
+                                      "description": "Fields in the Salesforce object. When unspecified as part of include/exclude objects, includes/excludes everything/nothing.\nStructure is documented below.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "field": {
+                                            "description": "Field name.",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "database": {
+                                "description": "The database name.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "includeObjects": {
+                      "description": "SQL Server objects to retrieve from the source.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "databases": {
+                          "description": "MongoDB databases in the cluster.\nStructure is documented below.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "collections": {
+                                "description": "Collections in the database.\nStructure is documented below.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "collection": {
+                                      "description": "The MongoDB collection name.",
+                                      "type": "string"
+                                    },
+                                    "fields": {
+                                      "description": "Fields in the Salesforce object. When unspecified as part of include/exclude objects, includes/excludes everything/nothing.\nStructure is documented below.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "field": {
+                                            "description": "Field name.",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "database": {
+                                "description": "The database name.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "maxConcurrentBackfillTasks": {
+                      "description": "Max concurrent backfill tasks.",
+                      "type": "number"
+                    }
+                  }
+                },
                 "mysqlSourceConfig": {
                   "description": "MySQL data source configuration.\nStructure is documented below.",
                   "type": "object",
@@ -714,7 +1177,7 @@
                             "type": "object",
                             "properties": {
                               "database": {
-                                "description": "Database name.",
+                                "description": "The database name.",
                                 "type": "string"
                               },
                               "mysqlTables": {
@@ -734,7 +1197,7 @@
                                             "type": "string"
                                           },
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -783,7 +1246,7 @@
                             "type": "object",
                             "properties": {
                               "database": {
-                                "description": "Database name.",
+                                "description": "The database name.",
                                 "type": "string"
                               },
                               "mysqlTables": {
@@ -803,7 +1266,7 @@
                                             "type": "string"
                                           },
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -878,7 +1341,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -896,7 +1359,7 @@
                                 }
                               },
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               }
                             }
@@ -927,7 +1390,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -945,7 +1408,7 @@
                                 }
                               },
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               }
                             }
@@ -994,7 +1457,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -1024,7 +1487,7 @@
                                 }
                               },
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               }
                             }
@@ -1055,7 +1518,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -1085,7 +1548,7 @@
                                 }
                               },
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               }
                             }
@@ -1135,7 +1598,7 @@
                                 }
                               },
                               "objectName": {
-                                "description": "Name of object in Salesforce Org.",
+                                "description": "The Salesforce object name.",
                                 "type": "string"
                               }
                             }
@@ -1167,7 +1630,7 @@
                                 }
                               },
                               "objectName": {
-                                "description": "Name of object in Salesforce Org.",
+                                "description": "The Salesforce object name.",
                                 "type": "string"
                               }
                             }
@@ -1261,6 +1724,126 @@
                     }
                   }
                 },
+                "spannerSourceConfig": {
+                  "description": "Spanner data source configuration.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "backfillDataBoostEnabled": {
+                      "description": "Whether to use DataBoost for backfill queries.",
+                      "type": "boolean"
+                    },
+                    "changeStreamName": {
+                      "description": "The Spanner change stream name to use.",
+                      "type": "string"
+                    },
+                    "excludeObjects": {
+                      "description": "SQL Server objects to exclude from the stream.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "schemas": {
+                          "description": "SQL Server schemas/databases in the database server\nStructure is documented below.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "tables": {
+                                "description": "Tables in the database.\nStructure is documented below.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "columns": {
+                                      "description": "SQL Server columns in the schema. When unspecified as part of include/exclude objects, includes/excludes everything.\nStructure is documented below.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "column": {
+                                            "description": "The partitioning column.",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "table": {
+                                      "description": "Table name.",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "fgacRole": {
+                      "description": "The FGAC role to use for Spanner queries.",
+                      "type": "string"
+                    },
+                    "includeObjects": {
+                      "description": "SQL Server objects to retrieve from the source.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "schemas": {
+                          "description": "SQL Server schemas/databases in the database server\nStructure is documented below.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "tables": {
+                                "description": "Tables in the database.\nStructure is documented below.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "columns": {
+                                      "description": "SQL Server columns in the schema. When unspecified as part of include/exclude objects, includes/excludes everything.\nStructure is documented below.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "column": {
+                                            "description": "The partitioning column.",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "table": {
+                                      "description": "Table name.",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "maxConcurrentBackfillTasks": {
+                      "description": "Max concurrent backfill tasks.",
+                      "type": "number"
+                    },
+                    "maxConcurrentCdcTasks": {
+                      "description": "Max concurrent CDC tasks.",
+                      "type": "number"
+                    },
+                    "spannerRpcPriority": {
+                      "description": "The RPC priority to use for Spanner queries.\nPossible values are: LOW, MEDIUM, HIGH.",
+                      "type": "string"
+                    }
+                  }
+                },
                 "sqlServerSourceConfig": {
                   "description": "SQL Server data source configuration.\nStructure is documented below.",
                   "type": "object",
@@ -1280,7 +1863,7 @@
                             "type": "object",
                             "properties": {
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               },
                               "tables": {
@@ -1296,7 +1879,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -1329,7 +1912,7 @@
                             "type": "object",
                             "properties": {
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               },
                               "tables": {
@@ -1345,7 +1928,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -1393,6 +1976,51 @@
               "description": "Backfill strategy to automatically backfill the Stream's objects. Specific objects can be excluded.\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "mongodbExcludedObjects": {
+                  "description": "MongoDB data source objects to avoid backfilling.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "databases": {
+                      "description": "MongoDB databases in the cluster.\nStructure is documented below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "collections": {
+                            "description": "Collections in the database.\nStructure is documented below.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "collection": {
+                                  "description": "The MongoDB collection name.",
+                                  "type": "string"
+                                },
+                                "fields": {
+                                  "description": "Fields in the Salesforce object. When unspecified as part of include/exclude objects, includes/excludes everything/nothing.\nStructure is documented below.",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "field": {
+                                        "description": "Field name.",
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "database": {
+                            "description": "The database name.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
                 "mysqlExcludedObjects": {
                   "description": "MySQL data source objects to avoid backfilling.\nStructure is documented below.",
                   "type": "object",
@@ -1404,7 +2032,7 @@
                         "type": "object",
                         "properties": {
                           "database": {
-                            "description": "Database name.",
+                            "description": "The database name.",
                             "type": "string"
                           },
                           "mysqlTables": {
@@ -1424,7 +2052,7 @@
                                         "type": "string"
                                       },
                                       "column": {
-                                        "description": "Column name.",
+                                        "description": "The partitioning column.",
                                         "type": "string"
                                       },
                                       "dataType": {
@@ -1481,7 +2109,7 @@
                                     "type": "object",
                                     "properties": {
                                       "column": {
-                                        "description": "Column name.",
+                                        "description": "The partitioning column.",
                                         "type": "string"
                                       },
                                       "dataType": {
@@ -1499,7 +2127,7 @@
                             }
                           },
                           "schema": {
-                            "description": "Schema name.",
+                            "description": "The schema name.",
                             "type": "string"
                           }
                         }
@@ -1530,7 +2158,7 @@
                                     "type": "object",
                                     "properties": {
                                       "column": {
-                                        "description": "Column name.",
+                                        "description": "The partitioning column.",
                                         "type": "string"
                                       },
                                       "dataType": {
@@ -1560,7 +2188,7 @@
                             }
                           },
                           "schema": {
-                            "description": "Schema name.",
+                            "description": "The schema name.",
                             "type": "string"
                           }
                         }
@@ -1592,8 +2220,53 @@
                             }
                           },
                           "objectName": {
-                            "description": "Name of object in Salesforce Org.",
+                            "description": "The Salesforce object name.",
                             "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "spannerExcludedObjects": {
+                  "description": "Spanner objects to avoid backfilling.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "schemas": {
+                      "description": "SQL Server schemas/databases in the database server\nStructure is documented below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "schema": {
+                            "description": "The schema name.",
+                            "type": "string"
+                          },
+                          "tables": {
+                            "description": "Tables in the database.\nStructure is documented below.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "columns": {
+                                  "description": "SQL Server columns in the schema. When unspecified as part of include/exclude objects, includes/excludes everything.\nStructure is documented below.",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "column": {
+                                        "description": "The partitioning column.",
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "table": {
+                                  "description": "Table name.",
+                                  "type": "string"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -1611,7 +2284,7 @@
                         "type": "object",
                         "properties": {
                           "schema": {
-                            "description": "Schema name.",
+                            "description": "The schema name.",
                             "type": "string"
                           },
                           "tables": {
@@ -1627,7 +2300,7 @@
                                     "type": "object",
                                     "properties": {
                                       "column": {
-                                        "description": "Column name.",
+                                        "description": "The partitioning column.",
                                         "type": "string"
                                       },
                                       "dataType": {
@@ -1892,6 +2565,86 @@
                               "type": "string"
                             }
                           }
+                        },
+                        "projectId": {
+                          "description": "Optional. The project id of the BigQuery dataset. If not specified, the project will be inferred from the stream resource.",
+                          "type": "string"
+                        },
+                        "projectIdRef": {
+                          "description": "Reference to a Project in cloudplatform to populate projectId.",
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the referenced object.",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for referencing.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "projectIdSelector": {
+                          "description": "Selector for a Project in cloudplatform to populate projectId.",
+                          "type": "object",
+                          "properties": {
+                            "matchControllerRef": {
+                              "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                              "type": "boolean"
+                            },
+                            "matchLabels": {
+                              "description": "MatchLabels ensures an object with matching labels is selected.",
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "string"
+                              }
+                            },
+                            "policy": {
+                              "description": "Policies for selection.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -1986,7 +2739,7 @@
                       "type": "object"
                     },
                     "fileRotationInterval": {
-                      "description": "The maximum duration for which new events are added before a file is closed and a new file is created.\nA duration in seconds with up to nine fractional digits, terminated by 's'. Example: \"3.5s\". Defaults to 900s.",
+                      "description": "The maximum duration for which new events are added before a file is closed and a new file is created.\nValues within the range of 15-60 seconds are allowed.\nA duration in seconds with up to nine fractional digits, terminated by 's'. Example: \"3.5s\".",
                       "type": "string"
                     },
                     "fileRotationMb": {
@@ -2031,10 +2784,303 @@
               "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
               "type": "string"
             },
+            "ruleSets": {
+              "description": "Rule sets to apply to the stream.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "customizationRules": {
+                    "description": "List of customization rules to apply.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "bigqueryClustering": {
+                          "description": "BigQuery clustering rule.\nStructure is documented below.",
+                          "type": "object",
+                          "properties": {
+                            "columns": {
+                              "description": "SQL Server columns in the schema. When unspecified as part of include/exclude objects, includes/excludes everything.\nStructure is documented below.",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "bigqueryPartitioning": {
+                          "description": "BigQuery partitioning rule.\nStructure is documented below.",
+                          "type": "object",
+                          "properties": {
+                            "ingestionTimePartition": {
+                              "description": "A nested object resource.\nStructure is documented below.",
+                              "type": "object",
+                              "properties": {
+                                "partitioningTimeGranularity": {
+                                  "description": "Partition granularity.\nPossible values are: PARTITIONING_TIME_GRANULARITY_UNSPECIFIED, PARTITIONING_TIME_GRANULARITY_HOUR, PARTITIONING_TIME_GRANULARITY_DAY, PARTITIONING_TIME_GRANULARITY_MONTH, PARTITIONING_TIME_GRANULARITY_YEAR.",
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "integerRangePartition": {
+                              "description": "A nested object resource.\nStructure is documented below.",
+                              "type": "object",
+                              "properties": {
+                                "column": {
+                                  "description": "The partitioning column.",
+                                  "type": "string"
+                                },
+                                "end": {
+                                  "description": "The ending value for range partitioning (exclusive).",
+                                  "type": "number"
+                                },
+                                "interval": {
+                                  "description": "The interval of each range within the partition.",
+                                  "type": "number"
+                                },
+                                "start": {
+                                  "description": "The starting value for range partitioning (inclusive).",
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "requirePartitionFilter": {
+                              "description": "If true, queries over the table require a partition filter.",
+                              "type": "boolean"
+                            },
+                            "timeUnitPartition": {
+                              "description": "A nested object resource.\nStructure is documented below.",
+                              "type": "object",
+                              "properties": {
+                                "column": {
+                                  "description": "The partitioning column.",
+                                  "type": "string"
+                                },
+                                "partitioningTimeGranularity": {
+                                  "description": "Partition granularity.\nPossible values are: PARTITIONING_TIME_GRANULARITY_UNSPECIFIED, PARTITIONING_TIME_GRANULARITY_HOUR, PARTITIONING_TIME_GRANULARITY_DAY, PARTITIONING_TIME_GRANULARITY_MONTH, PARTITIONING_TIME_GRANULARITY_YEAR.",
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "objectFilter": {
+                    "description": "Object filter to apply the customization rules to.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "sourceObjectIdentifier": {
+                        "description": "Specific source object identifier.\nStructure is documented below.",
+                        "type": "object",
+                        "properties": {
+                          "mongodbIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "collection": {
+                                "description": "The MongoDB collection name.",
+                                "type": "string"
+                              },
+                              "database": {
+                                "description": "The database name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "mysqlIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "database": {
+                                "description": "The database name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "oracleIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "postgresqlIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "salesforceIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "objectName": {
+                                "description": "The Salesforce object name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "spannerIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "sqlServerIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "sourceConfig": {
               "description": "Source connection profile configuration.\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "mongodbSourceConfig": {
+                  "description": "MongoDB source configuration.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "excludeObjects": {
+                      "description": "SQL Server objects to exclude from the stream.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "databases": {
+                          "description": "MongoDB databases in the cluster.\nStructure is documented below.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "collections": {
+                                "description": "Collections in the database.\nStructure is documented below.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "collection": {
+                                      "description": "The MongoDB collection name.",
+                                      "type": "string"
+                                    },
+                                    "fields": {
+                                      "description": "Fields in the Salesforce object. When unspecified as part of include/exclude objects, includes/excludes everything/nothing.\nStructure is documented below.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "field": {
+                                            "description": "Field name.",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "database": {
+                                "description": "The database name.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "includeObjects": {
+                      "description": "SQL Server objects to retrieve from the source.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "databases": {
+                          "description": "MongoDB databases in the cluster.\nStructure is documented below.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "collections": {
+                                "description": "Collections in the database.\nStructure is documented below.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "collection": {
+                                      "description": "The MongoDB collection name.",
+                                      "type": "string"
+                                    },
+                                    "fields": {
+                                      "description": "Fields in the Salesforce object. When unspecified as part of include/exclude objects, includes/excludes everything/nothing.\nStructure is documented below.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "field": {
+                                            "description": "Field name.",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "database": {
+                                "description": "The database name.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "maxConcurrentBackfillTasks": {
+                      "description": "Max concurrent backfill tasks.",
+                      "type": "number"
+                    }
+                  }
+                },
                 "mysqlSourceConfig": {
                   "description": "MySQL data source configuration.\nStructure is documented below.",
                   "type": "object",
@@ -2054,7 +3100,7 @@
                             "type": "object",
                             "properties": {
                               "database": {
-                                "description": "Database name.",
+                                "description": "The database name.",
                                 "type": "string"
                               },
                               "mysqlTables": {
@@ -2074,7 +3120,7 @@
                                             "type": "string"
                                           },
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -2123,7 +3169,7 @@
                             "type": "object",
                             "properties": {
                               "database": {
-                                "description": "Database name.",
+                                "description": "The database name.",
                                 "type": "string"
                               },
                               "mysqlTables": {
@@ -2143,7 +3189,7 @@
                                             "type": "string"
                                           },
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -2218,7 +3264,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -2236,7 +3282,7 @@
                                 }
                               },
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               }
                             }
@@ -2267,7 +3313,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -2285,7 +3331,7 @@
                                 }
                               },
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               }
                             }
@@ -2334,7 +3380,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -2364,7 +3410,7 @@
                                 }
                               },
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               }
                             }
@@ -2395,7 +3441,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -2425,7 +3471,7 @@
                                 }
                               },
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               }
                             }
@@ -2475,7 +3521,7 @@
                                 }
                               },
                               "objectName": {
-                                "description": "Name of object in Salesforce Org.",
+                                "description": "The Salesforce object name.",
                                 "type": "string"
                               }
                             }
@@ -2507,7 +3553,7 @@
                                 }
                               },
                               "objectName": {
-                                "description": "Name of object in Salesforce Org.",
+                                "description": "The Salesforce object name.",
                                 "type": "string"
                               }
                             }
@@ -2601,6 +3647,126 @@
                     }
                   }
                 },
+                "spannerSourceConfig": {
+                  "description": "Spanner data source configuration.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "backfillDataBoostEnabled": {
+                      "description": "Whether to use DataBoost for backfill queries.",
+                      "type": "boolean"
+                    },
+                    "changeStreamName": {
+                      "description": "The Spanner change stream name to use.",
+                      "type": "string"
+                    },
+                    "excludeObjects": {
+                      "description": "SQL Server objects to exclude from the stream.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "schemas": {
+                          "description": "SQL Server schemas/databases in the database server\nStructure is documented below.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "tables": {
+                                "description": "Tables in the database.\nStructure is documented below.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "columns": {
+                                      "description": "SQL Server columns in the schema. When unspecified as part of include/exclude objects, includes/excludes everything.\nStructure is documented below.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "column": {
+                                            "description": "The partitioning column.",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "table": {
+                                      "description": "Table name.",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "fgacRole": {
+                      "description": "The FGAC role to use for Spanner queries.",
+                      "type": "string"
+                    },
+                    "includeObjects": {
+                      "description": "SQL Server objects to retrieve from the source.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "schemas": {
+                          "description": "SQL Server schemas/databases in the database server\nStructure is documented below.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "tables": {
+                                "description": "Tables in the database.\nStructure is documented below.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "columns": {
+                                      "description": "SQL Server columns in the schema. When unspecified as part of include/exclude objects, includes/excludes everything.\nStructure is documented below.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "column": {
+                                            "description": "The partitioning column.",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "table": {
+                                      "description": "Table name.",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "maxConcurrentBackfillTasks": {
+                      "description": "Max concurrent backfill tasks.",
+                      "type": "number"
+                    },
+                    "maxConcurrentCdcTasks": {
+                      "description": "Max concurrent CDC tasks.",
+                      "type": "number"
+                    },
+                    "spannerRpcPriority": {
+                      "description": "The RPC priority to use for Spanner queries.\nPossible values are: LOW, MEDIUM, HIGH.",
+                      "type": "string"
+                    }
+                  }
+                },
                 "sqlServerSourceConfig": {
                   "description": "SQL Server data source configuration.\nStructure is documented below.",
                   "type": "object",
@@ -2620,7 +3786,7 @@
                             "type": "object",
                             "properties": {
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               },
                               "tables": {
@@ -2636,7 +3802,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -2669,7 +3835,7 @@
                             "type": "object",
                             "properties": {
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               },
                               "tables": {
@@ -2685,7 +3851,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -2828,6 +3994,51 @@
               "description": "Backfill strategy to automatically backfill the Stream's objects. Specific objects can be excluded.\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "mongodbExcludedObjects": {
+                  "description": "MongoDB data source objects to avoid backfilling.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "databases": {
+                      "description": "MongoDB databases in the cluster.\nStructure is documented below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "collections": {
+                            "description": "Collections in the database.\nStructure is documented below.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "collection": {
+                                  "description": "The MongoDB collection name.",
+                                  "type": "string"
+                                },
+                                "fields": {
+                                  "description": "Fields in the Salesforce object. When unspecified as part of include/exclude objects, includes/excludes everything/nothing.\nStructure is documented below.",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "field": {
+                                        "description": "Field name.",
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "database": {
+                            "description": "The database name.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
                 "mysqlExcludedObjects": {
                   "description": "MySQL data source objects to avoid backfilling.\nStructure is documented below.",
                   "type": "object",
@@ -2839,7 +4050,7 @@
                         "type": "object",
                         "properties": {
                           "database": {
-                            "description": "Database name.",
+                            "description": "The database name.",
                             "type": "string"
                           },
                           "mysqlTables": {
@@ -2859,7 +4070,7 @@
                                         "type": "string"
                                       },
                                       "column": {
-                                        "description": "Column name.",
+                                        "description": "The partitioning column.",
                                         "type": "string"
                                       },
                                       "dataType": {
@@ -2920,7 +4131,7 @@
                                     "type": "object",
                                     "properties": {
                                       "column": {
-                                        "description": "Column name.",
+                                        "description": "The partitioning column.",
                                         "type": "string"
                                       },
                                       "dataType": {
@@ -2966,7 +4177,7 @@
                             }
                           },
                           "schema": {
-                            "description": "Schema name.",
+                            "description": "The schema name.",
                             "type": "string"
                           }
                         }
@@ -2997,7 +4208,7 @@
                                     "type": "object",
                                     "properties": {
                                       "column": {
-                                        "description": "Column name.",
+                                        "description": "The partitioning column.",
                                         "type": "string"
                                       },
                                       "dataType": {
@@ -3039,7 +4250,7 @@
                             }
                           },
                           "schema": {
-                            "description": "Schema name.",
+                            "description": "The schema name.",
                             "type": "string"
                           }
                         }
@@ -3071,8 +4282,65 @@
                             }
                           },
                           "objectName": {
-                            "description": "Name of object in Salesforce Org.",
+                            "description": "The Salesforce object name.",
                             "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "spannerExcludedObjects": {
+                  "description": "Spanner objects to avoid backfilling.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "schemas": {
+                      "description": "SQL Server schemas/databases in the database server\nStructure is documented below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "schema": {
+                            "description": "The schema name.",
+                            "type": "string"
+                          },
+                          "tables": {
+                            "description": "Tables in the database.\nStructure is documented below.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "columns": {
+                                  "description": "SQL Server columns in the schema. When unspecified as part of include/exclude objects, includes/excludes everything.\nStructure is documented below.",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "column": {
+                                        "description": "The partitioning column.",
+                                        "type": "string"
+                                      },
+                                      "dataType": {
+                                        "description": "The PostgreSQL data type. Full data types list can be found here:\nhttps://www.postgresql.org/docs/current/datatype.html",
+                                        "type": "string"
+                                      },
+                                      "isPrimaryKey": {
+                                        "description": "(Output)\nWhether or not the column is a primary key.",
+                                        "type": "boolean"
+                                      },
+                                      "ordinalPosition": {
+                                        "description": "The ordinal position of the column in the table.",
+                                        "type": "number"
+                                      }
+                                    }
+                                  }
+                                },
+                                "table": {
+                                  "description": "Table name.",
+                                  "type": "string"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -3090,7 +4358,7 @@
                         "type": "object",
                         "properties": {
                           "schema": {
-                            "description": "Schema name.",
+                            "description": "The schema name.",
                             "type": "string"
                           },
                           "tables": {
@@ -3106,7 +4374,7 @@
                                     "type": "object",
                                     "properties": {
                                       "column": {
-                                        "description": "Column name.",
+                                        "description": "The partitioning column.",
                                         "type": "string"
                                       },
                                       "dataType": {
@@ -3164,6 +4432,10 @@
             },
             "customerManagedEncryptionKey": {
               "description": "A reference to a KMS encryption key. If provided, it will be used to encrypt the data. If left blank, data\nwill be encrypted using an internal Stream-specific encryption key provisioned through KMS.",
+              "type": "string"
+            },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
               "type": "string"
             },
             "desiredState": {
@@ -3243,10 +4515,14 @@
                               "type": "string"
                             },
                             "location": {
-                              "description": "The geographic location where the dataset should reside.\nSee https://cloud.google.com/bigquery/docs/locations for supported locations.",
+                              "description": "The name of the location this stream is located in.",
                               "type": "string"
                             }
                           }
+                        },
+                        "projectId": {
+                          "description": "Optional. The project id of the BigQuery dataset. If not specified, the project will be inferred from the stream resource.",
+                          "type": "string"
                         }
                       }
                     }
@@ -3265,7 +4541,7 @@
                       "type": "object"
                     },
                     "fileRotationInterval": {
-                      "description": "The maximum duration for which new events are added before a file is closed and a new file is created.\nA duration in seconds with up to nine fractional digits, terminated by 's'. Example: \"3.5s\". Defaults to 900s.",
+                      "description": "The maximum duration for which new events are added before a file is closed and a new file is created.\nValues within the range of 15-60 seconds are allowed.\nA duration in seconds with up to nine fractional digits, terminated by 's'. Example: \"3.5s\".",
                       "type": "string"
                     },
                     "fileRotationMb": {
@@ -3329,10 +4605,303 @@
               "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
               "type": "string"
             },
+            "ruleSets": {
+              "description": "Rule sets to apply to the stream.\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "customizationRules": {
+                    "description": "List of customization rules to apply.\nStructure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "bigqueryClustering": {
+                          "description": "BigQuery clustering rule.\nStructure is documented below.",
+                          "type": "object",
+                          "properties": {
+                            "columns": {
+                              "description": "SQL Server columns in the schema. When unspecified as part of include/exclude objects, includes/excludes everything.\nStructure is documented below.",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "bigqueryPartitioning": {
+                          "description": "BigQuery partitioning rule.\nStructure is documented below.",
+                          "type": "object",
+                          "properties": {
+                            "ingestionTimePartition": {
+                              "description": "A nested object resource.\nStructure is documented below.",
+                              "type": "object",
+                              "properties": {
+                                "partitioningTimeGranularity": {
+                                  "description": "Partition granularity.\nPossible values are: PARTITIONING_TIME_GRANULARITY_UNSPECIFIED, PARTITIONING_TIME_GRANULARITY_HOUR, PARTITIONING_TIME_GRANULARITY_DAY, PARTITIONING_TIME_GRANULARITY_MONTH, PARTITIONING_TIME_GRANULARITY_YEAR.",
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "integerRangePartition": {
+                              "description": "A nested object resource.\nStructure is documented below.",
+                              "type": "object",
+                              "properties": {
+                                "column": {
+                                  "description": "The partitioning column.",
+                                  "type": "string"
+                                },
+                                "end": {
+                                  "description": "The ending value for range partitioning (exclusive).",
+                                  "type": "number"
+                                },
+                                "interval": {
+                                  "description": "The interval of each range within the partition.",
+                                  "type": "number"
+                                },
+                                "start": {
+                                  "description": "The starting value for range partitioning (inclusive).",
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "requirePartitionFilter": {
+                              "description": "If true, queries over the table require a partition filter.",
+                              "type": "boolean"
+                            },
+                            "timeUnitPartition": {
+                              "description": "A nested object resource.\nStructure is documented below.",
+                              "type": "object",
+                              "properties": {
+                                "column": {
+                                  "description": "The partitioning column.",
+                                  "type": "string"
+                                },
+                                "partitioningTimeGranularity": {
+                                  "description": "Partition granularity.\nPossible values are: PARTITIONING_TIME_GRANULARITY_UNSPECIFIED, PARTITIONING_TIME_GRANULARITY_HOUR, PARTITIONING_TIME_GRANULARITY_DAY, PARTITIONING_TIME_GRANULARITY_MONTH, PARTITIONING_TIME_GRANULARITY_YEAR.",
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "objectFilter": {
+                    "description": "Object filter to apply the customization rules to.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "sourceObjectIdentifier": {
+                        "description": "Specific source object identifier.\nStructure is documented below.",
+                        "type": "object",
+                        "properties": {
+                          "mongodbIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "collection": {
+                                "description": "The MongoDB collection name.",
+                                "type": "string"
+                              },
+                              "database": {
+                                "description": "The database name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "mysqlIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "database": {
+                                "description": "The database name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "oracleIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "postgresqlIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "salesforceIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "objectName": {
+                                "description": "The Salesforce object name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "spannerIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "sqlServerIdentifier": {
+                            "description": "A nested object resource.\nStructure is documented below.",
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "table": {
+                                "description": "Table name.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "sourceConfig": {
               "description": "Source connection profile configuration.\nStructure is documented below.",
               "type": "object",
               "properties": {
+                "mongodbSourceConfig": {
+                  "description": "MongoDB source configuration.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "excludeObjects": {
+                      "description": "SQL Server objects to exclude from the stream.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "databases": {
+                          "description": "MongoDB databases in the cluster.\nStructure is documented below.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "collections": {
+                                "description": "Collections in the database.\nStructure is documented below.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "collection": {
+                                      "description": "The MongoDB collection name.",
+                                      "type": "string"
+                                    },
+                                    "fields": {
+                                      "description": "Fields in the Salesforce object. When unspecified as part of include/exclude objects, includes/excludes everything/nothing.\nStructure is documented below.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "field": {
+                                            "description": "Field name.",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "database": {
+                                "description": "The database name.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "includeObjects": {
+                      "description": "SQL Server objects to retrieve from the source.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "databases": {
+                          "description": "MongoDB databases in the cluster.\nStructure is documented below.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "collections": {
+                                "description": "Collections in the database.\nStructure is documented below.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "collection": {
+                                      "description": "The MongoDB collection name.",
+                                      "type": "string"
+                                    },
+                                    "fields": {
+                                      "description": "Fields in the Salesforce object. When unspecified as part of include/exclude objects, includes/excludes everything/nothing.\nStructure is documented below.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "field": {
+                                            "description": "Field name.",
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "database": {
+                                "description": "The database name.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "maxConcurrentBackfillTasks": {
+                      "description": "Max concurrent backfill tasks.",
+                      "type": "number"
+                    }
+                  }
+                },
                 "mysqlSourceConfig": {
                   "description": "MySQL data source configuration.\nStructure is documented below.",
                   "type": "object",
@@ -3352,7 +4921,7 @@
                             "type": "object",
                             "properties": {
                               "database": {
-                                "description": "Database name.",
+                                "description": "The database name.",
                                 "type": "string"
                               },
                               "mysqlTables": {
@@ -3372,7 +4941,7 @@
                                             "type": "string"
                                           },
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -3425,7 +4994,7 @@
                             "type": "object",
                             "properties": {
                               "database": {
-                                "description": "Database name.",
+                                "description": "The database name.",
                                 "type": "string"
                               },
                               "mysqlTables": {
@@ -3445,7 +5014,7 @@
                                             "type": "string"
                                           },
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -3524,7 +5093,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -3570,7 +5139,7 @@
                                 }
                               },
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               }
                             }
@@ -3601,7 +5170,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -3647,7 +5216,7 @@
                                 }
                               },
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               }
                             }
@@ -3696,7 +5265,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -3738,7 +5307,7 @@
                                 }
                               },
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               }
                             }
@@ -3769,7 +5338,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -3811,7 +5380,7 @@
                                 }
                               },
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               }
                             }
@@ -3861,7 +5430,7 @@
                                 }
                               },
                               "objectName": {
-                                "description": "Name of object in Salesforce Org.",
+                                "description": "The Salesforce object name.",
                                 "type": "string"
                               }
                             }
@@ -3893,7 +5462,7 @@
                                 }
                               },
                               "objectName": {
-                                "description": "Name of object in Salesforce Org.",
+                                "description": "The Salesforce object name.",
                                 "type": "string"
                               }
                             }
@@ -3910,6 +5479,150 @@
                 "sourceConnectionProfile": {
                   "description": "Source connection profile resource. Format: projects/{project}/locations/{location}/connectionProfiles/{name}",
                   "type": "string"
+                },
+                "spannerSourceConfig": {
+                  "description": "Spanner data source configuration.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "backfillDataBoostEnabled": {
+                      "description": "Whether to use DataBoost for backfill queries.",
+                      "type": "boolean"
+                    },
+                    "changeStreamName": {
+                      "description": "The Spanner change stream name to use.",
+                      "type": "string"
+                    },
+                    "excludeObjects": {
+                      "description": "SQL Server objects to exclude from the stream.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "schemas": {
+                          "description": "SQL Server schemas/databases in the database server\nStructure is documented below.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "tables": {
+                                "description": "Tables in the database.\nStructure is documented below.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "columns": {
+                                      "description": "SQL Server columns in the schema. When unspecified as part of include/exclude objects, includes/excludes everything.\nStructure is documented below.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "column": {
+                                            "description": "The partitioning column.",
+                                            "type": "string"
+                                          },
+                                          "dataType": {
+                                            "description": "The PostgreSQL data type. Full data types list can be found here:\nhttps://www.postgresql.org/docs/current/datatype.html",
+                                            "type": "string"
+                                          },
+                                          "isPrimaryKey": {
+                                            "description": "(Output)\nWhether or not the column is a primary key.",
+                                            "type": "boolean"
+                                          },
+                                          "ordinalPosition": {
+                                            "description": "The ordinal position of the column in the table.",
+                                            "type": "number"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "table": {
+                                      "description": "Table name.",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "fgacRole": {
+                      "description": "The FGAC role to use for Spanner queries.",
+                      "type": "string"
+                    },
+                    "includeObjects": {
+                      "description": "SQL Server objects to retrieve from the source.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "schemas": {
+                          "description": "SQL Server schemas/databases in the database server\nStructure is documented below.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "schema": {
+                                "description": "The schema name.",
+                                "type": "string"
+                              },
+                              "tables": {
+                                "description": "Tables in the database.\nStructure is documented below.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "columns": {
+                                      "description": "SQL Server columns in the schema. When unspecified as part of include/exclude objects, includes/excludes everything.\nStructure is documented below.",
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "column": {
+                                            "description": "The partitioning column.",
+                                            "type": "string"
+                                          },
+                                          "dataType": {
+                                            "description": "The PostgreSQL data type. Full data types list can be found here:\nhttps://www.postgresql.org/docs/current/datatype.html",
+                                            "type": "string"
+                                          },
+                                          "isPrimaryKey": {
+                                            "description": "(Output)\nWhether or not the column is a primary key.",
+                                            "type": "boolean"
+                                          },
+                                          "ordinalPosition": {
+                                            "description": "The ordinal position of the column in the table.",
+                                            "type": "number"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "table": {
+                                      "description": "Table name.",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "maxConcurrentBackfillTasks": {
+                      "description": "Max concurrent backfill tasks.",
+                      "type": "number"
+                    },
+                    "maxConcurrentCdcTasks": {
+                      "description": "Max concurrent CDC tasks.",
+                      "type": "number"
+                    },
+                    "spannerRpcPriority": {
+                      "description": "The RPC priority to use for Spanner queries.\nPossible values are: LOW, MEDIUM, HIGH.",
+                      "type": "string"
+                    }
+                  }
                 },
                 "sqlServerSourceConfig": {
                   "description": "SQL Server data source configuration.\nStructure is documented below.",
@@ -3930,7 +5643,7 @@
                             "type": "object",
                             "properties": {
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               },
                               "tables": {
@@ -3946,7 +5659,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -4003,7 +5716,7 @@
                             "type": "object",
                             "properties": {
                               "schema": {
-                                "description": "Schema name.",
+                                "description": "The schema name.",
                                 "type": "string"
                               },
                               "tables": {
@@ -4019,7 +5732,7 @@
                                         "type": "object",
                                         "properties": {
                                           "column": {
-                                            "description": "Column name.",
+                                            "description": "The partitioning column.",
                                             "type": "string"
                                           },
                                           "dataType": {
@@ -4140,6 +5853,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

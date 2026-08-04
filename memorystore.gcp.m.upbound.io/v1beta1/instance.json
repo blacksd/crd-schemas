@@ -282,7 +282,6 @@
               }
             },
             "desiredPscAutoConnections": {
-              "description": "desired_psc_auto_connections is deprecated  Use desired_auto_created_endpoints instead.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -381,6 +380,10 @@
                 }
               }
             },
+            "maintenanceVersion": {
+              "description": "This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.\nNote: This field can only be specified when updating an existing cluster to a newer version. Downgrades are currently not supported!",
+              "type": "string"
+            },
             "managedBackupSource": {
               "description": "Managed backup source for the instance.\nStructure is documented below.",
               "type": "object",
@@ -396,7 +399,7 @@
               "type": "string"
             },
             "nodeType": {
-              "description": "Optional. Machine type for individual nodes of the instance.\nPossible values:\nSHARED_CORE_NANO\nHIGHMEM_MEDIUM\nHIGHMEM_XLARGE\nSTANDARD_SMALL",
+              "description": "Optional. Machine type for individual nodes of the instance.\nPossible values:\nSHARED_CORE_NANO\nCUSTOM_PICO\nCUSTOM_MICRO\nCUSTOM_MINI\nHIGHMEM_MEDIUM\nHIGHCPU_MEDIUM\nHIGHMEM_XLARGE\nSTANDARD_SMALL\nSTANDARD_LARGE\nHIGHMEM_2XLARGE",
               "type": "string"
             },
             "persistenceConfig": {
@@ -440,6 +443,98 @@
             "replicaCount": {
               "description": "Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.",
               "type": "number"
+            },
+            "serverCaMode": {
+              "description": "The serverCaMode for the TLS enabled Memorystore instance.\nIf not provided, GOOGLE_MANAGED_PER_INSTANCE_CA will be used as default\nPossible values are: GOOGLE_MANAGED_PER_INSTANCE_CA, GOOGLE_MANAGED_SHARED_CA, CUSTOMER_MANAGED_CAS_CA, SERVER_CA_MODE_UNSPECIFIED.",
+              "type": "string"
+            },
+            "serverCaPool": {
+              "description": "The resource name of the server CA pool for an instance with CUSTOMER_MANAGED_CAS_CA\nas the server_ca_mode.\nFormat: projects/{project}/locations/{region}/caPools/{caPoolId}",
+              "type": "string"
+            },
+            "serverCaPoolRef": {
+              "description": "Reference to a CAPool in privateca to populate serverCaPool.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "serverCaPoolSelector": {
+              "description": "Selector for a CAPool in privateca to populate serverCaPool.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
             },
             "shardCount": {
               "description": "Required. Number of shards for the instance.",
@@ -722,7 +817,6 @@
               }
             },
             "desiredPscAutoConnections": {
-              "description": "desired_psc_auto_connections is deprecated  Use desired_auto_created_endpoints instead.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -817,6 +911,10 @@
                 }
               }
             },
+            "maintenanceVersion": {
+              "description": "This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.\nNote: This field can only be specified when updating an existing cluster to a newer version. Downgrades are currently not supported!",
+              "type": "string"
+            },
             "managedBackupSource": {
               "description": "Managed backup source for the instance.\nStructure is documented below.",
               "type": "object",
@@ -832,7 +930,7 @@
               "type": "string"
             },
             "nodeType": {
-              "description": "Optional. Machine type for individual nodes of the instance.\nPossible values:\nSHARED_CORE_NANO\nHIGHMEM_MEDIUM\nHIGHMEM_XLARGE\nSTANDARD_SMALL",
+              "description": "Optional. Machine type for individual nodes of the instance.\nPossible values:\nSHARED_CORE_NANO\nCUSTOM_PICO\nCUSTOM_MICRO\nCUSTOM_MINI\nHIGHMEM_MEDIUM\nHIGHCPU_MEDIUM\nHIGHMEM_XLARGE\nSTANDARD_SMALL\nSTANDARD_LARGE\nHIGHMEM_2XLARGE",
               "type": "string"
             },
             "persistenceConfig": {
@@ -876,6 +974,98 @@
             "replicaCount": {
               "description": "Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.",
               "type": "number"
+            },
+            "serverCaMode": {
+              "description": "The serverCaMode for the TLS enabled Memorystore instance.\nIf not provided, GOOGLE_MANAGED_PER_INSTANCE_CA will be used as default\nPossible values are: GOOGLE_MANAGED_PER_INSTANCE_CA, GOOGLE_MANAGED_SHARED_CA, CUSTOMER_MANAGED_CAS_CA, SERVER_CA_MODE_UNSPECIFIED.",
+              "type": "string"
+            },
+            "serverCaPool": {
+              "description": "The resource name of the server CA pool for an instance with CUSTOMER_MANAGED_CAS_CA\nas the server_ca_mode.\nFormat: projects/{project}/locations/{region}/caPools/{caPoolId}",
+              "type": "string"
+            },
+            "serverCaPoolRef": {
+              "description": "Reference to a CAPool in privateca to populate serverCaPool.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "serverCaPoolSelector": {
+              "description": "Selector for a CAPool in privateca to populate serverCaPool.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
             },
             "shardCount": {
               "description": "Required. Number of shards for the instance.",
@@ -1000,6 +1190,13 @@
                 }
               }
             },
+            "availableMaintenanceVersions": {
+              "description": "This field is used to determine the available maintenance versions for the self service update.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
             "backupCollection": {
               "description": "The backup collection full resource name.\nExample: projects/{project}/locations/{location}/backupCollections/{collection}",
               "type": "string"
@@ -1096,6 +1293,10 @@
                 }
               }
             },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
             "deletionProtectionEnabled": {
               "description": "Optional. If set to true deletion of the instance will fail.",
               "type": "boolean"
@@ -1118,7 +1319,6 @@
               }
             },
             "desiredPscAutoConnections": {
-              "description": "desired_psc_auto_connections is deprecated  Use desired_auto_created_endpoints instead.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -1161,6 +1361,10 @@
                 "type": "string"
               },
               "x-kubernetes-map-type": "granular"
+            },
+            "effectiveMaintenanceVersion": {
+              "description": "This field represents the actual maintenance version of the cluster.",
+              "type": "string"
             },
             "endpoints": {
               "description": "Endpoints for the instance.\nStructure is documented below.",
@@ -1338,6 +1542,10 @@
                 }
               }
             },
+            "maintenanceVersion": {
+              "description": "This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.\nNote: This field can only be specified when updating an existing cluster to a newer version. Downgrades are currently not supported!",
+              "type": "string"
+            },
             "managedBackupSource": {
               "description": "Managed backup source for the instance.\nStructure is documented below.",
               "type": "object",
@@ -1395,7 +1603,7 @@
               }
             },
             "nodeType": {
-              "description": "Optional. Machine type for individual nodes of the instance.\nPossible values:\nSHARED_CORE_NANO\nHIGHMEM_MEDIUM\nHIGHMEM_XLARGE\nSTANDARD_SMALL",
+              "description": "Optional. Machine type for individual nodes of the instance.\nPossible values:\nSHARED_CORE_NANO\nCUSTOM_PICO\nCUSTOM_MICRO\nCUSTOM_MINI\nHIGHMEM_MEDIUM\nHIGHCPU_MEDIUM\nHIGHMEM_XLARGE\nSTANDARD_SMALL\nSTANDARD_LARGE\nHIGHMEM_2XLARGE",
               "type": "string"
             },
             "persistenceConfig": {
@@ -1501,6 +1709,14 @@
             "replicaCount": {
               "description": "Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.",
               "type": "number"
+            },
+            "serverCaMode": {
+              "description": "The serverCaMode for the TLS enabled Memorystore instance.\nIf not provided, GOOGLE_MANAGED_PER_INSTANCE_CA will be used as default\nPossible values are: GOOGLE_MANAGED_PER_INSTANCE_CA, GOOGLE_MANAGED_SHARED_CA, CUSTOMER_MANAGED_CAS_CA, SERVER_CA_MODE_UNSPECIFIED.",
+              "type": "string"
+            },
+            "serverCaPool": {
+              "description": "The resource name of the server CA pool for an instance with CUSTOMER_MANAGED_CAS_CA\nas the server_ca_mode.\nFormat: projects/{project}/locations/{region}/caPools/{caPoolId}",
+              "type": "string"
             },
             "shardCount": {
               "description": "Required. Number of shards for the instance.",
@@ -1625,6 +1841,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

@@ -140,6 +140,10 @@
                 }
               }
             },
+            "ignoreNodeCountChanges": {
+              "description": "Whether to ignore external changes (drift) to the node count (e.g. from GKE autoscaling). Setting this to true skips querying Compute Engine Instance Group Managers (IGMs) to determine the current node count on read, which can save API quota and speed up plans on large clusters.",
+              "type": "boolean"
+            },
             "initialNodeCount": {
               "description": "The initial number of nodes for the pool. In\nregional or multi-zonal clusters, this is the number of nodes per zone. Changing\nthis will force recreation of the resource.  If you don't\nneed this value, don't set it.  If you do need it, you can use a lifecycle block to\nignore subsequent changes to this field.",
               "type": "number"
@@ -170,6 +174,10 @@
               "description": "The network configuration of the pool. Such as\nconfiguration for Adding Pod IP address ranges) to the node pool. Or enabling private nodes. Structure is\ndocumented below",
               "type": "object",
               "properties": {
+                "acceleratorNetworkProfile": {
+                  "description": "Specifies the accelerator network profile for nodes in this node pool. Setting to \"auto\" enables GKE to automatically configure high-performance networking settings for nodes with accelerators (like GPUs). GKE manages the underlying resources (like VPCs and subnets) for this configuration.",
+                  "type": "string"
+                },
                 "additionalNodeNetworkConfigs": {
                   "description": "We specify the additional node networks for this node pool using this list. Each node network corresponds to an additional interface.\nStructure is documented below",
                   "type": "array",
@@ -243,11 +251,15 @@
                 "podRange": {
                   "description": "The ID of the secondary range for pod IPs. If create_pod_range is true, this ID is used for the new range. If create_pod_range is false, uses an existing secondary range with this ID.",
                   "type": "string"
+                },
+                "subnetwork": {
+                  "description": "The subnetwork path for the node pool. Format: projects/{project}/regions/{region}/subnetworks/{subnetwork}. If the cluster is associated with multiple subnetworks, the subnetwork for the node pool is picked based on the IP utilization during node pool creation and is immutable",
+                  "type": "string"
                 }
               }
             },
             "nodeConfig": {
-              "description": "Parameters used in creating the node pool. See\ngoogle_container_cluster for schema.",
+              "description": "Parameters used in creating the node pool. Structure is documented below. See google_container_cluster for exact schema.",
               "type": "object",
               "properties": {
                 "advancedMachineFeatures": {
@@ -260,6 +272,23 @@
                       "type": "string"
                     },
                     "threadsPerCore": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "bootDisk": {
+                  "type": "object",
+                  "properties": {
+                    "diskType": {
+                      "type": "string"
+                    },
+                    "provisionedIops": {
+                      "type": "number"
+                    },
+                    "provisionedThroughput": {
+                      "type": "number"
+                    },
+                    "sizeGb": {
                       "type": "number"
                     }
                   }
@@ -312,6 +341,103 @@
                           "type": "boolean"
                         }
                       }
+                    },
+                    "registryHosts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "hosts": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "ca": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "gcpSecretManagerSecretUri": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "capabilities": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "client": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "cert": {
+                                        "type": "object",
+                                        "properties": {
+                                          "gcpSecretManagerSecretUri": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      },
+                                      "key": {
+                                        "description": "name\" as the key and specify the name of your reservation as its value.",
+                                        "type": "object",
+                                        "properties": {
+                                          "gcpSecretManagerSecretUri": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "dialTimeout": {
+                                  "type": "string"
+                                },
+                                "header": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "key": {
+                                        "description": "name\" as the key and specify the name of your reservation as its value.",
+                                        "type": "string"
+                                      },
+                                      "value": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "host": {
+                                  "type": "string"
+                                },
+                                "overridePath": {
+                                  "type": "boolean"
+                                }
+                              }
+                            }
+                          },
+                          "server": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "writableCgroups": {
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "description": "Makes nodes obtainable through the ProvisioningRequest API exclusively.",
+                          "type": "boolean"
+                        }
+                      }
                     }
                   }
                 },
@@ -355,6 +481,9 @@
                       "type": "boolean"
                     }
                   }
+                },
+                "gpudirectStrategy": {
+                  "type": "string"
                 },
                 "guestAccelerator": {
                   "type": "array",
@@ -415,6 +544,7 @@
                   "type": "string"
                 },
                 "kubeletConfig": {
+                  "description": "Node kubelet configs. Structure is documented below.",
                   "type": "object",
                   "properties": {
                     "allowedUnsafeSysctls": {
@@ -438,6 +568,86 @@
                     "cpuManagerPolicy": {
                       "type": "string"
                     },
+                    "crashLoopBackOff": {
+                      "type": "object",
+                      "properties": {
+                        "maxContainerRestartPeriod": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "evictionMaxPodGracePeriodSeconds": {
+                      "type": "number"
+                    },
+                    "evictionMinimumReclaim": {
+                      "type": "object",
+                      "properties": {
+                        "imagefsAvailable": {
+                          "type": "string"
+                        },
+                        "imagefsInodesFree": {
+                          "type": "string"
+                        },
+                        "memoryAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsInodesFree": {
+                          "type": "string"
+                        },
+                        "pidAvailable": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "evictionSoft": {
+                      "type": "object",
+                      "properties": {
+                        "imagefsAvailable": {
+                          "type": "string"
+                        },
+                        "imagefsInodesFree": {
+                          "type": "string"
+                        },
+                        "memoryAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsInodesFree": {
+                          "type": "string"
+                        },
+                        "pidAvailable": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "evictionSoftGracePeriod": {
+                      "type": "object",
+                      "properties": {
+                        "imagefsAvailable": {
+                          "type": "string"
+                        },
+                        "imagefsInodesFree": {
+                          "type": "string"
+                        },
+                        "memoryAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsInodesFree": {
+                          "type": "string"
+                        },
+                        "pidAvailable": {
+                          "type": "string"
+                        }
+                      }
+                    },
                     "imageGcHighThresholdPercent": {
                       "type": "number"
                     },
@@ -453,6 +663,9 @@
                     "insecureKubeletReadonlyPortEnabled": {
                       "type": "string"
                     },
+                    "maxParallelImagePulls": {
+                      "type": "number"
+                    },
                     "memoryManager": {
                       "type": "object",
                       "properties": {
@@ -463,6 +676,17 @@
                     },
                     "podPidsLimit": {
                       "type": "number"
+                    },
+                    "shutdownGracePeriodCriticalPodsSeconds": {
+                      "description": "The grace period (in seconds) to use during a graceful node shutdown for critical pods. This value must be less than or equal to shutdown_grace_period_seconds. This field can only be configured if the node pool uses Spot VMs or Preemptible VMs.",
+                      "type": "number"
+                    },
+                    "shutdownGracePeriodSeconds": {
+                      "description": "The grace period (in seconds) to use during a graceful node shutdown. This is the time allocated for all pods (critical and non-critical) to terminate. The value must be between 10 and 10000. This field can only be configured if the node pool uses Spot VMs or Preemptible VMs.",
+                      "type": "number"
+                    },
+                    "singleProcessOomKill": {
+                      "type": "boolean"
                     },
                     "topologyManager": {
                       "type": "object",
@@ -485,9 +709,17 @@
                   "x-kubernetes-map-type": "granular"
                 },
                 "linuxNodeConfig": {
-                  "description": "Parameters used in creating the node pool. See\ngoogle_container_cluster for schema.",
+                  "description": "Parameters used in creating the node pool. Structure is documented below. See google_container_cluster for exact schema.",
                   "type": "object",
                   "properties": {
+                    "accurateTimeConfig": {
+                      "type": "object",
+                      "properties": {
+                        "enablePtpKvmTimeSync": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
                     "cgroupMode": {
                       "type": "string"
                     },
@@ -502,12 +734,74 @@
                         }
                       }
                     },
+                    "nodeKernelModuleLoading": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "swapConfig": {
+                      "type": "object",
+                      "properties": {
+                        "bootDiskProfile": {
+                          "type": "object",
+                          "properties": {
+                            "swapSizeGib": {
+                              "type": "number"
+                            },
+                            "swapSizePercent": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "dedicatedLocalSsdProfile": {
+                          "type": "object",
+                          "properties": {
+                            "diskCount": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "enabled": {
+                          "description": "Makes nodes obtainable through the ProvisioningRequest API exclusively.",
+                          "type": "boolean"
+                        },
+                        "encryptionConfig": {
+                          "type": "object",
+                          "properties": {
+                            "disabled": {
+                              "description": "Whether pod cidr overprovision is disabled.",
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "ephemeralLocalSsdProfile": {
+                          "type": "object",
+                          "properties": {
+                            "swapSizeGib": {
+                              "type": "number"
+                            },
+                            "swapSizePercent": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    },
                     "sysctls": {
                       "type": "object",
                       "additionalProperties": {
                         "type": "string"
                       },
                       "x-kubernetes-map-type": "granular"
+                    },
+                    "transparentHugepageDefrag": {
+                      "type": "string"
+                    },
+                    "transparentHugepageEnabled": {
+                      "type": "string"
                     }
                   }
                 },
@@ -523,7 +817,6 @@
                   "type": "number"
                 },
                 "localSsdEncryptionMode": {
-                  "description": "Possible Local SSD encryption modes:\nAccepted values are:",
                   "type": "string"
                 },
                 "loggingVariant": {
@@ -547,6 +840,21 @@
                 },
                 "nodeGroup": {
                   "type": "string"
+                },
+                "nodeImageConfig": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "image": {
+                        "type": "string"
+                      },
+                      "imageProject": {
+                        "description": "The ID of the project in which to create the node pool. If blank,\nthe provider-configured project will be used.",
+                        "type": "string"
+                      }
+                    }
+                  }
                 },
                 "oauthScopes": {
                   "type": "array",
@@ -592,6 +900,15 @@
                     "type": "string"
                   },
                   "x-kubernetes-map-type": "granular"
+                },
+                "sandboxConfig": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "description": "The type of the policy. Supports a single value: COMPACT.\nSpecifying COMPACT placement policy type places node pool's nodes in a closer\nphysical proximity in order to reduce network latency between nodes.",
+                      "type": "string"
+                    }
+                  }
                 },
                 "secondaryBootDisks": {
                   "type": "array",
@@ -708,6 +1025,9 @@
                 "soleTenantConfig": {
                   "type": "object",
                   "properties": {
+                    "minNodeCpus": {
+                      "type": "number"
+                    },
                     "nodeAffinity": {
                       "type": "array",
                       "items": {
@@ -765,8 +1085,18 @@
                     }
                   }
                 },
+                "taintConfig": {
+                  "description": "Taint configuration for the node pool. Structure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "architectureTaintBehavior": {
+                      "description": "Specifies the behavior for applying architecture taints to node pool nodes. Valid values are ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED, NONE, or ARM.",
+                      "type": "string"
+                    }
+                  }
+                },
                 "windowsNodeConfig": {
-                  "description": "Parameters used in creating the node pool. See\ngoogle_container_cluster for schema.",
+                  "description": "Parameters used in creating the node pool. Structure is documented below. See google_container_cluster for exact schema.",
                   "type": "object",
                   "properties": {
                     "osversion": {
@@ -788,6 +1118,27 @@
             "nodeCount": {
               "description": "The number of nodes per instance group. This field can be used to\nupdate the number of nodes per instance group but should not be used alongside autoscaling.",
               "type": "number"
+            },
+            "nodeDrainConfig": {
+              "description": "The node drain configuration of the pool. Structure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "graceTerminationDuration": {
+                    "description": "The duration of the grace termination period for node drain.",
+                    "type": "string"
+                  },
+                  "pdbTimeoutDuration": {
+                    "description": "The duration of the PDB timeout period for node drain.",
+                    "type": "string"
+                  },
+                  "respectPdbDuringNodePoolDeletion": {
+                    "description": "Whether to respect PodDisruptionBudget policy during node pool deletion.",
+                    "type": "boolean"
+                  }
+                }
+              }
             },
             "nodeLocations": {
               "description": "The list of zones in which the node pool's nodes should be located. Nodes must\nbe in the region of their regional cluster or in the same region as their\ncluster's zone for zonal clusters. If unspecified, the cluster-level\nnode_locations will be used.",
@@ -911,6 +1262,10 @@
                 }
               }
             },
+            "ignoreNodeCountChanges": {
+              "description": "Whether to ignore external changes (drift) to the node count (e.g. from GKE autoscaling). Setting this to true skips querying Compute Engine Instance Group Managers (IGMs) to determine the current node count on read, which can save API quota and speed up plans on large clusters.",
+              "type": "boolean"
+            },
             "initialNodeCount": {
               "description": "The initial number of nodes for the pool. In\nregional or multi-zonal clusters, this is the number of nodes per zone. Changing\nthis will force recreation of the resource.  If you don't\nneed this value, don't set it.  If you do need it, you can use a lifecycle block to\nignore subsequent changes to this field.",
               "type": "number"
@@ -937,6 +1292,10 @@
               "description": "The network configuration of the pool. Such as\nconfiguration for Adding Pod IP address ranges) to the node pool. Or enabling private nodes. Structure is\ndocumented below",
               "type": "object",
               "properties": {
+                "acceleratorNetworkProfile": {
+                  "description": "Specifies the accelerator network profile for nodes in this node pool. Setting to \"auto\" enables GKE to automatically configure high-performance networking settings for nodes with accelerators (like GPUs). GKE manages the underlying resources (like VPCs and subnets) for this configuration.",
+                  "type": "string"
+                },
                 "additionalNodeNetworkConfigs": {
                   "description": "We specify the additional node networks for this node pool using this list. Each node network corresponds to an additional interface.\nStructure is documented below",
                   "type": "array",
@@ -1010,11 +1369,15 @@
                 "podRange": {
                   "description": "The ID of the secondary range for pod IPs. If create_pod_range is true, this ID is used for the new range. If create_pod_range is false, uses an existing secondary range with this ID.",
                   "type": "string"
+                },
+                "subnetwork": {
+                  "description": "The subnetwork path for the node pool. Format: projects/{project}/regions/{region}/subnetworks/{subnetwork}. If the cluster is associated with multiple subnetworks, the subnetwork for the node pool is picked based on the IP utilization during node pool creation and is immutable",
+                  "type": "string"
                 }
               }
             },
             "nodeConfig": {
-              "description": "Parameters used in creating the node pool. See\ngoogle_container_cluster for schema.",
+              "description": "Parameters used in creating the node pool. Structure is documented below. See google_container_cluster for exact schema.",
               "type": "object",
               "properties": {
                 "advancedMachineFeatures": {
@@ -1027,6 +1390,23 @@
                       "type": "string"
                     },
                     "threadsPerCore": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "bootDisk": {
+                  "type": "object",
+                  "properties": {
+                    "diskType": {
+                      "type": "string"
+                    },
+                    "provisionedIops": {
+                      "type": "number"
+                    },
+                    "provisionedThroughput": {
+                      "type": "number"
+                    },
+                    "sizeGb": {
                       "type": "number"
                     }
                   }
@@ -1079,6 +1459,103 @@
                           "type": "boolean"
                         }
                       }
+                    },
+                    "registryHosts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "hosts": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "ca": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "gcpSecretManagerSecretUri": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "capabilities": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "client": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "cert": {
+                                        "type": "object",
+                                        "properties": {
+                                          "gcpSecretManagerSecretUri": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      },
+                                      "key": {
+                                        "description": "name\" as the key and specify the name of your reservation as its value.",
+                                        "type": "object",
+                                        "properties": {
+                                          "gcpSecretManagerSecretUri": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "dialTimeout": {
+                                  "type": "string"
+                                },
+                                "header": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "key": {
+                                        "description": "name\" as the key and specify the name of your reservation as its value.",
+                                        "type": "string"
+                                      },
+                                      "value": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "host": {
+                                  "type": "string"
+                                },
+                                "overridePath": {
+                                  "type": "boolean"
+                                }
+                              }
+                            }
+                          },
+                          "server": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "writableCgroups": {
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "description": "Makes nodes obtainable through the ProvisioningRequest API exclusively.",
+                          "type": "boolean"
+                        }
+                      }
                     }
                   }
                 },
@@ -1122,6 +1599,9 @@
                       "type": "boolean"
                     }
                   }
+                },
+                "gpudirectStrategy": {
+                  "type": "string"
                 },
                 "guestAccelerator": {
                   "type": "array",
@@ -1182,6 +1662,7 @@
                   "type": "string"
                 },
                 "kubeletConfig": {
+                  "description": "Node kubelet configs. Structure is documented below.",
                   "type": "object",
                   "properties": {
                     "allowedUnsafeSysctls": {
@@ -1205,6 +1686,86 @@
                     "cpuManagerPolicy": {
                       "type": "string"
                     },
+                    "crashLoopBackOff": {
+                      "type": "object",
+                      "properties": {
+                        "maxContainerRestartPeriod": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "evictionMaxPodGracePeriodSeconds": {
+                      "type": "number"
+                    },
+                    "evictionMinimumReclaim": {
+                      "type": "object",
+                      "properties": {
+                        "imagefsAvailable": {
+                          "type": "string"
+                        },
+                        "imagefsInodesFree": {
+                          "type": "string"
+                        },
+                        "memoryAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsInodesFree": {
+                          "type": "string"
+                        },
+                        "pidAvailable": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "evictionSoft": {
+                      "type": "object",
+                      "properties": {
+                        "imagefsAvailable": {
+                          "type": "string"
+                        },
+                        "imagefsInodesFree": {
+                          "type": "string"
+                        },
+                        "memoryAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsInodesFree": {
+                          "type": "string"
+                        },
+                        "pidAvailable": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "evictionSoftGracePeriod": {
+                      "type": "object",
+                      "properties": {
+                        "imagefsAvailable": {
+                          "type": "string"
+                        },
+                        "imagefsInodesFree": {
+                          "type": "string"
+                        },
+                        "memoryAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsInodesFree": {
+                          "type": "string"
+                        },
+                        "pidAvailable": {
+                          "type": "string"
+                        }
+                      }
+                    },
                     "imageGcHighThresholdPercent": {
                       "type": "number"
                     },
@@ -1220,6 +1781,9 @@
                     "insecureKubeletReadonlyPortEnabled": {
                       "type": "string"
                     },
+                    "maxParallelImagePulls": {
+                      "type": "number"
+                    },
                     "memoryManager": {
                       "type": "object",
                       "properties": {
@@ -1230,6 +1794,17 @@
                     },
                     "podPidsLimit": {
                       "type": "number"
+                    },
+                    "shutdownGracePeriodCriticalPodsSeconds": {
+                      "description": "The grace period (in seconds) to use during a graceful node shutdown for critical pods. This value must be less than or equal to shutdown_grace_period_seconds. This field can only be configured if the node pool uses Spot VMs or Preemptible VMs.",
+                      "type": "number"
+                    },
+                    "shutdownGracePeriodSeconds": {
+                      "description": "The grace period (in seconds) to use during a graceful node shutdown. This is the time allocated for all pods (critical and non-critical) to terminate. The value must be between 10 and 10000. This field can only be configured if the node pool uses Spot VMs or Preemptible VMs.",
+                      "type": "number"
+                    },
+                    "singleProcessOomKill": {
+                      "type": "boolean"
                     },
                     "topologyManager": {
                       "type": "object",
@@ -1252,9 +1827,17 @@
                   "x-kubernetes-map-type": "granular"
                 },
                 "linuxNodeConfig": {
-                  "description": "Parameters used in creating the node pool. See\ngoogle_container_cluster for schema.",
+                  "description": "Parameters used in creating the node pool. Structure is documented below. See google_container_cluster for exact schema.",
                   "type": "object",
                   "properties": {
+                    "accurateTimeConfig": {
+                      "type": "object",
+                      "properties": {
+                        "enablePtpKvmTimeSync": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
                     "cgroupMode": {
                       "type": "string"
                     },
@@ -1269,12 +1852,74 @@
                         }
                       }
                     },
+                    "nodeKernelModuleLoading": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "swapConfig": {
+                      "type": "object",
+                      "properties": {
+                        "bootDiskProfile": {
+                          "type": "object",
+                          "properties": {
+                            "swapSizeGib": {
+                              "type": "number"
+                            },
+                            "swapSizePercent": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "dedicatedLocalSsdProfile": {
+                          "type": "object",
+                          "properties": {
+                            "diskCount": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "enabled": {
+                          "description": "Makes nodes obtainable through the ProvisioningRequest API exclusively.",
+                          "type": "boolean"
+                        },
+                        "encryptionConfig": {
+                          "type": "object",
+                          "properties": {
+                            "disabled": {
+                              "description": "Whether pod cidr overprovision is disabled.",
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "ephemeralLocalSsdProfile": {
+                          "type": "object",
+                          "properties": {
+                            "swapSizeGib": {
+                              "type": "number"
+                            },
+                            "swapSizePercent": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    },
                     "sysctls": {
                       "type": "object",
                       "additionalProperties": {
                         "type": "string"
                       },
                       "x-kubernetes-map-type": "granular"
+                    },
+                    "transparentHugepageDefrag": {
+                      "type": "string"
+                    },
+                    "transparentHugepageEnabled": {
+                      "type": "string"
                     }
                   }
                 },
@@ -1290,7 +1935,6 @@
                   "type": "number"
                 },
                 "localSsdEncryptionMode": {
-                  "description": "Possible Local SSD encryption modes:\nAccepted values are:",
                   "type": "string"
                 },
                 "loggingVariant": {
@@ -1314,6 +1958,21 @@
                 },
                 "nodeGroup": {
                   "type": "string"
+                },
+                "nodeImageConfig": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "image": {
+                        "type": "string"
+                      },
+                      "imageProject": {
+                        "description": "The ID of the project in which to create the node pool. If blank,\nthe provider-configured project will be used.",
+                        "type": "string"
+                      }
+                    }
+                  }
                 },
                 "oauthScopes": {
                   "type": "array",
@@ -1359,6 +2018,15 @@
                     "type": "string"
                   },
                   "x-kubernetes-map-type": "granular"
+                },
+                "sandboxConfig": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "description": "The type of the policy. Supports a single value: COMPACT.\nSpecifying COMPACT placement policy type places node pool's nodes in a closer\nphysical proximity in order to reduce network latency between nodes.",
+                      "type": "string"
+                    }
+                  }
                 },
                 "secondaryBootDisks": {
                   "type": "array",
@@ -1475,6 +2143,9 @@
                 "soleTenantConfig": {
                   "type": "object",
                   "properties": {
+                    "minNodeCpus": {
+                      "type": "number"
+                    },
                     "nodeAffinity": {
                       "type": "array",
                       "items": {
@@ -1532,8 +2203,18 @@
                     }
                   }
                 },
+                "taintConfig": {
+                  "description": "Taint configuration for the node pool. Structure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "architectureTaintBehavior": {
+                      "description": "Specifies the behavior for applying architecture taints to node pool nodes. Valid values are ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED, NONE, or ARM.",
+                      "type": "string"
+                    }
+                  }
+                },
                 "windowsNodeConfig": {
-                  "description": "Parameters used in creating the node pool. See\ngoogle_container_cluster for schema.",
+                  "description": "Parameters used in creating the node pool. Structure is documented below. See google_container_cluster for exact schema.",
                   "type": "object",
                   "properties": {
                     "osversion": {
@@ -1555,6 +2236,27 @@
             "nodeCount": {
               "description": "The number of nodes per instance group. This field can be used to\nupdate the number of nodes per instance group but should not be used alongside autoscaling.",
               "type": "number"
+            },
+            "nodeDrainConfig": {
+              "description": "The node drain configuration of the pool. Structure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "graceTerminationDuration": {
+                    "description": "The duration of the grace termination period for node drain.",
+                    "type": "string"
+                  },
+                  "pdbTimeoutDuration": {
+                    "description": "The duration of the PDB timeout period for node drain.",
+                    "type": "string"
+                  },
+                  "respectPdbDuringNodePoolDeletion": {
+                    "description": "Whether to respect PodDisruptionBudget policy during node pool deletion.",
+                    "type": "boolean"
+                  }
+                }
+              }
             },
             "nodeLocations": {
               "description": "The list of zones in which the node pool's nodes should be located. Nodes must\nbe in the region of their regional cluster or in the same region as their\ncluster's zone for zonal clusters. If unspecified, the cluster-level\nnode_locations will be used.",
@@ -1741,9 +2443,17 @@
               "description": "The cluster to create the node pool for. Cluster must be present in location provided for clusters. May be specified in the format projects/{{project}}/locations/{{location}}/clusters/{{cluster}} or as just the name of the cluster.",
               "type": "string"
             },
+            "deletionPolicy": {
+              "description": "Defaults to \"DELETE\".\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
             "id": {
               "description": "an identifier for the resource with format {{project}}/{{location}}/{{cluster}}/{{name}}",
               "type": "string"
+            },
+            "ignoreNodeCountChanges": {
+              "description": "Whether to ignore external changes (drift) to the node count (e.g. from GKE autoscaling). Setting this to true skips querying Compute Engine Instance Group Managers (IGMs) to determine the current node count on read, which can save API quota and speed up plans on large clusters.",
+              "type": "boolean"
             },
             "initialNodeCount": {
               "description": "The initial number of nodes for the pool. In\nregional or multi-zonal clusters, this is the number of nodes per zone. Changing\nthis will force recreation of the resource.  If you don't\nneed this value, don't set it.  If you do need it, you can use a lifecycle block to\nignore subsequent changes to this field.",
@@ -1789,6 +2499,10 @@
               "description": "The network configuration of the pool. Such as\nconfiguration for Adding Pod IP address ranges) to the node pool. Or enabling private nodes. Structure is\ndocumented below",
               "type": "object",
               "properties": {
+                "acceleratorNetworkProfile": {
+                  "description": "Specifies the accelerator network profile for nodes in this node pool. Setting to \"auto\" enables GKE to automatically configure high-performance networking settings for nodes with accelerators (like GPUs). GKE manages the underlying resources (like VPCs and subnets) for this configuration.",
+                  "type": "string"
+                },
                 "additionalNodeNetworkConfigs": {
                   "description": "We specify the additional node networks for this node pool using this list. Each node network corresponds to an additional interface.\nStructure is documented below",
                   "type": "array",
@@ -1870,7 +2584,7 @@
               }
             },
             "nodeConfig": {
-              "description": "Parameters used in creating the node pool. See\ngoogle_container_cluster for schema.",
+              "description": "Parameters used in creating the node pool. Structure is documented below. See google_container_cluster for exact schema.",
               "type": "object",
               "properties": {
                 "advancedMachineFeatures": {
@@ -1883,6 +2597,23 @@
                       "type": "string"
                     },
                     "threadsPerCore": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "bootDisk": {
+                  "type": "object",
+                  "properties": {
+                    "diskType": {
+                      "type": "string"
+                    },
+                    "provisionedIops": {
+                      "type": "number"
+                    },
+                    "provisionedThroughput": {
+                      "type": "number"
+                    },
+                    "sizeGb": {
                       "type": "number"
                     }
                   }
@@ -1930,6 +2661,103 @@
                             }
                           }
                         },
+                        "enabled": {
+                          "description": "Makes nodes obtainable through the ProvisioningRequest API exclusively.",
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "registryHosts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "hosts": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "ca": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "gcpSecretManagerSecretUri": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "capabilities": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "client": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "cert": {
+                                        "type": "object",
+                                        "properties": {
+                                          "gcpSecretManagerSecretUri": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      },
+                                      "key": {
+                                        "description": "name\" as the key and specify the name of your reservation as its value.",
+                                        "type": "object",
+                                        "properties": {
+                                          "gcpSecretManagerSecretUri": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "dialTimeout": {
+                                  "type": "string"
+                                },
+                                "header": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "key": {
+                                        "description": "name\" as the key and specify the name of your reservation as its value.",
+                                        "type": "string"
+                                      },
+                                      "value": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "host": {
+                                  "type": "string"
+                                },
+                                "overridePath": {
+                                  "type": "boolean"
+                                }
+                              }
+                            }
+                          },
+                          "server": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "writableCgroups": {
+                      "type": "object",
+                      "properties": {
                         "enabled": {
                           "description": "Makes nodes obtainable through the ProvisioningRequest API exclusively.",
                           "type": "boolean"
@@ -1997,6 +2825,9 @@
                     }
                   }
                 },
+                "gpudirectStrategy": {
+                  "type": "string"
+                },
                 "guestAccelerator": {
                   "type": "array",
                   "items": {
@@ -2056,6 +2887,7 @@
                   "type": "string"
                 },
                 "kubeletConfig": {
+                  "description": "Node kubelet configs. Structure is documented below.",
                   "type": "object",
                   "properties": {
                     "allowedUnsafeSysctls": {
@@ -2079,6 +2911,86 @@
                     "cpuManagerPolicy": {
                       "type": "string"
                     },
+                    "crashLoopBackOff": {
+                      "type": "object",
+                      "properties": {
+                        "maxContainerRestartPeriod": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "evictionMaxPodGracePeriodSeconds": {
+                      "type": "number"
+                    },
+                    "evictionMinimumReclaim": {
+                      "type": "object",
+                      "properties": {
+                        "imagefsAvailable": {
+                          "type": "string"
+                        },
+                        "imagefsInodesFree": {
+                          "type": "string"
+                        },
+                        "memoryAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsInodesFree": {
+                          "type": "string"
+                        },
+                        "pidAvailable": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "evictionSoft": {
+                      "type": "object",
+                      "properties": {
+                        "imagefsAvailable": {
+                          "type": "string"
+                        },
+                        "imagefsInodesFree": {
+                          "type": "string"
+                        },
+                        "memoryAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsInodesFree": {
+                          "type": "string"
+                        },
+                        "pidAvailable": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "evictionSoftGracePeriod": {
+                      "type": "object",
+                      "properties": {
+                        "imagefsAvailable": {
+                          "type": "string"
+                        },
+                        "imagefsInodesFree": {
+                          "type": "string"
+                        },
+                        "memoryAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsAvailable": {
+                          "type": "string"
+                        },
+                        "nodefsInodesFree": {
+                          "type": "string"
+                        },
+                        "pidAvailable": {
+                          "type": "string"
+                        }
+                      }
+                    },
                     "imageGcHighThresholdPercent": {
                       "type": "number"
                     },
@@ -2094,6 +3006,9 @@
                     "insecureKubeletReadonlyPortEnabled": {
                       "type": "string"
                     },
+                    "maxParallelImagePulls": {
+                      "type": "number"
+                    },
                     "memoryManager": {
                       "type": "object",
                       "properties": {
@@ -2104,6 +3019,17 @@
                     },
                     "podPidsLimit": {
                       "type": "number"
+                    },
+                    "shutdownGracePeriodCriticalPodsSeconds": {
+                      "description": "The grace period (in seconds) to use during a graceful node shutdown for critical pods. This value must be less than or equal to shutdown_grace_period_seconds. This field can only be configured if the node pool uses Spot VMs or Preemptible VMs.",
+                      "type": "number"
+                    },
+                    "shutdownGracePeriodSeconds": {
+                      "description": "The grace period (in seconds) to use during a graceful node shutdown. This is the time allocated for all pods (critical and non-critical) to terminate. The value must be between 10 and 10000. This field can only be configured if the node pool uses Spot VMs or Preemptible VMs.",
+                      "type": "number"
+                    },
+                    "singleProcessOomKill": {
+                      "type": "boolean"
                     },
                     "topologyManager": {
                       "type": "object",
@@ -2126,9 +3052,17 @@
                   "x-kubernetes-map-type": "granular"
                 },
                 "linuxNodeConfig": {
-                  "description": "Parameters used in creating the node pool. See\ngoogle_container_cluster for schema.",
+                  "description": "Parameters used in creating the node pool. Structure is documented below. See google_container_cluster for exact schema.",
                   "type": "object",
                   "properties": {
+                    "accurateTimeConfig": {
+                      "type": "object",
+                      "properties": {
+                        "enablePtpKvmTimeSync": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
                     "cgroupMode": {
                       "type": "string"
                     },
@@ -2143,12 +3077,74 @@
                         }
                       }
                     },
+                    "nodeKernelModuleLoading": {
+                      "type": "object",
+                      "properties": {
+                        "policy": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "swapConfig": {
+                      "type": "object",
+                      "properties": {
+                        "bootDiskProfile": {
+                          "type": "object",
+                          "properties": {
+                            "swapSizeGib": {
+                              "type": "number"
+                            },
+                            "swapSizePercent": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "dedicatedLocalSsdProfile": {
+                          "type": "object",
+                          "properties": {
+                            "diskCount": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "enabled": {
+                          "description": "Makes nodes obtainable through the ProvisioningRequest API exclusively.",
+                          "type": "boolean"
+                        },
+                        "encryptionConfig": {
+                          "type": "object",
+                          "properties": {
+                            "disabled": {
+                              "description": "Whether pod cidr overprovision is disabled.",
+                              "type": "boolean"
+                            }
+                          }
+                        },
+                        "ephemeralLocalSsdProfile": {
+                          "type": "object",
+                          "properties": {
+                            "swapSizeGib": {
+                              "type": "number"
+                            },
+                            "swapSizePercent": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    },
                     "sysctls": {
                       "type": "object",
                       "additionalProperties": {
                         "type": "string"
                       },
                       "x-kubernetes-map-type": "granular"
+                    },
+                    "transparentHugepageDefrag": {
+                      "type": "string"
+                    },
+                    "transparentHugepageEnabled": {
+                      "type": "string"
                     }
                   }
                 },
@@ -2164,7 +3160,6 @@
                   "type": "number"
                 },
                 "localSsdEncryptionMode": {
-                  "description": "Possible Local SSD encryption modes:\nAccepted values are:",
                   "type": "string"
                 },
                 "loggingVariant": {
@@ -2188,6 +3183,21 @@
                 },
                 "nodeGroup": {
                   "type": "string"
+                },
+                "nodeImageConfig": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "image": {
+                        "type": "string"
+                      },
+                      "imageProject": {
+                        "description": "The ID of the project in which to create the node pool. If blank,\nthe provider-configured project will be used.",
+                        "type": "string"
+                      }
+                    }
+                  }
                 },
                 "oauthScopes": {
                   "type": "array",
@@ -2234,6 +3244,15 @@
                   },
                   "x-kubernetes-map-type": "granular"
                 },
+                "sandboxConfig": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "description": "The type of the policy. Supports a single value: COMPACT.\nSpecifying COMPACT placement policy type places node pool's nodes in a closer\nphysical proximity in order to reduce network latency between nodes.",
+                      "type": "string"
+                    }
+                  }
+                },
                 "secondaryBootDisks": {
                   "type": "array",
                   "items": {
@@ -2265,6 +3284,9 @@
                 "soleTenantConfig": {
                   "type": "object",
                   "properties": {
+                    "minNodeCpus": {
+                      "type": "number"
+                    },
                     "nodeAffinity": {
                       "type": "array",
                       "items": {
@@ -2322,8 +3344,18 @@
                     }
                   }
                 },
+                "taintConfig": {
+                  "description": "Taint configuration for the node pool. Structure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "architectureTaintBehavior": {
+                      "description": "Specifies the behavior for applying architecture taints to node pool nodes. Valid values are ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED, NONE, or ARM.",
+                      "type": "string"
+                    }
+                  }
+                },
                 "windowsNodeConfig": {
-                  "description": "Parameters used in creating the node pool. See\ngoogle_container_cluster for schema.",
+                  "description": "Parameters used in creating the node pool. Structure is documented below. See google_container_cluster for exact schema.",
                   "type": "object",
                   "properties": {
                     "osversion": {
@@ -2345,6 +3377,27 @@
             "nodeCount": {
               "description": "The number of nodes per instance group. This field can be used to\nupdate the number of nodes per instance group but should not be used alongside autoscaling.",
               "type": "number"
+            },
+            "nodeDrainConfig": {
+              "description": "The node drain configuration of the pool. Structure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "graceTerminationDuration": {
+                    "description": "The duration of the grace termination period for node drain.",
+                    "type": "string"
+                  },
+                  "pdbTimeoutDuration": {
+                    "description": "The duration of the PDB timeout period for node drain.",
+                    "type": "string"
+                  },
+                  "respectPdbDuringNodePoolDeletion": {
+                    "description": "Whether to respect PodDisruptionBudget policy during node pool deletion.",
+                    "type": "boolean"
+                  }
+                }
+              }
             },
             "nodeLocations": {
               "description": "The list of zones in which the node pool's nodes should be located. Nodes must\nbe in the region of their regional cluster or in the same region as their\ncluster's zone for zonal clusters. If unspecified, the cluster-level\nnode_locations will be used.",
@@ -2486,6 +3539,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

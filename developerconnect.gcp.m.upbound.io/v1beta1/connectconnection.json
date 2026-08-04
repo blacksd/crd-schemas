@@ -531,6 +531,54 @@
                 }
               }
             },
+            "httpConfig": {
+              "description": "Configuration for connections to an HTTP service provider.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "basicAuthentication": {
+                  "description": "Basic authentication with username and password.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "passwordSecretVersion": {
+                      "description": "The password SecretManager secret version to authenticate as.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "(Output)\nOutput only. The username associated with this token.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "bearerTokenAuthentication": {
+                  "description": "Bearer token authentication with a token.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "tokenSecretVersion": {
+                      "description": "The token SecretManager secret version to authenticate as.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "hostUri": {
+                  "description": "The service provider's https endpoint.",
+                  "type": "string"
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "Required. The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "The SSL certificate to use for requests to the HTTP service provider.",
+                  "type": "string"
+                }
+              }
+            },
             "labels": {
               "description": "Optional. Labels as key value pairs\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
               "type": "object",
@@ -1055,6 +1103,54 @@
                 }
               }
             },
+            "httpConfig": {
+              "description": "Configuration for connections to an HTTP service provider.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "basicAuthentication": {
+                  "description": "Basic authentication with username and password.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "passwordSecretVersion": {
+                      "description": "The password SecretManager secret version to authenticate as.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "(Output)\nOutput only. The username associated with this token.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "bearerTokenAuthentication": {
+                  "description": "Bearer token authentication with a token.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "tokenSecretVersion": {
+                      "description": "The token SecretManager secret version to authenticate as.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "hostUri": {
+                  "description": "The service provider's https endpoint.",
+                  "type": "string"
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "Required. The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "The SSL certificate to use for requests to the HTTP service provider.",
+                  "type": "string"
+                }
+              }
+            },
             "labels": {
               "description": "Optional. Labels as key value pairs\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
               "type": "object",
@@ -1258,6 +1354,10 @@
             },
             "deleteTime": {
               "description": "Output only. [Output only] Delete timestamp",
+              "type": "string"
+            },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
               "type": "string"
             },
             "disabled": {
@@ -1464,6 +1564,54 @@
                 }
               }
             },
+            "httpConfig": {
+              "description": "Configuration for connections to an HTTP service provider.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "basicAuthentication": {
+                  "description": "Basic authentication with username and password.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "passwordSecretVersion": {
+                      "description": "The password SecretManager secret version to authenticate as.",
+                      "type": "string"
+                    },
+                    "username": {
+                      "description": "(Output)\nOutput only. The username associated with this token.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "bearerTokenAuthentication": {
+                  "description": "Bearer token authentication with a token.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "tokenSecretVersion": {
+                      "description": "The token SecretManager secret version to authenticate as.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "hostUri": {
+                  "description": "The service provider's https endpoint.",
+                  "type": "string"
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "Required. The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "The SSL certificate to use for requests to the HTTP service provider.",
+                  "type": "string"
+                }
+              }
+            },
             "id": {
               "description": "an identifier for the resource with format projects/{{project}}/locations/{{location}}/connections/{{connection_id}}",
               "type": "string"
@@ -1576,6 +1724,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

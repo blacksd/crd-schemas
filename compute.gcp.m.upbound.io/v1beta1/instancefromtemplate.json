@@ -195,6 +195,12 @@
                     "provisionedThroughput": {
                       "type": "number"
                     },
+                    "replicaZones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "resourceManagerTags": {
                       "type": "object",
                       "additionalProperties": {
@@ -448,6 +454,9 @@
                       }
                     }
                   },
+                  "igmpQuery": {
+                    "type": "string"
+                  },
                   "internalIpv6PrefixLength": {
                     "type": "number"
                   },
@@ -670,6 +679,9 @@
                         }
                       }
                     }
+                  },
+                  "vlan": {
+                    "type": "number"
                   }
                 }
               }
@@ -1126,6 +1138,12 @@
                     "provisionedThroughput": {
                       "type": "number"
                     },
+                    "replicaZones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "resourceManagerTags": {
                       "type": "object",
                       "additionalProperties": {
@@ -1379,6 +1397,9 @@
                       }
                     }
                   },
+                  "igmpQuery": {
+                    "type": "string"
+                  },
                   "internalIpv6PrefixLength": {
                     "type": "number"
                   },
@@ -1601,6 +1622,9 @@
                         }
                       }
                     }
+                  },
+                  "vlan": {
+                    "type": "number"
                   }
                 }
               }
@@ -2060,6 +2084,12 @@
                     "provisionedThroughput": {
                       "type": "number"
                     },
+                    "replicaZones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "resourceManagerTags": {
                       "type": "object",
                       "additionalProperties": {
@@ -2150,6 +2180,9 @@
               "type": "string"
             },
             "currentStatus": {
+              "type": "string"
+            },
+            "deletionPolicy": {
               "type": "string"
             },
             "deletionProtection": {
@@ -2282,6 +2315,9 @@
                       }
                     }
                   },
+                  "igmpQuery": {
+                    "type": "string"
+                  },
                   "internalIpv6PrefixLength": {
                     "type": "number"
                   },
@@ -2332,6 +2368,10 @@
                   "nicType": {
                     "type": "string"
                   },
+                  "parentNicName": {
+                    "description": "A unique name for the resource, required by GCE.\nChanging this forces a new resource to be created.",
+                    "type": "string"
+                  },
                   "queueCount": {
                     "type": "number"
                   },
@@ -2343,6 +2383,9 @@
                   },
                   "subnetworkProject": {
                     "type": "string"
+                  },
+                  "vlan": {
+                    "type": "number"
                   }
                 }
               }
@@ -2600,6 +2643,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

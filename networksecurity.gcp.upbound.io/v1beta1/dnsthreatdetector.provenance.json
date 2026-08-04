@@ -1,0 +1,24 @@
+{
+  "schema": "dnsthreatdetector.json",
+  "crd": {
+    "group": "networksecurity.gcp.upbound.io",
+    "kind": "DNSThreatDetector",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.6.1",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-08-04T04:44:19Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "7bd5fd3610cffc66b7c3431988fe6f601afd0300fe7aa36294a8f54912bc9341"
+  }
+}

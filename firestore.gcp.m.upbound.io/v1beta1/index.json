@@ -1,0 +1,688 @@
+{
+  "description": "Index is the Schema for the Indexs API. Cloud Firestore indexes enable simple and complex queries against documents in a database.",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "IndexSpec defines the desired state of Index",
+      "type": "object",
+      "required": [
+        "forProvider"
+      ],
+      "properties": {
+        "forProvider": {
+          "type": "object",
+          "properties": {
+            "apiScope": {
+              "description": "The API scope at which a query is run.\nDefault value is ANY_API.\nPossible values are: ANY_API, DATASTORE_MODE_API, MONGODB_COMPATIBLE_API.",
+              "type": "string"
+            },
+            "collection": {
+              "description": "The collection being indexed.",
+              "type": "string"
+            },
+            "database": {
+              "description": "The Firestore database id. Defaults to \"(default)\".",
+              "type": "string"
+            },
+            "databaseRef": {
+              "description": "Reference to a Database in firestore to populate database.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "databaseSelector": {
+              "description": "Selector for a Database in firestore to populate database.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
+            "density": {
+              "description": "The density configuration for this index.\nPossible values are: SPARSE_ALL, SPARSE_ANY, DENSE.",
+              "type": "string"
+            },
+            "fields": {
+              "description": "The fields supported by this index. The last non-stored field entry is\nalways for the field path __name__. If, on creation, __name__ was not\nspecified as the last field, it will be added automatically with the same\ndirection as that of the last field defined. If the final field in a\ncomposite index is not directional, the __name__ will be ordered\n\"ASCENDING\" (unless explicitly specified otherwise).\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "arrayConfig": {
+                    "description": "Indicates that this field supports operations on arrayValues. Only one of order, arrayConfig, searchConfig and\nvectorConfig can be specified.\nPossible values are: CONTAINS.",
+                    "type": "string"
+                  },
+                  "fieldPath": {
+                    "description": "Name of the field.",
+                    "type": "string"
+                  },
+                  "order": {
+                    "description": "Indicates that this field supports ordering by the specified order or comparing using =, \u003c, \u003c=, \u003e, \u003e=.\nOnly one of order, arrayConfig, searchConfig and vectorConfig can be specified.\nPossible values are: ASCENDING, DESCENDING.",
+                    "type": "string"
+                  },
+                  "searchConfig": {
+                    "description": "Indicates that this field supports text or geo-search operations. Only one of order, arrayConfig, searchConfig and\nvectorConfig can be specified.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "geoSpec": {
+                        "description": "The specification for building a geo search index for a field.\nStructure is documented below.",
+                        "type": "object",
+                        "properties": {
+                          "geoJsonIndexingDisabled": {
+                            "description": "If true, disables GeoJSON indexing for the field. By default, GeoJSON points are indexed.\nFirestore GeoPoints are indexed regardless of the value of this field.",
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "textSpec": {
+                        "description": "The specification for building a text search index for a field.\nStructure is documented below.",
+                        "type": "object",
+                        "properties": {
+                          "indexSpecs": {
+                            "description": "Specifications for how the field should be indexed. Repeated so that the field can be indexed in multiple ways.\nStructure is documented below.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "indexType": {
+                                  "description": "Ways to index the text field value.",
+                                  "type": "string"
+                                },
+                                "matchType": {
+                                  "description": "How to match the text field value.",
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "vectorConfig": {
+                    "description": "Indicates that this field supports vector search operations. Only one of order, arrayConfig, searchConfig and\nvectorConfig can be specified. Vector Fields should come after the field path __name__.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "dimension": {
+                        "description": "The resulting index will only include vectors of this dimension, and can be used for vector search\nwith the same dimension.",
+                        "type": "number"
+                      },
+                      "flat": {
+                        "description": "Indicates the vector index is a flat index.",
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "multikey": {
+              "description": "Optional. Whether the index is multikey. By default, the index is not multikey. For non-multikey indexes, none of the paths in the index definition reach or traverse an array, except via an explicit array index. For multikey indexes, at most one of the paths in the index definition reach or traverse an array, except via an explicit array index. Violations will result in errors. Note this field only applies to indexes with MONGODB_COMPATIBLE_API ApiScope.",
+              "type": "boolean"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            },
+            "queryScope": {
+              "description": "The scope at which a query is run.\nDefault value is COLLECTION.\nPossible values are: COLLECTION, COLLECTION_GROUP, COLLECTION_RECURSIVE.",
+              "type": "string"
+            },
+            "skipWait": {
+              "description": "Whether to skip waiting for the index to be created.",
+              "type": "boolean"
+            },
+            "unique": {
+              "description": "Whether it is an unique index. Unique index ensures all values for the indexed field(s) are unique across documents.",
+              "type": "boolean"
+            }
+          }
+        },
+        "initProvider": {
+          "description": "THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler.",
+          "type": "object",
+          "properties": {
+            "apiScope": {
+              "description": "The API scope at which a query is run.\nDefault value is ANY_API.\nPossible values are: ANY_API, DATASTORE_MODE_API, MONGODB_COMPATIBLE_API.",
+              "type": "string"
+            },
+            "collection": {
+              "description": "The collection being indexed.",
+              "type": "string"
+            },
+            "database": {
+              "description": "The Firestore database id. Defaults to \"(default)\".",
+              "type": "string"
+            },
+            "databaseRef": {
+              "description": "Reference to a Database in firestore to populate database.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referenced object.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referenced object",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for referencing.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "databaseSelector": {
+              "description": "Selector for a Database in firestore to populate database.",
+              "type": "object",
+              "properties": {
+                "matchControllerRef": {
+                  "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                  "type": "boolean"
+                },
+                "matchLabels": {
+                  "description": "MatchLabels ensures an object with matching labels is selected.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "namespace": {
+                  "description": "Namespace for the selector",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policies for selection.",
+                  "type": "object",
+                  "properties": {
+                    "resolution": {
+                      "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                      "type": "string",
+                      "default": "Required",
+                      "enum": [
+                        "Required",
+                        "Optional"
+                      ]
+                    },
+                    "resolve": {
+                      "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                      "type": "string",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
+            "density": {
+              "description": "The density configuration for this index.\nPossible values are: SPARSE_ALL, SPARSE_ANY, DENSE.",
+              "type": "string"
+            },
+            "fields": {
+              "description": "The fields supported by this index. The last non-stored field entry is\nalways for the field path __name__. If, on creation, __name__ was not\nspecified as the last field, it will be added automatically with the same\ndirection as that of the last field defined. If the final field in a\ncomposite index is not directional, the __name__ will be ordered\n\"ASCENDING\" (unless explicitly specified otherwise).\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "arrayConfig": {
+                    "description": "Indicates that this field supports operations on arrayValues. Only one of order, arrayConfig, searchConfig and\nvectorConfig can be specified.\nPossible values are: CONTAINS.",
+                    "type": "string"
+                  },
+                  "fieldPath": {
+                    "description": "Name of the field.",
+                    "type": "string"
+                  },
+                  "order": {
+                    "description": "Indicates that this field supports ordering by the specified order or comparing using =, \u003c, \u003c=, \u003e, \u003e=.\nOnly one of order, arrayConfig, searchConfig and vectorConfig can be specified.\nPossible values are: ASCENDING, DESCENDING.",
+                    "type": "string"
+                  },
+                  "searchConfig": {
+                    "description": "Indicates that this field supports text or geo-search operations. Only one of order, arrayConfig, searchConfig and\nvectorConfig can be specified.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "geoSpec": {
+                        "description": "The specification for building a geo search index for a field.\nStructure is documented below.",
+                        "type": "object",
+                        "properties": {
+                          "geoJsonIndexingDisabled": {
+                            "description": "If true, disables GeoJSON indexing for the field. By default, GeoJSON points are indexed.\nFirestore GeoPoints are indexed regardless of the value of this field.",
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "textSpec": {
+                        "description": "The specification for building a text search index for a field.\nStructure is documented below.",
+                        "type": "object",
+                        "properties": {
+                          "indexSpecs": {
+                            "description": "Specifications for how the field should be indexed. Repeated so that the field can be indexed in multiple ways.\nStructure is documented below.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "indexType": {
+                                  "description": "Ways to index the text field value.",
+                                  "type": "string"
+                                },
+                                "matchType": {
+                                  "description": "How to match the text field value.",
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "vectorConfig": {
+                    "description": "Indicates that this field supports vector search operations. Only one of order, arrayConfig, searchConfig and\nvectorConfig can be specified. Vector Fields should come after the field path __name__.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "dimension": {
+                        "description": "The resulting index will only include vectors of this dimension, and can be used for vector search\nwith the same dimension.",
+                        "type": "number"
+                      },
+                      "flat": {
+                        "description": "Indicates the vector index is a flat index.",
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "multikey": {
+              "description": "Optional. Whether the index is multikey. By default, the index is not multikey. For non-multikey indexes, none of the paths in the index definition reach or traverse an array, except via an explicit array index. For multikey indexes, at most one of the paths in the index definition reach or traverse an array, except via an explicit array index. Violations will result in errors. Note this field only applies to indexes with MONGODB_COMPATIBLE_API ApiScope.",
+              "type": "boolean"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            },
+            "queryScope": {
+              "description": "The scope at which a query is run.\nDefault value is COLLECTION.\nPossible values are: COLLECTION, COLLECTION_GROUP, COLLECTION_RECURSIVE.",
+              "type": "string"
+            },
+            "skipWait": {
+              "description": "Whether to skip waiting for the index to be created.",
+              "type": "boolean"
+            },
+            "unique": {
+              "description": "Whether it is an unique index. Unique index ensures all values for the indexed field(s) are unique across documents.",
+              "type": "boolean"
+            }
+          }
+        },
+        "managementPolicies": {
+          "description": "THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md",
+          "type": "array",
+          "default": [
+            "*"
+          ],
+          "items": {
+            "description": "A ManagementAction represents an action that the Crossplane controllers\ncan take on an external resource.",
+            "type": "string",
+            "enum": [
+              "Observe",
+              "Create",
+              "Update",
+              "Delete",
+              "LateInitialize",
+              "*"
+            ]
+          }
+        },
+        "providerConfigRef": {
+          "description": "ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured.",
+          "type": "object",
+          "default": {
+            "kind": "ClusterProviderConfig",
+            "name": "default"
+          },
+          "required": [
+            "kind",
+            "name"
+          ],
+          "properties": {
+            "kind": {
+              "description": "Kind of the referenced object.",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referenced object.",
+              "type": "string"
+            }
+          }
+        },
+        "writeConnectionSecretToRef": {
+          "description": "WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource.",
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the secret.",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "x-kubernetes-validations": [
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.collection) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.collection))",
+          "message": "spec.forProvider.collection is a required parameter"
+        },
+        {
+          "rule": "!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.fields) || (has(self.initProvider) \u0026\u0026 has(self.initProvider.fields))",
+          "message": "spec.forProvider.fields is a required parameter"
+        }
+      ]
+    },
+    "status": {
+      "description": "IndexStatus defines the observed state of Index.",
+      "type": "object",
+      "properties": {
+        "atProvider": {
+          "type": "object",
+          "properties": {
+            "apiScope": {
+              "description": "The API scope at which a query is run.\nDefault value is ANY_API.\nPossible values are: ANY_API, DATASTORE_MODE_API, MONGODB_COMPATIBLE_API.",
+              "type": "string"
+            },
+            "collection": {
+              "description": "The collection being indexed.",
+              "type": "string"
+            },
+            "database": {
+              "description": "The Firestore database id. Defaults to \"(default)\".",
+              "type": "string"
+            },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
+            "density": {
+              "description": "The density configuration for this index.\nPossible values are: SPARSE_ALL, SPARSE_ANY, DENSE.",
+              "type": "string"
+            },
+            "fields": {
+              "description": "The fields supported by this index. The last non-stored field entry is\nalways for the field path __name__. If, on creation, __name__ was not\nspecified as the last field, it will be added automatically with the same\ndirection as that of the last field defined. If the final field in a\ncomposite index is not directional, the __name__ will be ordered\n\"ASCENDING\" (unless explicitly specified otherwise).\nStructure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "arrayConfig": {
+                    "description": "Indicates that this field supports operations on arrayValues. Only one of order, arrayConfig, searchConfig and\nvectorConfig can be specified.\nPossible values are: CONTAINS.",
+                    "type": "string"
+                  },
+                  "fieldPath": {
+                    "description": "Name of the field.",
+                    "type": "string"
+                  },
+                  "order": {
+                    "description": "Indicates that this field supports ordering by the specified order or comparing using =, \u003c, \u003c=, \u003e, \u003e=.\nOnly one of order, arrayConfig, searchConfig and vectorConfig can be specified.\nPossible values are: ASCENDING, DESCENDING.",
+                    "type": "string"
+                  },
+                  "searchConfig": {
+                    "description": "Indicates that this field supports text or geo-search operations. Only one of order, arrayConfig, searchConfig and\nvectorConfig can be specified.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "geoSpec": {
+                        "description": "The specification for building a geo search index for a field.\nStructure is documented below.",
+                        "type": "object",
+                        "properties": {
+                          "geoJsonIndexingDisabled": {
+                            "description": "If true, disables GeoJSON indexing for the field. By default, GeoJSON points are indexed.\nFirestore GeoPoints are indexed regardless of the value of this field.",
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "textSpec": {
+                        "description": "The specification for building a text search index for a field.\nStructure is documented below.",
+                        "type": "object",
+                        "properties": {
+                          "indexSpecs": {
+                            "description": "Specifications for how the field should be indexed. Repeated so that the field can be indexed in multiple ways.\nStructure is documented below.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "indexType": {
+                                  "description": "Ways to index the text field value.",
+                                  "type": "string"
+                                },
+                                "matchType": {
+                                  "description": "How to match the text field value.",
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "vectorConfig": {
+                    "description": "Indicates that this field supports vector search operations. Only one of order, arrayConfig, searchConfig and\nvectorConfig can be specified. Vector Fields should come after the field path __name__.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "dimension": {
+                        "description": "The resulting index will only include vectors of this dimension, and can be used for vector search\nwith the same dimension.",
+                        "type": "number"
+                      },
+                      "flat": {
+                        "description": "Indicates the vector index is a flat index.",
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "id": {
+              "description": "an identifier for the resource with format {{name}}",
+              "type": "string"
+            },
+            "multikey": {
+              "description": "Optional. Whether the index is multikey. By default, the index is not multikey. For non-multikey indexes, none of the paths in the index definition reach or traverse an array, except via an explicit array index. For multikey indexes, at most one of the paths in the index definition reach or traverse an array, except via an explicit array index. Violations will result in errors. Note this field only applies to indexes with MONGODB_COMPATIBLE_API ApiScope.",
+              "type": "boolean"
+            },
+            "name": {
+              "description": "A server defined name for this index. Format:\nprojects/{{project}}/databases/{{database}}/collectionGroups/{{collection}}/indexes/{{server_generated_id}}",
+              "type": "string"
+            },
+            "project": {
+              "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
+              "type": "string"
+            },
+            "queryScope": {
+              "description": "The scope at which a query is run.\nDefault value is COLLECTION.\nPossible values are: COLLECTION, COLLECTION_GROUP, COLLECTION_RECURSIVE.",
+              "type": "string"
+            },
+            "skipWait": {
+              "description": "Whether to skip waiting for the index to be created.",
+              "type": "boolean"
+            },
+            "unique": {
+              "description": "Whether it is an unique index. Unique index ensures all values for the indexed field(s) are unique across documents.",
+              "type": "boolean"
+            }
+          }
+        },
+        "conditions": {
+          "description": "Conditions of the resource.",
+          "type": "array",
+          "items": {
+            "description": "A Condition that may apply to a resource.",
+            "type": "object",
+            "required": [
+              "lastTransitionTime",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time this condition transitioned from one\nstatus to another.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "A Message containing details about this condition's last transition from\none status to another, if any.",
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "ObservedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "type": "integer",
+                "format": "int64"
+              },
+              "reason": {
+                "description": "A Reason for this condition's last transition from one status to another.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of this condition; is it currently True, False, or Unknown?",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of this condition. At most one of each condition type may apply to\na resource at any point in time.",
+                "type": "string"
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

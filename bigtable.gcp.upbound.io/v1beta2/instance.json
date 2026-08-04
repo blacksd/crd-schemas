@@ -98,6 +98,10 @@
               "description": "The human-readable display name of the Bigtable instance. Defaults to the instance name.",
               "type": "string"
             },
+            "edition": {
+              "description": "The edition of the Bigtable instance. One of \"ENTERPRISE\" or \"ENTERPRISE_PLUS\". Defaults to \"ENTERPRISE\". Details can be found at the Cloud Bigtable editions page.",
+              "type": "string"
+            },
             "forceDestroy": {
               "description": "Deleting a BigTable instance can be blocked if any backups are present in the instance. Defaults to false.",
               "type": "boolean"
@@ -107,7 +111,7 @@
               "type": "string"
             },
             "labels": {
-              "description": "A set of key/value label pairs to assign to the resource. Label keys must follow the requirements at https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements.",
+              "description": "A set of key/value label pairs to assign to the resource. Label keys must follow the requirements at https://docs.cloud.google.com/resource-manager/docs/creating-managing-labels#requirements.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -117,6 +121,14 @@
             "project": {
               "description": "The ID of the project in which the resource belongs. If it\nis not provided, the provider project is used.",
               "type": "string"
+            },
+            "tags": {
+              "description": "A set of key/value label pairs to assign to the resource. Tags must follow the requirements at create and manage tags.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
             }
           }
         },
@@ -187,6 +199,10 @@
               "description": "The human-readable display name of the Bigtable instance. Defaults to the instance name.",
               "type": "string"
             },
+            "edition": {
+              "description": "The edition of the Bigtable instance. One of \"ENTERPRISE\" or \"ENTERPRISE_PLUS\". Defaults to \"ENTERPRISE\". Details can be found at the Cloud Bigtable editions page.",
+              "type": "string"
+            },
             "forceDestroy": {
               "description": "Deleting a BigTable instance can be blocked if any backups are present in the instance. Defaults to false.",
               "type": "boolean"
@@ -196,7 +212,7 @@
               "type": "string"
             },
             "labels": {
-              "description": "A set of key/value label pairs to assign to the resource. Label keys must follow the requirements at https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements.",
+              "description": "A set of key/value label pairs to assign to the resource. Label keys must follow the requirements at https://docs.cloud.google.com/resource-manager/docs/creating-managing-labels#requirements.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -206,6 +222,14 @@
             "project": {
               "description": "The ID of the project in which the resource belongs. If it\nis not provided, the provider project is used.",
               "type": "string"
+            },
+            "tags": {
+              "description": "A set of key/value label pairs to assign to the resource. Tags must follow the requirements at create and manage tags.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
             }
           }
         },
@@ -353,12 +377,20 @@
                 }
               }
             },
+            "deletionPolicy": {
+              "description": "Defaults to \"DELETE\".\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
             "deletionProtection": {
               "description": "When the field is set to false, deleting the instance is allowed.",
               "type": "boolean"
             },
             "displayName": {
               "description": "The human-readable display name of the Bigtable instance. Defaults to the instance name.",
+              "type": "string"
+            },
+            "edition": {
+              "description": "The edition of the Bigtable instance. One of \"ENTERPRISE\" or \"ENTERPRISE_PLUS\". Defaults to \"ENTERPRISE\". Details can be found at the Cloud Bigtable editions page.",
               "type": "string"
             },
             "effectiveLabels": {
@@ -381,7 +413,7 @@
               "type": "string"
             },
             "labels": {
-              "description": "A set of key/value label pairs to assign to the resource. Label keys must follow the requirements at https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements.",
+              "description": "A set of key/value label pairs to assign to the resource. Label keys must follow the requirements at https://docs.cloud.google.com/resource-manager/docs/creating-managing-labels#requirements.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -391,6 +423,14 @@
             "project": {
               "description": "The ID of the project in which the resource belongs. If it\nis not provided, the provider project is used.",
               "type": "string"
+            },
+            "tags": {
+              "description": "A set of key/value label pairs to assign to the resource. Tags must follow the requirements at create and manage tags.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "x-kubernetes-map-type": "granular"
             },
             "terraformLabels": {
               "description": "The combination of labels configured directly on the resource and default labels configured on the provider.",
@@ -447,6 +487,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

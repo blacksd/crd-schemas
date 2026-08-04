@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:f9546d67-f9b4-46c2-9337-21a58b8a0654",
-  "version": 2,
+  "version": 3,
   "metadata": {
-    "timestamp": "2026-06-13T18:11:17Z",
+    "timestamp": "2026-08-04T04:44:19Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "provider-upjet-gcp",
-      "version": "v2.6.0",
+      "version": "v2.6.1",
       "licenses": [
         {
           "license": {

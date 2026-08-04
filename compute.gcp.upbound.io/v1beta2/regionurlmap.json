@@ -375,7 +375,7 @@
                         "type": "object",
                         "properties": {
                           "requestHeadersToAdd": {
-                            "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                            "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                             "type": "array",
                             "items": {
                               "type": "object",
@@ -389,21 +389,21 @@
                                   "type": "string"
                                 },
                                 "replace": {
-                                  "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                  "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                   "type": "boolean"
                                 }
                               }
                             }
                           },
                           "requestHeadersToRemove": {
-                            "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                            "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                             "type": "array",
                             "items": {
                               "type": "string"
                             }
                           },
                           "responseHeadersToAdd": {
-                            "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                            "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                             "type": "array",
                             "items": {
                               "type": "object",
@@ -417,14 +417,14 @@
                                   "type": "string"
                                 },
                                 "replace": {
-                                  "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                  "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                   "type": "boolean"
                                 }
                               }
                             }
                           },
                           "responseHeadersToRemove": {
-                            "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                            "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                             "type": "array",
                             "items": {
                               "type": "string"
@@ -554,6 +554,68 @@
             "description": {
               "description": "An optional description of this resource. Provide this property when\nyou create the resource.",
               "type": "string"
+            },
+            "headerAction": {
+              "description": "Specifies changes to request and response headers that need to take effect for the selected backendService.\nheaderAction specified here take effect before headerAction in the enclosing HttpRouteRule, PathMatcher and UrlMap.\nheaderAction is not supported for load balancers that have their loadBalancingScheme set to EXTERNAL.\nNot supported when the URL map is bound to a target gRPC proxy that has validateForProxyless field set to true.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "requestHeadersToAdd": {
+                  "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "headerName": {
+                        "description": "The name of the header.",
+                        "type": "string"
+                      },
+                      "headerValue": {
+                        "description": "The value of the header to add.",
+                        "type": "string"
+                      },
+                      "replace": {
+                        "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "requestHeadersToRemove": {
+                  "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "responseHeadersToAdd": {
+                  "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "headerName": {
+                        "description": "The name of the header.",
+                        "type": "string"
+                      },
+                      "headerValue": {
+                        "description": "The value of the header to add.",
+                        "type": "string"
+                      },
+                      "replace": {
+                        "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "responseHeadersToRemove": {
+                  "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
             },
             "hostRule": {
               "description": "The list of HostRules to use against the URL.\nStructure is documented below.",
@@ -941,7 +1003,7 @@
                               "type": "object",
                               "properties": {
                                 "requestHeadersToAdd": {
-                                  "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                                  "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                                   "type": "array",
                                   "items": {
                                     "type": "object",
@@ -955,21 +1017,21 @@
                                         "type": "string"
                                       },
                                       "replace": {
-                                        "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                        "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                         "type": "boolean"
                                       }
                                     }
                                   }
                                 },
                                 "requestHeadersToRemove": {
-                                  "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                                  "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                                   "type": "array",
                                   "items": {
                                     "type": "string"
                                   }
                                 },
                                 "responseHeadersToAdd": {
-                                  "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                                  "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                                   "type": "array",
                                   "items": {
                                     "type": "object",
@@ -983,14 +1045,14 @@
                                         "type": "string"
                                       },
                                       "replace": {
-                                        "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                        "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                         "type": "boolean"
                                       }
                                     }
                                   }
                                 },
                                 "responseHeadersToRemove": {
-                                  "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                                  "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                                   "type": "array",
                                   "items": {
                                     "type": "string"
@@ -1120,6 +1182,68 @@
                   "description": {
                     "description": "An optional description of this resource.",
                     "type": "string"
+                  },
+                  "headerAction": {
+                    "description": "Specifies changes to request and response headers that need to take effect for the selected backendService.\nheaderAction specified here take effect before headerAction in the enclosing HttpRouteRule, PathMatcher and UrlMap.\nheaderAction is not supported for load balancers that have their loadBalancingScheme set to EXTERNAL.\nNot supported when the URL map is bound to a target gRPC proxy that has validateForProxyless field set to true.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "requestHeadersToAdd": {
+                        "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "headerName": {
+                              "description": "The name of the header.",
+                              "type": "string"
+                            },
+                            "headerValue": {
+                              "description": "The value of the header to add.",
+                              "type": "string"
+                            },
+                            "replace": {
+                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      },
+                      "requestHeadersToRemove": {
+                        "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "responseHeadersToAdd": {
+                        "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "headerName": {
+                              "description": "The name of the header.",
+                              "type": "string"
+                            },
+                            "headerValue": {
+                              "description": "The value of the header to add.",
+                              "type": "string"
+                            },
+                            "replace": {
+                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      },
+                      "responseHeadersToRemove": {
+                        "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
                   },
                   "name": {
                     "description": "The name to which this PathMatcher is referred by the HostRule.",
@@ -1476,7 +1600,7 @@
                                     "type": "object",
                                     "properties": {
                                       "requestHeadersToAdd": {
-                                        "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                                        "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                                         "type": "array",
                                         "items": {
                                           "type": "object",
@@ -1490,21 +1614,21 @@
                                               "type": "string"
                                             },
                                             "replace": {
-                                              "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                               "type": "boolean"
                                             }
                                           }
                                         }
                                       },
                                       "requestHeadersToRemove": {
-                                        "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                                        "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                                         "type": "array",
                                         "items": {
                                           "type": "string"
                                         }
                                       },
                                       "responseHeadersToAdd": {
-                                        "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                                        "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                                         "type": "array",
                                         "items": {
                                           "type": "object",
@@ -1518,14 +1642,14 @@
                                               "type": "string"
                                             },
                                             "replace": {
-                                              "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                               "type": "boolean"
                                             }
                                           }
                                         }
                                       },
                                       "responseHeadersToRemove": {
-                                        "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                                        "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                                         "type": "array",
                                         "items": {
                                           "type": "string"
@@ -1666,7 +1790,7 @@
                           "type": "object",
                           "properties": {
                             "requestHeadersToAdd": {
-                              "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                              "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                               "type": "array",
                               "items": {
                                 "type": "object",
@@ -1680,21 +1804,21 @@
                                     "type": "string"
                                   },
                                   "replace": {
-                                    "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                    "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                     "type": "boolean"
                                   }
                                 }
                               }
                             },
                             "requestHeadersToRemove": {
-                              "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                              "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                               "type": "array",
                               "items": {
                                 "type": "string"
                               }
                             },
                             "responseHeadersToAdd": {
-                              "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                              "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                               "type": "array",
                               "items": {
                                 "type": "object",
@@ -1708,14 +1832,14 @@
                                     "type": "string"
                                   },
                                   "replace": {
-                                    "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                    "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                     "type": "boolean"
                                   }
                                 }
                               }
                             },
                             "responseHeadersToRemove": {
-                              "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                              "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                               "type": "array",
                               "items": {
                                 "type": "string"
@@ -2051,7 +2175,7 @@
                                     "type": "object",
                                     "properties": {
                                       "requestHeadersToAdd": {
-                                        "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                                        "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                                         "type": "array",
                                         "items": {
                                           "type": "object",
@@ -2065,21 +2189,21 @@
                                               "type": "string"
                                             },
                                             "replace": {
-                                              "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                               "type": "boolean"
                                             }
                                           }
                                         }
                                       },
                                       "requestHeadersToRemove": {
-                                        "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                                        "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                                         "type": "array",
                                         "items": {
                                           "type": "string"
                                         }
                                       },
                                       "responseHeadersToAdd": {
-                                        "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                                        "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                                         "type": "array",
                                         "items": {
                                           "type": "object",
@@ -2093,14 +2217,14 @@
                                               "type": "string"
                                             },
                                             "replace": {
-                                              "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                               "type": "boolean"
                                             }
                                           }
                                         }
                                       },
                                       "responseHeadersToRemove": {
-                                        "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                                        "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                                         "type": "array",
                                         "items": {
                                           "type": "string"
@@ -2685,7 +2809,7 @@
                         "type": "object",
                         "properties": {
                           "requestHeadersToAdd": {
-                            "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                            "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                             "type": "array",
                             "items": {
                               "type": "object",
@@ -2699,21 +2823,21 @@
                                   "type": "string"
                                 },
                                 "replace": {
-                                  "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                  "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                   "type": "boolean"
                                 }
                               }
                             }
                           },
                           "requestHeadersToRemove": {
-                            "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                            "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                             "type": "array",
                             "items": {
                               "type": "string"
                             }
                           },
                           "responseHeadersToAdd": {
-                            "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                            "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                             "type": "array",
                             "items": {
                               "type": "object",
@@ -2727,14 +2851,14 @@
                                   "type": "string"
                                 },
                                 "replace": {
-                                  "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                  "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                   "type": "boolean"
                                 }
                               }
                             }
                           },
                           "responseHeadersToRemove": {
-                            "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                            "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                             "type": "array",
                             "items": {
                               "type": "string"
@@ -2864,6 +2988,68 @@
             "description": {
               "description": "An optional description of this resource. Provide this property when\nyou create the resource.",
               "type": "string"
+            },
+            "headerAction": {
+              "description": "Specifies changes to request and response headers that need to take effect for the selected backendService.\nheaderAction specified here take effect before headerAction in the enclosing HttpRouteRule, PathMatcher and UrlMap.\nheaderAction is not supported for load balancers that have their loadBalancingScheme set to EXTERNAL.\nNot supported when the URL map is bound to a target gRPC proxy that has validateForProxyless field set to true.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "requestHeadersToAdd": {
+                  "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "headerName": {
+                        "description": "The name of the header.",
+                        "type": "string"
+                      },
+                      "headerValue": {
+                        "description": "The value of the header to add.",
+                        "type": "string"
+                      },
+                      "replace": {
+                        "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "requestHeadersToRemove": {
+                  "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "responseHeadersToAdd": {
+                  "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "headerName": {
+                        "description": "The name of the header.",
+                        "type": "string"
+                      },
+                      "headerValue": {
+                        "description": "The value of the header to add.",
+                        "type": "string"
+                      },
+                      "replace": {
+                        "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "responseHeadersToRemove": {
+                  "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
             },
             "hostRule": {
               "description": "The list of HostRules to use against the URL.\nStructure is documented below.",
@@ -3251,7 +3437,7 @@
                               "type": "object",
                               "properties": {
                                 "requestHeadersToAdd": {
-                                  "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                                  "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                                   "type": "array",
                                   "items": {
                                     "type": "object",
@@ -3265,21 +3451,21 @@
                                         "type": "string"
                                       },
                                       "replace": {
-                                        "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                        "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                         "type": "boolean"
                                       }
                                     }
                                   }
                                 },
                                 "requestHeadersToRemove": {
-                                  "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                                  "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                                   "type": "array",
                                   "items": {
                                     "type": "string"
                                   }
                                 },
                                 "responseHeadersToAdd": {
-                                  "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                                  "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                                   "type": "array",
                                   "items": {
                                     "type": "object",
@@ -3293,14 +3479,14 @@
                                         "type": "string"
                                       },
                                       "replace": {
-                                        "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                        "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                         "type": "boolean"
                                       }
                                     }
                                   }
                                 },
                                 "responseHeadersToRemove": {
-                                  "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                                  "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                                   "type": "array",
                                   "items": {
                                     "type": "string"
@@ -3430,6 +3616,68 @@
                   "description": {
                     "description": "An optional description of this resource.",
                     "type": "string"
+                  },
+                  "headerAction": {
+                    "description": "Specifies changes to request and response headers that need to take effect for the selected backendService.\nheaderAction specified here take effect before headerAction in the enclosing HttpRouteRule, PathMatcher and UrlMap.\nheaderAction is not supported for load balancers that have their loadBalancingScheme set to EXTERNAL.\nNot supported when the URL map is bound to a target gRPC proxy that has validateForProxyless field set to true.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "requestHeadersToAdd": {
+                        "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "headerName": {
+                              "description": "The name of the header.",
+                              "type": "string"
+                            },
+                            "headerValue": {
+                              "description": "The value of the header to add.",
+                              "type": "string"
+                            },
+                            "replace": {
+                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      },
+                      "requestHeadersToRemove": {
+                        "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "responseHeadersToAdd": {
+                        "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "headerName": {
+                              "description": "The name of the header.",
+                              "type": "string"
+                            },
+                            "headerValue": {
+                              "description": "The value of the header to add.",
+                              "type": "string"
+                            },
+                            "replace": {
+                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      },
+                      "responseHeadersToRemove": {
+                        "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
                   },
                   "name": {
                     "description": "The name to which this PathMatcher is referred by the HostRule.",
@@ -3786,7 +4034,7 @@
                                     "type": "object",
                                     "properties": {
                                       "requestHeadersToAdd": {
-                                        "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                                        "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                                         "type": "array",
                                         "items": {
                                           "type": "object",
@@ -3800,21 +4048,21 @@
                                               "type": "string"
                                             },
                                             "replace": {
-                                              "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                               "type": "boolean"
                                             }
                                           }
                                         }
                                       },
                                       "requestHeadersToRemove": {
-                                        "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                                        "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                                         "type": "array",
                                         "items": {
                                           "type": "string"
                                         }
                                       },
                                       "responseHeadersToAdd": {
-                                        "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                                        "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                                         "type": "array",
                                         "items": {
                                           "type": "object",
@@ -3828,14 +4076,14 @@
                                               "type": "string"
                                             },
                                             "replace": {
-                                              "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                               "type": "boolean"
                                             }
                                           }
                                         }
                                       },
                                       "responseHeadersToRemove": {
-                                        "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                                        "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                                         "type": "array",
                                         "items": {
                                           "type": "string"
@@ -3976,7 +4224,7 @@
                           "type": "object",
                           "properties": {
                             "requestHeadersToAdd": {
-                              "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                              "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                               "type": "array",
                               "items": {
                                 "type": "object",
@@ -3990,21 +4238,21 @@
                                     "type": "string"
                                   },
                                   "replace": {
-                                    "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                    "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                     "type": "boolean"
                                   }
                                 }
                               }
                             },
                             "requestHeadersToRemove": {
-                              "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                              "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                               "type": "array",
                               "items": {
                                 "type": "string"
                               }
                             },
                             "responseHeadersToAdd": {
-                              "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                              "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                               "type": "array",
                               "items": {
                                 "type": "object",
@@ -4018,14 +4266,14 @@
                                     "type": "string"
                                   },
                                   "replace": {
-                                    "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                    "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                     "type": "boolean"
                                   }
                                 }
                               }
                             },
                             "responseHeadersToRemove": {
-                              "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                              "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                               "type": "array",
                               "items": {
                                 "type": "string"
@@ -4361,7 +4609,7 @@
                                     "type": "object",
                                     "properties": {
                                       "requestHeadersToAdd": {
-                                        "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                                        "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                                         "type": "array",
                                         "items": {
                                           "type": "object",
@@ -4375,21 +4623,21 @@
                                               "type": "string"
                                             },
                                             "replace": {
-                                              "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                               "type": "boolean"
                                             }
                                           }
                                         }
                                       },
                                       "requestHeadersToRemove": {
-                                        "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                                        "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                                         "type": "array",
                                         "items": {
                                           "type": "string"
                                         }
                                       },
                                       "responseHeadersToAdd": {
-                                        "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                                        "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                                         "type": "array",
                                         "items": {
                                           "type": "object",
@@ -4403,14 +4651,14 @@
                                               "type": "string"
                                             },
                                             "replace": {
-                                              "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                               "type": "boolean"
                                             }
                                           }
                                         }
                                       },
                                       "responseHeadersToRemove": {
-                                        "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                                        "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                                         "type": "array",
                                         "items": {
                                           "type": "string"
@@ -4924,7 +5172,7 @@
                         "type": "object",
                         "properties": {
                           "requestHeadersToAdd": {
-                            "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                            "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                             "type": "array",
                             "items": {
                               "type": "object",
@@ -4938,21 +5186,21 @@
                                   "type": "string"
                                 },
                                 "replace": {
-                                  "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                  "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                   "type": "boolean"
                                 }
                               }
                             }
                           },
                           "requestHeadersToRemove": {
-                            "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                            "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                             "type": "array",
                             "items": {
                               "type": "string"
                             }
                           },
                           "responseHeadersToAdd": {
-                            "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                            "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                             "type": "array",
                             "items": {
                               "type": "object",
@@ -4966,14 +5214,14 @@
                                   "type": "string"
                                 },
                                 "replace": {
-                                  "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                  "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                   "type": "boolean"
                                 }
                               }
                             }
                           },
                           "responseHeadersToRemove": {
-                            "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                            "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                             "type": "array",
                             "items": {
                               "type": "string"
@@ -5024,6 +5272,10 @@
                 }
               }
             },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
             "description": {
               "description": "An optional description of this resource. Provide this property when\nyou create the resource.",
               "type": "string"
@@ -5031,6 +5283,68 @@
             "fingerprint": {
               "description": "Fingerprint of this resource. This field is used internally during\nupdates of this resource.",
               "type": "string"
+            },
+            "headerAction": {
+              "description": "Specifies changes to request and response headers that need to take effect for the selected backendService.\nheaderAction specified here take effect before headerAction in the enclosing HttpRouteRule, PathMatcher and UrlMap.\nheaderAction is not supported for load balancers that have their loadBalancingScheme set to EXTERNAL.\nNot supported when the URL map is bound to a target gRPC proxy that has validateForProxyless field set to true.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "requestHeadersToAdd": {
+                  "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "headerName": {
+                        "description": "The name of the header.",
+                        "type": "string"
+                      },
+                      "headerValue": {
+                        "description": "The value of the header to add.",
+                        "type": "string"
+                      },
+                      "replace": {
+                        "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "requestHeadersToRemove": {
+                  "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "responseHeadersToAdd": {
+                  "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "headerName": {
+                        "description": "The name of the header.",
+                        "type": "string"
+                      },
+                      "headerValue": {
+                        "description": "The value of the header to add.",
+                        "type": "string"
+                      },
+                      "replace": {
+                        "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "responseHeadersToRemove": {
+                  "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
             },
             "hostRule": {
               "description": "The list of HostRules to use against the URL.\nStructure is documented below.",
@@ -5274,7 +5588,7 @@
                               "type": "object",
                               "properties": {
                                 "requestHeadersToAdd": {
-                                  "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                                  "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                                   "type": "array",
                                   "items": {
                                     "type": "object",
@@ -5288,21 +5602,21 @@
                                         "type": "string"
                                       },
                                       "replace": {
-                                        "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                        "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                         "type": "boolean"
                                       }
                                     }
                                   }
                                 },
                                 "requestHeadersToRemove": {
-                                  "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                                  "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                                   "type": "array",
                                   "items": {
                                     "type": "string"
                                   }
                                 },
                                 "responseHeadersToAdd": {
-                                  "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                                  "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                                   "type": "array",
                                   "items": {
                                     "type": "object",
@@ -5316,14 +5630,14 @@
                                         "type": "string"
                                       },
                                       "replace": {
-                                        "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                        "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                         "type": "boolean"
                                       }
                                     }
                                   }
                                 },
                                 "responseHeadersToRemove": {
-                                  "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                                  "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                                   "type": "array",
                                   "items": {
                                     "type": "string"
@@ -5377,6 +5691,68 @@
                   "description": {
                     "description": "An optional description of this resource.",
                     "type": "string"
+                  },
+                  "headerAction": {
+                    "description": "Specifies changes to request and response headers that need to take effect for the selected backendService.\nheaderAction specified here take effect before headerAction in the enclosing HttpRouteRule, PathMatcher and UrlMap.\nheaderAction is not supported for load balancers that have their loadBalancingScheme set to EXTERNAL.\nNot supported when the URL map is bound to a target gRPC proxy that has validateForProxyless field set to true.\nStructure is documented below.",
+                    "type": "object",
+                    "properties": {
+                      "requestHeadersToAdd": {
+                        "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "headerName": {
+                              "description": "The name of the header.",
+                              "type": "string"
+                            },
+                            "headerValue": {
+                              "description": "The value of the header to add.",
+                              "type": "string"
+                            },
+                            "replace": {
+                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      },
+                      "requestHeadersToRemove": {
+                        "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "responseHeadersToAdd": {
+                        "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "headerName": {
+                              "description": "The name of the header.",
+                              "type": "string"
+                            },
+                            "headerValue": {
+                              "description": "The value of the header to add.",
+                              "type": "string"
+                            },
+                            "replace": {
+                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      },
+                      "responseHeadersToRemove": {
+                        "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
                   },
                   "name": {
                     "description": "The name to which this PathMatcher is referred by the HostRule.",
@@ -5581,7 +5957,7 @@
                                     "type": "object",
                                     "properties": {
                                       "requestHeadersToAdd": {
-                                        "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                                        "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                                         "type": "array",
                                         "items": {
                                           "type": "object",
@@ -5595,21 +5971,21 @@
                                               "type": "string"
                                             },
                                             "replace": {
-                                              "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                               "type": "boolean"
                                             }
                                           }
                                         }
                                       },
                                       "requestHeadersToRemove": {
-                                        "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                                        "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                                         "type": "array",
                                         "items": {
                                           "type": "string"
                                         }
                                       },
                                       "responseHeadersToAdd": {
-                                        "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                                        "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                                         "type": "array",
                                         "items": {
                                           "type": "object",
@@ -5623,14 +5999,14 @@
                                               "type": "string"
                                             },
                                             "replace": {
-                                              "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                               "type": "boolean"
                                             }
                                           }
                                         }
                                       },
                                       "responseHeadersToRemove": {
-                                        "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                                        "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                                         "type": "array",
                                         "items": {
                                           "type": "string"
@@ -5695,7 +6071,7 @@
                           "type": "object",
                           "properties": {
                             "requestHeadersToAdd": {
-                              "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                              "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                               "type": "array",
                               "items": {
                                 "type": "object",
@@ -5709,21 +6085,21 @@
                                     "type": "string"
                                   },
                                   "replace": {
-                                    "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                    "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                     "type": "boolean"
                                   }
                                 }
                               }
                             },
                             "requestHeadersToRemove": {
-                              "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                              "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                               "type": "array",
                               "items": {
                                 "type": "string"
                               }
                             },
                             "responseHeadersToAdd": {
-                              "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                              "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                               "type": "array",
                               "items": {
                                 "type": "object",
@@ -5737,14 +6113,14 @@
                                     "type": "string"
                                   },
                                   "replace": {
-                                    "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                    "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                     "type": "boolean"
                                   }
                                 }
                               }
                             },
                             "responseHeadersToRemove": {
-                              "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                              "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                               "type": "array",
                               "items": {
                                 "type": "string"
@@ -6080,7 +6456,7 @@
                                     "type": "object",
                                     "properties": {
                                       "requestHeadersToAdd": {
-                                        "description": "Headers to add to a matching request prior to forwarding the request to the\nbackendService.\nStructure is documented below.",
+                                        "description": "Headers to add to a matching request before forwarding the request to the backendService.\nStructure is documented below.",
                                         "type": "array",
                                         "items": {
                                           "type": "object",
@@ -6094,21 +6470,21 @@
                                               "type": "string"
                                             },
                                             "replace": {
-                                              "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                               "type": "boolean"
                                             }
                                           }
                                         }
                                       },
                                       "requestHeadersToRemove": {
-                                        "description": "A list of header names for headers that need to be removed from the request\nprior to forwarding the request to the backendService.",
+                                        "description": "A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.",
                                         "type": "array",
                                         "items": {
                                           "type": "string"
                                         }
                                       },
                                       "responseHeadersToAdd": {
-                                        "description": "Headers to add the response prior to sending the response back to the client.\nStructure is documented below.",
+                                        "description": "Headers to add the response before sending the response back to the client.\nStructure is documented below.",
                                         "type": "array",
                                         "items": {
                                           "type": "object",
@@ -6122,14 +6498,14 @@
                                               "type": "string"
                                             },
                                             "replace": {
-                                              "description": "If false, headerValue is appended to any values that already exist for the\nheader. If true, headerValue is set for the header, discarding any values that\nwere set for that header.",
+                                              "description": "If false, headerValue is appended to any values that already exist for the header. If true, headerValue is set for the header, discarding any values that were set for that header.\nThe default value is false.",
                                               "type": "boolean"
                                             }
                                           }
                                         }
                                       },
                                       "responseHeadersToRemove": {
-                                        "description": "A list of header names for headers that need to be removed from the response\nprior to sending the response back to the client.",
+                                        "description": "A list of header names for headers that need to be removed from the response before sending the response back to the client.",
                                         "type": "array",
                                         "items": {
                                           "type": "string"
@@ -6270,6 +6646,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

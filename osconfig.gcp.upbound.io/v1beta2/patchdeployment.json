@@ -395,6 +395,10 @@
                   "description": "Post-patch reboot settings.\nPossible values are: DEFAULT, ALWAYS, NEVER.",
                   "type": "string"
                 },
+                "skipUnpatchableVms": {
+                  "description": "Enables enhanced reporting for the patch job:",
+                  "type": "boolean"
+                },
                 "windowsUpdate": {
                   "description": "Windows update settings. Use this setting to override the default Windows patch rules.\nStructure is documented below.",
                   "type": "object",
@@ -976,6 +980,10 @@
                   "description": "Post-patch reboot settings.\nPossible values are: DEFAULT, ALWAYS, NEVER.",
                   "type": "string"
                 },
+                "skipUnpatchableVms": {
+                  "description": "Enables enhanced reporting for the patch job:",
+                  "type": "boolean"
+                },
                 "windowsUpdate": {
                   "description": "Windows update settings. Use this setting to override the default Windows patch rules.\nStructure is documented below.",
                   "type": "object",
@@ -1288,6 +1296,10 @@
               "description": "Time the patch deployment was created. Timestamp is in RFC3339 text format.\nA timestamp in RFC3339 UTC \"Zulu\" format, accurate to nanoseconds. Example: \"2014-10-02T15:01:23.045123456Z\".",
               "type": "string"
             },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
             "description": {
               "description": "Description of the patch deployment. Length of the description is limited to 1024 characters.",
               "type": "string"
@@ -1580,6 +1592,10 @@
                   "description": "Post-patch reboot settings.\nPossible values are: DEFAULT, ALWAYS, NEVER.",
                   "type": "string"
                 },
+                "skipUnpatchableVms": {
+                  "description": "Enables enhanced reporting for the patch job:",
+                  "type": "boolean"
+                },
                 "windowsUpdate": {
                   "description": "Windows update settings. Use this setting to override the default Windows patch rules.\nStructure is documented below.",
                   "type": "object",
@@ -1854,6 +1870,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

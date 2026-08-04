@@ -166,6 +166,29 @@
                     }
                   }
                 },
+                "selectedNamespaceLabels": {
+                  "description": "If set, include just the resources in the listed namespace Labels.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "resourceLabels": {
+                      "description": "A list of Kubernetes Namespace labels.\nStructure is documented below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "description": "The key of the kubernetes label.",
+                            "type": "string"
+                          },
+                          "value": {
+                            "description": "The value of the Label.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
                 "selectedNamespaces": {
                   "description": "If set, include just the resources in the listed namespaces.\nStructure is documented below.",
                   "type": "object",
@@ -548,6 +571,29 @@
                     }
                   }
                 },
+                "selectedNamespaceLabels": {
+                  "description": "If set, include just the resources in the listed namespace Labels.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "resourceLabels": {
+                      "description": "A list of Kubernetes Namespace labels.\nStructure is documented below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "description": "The key of the kubernetes label.",
+                            "type": "string"
+                          },
+                          "value": {
+                            "description": "The value of the Label.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
                 "selectedNamespaces": {
                   "description": "If set, include just the resources in the listed namespaces.\nStructure is documented below.",
                   "type": "object",
@@ -901,6 +947,29 @@
                     }
                   }
                 },
+                "selectedNamespaceLabels": {
+                  "description": "If set, include just the resources in the listed namespace Labels.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "resourceLabels": {
+                      "description": "A list of Kubernetes Namespace labels.\nStructure is documented below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "description": "The key of the kubernetes label.",
+                            "type": "string"
+                          },
+                          "value": {
+                            "description": "The value of the Label.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
                 "selectedNamespaces": {
                   "description": "If set, include just the resources in the listed namespaces.\nStructure is documented below.",
                   "type": "object",
@@ -1018,6 +1087,10 @@
               "description": "This flag indicates whether this BackupPlan has been deactivated.\nSetting this field to True locks the BackupPlan such that no further updates will be allowed\n(except deletes), including the deactivated field itself. It also prevents any new Backups\nfrom being created via this BackupPlan (including scheduled Backups).",
               "type": "boolean"
             },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
             "description": {
               "description": "User specified descriptive string for this BackupPlan.",
               "type": "string"
@@ -1053,6 +1126,10 @@
             "project": {
               "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
               "type": "string"
+            },
+            "protectedNamespaceCount": {
+              "description": "The number of Kubernetes Namespaces backed up in the last successful Backup created via this BackupPlan.",
+              "type": "number"
             },
             "protectedPodCount": {
               "description": "The number of Kubernetes Pods backed up in the last successful Backup created via this BackupPlan.",
@@ -1143,6 +1220,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

@@ -108,7 +108,7 @@
                   "type": "object",
                   "properties": {
                     "passwordSecretRef": {
-                      "description": "Password for database.\nNote: This property is sensitive and will not be displayed in the plan.",
+                      "description": "Password configuration for the connector.\nStructure is documented below.",
                       "type": "object",
                       "required": [
                         "key",
@@ -131,7 +131,7 @@
                       }
                     },
                     "username": {
-                      "description": "Username for database.",
+                      "description": "Username for the connector.",
                       "type": "string"
                     },
                     "usernameRef": {
@@ -375,6 +375,101 @@
                 "type": {
                   "description": "Type of the Cloud SQL database.\nPossible values are: DATABASE_TYPE_UNSPECIFIED, POSTGRES, MYSQL.",
                   "type": "string"
+                }
+              }
+            },
+            "configuration": {
+              "description": "Connector configuration. This is a generic configuration that is used to connect to\nexternal data sources such as AlloyDB, MySQL, and PostgreSQL using the BigQuery\nConnector framework.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "asset": {
+                  "description": "Asset configuration for the connector.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "database": {
+                      "description": "Database name.",
+                      "type": "string"
+                    },
+                    "googleCloudResource": {
+                      "description": "The full resource name of the Google Cloud resource.\nFor AlloyDB, this is in the format of\n//alloydb.googleapis.com/projects/{project}/locations/{region}/clusters/{cluster}/instances/{instance}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "authentication": {
+                  "description": "Authentication configuration for the connector.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "usernamePassword": {
+                      "description": "Username/password authentication configuration.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "password": {
+                          "description": "Password configuration for the connector.\nStructure is documented below.",
+                          "type": "object",
+                          "properties": {
+                            "plaintextSecretRef": {
+                              "description": "The plaintext password.\nNote: This property is sensitive and will not be displayed in the plan.",
+                              "type": "object",
+                              "required": [
+                                "key",
+                                "name",
+                                "namespace"
+                              ],
+                              "properties": {
+                                "key": {
+                                  "description": "The key to select.",
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "description": "Name of the secret.",
+                                  "type": "string"
+                                },
+                                "namespace": {
+                                  "description": "Namespace of the secret.",
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "username": {
+                          "description": "Username for the connector.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "connectorId": {
+                  "description": "The ID of the connector. Possible values include google-alloydb, google-cloudsql-mysql,\ngoogle-cloudsql-postgres, and other connector IDs supported by the BigQuery Connector framework.",
+                  "type": "string"
+                },
+                "endpoint": {
+                  "description": "Endpoint configuration for the connector.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "hostPort": {
+                      "description": "Host and port in the format of host:port for the connector endpoint.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "network": {
+                  "description": "Network configuration for the connector.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "privateServiceConnect": {
+                      "description": "Private Service Connect configuration for the connector.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "networkAttachment": {
+                          "description": "The resource name of a network attachment in the format of\nprojects/{project}/regions/{region}/networkAttachments/{networkAttachment}.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             },
@@ -586,7 +681,7 @@
                   ],
                   "properties": {
                     "passwordSecretRef": {
-                      "description": "Password for database.\nNote: This property is sensitive and will not be displayed in the plan.",
+                      "description": "Password configuration for the connector.\nStructure is documented below.",
                       "type": "object",
                       "required": [
                         "key",
@@ -609,7 +704,7 @@
                       }
                     },
                     "username": {
-                      "description": "Username for database.",
+                      "description": "Username for the connector.",
                       "type": "string"
                     },
                     "usernameRef": {
@@ -853,6 +948,104 @@
                 "type": {
                   "description": "Type of the Cloud SQL database.\nPossible values are: DATABASE_TYPE_UNSPECIFIED, POSTGRES, MYSQL.",
                   "type": "string"
+                }
+              }
+            },
+            "configuration": {
+              "description": "Connector configuration. This is a generic configuration that is used to connect to\nexternal data sources such as AlloyDB, MySQL, and PostgreSQL using the BigQuery\nConnector framework.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "asset": {
+                  "description": "Asset configuration for the connector.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "database": {
+                      "description": "Database name.",
+                      "type": "string"
+                    },
+                    "googleCloudResource": {
+                      "description": "The full resource name of the Google Cloud resource.\nFor AlloyDB, this is in the format of\n//alloydb.googleapis.com/projects/{project}/locations/{region}/clusters/{cluster}/instances/{instance}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "authentication": {
+                  "description": "Authentication configuration for the connector.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "usernamePassword": {
+                      "description": "Username/password authentication configuration.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "password": {
+                          "description": "Password configuration for the connector.\nStructure is documented below.",
+                          "type": "object",
+                          "required": [
+                            "plaintextSecretRef"
+                          ],
+                          "properties": {
+                            "plaintextSecretRef": {
+                              "description": "The plaintext password.\nNote: This property is sensitive and will not be displayed in the plan.",
+                              "type": "object",
+                              "required": [
+                                "key",
+                                "name",
+                                "namespace"
+                              ],
+                              "properties": {
+                                "key": {
+                                  "description": "The key to select.",
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "description": "Name of the secret.",
+                                  "type": "string"
+                                },
+                                "namespace": {
+                                  "description": "Namespace of the secret.",
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "username": {
+                          "description": "Username for the connector.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "connectorId": {
+                  "description": "The ID of the connector. Possible values include google-alloydb, google-cloudsql-mysql,\ngoogle-cloudsql-postgres, and other connector IDs supported by the BigQuery Connector framework.",
+                  "type": "string"
+                },
+                "endpoint": {
+                  "description": "Endpoint configuration for the connector.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "hostPort": {
+                      "description": "Host and port in the format of host:port for the connector endpoint.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "network": {
+                  "description": "Network configuration for the connector.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "privateServiceConnect": {
+                      "description": "Private Service Connect configuration for the connector.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "networkAttachment": {
+                          "description": "The resource name of a network attachment in the format of\nprojects/{project}/regions/{region}/networkAttachments/{networkAttachment}.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             },
@@ -1172,7 +1365,7 @@
                   "type": "object",
                   "properties": {
                     "username": {
-                      "description": "Username for database.",
+                      "description": "Username for the connector.",
                       "type": "string"
                     }
                   }
@@ -1195,8 +1388,92 @@
                 }
               }
             },
+            "configuration": {
+              "description": "Connector configuration. This is a generic configuration that is used to connect to\nexternal data sources such as AlloyDB, MySQL, and PostgreSQL using the BigQuery\nConnector framework.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "asset": {
+                  "description": "Asset configuration for the connector.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "database": {
+                      "description": "Database name.",
+                      "type": "string"
+                    },
+                    "googleCloudResource": {
+                      "description": "The full resource name of the Google Cloud resource.\nFor AlloyDB, this is in the format of\n//alloydb.googleapis.com/projects/{project}/locations/{region}/clusters/{cluster}/instances/{instance}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "authentication": {
+                  "description": "Authentication configuration for the connector.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "serviceAccount": {
+                      "description": "(Output)\nOutput only. The service account used for authenticating with the connector.",
+                      "type": "string"
+                    },
+                    "usernamePassword": {
+                      "description": "Username/password authentication configuration.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "password": {
+                          "description": "Password configuration for the connector.\nStructure is documented below.",
+                          "type": "object",
+                          "properties": {
+                            "secretType": {
+                              "description": "(Output)\nOutput only. The type of the secret.",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "username": {
+                          "description": "Username for the connector.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "connectorId": {
+                  "description": "The ID of the connector. Possible values include google-alloydb, google-cloudsql-mysql,\ngoogle-cloudsql-postgres, and other connector IDs supported by the BigQuery Connector framework.",
+                  "type": "string"
+                },
+                "endpoint": {
+                  "description": "Endpoint configuration for the connector.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "hostPort": {
+                      "description": "Host and port in the format of host:port for the connector endpoint.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "network": {
+                  "description": "Network configuration for the connector.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "privateServiceConnect": {
+                      "description": "Private Service Connect configuration for the connector.\nStructure is documented below.",
+                      "type": "object",
+                      "properties": {
+                        "networkAttachment": {
+                          "description": "The resource name of a network attachment in the format of\nprojects/{project}/regions/{region}/networkAttachments/{networkAttachment}.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "connectionId": {
               "description": "Optional connection id that should be assigned to the created connection.",
+              "type": "string"
+            },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
               "type": "string"
             },
             "description": {
@@ -1308,6 +1585,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

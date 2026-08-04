@@ -10,15 +10,15 @@
     "type": "git+github",
     "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
     "path": "package/crds",
-    "version": "v2.5.0",
+    "version": "v2.6.1",
     "license": "Apache-2.0",
     "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
   },
   "extraction": {
-    "timestamp": "2026-03-20T19:02:52Z",
+    "timestamp": "2026-08-04T04:44:19Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "818c388cb38d396521fcb6e8026dd540754e0f1736bb9d1081d0c4dc0e334552"
+    "sha256": "b27e75dfb13ea04c3dad4f79d2fbddb1d0fb0fd1cddbf2f59b44fadc9d801c0e"
   }
 }

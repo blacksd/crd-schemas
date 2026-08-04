@@ -51,6 +51,20 @@
               },
               "x-kubernetes-map-type": "granular"
             },
+            "params": {
+              "description": "Additional params passed with the request, but not persisted as part of resource payload\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "resourceManagerTags": {
+                  "description": "Resource manager tags to be bound to the snapshot. Tag keys and values have the\nsame definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id},\nand values are in the format tagValues/456.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-map-type": "granular"
+                }
+              }
+            },
             "project": {
               "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
               "type": "string"
@@ -114,6 +128,10 @@
                   }
                 }
               }
+            },
+            "snapshotType": {
+              "description": "Indicates the type of the snapshot.\nPossible values are: ARCHIVE, STANDARD.",
+              "type": "string"
             },
             "sourceDisk": {
               "description": "A reference to the disk used to create this snapshot.",
@@ -254,6 +272,10 @@
                   }
                 }
               }
+            },
+            "sourceInstantSnapshot": {
+              "description": "A reference to the instant snapshot used to create this snapshot.",
+              "type": "string"
             },
             "storageLocations": {
               "description": "Cloud Storage bucket storage location of the snapshot (regional or multi-regional).",
@@ -288,6 +310,20 @@
               },
               "x-kubernetes-map-type": "granular"
             },
+            "params": {
+              "description": "Additional params passed with the request, but not persisted as part of resource payload\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "resourceManagerTags": {
+                  "description": "Resource manager tags to be bound to the snapshot. Tag keys and values have the\nsame definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id},\nand values are in the format tagValues/456.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-map-type": "granular"
+                }
+              }
+            },
             "project": {
               "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
               "type": "string"
@@ -351,6 +387,10 @@
                   }
                 }
               }
+            },
+            "snapshotType": {
+              "description": "Indicates the type of the snapshot.\nPossible values are: ARCHIVE, STANDARD.",
+              "type": "string"
             },
             "sourceDisk": {
               "description": "A reference to the disk used to create this snapshot.",
@@ -491,6 +531,10 @@
                   }
                 }
               }
+            },
+            "sourceInstantSnapshot": {
+              "description": "A reference to the instant snapshot used to create this snapshot.",
+              "type": "string"
             },
             "storageLocations": {
               "description": "Cloud Storage bucket storage location of the snapshot (regional or multi-regional).",
@@ -598,6 +642,10 @@
               "description": "Creation timestamp in RFC3339 text format.",
               "type": "string"
             },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
+              "type": "string"
+            },
             "description": {
               "description": "An optional description of this resource.",
               "type": "string"
@@ -636,6 +684,20 @@
                 "type": "string"
               }
             },
+            "params": {
+              "description": "Additional params passed with the request, but not persisted as part of resource payload\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "resourceManagerTags": {
+                  "description": "Resource manager tags to be bound to the snapshot. Tag keys and values have the\nsame definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id},\nand values are in the format tagValues/456.",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "x-kubernetes-map-type": "granular"
+                }
+              }
+            },
             "project": {
               "description": "The ID of the project in which the resource belongs.\nIf it is not provided, the provider project is used.",
               "type": "string"
@@ -666,6 +728,10 @@
               "description": "The unique identifier for the resource.",
               "type": "number"
             },
+            "snapshotType": {
+              "description": "Indicates the type of the snapshot.\nPossible values are: ARCHIVE, STANDARD.",
+              "type": "string"
+            },
             "sourceDisk": {
               "description": "A reference to the disk used to create this snapshot.",
               "type": "string"
@@ -683,6 +749,10 @@
                   "type": "string"
                 }
               }
+            },
+            "sourceInstantSnapshot": {
+              "description": "A reference to the instant snapshot used to create this snapshot.",
+              "type": "string"
             },
             "storageBytes": {
               "description": "A size of the storage used by the snapshot. As snapshots share\nstorage, this number is expected to change with snapshot\ncreation/deletion.",
@@ -754,6 +824,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

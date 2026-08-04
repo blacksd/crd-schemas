@@ -1,0 +1,24 @@
+{
+  "schema": "tableiampolicy.json",
+  "crd": {
+    "group": "bigtable.gcp.m.upbound.io",
+    "kind": "TableIAMPolicy",
+    "apiVersion": "v1beta2"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v2.6.1",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-08-04T04:44:19Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6280db0c5f4004e02d799a56674cfcb8d5c5de1863c0ecbf90b5439807658f32"
+  }
+}

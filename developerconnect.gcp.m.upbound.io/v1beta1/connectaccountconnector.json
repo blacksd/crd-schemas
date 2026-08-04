@@ -30,15 +30,242 @@
           ],
           "properties": {
             "annotations": {
-              "description": "Optional. Allows users to store small amounts of arbitrary data.\nNote: This field is non-authoritative, and will only manage the annotations present in your configuration.\nPlease refer to the field effective_annotations for all of the annotations present on the resource.",
+              "description": "Allows users to store small amounts of arbitrary data.\nNote: This field is non-authoritative, and will only manage the annotations present in your configuration.\nPlease refer to the field effective_annotations for all of the annotations present on the resource.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
               },
               "x-kubernetes-map-type": "granular"
             },
+            "customOauthConfig": {
+              "description": "Message for a customized OAuth config.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authUri": {
+                  "description": "The OAuth2 authrization server URL.",
+                  "type": "string"
+                },
+                "clientId": {
+                  "description": "The client ID of the OAuth application.",
+                  "type": "string"
+                },
+                "clientIdRef": {
+                  "description": "Reference to a SecretVersion in secretmanager to populate clientId.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "clientIdSelector": {
+                  "description": "Selector for a SecretVersion in secretmanager to populate clientId.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "clientSecret": {
+                  "description": "Input only. The client secret of the OAuth application.\nIt will be provided as plain text, but encrypted and stored in developer\nconnect. As INPUT_ONLY field, it will not be included in the output.",
+                  "type": "string"
+                },
+                "clientSecretRef": {
+                  "description": "Reference to a SecretVersion in secretmanager to populate clientSecret.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "clientSecretSelector": {
+                  "description": "Selector for a SecretVersion in secretmanager to populate clientSecret.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "hostUri": {
+                  "description": "The host URI of the OAuth application.",
+                  "type": "string"
+                },
+                "pkceDisabled": {
+                  "description": "Disable PKCE for this OAuth config. PKCE is enabled by default.",
+                  "type": "boolean"
+                },
+                "scmProvider": {
+                  "description": "The type of the SCM provider.\nPossible values:\nSCM_PROVIDER_UNKNOWN\nGITHUB_ENTERPRISE\nGITLAB_ENTERPRISE\nBITBUCKET_DATA_CENTER",
+                  "type": "string"
+                },
+                "scopes": {
+                  "description": "The scopes to be requested during OAuth.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "SSL certificate to use for requests to a private service.",
+                  "type": "string"
+                },
+                "tokenUri": {
+                  "description": "The OAuth2 token request URL.",
+                  "type": "string"
+                }
+              }
+            },
+            "etag": {
+              "description": "This checksum is computed by the server based on the value of other\nfields, and may be sent on update and delete requests to ensure the\nclient has an up-to-date value before proceeding.",
+              "type": "string"
+            },
             "labels": {
-              "description": "Optional. Labels as key value pairs\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
+              "description": "Labels as key value pairs\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -46,7 +273,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "location": {
-              "description": "The location of the resource.",
+              "description": "Resource ID segment making up resource name. It identifies the resource within its parent collection as described in https://google.aip.dev/122.",
               "type": "string"
             },
             "project": {
@@ -58,15 +285,25 @@
               "type": "object",
               "properties": {
                 "scopes": {
-                  "description": "Required. User selected scopes to apply to the Oauth config\nIn the event of changing scopes, user records under AccountConnector will\nbe deleted and users will re-auth again.",
+                  "description": "User selected scopes to apply to the Oauth config\nIn the event of changing scopes, user records under AccountConnector will\nbe deleted and users will re-auth again.",
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
                 "systemProviderId": {
-                  "description": "List of providers that are owned by Developer Connect.\nPossible values:\nGITHUB\nGITLAB\nGOOGLE\nSENTRY\nROVO\nNEW_RELIC\nDATASTAX",
+                  "description": "Possible values:\nGITHUB\nGITLAB\nGOOGLE\nSENTRY\nROVO\nNEW_RELIC\nDATASTAX\nDYNATRACE",
                   "type": "string"
+                }
+              }
+            },
+            "proxyConfig": {
+              "description": "The proxy configuration.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "description": "Setting this to true allows the git and http proxies to perform actions on\nbehalf of the user configured under the account connector.",
+                  "type": "boolean"
                 }
               }
             }
@@ -77,15 +314,242 @@
           "type": "object",
           "properties": {
             "annotations": {
-              "description": "Optional. Allows users to store small amounts of arbitrary data.\nNote: This field is non-authoritative, and will only manage the annotations present in your configuration.\nPlease refer to the field effective_annotations for all of the annotations present on the resource.",
+              "description": "Allows users to store small amounts of arbitrary data.\nNote: This field is non-authoritative, and will only manage the annotations present in your configuration.\nPlease refer to the field effective_annotations for all of the annotations present on the resource.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
               },
               "x-kubernetes-map-type": "granular"
             },
+            "customOauthConfig": {
+              "description": "Message for a customized OAuth config.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authUri": {
+                  "description": "The OAuth2 authrization server URL.",
+                  "type": "string"
+                },
+                "clientId": {
+                  "description": "The client ID of the OAuth application.",
+                  "type": "string"
+                },
+                "clientIdRef": {
+                  "description": "Reference to a SecretVersion in secretmanager to populate clientId.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "clientIdSelector": {
+                  "description": "Selector for a SecretVersion in secretmanager to populate clientId.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "clientSecret": {
+                  "description": "Input only. The client secret of the OAuth application.\nIt will be provided as plain text, but encrypted and stored in developer\nconnect. As INPUT_ONLY field, it will not be included in the output.",
+                  "type": "string"
+                },
+                "clientSecretRef": {
+                  "description": "Reference to a SecretVersion in secretmanager to populate clientSecret.",
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referenced object.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace of the referenced object",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for referencing.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "clientSecretSelector": {
+                  "description": "Selector for a SecretVersion in secretmanager to populate clientSecret.",
+                  "type": "object",
+                  "properties": {
+                    "matchControllerRef": {
+                      "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                      "type": "boolean"
+                    },
+                    "matchLabels": {
+                      "description": "MatchLabels ensures an object with matching labels is selected.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      }
+                    },
+                    "namespace": {
+                      "description": "Namespace for the selector",
+                      "type": "string"
+                    },
+                    "policy": {
+                      "description": "Policies for selection.",
+                      "type": "object",
+                      "properties": {
+                        "resolution": {
+                          "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                          "type": "string",
+                          "default": "Required",
+                          "enum": [
+                            "Required",
+                            "Optional"
+                          ]
+                        },
+                        "resolve": {
+                          "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                          "type": "string",
+                          "enum": [
+                            "Always",
+                            "IfNotPresent"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "hostUri": {
+                  "description": "The host URI of the OAuth application.",
+                  "type": "string"
+                },
+                "pkceDisabled": {
+                  "description": "Disable PKCE for this OAuth config. PKCE is enabled by default.",
+                  "type": "boolean"
+                },
+                "scmProvider": {
+                  "description": "The type of the SCM provider.\nPossible values:\nSCM_PROVIDER_UNKNOWN\nGITHUB_ENTERPRISE\nGITLAB_ENTERPRISE\nBITBUCKET_DATA_CENTER",
+                  "type": "string"
+                },
+                "scopes": {
+                  "description": "The scopes to be requested during OAuth.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "SSL certificate to use for requests to a private service.",
+                  "type": "string"
+                },
+                "tokenUri": {
+                  "description": "The OAuth2 token request URL.",
+                  "type": "string"
+                }
+              }
+            },
+            "etag": {
+              "description": "This checksum is computed by the server based on the value of other\nfields, and may be sent on update and delete requests to ensure the\nclient has an up-to-date value before proceeding.",
+              "type": "string"
+            },
             "labels": {
-              "description": "Optional. Labels as key value pairs\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
+              "description": "Labels as key value pairs\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -101,15 +565,25 @@
               "type": "object",
               "properties": {
                 "scopes": {
-                  "description": "Required. User selected scopes to apply to the Oauth config\nIn the event of changing scopes, user records under AccountConnector will\nbe deleted and users will re-auth again.",
+                  "description": "User selected scopes to apply to the Oauth config\nIn the event of changing scopes, user records under AccountConnector will\nbe deleted and users will re-auth again.",
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
                 "systemProviderId": {
-                  "description": "List of providers that are owned by Developer Connect.\nPossible values:\nGITHUB\nGITLAB\nGOOGLE\nSENTRY\nROVO\nNEW_RELIC\nDATASTAX",
+                  "description": "Possible values:\nGITHUB\nGITLAB\nGOOGLE\nSENTRY\nROVO\nNEW_RELIC\nDATASTAX\nDYNATRACE",
                   "type": "string"
+                }
+              }
+            },
+            "proxyConfig": {
+              "description": "The proxy configuration.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "description": "Setting this to true allows the git and http proxies to perform actions on\nbehalf of the user configured under the account connector.",
+                  "type": "boolean"
                 }
               }
             }
@@ -179,7 +653,7 @@
           "type": "object",
           "properties": {
             "annotations": {
-              "description": "Optional. Allows users to store small amounts of arbitrary data.\nNote: This field is non-authoritative, and will only manage the annotations present in your configuration.\nPlease refer to the field effective_annotations for all of the annotations present on the resource.",
+              "description": "Allows users to store small amounts of arbitrary data.\nNote: This field is non-authoritative, and will only manage the annotations present in your configuration.\nPlease refer to the field effective_annotations for all of the annotations present on the resource.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -187,7 +661,70 @@
               "x-kubernetes-map-type": "granular"
             },
             "createTime": {
-              "description": "Output only. The timestamp when the userConnection was created.",
+              "description": "The timestamp when the accountConnector was created.",
+              "type": "string"
+            },
+            "customOauthConfig": {
+              "description": "Message for a customized OAuth config.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "authUri": {
+                  "description": "The OAuth2 authrization server URL.",
+                  "type": "string"
+                },
+                "clientId": {
+                  "description": "The client ID of the OAuth application.",
+                  "type": "string"
+                },
+                "clientSecret": {
+                  "description": "Input only. The client secret of the OAuth application.\nIt will be provided as plain text, but encrypted and stored in developer\nconnect. As INPUT_ONLY field, it will not be included in the output.",
+                  "type": "string"
+                },
+                "hostUri": {
+                  "description": "The host URI of the OAuth application.",
+                  "type": "string"
+                },
+                "pkceDisabled": {
+                  "description": "Disable PKCE for this OAuth config. PKCE is enabled by default.",
+                  "type": "boolean"
+                },
+                "scmProvider": {
+                  "description": "The type of the SCM provider.\nPossible values:\nSCM_PROVIDER_UNKNOWN\nGITHUB_ENTERPRISE\nGITLAB_ENTERPRISE\nBITBUCKET_DATA_CENTER",
+                  "type": "string"
+                },
+                "scopes": {
+                  "description": "The scopes to be requested during OAuth.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "serverVersion": {
+                  "description": "(Output)\nSCM server version installed at the host URI.",
+                  "type": "string"
+                },
+                "serviceDirectoryConfig": {
+                  "description": "ServiceDirectoryConfig represents Service Directory configuration for a\nconnection.\nStructure is documented below.",
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "description": "The Service Directory service name.\nFormat:\nprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sslCaCertificate": {
+                  "description": "SSL certificate to use for requests to a private service.",
+                  "type": "string"
+                },
+                "tokenUri": {
+                  "description": "The OAuth2 token request URL.",
+                  "type": "string"
+                }
+              }
+            },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
               "type": "string"
             },
             "effectiveAnnotations": {
@@ -204,12 +741,16 @@
               },
               "x-kubernetes-map-type": "granular"
             },
+            "etag": {
+              "description": "This checksum is computed by the server based on the value of other\nfields, and may be sent on update and delete requests to ensure the\nclient has an up-to-date value before proceeding.",
+              "type": "string"
+            },
             "id": {
               "description": "an identifier for the resource with format projects/{{project}}/locations/{{location}}/accountConnectors/{{account_connector_id}}",
               "type": "string"
             },
             "labels": {
-              "description": "Optional. Labels as key value pairs\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
+              "description": "Labels as key value pairs\nNote: This field is non-authoritative, and will only manage the labels present in your configuration.\nPlease refer to the field effective_labels for all of the labels present on the resource.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -217,15 +758,15 @@
               "x-kubernetes-map-type": "granular"
             },
             "location": {
-              "description": "The location of the resource.",
+              "description": "Resource ID segment making up resource name. It identifies the resource within its parent collection as described in https://google.aip.dev/122.",
               "type": "string"
             },
             "name": {
-              "description": "Identifier. The resource name of the userConnection, in the format\nprojects/{project}/locations/{location}/accountConnectors/{account_connector_id}.",
+              "description": "Identifier. The resource name of the accountConnector, in the format\nprojects/{project}/locations/{location}/accountConnectors/{account_connector_id}.",
               "type": "string"
             },
             "oauthStartUri": {
-              "description": "Output only. Start OAuth flow by clicking on this URL.",
+              "description": "Start OAuth flow by clicking on this URL.",
               "type": "string"
             },
             "project": {
@@ -237,15 +778,25 @@
               "type": "object",
               "properties": {
                 "scopes": {
-                  "description": "Required. User selected scopes to apply to the Oauth config\nIn the event of changing scopes, user records under AccountConnector will\nbe deleted and users will re-auth again.",
+                  "description": "User selected scopes to apply to the Oauth config\nIn the event of changing scopes, user records under AccountConnector will\nbe deleted and users will re-auth again.",
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
                 "systemProviderId": {
-                  "description": "List of providers that are owned by Developer Connect.\nPossible values:\nGITHUB\nGITLAB\nGOOGLE\nSENTRY\nROVO\nNEW_RELIC\nDATASTAX",
+                  "description": "Possible values:\nGITHUB\nGITLAB\nGOOGLE\nSENTRY\nROVO\nNEW_RELIC\nDATASTAX\nDYNATRACE",
                   "type": "string"
+                }
+              }
+            },
+            "proxyConfig": {
+              "description": "The proxy configuration.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "description": "Setting this to true allows the git and http proxies to perform actions on\nbehalf of the user configured under the account connector.",
+                  "type": "boolean"
                 }
               }
             },
@@ -258,7 +809,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "updateTime": {
-              "description": "Output only. The timestamp when the userConnection was updated.",
+              "description": "The timestamp when the accountConnector was updated.",
               "type": "string"
             }
           }
@@ -308,6 +859,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

@@ -281,9 +281,22 @@
                   "description": "The service account used for the encryption request for the given KMS key.\nIf absent, the Compute Engine Service Agent service account is used.",
                   "type": "string"
                 },
-                "rawKey": {
-                  "description": "Specifies a 256-bit customer-supplied encryption key, encoded in\nRFC 4648 base64 to either encrypt or decrypt this resource.",
-                  "type": "string"
+                "rawKeySecretRef": {
+                  "description": "Specifies a 256-bit customer-supplied encryption key, encoded in\nRFC 4648 base64 to either encrypt or decrypt this resource.\nNote: This property is sensitive and will not be displayed in the plan.",
+                  "type": "object",
+                  "required": [
+                    "key",
+                    "name"
+                  ],
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the secret.",
+                      "type": "string"
+                    }
+                  }
                 }
               }
             },
@@ -303,9 +316,22 @@
                   "description": "The service account used for the encryption request for the given KMS key.\nIf absent, the Compute Engine Service Agent service account is used.",
                   "type": "string"
                 },
-                "rawKey": {
-                  "description": "Specifies a 256-bit customer-supplied encryption key, encoded in\nRFC 4648 base64 to either encrypt or decrypt this resource.",
-                  "type": "string"
+                "rawKeySecretRef": {
+                  "description": "Specifies a 256-bit customer-supplied encryption key, encoded in\nRFC 4648 base64 to either encrypt or decrypt this resource.\nNote: This property is sensitive and will not be displayed in the plan.",
+                  "type": "object",
+                  "required": [
+                    "key",
+                    "name"
+                  ],
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the secret.",
+                      "type": "string"
+                    }
+                  }
                 }
               }
             },
@@ -583,9 +609,22 @@
                   "description": "The service account used for the encryption request for the given KMS key.\nIf absent, the Compute Engine Service Agent service account is used.",
                   "type": "string"
                 },
-                "rawKey": {
-                  "description": "Specifies a 256-bit customer-supplied encryption key, encoded in\nRFC 4648 base64 to either encrypt or decrypt this resource.",
-                  "type": "string"
+                "rawKeySecretRef": {
+                  "description": "Specifies a 256-bit customer-supplied encryption key, encoded in\nRFC 4648 base64 to either encrypt or decrypt this resource.\nNote: This property is sensitive and will not be displayed in the plan.",
+                  "type": "object",
+                  "required": [
+                    "key",
+                    "name"
+                  ],
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the secret.",
+                      "type": "string"
+                    }
+                  }
                 }
               }
             },
@@ -605,9 +644,22 @@
                   "description": "The service account used for the encryption request for the given KMS key.\nIf absent, the Compute Engine Service Agent service account is used.",
                   "type": "string"
                 },
-                "rawKey": {
-                  "description": "Specifies a 256-bit customer-supplied encryption key, encoded in\nRFC 4648 base64 to either encrypt or decrypt this resource.",
-                  "type": "string"
+                "rawKeySecretRef": {
+                  "description": "Specifies a 256-bit customer-supplied encryption key, encoded in\nRFC 4648 base64 to either encrypt or decrypt this resource.\nNote: This property is sensitive and will not be displayed in the plan.",
+                  "type": "object",
+                  "required": [
+                    "key",
+                    "name"
+                  ],
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the secret.",
+                      "type": "string"
+                    }
+                  }
                 }
               }
             },
@@ -716,6 +768,10 @@
             },
             "creationTimestamp": {
               "description": "Creation timestamp in RFC3339 text format.",
+              "type": "string"
+            },
+            "deletionPolicy": {
+              "description": "Defaults to DELETE.\nWhen set to \"DELETE\", deleting the resource is allowed.",
               "type": "string"
             },
             "description": {
@@ -866,10 +922,6 @@
                   "description": "The service account used for the encryption request for the given KMS key.\nIf absent, the Compute Engine Service Agent service account is used.",
                   "type": "string"
                 },
-                "rawKey": {
-                  "description": "Specifies a 256-bit customer-supplied encryption key, encoded in\nRFC 4648 base64 to either encrypt or decrypt this resource.",
-                  "type": "string"
-                },
                 "sha256": {
                   "description": "(Output)\nThe RFC 4648 base64 encoded SHA-256 hash of the customer-supplied\nencryption key that protects this resource.",
                   "type": "string"
@@ -898,10 +950,6 @@
                 },
                 "kmsKeyServiceAccount": {
                   "description": "The service account used for the encryption request for the given KMS key.\nIf absent, the Compute Engine Service Agent service account is used.",
-                  "type": "string"
-                },
-                "rawKey": {
-                  "description": "Specifies a 256-bit customer-supplied encryption key, encoded in\nRFC 4648 base64 to either encrypt or decrypt this resource.",
                   "type": "string"
                 },
                 "sha256": {
@@ -992,6 +1040,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",
