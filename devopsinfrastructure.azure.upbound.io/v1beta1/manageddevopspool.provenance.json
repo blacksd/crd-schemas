@@ -1,0 +1,24 @@
+{
+  "schema": "manageddevopspool.json",
+  "crd": {
+    "group": "devopsinfrastructure.azure.upbound.io",
+    "kind": "ManagedDevopsPool",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.7.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-08-05T13:16:46Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "3d8bab6a00c5d5defde8e1b042a6db00cf823fa070be4e4850f7bf4fc99ad571"
+  }
+}
