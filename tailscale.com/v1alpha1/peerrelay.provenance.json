@@ -1,8 +1,8 @@
 {
-  "schema": "tailnet.json",
+  "schema": "peerrelay.json",
   "crd": {
     "group": "tailscale.com",
-    "kind": "Tailnet",
+    "kind": "PeerRelay",
     "apiVersion": "v1alpha1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "00fc350ba97f5d4ae16e6c1f9af90d9f2a9a777c0cd987784271e765f0b45156"
+    "sha256": "e6f559353341167c594b34dd1540613dfd48067d2aaad3c6b98bc006b71cfc28"
   }
 }

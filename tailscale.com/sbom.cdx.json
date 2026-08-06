@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:5a5c21b6-605c-4c43-b603-9c01287db383",
-  "version": 8,
+  "version": 9,
   "metadata": {
-    "timestamp": "2026-07-29T01:57:24Z",
+    "timestamp": "2026-08-06T04:55:40Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "tailscale-operator",
-      "version": "v1.98.10",
+      "version": "v1.102.2",
       "licenses": [
         {
           "license": {
