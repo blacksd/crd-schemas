@@ -9,15 +9,15 @@
     "name": "kubeflow-trainjobs",
     "type": "url",
     "url": "https://raw.githubusercontent.com/kubeflow/training-operator/{version}/manifests/base/crds/trainer.kubeflow.org_trainjobs.yaml",
-    "version": "v2.2.1",
+    "version": "v2.3.0",
     "license": "Apache-2.0",
     "homepage": "https://www.kubeflow.org/docs/components/training"
   },
   "extraction": {
-    "timestamp": "2026-06-19T06:17:21Z",
+    "timestamp": "2026-08-07T10:36:11Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "a85c9e6ffab188c6e50c6655a30b8b16ecd7273621f4ef0bfc64e127cc52c63a"
+    "sha256": "4a8309cbbfebff963a3a59624f82f9934830a16877f57af2d75c9af13cde06e7"
   }
 }

@@ -209,9 +209,15 @@
                   "x-kubernetes-map-type": "atomic"
                 },
                 "storageUri": {
-                  "description": "storageUri is the URI for the dataset provider.",
+                  "description": "storageUri is the URI for the dataset provider.\nIf set, it may be empty, or it must be a valid URI format\n(e.g., s3://bucket/path, gs://bucket/path).",
                   "type": "string",
-                  "maxLength": 2048
+                  "maxLength": 2048,
+                  "x-kubernetes-validations": [
+                    {
+                      "rule": "self == '' || self.matches('^[A-Za-z][A-Za-z0-9+.-]*://.+$')",
+                      "message": "storageUri may be empty, or it must be a valid URI (scheme://...)"
+                    }
+                  ]
                 }
               }
             },
@@ -388,9 +394,15 @@
                   "x-kubernetes-map-type": "atomic"
                 },
                 "storageUri": {
-                  "description": "storageUri is the URI for the model provider.",
+                  "description": "storageUri is the URI for the model provider.\nIf set, it may be empty, or it must be a valid URI format\n(e.g., s3://bucket/path, gs://bucket/path).",
                   "type": "string",
-                  "maxLength": 2048
+                  "maxLength": 2048,
+                  "x-kubernetes-validations": [
+                    {
+                      "rule": "self == '' || self.matches('^[A-Za-z][A-Za-z0-9+.-]*://.+$')",
+                      "message": "storageUri may be empty, or it must be a valid URI (scheme://...)"
+                    }
+                  ]
                 }
               }
             }
@@ -2298,6 +2310,18 @@
                                                     }
                                                   ]
                                                 },
+                                                "terminationGracePeriodSeconds": {
+                                                  "description": "terminationGracePeriodSeconds patches the termination grace period for Pods\nin the target job templates.",
+                                                  "type": "integer",
+                                                  "format": "int64",
+                                                  "minimum": 0,
+                                                  "x-kubernetes-validations": [
+                                                    {
+                                                      "rule": "self == oldSelf",
+                                                      "message": "field is immutable"
+                                                    }
+                                                  ]
+                                                },
                                                 "tolerations": {
                                                   "description": "tolerations patches the Pod's tolerations.",
                                                   "type": "array",
@@ -3914,7 +3938,7 @@
               "maxItems": 128,
               "items": {
                 "type": "string",
-                "maxLength": 65536
+                "maxLength": 1048576
               },
               "x-kubernetes-list-type": "atomic"
             },
@@ -3924,7 +3948,7 @@
               "maxItems": 128,
               "items": {
                 "type": "string",
-                "maxLength": 65536
+                "maxLength": 1048576
               },
               "x-kubernetes-list-type": "atomic"
             },
