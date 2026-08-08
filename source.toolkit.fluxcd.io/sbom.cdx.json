@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:74461928-5e2c-4003-b467-be4e261910c8",
-  "version": 9,
+  "version": 10,
   "metadata": {
-    "timestamp": "2026-07-24T04:31:44Z",
+    "timestamp": "2026-08-08T01:16:53Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "flux",
-      "version": "v2.9.3",
+      "version": "v2.9.4",
       "licenses": [
         {
           "license": {
