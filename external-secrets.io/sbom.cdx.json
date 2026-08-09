@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:2008dce4-baec-4c2e-a150-912b20674f1e",
-  "version": 9,
+  "version": 10,
   "metadata": {
-    "timestamp": "2026-07-19T02:43:50Z",
+    "timestamp": "2026-08-09T00:43:05Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "external-secrets",
-      "version": "2.8.0",
+      "version": "2.9.0",
       "licenses": [
         {
           "license": {
