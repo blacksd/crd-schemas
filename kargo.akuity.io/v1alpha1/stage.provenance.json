@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "oci://ghcr.io/akuity/kargo-charts",
     "chart": "kargo",
-    "version": "1.11.0",
+    "version": "1.11.1",
     "license": "Apache-2.0",
     "homepage": "https://kargo.io",
     "values": {
@@ -22,10 +22,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-07-25T14:01:23Z",
+    "timestamp": "2026-08-11T04:53:16Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "bf21ab4f7871158814c45475961c3633ea50e27a59c6681d3056cd1883de1f08"
+    "sha256": "a28ea58a81062d22ab1d0dbe1b05ae2a39921fd13f9e186b2b4424d9becb9bda"
   }
 }
