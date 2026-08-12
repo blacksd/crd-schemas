@@ -38,6 +38,16 @@
               "description": "ID of the Anycast static IP list that is associated with the distribution.",
               "type": "string"
             },
+            "cacheTagConfig": {
+              "description": "Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the AWS documentation for more information about cache tags.",
+              "type": "object",
+              "properties": {
+                "headerName": {
+                  "description": "Name of the HTTP header to extract cache tags. The header value must contain comma-separated tag values.",
+                  "type": "string"
+                }
+              }
+            },
             "comment": {
               "description": "Any comments you want to include about the distribution.",
               "type": "string"
@@ -688,6 +698,16 @@
                       "originKeepaliveTimeout": {
                         "description": "The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of 60. But you can request an increase. Defaults to 5.",
                         "type": "number"
+                      },
+                      "originMtlsConfig": {
+                        "description": "The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.",
+                        "type": "object",
+                        "properties": {
+                          "clientCertificateArn": {
+                            "description": "ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.",
+                            "type": "string"
+                          }
+                        }
                       },
                       "originProtocolPolicy": {
                         "description": "Origin protocol policy to apply to your origin. One of http-only, https-only, or match-viewer.",
@@ -1107,6 +1127,16 @@
               "description": "ID of the Anycast static IP list that is associated with the distribution.",
               "type": "string"
             },
+            "cacheTagConfig": {
+              "description": "Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the AWS documentation for more information about cache tags.",
+              "type": "object",
+              "properties": {
+                "headerName": {
+                  "description": "Name of the HTTP header to extract cache tags. The header value must contain comma-separated tag values.",
+                  "type": "string"
+                }
+              }
+            },
             "comment": {
               "description": "Any comments you want to include about the distribution.",
               "type": "string"
@@ -1757,6 +1787,16 @@
                       "originKeepaliveTimeout": {
                         "description": "The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of 60. But you can request an increase. Defaults to 5.",
                         "type": "number"
+                      },
+                      "originMtlsConfig": {
+                        "description": "The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.",
+                        "type": "object",
+                        "properties": {
+                          "clientCertificateArn": {
+                            "description": "ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.",
+                            "type": "string"
+                          }
+                        }
                       },
                       "originProtocolPolicy": {
                         "description": "Origin protocol policy to apply to your origin. One of http-only, https-only, or match-viewer.",
@@ -2260,6 +2300,16 @@
             "arn": {
               "description": "ARN for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.",
               "type": "string"
+            },
+            "cacheTagConfig": {
+              "description": "Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the AWS documentation for more information about cache tags.",
+              "type": "object",
+              "properties": {
+                "headerName": {
+                  "description": "Name of the HTTP header to extract cache tags. The header value must contain comma-separated tag values.",
+                  "type": "string"
+                }
+              }
             },
             "callerReference": {
               "description": "Internal value used by CloudFront to allow future updates to the distribution configuration.",
@@ -2776,6 +2826,16 @@
                         "description": "The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of 60. But you can request an increase. Defaults to 5.",
                         "type": "number"
                       },
+                      "originMtlsConfig": {
+                        "description": "The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.",
+                        "type": "object",
+                        "properties": {
+                          "clientCertificateArn": {
+                            "description": "ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.",
+                            "type": "string"
+                          }
+                        }
+                      },
                       "originProtocolPolicy": {
                         "description": "Origin protocol policy to apply to your origin. One of http-only, https-only, or match-viewer.",
                         "type": "string"
@@ -3135,6 +3195,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

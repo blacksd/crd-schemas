@@ -39,7 +39,7 @@
           ],
           "properties": {
             "bucket": {
-              "description": "Name of the source bucket that inventory lists the objects for.",
+              "description": "Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.",
               "type": "string"
             },
             "bucketRef": {
@@ -123,7 +123,7 @@
               "type": "object",
               "properties": {
                 "bucket": {
-                  "description": "Name of the source bucket that inventory lists the objects for.",
+                  "description": "Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.",
                   "type": "object",
                   "properties": {
                     "accountId": {
@@ -131,7 +131,7 @@
                       "type": "string"
                     },
                     "bucketArn": {
-                      "description": "Amazon S3 bucket ARN of the destination.",
+                      "description": "Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.",
                       "type": "string"
                     },
                     "bucketArnRef": {
@@ -293,7 +293,7 @@
           "type": "object",
           "properties": {
             "bucket": {
-              "description": "Name of the source bucket that inventory lists the objects for.",
+              "description": "Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.",
               "type": "string"
             },
             "bucketRef": {
@@ -377,7 +377,7 @@
               "type": "object",
               "properties": {
                 "bucket": {
-                  "description": "Name of the source bucket that inventory lists the objects for.",
+                  "description": "Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.",
                   "type": "object",
                   "properties": {
                     "accountId": {
@@ -385,7 +385,7 @@
                       "type": "string"
                     },
                     "bucketArn": {
-                      "description": "Amazon S3 bucket ARN of the destination.",
+                      "description": "Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.",
                       "type": "string"
                     },
                     "bucketArnRef": {
@@ -642,7 +642,7 @@
           "type": "object",
           "properties": {
             "bucket": {
-              "description": "Name of the source bucket that inventory lists the objects for.",
+              "description": "Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.",
               "type": "string"
             },
             "destination": {
@@ -650,7 +650,7 @@
               "type": "object",
               "properties": {
                 "bucket": {
-                  "description": "Name of the source bucket that inventory lists the objects for.",
+                  "description": "Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.",
                   "type": "object",
                   "properties": {
                     "accountId": {
@@ -658,7 +658,7 @@
                       "type": "string"
                     },
                     "bucketArn": {
-                      "description": "Amazon S3 bucket ARN of the destination.",
+                      "description": "Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.",
                       "type": "string"
                     },
                     "encryption": {
@@ -787,6 +787,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

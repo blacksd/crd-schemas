@@ -170,6 +170,10 @@
                 "type": "string"
               },
               "x-kubernetes-map-type": "granular"
+            },
+            "warmThroughputMibPs": {
+              "description": "Target warm throughput in MB/s that the stream should be scaled to handle.",
+              "type": "number"
             }
           }
         },
@@ -305,6 +309,10 @@
                 "type": "string"
               },
               "x-kubernetes-map-type": "granular"
+            },
+            "warmThroughputMibPs": {
+              "description": "Target warm throughput in MB/s that the stream should be scaled to handle.",
+              "type": "number"
             }
           }
         },
@@ -465,6 +473,10 @@
                 "type": "string"
               },
               "x-kubernetes-map-type": "granular"
+            },
+            "warmThroughputMibPs": {
+              "description": "Target warm throughput in MB/s that the stream should be scaled to handle.",
+              "type": "number"
             }
           }
         },
@@ -513,6 +525,10 @@
             "type"
           ],
           "x-kubernetes-list-type": "map"
+        },
+        "lastHandledReconcileAt": {
+          "description": "LastHandledReconcileAt holds the value of the most recent\nreconcile-requested-at annotation token that the controller has\nprocessed. Users can compare this to the annotation to determine\nwhether a reconcile request has been handled.",
+          "type": "string"
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest metadata.generation\nwhich resulted in either a ready state, or stalled due to error\nit can not recover from without human intervention.",

@@ -1,0 +1,24 @@
+{
+  "schema": "accountpolicy.json",
+  "crd": {
+    "group": "cloudwatchlogs.aws.upbound.io",
+    "kind": "AccountPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.7.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-08-12T19:05:19Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "73517b910e36a4c556d1bf7934ccf7db2aa8860b5b25f8f35be08f6b44196f7e"
+  }
+}

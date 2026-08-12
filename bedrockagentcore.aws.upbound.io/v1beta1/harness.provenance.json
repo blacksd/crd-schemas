@@ -1,0 +1,24 @@
+{
+  "schema": "harness.json",
+  "crd": {
+    "group": "bedrockagentcore.aws.upbound.io",
+    "kind": "Harness",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.7.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-08-12T19:05:19Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bdd72b998e1d9b12c2d7992133b8ce89836dc82da1f95704b09d47614fbad579"
+  }
+}

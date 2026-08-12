@@ -10,15 +10,15 @@
     "type": "git+github",
     "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
     "path": "package/crds",
-    "version": "v2.5.0",
+    "version": "v2.7.0",
     "license": "Apache-2.0",
     "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
   },
   "extraction": {
-    "timestamp": "2026-03-20T19:02:52Z",
+    "timestamp": "2026-08-12T19:05:19Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "9a7331f03e40d6d4fe1b6c75ed626eb8a1d3eb5bb10d11e12c14dbad6ae5ec25"
+    "sha256": "b495690b36cbef811f2420e42f34ca01b05bcb3b2d883bbd12e0331a0849d5dd"
   }
 }
