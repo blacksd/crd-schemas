@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:caa6c53c-ebce-4a40-a837-d5b94bca184c",
-  "version": 4,
+  "version": 5,
   "metadata": {
-    "timestamp": "2026-05-29T01:37:34Z",
+    "timestamp": "2026-08-13T00:02:03Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "contour",
-      "version": "v1.33.5",
+      "version": "v1.33.6",
       "licenses": [
         {
           "license": {
