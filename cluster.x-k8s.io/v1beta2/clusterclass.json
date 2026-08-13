@@ -1123,7 +1123,7 @@
                         "minimum": 0
                       },
                       "order": {
-                        "description": "order defines the order in which Machines are deleted when downscaling.\nDefaults to \"Random\".  Valid values are \"Random, \"Newest\", \"Oldest\"",
+                        "description": "order defines the order in which Machines are deleted when downscaling.\nDefaults to \"Random\". Valid values are \"Random\", \"Newest\", \"Oldest\"",
                         "type": "string",
                         "enum": [
                           "Random",

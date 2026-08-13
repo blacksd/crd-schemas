@@ -488,7 +488,7 @@
           }
         },
         "nodeRefs": {
-          "description": "nodeRefs will point to the corresponding Nodes if it they exist.",
+          "description": "nodeRefs will point to the corresponding Nodes if they exist.",
           "type": "array",
           "maxItems": 10000,
           "items": {
@@ -564,6 +564,37 @@
           "description": "upToDateReplicas is the number of up-to-date replicas targeted by this MachinePool. A machine is considered up-to-date when Machine's UpToDate condition is true.",
           "type": "integer",
           "format": "int32"
+        },
+        "versions": {
+          "description": "versions is the aggregated Kubernetes versions in this MachinePool.",
+          "type": "array",
+          "maxItems": 100,
+          "minItems": 1,
+          "items": {
+            "description": "StatusVersion groups version-related status information.",
+            "type": "object",
+            "required": [
+              "version"
+            ],
+            "properties": {
+              "replicas": {
+                "description": "replicas is the number of replicas at this version.",
+                "type": "integer",
+                "format": "int32",
+                "minimum": 1
+              },
+              "version": {
+                "description": "version is the Kubernetes version.",
+                "type": "string",
+                "maxLength": 256,
+                "minLength": 1
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "version"
+          ],
+          "x-kubernetes-list-type": "map"
         }
       }
     }

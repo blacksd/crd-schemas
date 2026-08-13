@@ -1226,7 +1226,7 @@
                         "type": "object",
                         "properties": {
                           "deletePolicy": {
-                            "description": "deletePolicy defines the policy used by the MachineDeployment to identify nodes to delete when downscaling.\nValid values are \"Random, \"Newest\", \"Oldest\"\nWhen no value is supplied, the default DeletePolicy of MachineSet is used",
+                            "description": "deletePolicy defines the policy used by the MachineDeployment to identify nodes to delete when downscaling.\nValid values are \"Random\", \"Newest\", \"Oldest\"\nWhen no value is supplied, the default DeletePolicy of MachineSet is used",
                             "type": "string",
                             "enum": [
                               "Random",
