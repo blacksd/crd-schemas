@@ -543,6 +543,9 @@
                           }
                         }
                       },
+                      "saveStreamViaFile": {
+                        "type": "boolean"
+                      },
                       "url": {
                         "type": "string"
                       }
@@ -678,6 +681,14 @@
                           }
                         },
                         "x-kubernetes-map-type": "atomic"
+                      },
+                      "addressingStyle": {
+                        "type": "string",
+                        "enum": [
+                          "",
+                          "path",
+                          "virtual-hosted"
+                        ]
                       },
                       "bucket": {
                         "type": "string"
@@ -1390,6 +1401,9 @@
                             }
                           }
                         },
+                        "saveStreamViaFile": {
+                          "type": "boolean"
+                        },
                         "url": {
                           "type": "string"
                         }
@@ -1544,6 +1558,14 @@
                             }
                           },
                           "x-kubernetes-map-type": "atomic"
+                        },
+                        "addressingStyle": {
+                          "type": "string",
+                          "enum": [
+                            "",
+                            "path",
+                            "virtual-hosted"
+                          ]
                         },
                         "bucket": {
                           "type": "string"

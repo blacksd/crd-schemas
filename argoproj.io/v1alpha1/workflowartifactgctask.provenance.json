@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://argoproj.github.io/argo-helm",
     "chart": "argo-workflows",
-    "version": "1.0.5",
+    "version": "1.1.1",
     "license": "Apache-2.0",
     "homepage": "https://argoproj.github.io/workflows",
     "include": [
@@ -25,10 +25,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-23T08:56:19Z",
+    "timestamp": "2026-08-14T10:46:46Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "4fedf4f91cd6d50af6a2a2556deff60047246270476bb30e875977313b619680"
+    "sha256": "2caf8627a52815a7ae5e91fcee1fd7337b0c5d9e0ab43afdc5301a9aaa13c3c7"
   }
 }
