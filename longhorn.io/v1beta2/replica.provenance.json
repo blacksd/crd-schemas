@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://charts.longhorn.io",
     "chart": "longhorn",
-    "version": "1.11.0",
+    "version": "1.12.1",
     "license": "Apache-2.0",
     "homepage": "https://longhorn.io"
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-08-14T03:01:06Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "c6809bf9984e1282e8f1e9d418a23008dcd8302dcee1463ca4ca2f5db11948e5"
+    "sha256": "ab11a7beb9cd46630f7d69d1eb2f195280fe6fe1e09e4b03faf3dad80e54e7bb"
   }
 }

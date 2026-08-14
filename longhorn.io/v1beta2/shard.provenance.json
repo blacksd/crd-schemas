@@ -1,8 +1,8 @@
 {
-  "schema": "volume.json",
+  "schema": "shard.json",
   "crd": {
     "group": "longhorn.io",
-    "kind": "Volume",
+    "kind": "Shard",
     "apiVersion": "v1beta2"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "f00a4b6def0c5133b4934a0f5ca971f2602c068af2789161d895be3395587ddb"
+    "sha256": "21648dccd31fa8251de772aad40fd4cc71b1bdf9d69cc8b0a8ea9648dcdd4502"
   }
 }
