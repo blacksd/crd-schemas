@@ -1,8 +1,8 @@
 {
-  "schema": "backendtrafficpolicy.json",
+  "schema": "l4routepolicy.json",
   "crd": {
     "group": "apisix.apache.org",
-    "kind": "BackendTrafficPolicy",
+    "kind": "L4RoutePolicy",
     "apiVersion": "v1alpha1"
   },
   "source": {
@@ -22,6 +22,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "1cc84714255b3a46b43dad1259f2f97c8bc9427b2bb1352e1d0b112f8ac938fb"
+    "sha256": "3546f2b00465a12e9cbdade10de1ee0cf25996470b5014ee259dc64552067668"
   }
 }

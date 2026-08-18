@@ -1,5 +1,5 @@
 {
-  "description": "HTTPRoutePolicy defines configuration of traffic policies.",
+  "description": "L4RoutePolicy defines plugin configuration for Gateway API L4 routes (TCPRoute, UDPRoute, TLSRoute).\nIt follows the Gateway API Policy Attachment pattern and attaches APISIX stream plugins\nto the targeted L4 route resources.",
   "type": "object",
   "properties": {
     "apiVersion": {
@@ -14,19 +14,34 @@
       "type": "object"
     },
     "spec": {
-      "description": "HTTPRoutePolicySpec defines configuration of a HTTPRoutePolicy,\nincluding route priority and request matching conditions.",
+      "description": "Spec defines the desired state of L4RoutePolicy.",
       "type": "object",
       "required": [
         "targetRefs"
       ],
       "properties": {
-        "priority": {
-          "description": "Priority sets the priority for route. when multiple routes have the same URI path,\na higher value sets a higher priority in route matching.",
-          "type": "integer",
-          "format": "int64"
+        "plugins": {
+          "description": "Plugins is the list of APISIX stream plugins to attach to the targeted L4 routes.\nPlugin names should be valid APISIX stream plugin names (e.g., limit-conn, ip-restriction).",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "config": {
+                "description": "Config is plugin configuration details.",
+                "x-kubernetes-preserve-unknown-fields": true
+              },
+              "name": {
+                "description": "Name is the name of the plugin.",
+                "type": "string"
+              }
+            }
+          }
         },
         "targetRefs": {
-          "description": "TargetRef identifies an API object (i.e. HTTPRoute, Ingress) to apply HTTPRoutePolicy to.",
+          "description": "TargetRefs identifies the L4 route resources (TCPRoute, UDPRoute, or TLSRoute)\nto which this policy applies. Only same-namespace targets are supported.",
           "type": "array",
           "maxItems": 16,
           "minItems": 1,
@@ -66,14 +81,17 @@
                 "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
               }
             }
-          }
-        },
-        "vars": {
-          "description": "Vars sets the request matching conditions.",
-          "type": "array",
-          "items": {
-            "x-kubernetes-preserve-unknown-fields": true
-          }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "self.all(r, r.kind == 'TCPRoute' || r.kind == 'UDPRoute' || r.kind == 'TLSRoute')",
+              "message": "targetRefs kind must be TCPRoute, UDPRoute, or TLSRoute"
+            },
+            {
+              "rule": "self.all(r, r.group == 'gateway.networking.k8s.io')",
+              "message": "targetRefs group must be gateway.networking.k8s.io"
+            }
+          ]
         }
       }
     },
