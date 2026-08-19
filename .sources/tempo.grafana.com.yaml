@@ -2,6 +2,6 @@ sources:
   - name: tempo-operator
     type: url
     url: https://github.com/grafana/tempo-operator/releases/download/{version}/tempo-operator.yaml
-    version: v0.21.0
+    version: v0.22.0
     license: AGPL-3.0
     homepage: https://grafana.com/docs/tempo/latest/setup/operator
