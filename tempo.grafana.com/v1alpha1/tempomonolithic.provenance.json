@@ -9,15 +9,15 @@
     "name": "tempo-operator",
     "type": "url",
     "url": "https://github.com/grafana/tempo-operator/releases/download/{version}/tempo-operator.yaml",
-    "version": "v0.21.0",
+    "version": "v0.22.0",
     "license": "AGPL-3.0",
     "homepage": "https://grafana.com/docs/tempo/latest/setup/operator"
   },
   "extraction": {
-    "timestamp": "2026-05-31T01:35:12Z",
+    "timestamp": "2026-08-19T05:15:04Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "ef63918f1a4b1a58862142e74bd90153460edd53dab499b578b6c443bcdbc5dc"
+    "sha256": "ca41500874de0b2b69e7e408e5b25f2c9e2889b66d52b009a8cde5883b732f4c"
   }
 }
