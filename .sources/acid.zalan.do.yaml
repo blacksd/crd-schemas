@@ -3,6 +3,6 @@ sources:
     type: helm
     repo: https://opensource.zalando.com/postgres-operator/charts/postgres-operator
     chart: postgres-operator
-    version: 2.0.1
+    version: 2.0.2
     license: MIT
     homepage: https://postgres-operator.readthedocs.io
