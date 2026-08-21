@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "oci://cr.kgateway.dev/kgateway-dev/charts",
     "chart": "kgateway-crds",
-    "version": "2.4.0",
+    "version": "2.4.3",
     "license": "Apache-2.0",
     "homepage": "https://github.com/kgateway-dev/kgateway"
   },
   "extraction": {
-    "timestamp": "2026-07-24T15:35:21Z",
+    "timestamp": "2026-08-21T01:06:38Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "a92813a8e3a441d94e5f0d6cfc05f858ca5250a96218130ea049f902cd5bd669"
+    "sha256": "32986cc9c4c05996c3e5d9597f421d213f6c534a49710ec9fdeeb346c5dc19bf"
   }
 }
