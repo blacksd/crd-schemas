@@ -3,7 +3,7 @@ sources:
     type: helm
     repo: https://traefik.github.io/charts
     chart: traefik
-    version: 41.2.0
+    version: 41.3.0
     license: MIT
     homepage: https://traefik.io
     include:
