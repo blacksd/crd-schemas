@@ -1,9 +1,9 @@
 {
-  "schema": "nvidiadriver.json",
+  "schema": "computedomain.json",
   "crd": {
-    "group": "nvidia.com",
-    "kind": "NVIDIADriver",
-    "apiVersion": "v1alpha1"
+    "group": "resource.nvidia.com",
+    "kind": "ComputeDomain",
+    "apiVersion": "v1beta1"
   },
   "source": {
     "name": "gpu-operator",
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "28bfa19814c45cf03717a5195ec11d170b9877f19300ab9b57c8756d68c93fb9"
+    "sha256": "7427e012f096127689e87adeac7b327f91010f0983503041520a72033962eb74"
   }
 }

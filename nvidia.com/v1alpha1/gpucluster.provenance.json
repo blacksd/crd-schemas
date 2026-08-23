@@ -1,8 +1,8 @@
 {
-  "schema": "nvidiadriver.json",
+  "schema": "gpucluster.json",
   "crd": {
     "group": "nvidia.com",
-    "kind": "NVIDIADriver",
+    "kind": "GPUCluster",
     "apiVersion": "v1alpha1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "28bfa19814c45cf03717a5195ec11d170b9877f19300ab9b57c8756d68c93fb9"
+    "sha256": "7054f51788b1fa9b578b6f049791b086c21e20ba68ab8e5ec64d2b39126cfa84"
   }
 }
