@@ -1,9 +1,9 @@
 {
-  "schema": "globalproxysettings.json",
+  "schema": "globalresourcequota.json",
   "crd": {
     "group": "capsule.clastix.io",
-    "kind": "GlobalProxySettings",
-    "apiVersion": "v1beta1"
+    "kind": "GlobalResourceQuota",
+    "apiVersion": "v1beta2"
   },
   "source": {
     "name": "capsule",
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "3cdd16f25e587b1281a01a9413941abf458a0be29f203f87442ec12d37b219f8"
+    "sha256": "ffee08c25c94d178faa08f2aa9dd56cd8d60d1fbbaf1e08ef42df6c04f8dfb8c"
   }
 }
