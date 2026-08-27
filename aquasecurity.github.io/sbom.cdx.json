@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:4655f2a2-cc5f-4b79-a09a-092dc32ad42e",
-  "version": 5,
+  "version": 6,
   "metadata": {
-    "timestamp": "2026-08-07T13:10:03Z",
+    "timestamp": "2026-08-27T16:18:29Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "trivy-operator",
-      "version": "0.35.0",
+      "version": "0.36.0",
       "licenses": [
         {
           "license": {
