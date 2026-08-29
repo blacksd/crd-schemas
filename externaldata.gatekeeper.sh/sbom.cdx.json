@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:9ba14f78-f1e3-4165-96d7-cc2b90a0696a",
-  "version": 3,
+  "version": 4,
   "metadata": {
-    "timestamp": "2026-07-09T05:07:05Z",
+    "timestamp": "2026-08-29T13:39:28Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "gatekeeper",
-      "version": "3.23.0",
+      "version": "3.23.1",
       "licenses": [
         {
           "license": {
