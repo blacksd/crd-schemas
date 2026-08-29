@@ -3,6 +3,6 @@ sources:
     type: helm
     repo: https://sigstore.github.io/helm-charts
     chart: policy-controller
-    version: 0.10.6
+    version: 0.10.7
     license: Apache-2.0
     homepage: https://docs.sigstore.dev
