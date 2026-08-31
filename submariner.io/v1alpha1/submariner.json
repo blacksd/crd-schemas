@@ -231,7 +231,7 @@
                 "type": "string"
               },
               "operator": {
-                "description": "Operator represents a key's relationship to the value.\nValid operators are Exists and Equal. Defaults to Equal.\nExists is equivalent to wildcard for value, so that a pod can\ntolerate all taints of a particular category.",
+                "description": "Operator represents a key's relationship to the value.\nValid operators are Exists, Equal, Lt, and Gt. Defaults to Equal.\nExists is equivalent to wildcard for value, so that a pod can\ntolerate all taints of a particular category.\nLt and Gt perform numeric comparisons (requires feature gate TaintTolerationComparisonOperators).",
                 "type": "string"
               },
               "tolerationSeconds": {
@@ -569,7 +569,7 @@
                           }
                         },
                         "public_ip": {
-                          "description": "Deprecated: Set/SetPublicIP() or, if necessary, PublicIPs",
+                          "description": "Deprecated: Use Get/SetPublicIP() or, if necessary, PublicIPs",
                           "type": "string"
                         },
                         "subnets": {
@@ -581,7 +581,7 @@
                       }
                     },
                     "latencyRTT": {
-                      "description": "LatencySpec describes the round trip time information for a packet\nbetween the gateway pods of two clusters.",
+                      "description": "LatencyRTTSpec describes the round trip time information for a packet\nbetween the gateway pods of two clusters.",
                       "type": "object",
                       "properties": {
                         "average": {
@@ -683,7 +683,7 @@
                     }
                   },
                   "public_ip": {
-                    "description": "Deprecated: Set/SetPublicIP() or, if necessary, PublicIPs",
+                    "description": "Deprecated: Use Get/SetPublicIP() or, if necessary, PublicIPs",
                     "type": "string"
                   },
                   "subnets": {

@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://submariner-io.github.io/submariner-charts/charts",
     "chart": "submariner-operator",
-    "version": "0.22.1",
+    "version": "0.24.1",
     "license": "Apache-2.0",
     "homepage": "https://submariner.io"
   },
   "extraction": {
-    "timestamp": "2026-03-05T16:56:07Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-08-31T02:28:32Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "5464f54386ba658fbdcce2a71132ab8273d1f4a09791c455c6b32ae175285514"
+    "sha256": "08f240a544dc7e8eb82b2e502c7694fd2d307b2a9dd1ba16d93397542888e955"
   }
 }
