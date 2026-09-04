@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://scylla-operator-charts.storage.googleapis.com/stable",
     "chart": "scylla-operator",
-    "version": "v1.21.0",
+    "version": "v1.22.0",
     "license": "Apache-2.0",
     "homepage": "https://github.com/scylladb/scylla-operator"
   },
   "extraction": {
-    "timestamp": "2026-05-21T14:36:50Z",
+    "timestamp": "2026-09-04T18:27:44Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "c36c6eefe20534fcc6028ad59e450aaab178eefa398ef34fa395e26bd0201f01"
+    "sha256": "1e11733e39b1f3a82e84f0962fbb2a600fb1c52da2c31ff123cd8a8f413be8fc"
   }
 }

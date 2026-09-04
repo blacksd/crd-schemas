@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:5c5d9183-a3f1-497b-8683-5e00725804d3",
-  "version": 4,
+  "version": 5,
   "metadata": {
-    "timestamp": "2026-08-12T10:54:06Z",
+    "timestamp": "2026-09-04T18:27:44Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "scylla-operator",
-      "version": "v1.21.1",
+      "version": "v1.22.0",
       "licenses": [
         {
           "license": {
