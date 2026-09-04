@@ -467,6 +467,45 @@
             }
           }
         },
+        "hsts": {
+          "description": "The HSTS policy configures HTTP Strict Transport Security headers",
+          "type": "object",
+          "required": [
+            "maxAge"
+          ],
+          "properties": {
+            "behindProxy": {
+              "description": "BehindProxy configures NGINX to set the HSTS header based on the X-Forwarded-Proto request header rather than the $https variable.",
+              "type": "boolean",
+              "default": false
+            },
+            "includeSubDomains": {
+              "description": "IncludeSubDomains extends the HSTS policy to all subdomains of the host.",
+              "type": "boolean",
+              "default": false
+            },
+            "maxAge": {
+              "description": "MaxAge defines how long (in seconds) the browser should cache and enforce the HSTS policy.",
+              "type": "integer",
+              "minimum": 0
+            },
+            "preload": {
+              "description": "Preload indicates that the domain should be included in browsers' HSTS preload lists.",
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "!self.preload || self.includeSubDomains",
+              "message": "preload requires includeSubDomains to be enabled"
+            },
+            {
+              "rule": "!self.preload || (has(self.maxAge) \u0026\u0026 self.maxAge \u003e= 31536000)",
+              "message": "preload requires maxAge to be at least 31536000 (one year)"
+            }
+          ]
+        },
         "ingressClassName": {
           "description": "Specifies which instance of NGINX Ingress Controller must handle the Policy resource.",
           "type": "string"
@@ -626,6 +665,130 @@
             }
           ]
         },
+        "oidcNative": {
+          "description": "The OpenID Connect policy configures NGINX to authenticate client requests by validating a JWT token against an OAuth2/OIDC token provider, such as Auth0 or Keycloak. NGINX Plus native.",
+          "type": "object",
+          "required": [
+            "clientID",
+            "issuer"
+          ],
+          "properties": {
+            "clientID": {
+              "description": "The client ID provided by your OpenID Connect provider.",
+              "type": "string"
+            },
+            "clientSecret": {
+              "description": "The name of the Kubernetes secret that stores the client secret provided by your OpenID Connect provider. It must be in the same namespace as the Policy resource. The secret must be of the type nginx.org/oidc, and the secret under the key client-secret, otherwise the secret will be rejected as invalid.",
+              "type": "string",
+              "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+            },
+            "configURL": {
+              "description": "ConfigURL is the URL of the OpenID Provider Configuration Information. If not set, defaults to \u003cissuer\u003e/.well-known/openid-configuration as per the OpenID Connect Discovery specification.",
+              "type": "string",
+              "pattern": "^https?://[^/\\s\"'\\x60$;\\\\]+/[^\\s\"'\\x60$;\\\\]*$"
+            },
+            "cookieName": {
+              "description": "Sets the name of the session cookie. Defaults to NGX_OIDC_\u003cproviderName\u003e.",
+              "type": "string",
+              "pattern": "^[_A-Za-z0-9]+$"
+            },
+            "extraAuthArgs": {
+              "description": "Sets additional query arguments for the authentication request URL, for example \"display=page\u0026prompt=login\".",
+              "type": "string"
+            },
+            "frontChannelLogoutURI": {
+              "description": "Defines the URI path for triggering OIDC front-channel logout. When set, the IdP calls this URI in a hidden iframe when the user logs out globally, allowing NGINX to terminate the local session.",
+              "type": "string",
+              "pattern": "^/[^\\s{};\\\\$\\x60\"']*$"
+            },
+            "issuer": {
+              "description": "Sets the Issuer Identifier URL of the OpenID Provider; required directive. The URL must exactly match the value of “issuer” in the OpenID Provider metadata and requires the “https” scheme.",
+              "type": "string",
+              "pattern": "^https://[^/\\s\"'\\x60$;\\\\]+(/[^\\s\"'\\x60$;\\\\]*)?$"
+            },
+            "logoutTokenHint": {
+              "description": "Adds the id_token_hint argument to the Provider's Logout Endpoint when redirecting user during logout. Required by some providers.",
+              "type": "boolean",
+              "default": false
+            },
+            "logoutURI": {
+              "description": "Defines the URI path for initiating session logout. Upon session termination, the user is redirected to the post logout page.",
+              "type": "string",
+              "pattern": "^/[^\\s{};\\\\$\\x60\"']*$"
+            },
+            "pkce": {
+              "description": "Explicitly enables or disables PKCE. By default, PKCE is automatically enabled based on OpenID Provider metadata.",
+              "type": "string",
+              "enum": [
+                "on",
+                "off"
+              ]
+            },
+            "postLogoutRedirectURI": {
+              "description": "Defines the path where the user is redirected after logout. Must be a path on the same host — absolute URLs are not supported. When set, NIC also auto-generates an unauthenticated location at this path serving a plain-text confirmation response. If multiple OIDCNative providers on the same host set the same path, only one auto-generated location is rendered; providers whose other generated locations (redirectURI, or the internal IdP proxy location) collide are rejected instead.",
+              "type": "string",
+              "pattern": "^/[^\\s{};\\\\$\\x60\"']*$"
+            },
+            "proxyBufferSize": {
+              "description": "Buffer size used when proxying requests to the OpenID Provider. Applies to `proxy_buffer_size` and each buffer in `proxy_buffers`. Default is `32k`.",
+              "type": "string",
+              "default": "32k",
+              "pattern": "^[0-9]{1,8}[kKmM]?$"
+            },
+            "redirectURI": {
+              "description": "Allows overriding the default redirect URI. Defaults to /oidc_callback_\u003cproviderName\u003e.",
+              "type": "string",
+              "pattern": "^/[^\\s{};\\\\$\\x60\"']*$"
+            },
+            "scope": {
+              "description": "List of OpenID Connect scopes, space-separated. The scope openid is always required. Example: \"openid profile email\". Default is \"openid\".",
+              "type": "string",
+              "x-kubernetes-validations": [
+                {
+                  "rule": "self == '' || self.matches('(^|[ +])openid([ +]|$)')",
+                  "message": "scope must contain 'openid' as a token"
+                }
+              ]
+            },
+            "sessionTimeout": {
+              "description": "Sets a timeout after which the session is deleted, unless it was refreshed. Default is 8h.",
+              "type": "string",
+              "pattern": "^[0-9]{1,8}(s|m|h|d)?$"
+            },
+            "sslName": {
+              "description": "Overrides the TLS SNI name and Host header used when connecting to the OpenID Provider. If omitted, NGINX dynamically resolves SNI and Host header from the endpoint URLs.",
+              "type": "string",
+              "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
+            },
+            "sslVerify": {
+              "description": "Enables verification of the OpenID Provider's TLS certificate. Default is true. Set to false to skip verification (dev/test only, insecure).",
+              "type": "boolean",
+              "default": true
+            },
+            "sslVerifyDepth": {
+              "description": "Sets the verification depth in the OpenID Provider TLS certificate chain. Default is 1.",
+              "type": "integer",
+              "default": 1,
+              "minimum": 0
+            },
+            "trustedCertSecret": {
+              "description": "The name of the Kubernetes secret that stores the trusted CA certificate for verifying the OpenID Provider's TLS certificate. Must be of type nginx.org/ca with the certificate stored under key ca.crt.",
+              "type": "string",
+              "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+            },
+            "userInfoEnable": {
+              "description": "Enables downloading of the UserInfo data and makes UserInfo claims available via the $oidc_claim_name variables.",
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "x-kubernetes-validations": [
+            {
+              "rule": "(self.sslVerify == true) || (self.sslVerify == false \u0026\u0026 !has(self.trustedCertSecret))",
+              "message": "trustedCertSecret can be set only if sslVerify is true"
+            }
+          ]
+        },
         "rateLimit": {
           "description": "The rate limit policy controls the rate of processing requests per a defined key.",
           "type": "object",
@@ -732,11 +895,84 @@
           "type": "object",
           "properties": {
             "apBundle": {
-              "description": "The App Protect WAF policy bundle. Mutually exclusive with apPolicy.",
+              "description": "The App Protect WAF policy bundle. Mutually exclusive with apPolicy and apBundleSource.",
               "type": "string"
             },
+            "apBundleSource": {
+              "description": "ApBundleSource fetches the WAF policy bundle from N1C, NIM, or an HTTPS endpoint.\nMutually exclusive with ApPolicy and ApBundle.",
+              "type": "object",
+              "required": [
+                "url"
+              ],
+              "properties": {
+                "enablePolling": {
+                  "description": "EnablePolling enables background polling to automatically detect and fetch\nupdated bundles at the configured PollInterval. Defaults to false. When\nfalse, the bundle is fetched once on policy creation or update; subsequent\nupdates require modifying the Policy resource to trigger a new fetch.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "insecureSkipVerify": {
+                  "description": "InsecureSkipVerify disables TLS certificate verification when fetching bundles.\nNot recommended for production use.",
+                  "type": "boolean"
+                },
+                "name": {
+                  "description": "Name is the policy name on the management plane. Required for NIM and N1C; forbidden for HTTPS.",
+                  "type": "string",
+                  "maxLength": 63
+                },
+                "namespace": {
+                  "description": "Namespace is the namespace/tenant on the management plane. Required for N1C; forbidden otherwise.",
+                  "type": "string",
+                  "maxLength": 63
+                },
+                "pollInterval": {
+                  "description": "PollInterval is how often to re-fetch the bundle when enablePolling is true.\nMinimum 1m. Default 5m. Ignored when enablePolling is false.",
+                  "type": "string"
+                },
+                "retryAttempts": {
+                  "description": "RetryAttempts is the number of retry attempts on transient failure. Range 1–10.",
+                  "type": "integer",
+                  "maximum": 10,
+                  "minimum": 1
+                },
+                "secret": {
+                  "description": "Secret is the name of a Kubernetes Secret in the same namespace as the Policy.\nFor HTTPS: kubernetes.io/tls (tls.crt + tls.key for client mTLS; optional ca.crt for server CA).\nFor N1C: nginx.com/waf-bundle Secret with a 'token' field containing the API token.\nFor NIM: nginx.com/waf-bundle Secret with a 'token' field (bearer auth) or 'username'+'password' fields (basic auth).",
+                  "type": "string",
+                  "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+                },
+                "timeout": {
+                  "description": "Timeout is the per-request HTTP timeout. Default 60s.",
+                  "type": "string"
+                },
+                "trustedCertSecret": {
+                  "description": "TrustedCertSecret is the name of a Kubernetes Secret with a custom CA certificate\nfor verifying the remote endpoint TLS certificate. The secret must be in the same\nnamespace as the Policy, must be of type nginx.org/ca, and must include ca.crt.",
+                  "type": "string",
+                  "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+                },
+                "type": {
+                  "description": "Type is the bundle source backend. Defaults to HTTPS.",
+                  "type": "string",
+                  "default": "HTTPS",
+                  "enum": [
+                    "HTTPS",
+                    "NIM",
+                    "N1C"
+                  ]
+                },
+                "url": {
+                  "description": "URL is the full bundle URL for HTTPS type, or the API base URL for NIM/N1C. Must use https://.",
+                  "type": "string",
+                  "maxLength": 2083,
+                  "minLength": 1,
+                  "pattern": "^https://"
+                },
+                "verifyChecksum": {
+                  "description": "VerifyChecksum enables SHA-256 verification of the downloaded bundle. HTTPS type only.",
+                  "type": "boolean"
+                }
+              }
+            },
             "apPolicy": {
-              "description": "The App Protect WAF policy of the WAF. Accepts an optional namespace. Mutually exclusive with apBundle.",
+              "description": "The App Protect WAF policy of the WAF. Accepts an optional namespace. Mutually exclusive with apBundle and apBundleSource.",
               "type": "string"
             },
             "enable": {
@@ -744,12 +980,85 @@
               "type": "boolean"
             },
             "securityLog": {
-              "description": "SecurityLog defines the security log of a WAF policy.",
+              "description": "SecurityLog defines the security log of a WAF policy.\nMutual exclusivity of apLogConf, apLogBundle, and apLogBundleSource is enforced by the Go validation layer.",
               "type": "object",
               "properties": {
                 "apLogBundle": {
                   "description": "The App Protect WAF log bundle resource. Only works with apBundle.",
                   "type": "string"
+                },
+                "apLogBundleSource": {
+                  "description": "ApLogBundleSource fetches the log profile bundle from N1C, NIM, or an HTTPS endpoint.\nMutually exclusive with ApLogConf and ApLogBundle. Requires apBundleSource on the parent WAF.",
+                  "type": "object",
+                  "required": [
+                    "url"
+                  ],
+                  "properties": {
+                    "enablePolling": {
+                      "description": "EnablePolling enables background polling to automatically detect and fetch\nupdated bundles at the configured PollInterval. Defaults to false. When\nfalse, the bundle is fetched once on policy creation or update; subsequent\nupdates require modifying the Policy resource to trigger a new fetch.",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "insecureSkipVerify": {
+                      "description": "InsecureSkipVerify disables TLS certificate verification when fetching bundles.\nNot recommended for production use.",
+                      "type": "boolean"
+                    },
+                    "name": {
+                      "description": "Name is the policy name on the management plane. Required for NIM and N1C; forbidden for HTTPS.",
+                      "type": "string",
+                      "maxLength": 63
+                    },
+                    "namespace": {
+                      "description": "Namespace is the namespace/tenant on the management plane. Required for N1C; forbidden otherwise.",
+                      "type": "string",
+                      "maxLength": 63
+                    },
+                    "pollInterval": {
+                      "description": "PollInterval is how often to re-fetch the bundle when enablePolling is true.\nMinimum 1m. Default 5m. Ignored when enablePolling is false.",
+                      "type": "string"
+                    },
+                    "retryAttempts": {
+                      "description": "RetryAttempts is the number of retry attempts on transient failure. Range 1–10.",
+                      "type": "integer",
+                      "maximum": 10,
+                      "minimum": 1
+                    },
+                    "secret": {
+                      "description": "Secret is the name of a Kubernetes Secret in the same namespace as the Policy.\nFor HTTPS: kubernetes.io/tls (tls.crt + tls.key for client mTLS; optional ca.crt for server CA).\nFor N1C: nginx.com/waf-bundle Secret with a 'token' field containing the API token.\nFor NIM: nginx.com/waf-bundle Secret with a 'token' field (bearer auth) or 'username'+'password' fields (basic auth).",
+                      "type": "string",
+                      "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+                    },
+                    "timeout": {
+                      "description": "Timeout is the per-request HTTP timeout. Default 60s.",
+                      "type": "string"
+                    },
+                    "trustedCertSecret": {
+                      "description": "TrustedCertSecret is the name of a Kubernetes Secret with a custom CA certificate\nfor verifying the remote endpoint TLS certificate. The secret must be in the same\nnamespace as the Policy, must be of type nginx.org/ca, and must include ca.crt.",
+                      "type": "string",
+                      "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+                    },
+                    "type": {
+                      "description": "Type is the bundle source backend. Defaults to HTTPS.",
+                      "type": "string",
+                      "default": "HTTPS",
+                      "enum": [
+                        "HTTPS",
+                        "NIM",
+                        "N1C"
+                      ]
+                    },
+                    "url": {
+                      "description": "URL is the full bundle URL for HTTPS type, or the API base URL for NIM/N1C. Must use https://.",
+                      "type": "string",
+                      "maxLength": 2083,
+                      "minLength": 1,
+                      "pattern": "^https://"
+                    },
+                    "verifyChecksum": {
+                      "description": "VerifyChecksum enables SHA-256 verification of the downloaded bundle. HTTPS type only.",
+                      "type": "boolean"
+                    }
+                  }
                 },
                 "apLogConf": {
                   "description": "The App Protect WAF log conf resource. Accepts an optional namespace. Only works with apPolicy.",
@@ -768,12 +1077,85 @@
             "securityLogs": {
               "type": "array",
               "items": {
-                "description": "SecurityLog defines the security log of a WAF policy.",
+                "description": "SecurityLog defines the security log of a WAF policy.\nMutual exclusivity of apLogConf, apLogBundle, and apLogBundleSource is enforced by the Go validation layer.",
                 "type": "object",
                 "properties": {
                   "apLogBundle": {
                     "description": "The App Protect WAF log bundle resource. Only works with apBundle.",
                     "type": "string"
+                  },
+                  "apLogBundleSource": {
+                    "description": "ApLogBundleSource fetches the log profile bundle from N1C, NIM, or an HTTPS endpoint.\nMutually exclusive with ApLogConf and ApLogBundle. Requires apBundleSource on the parent WAF.",
+                    "type": "object",
+                    "required": [
+                      "url"
+                    ],
+                    "properties": {
+                      "enablePolling": {
+                        "description": "EnablePolling enables background polling to automatically detect and fetch\nupdated bundles at the configured PollInterval. Defaults to false. When\nfalse, the bundle is fetched once on policy creation or update; subsequent\nupdates require modifying the Policy resource to trigger a new fetch.",
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "insecureSkipVerify": {
+                        "description": "InsecureSkipVerify disables TLS certificate verification when fetching bundles.\nNot recommended for production use.",
+                        "type": "boolean"
+                      },
+                      "name": {
+                        "description": "Name is the policy name on the management plane. Required for NIM and N1C; forbidden for HTTPS.",
+                        "type": "string",
+                        "maxLength": 63
+                      },
+                      "namespace": {
+                        "description": "Namespace is the namespace/tenant on the management plane. Required for N1C; forbidden otherwise.",
+                        "type": "string",
+                        "maxLength": 63
+                      },
+                      "pollInterval": {
+                        "description": "PollInterval is how often to re-fetch the bundle when enablePolling is true.\nMinimum 1m. Default 5m. Ignored when enablePolling is false.",
+                        "type": "string"
+                      },
+                      "retryAttempts": {
+                        "description": "RetryAttempts is the number of retry attempts on transient failure. Range 1–10.",
+                        "type": "integer",
+                        "maximum": 10,
+                        "minimum": 1
+                      },
+                      "secret": {
+                        "description": "Secret is the name of a Kubernetes Secret in the same namespace as the Policy.\nFor HTTPS: kubernetes.io/tls (tls.crt + tls.key for client mTLS; optional ca.crt for server CA).\nFor N1C: nginx.com/waf-bundle Secret with a 'token' field containing the API token.\nFor NIM: nginx.com/waf-bundle Secret with a 'token' field (bearer auth) or 'username'+'password' fields (basic auth).",
+                        "type": "string",
+                        "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+                      },
+                      "timeout": {
+                        "description": "Timeout is the per-request HTTP timeout. Default 60s.",
+                        "type": "string"
+                      },
+                      "trustedCertSecret": {
+                        "description": "TrustedCertSecret is the name of a Kubernetes Secret with a custom CA certificate\nfor verifying the remote endpoint TLS certificate. The secret must be in the same\nnamespace as the Policy, must be of type nginx.org/ca, and must include ca.crt.",
+                        "type": "string",
+                        "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+                      },
+                      "type": {
+                        "description": "Type is the bundle source backend. Defaults to HTTPS.",
+                        "type": "string",
+                        "default": "HTTPS",
+                        "enum": [
+                          "HTTPS",
+                          "NIM",
+                          "N1C"
+                        ]
+                      },
+                      "url": {
+                        "description": "URL is the full bundle URL for HTTPS type, or the API base URL for NIM/N1C. Must use https://.",
+                        "type": "string",
+                        "maxLength": 2083,
+                        "minLength": 1,
+                        "pattern": "^https://"
+                      },
+                      "verifyChecksum": {
+                        "description": "VerifyChecksum enables SHA-256 verification of the downloaded bundle. HTTPS type only.",
+                        "type": "boolean"
+                      }
+                    }
                   },
                   "apLogConf": {
                     "description": "The App Protect WAF log conf resource. Accepts an optional namespace. Only works with apPolicy.",
