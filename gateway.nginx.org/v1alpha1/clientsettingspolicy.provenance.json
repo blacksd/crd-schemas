@@ -10,15 +10,15 @@
     "type": "git+github",
     "repo": "https://github.com/nginx/nginx-gateway-fabric",
     "path": "config/crd/bases",
-    "version": "v2.6.0",
+    "version": "v2.7.0",
     "license": "Apache-2.0",
     "homepage": "https://github.com/nginx/nginx-gateway-fabric"
   },
   "extraction": {
-    "timestamp": "2026-05-08T09:47:20Z",
+    "timestamp": "2026-09-05T16:45:23Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "6cf6b514487fb69d85ce69c04b23f93fc176674d5e8c57c68c70042477e169ef"
+    "sha256": "5f5a354eca5a406ef5ebc1613fb9997a54ebff93fe52fa03147788c654728719"
   }
 }

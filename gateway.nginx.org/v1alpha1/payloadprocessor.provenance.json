@@ -1,8 +1,8 @@
 {
-  "schema": "wafpolicy.json",
+  "schema": "payloadprocessor.json",
   "crd": {
     "group": "gateway.nginx.org",
-    "kind": "WAFPolicy",
+    "kind": "PayloadProcessor",
     "apiVersion": "v1alpha1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "1cd9c94c1129293bb1c77cc0edfb2d40efac46fabe98d021100f61e00fb7948a"
+    "sha256": "25111a69bbcecc32eef4ba5fb27328184706efcce7ff4a5c073a71392dc1d941"
   }
 }

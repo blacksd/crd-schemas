@@ -1,8 +1,8 @@
 {
-  "schema": "wafpolicy.json",
+  "schema": "externalloadbalancer.json",
   "crd": {
     "group": "gateway.nginx.org",
-    "kind": "WAFPolicy",
+    "kind": "ExternalLoadBalancer",
     "apiVersion": "v1alpha1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "1cd9c94c1129293bb1c77cc0edfb2d40efac46fabe98d021100f61e00fb7948a"
+    "sha256": "dba80f495eec58decac9945a9ae76ac5365c309b12b60d472fb4e092167ce97a"
   }
 }
