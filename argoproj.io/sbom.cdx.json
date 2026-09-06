@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:3d4be913-f98a-40f4-842d-7f7629af0465",
-  "version": 73,
+  "version": 74,
   "metadata": {
-    "timestamp": "2026-09-06T05:41:06Z",
+    "timestamp": "2026-09-06T12:35:16Z",
     "tools": {
       "components": [
         {
@@ -84,7 +84,7 @@
     {
       "type": "library",
       "name": "argo-rollouts",
-      "version": "2.41.1",
+      "version": "2.43.0",
       "licenses": [
         {
           "license": {
