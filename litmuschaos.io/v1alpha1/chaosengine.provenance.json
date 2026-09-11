@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://litmuschaos.github.io/litmus-helm",
     "chart": "litmus-core",
-    "version": "3.26.0",
+    "version": "3.31.1",
     "license": "Apache-2.0",
     "homepage": "https://litmuschaos.io"
   },
   "extraction": {
-    "timestamp": "2026-03-05T16:55:56Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-09-11T22:41:38Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "e53f77895d98deb5786914daf0f649083733999689bd8d6572e96eb542198c8d"
+    "sha256": "2f0791e75341a1e55a4aa7f9c2f15ebfd84ff2a2f9eb7fb0ecffb78427a9f330"
   }
 }
