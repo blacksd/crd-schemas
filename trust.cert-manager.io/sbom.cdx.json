@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:cad81552-29f1-4751-bc91-4c26f18cfd05",
-  "version": 4,
+  "version": 5,
   "metadata": {
-    "timestamp": "2026-06-28T05:39:40Z",
+    "timestamp": "2026-09-12T20:32:51Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "trust-manager",
-      "version": "v0.24.0",
+      "version": "v0.25.0",
       "licenses": [
         {
           "license": {

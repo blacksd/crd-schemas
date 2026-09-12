@@ -123,7 +123,7 @@
             "x-kubernetes-map-type": "atomic",
             "x-kubernetes-validations": [
               {
-                "rule": "[has(self.name),has(self.selector)].filter(x,x==true).size() == 1",
+                "rule": "(has(self.name)?1:0)+(has(self.selector)?1:0) == 1",
                 "message": "exactly one of the fields in [name selector] must be set"
               }
             ]
@@ -407,7 +407,7 @@
           },
           "x-kubernetes-validations": [
             {
-              "rule": "[has(self.configMap),has(self.secret)].filter(x,x==true).size() \u003e= 1",
+              "rule": "has(self.configMap)||has(self.secret)",
               "message": "at least one of the fields in [configMap secret] must be set"
             }
           ]
