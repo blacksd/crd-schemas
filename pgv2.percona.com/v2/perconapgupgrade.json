@@ -668,7 +668,7 @@
         },
         "fromPostgresVersion": {
           "type": "integer",
-          "maximum": 17,
+          "maximum": 18,
           "minimum": 12
         },
         "image": {
@@ -951,6 +951,9 @@
                             ],
                             "x-kubernetes-int-or-string": true
                           },
+                          "protocol": {
+                            "type": "string"
+                          },
                           "scheme": {
                             "type": "string"
                           }
@@ -1049,6 +1052,9 @@
                             ],
                             "x-kubernetes-int-or-string": true
                           },
+                          "protocol": {
+                            "type": "string"
+                          },
                           "scheme": {
                             "type": "string"
                           }
@@ -1120,6 +1126,9 @@
                       "port"
                     ],
                     "properties": {
+                      "mode": {
+                        "type": "string"
+                      },
                       "port": {
                         "type": "integer",
                         "format": "int32"
@@ -1171,6 +1180,9 @@
                           }
                         ],
                         "x-kubernetes-int-or-string": true
+                      },
+                      "protocol": {
+                        "type": "string"
                       },
                       "scheme": {
                         "type": "string"
@@ -1283,6 +1295,9 @@
                       "port"
                     ],
                     "properties": {
+                      "mode": {
+                        "type": "string"
+                      },
                       "port": {
                         "type": "integer",
                         "format": "int32"
@@ -1334,6 +1349,9 @@
                           }
                         ],
                         "x-kubernetes-int-or-string": true
+                      },
+                      "protocol": {
+                        "type": "string"
                       },
                       "scheme": {
                         "type": "string"
@@ -1630,6 +1648,9 @@
                       "port"
                     ],
                     "properties": {
+                      "mode": {
+                        "type": "string"
+                      },
                       "port": {
                         "type": "integer",
                         "format": "int32"
@@ -1681,6 +1702,9 @@
                           }
                         ],
                         "x-kubernetes-int-or-string": true
+                      },
+                      "protocol": {
+                        "type": "string"
                       },
                       "scheme": {
                         "type": "string"
@@ -1777,6 +1801,13 @@
                     "name"
                   ],
                   "properties": {
+                    "bindMountOptions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "x-kubernetes-list-type": "set"
+                    },
                     "mountPath": {
                       "type": "string"
                     },
@@ -1902,7 +1933,7 @@
         },
         "toPostgresVersion": {
           "type": "integer",
-          "maximum": 18,
+          "maximum": 19,
           "minimum": 13
         },
         "tolerations": {
@@ -1938,6 +1969,13 @@
               "name"
             ],
             "properties": {
+              "bindMountOptions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "x-kubernetes-list-type": "set"
+              },
               "mountPath": {
                 "type": "string"
               },
