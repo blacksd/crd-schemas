@@ -224,7 +224,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -361,7 +361,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -413,7 +413,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -596,7 +596,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -648,7 +648,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -961,7 +961,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -1098,7 +1098,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -1150,7 +1150,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -1324,7 +1324,8 @@
                 "description": "services defines a list of services for which targets are retrieved. If omitted, all services are scraped.",
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1
                 },
                 "x-kubernetes-list-type": "set"
               },
@@ -1337,7 +1338,8 @@
                 "description": "tags defines an optional list of tags used to filter nodes for a given service. Services must contain all tags in the list.\nStarting with Consul 1.14, it is recommended to use `filter` with the `ServiceTags` selector instead.",
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1
                 },
                 "x-kubernetes-list-type": "set"
               },
@@ -1357,7 +1359,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -1409,7 +1411,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -1605,7 +1607,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -1742,7 +1744,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -1794,7 +1796,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -1962,7 +1964,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -2014,7 +2016,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -2294,7 +2296,6 @@
               "host": {
                 "description": "host defines the address of the docker daemon.",
                 "type": "string",
-                "minLength": 1,
                 "pattern": "^[a-zA-Z][a-zA-Z0-9+.-]*://.+$"
               },
               "hostNetworkingHost": {
@@ -2331,7 +2332,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -2468,7 +2469,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -2520,7 +2521,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -2688,7 +2689,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -2740,7 +2741,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -3003,7 +3004,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -3140,7 +3141,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -3192,7 +3193,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -3369,7 +3370,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -3421,7 +3422,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -3693,7 +3694,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -3745,7 +3746,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -3977,7 +3978,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -4114,7 +4115,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -4166,7 +4167,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -4332,7 +4333,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -4384,7 +4385,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -4699,7 +4700,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -4836,7 +4837,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -4888,7 +4889,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -5044,9 +5045,7 @@
                 "description": "role defines the Hetzner role of entities that should be discovered.",
                 "type": "string",
                 "enum": [
-                  "hcloud",
                   "Hcloud",
-                  "robot",
                   "Robot"
                 ]
               },
@@ -5066,7 +5065,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -5118,7 +5117,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -5350,7 +5349,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -5487,7 +5486,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -5539,7 +5538,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -5700,7 +5699,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -5752,7 +5751,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -5935,7 +5934,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -6072,7 +6071,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -6124,7 +6123,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -6292,7 +6291,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -6344,7 +6343,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -6577,7 +6576,8 @@
                     "description": "names defines a list of namespaces where to watch for resources.\nIf empty and `ownNamespace` isn't true, Prometheus watches for resources in all namespaces.",
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "minLength": 1
                     },
                     "x-kubernetes-list-type": "set"
                   },
@@ -6612,7 +6612,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -6749,7 +6749,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -6801,7 +6801,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -7008,7 +7008,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -7060,7 +7060,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -7294,7 +7294,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -7431,7 +7431,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -7483,7 +7483,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -7649,7 +7649,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -7701,7 +7701,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -7968,7 +7968,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -8105,7 +8105,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -8157,7 +8157,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -8358,7 +8358,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -8410,7 +8410,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -8579,7 +8579,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -8716,7 +8716,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -8768,7 +8768,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -8946,7 +8946,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -8998,7 +8998,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -9347,7 +9347,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -9484,7 +9484,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -9536,7 +9536,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -9712,7 +9712,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -9764,7 +9764,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -9881,7 +9881,7 @@
                   ],
                   "properties": {
                     "key": {
-                      "description": "The key to select.",
+                      "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                       "type": "string"
                     },
                     "name": {
@@ -10018,7 +10018,7 @@
                       ],
                       "properties": {
                         "key": {
-                          "description": "The key to select.",
+                          "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                           "type": "string"
                         },
                         "name": {
@@ -10070,7 +10070,7 @@
                       ],
                       "properties": {
                         "key": {
-                          "description": "The key to select.",
+                          "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                           "type": "string"
                         },
                         "name": {
@@ -10223,11 +10223,8 @@
                 "type": "string",
                 "enum": [
                   "Public",
-                  "public",
                   "Admin",
-                  "admin",
-                  "Internal",
-                  "internal"
+                  "Internal"
                 ]
               },
               "domainID": {
@@ -10320,7 +10317,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -10372,7 +10369,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -10747,7 +10744,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -10884,7 +10881,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -10936,7 +10933,7 @@
                             ],
                             "properties": {
                               "key": {
-                                "description": "The key to select.",
+                                "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                                 "type": "string"
                               },
                               "name": {
@@ -11109,7 +11106,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -11161,7 +11158,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -11492,7 +11489,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -11544,7 +11541,7 @@
                         ],
                         "properties": {
                           "key": {
-                            "description": "The key to select.",
+                            "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                             "type": "string"
                           },
                           "name": {
@@ -11749,7 +11746,7 @@
                   ],
                   "properties": {
                     "key": {
-                      "description": "The key to select.",
+                      "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                       "type": "string"
                     },
                     "name": {
@@ -11801,7 +11798,7 @@
                   ],
                   "properties": {
                     "key": {
-                      "description": "The key to select.",
+                      "description": "The key to select from the ConfigMap's Data field.\nKeys in the BinaryData field are not currently propagated to container env vars.",
                       "type": "string"
                     },
                     "name": {
