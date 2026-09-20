@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:fb65f43d-efac-4296-8466-06b015b82e0f",
-  "version": 6,
+  "version": 7,
   "metadata": {
-    "timestamp": "2026-06-26T21:06:25Z",
+    "timestamp": "2026-09-20T09:33:12Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "velero",
-      "version": "12.1.0",
+      "version": "12.2.0",
       "licenses": [
         {
           "license": {
