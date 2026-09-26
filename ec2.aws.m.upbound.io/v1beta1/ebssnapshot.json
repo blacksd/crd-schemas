@@ -34,7 +34,7 @@
               "type": "string"
             },
             "outpostArn": {
-              "description": "The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.",
+              "description": "ARN of the Outpost on which to create a local snapshot.",
               "type": "string"
             },
             "permanentRestore": {
@@ -160,7 +160,7 @@
               "type": "string"
             },
             "outpostArn": {
-              "description": "The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.",
+              "description": "ARN of the Outpost on which to create a local snapshot.",
               "type": "string"
             },
             "permanentRestore": {
@@ -337,7 +337,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "Amazon Resource Name (ARN) of the EBS Snapshot.",
+              "description": "ARN of the EBS Snapshot.",
               "type": "string"
             },
             "dataEncryptionKeyId": {
@@ -361,7 +361,7 @@
               "type": "string"
             },
             "outpostArn": {
-              "description": "The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.",
+              "description": "ARN of the Outpost on which to create a local snapshot.",
               "type": "string"
             },
             "ownerAlias": {

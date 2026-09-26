@@ -131,7 +131,7 @@
               "type": "string"
             },
             "resourceSpec": {
-              "description": "The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.",
+              "description": "Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.",
               "type": "object",
               "properties": {
                 "instanceType": {
@@ -139,7 +139,7 @@
                   "type": "string"
                 },
                 "lifecycleConfigArn": {
-                  "description": "The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.",
+                  "description": "ARN of the Lifecycle Configuration attached to the Resource.",
                   "type": "string"
                 },
                 "sagemakerImageArn": {
@@ -343,7 +343,7 @@
               }
             },
             "resourceSpec": {
-              "description": "The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.",
+              "description": "Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.",
               "type": "object",
               "properties": {
                 "instanceType": {
@@ -351,7 +351,7 @@
                   "type": "string"
                 },
                 "lifecycleConfigArn": {
-                  "description": "The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.",
+                  "description": "ARN of the Lifecycle Configuration attached to the Resource.",
                   "type": "string"
                 },
                 "sagemakerImageArn": {
@@ -566,7 +566,7 @@
               "type": "string"
             },
             "arn": {
-              "description": "The Amazon Resource Name (ARN) of the app.",
+              "description": "ARN of the app.",
               "type": "string"
             },
             "domainId": {
@@ -574,7 +574,7 @@
               "type": "string"
             },
             "id": {
-              "description": "The Amazon Resource Name (ARN) of the app.",
+              "description": "ARN of the app.",
               "type": "string"
             },
             "region": {
@@ -582,7 +582,7 @@
               "type": "string"
             },
             "resourceSpec": {
-              "description": "The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.",
+              "description": "Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.",
               "type": "object",
               "properties": {
                 "instanceType": {
@@ -590,7 +590,7 @@
                   "type": "string"
                 },
                 "lifecycleConfigArn": {
-                  "description": "The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.",
+                  "description": "ARN of the Lifecycle Configuration attached to the Resource.",
                   "type": "string"
                 },
                 "sagemakerImageArn": {

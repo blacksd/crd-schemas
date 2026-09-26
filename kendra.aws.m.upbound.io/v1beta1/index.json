@@ -287,7 +287,7 @@
                       "type": "string"
                     },
                     "secretsManagerArn": {
-                      "description": "The Amazon Resource Name (ARN) of the secret.",
+                      "description": "ARN of the secret.",
                       "type": "string"
                     },
                     "url": {
@@ -562,7 +562,7 @@
                       "type": "string"
                     },
                     "secretsManagerArn": {
-                      "description": "The Amazon Resource Name (ARN) of the secret.",
+                      "description": "ARN of the secret.",
                       "type": "string"
                     },
                     "url": {
@@ -649,7 +649,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "The Amazon Resource Name (ARN) of the Index.",
+              "description": "ARN of the Index.",
               "type": "string"
             },
             "capacityUnits": {
@@ -893,7 +893,7 @@
                       "type": "string"
                     },
                     "secretsManagerArn": {
-                      "description": "The Amazon Resource Name (ARN) of the secret.",
+                      "description": "ARN of the secret.",
                       "type": "string"
                     },
                     "url": {

@@ -40,7 +40,7 @@
                 "type": "object",
                 "properties": {
                   "copyFrom": {
-                    "description": "The Amazon Resource Name (ARN) of the model.",
+                    "description": "The ARN of the model.",
                     "type": "string"
                   }
                 }
@@ -79,7 +79,7 @@
                 "type": "object",
                 "properties": {
                   "copyFrom": {
-                    "description": "The Amazon Resource Name (ARN) of the model.",
+                    "description": "The ARN of the model.",
                     "type": "string"
                   }
                 }
@@ -169,7 +169,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "The Amazon Resource Name (ARN) of the inference profile.",
+              "description": "The ARN of the inference profile.",
               "type": "string"
             },
             "createdAt": {
@@ -191,7 +191,7 @@
                 "type": "object",
                 "properties": {
                   "copyFrom": {
-                    "description": "The Amazon Resource Name (ARN) of the model.",
+                    "description": "The ARN of the model.",
                     "type": "string"
                   }
                 }
@@ -204,7 +204,7 @@
                 "type": "object",
                 "properties": {
                   "modelArn": {
-                    "description": "The Amazon Resource Name (ARN) of the model.",
+                    "description": "The ARN of the model.",
                     "type": "string"
                   }
                 }

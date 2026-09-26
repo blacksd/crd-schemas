@@ -118,7 +118,7 @@
               }
             },
             "filter": {
-              "description": "Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).",
+              "description": "Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags. See below.",
               "type": "object",
               "properties": {
                 "accessPoint": {
@@ -214,7 +214,7 @@
                   "type": "string"
                 },
                 "tags": {
-                  "description": "Key-value map of resource tags.",
+                  "description": "Object tags for filtering (up to 10). Unsupported for S3 directory buckets.",
                   "type": "object",
                   "additionalProperties": {
                     "type": "string"
@@ -326,7 +326,7 @@
               }
             },
             "filter": {
-              "description": "Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).",
+              "description": "Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags. See below.",
               "type": "object",
               "properties": {
                 "accessPoint": {
@@ -422,7 +422,7 @@
                   "type": "string"
                 },
                 "tags": {
-                  "description": "Key-value map of resource tags.",
+                  "description": "Object tags for filtering (up to 10). Unsupported for S3 directory buckets.",
                   "type": "object",
                   "additionalProperties": {
                     "type": "string"
@@ -511,7 +511,7 @@
               "type": "string"
             },
             "filter": {
-              "description": "Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).",
+              "description": "Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags. See below.",
               "type": "object",
               "properties": {
                 "accessPoint": {
@@ -523,7 +523,7 @@
                   "type": "string"
                 },
                 "tags": {
-                  "description": "Key-value map of resource tags.",
+                  "description": "Object tags for filtering (up to 10). Unsupported for S3 directory buckets.",
                   "type": "object",
                   "additionalProperties": {
                     "type": "string"

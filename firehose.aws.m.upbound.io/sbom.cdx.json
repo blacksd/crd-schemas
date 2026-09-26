@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:77a3c620-81bb-4deb-973d-2a8739de6894",
-  "version": 3,
+  "version": 4,
   "metadata": {
-    "timestamp": "2026-08-12T19:05:19Z",
+    "timestamp": "2026-09-26T13:32:32Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "provider-upjet-aws",
-      "version": "v2.7.0",
+      "version": "v2.8.1",
       "licenses": [
         {
           "license": {

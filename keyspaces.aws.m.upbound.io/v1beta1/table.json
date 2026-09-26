@@ -76,7 +76,7 @@
               "type": "object",
               "properties": {
                 "kmsKeyIdentifier": {
-                  "description": "The Amazon Resource Name (ARN) of the customer managed KMS key.",
+                  "description": "ARN of the customer managed KMS key.",
                   "type": "string"
                 },
                 "type": {
@@ -328,7 +328,7 @@
               "type": "object",
               "properties": {
                 "kmsKeyIdentifier": {
-                  "description": "The Amazon Resource Name (ARN) of the customer managed KMS key.",
+                  "description": "ARN of the customer managed KMS key.",
                   "type": "string"
                 },
                 "type": {
@@ -649,7 +649,7 @@
               "type": "object",
               "properties": {
                 "kmsKeyIdentifier": {
-                  "description": "The Amazon Resource Name (ARN) of the customer managed KMS key.",
+                  "description": "ARN of the customer managed KMS key.",
                   "type": "string"
                 },
                 "type": {

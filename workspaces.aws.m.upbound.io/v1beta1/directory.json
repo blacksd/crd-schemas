@@ -132,7 +132,7 @@
               "type": "object",
               "properties": {
                 "certificateAuthorityArn": {
-                  "description": "The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.",
+                  "description": "ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.",
                   "type": "string"
                 },
                 "status": {
@@ -489,6 +489,120 @@
               "description": "Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.",
               "type": "object",
               "properties": {
+                "accessEndpointConfig": {
+                  "description": "Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.",
+                  "type": "object",
+                  "properties": {
+                    "accessEndpoints": {
+                      "description": "Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "accessEndpointType": {
+                            "description": "Type of access endpoint. Valid value is STREAMING_WSP.",
+                            "type": "string"
+                          },
+                          "vpcEndpointId": {
+                            "description": "Identifier of the VPC endpoint that the access endpoint uses.",
+                            "type": "string"
+                          },
+                          "vpcEndpointIdRef": {
+                            "description": "Reference to a VPCEndpoint in ec2 to populate vpcEndpointId.",
+                            "type": "object",
+                            "required": [
+                              "name"
+                            ],
+                            "properties": {
+                              "name": {
+                                "description": "Name of the referenced object.",
+                                "type": "string"
+                              },
+                              "namespace": {
+                                "description": "Namespace of the referenced object",
+                                "type": "string"
+                              },
+                              "policy": {
+                                "description": "Policies for referencing.",
+                                "type": "object",
+                                "properties": {
+                                  "resolution": {
+                                    "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                    "type": "string",
+                                    "default": "Required",
+                                    "enum": [
+                                      "Required",
+                                      "Optional"
+                                    ]
+                                  },
+                                  "resolve": {
+                                    "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                    "type": "string",
+                                    "enum": [
+                                      "Always",
+                                      "IfNotPresent"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "vpcEndpointIdSelector": {
+                            "description": "Selector for a VPCEndpoint in ec2 to populate vpcEndpointId.",
+                            "type": "object",
+                            "properties": {
+                              "matchControllerRef": {
+                                "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                                "type": "boolean"
+                              },
+                              "matchLabels": {
+                                "description": "MatchLabels ensures an object with matching labels is selected.",
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "string"
+                                }
+                              },
+                              "namespace": {
+                                "description": "Namespace for the selector",
+                                "type": "string"
+                              },
+                              "policy": {
+                                "description": "Policies for selection.",
+                                "type": "object",
+                                "properties": {
+                                  "resolution": {
+                                    "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                    "type": "string",
+                                    "default": "Required",
+                                    "enum": [
+                                      "Required",
+                                      "Optional"
+                                    ]
+                                  },
+                                  "resolve": {
+                                    "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                    "type": "string",
+                                    "enum": [
+                                      "Always",
+                                      "IfNotPresent"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "internetFallbackProtocols": {
+                      "description": "List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is PCOIP.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
                 "deviceTypeAndroid": {
                   "description": "Indicates whether users can use Android devices to access their WorkSpaces.",
                   "type": "string"
@@ -754,7 +868,7 @@
               "type": "object",
               "properties": {
                 "certificateAuthorityArn": {
-                  "description": "The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.",
+                  "description": "ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.",
                   "type": "string"
                 },
                 "status": {
@@ -1107,6 +1221,120 @@
               "description": "Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.",
               "type": "object",
               "properties": {
+                "accessEndpointConfig": {
+                  "description": "Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.",
+                  "type": "object",
+                  "properties": {
+                    "accessEndpoints": {
+                      "description": "Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "accessEndpointType": {
+                            "description": "Type of access endpoint. Valid value is STREAMING_WSP.",
+                            "type": "string"
+                          },
+                          "vpcEndpointId": {
+                            "description": "Identifier of the VPC endpoint that the access endpoint uses.",
+                            "type": "string"
+                          },
+                          "vpcEndpointIdRef": {
+                            "description": "Reference to a VPCEndpoint in ec2 to populate vpcEndpointId.",
+                            "type": "object",
+                            "required": [
+                              "name"
+                            ],
+                            "properties": {
+                              "name": {
+                                "description": "Name of the referenced object.",
+                                "type": "string"
+                              },
+                              "namespace": {
+                                "description": "Namespace of the referenced object",
+                                "type": "string"
+                              },
+                              "policy": {
+                                "description": "Policies for referencing.",
+                                "type": "object",
+                                "properties": {
+                                  "resolution": {
+                                    "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                    "type": "string",
+                                    "default": "Required",
+                                    "enum": [
+                                      "Required",
+                                      "Optional"
+                                    ]
+                                  },
+                                  "resolve": {
+                                    "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                    "type": "string",
+                                    "enum": [
+                                      "Always",
+                                      "IfNotPresent"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "vpcEndpointIdSelector": {
+                            "description": "Selector for a VPCEndpoint in ec2 to populate vpcEndpointId.",
+                            "type": "object",
+                            "properties": {
+                              "matchControllerRef": {
+                                "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                                "type": "boolean"
+                              },
+                              "matchLabels": {
+                                "description": "MatchLabels ensures an object with matching labels is selected.",
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "string"
+                                }
+                              },
+                              "namespace": {
+                                "description": "Namespace for the selector",
+                                "type": "string"
+                              },
+                              "policy": {
+                                "description": "Policies for selection.",
+                                "type": "object",
+                                "properties": {
+                                  "resolution": {
+                                    "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                    "type": "string",
+                                    "default": "Required",
+                                    "enum": [
+                                      "Required",
+                                      "Optional"
+                                    ]
+                                  },
+                                  "resolve": {
+                                    "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                    "type": "string",
+                                    "enum": [
+                                      "Always",
+                                      "IfNotPresent"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "internetFallbackProtocols": {
+                      "description": "List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is PCOIP.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
                 "deviceTypeAndroid": {
                   "description": "Indicates whether users can use Android devices to access their WorkSpaces.",
                   "type": "string"
@@ -1351,7 +1579,7 @@
               "type": "object",
               "properties": {
                 "certificateAuthorityArn": {
-                  "description": "The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.",
+                  "description": "ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.",
                   "type": "string"
                 },
                 "status": {
@@ -1488,6 +1716,36 @@
               "description": "Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.",
               "type": "object",
               "properties": {
+                "accessEndpointConfig": {
+                  "description": "Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.",
+                  "type": "object",
+                  "properties": {
+                    "accessEndpoints": {
+                      "description": "Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "accessEndpointType": {
+                            "description": "Type of access endpoint. Valid value is STREAMING_WSP.",
+                            "type": "string"
+                          },
+                          "vpcEndpointId": {
+                            "description": "Identifier of the VPC endpoint that the access endpoint uses.",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "internetFallbackProtocols": {
+                      "description": "List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is PCOIP.",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
                 "deviceTypeAndroid": {
                   "description": "Indicates whether users can use Android devices to access their WorkSpaces.",
                   "type": "string"

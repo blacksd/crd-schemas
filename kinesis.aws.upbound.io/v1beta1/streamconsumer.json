@@ -47,7 +47,7 @@
               "type": "string"
             },
             "streamArn": {
-              "description": "Amazon Resource Name (ARN) of the data stream the consumer is registered with.",
+              "description": "ARN of the data stream the consumer is registered with.",
               "type": "string"
             },
             "streamArnRef": {
@@ -144,7 +144,7 @@
               "type": "string"
             },
             "streamArn": {
-              "description": "Amazon Resource Name (ARN) of the data stream the consumer is registered with.",
+              "description": "ARN of the data stream the consumer is registered with.",
               "type": "string"
             },
             "streamArnRef": {
@@ -324,7 +324,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "Amazon Resource Name (ARN) of the stream consumer.",
+              "description": "ARN of the stream consumer.",
               "type": "string"
             },
             "creationTimestamp": {
@@ -332,7 +332,7 @@
               "type": "string"
             },
             "id": {
-              "description": "Amazon Resource Name (ARN) of the stream consumer.",
+              "description": "ARN of the stream consumer.",
               "type": "string"
             },
             "name": {
@@ -344,7 +344,7 @@
               "type": "string"
             },
             "streamArn": {
-              "description": "Amazon Resource Name (ARN) of the data stream the consumer is registered with.",
+              "description": "ARN of the data stream the consumer is registered with.",
               "type": "string"
             },
             "tags": {

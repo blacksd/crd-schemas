@@ -355,7 +355,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "Amazon Resource Name (ARN) of the schema.",
+              "description": "ARN of the schema.",
               "type": "string"
             },
             "compatibility": {
@@ -371,7 +371,7 @@
               "type": "string"
             },
             "id": {
-              "description": "Amazon Resource Name (ARN) of the schema.",
+              "description": "ARN of the schema.",
               "type": "string"
             },
             "latestSchemaVersion": {

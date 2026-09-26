@@ -126,7 +126,7 @@
               "type": "string"
             },
             "roleArn": {
-              "description": "Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.",
+              "description": "ARN of the IAM Role to associate with the DB Cluster.",
               "type": "string"
             },
             "roleArnRef": {
@@ -312,7 +312,7 @@
               "type": "string"
             },
             "roleArn": {
-              "description": "Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.",
+              "description": "ARN of the IAM Role to associate with the DB Cluster.",
               "type": "string"
             },
             "roleArnRef": {
@@ -481,7 +481,7 @@
               "type": "string"
             },
             "roleArn": {
-              "description": "Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.",
+              "description": "ARN of the IAM Role to associate with the DB Cluster.",
               "type": "string"
             }
           }

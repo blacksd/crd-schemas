@@ -337,7 +337,7 @@
                         "type": "string"
                       },
                       "mlReservationArn": {
-                        "description": "The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.",
+                        "description": "ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.",
                         "type": "string"
                       }
                     }
@@ -555,7 +555,7 @@
                         "type": "string"
                       },
                       "mlReservationArn": {
-                        "description": "The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.",
+                        "description": "ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.",
                         "type": "string"
                       }
                     }
@@ -988,7 +988,7 @@
                         "type": "string"
                       },
                       "mlReservationArn": {
-                        "description": "The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.",
+                        "description": "ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.",
                         "type": "string"
                       }
                     }
@@ -1202,7 +1202,7 @@
                         "type": "string"
                       },
                       "mlReservationArn": {
-                        "description": "The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.",
+                        "description": "ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.",
                         "type": "string"
                       }
                     }
@@ -1539,7 +1539,7 @@
                         "type": "string"
                       },
                       "mlReservationArn": {
-                        "description": "The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.",
+                        "description": "ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.",
                         "type": "string"
                       }
                     }
@@ -1673,7 +1673,7 @@
                         "type": "string"
                       },
                       "mlReservationArn": {
-                        "description": "The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.",
+                        "description": "ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.",
                         "type": "string"
                       }
                     }

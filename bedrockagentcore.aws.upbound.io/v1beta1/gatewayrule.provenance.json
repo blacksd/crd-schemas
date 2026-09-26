@@ -1,0 +1,24 @@
+{
+  "schema": "gatewayrule.json",
+  "crd": {
+    "group": "bedrockagentcore.aws.upbound.io",
+    "kind": "GatewayRule",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-09-26T13:32:32Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "e7321b26b21a12568736087475504deb339ef2da9684d6373c3b5ae343517da0"
+  }
+}

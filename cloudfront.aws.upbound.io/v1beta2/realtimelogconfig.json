@@ -212,7 +212,7 @@
               }
             },
             "fields": {
-              "description": "The fields that are included in each real-time log record. See the AWS documentation for supported values.",
+              "description": "The fields that are included in each real-time log record. See the AWS documentation for supported values. This includes viewer-request-log-data and viewer-response-log-data, which carry the custom data that a CloudFront Function logs with cf.logCustomData().",
               "type": "array",
               "items": {
                 "type": "string"
@@ -410,7 +410,7 @@
               }
             },
             "fields": {
-              "description": "The fields that are included in each real-time log record. See the AWS documentation for supported values.",
+              "description": "The fields that are included in each real-time log record. See the AWS documentation for supported values. This includes viewer-request-log-data and viewer-response-log-data, which carry the custom data that a CloudFront Function logs with cf.logCustomData().",
               "type": "array",
               "items": {
                 "type": "string"
@@ -531,7 +531,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.",
+              "description": "ARN of the CloudFront real-time log configuration.",
               "type": "string"
             },
             "endpoint": {
@@ -559,7 +559,7 @@
               }
             },
             "fields": {
-              "description": "The fields that are included in each real-time log record. See the AWS documentation for supported values.",
+              "description": "The fields that are included in each real-time log record. See the AWS documentation for supported values. This includes viewer-request-log-data and viewer-response-log-data, which carry the custom data that a CloudFront Function logs with cf.logCustomData().",
               "type": "array",
               "items": {
                 "type": "string"

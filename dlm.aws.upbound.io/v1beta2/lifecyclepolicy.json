@@ -145,7 +145,7 @@
                             "type": "object",
                             "properties": {
                               "cmkArn": {
-                                "description": "The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.",
+                                "description": "ARN of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.",
                                 "type": "string"
                               },
                               "encrypted": {
@@ -169,7 +169,7 @@
                             }
                           },
                           "target": {
-                            "description": "The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.",
+                            "description": "Target Region or the ARN of the target Outpost for the snapshot copies.",
                             "type": "string"
                           }
                         }
@@ -257,6 +257,14 @@
                     "excludeBootVolume": {
                       "description": "Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is false.",
                       "type": "boolean"
+                    },
+                    "excludeDataVolumeTags": {
+                      "description": "Map specifies whether to exclude volumes that have specific tags.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "x-kubernetes-map-type": "granular"
                     },
                     "noReboot": {
                       "description": "Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. true indicates that targeted instances are not rebooted when the policy runs. false indicates that target instances are rebooted when the policy runs. The default is true (instances are not rebooted).",
@@ -403,7 +411,7 @@
                           "type": "object",
                           "properties": {
                             "cmkArn": {
-                              "description": "The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.",
+                              "description": "ARN of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.",
                               "type": "string"
                             },
                             "cmkArnRef": {
@@ -519,11 +527,11 @@
                               }
                             },
                             "target": {
-                              "description": "The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.",
+                              "description": "Target Region or the ARN of the target Outpost for the snapshot copies.",
                               "type": "string"
                             },
                             "targetRegion": {
-                              "description": "Use only for DLM policies of policy_type=IMAGE_MANAGEMENT. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.",
+                              "description": "Use only for DLM policies of policy_type=IMAGE_MANAGEMENT. The target Region or the ARN of the target Outpost for the snapshot copies.",
                               "type": "string"
                             }
                           }
@@ -775,7 +783,7 @@
                             "type": "object",
                             "properties": {
                               "cmkArn": {
-                                "description": "The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.",
+                                "description": "ARN of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.",
                                 "type": "string"
                               },
                               "encrypted": {
@@ -799,7 +807,7 @@
                             }
                           },
                           "target": {
-                            "description": "The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.",
+                            "description": "Target Region or the ARN of the target Outpost for the snapshot copies.",
                             "type": "string"
                           }
                         }
@@ -887,6 +895,14 @@
                     "excludeBootVolume": {
                       "description": "Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is false.",
                       "type": "boolean"
+                    },
+                    "excludeDataVolumeTags": {
+                      "description": "Map specifies whether to exclude volumes that have specific tags.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "x-kubernetes-map-type": "granular"
                     },
                     "noReboot": {
                       "description": "Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. true indicates that targeted instances are not rebooted when the policy runs. false indicates that target instances are rebooted when the policy runs. The default is true (instances are not rebooted).",
@@ -1033,7 +1049,7 @@
                           "type": "object",
                           "properties": {
                             "cmkArn": {
-                              "description": "The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.",
+                              "description": "ARN of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.",
                               "type": "string"
                             },
                             "cmkArnRef": {
@@ -1149,11 +1165,11 @@
                               }
                             },
                             "target": {
-                              "description": "The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.",
+                              "description": "Target Region or the ARN of the target Outpost for the snapshot copies.",
                               "type": "string"
                             },
                             "targetRegion": {
-                              "description": "Use only for DLM policies of policy_type=IMAGE_MANAGEMENT. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.",
+                              "description": "Use only for DLM policies of policy_type=IMAGE_MANAGEMENT. The target Region or the ARN of the target Outpost for the snapshot copies.",
                               "type": "string"
                             }
                           }
@@ -1386,7 +1402,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "Amazon Resource Name (ARN) of the DLM Lifecycle Policy.",
+              "description": "ARN of the DLM Lifecycle Policy.",
               "type": "string"
             },
             "defaultPolicy": {
@@ -1424,7 +1440,7 @@
                             "type": "object",
                             "properties": {
                               "cmkArn": {
-                                "description": "The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.",
+                                "description": "ARN of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.",
                                 "type": "string"
                               },
                               "encrypted": {
@@ -1448,7 +1464,7 @@
                             }
                           },
                           "target": {
-                            "description": "The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.",
+                            "description": "Target Region or the ARN of the target Outpost for the snapshot copies.",
                             "type": "string"
                           }
                         }
@@ -1536,6 +1552,14 @@
                     "excludeBootVolume": {
                       "description": "Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is false.",
                       "type": "boolean"
+                    },
+                    "excludeDataVolumeTags": {
+                      "description": "Map specifies whether to exclude volumes that have specific tags.",
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "x-kubernetes-map-type": "granular"
                     },
                     "noReboot": {
                       "description": "Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. true indicates that targeted instances are not rebooted when the policy runs. false indicates that target instances are rebooted when the policy runs. The default is true (instances are not rebooted).",
@@ -1682,7 +1706,7 @@
                           "type": "object",
                           "properties": {
                             "cmkArn": {
-                              "description": "The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.",
+                              "description": "ARN of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.",
                               "type": "string"
                             },
                             "copyTags": {
@@ -1722,11 +1746,11 @@
                               }
                             },
                             "target": {
-                              "description": "The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.",
+                              "description": "Target Region or the ARN of the target Outpost for the snapshot copies.",
                               "type": "string"
                             },
                             "targetRegion": {
-                              "description": "Use only for DLM policies of policy_type=IMAGE_MANAGEMENT. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.",
+                              "description": "Use only for DLM policies of policy_type=IMAGE_MANAGEMENT. The target Region or the ARN of the target Outpost for the snapshot copies.",
                               "type": "string"
                             }
                           }

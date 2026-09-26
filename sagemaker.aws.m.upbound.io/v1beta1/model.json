@@ -96,11 +96,11 @@
                     "type": "string"
                   },
                   "imageConfig": {
-                    "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see Using a Private Docker Registry for Real-Time Inference Containers. see Image Config.",
+                    "description": "Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see Using a Private Docker Registry for Real-Time Inference Containers. see Image Config.",
                     "type": "object",
                     "properties": {
                       "repositoryAccessMode": {
-                        "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: Platform and Vpc.",
+                        "description": "Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: Platform and Vpc.",
                         "type": "string"
                       },
                       "repositoryAuthConfig": {
@@ -108,7 +108,7 @@
                         "type": "object",
                         "properties": {
                           "repositoryCredentialsProviderArn": {
-                            "description": "Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see Create a Lambda function with the console in the AWS Lambda Developer Guide.",
+                            "description": "ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see Create a Lambda function with the console in the AWS Lambda Developer Guide.",
                             "type": "string"
                           }
                         }
@@ -165,7 +165,7 @@
                     "type": "string"
                   },
                   "modelPackageName": {
-                    "description": "Amazon Resource Name (ARN) of the model package to use to create the model.\nA list of key value pairs.",
+                    "description": "ARN of the model package to use to create the model.\nA list of key value pairs.",
                     "type": "string"
                   },
                   "multiModelConfig": {
@@ -348,11 +348,11 @@
                   "type": "string"
                 },
                 "imageConfig": {
-                  "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see Using a Private Docker Registry for Real-Time Inference Containers. see Image Config.",
+                  "description": "Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see Using a Private Docker Registry for Real-Time Inference Containers. see Image Config.",
                   "type": "object",
                   "properties": {
                     "repositoryAccessMode": {
-                      "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: Platform and Vpc.",
+                      "description": "Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: Platform and Vpc.",
                       "type": "string"
                     },
                     "repositoryAuthConfig": {
@@ -360,7 +360,7 @@
                       "type": "object",
                       "properties": {
                         "repositoryCredentialsProviderArn": {
-                          "description": "Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see Create a Lambda function with the console in the AWS Lambda Developer Guide.",
+                          "description": "ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see Create a Lambda function with the console in the AWS Lambda Developer Guide.",
                           "type": "string"
                         }
                       }
@@ -417,7 +417,7 @@
                   "type": "string"
                 },
                 "modelPackageName": {
-                  "description": "Amazon Resource Name (ARN) of the model package to use to create the model.\nA list of key value pairs.",
+                  "description": "ARN of the model package to use to create the model.\nA list of key value pairs.",
                   "type": "string"
                 },
                 "multiModelConfig": {
@@ -539,11 +539,11 @@
                     "type": "string"
                   },
                   "imageConfig": {
-                    "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see Using a Private Docker Registry for Real-Time Inference Containers. see Image Config.",
+                    "description": "Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see Using a Private Docker Registry for Real-Time Inference Containers. see Image Config.",
                     "type": "object",
                     "properties": {
                       "repositoryAccessMode": {
-                        "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: Platform and Vpc.",
+                        "description": "Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: Platform and Vpc.",
                         "type": "string"
                       },
                       "repositoryAuthConfig": {
@@ -551,7 +551,7 @@
                         "type": "object",
                         "properties": {
                           "repositoryCredentialsProviderArn": {
-                            "description": "Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see Create a Lambda function with the console in the AWS Lambda Developer Guide.",
+                            "description": "ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see Create a Lambda function with the console in the AWS Lambda Developer Guide.",
                             "type": "string"
                           }
                         }
@@ -608,7 +608,7 @@
                     "type": "string"
                   },
                   "modelPackageName": {
-                    "description": "Amazon Resource Name (ARN) of the model package to use to create the model.\nA list of key value pairs.",
+                    "description": "ARN of the model package to use to create the model.\nA list of key value pairs.",
                     "type": "string"
                   },
                   "multiModelConfig": {
@@ -791,11 +791,11 @@
                   "type": "string"
                 },
                 "imageConfig": {
-                  "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see Using a Private Docker Registry for Real-Time Inference Containers. see Image Config.",
+                  "description": "Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see Using a Private Docker Registry for Real-Time Inference Containers. see Image Config.",
                   "type": "object",
                   "properties": {
                     "repositoryAccessMode": {
-                      "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: Platform and Vpc.",
+                      "description": "Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: Platform and Vpc.",
                       "type": "string"
                     },
                     "repositoryAuthConfig": {
@@ -803,7 +803,7 @@
                       "type": "object",
                       "properties": {
                         "repositoryCredentialsProviderArn": {
-                          "description": "Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see Create a Lambda function with the console in the AWS Lambda Developer Guide.",
+                          "description": "ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see Create a Lambda function with the console in the AWS Lambda Developer Guide.",
                           "type": "string"
                         }
                       }
@@ -860,7 +860,7 @@
                   "type": "string"
                 },
                 "modelPackageName": {
-                  "description": "Amazon Resource Name (ARN) of the model package to use to create the model.\nA list of key value pairs.",
+                  "description": "ARN of the model package to use to create the model.\nA list of key value pairs.",
                   "type": "string"
                 },
                 "multiModelConfig": {
@@ -971,7 +971,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "Amazon Resource Name (ARN) assigned by AWS to this model.",
+              "description": "ARN assigned by AWS to this model.",
               "type": "string"
             },
             "container": {
@@ -1041,11 +1041,11 @@
                     "type": "string"
                   },
                   "imageConfig": {
-                    "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see Using a Private Docker Registry for Real-Time Inference Containers. see Image Config.",
+                    "description": "Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see Using a Private Docker Registry for Real-Time Inference Containers. see Image Config.",
                     "type": "object",
                     "properties": {
                       "repositoryAccessMode": {
-                        "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: Platform and Vpc.",
+                        "description": "Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: Platform and Vpc.",
                         "type": "string"
                       },
                       "repositoryAuthConfig": {
@@ -1053,7 +1053,7 @@
                         "type": "object",
                         "properties": {
                           "repositoryCredentialsProviderArn": {
-                            "description": "Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see Create a Lambda function with the console in the AWS Lambda Developer Guide.",
+                            "description": "ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see Create a Lambda function with the console in the AWS Lambda Developer Guide.",
                             "type": "string"
                           }
                         }
@@ -1110,7 +1110,7 @@
                     "type": "string"
                   },
                   "modelPackageName": {
-                    "description": "Amazon Resource Name (ARN) of the model package to use to create the model.\nA list of key value pairs.",
+                    "description": "ARN of the model package to use to create the model.\nA list of key value pairs.",
                     "type": "string"
                   },
                   "multiModelConfig": {
@@ -1212,11 +1212,11 @@
                   "type": "string"
                 },
                 "imageConfig": {
-                  "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see Using a Private Docker Registry for Real-Time Inference Containers. see Image Config.",
+                  "description": "Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see Using a Private Docker Registry for Real-Time Inference Containers. see Image Config.",
                   "type": "object",
                   "properties": {
                     "repositoryAccessMode": {
-                      "description": "Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: Platform and Vpc.",
+                      "description": "Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: Platform and Vpc.",
                       "type": "string"
                     },
                     "repositoryAuthConfig": {
@@ -1224,7 +1224,7 @@
                       "type": "object",
                       "properties": {
                         "repositoryCredentialsProviderArn": {
-                          "description": "Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see Create a Lambda function with the console in the AWS Lambda Developer Guide.",
+                          "description": "ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see Create a Lambda function with the console in the AWS Lambda Developer Guide.",
                           "type": "string"
                         }
                       }
@@ -1281,7 +1281,7 @@
                   "type": "string"
                 },
                 "modelPackageName": {
-                  "description": "Amazon Resource Name (ARN) of the model package to use to create the model.\nA list of key value pairs.",
+                  "description": "ARN of the model package to use to create the model.\nA list of key value pairs.",
                   "type": "string"
                 },
                 "multiModelConfig": {

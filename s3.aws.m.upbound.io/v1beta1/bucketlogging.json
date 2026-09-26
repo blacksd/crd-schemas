@@ -257,7 +257,7 @@
                   "type": "object",
                   "properties": {
                     "partitionDateSource": {
-                      "description": "Specifies the partition date source for the partitioned prefix. Valid values: EventTime, DeliveryTime.",
+                      "description": "Partition date source for the partitioned prefix. Valid values: EventTime, DeliveryTime.",
                       "type": "string"
                     }
                   }
@@ -502,7 +502,7 @@
                   "type": "object",
                   "properties": {
                     "partitionDateSource": {
-                      "description": "Specifies the partition date source for the partitioned prefix. Valid values: EventTime, DeliveryTime.",
+                      "description": "Partition date source for the partitioned prefix. Valid values: EventTime, DeliveryTime.",
                       "type": "string"
                     }
                   }
@@ -597,7 +597,7 @@
               "type": "string"
             },
             "id": {
-              "description": "The bucket or bucket and expected_bucket_owner separated by a comma (,) if the latter is provided.",
+              "description": "bucket or bucket and expected_bucket_owner separated by a comma (,) if the latter is provided.",
               "type": "string"
             },
             "region": {
@@ -655,7 +655,7 @@
                   "type": "object",
                   "properties": {
                     "partitionDateSource": {
-                      "description": "Specifies the partition date source for the partitioned prefix. Valid values: EventTime, DeliveryTime.",
+                      "description": "Partition date source for the partitioned prefix. Valid values: EventTime, DeliveryTime.",
                       "type": "string"
                     }
                   }

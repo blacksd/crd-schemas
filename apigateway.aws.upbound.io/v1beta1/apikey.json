@@ -39,7 +39,7 @@
           ],
           "properties": {
             "customerId": {
-              "description": "An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.",
+              "description": "Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.",
               "type": "string"
             },
             "description": {
@@ -96,7 +96,7 @@
           "type": "object",
           "properties": {
             "customerId": {
-              "description": "An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.",
+              "description": "Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.",
               "type": "string"
             },
             "description": {
@@ -244,7 +244,7 @@
               "type": "string"
             },
             "customerId": {
-              "description": "An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.",
+              "description": "Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.",
               "type": "string"
             },
             "description": {

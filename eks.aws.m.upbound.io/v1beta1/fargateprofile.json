@@ -118,7 +118,7 @@
               }
             },
             "podExecutionRoleArn": {
-              "description": "Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.",
+              "description": "ARN of the IAM Role that provides permissions for the EKS Fargate Profile.",
               "type": "string"
             },
             "podExecutionRoleArnRef": {
@@ -429,7 +429,7 @@
               }
             },
             "podExecutionRoleArn": {
-              "description": "Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.",
+              "description": "ARN of the IAM Role that provides permissions for the EKS Fargate Profile.",
               "type": "string"
             },
             "podExecutionRoleArnRef": {
@@ -713,7 +713,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "Amazon Resource Name (ARN) of the EKS Fargate Profile.",
+              "description": "ARN of the EKS Fargate Profile.",
               "type": "string"
             },
             "clusterName": {
@@ -725,7 +725,7 @@
               "type": "string"
             },
             "podExecutionRoleArn": {
-              "description": "Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.",
+              "description": "ARN of the IAM Role that provides permissions for the EKS Fargate Profile.",
               "type": "string"
             },
             "region": {

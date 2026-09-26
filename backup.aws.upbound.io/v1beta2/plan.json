@@ -84,7 +84,7 @@
                       "type": "object",
                       "properties": {
                         "destinationVaultArn": {
-                          "description": "An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.",
+                          "description": "ARN that uniquely identifies the destination backup vault for the copied backup.",
                           "type": "string"
                         },
                         "lifecycle": {
@@ -339,7 +339,7 @@
                       "type": "object",
                       "properties": {
                         "destinationVaultArn": {
-                          "description": "An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.",
+                          "description": "ARN that uniquely identifies the destination backup vault for the copied backup.",
                           "type": "string"
                         },
                         "lifecycle": {
@@ -697,7 +697,7 @@
                       "type": "object",
                       "properties": {
                         "destinationVaultArn": {
-                          "description": "An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.",
+                          "description": "ARN that uniquely identifies the destination backup vault for the copied backup.",
                           "type": "string"
                         },
                         "lifecycle": {

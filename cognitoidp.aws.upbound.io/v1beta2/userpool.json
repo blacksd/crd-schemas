@@ -260,7 +260,7 @@
                   "type": "object",
                   "properties": {
                     "lambdaArn": {
-                      "description": "The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.",
+                      "description": "Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.",
                       "type": "string"
                     },
                     "lambdaArnRef": {
@@ -430,7 +430,7 @@
                   "type": "object",
                   "properties": {
                     "lambdaArn": {
-                      "description": "The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.",
+                      "description": "Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.",
                       "type": "string"
                     },
                     "lambdaArnRef": {
@@ -596,7 +596,7 @@
                   }
                 },
                 "kmsKeyId": {
-                  "description": "The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.",
+                  "description": "ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.",
                   "type": "string"
                 },
                 "kmsKeyIdRef": {
@@ -1004,7 +1004,7 @@
                   "type": "object",
                   "properties": {
                     "lambdaArn": {
-                      "description": "The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.",
+                      "description": "Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.",
                       "type": "string"
                     },
                     "lambdaVersion": {
@@ -1816,7 +1816,7 @@
                   "type": "object",
                   "properties": {
                     "lambdaArn": {
-                      "description": "The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.",
+                      "description": "Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.",
                       "type": "string"
                     },
                     "lambdaArnRef": {
@@ -1986,7 +1986,7 @@
                   "type": "object",
                   "properties": {
                     "lambdaArn": {
-                      "description": "The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.",
+                      "description": "Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.",
                       "type": "string"
                     },
                     "lambdaArnRef": {
@@ -2152,7 +2152,7 @@
                   }
                 },
                 "kmsKeyId": {
-                  "description": "The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.",
+                  "description": "ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.",
                   "type": "string"
                 },
                 "kmsKeyIdRef": {
@@ -2560,7 +2560,7 @@
                   "type": "object",
                   "properties": {
                     "lambdaArn": {
-                      "description": "The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.",
+                      "description": "Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.",
                       "type": "string"
                     },
                     "lambdaVersion": {
@@ -3407,7 +3407,7 @@
                   "type": "object",
                   "properties": {
                     "lambdaArn": {
-                      "description": "The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.",
+                      "description": "Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.",
                       "type": "string"
                     },
                     "lambdaVersion": {
@@ -3425,7 +3425,7 @@
                   "type": "object",
                   "properties": {
                     "lambdaArn": {
-                      "description": "The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.",
+                      "description": "Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.",
                       "type": "string"
                     },
                     "lambdaVersion": {
@@ -3439,7 +3439,7 @@
                   "type": "string"
                 },
                 "kmsKeyId": {
-                  "description": "The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.",
+                  "description": "ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.",
                   "type": "string"
                 },
                 "postAuthentication": {
@@ -3467,7 +3467,7 @@
                   "type": "object",
                   "properties": {
                     "lambdaArn": {
-                      "description": "The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.",
+                      "description": "Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.",
                       "type": "string"
                     },
                     "lambdaVersion": {

@@ -119,23 +119,23 @@
               }
             },
             "authorizerCredentialsArn": {
-              "description": "Required credentials as an IAM role for API Gateway to invoke the authorizer.\nSupported only for REQUEST authorizers.",
+              "description": "Required credentials as an IAM role for API Gateway to invoke the authorizer. Supported only for REQUEST authorizers.",
               "type": "string"
             },
             "authorizerPayloadFormatVersion": {
-              "description": "Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.\nValid values: 1.0, 2.0.",
+              "description": "Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Valid values: 1.0, 2.0.",
               "type": "string"
             },
             "authorizerResultTtlInSeconds": {
-              "description": "Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.\nIf it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to 300.\nSupported only for HTTP API Lambda authorizers.",
+              "description": "Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to 300. Supported only for HTTP API Lambda authorizers.",
               "type": "number"
             },
             "authorizerType": {
-              "description": "Authorizer type. Valid values: JWT, REQUEST.\nSpecify REQUEST for a Lambda function using incoming request parameters.\nFor HTTP APIs, specify JWT to use JSON Web Tokens.",
+              "description": "Authorizer type. Valid values: JWT, REQUEST. Specify REQUEST for a Lambda function using incoming request parameters. For HTTP APIs, specify JWT to use JSON Web Tokens.",
               "type": "string"
             },
             "authorizerUri": {
-              "description": "Authorizer's Uniform Resource Identifier (URI).\nFor REQUEST authorizers this must be a well-formed Lambda function URI, such as the invoke_arn attribute of the aws_lambda_function resource.\nSupported only for REQUEST authorizers. Must be between 1 and 2048 characters in length.",
+              "description": "Authorizer's URI. For REQUEST authorizers this must be a well-formed Lambda function URI, such as the invoke_arn attribute of the aws_lambda_function resource. Supported only for REQUEST authorizers. Must be between 1 and 2048 characters in length.",
               "type": "string"
             },
             "authorizerUriRef": {
@@ -215,11 +215,11 @@
               }
             },
             "enableSimpleResponses": {
-              "description": "Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.\nSupported only for HTTP APIs.",
+              "description": "Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs.",
               "type": "boolean"
             },
             "identitySources": {
-              "description": "Identity sources for which authorization is requested.\nFor REQUEST authorizers the value is a list of one or more mapping expressions of the specified request parameters.\nFor JWT authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.",
+              "description": "Identity sources for which authorization is requested. For REQUEST authorizers the value is a list of one or more mapping expressions of the specified request parameters. For JWT authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -227,7 +227,7 @@
               "x-kubernetes-list-type": "set"
             },
             "jwtConfiguration": {
-              "description": "Configuration of a JWT authorizer. Required for the JWT authorizer type.\nSupported only for HTTP APIs.",
+              "description": "Configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs. See jwt_configuration Block below.",
               "type": "object",
               "properties": {
                 "audience": {
@@ -339,23 +339,23 @@
               }
             },
             "authorizerCredentialsArn": {
-              "description": "Required credentials as an IAM role for API Gateway to invoke the authorizer.\nSupported only for REQUEST authorizers.",
+              "description": "Required credentials as an IAM role for API Gateway to invoke the authorizer. Supported only for REQUEST authorizers.",
               "type": "string"
             },
             "authorizerPayloadFormatVersion": {
-              "description": "Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.\nValid values: 1.0, 2.0.",
+              "description": "Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Valid values: 1.0, 2.0.",
               "type": "string"
             },
             "authorizerResultTtlInSeconds": {
-              "description": "Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.\nIf it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to 300.\nSupported only for HTTP API Lambda authorizers.",
+              "description": "Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to 300. Supported only for HTTP API Lambda authorizers.",
               "type": "number"
             },
             "authorizerType": {
-              "description": "Authorizer type. Valid values: JWT, REQUEST.\nSpecify REQUEST for a Lambda function using incoming request parameters.\nFor HTTP APIs, specify JWT to use JSON Web Tokens.",
+              "description": "Authorizer type. Valid values: JWT, REQUEST. Specify REQUEST for a Lambda function using incoming request parameters. For HTTP APIs, specify JWT to use JSON Web Tokens.",
               "type": "string"
             },
             "authorizerUri": {
-              "description": "Authorizer's Uniform Resource Identifier (URI).\nFor REQUEST authorizers this must be a well-formed Lambda function URI, such as the invoke_arn attribute of the aws_lambda_function resource.\nSupported only for REQUEST authorizers. Must be between 1 and 2048 characters in length.",
+              "description": "Authorizer's URI. For REQUEST authorizers this must be a well-formed Lambda function URI, such as the invoke_arn attribute of the aws_lambda_function resource. Supported only for REQUEST authorizers. Must be between 1 and 2048 characters in length.",
               "type": "string"
             },
             "authorizerUriRef": {
@@ -435,11 +435,11 @@
               }
             },
             "enableSimpleResponses": {
-              "description": "Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.\nSupported only for HTTP APIs.",
+              "description": "Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs.",
               "type": "boolean"
             },
             "identitySources": {
-              "description": "Identity sources for which authorization is requested.\nFor REQUEST authorizers the value is a list of one or more mapping expressions of the specified request parameters.\nFor JWT authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.",
+              "description": "Identity sources for which authorization is requested. For REQUEST authorizers the value is a list of one or more mapping expressions of the specified request parameters. For JWT authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -447,7 +447,7 @@
               "x-kubernetes-list-type": "set"
             },
             "jwtConfiguration": {
-              "description": "Configuration of a JWT authorizer. Required for the JWT authorizer type.\nSupported only for HTTP APIs.",
+              "description": "Configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs. See jwt_configuration Block below.",
               "type": "object",
               "properties": {
                 "audience": {
@@ -570,27 +570,27 @@
               "type": "string"
             },
             "authorizerCredentialsArn": {
-              "description": "Required credentials as an IAM role for API Gateway to invoke the authorizer.\nSupported only for REQUEST authorizers.",
+              "description": "Required credentials as an IAM role for API Gateway to invoke the authorizer. Supported only for REQUEST authorizers.",
               "type": "string"
             },
             "authorizerPayloadFormatVersion": {
-              "description": "Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.\nValid values: 1.0, 2.0.",
+              "description": "Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Valid values: 1.0, 2.0.",
               "type": "string"
             },
             "authorizerResultTtlInSeconds": {
-              "description": "Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.\nIf it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to 300.\nSupported only for HTTP API Lambda authorizers.",
+              "description": "Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to 300. Supported only for HTTP API Lambda authorizers.",
               "type": "number"
             },
             "authorizerType": {
-              "description": "Authorizer type. Valid values: JWT, REQUEST.\nSpecify REQUEST for a Lambda function using incoming request parameters.\nFor HTTP APIs, specify JWT to use JSON Web Tokens.",
+              "description": "Authorizer type. Valid values: JWT, REQUEST. Specify REQUEST for a Lambda function using incoming request parameters. For HTTP APIs, specify JWT to use JSON Web Tokens.",
               "type": "string"
             },
             "authorizerUri": {
-              "description": "Authorizer's Uniform Resource Identifier (URI).\nFor REQUEST authorizers this must be a well-formed Lambda function URI, such as the invoke_arn attribute of the aws_lambda_function resource.\nSupported only for REQUEST authorizers. Must be between 1 and 2048 characters in length.",
+              "description": "Authorizer's URI. For REQUEST authorizers this must be a well-formed Lambda function URI, such as the invoke_arn attribute of the aws_lambda_function resource. Supported only for REQUEST authorizers. Must be between 1 and 2048 characters in length.",
               "type": "string"
             },
             "enableSimpleResponses": {
-              "description": "Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.\nSupported only for HTTP APIs.",
+              "description": "Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs.",
               "type": "boolean"
             },
             "id": {
@@ -598,7 +598,7 @@
               "type": "string"
             },
             "identitySources": {
-              "description": "Identity sources for which authorization is requested.\nFor REQUEST authorizers the value is a list of one or more mapping expressions of the specified request parameters.\nFor JWT authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.",
+              "description": "Identity sources for which authorization is requested. For REQUEST authorizers the value is a list of one or more mapping expressions of the specified request parameters. For JWT authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -606,7 +606,7 @@
               "x-kubernetes-list-type": "set"
             },
             "jwtConfiguration": {
-              "description": "Configuration of a JWT authorizer. Required for the JWT authorizer type.\nSupported only for HTTP APIs.",
+              "description": "Configuration of a JWT authorizer. Required for the JWT authorizer type. Supported only for HTTP APIs. See jwt_configuration Block below.",
               "type": "object",
               "properties": {
                 "audience": {

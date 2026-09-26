@@ -56,7 +56,7 @@
               "type": "object",
               "properties": {
                 "certificateArn": {
-                  "description": "The Amazon Resource Name (ARN) of the certificates that is used to sign your code.",
+                  "description": "ARN of the certificates that is used to sign your code.",
                   "type": "string"
                 }
               }
@@ -106,7 +106,7 @@
               "type": "object",
               "properties": {
                 "certificateArn": {
-                  "description": "The Amazon Resource Name (ARN) of the certificates that is used to sign your code.",
+                  "description": "ARN of the certificates that is used to sign your code.",
                   "type": "string"
                 }
               }
@@ -199,7 +199,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "The Amazon Resource Name (ARN) for the signing profile.",
+              "description": "ARN for the signing profile.",
               "type": "string"
             },
             "id": {
@@ -257,7 +257,7 @@
               "type": "object",
               "properties": {
                 "certificateArn": {
-                  "description": "The Amazon Resource Name (ARN) of the certificates that is used to sign your code.",
+                  "description": "ARN of the certificates that is used to sign your code.",
                   "type": "string"
                 }
               }

@@ -47,7 +47,7 @@
               "type": "string"
             },
             "domainVerificationId": {
-              "description": "The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.",
+              "description": "Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.",
               "type": "string"
             },
             "name": {
@@ -83,7 +83,7 @@
                       "type": "object",
                       "properties": {
                         "arn": {
-                          "description": "The ARN of the Resource for this configuration.",
+                          "description": "ARN of the Resource for this configuration.",
                           "type": "string"
                         },
                         "arnRef": {
@@ -172,11 +172,11 @@
                       "type": "object",
                       "properties": {
                         "domainName": {
-                          "description": "The hostname of the Resource for this configuration.",
+                          "description": "Hostname of the Resource for this configuration.",
                           "type": "string"
                         },
                         "ipAddressType": {
-                          "description": "The IP Address type either IPV4 or IPV6",
+                          "description": "IP Address type either IPV4 or IPV6",
                           "type": "string"
                         }
                       }
@@ -189,7 +189,7 @@
                       "type": "object",
                       "properties": {
                         "ipAddress": {
-                          "description": "The IP Address of the Resource for this configuration.",
+                          "description": "IP Address of the Resource for this configuration.",
                           "type": "string"
                         }
                       }
@@ -309,7 +309,7 @@
               "type": "string"
             },
             "domainVerificationId": {
-              "description": "The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.",
+              "description": "Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.",
               "type": "string"
             },
             "name": {
@@ -341,7 +341,7 @@
                       "type": "object",
                       "properties": {
                         "arn": {
-                          "description": "The ARN of the Resource for this configuration.",
+                          "description": "ARN of the Resource for this configuration.",
                           "type": "string"
                         },
                         "arnRef": {
@@ -430,11 +430,11 @@
                       "type": "object",
                       "properties": {
                         "domainName": {
-                          "description": "The hostname of the Resource for this configuration.",
+                          "description": "Hostname of the Resource for this configuration.",
                           "type": "string"
                         },
                         "ipAddressType": {
-                          "description": "The IP Address type either IPV4 or IPV6",
+                          "description": "IP Address type either IPV4 or IPV6",
                           "type": "string"
                         }
                       }
@@ -447,7 +447,7 @@
                       "type": "object",
                       "properties": {
                         "ipAddress": {
-                          "description": "The IP Address of the Resource for this configuration.",
+                          "description": "IP Address of the Resource for this configuration.",
                           "type": "string"
                         }
                       }
@@ -650,7 +650,7 @@
               "type": "boolean"
             },
             "arn": {
-              "description": "The ARN of the Resource for this configuration.",
+              "description": "ARN of the Resource for this configuration.",
               "type": "string"
             },
             "customDomainName": {
@@ -662,7 +662,7 @@
               "type": "string"
             },
             "domainVerificationId": {
-              "description": "The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.",
+              "description": "Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.",
               "type": "string"
             },
             "domainVerificationStatus": {
@@ -706,7 +706,7 @@
                       "type": "object",
                       "properties": {
                         "arn": {
-                          "description": "The ARN of the Resource for this configuration.",
+                          "description": "ARN of the Resource for this configuration.",
                           "type": "string"
                         }
                       }
@@ -719,11 +719,11 @@
                       "type": "object",
                       "properties": {
                         "domainName": {
-                          "description": "The hostname of the Resource for this configuration.",
+                          "description": "Hostname of the Resource for this configuration.",
                           "type": "string"
                         },
                         "ipAddressType": {
-                          "description": "The IP Address type either IPV4 or IPV6",
+                          "description": "IP Address type either IPV4 or IPV6",
                           "type": "string"
                         }
                       }
@@ -736,7 +736,7 @@
                       "type": "object",
                       "properties": {
                         "ipAddress": {
-                          "description": "The IP Address of the Resource for this configuration.",
+                          "description": "IP Address of the Resource for this configuration.",
                           "type": "string"
                         }
                       }

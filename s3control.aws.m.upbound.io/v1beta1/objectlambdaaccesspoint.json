@@ -30,11 +30,11 @@
           ],
           "properties": {
             "accountId": {
-              "description": "The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point.",
+              "description": "AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point.",
               "type": "string"
             },
             "configuration": {
-              "description": "A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.",
+              "description": "Configuration block containing details about the Object Lambda Access Point. See configuration Block below for more details.",
               "type": "object",
               "properties": {
                 "allowedFeatures": {
@@ -138,13 +138,13 @@
                   }
                 },
                 "transformationConfiguration": {
-                  "description": "List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.",
+                  "description": "List of transformation configurations for the Object Lambda Access Point. See transformation_configuration Block below for more details.",
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
                       "actions": {
-                        "description": "The actions of an Object Lambda Access Point configuration. Valid values: GetObject.",
+                        "description": "Actions of an Object Lambda Access Point configuration. Valid values: GetObject.",
                         "type": "array",
                         "items": {
                           "type": "string"
@@ -152,15 +152,15 @@
                         "x-kubernetes-list-type": "set"
                       },
                       "contentTransformation": {
-                        "description": "The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.",
+                        "description": "Content transformation of an Object Lambda Access Point configuration. See content_transformation Block below for more details.",
                         "type": "object",
                         "properties": {
                           "awsLambda": {
-                            "description": "Configuration for an AWS Lambda function. See AWS Lambda below for more details.",
+                            "description": "Configuration for an AWS Lambda function. See aws_lambda Block below for more details.",
                             "type": "object",
                             "properties": {
                               "functionArn": {
-                                "description": "The Amazon Resource Name (ARN) of the AWS Lambda function.",
+                                "description": "ARN of the AWS Lambda function.",
                                 "type": "string"
                               },
                               "functionArnRef": {
@@ -261,7 +261,7 @@
               }
             },
             "name": {
-              "description": "The name for this Object Lambda Access Point.",
+              "description": "Name for this Object Lambda Access Point.",
               "type": "string"
             },
             "region": {
@@ -275,11 +275,11 @@
           "type": "object",
           "properties": {
             "accountId": {
-              "description": "The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point.",
+              "description": "AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point.",
               "type": "string"
             },
             "configuration": {
-              "description": "A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.",
+              "description": "Configuration block containing details about the Object Lambda Access Point. See configuration Block below for more details.",
               "type": "object",
               "properties": {
                 "allowedFeatures": {
@@ -383,13 +383,13 @@
                   }
                 },
                 "transformationConfiguration": {
-                  "description": "List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.",
+                  "description": "List of transformation configurations for the Object Lambda Access Point. See transformation_configuration Block below for more details.",
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
                       "actions": {
-                        "description": "The actions of an Object Lambda Access Point configuration. Valid values: GetObject.",
+                        "description": "Actions of an Object Lambda Access Point configuration. Valid values: GetObject.",
                         "type": "array",
                         "items": {
                           "type": "string"
@@ -397,15 +397,15 @@
                         "x-kubernetes-list-type": "set"
                       },
                       "contentTransformation": {
-                        "description": "The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.",
+                        "description": "Content transformation of an Object Lambda Access Point configuration. See content_transformation Block below for more details.",
                         "type": "object",
                         "properties": {
                           "awsLambda": {
-                            "description": "Configuration for an AWS Lambda function. See AWS Lambda below for more details.",
+                            "description": "Configuration for an AWS Lambda function. See aws_lambda Block below for more details.",
                             "type": "object",
                             "properties": {
                               "functionArn": {
-                                "description": "The Amazon Resource Name (ARN) of the AWS Lambda function.",
+                                "description": "ARN of the AWS Lambda function.",
                                 "type": "string"
                               },
                               "functionArnRef": {
@@ -506,7 +506,7 @@
               }
             },
             "name": {
-              "description": "The name for this Object Lambda Access Point.",
+              "description": "Name for this Object Lambda Access Point.",
               "type": "string"
             }
           }
@@ -585,7 +585,7 @@
           "type": "object",
           "properties": {
             "accountId": {
-              "description": "The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point.",
+              "description": "AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point.",
               "type": "string"
             },
             "alias": {
@@ -593,11 +593,11 @@
               "type": "string"
             },
             "arn": {
-              "description": "Amazon Resource Name (ARN) of the Object Lambda Access Point.",
+              "description": "ARN of the Object Lambda Access Point.",
               "type": "string"
             },
             "configuration": {
-              "description": "A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.",
+              "description": "Configuration block containing details about the Object Lambda Access Point. See configuration Block below for more details.",
               "type": "object",
               "properties": {
                 "allowedFeatures": {
@@ -617,13 +617,13 @@
                   "type": "string"
                 },
                 "transformationConfiguration": {
-                  "description": "List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.",
+                  "description": "List of transformation configurations for the Object Lambda Access Point. See transformation_configuration Block below for more details.",
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
                       "actions": {
-                        "description": "The actions of an Object Lambda Access Point configuration. Valid values: GetObject.",
+                        "description": "Actions of an Object Lambda Access Point configuration. Valid values: GetObject.",
                         "type": "array",
                         "items": {
                           "type": "string"
@@ -631,15 +631,15 @@
                         "x-kubernetes-list-type": "set"
                       },
                       "contentTransformation": {
-                        "description": "The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.",
+                        "description": "Content transformation of an Object Lambda Access Point configuration. See content_transformation Block below for more details.",
                         "type": "object",
                         "properties": {
                           "awsLambda": {
-                            "description": "Configuration for an AWS Lambda function. See AWS Lambda below for more details.",
+                            "description": "Configuration for an AWS Lambda function. See aws_lambda Block below for more details.",
                             "type": "object",
                             "properties": {
                               "functionArn": {
-                                "description": "The Amazon Resource Name (ARN) of the AWS Lambda function.",
+                                "description": "ARN of the AWS Lambda function.",
                                 "type": "string"
                               },
                               "functionPayload": {
@@ -656,11 +656,11 @@
               }
             },
             "id": {
-              "description": "The AWS account ID and access point name separated by a colon (:).",
+              "description": "AWS account ID and access point name separated by a colon (:).",
               "type": "string"
             },
             "name": {
-              "description": "The name for this Object Lambda Access Point.",
+              "description": "Name for this Object Lambda Access Point.",
               "type": "string"
             },
             "region": {

@@ -1,0 +1,24 @@
+{
+  "schema": "filesystempolicy.json",
+  "crd": {
+    "group": "s3files.aws.upbound.io",
+    "kind": "FileSystemPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-09-26T13:32:32Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "77d2f234c58b2b935b0dec48afc500b15e567bfccf58e1e7c780594ad082ff18"
+  }
+}

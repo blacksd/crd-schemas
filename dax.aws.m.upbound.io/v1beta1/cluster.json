@@ -46,7 +46,7 @@
               "type": "string"
             },
             "iamRoleArn": {
-              "description": "A valid Amazon Resource Name (ARN) that identifies\nan IAM role. At runtime, DAX will assume this role and use the role's\npermissions to access DynamoDB on your behalf",
+              "description": "Valid ARN that identifies\nan IAM role. At runtime, DAX will assume this role and use the role's\npermissions to access DynamoDB on your behalf",
               "type": "string"
             },
             "iamRoleArnRef": {
@@ -142,7 +142,7 @@
               "type": "string"
             },
             "notificationTopicArn": {
-              "description": "An Amazon Resource Name (ARN) of an\nSNS topic to send DAX notifications to. Example:\narn:aws:sns:us-east-1:012345678999:my_sns_topic",
+              "description": "ARN of an\nSNS topic to send DAX notifications to. Example:\narn:aws:sns:us-east-1:012345678999:my_sns_topic",
               "type": "string"
             },
             "parameterGroupName": {
@@ -298,7 +298,7 @@
               "type": "string"
             },
             "iamRoleArn": {
-              "description": "A valid Amazon Resource Name (ARN) that identifies\nan IAM role. At runtime, DAX will assume this role and use the role's\npermissions to access DynamoDB on your behalf",
+              "description": "Valid ARN that identifies\nan IAM role. At runtime, DAX will assume this role and use the role's\npermissions to access DynamoDB on your behalf",
               "type": "string"
             },
             "iamRoleArnRef": {
@@ -394,7 +394,7 @@
               "type": "string"
             },
             "notificationTopicArn": {
-              "description": "An Amazon Resource Name (ARN) of an\nSNS topic to send DAX notifications to. Example:\narn:aws:sns:us-east-1:012345678999:my_sns_topic",
+              "description": "ARN of an\nSNS topic to send DAX notifications to. Example:\narn:aws:sns:us-east-1:012345678999:my_sns_topic",
               "type": "string"
             },
             "parameterGroupName": {
@@ -627,7 +627,7 @@
               "type": "string"
             },
             "iamRoleArn": {
-              "description": "A valid Amazon Resource Name (ARN) that identifies\nan IAM role. At runtime, DAX will assume this role and use the role's\npermissions to access DynamoDB on your behalf",
+              "description": "Valid ARN that identifies\nan IAM role. At runtime, DAX will assume this role and use the role's\npermissions to access DynamoDB on your behalf",
               "type": "string"
             },
             "id": {
@@ -664,7 +664,7 @@
               }
             },
             "notificationTopicArn": {
-              "description": "An Amazon Resource Name (ARN) of an\nSNS topic to send DAX notifications to. Example:\narn:aws:sns:us-east-1:012345678999:my_sns_topic",
+              "description": "ARN of an\nSNS topic to send DAX notifications to. Example:\narn:aws:sns:us-east-1:012345678999:my_sns_topic",
               "type": "string"
             },
             "parameterGroupName": {

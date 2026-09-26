@@ -40,7 +40,7 @@
               "type": "string"
             },
             "resourceArn": {
-              "description": "Amazon Resource Name (ARN) of the DynamoDB resource to tag.",
+              "description": "ARN of the DynamoDB resource to tag.",
               "type": "string"
             },
             "value": {
@@ -141,7 +141,7 @@
               "type": "string"
             },
             "resourceArn": {
-              "description": "Amazon Resource Name (ARN) of the DynamoDB resource to tag.",
+              "description": "ARN of the DynamoDB resource to tag.",
               "type": "string"
             },
             "value": {

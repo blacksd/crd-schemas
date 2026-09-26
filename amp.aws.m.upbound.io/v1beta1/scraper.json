@@ -30,23 +30,23 @@
           ],
           "properties": {
             "alias": {
-              "description": "a name to associate with the managed scraper. This is for your use, and does not need to be unique.",
+              "description": "Name to associate with the managed scraper. This is for your use, and does not need to be unique.",
               "type": "string"
             },
             "destination": {
-              "description": "Configuration block for the managed scraper to send metrics to. See destination.",
+              "description": "Configuration block for the managed scraper to send metrics to. See destination Block for details.",
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
                   "amp": {
-                    "description": "Configuration block for an Amazon Managed Prometheus workspace destination. See amp.",
+                    "description": "Configuration block for an Amazon Managed Prometheus workspace destination. See amp Block for details.",
                     "type": "array",
                     "items": {
                       "type": "object",
                       "properties": {
                         "workspaceArn": {
-                          "description": "The Amazon Resource Name (ARN) of the prometheus workspace.",
+                          "description": "ARN of the prometheus workspace.",
                           "type": "string"
                         },
                         "workspaceArnRef": {
@@ -91,6 +91,125 @@
                         },
                         "workspaceArnSelector": {
                           "description": "Selector for a Workspace in amp to populate workspaceArn.",
+                          "type": "object",
+                          "properties": {
+                            "matchControllerRef": {
+                              "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                              "type": "boolean"
+                            },
+                            "matchLabels": {
+                              "description": "MatchLabels ensures an object with matching labels is selected.",
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "string"
+                              }
+                            },
+                            "namespace": {
+                              "description": "Namespace for the selector",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for selection.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "cloudwatch": {
+                    "description": "Configuration block for a CloudWatch Metrics destination. See cloudwatch Block for details.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "datasetArn": {
+                          "description": "ARN of the CloudWatch dataset. Use arn:aws:cloudwatch:{region}:{account}:dataset/default for the default dataset.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "exporter": {
+              "description": "Configuration block for additional exporters. See exporter Block for details.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "opensearch": {
+                    "description": "Configuration block for an OpenSearch exporter. See opensearch Block for details.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "domainArn": {
+                          "description": "ARN of the OpenSearch domain.",
+                          "type": "string"
+                        },
+                        "domainArnRef": {
+                          "description": "Reference to a Domain in opensearch to populate domainArn.",
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the referenced object.",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace of the referenced object",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for referencing.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "domainArnSelector": {
+                          "description": "Selector for a Domain in opensearch to populate domainArn.",
                           "type": "object",
                           "properties": {
                             "matchControllerRef": {
@@ -144,13 +263,13 @@
               "type": "string"
             },
             "roleConfiguration": {
-              "description": "Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See role_configuration below.",
+              "description": "Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See role_configuration Block for details.",
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
                   "sourceRoleArn": {
-                    "description": "The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.",
+                    "description": "ARN of the source role configuration. Must be an IAM role ARN.",
                     "type": "string"
                   },
                   "sourceRoleArnRef": {
@@ -238,30 +357,30 @@
                     }
                   },
                   "targetRoleArn": {
-                    "description": "The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.",
+                    "description": "ARN of the target role configuration. Must be an IAM role ARN.",
                     "type": "string"
                   }
                 }
               }
             },
             "scrapeConfiguration": {
-              "description": "The configuration file to use in the new scraper. For more information, see Scraper configuration.",
+              "description": "Configuration file to use in the new scraper. For more information, see Scraper configuration.",
               "type": "string"
             },
             "source": {
-              "description": "Configuration block to specify where the managed scraper will collect metrics from. See source.",
+              "description": "Configuration block to specify where the managed scraper will collect metrics from. See source Block for details.",
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
                   "eks": {
-                    "description": "Configuration block for an EKS cluster source. See eks.",
+                    "description": "Configuration block for an EKS cluster source. See eks Block for details.",
                     "type": "array",
                     "items": {
                       "type": "object",
                       "properties": {
                         "clusterArn": {
-                          "description": "The Amazon Resource Name (ARN) of the source EKS cluster.",
+                          "description": "ARN of the source EKS cluster.",
                           "type": "string"
                         },
                         "clusterArnRef": {
@@ -544,7 +663,7 @@
                     }
                   },
                   "vpc": {
-                    "description": "Configuration block for a VPC source. See vpc.",
+                    "description": "Configuration block for a VPC source. See vpc Block for details.",
                     "type": "array",
                     "items": {
                       "type": "object",
@@ -748,6 +867,7 @@
               }
             },
             "tags": {
+              "description": "Key-value map of resource tags.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -761,23 +881,23 @@
           "type": "object",
           "properties": {
             "alias": {
-              "description": "a name to associate with the managed scraper. This is for your use, and does not need to be unique.",
+              "description": "Name to associate with the managed scraper. This is for your use, and does not need to be unique.",
               "type": "string"
             },
             "destination": {
-              "description": "Configuration block for the managed scraper to send metrics to. See destination.",
+              "description": "Configuration block for the managed scraper to send metrics to. See destination Block for details.",
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
                   "amp": {
-                    "description": "Configuration block for an Amazon Managed Prometheus workspace destination. See amp.",
+                    "description": "Configuration block for an Amazon Managed Prometheus workspace destination. See amp Block for details.",
                     "type": "array",
                     "items": {
                       "type": "object",
                       "properties": {
                         "workspaceArn": {
-                          "description": "The Amazon Resource Name (ARN) of the prometheus workspace.",
+                          "description": "ARN of the prometheus workspace.",
                           "type": "string"
                         },
                         "workspaceArnRef": {
@@ -866,18 +986,137 @@
                         }
                       }
                     }
+                  },
+                  "cloudwatch": {
+                    "description": "Configuration block for a CloudWatch Metrics destination. See cloudwatch Block for details.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "datasetArn": {
+                          "description": "ARN of the CloudWatch dataset. Use arn:aws:cloudwatch:{region}:{account}:dataset/default for the default dataset.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "exporter": {
+              "description": "Configuration block for additional exporters. See exporter Block for details.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "opensearch": {
+                    "description": "Configuration block for an OpenSearch exporter. See opensearch Block for details.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "domainArn": {
+                          "description": "ARN of the OpenSearch domain.",
+                          "type": "string"
+                        },
+                        "domainArnRef": {
+                          "description": "Reference to a Domain in opensearch to populate domainArn.",
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the referenced object.",
+                              "type": "string"
+                            },
+                            "namespace": {
+                              "description": "Namespace of the referenced object",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for referencing.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "domainArnSelector": {
+                          "description": "Selector for a Domain in opensearch to populate domainArn.",
+                          "type": "object",
+                          "properties": {
+                            "matchControllerRef": {
+                              "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                              "type": "boolean"
+                            },
+                            "matchLabels": {
+                              "description": "MatchLabels ensures an object with matching labels is selected.",
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "string"
+                              }
+                            },
+                            "namespace": {
+                              "description": "Namespace for the selector",
+                              "type": "string"
+                            },
+                            "policy": {
+                              "description": "Policies for selection.",
+                              "type": "object",
+                              "properties": {
+                                "resolution": {
+                                  "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                  "type": "string",
+                                  "default": "Required",
+                                  "enum": [
+                                    "Required",
+                                    "Optional"
+                                  ]
+                                },
+                                "resolve": {
+                                  "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                  "type": "string",
+                                  "enum": [
+                                    "Always",
+                                    "IfNotPresent"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
             },
             "roleConfiguration": {
-              "description": "Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See role_configuration below.",
+              "description": "Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See role_configuration Block for details.",
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
                   "sourceRoleArn": {
-                    "description": "The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.",
+                    "description": "ARN of the source role configuration. Must be an IAM role ARN.",
                     "type": "string"
                   },
                   "sourceRoleArnRef": {
@@ -965,30 +1204,30 @@
                     }
                   },
                   "targetRoleArn": {
-                    "description": "The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.",
+                    "description": "ARN of the target role configuration. Must be an IAM role ARN.",
                     "type": "string"
                   }
                 }
               }
             },
             "scrapeConfiguration": {
-              "description": "The configuration file to use in the new scraper. For more information, see Scraper configuration.",
+              "description": "Configuration file to use in the new scraper. For more information, see Scraper configuration.",
               "type": "string"
             },
             "source": {
-              "description": "Configuration block to specify where the managed scraper will collect metrics from. See source.",
+              "description": "Configuration block to specify where the managed scraper will collect metrics from. See source Block for details.",
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
                   "eks": {
-                    "description": "Configuration block for an EKS cluster source. See eks.",
+                    "description": "Configuration block for an EKS cluster source. See eks Block for details.",
                     "type": "array",
                     "items": {
                       "type": "object",
                       "properties": {
                         "clusterArn": {
-                          "description": "The Amazon Resource Name (ARN) of the source EKS cluster.",
+                          "description": "ARN of the source EKS cluster.",
                           "type": "string"
                         },
                         "clusterArnRef": {
@@ -1271,7 +1510,7 @@
                     }
                   },
                   "vpc": {
-                    "description": "Configuration block for a VPC source. See vpc.",
+                    "description": "Configuration block for a VPC source. See vpc Block for details.",
                     "type": "array",
                     "items": {
                       "type": "object",
@@ -1475,6 +1714,7 @@
               }
             },
             "tags": {
+              "description": "Key-value map of resource tags.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -1553,27 +1793,62 @@
           "type": "object",
           "properties": {
             "alias": {
-              "description": "a name to associate with the managed scraper. This is for your use, and does not need to be unique.",
+              "description": "Name to associate with the managed scraper. This is for your use, and does not need to be unique.",
               "type": "string"
             },
             "arn": {
-              "description": "The Amazon Resource Name (ARN) of the new scraper.",
+              "description": "ARN of the scraper.",
               "type": "string"
             },
             "destination": {
-              "description": "Configuration block for the managed scraper to send metrics to. See destination.",
+              "description": "Configuration block for the managed scraper to send metrics to. See destination Block for details.",
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
                   "amp": {
-                    "description": "Configuration block for an Amazon Managed Prometheus workspace destination. See amp.",
+                    "description": "Configuration block for an Amazon Managed Prometheus workspace destination. See amp Block for details.",
                     "type": "array",
                     "items": {
                       "type": "object",
                       "properties": {
                         "workspaceArn": {
-                          "description": "The Amazon Resource Name (ARN) of the prometheus workspace.",
+                          "description": "ARN of the prometheus workspace.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "cloudwatch": {
+                    "description": "Configuration block for a CloudWatch Metrics destination. See cloudwatch Block for details.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "datasetArn": {
+                          "description": "ARN of the CloudWatch dataset. Use arn:aws:cloudwatch:{region}:{account}:dataset/default for the default dataset.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "exporter": {
+              "description": "Configuration block for additional exporters. See exporter Block for details.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "opensearch": {
+                    "description": "Configuration block for an OpenSearch exporter. See opensearch Block for details.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "domainArn": {
+                          "description": "ARN of the OpenSearch domain.",
                           "type": "string"
                         }
                       }
@@ -1583,6 +1858,7 @@
               }
             },
             "id": {
+              "description": "(String) ID of the scraper.",
               "type": "string"
             },
             "region": {
@@ -1590,44 +1866,44 @@
               "type": "string"
             },
             "roleArn": {
-              "description": "The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics",
+              "description": "ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics",
               "type": "string"
             },
             "roleConfiguration": {
-              "description": "Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See role_configuration below.",
+              "description": "Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See role_configuration Block for details.",
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
                   "sourceRoleArn": {
-                    "description": "The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.",
+                    "description": "ARN of the source role configuration. Must be an IAM role ARN.",
                     "type": "string"
                   },
                   "targetRoleArn": {
-                    "description": "The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.",
+                    "description": "ARN of the target role configuration. Must be an IAM role ARN.",
                     "type": "string"
                   }
                 }
               }
             },
             "scrapeConfiguration": {
-              "description": "The configuration file to use in the new scraper. For more information, see Scraper configuration.",
+              "description": "Configuration file to use in the new scraper. For more information, see Scraper configuration.",
               "type": "string"
             },
             "source": {
-              "description": "Configuration block to specify where the managed scraper will collect metrics from. See source.",
+              "description": "Configuration block to specify where the managed scraper will collect metrics from. See source Block for details.",
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
                   "eks": {
-                    "description": "Configuration block for an EKS cluster source. See eks.",
+                    "description": "Configuration block for an EKS cluster source. See eks Block for details.",
                     "type": "array",
                     "items": {
                       "type": "object",
                       "properties": {
                         "clusterArn": {
-                          "description": "The Amazon Resource Name (ARN) of the source EKS cluster.",
+                          "description": "ARN of the source EKS cluster.",
                           "type": "string"
                         },
                         "securityGroupIds": {
@@ -1650,7 +1926,7 @@
                     }
                   },
                   "vpc": {
-                    "description": "Configuration block for a VPC source. See vpc.",
+                    "description": "Configuration block for a VPC source. See vpc Block for details.",
                     "type": "array",
                     "items": {
                       "type": "object",
@@ -1678,6 +1954,7 @@
               }
             },
             "tags": {
+              "description": "Key-value map of resource tags.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -1685,6 +1962,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "tagsAll": {
+              "description": "Map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"

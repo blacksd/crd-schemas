@@ -36,7 +36,7 @@
                 "type": "object",
                 "properties": {
                   "componentArn": {
-                    "description": "Amazon Resource Name (ARN) of the Image Builder Component to associate.",
+                    "description": "ARN of the Image Builder Component to associate.",
                     "type": "string"
                   },
                   "componentArnRef": {
@@ -190,7 +190,7 @@
                             "type": "number"
                           },
                           "kmsKeyId": {
-                            "description": "Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.",
+                            "description": "ARN of the KMS Key for encryption.",
                             "type": "string"
                           },
                           "snapshotId": {
@@ -459,7 +459,7 @@
                 "type": "object",
                 "properties": {
                   "componentArn": {
-                    "description": "Amazon Resource Name (ARN) of the Image Builder Component to associate.",
+                    "description": "ARN of the Image Builder Component to associate.",
                     "type": "string"
                   },
                   "componentArnRef": {
@@ -613,7 +613,7 @@
                             "type": "number"
                           },
                           "kmsKeyId": {
-                            "description": "Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.",
+                            "description": "ARN of the KMS Key for encryption.",
                             "type": "string"
                           },
                           "snapshotId": {
@@ -957,7 +957,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "Amazon Resource Name (ARN) of the container recipe.",
+              "description": "ARN of the container recipe.",
               "type": "string"
             },
             "component": {
@@ -967,7 +967,7 @@
                 "type": "object",
                 "properties": {
                   "componentArn": {
-                    "description": "Amazon Resource Name (ARN) of the Image Builder Component to associate.",
+                    "description": "ARN of the Image Builder Component to associate.",
                     "type": "string"
                   },
                   "parameter": {
@@ -1015,7 +1015,7 @@
               "type": "boolean"
             },
             "id": {
-              "description": "Amazon Resource Name (ARN) of the container recipe.",
+              "description": "ARN of the container recipe.",
               "type": "string"
             },
             "instanceConfiguration": {
@@ -1049,7 +1049,7 @@
                             "type": "number"
                           },
                           "kmsKeyId": {
-                            "description": "Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.",
+                            "description": "ARN of the KMS Key for encryption.",
                             "type": "string"
                           },
                           "snapshotId": {

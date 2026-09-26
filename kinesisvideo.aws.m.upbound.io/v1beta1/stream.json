@@ -38,7 +38,7 @@
               "type": "string"
             },
             "kmsKeyId": {
-              "description": "The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (aws/kinesisvideo) is used.",
+              "description": "ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (aws/kinesisvideo) is used.",
               "type": "string"
             },
             "kmsKeyIdRef": {
@@ -160,7 +160,7 @@
               "type": "string"
             },
             "kmsKeyId": {
-              "description": "The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (aws/kinesisvideo) is used.",
+              "description": "ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (aws/kinesisvideo) is used.",
               "type": "string"
             },
             "kmsKeyIdRef": {
@@ -335,7 +335,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "The Amazon Resource Name (ARN) specifying the Stream (same as id)",
+              "description": "ARN specifying the Stream (same as id)",
               "type": "string"
             },
             "creationTime": {
@@ -355,7 +355,7 @@
               "type": "string"
             },
             "kmsKeyId": {
-              "description": "The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (aws/kinesisvideo) is used.",
+              "description": "ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (aws/kinesisvideo) is used.",
               "type": "string"
             },
             "mediaType": {

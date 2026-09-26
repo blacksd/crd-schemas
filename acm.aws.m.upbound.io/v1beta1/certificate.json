@@ -169,11 +169,11 @@
               }
             },
             "privateKeyWo": {
-              "description": "Certificate's PEM-formatted private key. Conflicts with private_key. Must be used together with private_key_wo_version.",
+              "description": "Certificate's PEM-formatted private key. Conflicts with private_key. If set, requires private_key_wo_version to be set.",
               "type": "string"
             },
             "privateKeyWoVersion": {
-              "description": "Used together with private_key_wo to trigger an update. Increment this value when an update to private_key_wo is required.",
+              "description": "Required when private_key_wo is set. Changing this value triggers an update to private_key_wo.",
               "type": "number"
             },
             "region": {
@@ -363,11 +363,11 @@
               }
             },
             "privateKeyWo": {
-              "description": "Certificate's PEM-formatted private key. Conflicts with private_key. Must be used together with private_key_wo_version.",
+              "description": "Certificate's PEM-formatted private key. Conflicts with private_key. If set, requires private_key_wo_version to be set.",
               "type": "string"
             },
             "privateKeyWoVersion": {
-              "description": "Used together with private_key_wo to trigger an update. Increment this value when an update to private_key_wo is required.",
+              "description": "Required when private_key_wo is set. Changing this value triggers an update to private_key_wo.",
               "type": "number"
             },
             "subjectAlternativeNames": {
@@ -556,11 +556,11 @@
               "type": "boolean"
             },
             "privateKeyWo": {
-              "description": "Certificate's PEM-formatted private key. Conflicts with private_key. Must be used together with private_key_wo_version.",
+              "description": "Certificate's PEM-formatted private key. Conflicts with private_key. If set, requires private_key_wo_version to be set.",
               "type": "string"
             },
             "privateKeyWoVersion": {
-              "description": "Used together with private_key_wo to trigger an update. Increment this value when an update to private_key_wo is required.",
+              "description": "Required when private_key_wo is set. Changing this value triggers an update to private_key_wo.",
               "type": "number"
             },
             "region": {

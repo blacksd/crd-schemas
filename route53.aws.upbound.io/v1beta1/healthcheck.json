@@ -268,7 +268,7 @@
               "type": "string"
             },
             "routingControlArn": {
-              "description": "The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is RECOVERY_CONTROL",
+              "description": "ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is RECOVERY_CONTROL",
               "type": "string"
             },
             "searchString": {
@@ -534,7 +534,7 @@
               "type": "string"
             },
             "routingControlArn": {
-              "description": "The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is RECOVERY_CONTROL",
+              "description": "ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is RECOVERY_CONTROL",
               "type": "string"
             },
             "searchString": {
@@ -655,7 +655,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "The Amazon Resource Name (ARN) of the Health Check.",
+              "description": "ARN of the Health Check.",
               "type": "string"
             },
             "childHealthThreshold": {
@@ -739,7 +739,7 @@
               "type": "string"
             },
             "routingControlArn": {
-              "description": "The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is RECOVERY_CONTROL",
+              "description": "ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is RECOVERY_CONTROL",
               "type": "string"
             },
             "searchString": {

@@ -164,7 +164,7 @@
               "type": "string"
             },
             "samlProviderArns": {
-              "description": "An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.",
+              "description": "An array of ARNs of the SAML provider for your identity.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -394,7 +394,7 @@
               "x-kubernetes-list-type": "set"
             },
             "samlProviderArns": {
-              "description": "An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.",
+              "description": "An array of ARNs of the SAML provider for your identity.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -647,7 +647,7 @@
               "type": "string"
             },
             "samlProviderArns": {
-              "description": "An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.",
+              "description": "An array of ARNs of the SAML provider for your identity.",
               "type": "array",
               "items": {
                 "type": "string"

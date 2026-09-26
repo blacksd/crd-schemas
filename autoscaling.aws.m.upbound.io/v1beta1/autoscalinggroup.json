@@ -30,11 +30,11 @@
           ],
           "properties": {
             "availabilityZoneDistribution": {
-              "description": "The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.",
+              "description": "The instance capacity distribution across Availability Zones. See availability_zone_distribution Block below for more details.",
               "type": "object",
               "properties": {
                 "capacityDistributionStrategy": {
-                  "description": "The strategy to use for distributing capacity across the Availability Zones. Valid values are balanced-only and balanced-best-effort. Default is balanced-best-effort.",
+                  "description": "The strategy to use for distributing capacity across the Availability Zones. Valid values are balanced-only, balanced-best-effort, and reservations-then-balanced. Default is balanced-best-effort. When reservations-then-balanced is set, you must also specify Capacity Reservations to prioritize through capacity_reservation_specification (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.",
                   "type": "string"
                 }
               }
@@ -52,7 +52,7 @@
               "type": "boolean"
             },
             "capacityReservationSpecification": {
-              "description": "Demand Capacity Reservations. See Capacity Reservation Specification below for more details.",
+              "description": "Demand Capacity Reservations. See capacity_reservation_specification Block below for more details.",
               "type": "object",
               "properties": {
                 "capacityReservationPreference": {
@@ -158,6 +158,22 @@
                   "roleArn": {
                     "description": "ARN for this Auto Scaling Group",
                     "type": "string"
+                  }
+                }
+              }
+            },
+            "instanceLifecyclePolicy": {
+              "description": "If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.",
+              "type": "object",
+              "properties": {
+                "retentionTriggers": {
+                  "description": "Conditions that trigger instance retention behavior. Defined below.",
+                  "type": "object",
+                  "properties": {
+                    "terminateHookAbandon": {
+                      "description": "Action to take when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. Valid values are retain and terminate. Set to retain to move instances to a retained state instead of terminating them. Retained instances don't count toward desired capacity and remain until you terminate them.",
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -341,7 +357,7 @@
               }
             },
             "launchTemplate": {
-              "description": "Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.",
+              "description": "Nested argument with Launch template specification to use to launch instances. See launch_template Block below for more details.",
               "type": "object",
               "properties": {
                 "id": {
@@ -463,7 +479,7 @@
               "type": "number"
             },
             "mixedInstancesPolicy": {
-              "description": "Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.",
+              "description": "Configuration block containing settings to define launch targets for Auto Scaling groups. See mixed_instances_policy Block below for more details.",
               "type": "object",
               "properties": {
                 "instancesDistribution": {
@@ -1142,7 +1158,7 @@
               "x-kubernetes-list-type": "set"
             },
             "tag": {
-              "description": "Configuration block(s) containing resource tags. See Tag below for more details.",
+              "description": "Configuration block(s) containing resource tags. See tag Block below for more details.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -1176,7 +1192,7 @@
                 "type": "object",
                 "properties": {
                   "identifier": {
-                    "description": "Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.",
+                    "description": "Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the ARN for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.",
                     "type": "string"
                   },
                   "type": {
@@ -1325,11 +1341,11 @@
           "type": "object",
           "properties": {
             "availabilityZoneDistribution": {
-              "description": "The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.",
+              "description": "The instance capacity distribution across Availability Zones. See availability_zone_distribution Block below for more details.",
               "type": "object",
               "properties": {
                 "capacityDistributionStrategy": {
-                  "description": "The strategy to use for distributing capacity across the Availability Zones. Valid values are balanced-only and balanced-best-effort. Default is balanced-best-effort.",
+                  "description": "The strategy to use for distributing capacity across the Availability Zones. Valid values are balanced-only, balanced-best-effort, and reservations-then-balanced. Default is balanced-best-effort. When reservations-then-balanced is set, you must also specify Capacity Reservations to prioritize through capacity_reservation_specification (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.",
                   "type": "string"
                 }
               }
@@ -1347,7 +1363,7 @@
               "type": "boolean"
             },
             "capacityReservationSpecification": {
-              "description": "Demand Capacity Reservations. See Capacity Reservation Specification below for more details.",
+              "description": "Demand Capacity Reservations. See capacity_reservation_specification Block below for more details.",
               "type": "object",
               "properties": {
                 "capacityReservationPreference": {
@@ -1453,6 +1469,22 @@
                   "roleArn": {
                     "description": "ARN for this Auto Scaling Group",
                     "type": "string"
+                  }
+                }
+              }
+            },
+            "instanceLifecyclePolicy": {
+              "description": "If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.",
+              "type": "object",
+              "properties": {
+                "retentionTriggers": {
+                  "description": "Conditions that trigger instance retention behavior. Defined below.",
+                  "type": "object",
+                  "properties": {
+                    "terminateHookAbandon": {
+                      "description": "Action to take when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. Valid values are retain and terminate. Set to retain to move instances to a retained state instead of terminating them. Retained instances don't count toward desired capacity and remain until you terminate them.",
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -1636,7 +1668,7 @@
               }
             },
             "launchTemplate": {
-              "description": "Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.",
+              "description": "Nested argument with Launch template specification to use to launch instances. See launch_template Block below for more details.",
               "type": "object",
               "properties": {
                 "id": {
@@ -1758,7 +1790,7 @@
               "type": "number"
             },
             "mixedInstancesPolicy": {
-              "description": "Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.",
+              "description": "Configuration block containing settings to define launch targets for Auto Scaling groups. See mixed_instances_policy Block below for more details.",
               "type": "object",
               "properties": {
                 "instancesDistribution": {
@@ -2433,7 +2465,7 @@
               "x-kubernetes-list-type": "set"
             },
             "tag": {
-              "description": "Configuration block(s) containing resource tags. See Tag below for more details.",
+              "description": "Configuration block(s) containing resource tags. See tag Block below for more details.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -2467,7 +2499,7 @@
                 "type": "object",
                 "properties": {
                   "identifier": {
-                    "description": "Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.",
+                    "description": "Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the ARN for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.",
                     "type": "string"
                   },
                   "type": {
@@ -2689,11 +2721,11 @@
               "type": "string"
             },
             "availabilityZoneDistribution": {
-              "description": "The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.",
+              "description": "The instance capacity distribution across Availability Zones. See availability_zone_distribution Block below for more details.",
               "type": "object",
               "properties": {
                 "capacityDistributionStrategy": {
-                  "description": "The strategy to use for distributing capacity across the Availability Zones. Valid values are balanced-only and balanced-best-effort. Default is balanced-best-effort.",
+                  "description": "The strategy to use for distributing capacity across the Availability Zones. Valid values are balanced-only, balanced-best-effort, and reservations-then-balanced. Default is balanced-best-effort. When reservations-then-balanced is set, you must also specify Capacity Reservations to prioritize through capacity_reservation_specification (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.",
                   "type": "string"
                 }
               }
@@ -2711,7 +2743,7 @@
               "type": "boolean"
             },
             "capacityReservationSpecification": {
-              "description": "Demand Capacity Reservations. See Capacity Reservation Specification below for more details.",
+              "description": "Demand Capacity Reservations. See capacity_reservation_specification Block below for more details.",
               "type": "object",
               "properties": {
                 "capacityReservationPreference": {
@@ -2825,6 +2857,22 @@
                 }
               }
             },
+            "instanceLifecyclePolicy": {
+              "description": "If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.",
+              "type": "object",
+              "properties": {
+                "retentionTriggers": {
+                  "description": "Conditions that trigger instance retention behavior. Defined below.",
+                  "type": "object",
+                  "properties": {
+                    "terminateHookAbandon": {
+                      "description": "Action to take when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. Valid values are retain and terminate. Set to retain to move instances to a retained state instead of terminating them. Retained instances don't count toward desired capacity and remain until you terminate them.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
             "instanceMaintenancePolicy": {
               "description": "If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.",
               "type": "object",
@@ -2920,7 +2968,7 @@
               "type": "string"
             },
             "launchTemplate": {
-              "description": "Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.",
+              "description": "Nested argument with Launch template specification to use to launch instances. See launch_template Block below for more details.",
               "type": "object",
               "properties": {
                 "id": {
@@ -2966,7 +3014,7 @@
               "type": "number"
             },
             "mixedInstancesPolicy": {
-              "description": "Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.",
+              "description": "Configuration block containing settings to define launch targets for Auto Scaling groups. See mixed_instances_policy Block below for more details.",
               "type": "object",
               "properties": {
                 "instancesDistribution": {
@@ -3313,7 +3361,7 @@
               "x-kubernetes-list-type": "set"
             },
             "tag": {
-              "description": "Configuration block(s) containing resource tags. See Tag below for more details.",
+              "description": "Configuration block(s) containing resource tags. See tag Block below for more details.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -3355,7 +3403,7 @@
                 "type": "object",
                 "properties": {
                   "identifier": {
-                    "description": "Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.",
+                    "description": "Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the ARN for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.",
                     "type": "string"
                   },
                   "type": {

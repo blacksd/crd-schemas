@@ -30,7 +30,7 @@
           ],
           "properties": {
             "agentArns": {
-              "description": "(Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.",
+              "description": "(Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -42,7 +42,7 @@
               "type": "string"
             },
             "s3BucketArn": {
-              "description": "Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.",
+              "description": "ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.",
               "type": "string"
             },
             "s3BucketArnRef": {
@@ -246,7 +246,7 @@
           "type": "object",
           "properties": {
             "agentArns": {
-              "description": "(Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.",
+              "description": "(Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -254,7 +254,7 @@
               "x-kubernetes-list-type": "set"
             },
             "s3BucketArn": {
-              "description": "Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.",
+              "description": "ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.",
               "type": "string"
             },
             "s3BucketArnRef": {
@@ -527,7 +527,7 @@
           "type": "object",
           "properties": {
             "agentArns": {
-              "description": "(Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.",
+              "description": "(Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -535,11 +535,11 @@
               "x-kubernetes-list-type": "set"
             },
             "arn": {
-              "description": "Amazon Resource Name (ARN) of the DataSync Location.",
+              "description": "ARN of the DataSync Location.",
               "type": "string"
             },
             "id": {
-              "description": "Amazon Resource Name (ARN) of the DataSync Location.",
+              "description": "ARN of the DataSync Location.",
               "type": "string"
             },
             "region": {
@@ -547,7 +547,7 @@
               "type": "string"
             },
             "s3BucketArn": {
-              "description": "Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.",
+              "description": "ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.",
               "type": "string"
             },
             "s3Config": {

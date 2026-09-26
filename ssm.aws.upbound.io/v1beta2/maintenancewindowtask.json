@@ -515,7 +515,7 @@
                       "type": "object",
                       "properties": {
                         "notificationArn": {
-                          "description": "An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.",
+                          "description": "ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.",
                           "type": "string"
                         },
                         "notificationArnRef": {
@@ -1395,7 +1395,7 @@
                       "type": "object",
                       "properties": {
                         "notificationArn": {
-                          "description": "An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.",
+                          "description": "ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.",
                           "type": "string"
                         },
                         "notificationArnRef": {
@@ -2039,7 +2039,7 @@
                       "type": "object",
                       "properties": {
                         "notificationArn": {
-                          "description": "An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.",
+                          "description": "ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.",
                           "type": "string"
                         },
                         "notificationEvents": {

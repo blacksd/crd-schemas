@@ -324,7 +324,7 @@
               "type": "string"
             },
             "arn": {
-              "description": "The Amazon Resource Name (ARN) of the snapshot.",
+              "description": "ARN of the snapshot.",
               "type": "string"
             },
             "id": {
@@ -336,7 +336,7 @@
               "type": "string"
             },
             "namespaceArn": {
-              "description": "The Amazon Resource Name (ARN) of the namespace the snapshot was created from.",
+              "description": "ARN of the namespace the snapshot was created from.",
               "type": "string"
             },
             "namespaceName": {

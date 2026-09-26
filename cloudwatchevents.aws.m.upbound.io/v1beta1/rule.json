@@ -138,7 +138,7 @@
               "type": "string"
             },
             "roleArn": {
-              "description": "The Amazon Resource Name (ARN) associated with the role that is used for target invocation.",
+              "description": "ARN associated with the role that is used for target invocation.",
               "type": "string"
             },
             "roleArnRef": {
@@ -352,7 +352,7 @@
               "type": "boolean"
             },
             "roleArn": {
-              "description": "The Amazon Resource Name (ARN) associated with the role that is used for target invocation.",
+              "description": "ARN associated with the role that is used for target invocation.",
               "type": "string"
             },
             "roleArnRef": {
@@ -521,7 +521,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "The Amazon Resource Name (ARN) of the rule.",
+              "description": "ARN of the rule.",
               "type": "string"
             },
             "description": {
@@ -553,7 +553,7 @@
               "type": "string"
             },
             "roleArn": {
-              "description": "The Amazon Resource Name (ARN) associated with the role that is used for target invocation.",
+              "description": "ARN associated with the role that is used for target invocation.",
               "type": "string"
             },
             "scheduleExpression": {

@@ -38,7 +38,7 @@
               "type": "string"
             },
             "resourceArn": {
-              "description": "Amazon Resource Name (ARN) of the Transfer Family resource to tag.",
+              "description": "ARN of the Transfer Family resource to tag.",
               "type": "string"
             },
             "resourceArnRef": {
@@ -140,7 +140,7 @@
               "type": "string"
             },
             "resourceArn": {
-              "description": "Amazon Resource Name (ARN) of the Transfer Family resource to tag.",
+              "description": "ARN of the Transfer Family resource to tag.",
               "type": "string"
             },
             "resourceArnRef": {
@@ -319,7 +319,7 @@
               "type": "string"
             },
             "resourceArn": {
-              "description": "Amazon Resource Name (ARN) of the Transfer Family resource to tag.",
+              "description": "ARN of the Transfer Family resource to tag.",
               "type": "string"
             },
             "value": {

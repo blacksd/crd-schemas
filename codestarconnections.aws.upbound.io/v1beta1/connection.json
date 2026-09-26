@@ -39,7 +39,7 @@
           ],
           "properties": {
             "hostArn": {
-              "description": "The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with provider_type",
+              "description": "ARN of the host associated with the connection. Conflicts with provider_type",
               "type": "string"
             },
             "name": {
@@ -69,7 +69,7 @@
           "type": "object",
           "properties": {
             "hostArn": {
-              "description": "The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with provider_type",
+              "description": "ARN of the host associated with the connection. Conflicts with provider_type",
               "type": "string"
             },
             "name": {
@@ -190,7 +190,7 @@
               "type": "string"
             },
             "hostArn": {
-              "description": "The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with provider_type",
+              "description": "ARN of the host associated with the connection. Conflicts with provider_type",
               "type": "string"
             },
             "id": {

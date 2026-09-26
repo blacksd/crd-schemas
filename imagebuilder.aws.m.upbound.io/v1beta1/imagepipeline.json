@@ -30,7 +30,7 @@
           ],
           "properties": {
             "containerRecipeArn": {
-              "description": "Amazon Resource Name (ARN) of the container recipe.",
+              "description": "ARN of the container recipe.",
               "type": "string"
             },
             "description": {
@@ -38,7 +38,7 @@
               "type": "string"
             },
             "distributionConfigurationArn": {
-              "description": "Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.",
+              "description": "ARN of the Image Builder Distribution Configuration.",
               "type": "string"
             },
             "enhancedImageMetadataEnabled": {
@@ -46,11 +46,11 @@
               "type": "boolean"
             },
             "executionRole": {
-              "description": "Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to execute workflows.",
+              "description": "ARN of the service-linked role to be used by Image Builder to execute workflows.",
               "type": "string"
             },
             "imageRecipeArn": {
-              "description": "Amazon Resource Name (ARN) of the image recipe.",
+              "description": "ARN of the image recipe.",
               "type": "string"
             },
             "imageRecipeArnRef": {
@@ -180,7 +180,7 @@
               }
             },
             "infrastructureConfigurationArn": {
-              "description": "Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.",
+              "description": "ARN of the Image Builder Infrastructure Configuration.",
               "type": "string"
             },
             "infrastructureConfigurationArnRef": {
@@ -351,7 +351,7 @@
                     }
                   },
                   "workflowArn": {
-                    "description": "Amazon Resource Name (ARN) of the Image Builder Workflow.",
+                    "description": "ARN of the Image Builder Workflow.",
                     "type": "string"
                   }
                 }
@@ -364,7 +364,7 @@
           "type": "object",
           "properties": {
             "containerRecipeArn": {
-              "description": "Amazon Resource Name (ARN) of the container recipe.",
+              "description": "ARN of the container recipe.",
               "type": "string"
             },
             "description": {
@@ -372,7 +372,7 @@
               "type": "string"
             },
             "distributionConfigurationArn": {
-              "description": "Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.",
+              "description": "ARN of the Image Builder Distribution Configuration.",
               "type": "string"
             },
             "enhancedImageMetadataEnabled": {
@@ -380,11 +380,11 @@
               "type": "boolean"
             },
             "executionRole": {
-              "description": "Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to execute workflows.",
+              "description": "ARN of the service-linked role to be used by Image Builder to execute workflows.",
               "type": "string"
             },
             "imageRecipeArn": {
-              "description": "Amazon Resource Name (ARN) of the image recipe.",
+              "description": "ARN of the image recipe.",
               "type": "string"
             },
             "imageRecipeArnRef": {
@@ -514,7 +514,7 @@
               }
             },
             "infrastructureConfigurationArn": {
-              "description": "Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.",
+              "description": "ARN of the Image Builder Infrastructure Configuration.",
               "type": "string"
             },
             "infrastructureConfigurationArnRef": {
@@ -681,7 +681,7 @@
                     }
                   },
                   "workflowArn": {
-                    "description": "Amazon Resource Name (ARN) of the Image Builder Workflow.",
+                    "description": "ARN of the Image Builder Workflow.",
                     "type": "string"
                   }
                 }
@@ -759,11 +759,11 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "Amazon Resource Name (ARN) of the image pipeline.",
+              "description": "ARN of the image pipeline.",
               "type": "string"
             },
             "containerRecipeArn": {
-              "description": "Amazon Resource Name (ARN) of the container recipe.",
+              "description": "ARN of the container recipe.",
               "type": "string"
             },
             "dateCreated": {
@@ -787,7 +787,7 @@
               "type": "string"
             },
             "distributionConfigurationArn": {
-              "description": "Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.",
+              "description": "ARN of the Image Builder Distribution Configuration.",
               "type": "string"
             },
             "enhancedImageMetadataEnabled": {
@@ -795,15 +795,15 @@
               "type": "boolean"
             },
             "executionRole": {
-              "description": "Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to execute workflows.",
+              "description": "ARN of the service-linked role to be used by Image Builder to execute workflows.",
               "type": "string"
             },
             "id": {
-              "description": "Amazon Resource Name (ARN) of the image pipeline.",
+              "description": "ARN of the image pipeline.",
               "type": "string"
             },
             "imageRecipeArn": {
-              "description": "Amazon Resource Name (ARN) of the image recipe.",
+              "description": "ARN of the image recipe.",
               "type": "string"
             },
             "imageScanningConfiguration": {
@@ -849,7 +849,7 @@
               }
             },
             "infrastructureConfigurationArn": {
-              "description": "Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.",
+              "description": "ARN of the Image Builder Infrastructure Configuration.",
               "type": "string"
             },
             "loggingConfiguration": {
@@ -948,7 +948,7 @@
                     }
                   },
                   "workflowArn": {
-                    "description": "Amazon Resource Name (ARN) of the Image Builder Workflow.",
+                    "description": "ARN of the Image Builder Workflow.",
                     "type": "string"
                   }
                 }

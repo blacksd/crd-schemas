@@ -158,7 +158,7 @@
                       "x-kubernetes-list-type": "set"
                     },
                     "policyArn": {
-                      "description": "The Amazon Resource Name (ARN) of the policy to be attached.",
+                      "description": "ARN of the policy to be attached.",
                       "type": "string"
                     },
                     "policyArnRef": {
@@ -618,7 +618,7 @@
                       "x-kubernetes-list-type": "set"
                     },
                     "policyArn": {
-                      "description": "The Amazon Resource Name (ARN) of the policy to be attached.",
+                      "description": "ARN of the policy to be attached.",
                       "type": "string"
                     },
                     "policyArnRef": {
@@ -1110,7 +1110,7 @@
                       "x-kubernetes-list-type": "set"
                     },
                     "policyArn": {
-                      "description": "The Amazon Resource Name (ARN) of the policy to be attached.",
+                      "description": "ARN of the policy to be attached.",
                       "type": "string"
                     },
                     "roles": {

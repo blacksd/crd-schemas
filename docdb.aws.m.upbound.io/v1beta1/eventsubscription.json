@@ -46,7 +46,7 @@
               "type": "string"
             },
             "snsTopicArn": {
-              "description": "The Amazon Resource Name of the DocumentDB event notification subscription",
+              "description": "ARN of the DocumentDB event notification subscription",
               "type": "string"
             },
             "snsTopicArnRef": {
@@ -260,7 +260,7 @@
               "x-kubernetes-list-type": "set"
             },
             "snsTopicArn": {
-              "description": "The Amazon Resource Name of the DocumentDB event notification subscription",
+              "description": "ARN of the DocumentDB event notification subscription",
               "type": "string"
             },
             "snsTopicArnRef": {
@@ -521,7 +521,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "The Amazon Resource Name of the DocumentDB event notification subscription",
+              "description": "ARN of the DocumentDB event notification subscription",
               "type": "string"
             },
             "customerAwsId": {
@@ -549,7 +549,7 @@
               "type": "string"
             },
             "snsTopicArn": {
-              "description": "The Amazon Resource Name of the DocumentDB event notification subscription",
+              "description": "ARN of the DocumentDB event notification subscription",
               "type": "string"
             },
             "sourceIds": {

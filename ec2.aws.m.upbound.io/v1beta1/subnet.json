@@ -182,7 +182,7 @@
               "type": "boolean"
             },
             "outpostArn": {
-              "description": "The Amazon Resource Name (ARN) of the Outpost.",
+              "description": "ARN of the Outpost.",
               "type": "string"
             },
             "privateDnsHostnameTypeOnLaunch": {
@@ -448,7 +448,7 @@
               "type": "boolean"
             },
             "outpostArn": {
-              "description": "The Amazon Resource Name (ARN) of the Outpost.",
+              "description": "ARN of the Outpost.",
               "type": "string"
             },
             "privateDnsHostnameTypeOnLaunch": {
@@ -697,7 +697,7 @@
               "type": "boolean"
             },
             "outpostArn": {
-              "description": "The Amazon Resource Name (ARN) of the Outpost.",
+              "description": "ARN of the Outpost.",
               "type": "string"
             },
             "ownerId": {

@@ -1,0 +1,24 @@
+{
+  "schema": "accesspoint.json",
+  "crd": {
+    "group": "s3files.aws.upbound.io",
+    "kind": "AccessPoint",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.8.1",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-09-26T13:32:32Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "3ca211b4591f612d90d36477d45d59f4ecce5966144ad13813c58a8117c5732b"
+  }
+}

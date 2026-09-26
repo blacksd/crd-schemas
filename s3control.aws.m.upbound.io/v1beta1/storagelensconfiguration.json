@@ -30,11 +30,11 @@
           ],
           "properties": {
             "accountId": {
-              "description": "The AWS account ID for the S3 Storage Lens configuration.",
+              "description": "AWS account ID for the S3 Storage Lens configuration.",
               "type": "string"
             },
             "configId": {
-              "description": "The ID of the S3 Storage Lens configuration.",
+              "description": "ID of the S3 Storage Lens configuration.",
               "type": "string"
             },
             "region": {
@@ -42,15 +42,15 @@
               "type": "string"
             },
             "storageLensConfiguration": {
-              "description": "The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.",
+              "description": "S3 Storage Lens configuration. See storage_lens_configuration below for more details.",
               "type": "object",
               "properties": {
                 "accountLevel": {
-                  "description": "level configurations of the S3 Storage Lens configuration. See Account Level below for more details.",
+                  "description": "Account-level configurations of the S3 Storage Lens configuration. See account_level below for more details.",
                   "type": "object",
                   "properties": {
                     "activityMetrics": {
-                      "description": "S3 Storage Lens activity metrics. See Activity Metrics below for more details.",
+                      "description": "S3 Storage Lens activity metrics. See activity_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -60,7 +60,7 @@
                       }
                     },
                     "advancedCostOptimizationMetrics": {
-                      "description": "optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.",
+                      "description": "Advanced cost-optimization metrics for S3 Storage Lens. See advanced_cost_optimization_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -70,7 +70,7 @@
                       }
                     },
                     "advancedDataProtectionMetrics": {
-                      "description": "protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.",
+                      "description": "Advanced data-protection metrics for S3 Storage Lens. See advanced_data_protection_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -80,7 +80,7 @@
                       }
                     },
                     "advancedPerformanceMetrics": {
-                      "description": "Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.",
+                      "description": "Advanced performance metrics for S3 Storage Lens. See advanced_performance_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -90,11 +90,11 @@
                       }
                     },
                     "bucketLevel": {
-                      "description": "level configuration. See Bucket Level below for more details.",
+                      "description": "S3 Storage Lens bucket-level configuration. See bucket_level below for more details.",
                       "type": "object",
                       "properties": {
                         "activityMetrics": {
-                          "description": "S3 Storage Lens activity metrics. See Activity Metrics below for more details.",
+                          "description": "S3 Storage Lens activity metrics. See activity_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -104,7 +104,7 @@
                           }
                         },
                         "advancedCostOptimizationMetrics": {
-                          "description": "optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.",
+                          "description": "Advanced cost-optimization metrics for S3 Storage Lens. See advanced_cost_optimization_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -114,7 +114,7 @@
                           }
                         },
                         "advancedDataProtectionMetrics": {
-                          "description": "protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.",
+                          "description": "Advanced data-protection metrics for S3 Storage Lens. See advanced_data_protection_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -124,7 +124,7 @@
                           }
                         },
                         "advancedPerformanceMetrics": {
-                          "description": "Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.",
+                          "description": "Advanced performance metrics for S3 Storage Lens. See advanced_performance_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -134,7 +134,7 @@
                           }
                         },
                         "detailedStatusCodeMetrics": {
-                          "description": "Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.",
+                          "description": "Detailed status code metrics for S3 Storage Lens. See detailed_status_code_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -144,11 +144,11 @@
                           }
                         },
                         "prefixLevel": {
-                          "description": "level metrics for S3 Storage Lens. See Prefix Level below for more details.",
+                          "description": "Prefix-level metrics for S3 Storage Lens. See prefix_level below for more details.",
                           "type": "object",
                           "properties": {
                             "storageMetrics": {
-                              "description": "level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.",
+                              "description": "Prefix-level storage metrics for S3 Storage Lens. See storage_metrics below for more details.",
                               "type": "object",
                               "properties": {
                                 "enabled": {
@@ -156,19 +156,19 @@
                                   "type": "boolean"
                                 },
                                 "selectionCriteria": {
-                                  "description": "Selection criteria. See Selection Criteria below for more details.",
+                                  "description": "Selection criteria. See selection_criteria below for more details.",
                                   "type": "object",
                                   "properties": {
                                     "delimiter": {
-                                      "description": "The delimiter of the selection criteria being used.",
+                                      "description": "Delimiter of the selection criteria being used.",
                                       "type": "string"
                                     },
                                     "maxDepth": {
-                                      "description": "The max depth of the selection criteria.",
+                                      "description": "Max depth of the selection criteria.",
                                       "type": "number"
                                     },
                                     "minStorageBytesPercentage": {
-                                      "description": "The minimum number of storage bytes percentage whose metrics will be selected.",
+                                      "description": "Minimum number of storage bytes percentage whose metrics will be selected.",
                                       "type": "number"
                                     }
                                   }
@@ -180,7 +180,7 @@
                       }
                     },
                     "detailedStatusCodeMetrics": {
-                      "description": "Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.",
+                      "description": "Detailed status code metrics for S3 Storage Lens. See detailed_status_code_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -192,21 +192,21 @@
                   }
                 },
                 "awsOrg": {
-                  "description": "The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.",
+                  "description": "Amazon Web Services organization for the S3 Storage Lens configuration. See aws_org below for more details.",
                   "type": "object",
                   "properties": {
                     "arn": {
-                      "description": "The Amazon Resource Name (ARN) of the bucket.",
+                      "description": "ARN of the bucket.",
                       "type": "string"
                     }
                   }
                 },
                 "dataExport": {
-                  "description": "Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.",
+                  "description": "Properties of S3 Storage Lens metrics export including the destination, schema and format. See data_export below for more details.",
                   "type": "object",
                   "properties": {
                     "cloudWatchMetrics": {
-                      "description": "Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.",
+                      "description": "Amazon CloudWatch publishing for S3 Storage Lens metrics. See cloud_watch_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -216,15 +216,15 @@
                       }
                     },
                     "s3BucketDestination": {
-                      "description": "The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.",
+                      "description": "Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See s3_bucket_destination below for more details.",
                       "type": "object",
                       "properties": {
                         "accountId": {
-                          "description": "The account ID of the owner of the S3 Storage Lens metrics export bucket.",
+                          "description": "Account ID of the owner of the S3 Storage Lens metrics export bucket.",
                           "type": "string"
                         },
                         "arn": {
-                          "description": "The Amazon Resource Name (ARN) of the bucket.",
+                          "description": "ARN of the bucket.",
                           "type": "string"
                         },
                         "arnRef": {
@@ -312,11 +312,11 @@
                           }
                         },
                         "encryption": {
-                          "description": "Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.",
+                          "description": "Encryption of the metrics exports in this S3 tables bucket. See encryption below for more details.",
                           "type": "object",
                           "properties": {
                             "sseKms": {
-                              "description": "KMS encryption. See SSE KMS below for more details.",
+                              "description": "SSE-KMS encryption. See sse_kms below for more details.",
                               "type": "object",
                               "properties": {
                                 "keyId": {
@@ -326,7 +326,7 @@
                               }
                             },
                             "sseS3": {
-                              "description": "S3 encryption. An empty configuration block {} should be used.",
+                              "description": "SSE-S3 encryption. An empty configuration block {} should be used.",
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -335,21 +335,21 @@
                           }
                         },
                         "format": {
-                          "description": "The export format. Valid values: CSV, Parquet.",
+                          "description": "Export format. Valid values: CSV, Parquet.",
                           "type": "string"
                         },
                         "outputSchemaVersion": {
-                          "description": "The schema version of the export file. Valid values: V_1.",
+                          "description": "Schema version of the export file. Valid values: V_1.",
                           "type": "string"
                         },
                         "prefix": {
-                          "description": "The prefix of the destination bucket where the metrics export will be delivered.",
+                          "description": "Prefix of the destination bucket where the metrics export will be delivered.",
                           "type": "string"
                         }
                       }
                     },
                     "storageLensTableDestination": {
-                      "description": "S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.",
+                      "description": "S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See storage_lens_table_destination below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -357,11 +357,11 @@
                           "type": "boolean"
                         },
                         "encryption": {
-                          "description": "Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.",
+                          "description": "Encryption of the metrics exports in this S3 tables bucket. See encryption below for more details.",
                           "type": "object",
                           "properties": {
                             "sseKms": {
-                              "description": "KMS encryption. See SSE KMS below for more details.",
+                              "description": "SSE-KMS encryption. See sse_kms below for more details.",
                               "type": "object",
                               "properties": {
                                 "keyId": {
@@ -371,7 +371,7 @@
                               }
                             },
                             "sseS3": {
-                              "description": "S3 encryption. An empty configuration block {} should be used.",
+                              "description": "SSE-S3 encryption. An empty configuration block {} should be used.",
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -388,7 +388,7 @@
                   "type": "boolean"
                 },
                 "exclude": {
-                  "description": "What is excluded in this configuration. Conflicts with include. See Exclude below for more details.",
+                  "description": "What is excluded in this configuration. Conflicts with include. See exclude below for more details.",
                   "type": "object",
                   "properties": {
                     "buckets": {
@@ -498,27 +498,27 @@
                   }
                 },
                 "expandedPrefixesDataExport": {
-                  "description": "Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.",
+                  "description": "Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See expanded_prefixes_data_export below for more details.",
                   "type": "object",
                   "properties": {
                     "s3BucketDestination": {
-                      "description": "The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.",
+                      "description": "Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See s3_bucket_destination below for more details.",
                       "type": "object",
                       "properties": {
                         "accountId": {
-                          "description": "The account ID of the owner of the S3 Storage Lens metrics export bucket.",
+                          "description": "Account ID of the owner of the S3 Storage Lens metrics export bucket.",
                           "type": "string"
                         },
                         "arn": {
-                          "description": "The Amazon Resource Name (ARN) of the bucket.",
+                          "description": "ARN of the bucket.",
                           "type": "string"
                         },
                         "encryption": {
-                          "description": "Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.",
+                          "description": "Encryption of the metrics exports in this S3 tables bucket. See encryption below for more details.",
                           "type": "object",
                           "properties": {
                             "sseKms": {
-                              "description": "KMS encryption. See SSE KMS below for more details.",
+                              "description": "SSE-KMS encryption. See sse_kms below for more details.",
                               "type": "object",
                               "properties": {
                                 "keyId": {
@@ -528,7 +528,7 @@
                               }
                             },
                             "sseS3": {
-                              "description": "S3 encryption. An empty configuration block {} should be used.",
+                              "description": "SSE-S3 encryption. An empty configuration block {} should be used.",
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -537,21 +537,21 @@
                           }
                         },
                         "format": {
-                          "description": "The export format. Valid values: CSV, Parquet.",
+                          "description": "Export format. Valid values: CSV, Parquet.",
                           "type": "string"
                         },
                         "outputSchemaVersion": {
-                          "description": "The schema version of the export file. Valid values: V_1.",
+                          "description": "Schema version of the export file. Valid values: V_1.",
                           "type": "string"
                         },
                         "prefix": {
-                          "description": "The prefix of the destination bucket where the metrics export will be delivered.",
+                          "description": "Prefix of the destination bucket where the metrics export will be delivered.",
                           "type": "string"
                         }
                       }
                     },
                     "storageLensTableDestination": {
-                      "description": "S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.",
+                      "description": "S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See storage_lens_table_destination below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -559,11 +559,11 @@
                           "type": "boolean"
                         },
                         "encryption": {
-                          "description": "Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.",
+                          "description": "Encryption of the metrics exports in this S3 tables bucket. See encryption below for more details.",
                           "type": "object",
                           "properties": {
                             "sseKms": {
-                              "description": "KMS encryption. See SSE KMS below for more details.",
+                              "description": "SSE-KMS encryption. See sse_kms below for more details.",
                               "type": "object",
                               "properties": {
                                 "keyId": {
@@ -573,7 +573,7 @@
                               }
                             },
                             "sseS3": {
-                              "description": "S3 encryption. An empty configuration block {} should be used.",
+                              "description": "SSE-S3 encryption. An empty configuration block {} should be used.",
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -586,7 +586,7 @@
                   }
                 },
                 "include": {
-                  "description": "What is included in this configuration. Conflicts with exclude. See Include below for more details.",
+                  "description": "What is included in this configuration. Conflicts with exclude. See include below for more details.",
                   "type": "object",
                   "properties": {
                     "buckets": {
@@ -628,23 +628,23 @@
           "type": "object",
           "properties": {
             "accountId": {
-              "description": "The AWS account ID for the S3 Storage Lens configuration.",
+              "description": "AWS account ID for the S3 Storage Lens configuration.",
               "type": "string"
             },
             "configId": {
-              "description": "The ID of the S3 Storage Lens configuration.",
+              "description": "ID of the S3 Storage Lens configuration.",
               "type": "string"
             },
             "storageLensConfiguration": {
-              "description": "The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.",
+              "description": "S3 Storage Lens configuration. See storage_lens_configuration below for more details.",
               "type": "object",
               "properties": {
                 "accountLevel": {
-                  "description": "level configurations of the S3 Storage Lens configuration. See Account Level below for more details.",
+                  "description": "Account-level configurations of the S3 Storage Lens configuration. See account_level below for more details.",
                   "type": "object",
                   "properties": {
                     "activityMetrics": {
-                      "description": "S3 Storage Lens activity metrics. See Activity Metrics below for more details.",
+                      "description": "S3 Storage Lens activity metrics. See activity_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -654,7 +654,7 @@
                       }
                     },
                     "advancedCostOptimizationMetrics": {
-                      "description": "optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.",
+                      "description": "Advanced cost-optimization metrics for S3 Storage Lens. See advanced_cost_optimization_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -664,7 +664,7 @@
                       }
                     },
                     "advancedDataProtectionMetrics": {
-                      "description": "protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.",
+                      "description": "Advanced data-protection metrics for S3 Storage Lens. See advanced_data_protection_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -674,7 +674,7 @@
                       }
                     },
                     "advancedPerformanceMetrics": {
-                      "description": "Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.",
+                      "description": "Advanced performance metrics for S3 Storage Lens. See advanced_performance_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -684,11 +684,11 @@
                       }
                     },
                     "bucketLevel": {
-                      "description": "level configuration. See Bucket Level below for more details.",
+                      "description": "S3 Storage Lens bucket-level configuration. See bucket_level below for more details.",
                       "type": "object",
                       "properties": {
                         "activityMetrics": {
-                          "description": "S3 Storage Lens activity metrics. See Activity Metrics below for more details.",
+                          "description": "S3 Storage Lens activity metrics. See activity_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -698,7 +698,7 @@
                           }
                         },
                         "advancedCostOptimizationMetrics": {
-                          "description": "optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.",
+                          "description": "Advanced cost-optimization metrics for S3 Storage Lens. See advanced_cost_optimization_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -708,7 +708,7 @@
                           }
                         },
                         "advancedDataProtectionMetrics": {
-                          "description": "protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.",
+                          "description": "Advanced data-protection metrics for S3 Storage Lens. See advanced_data_protection_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -718,7 +718,7 @@
                           }
                         },
                         "advancedPerformanceMetrics": {
-                          "description": "Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.",
+                          "description": "Advanced performance metrics for S3 Storage Lens. See advanced_performance_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -728,7 +728,7 @@
                           }
                         },
                         "detailedStatusCodeMetrics": {
-                          "description": "Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.",
+                          "description": "Detailed status code metrics for S3 Storage Lens. See detailed_status_code_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -738,11 +738,11 @@
                           }
                         },
                         "prefixLevel": {
-                          "description": "level metrics for S3 Storage Lens. See Prefix Level below for more details.",
+                          "description": "Prefix-level metrics for S3 Storage Lens. See prefix_level below for more details.",
                           "type": "object",
                           "properties": {
                             "storageMetrics": {
-                              "description": "level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.",
+                              "description": "Prefix-level storage metrics for S3 Storage Lens. See storage_metrics below for more details.",
                               "type": "object",
                               "properties": {
                                 "enabled": {
@@ -750,19 +750,19 @@
                                   "type": "boolean"
                                 },
                                 "selectionCriteria": {
-                                  "description": "Selection criteria. See Selection Criteria below for more details.",
+                                  "description": "Selection criteria. See selection_criteria below for more details.",
                                   "type": "object",
                                   "properties": {
                                     "delimiter": {
-                                      "description": "The delimiter of the selection criteria being used.",
+                                      "description": "Delimiter of the selection criteria being used.",
                                       "type": "string"
                                     },
                                     "maxDepth": {
-                                      "description": "The max depth of the selection criteria.",
+                                      "description": "Max depth of the selection criteria.",
                                       "type": "number"
                                     },
                                     "minStorageBytesPercentage": {
-                                      "description": "The minimum number of storage bytes percentage whose metrics will be selected.",
+                                      "description": "Minimum number of storage bytes percentage whose metrics will be selected.",
                                       "type": "number"
                                     }
                                   }
@@ -774,7 +774,7 @@
                       }
                     },
                     "detailedStatusCodeMetrics": {
-                      "description": "Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.",
+                      "description": "Detailed status code metrics for S3 Storage Lens. See detailed_status_code_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -786,21 +786,21 @@
                   }
                 },
                 "awsOrg": {
-                  "description": "The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.",
+                  "description": "Amazon Web Services organization for the S3 Storage Lens configuration. See aws_org below for more details.",
                   "type": "object",
                   "properties": {
                     "arn": {
-                      "description": "The Amazon Resource Name (ARN) of the bucket.",
+                      "description": "ARN of the bucket.",
                       "type": "string"
                     }
                   }
                 },
                 "dataExport": {
-                  "description": "Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.",
+                  "description": "Properties of S3 Storage Lens metrics export including the destination, schema and format. See data_export below for more details.",
                   "type": "object",
                   "properties": {
                     "cloudWatchMetrics": {
-                      "description": "Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.",
+                      "description": "Amazon CloudWatch publishing for S3 Storage Lens metrics. See cloud_watch_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -810,15 +810,15 @@
                       }
                     },
                     "s3BucketDestination": {
-                      "description": "The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.",
+                      "description": "Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See s3_bucket_destination below for more details.",
                       "type": "object",
                       "properties": {
                         "accountId": {
-                          "description": "The account ID of the owner of the S3 Storage Lens metrics export bucket.",
+                          "description": "Account ID of the owner of the S3 Storage Lens metrics export bucket.",
                           "type": "string"
                         },
                         "arn": {
-                          "description": "The Amazon Resource Name (ARN) of the bucket.",
+                          "description": "ARN of the bucket.",
                           "type": "string"
                         },
                         "arnRef": {
@@ -906,11 +906,11 @@
                           }
                         },
                         "encryption": {
-                          "description": "Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.",
+                          "description": "Encryption of the metrics exports in this S3 tables bucket. See encryption below for more details.",
                           "type": "object",
                           "properties": {
                             "sseKms": {
-                              "description": "KMS encryption. See SSE KMS below for more details.",
+                              "description": "SSE-KMS encryption. See sse_kms below for more details.",
                               "type": "object",
                               "properties": {
                                 "keyId": {
@@ -920,7 +920,7 @@
                               }
                             },
                             "sseS3": {
-                              "description": "S3 encryption. An empty configuration block {} should be used.",
+                              "description": "SSE-S3 encryption. An empty configuration block {} should be used.",
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -929,21 +929,21 @@
                           }
                         },
                         "format": {
-                          "description": "The export format. Valid values: CSV, Parquet.",
+                          "description": "Export format. Valid values: CSV, Parquet.",
                           "type": "string"
                         },
                         "outputSchemaVersion": {
-                          "description": "The schema version of the export file. Valid values: V_1.",
+                          "description": "Schema version of the export file. Valid values: V_1.",
                           "type": "string"
                         },
                         "prefix": {
-                          "description": "The prefix of the destination bucket where the metrics export will be delivered.",
+                          "description": "Prefix of the destination bucket where the metrics export will be delivered.",
                           "type": "string"
                         }
                       }
                     },
                     "storageLensTableDestination": {
-                      "description": "S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.",
+                      "description": "S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See storage_lens_table_destination below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -951,11 +951,11 @@
                           "type": "boolean"
                         },
                         "encryption": {
-                          "description": "Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.",
+                          "description": "Encryption of the metrics exports in this S3 tables bucket. See encryption below for more details.",
                           "type": "object",
                           "properties": {
                             "sseKms": {
-                              "description": "KMS encryption. See SSE KMS below for more details.",
+                              "description": "SSE-KMS encryption. See sse_kms below for more details.",
                               "type": "object",
                               "properties": {
                                 "keyId": {
@@ -965,7 +965,7 @@
                               }
                             },
                             "sseS3": {
-                              "description": "S3 encryption. An empty configuration block {} should be used.",
+                              "description": "SSE-S3 encryption. An empty configuration block {} should be used.",
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -982,7 +982,7 @@
                   "type": "boolean"
                 },
                 "exclude": {
-                  "description": "What is excluded in this configuration. Conflicts with include. See Exclude below for more details.",
+                  "description": "What is excluded in this configuration. Conflicts with include. See exclude below for more details.",
                   "type": "object",
                   "properties": {
                     "buckets": {
@@ -1092,27 +1092,27 @@
                   }
                 },
                 "expandedPrefixesDataExport": {
-                  "description": "Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.",
+                  "description": "Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See expanded_prefixes_data_export below for more details.",
                   "type": "object",
                   "properties": {
                     "s3BucketDestination": {
-                      "description": "The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.",
+                      "description": "Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See s3_bucket_destination below for more details.",
                       "type": "object",
                       "properties": {
                         "accountId": {
-                          "description": "The account ID of the owner of the S3 Storage Lens metrics export bucket.",
+                          "description": "Account ID of the owner of the S3 Storage Lens metrics export bucket.",
                           "type": "string"
                         },
                         "arn": {
-                          "description": "The Amazon Resource Name (ARN) of the bucket.",
+                          "description": "ARN of the bucket.",
                           "type": "string"
                         },
                         "encryption": {
-                          "description": "Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.",
+                          "description": "Encryption of the metrics exports in this S3 tables bucket. See encryption below for more details.",
                           "type": "object",
                           "properties": {
                             "sseKms": {
-                              "description": "KMS encryption. See SSE KMS below for more details.",
+                              "description": "SSE-KMS encryption. See sse_kms below for more details.",
                               "type": "object",
                               "properties": {
                                 "keyId": {
@@ -1122,7 +1122,7 @@
                               }
                             },
                             "sseS3": {
-                              "description": "S3 encryption. An empty configuration block {} should be used.",
+                              "description": "SSE-S3 encryption. An empty configuration block {} should be used.",
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -1131,21 +1131,21 @@
                           }
                         },
                         "format": {
-                          "description": "The export format. Valid values: CSV, Parquet.",
+                          "description": "Export format. Valid values: CSV, Parquet.",
                           "type": "string"
                         },
                         "outputSchemaVersion": {
-                          "description": "The schema version of the export file. Valid values: V_1.",
+                          "description": "Schema version of the export file. Valid values: V_1.",
                           "type": "string"
                         },
                         "prefix": {
-                          "description": "The prefix of the destination bucket where the metrics export will be delivered.",
+                          "description": "Prefix of the destination bucket where the metrics export will be delivered.",
                           "type": "string"
                         }
                       }
                     },
                     "storageLensTableDestination": {
-                      "description": "S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.",
+                      "description": "S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See storage_lens_table_destination below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -1153,11 +1153,11 @@
                           "type": "boolean"
                         },
                         "encryption": {
-                          "description": "Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.",
+                          "description": "Encryption of the metrics exports in this S3 tables bucket. See encryption below for more details.",
                           "type": "object",
                           "properties": {
                             "sseKms": {
-                              "description": "KMS encryption. See SSE KMS below for more details.",
+                              "description": "SSE-KMS encryption. See sse_kms below for more details.",
                               "type": "object",
                               "properties": {
                                 "keyId": {
@@ -1167,7 +1167,7 @@
                               }
                             },
                             "sseS3": {
-                              "description": "S3 encryption. An empty configuration block {} should be used.",
+                              "description": "SSE-S3 encryption. An empty configuration block {} should be used.",
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -1180,7 +1180,7 @@
                   }
                 },
                 "include": {
-                  "description": "What is included in this configuration. Conflicts with exclude. See Include below for more details.",
+                  "description": "What is included in this configuration. Conflicts with exclude. See include below for more details.",
                   "type": "object",
                   "properties": {
                     "buckets": {
@@ -1291,15 +1291,15 @@
           "type": "object",
           "properties": {
             "accountId": {
-              "description": "The AWS account ID for the S3 Storage Lens configuration.",
+              "description": "AWS account ID for the S3 Storage Lens configuration.",
               "type": "string"
             },
             "arn": {
-              "description": "Amazon Resource Name (ARN) of the S3 Storage Lens configuration.",
+              "description": "ARN of the S3 Storage Lens configuration.",
               "type": "string"
             },
             "configId": {
-              "description": "The ID of the S3 Storage Lens configuration.",
+              "description": "ID of the S3 Storage Lens configuration.",
               "type": "string"
             },
             "id": {
@@ -1310,15 +1310,15 @@
               "type": "string"
             },
             "storageLensConfiguration": {
-              "description": "The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.",
+              "description": "S3 Storage Lens configuration. See storage_lens_configuration below for more details.",
               "type": "object",
               "properties": {
                 "accountLevel": {
-                  "description": "level configurations of the S3 Storage Lens configuration. See Account Level below for more details.",
+                  "description": "Account-level configurations of the S3 Storage Lens configuration. See account_level below for more details.",
                   "type": "object",
                   "properties": {
                     "activityMetrics": {
-                      "description": "S3 Storage Lens activity metrics. See Activity Metrics below for more details.",
+                      "description": "S3 Storage Lens activity metrics. See activity_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -1328,7 +1328,7 @@
                       }
                     },
                     "advancedCostOptimizationMetrics": {
-                      "description": "optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.",
+                      "description": "Advanced cost-optimization metrics for S3 Storage Lens. See advanced_cost_optimization_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -1338,7 +1338,7 @@
                       }
                     },
                     "advancedDataProtectionMetrics": {
-                      "description": "protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.",
+                      "description": "Advanced data-protection metrics for S3 Storage Lens. See advanced_data_protection_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -1348,7 +1348,7 @@
                       }
                     },
                     "advancedPerformanceMetrics": {
-                      "description": "Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.",
+                      "description": "Advanced performance metrics for S3 Storage Lens. See advanced_performance_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -1358,11 +1358,11 @@
                       }
                     },
                     "bucketLevel": {
-                      "description": "level configuration. See Bucket Level below for more details.",
+                      "description": "S3 Storage Lens bucket-level configuration. See bucket_level below for more details.",
                       "type": "object",
                       "properties": {
                         "activityMetrics": {
-                          "description": "S3 Storage Lens activity metrics. See Activity Metrics below for more details.",
+                          "description": "S3 Storage Lens activity metrics. See activity_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -1372,7 +1372,7 @@
                           }
                         },
                         "advancedCostOptimizationMetrics": {
-                          "description": "optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.",
+                          "description": "Advanced cost-optimization metrics for S3 Storage Lens. See advanced_cost_optimization_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -1382,7 +1382,7 @@
                           }
                         },
                         "advancedDataProtectionMetrics": {
-                          "description": "protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.",
+                          "description": "Advanced data-protection metrics for S3 Storage Lens. See advanced_data_protection_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -1392,7 +1392,7 @@
                           }
                         },
                         "advancedPerformanceMetrics": {
-                          "description": "Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.",
+                          "description": "Advanced performance metrics for S3 Storage Lens. See advanced_performance_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -1402,7 +1402,7 @@
                           }
                         },
                         "detailedStatusCodeMetrics": {
-                          "description": "Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.",
+                          "description": "Detailed status code metrics for S3 Storage Lens. See detailed_status_code_metrics below for more details.",
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -1412,11 +1412,11 @@
                           }
                         },
                         "prefixLevel": {
-                          "description": "level metrics for S3 Storage Lens. See Prefix Level below for more details.",
+                          "description": "Prefix-level metrics for S3 Storage Lens. See prefix_level below for more details.",
                           "type": "object",
                           "properties": {
                             "storageMetrics": {
-                              "description": "level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.",
+                              "description": "Prefix-level storage metrics for S3 Storage Lens. See storage_metrics below for more details.",
                               "type": "object",
                               "properties": {
                                 "enabled": {
@@ -1424,19 +1424,19 @@
                                   "type": "boolean"
                                 },
                                 "selectionCriteria": {
-                                  "description": "Selection criteria. See Selection Criteria below for more details.",
+                                  "description": "Selection criteria. See selection_criteria below for more details.",
                                   "type": "object",
                                   "properties": {
                                     "delimiter": {
-                                      "description": "The delimiter of the selection criteria being used.",
+                                      "description": "Delimiter of the selection criteria being used.",
                                       "type": "string"
                                     },
                                     "maxDepth": {
-                                      "description": "The max depth of the selection criteria.",
+                                      "description": "Max depth of the selection criteria.",
                                       "type": "number"
                                     },
                                     "minStorageBytesPercentage": {
-                                      "description": "The minimum number of storage bytes percentage whose metrics will be selected.",
+                                      "description": "Minimum number of storage bytes percentage whose metrics will be selected.",
                                       "type": "number"
                                     }
                                   }
@@ -1448,7 +1448,7 @@
                       }
                     },
                     "detailedStatusCodeMetrics": {
-                      "description": "Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.",
+                      "description": "Detailed status code metrics for S3 Storage Lens. See detailed_status_code_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -1460,21 +1460,21 @@
                   }
                 },
                 "awsOrg": {
-                  "description": "The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.",
+                  "description": "Amazon Web Services organization for the S3 Storage Lens configuration. See aws_org below for more details.",
                   "type": "object",
                   "properties": {
                     "arn": {
-                      "description": "The Amazon Resource Name (ARN) of the bucket.",
+                      "description": "ARN of the bucket.",
                       "type": "string"
                     }
                   }
                 },
                 "dataExport": {
-                  "description": "Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.",
+                  "description": "Properties of S3 Storage Lens metrics export including the destination, schema and format. See data_export below for more details.",
                   "type": "object",
                   "properties": {
                     "cloudWatchMetrics": {
-                      "description": "Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.",
+                      "description": "Amazon CloudWatch publishing for S3 Storage Lens metrics. See cloud_watch_metrics below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -1484,23 +1484,23 @@
                       }
                     },
                     "s3BucketDestination": {
-                      "description": "The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.",
+                      "description": "Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See s3_bucket_destination below for more details.",
                       "type": "object",
                       "properties": {
                         "accountId": {
-                          "description": "The account ID of the owner of the S3 Storage Lens metrics export bucket.",
+                          "description": "Account ID of the owner of the S3 Storage Lens metrics export bucket.",
                           "type": "string"
                         },
                         "arn": {
-                          "description": "The Amazon Resource Name (ARN) of the bucket.",
+                          "description": "ARN of the bucket.",
                           "type": "string"
                         },
                         "encryption": {
-                          "description": "Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.",
+                          "description": "Encryption of the metrics exports in this S3 tables bucket. See encryption below for more details.",
                           "type": "object",
                           "properties": {
                             "sseKms": {
-                              "description": "KMS encryption. See SSE KMS below for more details.",
+                              "description": "SSE-KMS encryption. See sse_kms below for more details.",
                               "type": "object",
                               "properties": {
                                 "keyId": {
@@ -1510,7 +1510,7 @@
                               }
                             },
                             "sseS3": {
-                              "description": "S3 encryption. An empty configuration block {} should be used.",
+                              "description": "SSE-S3 encryption. An empty configuration block {} should be used.",
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -1519,21 +1519,21 @@
                           }
                         },
                         "format": {
-                          "description": "The export format. Valid values: CSV, Parquet.",
+                          "description": "Export format. Valid values: CSV, Parquet.",
                           "type": "string"
                         },
                         "outputSchemaVersion": {
-                          "description": "The schema version of the export file. Valid values: V_1.",
+                          "description": "Schema version of the export file. Valid values: V_1.",
                           "type": "string"
                         },
                         "prefix": {
-                          "description": "The prefix of the destination bucket where the metrics export will be delivered.",
+                          "description": "Prefix of the destination bucket where the metrics export will be delivered.",
                           "type": "string"
                         }
                       }
                     },
                     "storageLensTableDestination": {
-                      "description": "S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.",
+                      "description": "S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See storage_lens_table_destination below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -1541,11 +1541,11 @@
                           "type": "boolean"
                         },
                         "encryption": {
-                          "description": "Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.",
+                          "description": "Encryption of the metrics exports in this S3 tables bucket. See encryption below for more details.",
                           "type": "object",
                           "properties": {
                             "sseKms": {
-                              "description": "KMS encryption. See SSE KMS below for more details.",
+                              "description": "SSE-KMS encryption. See sse_kms below for more details.",
                               "type": "object",
                               "properties": {
                                 "keyId": {
@@ -1555,7 +1555,7 @@
                               }
                             },
                             "sseS3": {
-                              "description": "S3 encryption. An empty configuration block {} should be used.",
+                              "description": "SSE-S3 encryption. An empty configuration block {} should be used.",
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -1572,7 +1572,7 @@
                   "type": "boolean"
                 },
                 "exclude": {
-                  "description": "What is excluded in this configuration. Conflicts with include. See Exclude below for more details.",
+                  "description": "What is excluded in this configuration. Conflicts with include. See exclude below for more details.",
                   "type": "object",
                   "properties": {
                     "buckets": {
@@ -1594,27 +1594,27 @@
                   }
                 },
                 "expandedPrefixesDataExport": {
-                  "description": "Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.",
+                  "description": "Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See expanded_prefixes_data_export below for more details.",
                   "type": "object",
                   "properties": {
                     "s3BucketDestination": {
-                      "description": "The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.",
+                      "description": "Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See s3_bucket_destination below for more details.",
                       "type": "object",
                       "properties": {
                         "accountId": {
-                          "description": "The account ID of the owner of the S3 Storage Lens metrics export bucket.",
+                          "description": "Account ID of the owner of the S3 Storage Lens metrics export bucket.",
                           "type": "string"
                         },
                         "arn": {
-                          "description": "The Amazon Resource Name (ARN) of the bucket.",
+                          "description": "ARN of the bucket.",
                           "type": "string"
                         },
                         "encryption": {
-                          "description": "Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.",
+                          "description": "Encryption of the metrics exports in this S3 tables bucket. See encryption below for more details.",
                           "type": "object",
                           "properties": {
                             "sseKms": {
-                              "description": "KMS encryption. See SSE KMS below for more details.",
+                              "description": "SSE-KMS encryption. See sse_kms below for more details.",
                               "type": "object",
                               "properties": {
                                 "keyId": {
@@ -1624,7 +1624,7 @@
                               }
                             },
                             "sseS3": {
-                              "description": "S3 encryption. An empty configuration block {} should be used.",
+                              "description": "SSE-S3 encryption. An empty configuration block {} should be used.",
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -1633,21 +1633,21 @@
                           }
                         },
                         "format": {
-                          "description": "The export format. Valid values: CSV, Parquet.",
+                          "description": "Export format. Valid values: CSV, Parquet.",
                           "type": "string"
                         },
                         "outputSchemaVersion": {
-                          "description": "The schema version of the export file. Valid values: V_1.",
+                          "description": "Schema version of the export file. Valid values: V_1.",
                           "type": "string"
                         },
                         "prefix": {
-                          "description": "The prefix of the destination bucket where the metrics export will be delivered.",
+                          "description": "Prefix of the destination bucket where the metrics export will be delivered.",
                           "type": "string"
                         }
                       }
                     },
                     "storageLensTableDestination": {
-                      "description": "S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.",
+                      "description": "S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See storage_lens_table_destination below for more details.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -1655,11 +1655,11 @@
                           "type": "boolean"
                         },
                         "encryption": {
-                          "description": "Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.",
+                          "description": "Encryption of the metrics exports in this S3 tables bucket. See encryption below for more details.",
                           "type": "object",
                           "properties": {
                             "sseKms": {
-                              "description": "KMS encryption. See SSE KMS below for more details.",
+                              "description": "SSE-KMS encryption. See sse_kms below for more details.",
                               "type": "object",
                               "properties": {
                                 "keyId": {
@@ -1669,7 +1669,7 @@
                               }
                             },
                             "sseS3": {
-                              "description": "S3 encryption. An empty configuration block {} should be used.",
+                              "description": "SSE-S3 encryption. An empty configuration block {} should be used.",
                               "type": "array",
                               "items": {
                                 "type": "object"
@@ -1682,7 +1682,7 @@
                   }
                 },
                 "include": {
-                  "description": "What is included in this configuration. Conflicts with exclude. See Include below for more details.",
+                  "description": "What is included in this configuration. Conflicts with exclude. See include below for more details.",
                   "type": "object",
                   "properties": {
                     "buckets": {
@@ -1718,7 +1718,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "tagsAll": {
-              "description": "A map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
+              "description": "Map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"

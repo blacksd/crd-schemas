@@ -210,7 +210,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "The Amazon Resource Name of the scheduling policy.",
+              "description": "ARN of the scheduling policy.",
               "type": "string"
             },
             "fairSharePolicy": {

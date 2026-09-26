@@ -47,7 +47,7 @@
               "type": "object",
               "properties": {
                 "alarm": {
-                  "description": "Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.",
+                  "description": "Can be an AlarmName or an ARN from an existing alarm.",
                   "type": "string"
                 },
                 "extensionPeriod": {
@@ -279,7 +279,7 @@
               "type": "object",
               "properties": {
                 "alarm": {
-                  "description": "Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.",
+                  "description": "Can be an AlarmName or an ARN from an existing alarm.",
                   "type": "string"
                 },
                 "extensionPeriod": {
@@ -594,7 +594,7 @@
               "type": "object",
               "properties": {
                 "alarm": {
-                  "description": "Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.",
+                  "description": "Can be an AlarmName or an ARN from an existing alarm.",
                   "type": "string"
                 },
                 "extensionPeriod": {

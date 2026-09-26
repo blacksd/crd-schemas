@@ -77,7 +77,7 @@
                     "type": "object",
                     "properties": {
                       "key": {
-                        "description": "Tag key.",
+                        "description": "Target type. Valid values are AutoScalingGroups (EC2 Auto Scaling groups), Buckets (S3 Buckets), Cluster (EKS Cluster), Clusters (ECS Clusters), DBInstances (RDS DB Instances), Functions (Lambda Functions), Instances (EC2 Instances), KinesisStreams (Kinesis Data Streams), ManagedResources (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), MultiRegionClusters (MemoryDB Multi-Region clusters), Nodegroups (EKS Node groups), Pods (EKS Pods), ReplicationGroups(ElastiCache Redis Replication Groups), Roles (IAM Roles), SpotInstances (EC2 Spot Instances), Subnets (VPC Subnets), Tables (DynamoDB encrypted global tables), Tasks (ECS Tasks), TransitGateways (Transit gateways), Volumes (EBS Volumes), VPCEndpoints (Amazon VPC endpoints). See the documentation for more details.",
                         "type": "string"
                       },
                       "value": {
@@ -94,35 +94,35 @@
               "type": "string"
             },
             "experimentOptions": {
-              "description": "The experiment options for the experiment template. See experiment_options below for more details!",
+              "description": "Experiment options for the experiment template. See experiment_options below for more details!",
               "type": "object",
               "properties": {
                 "accountTargeting": {
-                  "description": "Specifies the account targeting setting for experiment options. Supports single-account and multi-account.",
+                  "description": "Account targeting setting for experiment options. Supports single-account and multi-account.",
                   "type": "string"
                 },
                 "emptyTargetResolutionMode": {
-                  "description": "Specifies the empty target resolution mode for experiment options. Supports fail and skip.",
+                  "description": "Empty target resolution mode for experiment options. Supports fail and skip.",
                   "type": "string"
                 }
               }
             },
             "experimentReportConfiguration": {
-              "description": "The configuration for experiment reporting. See below.",
+              "description": "Configuration for experiment reporting. See below.",
               "type": "object",
               "properties": {
                 "dataSources": {
-                  "description": "The data sources for the experiment report. See below.",
+                  "description": "Data sources for the experiment report. See below.",
                   "type": "object",
                   "properties": {
                     "cloudwatchDashboard": {
-                      "description": "The data sources for the experiment report. See below.",
+                      "description": "Data sources for the experiment report. See below.",
                       "type": "array",
                       "items": {
                         "type": "object",
                         "properties": {
                           "dashboardArn": {
-                            "description": "The ARN of the CloudWatch dashboard.",
+                            "description": "ARN of the CloudWatch dashboard.",
                             "type": "string"
                           },
                           "dashboardArnRef": {
@@ -215,15 +215,15 @@
                   }
                 },
                 "outputs": {
-                  "description": "The outputs for the experiment report. See below.",
+                  "description": "Outputs for the experiment report. See below.",
                   "type": "object",
                   "properties": {
                     "s3Configuration": {
-                      "description": "The data sources for the experiment report. See below.",
+                      "description": "Data sources for the experiment report. See below.",
                       "type": "object",
                       "properties": {
                         "bucketName": {
-                          "description": "The name of the destination bucket.",
+                          "description": "Name of the destination bucket.",
                           "type": "string"
                         },
                         "bucketNameRef": {
@@ -311,7 +311,7 @@
                           }
                         },
                         "prefix": {
-                          "description": "The bucket prefix.",
+                          "description": "Bucket prefix.",
                           "type": "string"
                         }
                       }
@@ -319,43 +319,43 @@
                   }
                 },
                 "postExperimentDuration": {
-                  "description": "The duration of the post-experiment period. Defaults to PT20M.",
+                  "description": "Duration of the post-experiment period. Defaults to PT20M.",
                   "type": "string"
                 },
                 "preExperimentDuration": {
-                  "description": "The duration of the pre-experiment period. Defaults to PT20M.",
+                  "description": "Duration of the pre-experiment period. Defaults to PT20M.",
                   "type": "string"
                 }
               }
             },
             "logConfiguration": {
-              "description": "The configuration for experiment logging. See below.",
+              "description": "Configuration for experiment logging. See below.",
               "type": "object",
               "properties": {
                 "cloudwatchLogsConfiguration": {
-                  "description": "The configuration for experiment logging to Amazon CloudWatch Logs. See below.",
+                  "description": "Configuration for experiment logging to Amazon CloudWatch Logs. See below.",
                   "type": "object",
                   "properties": {
                     "logGroupArn": {
-                      "description": "The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with :*",
+                      "description": "ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with :*",
                       "type": "string"
                     }
                   }
                 },
                 "logSchemaVersion": {
-                  "description": "The schema version. See documentation for the list of schema versions.",
+                  "description": "Schema version. See documentation for the list of schema versions.",
                   "type": "number"
                 },
                 "s3Configuration": {
-                  "description": "The configuration for experiment logging to Amazon S3. See below.",
+                  "description": "Configuration for experiment logging to Amazon S3. See below.",
                   "type": "object",
                   "properties": {
                     "bucketName": {
-                      "description": "The name of the destination bucket.",
+                      "description": "Name of the destination bucket.",
                       "type": "string"
                     },
                     "prefix": {
-                      "description": "The bucket prefix.",
+                      "description": "Bucket prefix.",
                       "type": "string"
                     }
                   }
@@ -511,7 +511,7 @@
                     "type": "string"
                   },
                   "parameters": {
-                    "description": "The resource type parameters.",
+                    "description": "Resource type parameters.",
                     "type": "object",
                     "additionalProperties": {
                       "type": "string"
@@ -533,11 +533,11 @@
                       "type": "object",
                       "properties": {
                         "key": {
-                          "description": "Tag key.",
+                          "description": "Parameter name.",
                           "type": "string"
                         },
                         "value": {
-                          "description": "Tag value.",
+                          "description": "Parameter value.",
                           "type": "string"
                         }
                       }
@@ -608,7 +608,7 @@
                     "type": "object",
                     "properties": {
                       "key": {
-                        "description": "Tag key.",
+                        "description": "Target type. Valid values are AutoScalingGroups (EC2 Auto Scaling groups), Buckets (S3 Buckets), Cluster (EKS Cluster), Clusters (ECS Clusters), DBInstances (RDS DB Instances), Functions (Lambda Functions), Instances (EC2 Instances), KinesisStreams (Kinesis Data Streams), ManagedResources (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), MultiRegionClusters (MemoryDB Multi-Region clusters), Nodegroups (EKS Node groups), Pods (EKS Pods), ReplicationGroups(ElastiCache Redis Replication Groups), Roles (IAM Roles), SpotInstances (EC2 Spot Instances), Subnets (VPC Subnets), Tables (DynamoDB encrypted global tables), Tasks (ECS Tasks), TransitGateways (Transit gateways), Volumes (EBS Volumes), VPCEndpoints (Amazon VPC endpoints). See the documentation for more details.",
                         "type": "string"
                       },
                       "value": {
@@ -625,35 +625,35 @@
               "type": "string"
             },
             "experimentOptions": {
-              "description": "The experiment options for the experiment template. See experiment_options below for more details!",
+              "description": "Experiment options for the experiment template. See experiment_options below for more details!",
               "type": "object",
               "properties": {
                 "accountTargeting": {
-                  "description": "Specifies the account targeting setting for experiment options. Supports single-account and multi-account.",
+                  "description": "Account targeting setting for experiment options. Supports single-account and multi-account.",
                   "type": "string"
                 },
                 "emptyTargetResolutionMode": {
-                  "description": "Specifies the empty target resolution mode for experiment options. Supports fail and skip.",
+                  "description": "Empty target resolution mode for experiment options. Supports fail and skip.",
                   "type": "string"
                 }
               }
             },
             "experimentReportConfiguration": {
-              "description": "The configuration for experiment reporting. See below.",
+              "description": "Configuration for experiment reporting. See below.",
               "type": "object",
               "properties": {
                 "dataSources": {
-                  "description": "The data sources for the experiment report. See below.",
+                  "description": "Data sources for the experiment report. See below.",
                   "type": "object",
                   "properties": {
                     "cloudwatchDashboard": {
-                      "description": "The data sources for the experiment report. See below.",
+                      "description": "Data sources for the experiment report. See below.",
                       "type": "array",
                       "items": {
                         "type": "object",
                         "properties": {
                           "dashboardArn": {
-                            "description": "The ARN of the CloudWatch dashboard.",
+                            "description": "ARN of the CloudWatch dashboard.",
                             "type": "string"
                           },
                           "dashboardArnRef": {
@@ -746,15 +746,15 @@
                   }
                 },
                 "outputs": {
-                  "description": "The outputs for the experiment report. See below.",
+                  "description": "Outputs for the experiment report. See below.",
                   "type": "object",
                   "properties": {
                     "s3Configuration": {
-                      "description": "The data sources for the experiment report. See below.",
+                      "description": "Data sources for the experiment report. See below.",
                       "type": "object",
                       "properties": {
                         "bucketName": {
-                          "description": "The name of the destination bucket.",
+                          "description": "Name of the destination bucket.",
                           "type": "string"
                         },
                         "bucketNameRef": {
@@ -842,7 +842,7 @@
                           }
                         },
                         "prefix": {
-                          "description": "The bucket prefix.",
+                          "description": "Bucket prefix.",
                           "type": "string"
                         }
                       }
@@ -850,43 +850,43 @@
                   }
                 },
                 "postExperimentDuration": {
-                  "description": "The duration of the post-experiment period. Defaults to PT20M.",
+                  "description": "Duration of the post-experiment period. Defaults to PT20M.",
                   "type": "string"
                 },
                 "preExperimentDuration": {
-                  "description": "The duration of the pre-experiment period. Defaults to PT20M.",
+                  "description": "Duration of the pre-experiment period. Defaults to PT20M.",
                   "type": "string"
                 }
               }
             },
             "logConfiguration": {
-              "description": "The configuration for experiment logging. See below.",
+              "description": "Configuration for experiment logging. See below.",
               "type": "object",
               "properties": {
                 "cloudwatchLogsConfiguration": {
-                  "description": "The configuration for experiment logging to Amazon CloudWatch Logs. See below.",
+                  "description": "Configuration for experiment logging to Amazon CloudWatch Logs. See below.",
                   "type": "object",
                   "properties": {
                     "logGroupArn": {
-                      "description": "The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with :*",
+                      "description": "ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with :*",
                       "type": "string"
                     }
                   }
                 },
                 "logSchemaVersion": {
-                  "description": "The schema version. See documentation for the list of schema versions.",
+                  "description": "Schema version. See documentation for the list of schema versions.",
                   "type": "number"
                 },
                 "s3Configuration": {
-                  "description": "The configuration for experiment logging to Amazon S3. See below.",
+                  "description": "Configuration for experiment logging to Amazon S3. See below.",
                   "type": "object",
                   "properties": {
                     "bucketName": {
-                      "description": "The name of the destination bucket.",
+                      "description": "Name of the destination bucket.",
                       "type": "string"
                     },
                     "prefix": {
-                      "description": "The bucket prefix.",
+                      "description": "Bucket prefix.",
                       "type": "string"
                     }
                   }
@@ -1038,7 +1038,7 @@
                     "type": "string"
                   },
                   "parameters": {
-                    "description": "The resource type parameters.",
+                    "description": "Resource type parameters.",
                     "type": "object",
                     "additionalProperties": {
                       "type": "string"
@@ -1060,11 +1060,11 @@
                       "type": "object",
                       "properties": {
                         "key": {
-                          "description": "Tag key.",
+                          "description": "Parameter name.",
                           "type": "string"
                         },
                         "value": {
-                          "description": "Tag value.",
+                          "description": "Parameter value.",
                           "type": "string"
                         }
                       }
@@ -1208,7 +1208,7 @@
                     "type": "object",
                     "properties": {
                       "key": {
-                        "description": "Tag key.",
+                        "description": "Target type. Valid values are AutoScalingGroups (EC2 Auto Scaling groups), Buckets (S3 Buckets), Cluster (EKS Cluster), Clusters (ECS Clusters), DBInstances (RDS DB Instances), Functions (Lambda Functions), Instances (EC2 Instances), KinesisStreams (Kinesis Data Streams), ManagedResources (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), MultiRegionClusters (MemoryDB Multi-Region clusters), Nodegroups (EKS Node groups), Pods (EKS Pods), ReplicationGroups(ElastiCache Redis Replication Groups), Roles (IAM Roles), SpotInstances (EC2 Spot Instances), Subnets (VPC Subnets), Tables (DynamoDB encrypted global tables), Tasks (ECS Tasks), TransitGateways (Transit gateways), Volumes (EBS Volumes), VPCEndpoints (Amazon VPC endpoints). See the documentation for more details.",
                         "type": "string"
                       },
                       "value": {
@@ -1225,35 +1225,35 @@
               "type": "string"
             },
             "experimentOptions": {
-              "description": "The experiment options for the experiment template. See experiment_options below for more details!",
+              "description": "Experiment options for the experiment template. See experiment_options below for more details!",
               "type": "object",
               "properties": {
                 "accountTargeting": {
-                  "description": "Specifies the account targeting setting for experiment options. Supports single-account and multi-account.",
+                  "description": "Account targeting setting for experiment options. Supports single-account and multi-account.",
                   "type": "string"
                 },
                 "emptyTargetResolutionMode": {
-                  "description": "Specifies the empty target resolution mode for experiment options. Supports fail and skip.",
+                  "description": "Empty target resolution mode for experiment options. Supports fail and skip.",
                   "type": "string"
                 }
               }
             },
             "experimentReportConfiguration": {
-              "description": "The configuration for experiment reporting. See below.",
+              "description": "Configuration for experiment reporting. See below.",
               "type": "object",
               "properties": {
                 "dataSources": {
-                  "description": "The data sources for the experiment report. See below.",
+                  "description": "Data sources for the experiment report. See below.",
                   "type": "object",
                   "properties": {
                     "cloudwatchDashboard": {
-                      "description": "The data sources for the experiment report. See below.",
+                      "description": "Data sources for the experiment report. See below.",
                       "type": "array",
                       "items": {
                         "type": "object",
                         "properties": {
                           "dashboardArn": {
-                            "description": "The ARN of the CloudWatch dashboard.",
+                            "description": "ARN of the CloudWatch dashboard.",
                             "type": "string"
                           }
                         }
@@ -1262,19 +1262,19 @@
                   }
                 },
                 "outputs": {
-                  "description": "The outputs for the experiment report. See below.",
+                  "description": "Outputs for the experiment report. See below.",
                   "type": "object",
                   "properties": {
                     "s3Configuration": {
-                      "description": "The data sources for the experiment report. See below.",
+                      "description": "Data sources for the experiment report. See below.",
                       "type": "object",
                       "properties": {
                         "bucketName": {
-                          "description": "The name of the destination bucket.",
+                          "description": "Name of the destination bucket.",
                           "type": "string"
                         },
                         "prefix": {
-                          "description": "The bucket prefix.",
+                          "description": "Bucket prefix.",
                           "type": "string"
                         }
                       }
@@ -1282,11 +1282,11 @@
                   }
                 },
                 "postExperimentDuration": {
-                  "description": "The duration of the post-experiment period. Defaults to PT20M.",
+                  "description": "Duration of the post-experiment period. Defaults to PT20M.",
                   "type": "string"
                 },
                 "preExperimentDuration": {
-                  "description": "The duration of the pre-experiment period. Defaults to PT20M.",
+                  "description": "Duration of the pre-experiment period. Defaults to PT20M.",
                   "type": "string"
                 }
               }
@@ -1296,33 +1296,33 @@
               "type": "string"
             },
             "logConfiguration": {
-              "description": "The configuration for experiment logging. See below.",
+              "description": "Configuration for experiment logging. See below.",
               "type": "object",
               "properties": {
                 "cloudwatchLogsConfiguration": {
-                  "description": "The configuration for experiment logging to Amazon CloudWatch Logs. See below.",
+                  "description": "Configuration for experiment logging to Amazon CloudWatch Logs. See below.",
                   "type": "object",
                   "properties": {
                     "logGroupArn": {
-                      "description": "The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with :*",
+                      "description": "ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with :*",
                       "type": "string"
                     }
                   }
                 },
                 "logSchemaVersion": {
-                  "description": "The schema version. See documentation for the list of schema versions.",
+                  "description": "Schema version. See documentation for the list of schema versions.",
                   "type": "number"
                 },
                 "s3Configuration": {
-                  "description": "The configuration for experiment logging to Amazon S3. See below.",
+                  "description": "Configuration for experiment logging to Amazon S3. See below.",
                   "type": "object",
                   "properties": {
                     "bucketName": {
-                      "description": "The name of the destination bucket.",
+                      "description": "Name of the destination bucket.",
                       "type": "string"
                     },
                     "prefix": {
-                      "description": "The bucket prefix.",
+                      "description": "Bucket prefix.",
                       "type": "string"
                     }
                   }
@@ -1401,7 +1401,7 @@
                     "type": "string"
                   },
                   "parameters": {
-                    "description": "The resource type parameters.",
+                    "description": "Resource type parameters.",
                     "type": "object",
                     "additionalProperties": {
                       "type": "string"
@@ -1423,11 +1423,11 @@
                       "type": "object",
                       "properties": {
                         "key": {
-                          "description": "Tag key.",
+                          "description": "Parameter name.",
                           "type": "string"
                         },
                         "value": {
-                          "description": "Tag value.",
+                          "description": "Parameter value.",
                           "type": "string"
                         }
                       }

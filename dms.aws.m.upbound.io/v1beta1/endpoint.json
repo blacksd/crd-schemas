@@ -145,7 +145,7 @@
                   "type": "string"
                 },
                 "securityProtocol": {
-                  "description": "Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include ssl-encryption, ssl-authentication, and sasl-ssl. sasl-ssl requires sasl_username and sasl_password.",
+                  "description": "Set secure connection to a Kafka target endpoint using TLS. Options include ssl-encryption, ssl-authentication, and sasl-ssl. sasl-ssl requires sasl_username and sasl_password.",
                   "type": "string"
                 },
                 "sslCaCertificateArn": {
@@ -720,11 +720,11 @@
                   "type": "string"
                 },
                 "sslCaCertificateArn": {
-                  "description": "The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.",
+                  "description": "ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.",
                   "type": "string"
                 },
                 "sslSecurityProtocol": {
-                  "description": "The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include plaintext, ssl-encryption. The default is ssl-encryption.",
+                  "description": "The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include plaintext, ssl-encryption. The default is ssl-encryption.",
                   "type": "string"
                 }
               }
@@ -750,7 +750,7 @@
                   "type": "string"
                 },
                 "serviceAccessRoleArn": {
-                  "description": "Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.",
+                  "description": "ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.",
                   "type": "string"
                 }
               }
@@ -1081,7 +1081,7 @@
                   "type": "string"
                 },
                 "securityProtocol": {
-                  "description": "Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include ssl-encryption, ssl-authentication, and sasl-ssl. sasl-ssl requires sasl_username and sasl_password.",
+                  "description": "Set secure connection to a Kafka target endpoint using TLS. Options include ssl-encryption, ssl-authentication, and sasl-ssl. sasl-ssl requires sasl_username and sasl_password.",
                   "type": "string"
                 },
                 "sslCaCertificateArn": {
@@ -1656,11 +1656,11 @@
                   "type": "string"
                 },
                 "sslCaCertificateArn": {
-                  "description": "The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.",
+                  "description": "ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.",
                   "type": "string"
                 },
                 "sslSecurityProtocol": {
-                  "description": "The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include plaintext, ssl-encryption. The default is ssl-encryption.",
+                  "description": "The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include plaintext, ssl-encryption. The default is ssl-encryption.",
                   "type": "string"
                 }
               }
@@ -1686,7 +1686,7 @@
                   "type": "string"
                 },
                 "serviceAccessRoleArn": {
-                  "description": "Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.",
+                  "description": "ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.",
                   "type": "string"
                 }
               }
@@ -2072,7 +2072,7 @@
                   "type": "string"
                 },
                 "securityProtocol": {
-                  "description": "Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include ssl-encryption, ssl-authentication, and sasl-ssl. sasl-ssl requires sasl_username and sasl_password.",
+                  "description": "Set secure connection to a Kafka target endpoint using TLS. Options include ssl-encryption, ssl-authentication, and sasl-ssl. sasl-ssl requires sasl_username and sasl_password.",
                   "type": "string"
                 },
                 "sslCaCertificateArn": {
@@ -2478,11 +2478,11 @@
                   "type": "string"
                 },
                 "sslCaCertificateArn": {
-                  "description": "The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.",
+                  "description": "ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.",
                   "type": "string"
                 },
                 "sslSecurityProtocol": {
-                  "description": "The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include plaintext, ssl-encryption. The default is ssl-encryption.",
+                  "description": "The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include plaintext, ssl-encryption. The default is ssl-encryption.",
                   "type": "string"
                 }
               }
@@ -2508,7 +2508,7 @@
                   "type": "string"
                 },
                 "serviceAccessRoleArn": {
-                  "description": "Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.",
+                  "description": "ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.",
                   "type": "string"
                 }
               }

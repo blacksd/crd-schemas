@@ -119,7 +119,7 @@
               }
             },
             "filter": {
-              "description": "Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).",
+              "description": "Bucket filter. The configuration only includes objects that meet the filter's criteria. See filter Block below.",
               "type": "object",
               "properties": {
                 "prefix": {
@@ -127,7 +127,7 @@
                   "type": "string"
                 },
                 "tags": {
-                  "description": "Key-value map of resource tags.",
+                  "description": "All of these tags must exist in the object's tag set in order for the configuration to apply.",
                   "type": "object",
                   "additionalProperties": {
                     "type": "string"
@@ -145,11 +145,11 @@
               "type": "string"
             },
             "status": {
-              "description": "Specifies the status of the configuration. Valid values: Enabled, Disabled.",
+              "description": "Status of the configuration. Valid values: Enabled, Disabled.",
               "type": "string"
             },
             "tiering": {
-              "description": "S3 Intelligent-Tiering storage class tiers of the configuration (documented below).",
+              "description": "S3 Intelligent-Tiering storage class tiers of the configuration. See tiering Block below.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -252,7 +252,7 @@
               }
             },
             "filter": {
-              "description": "Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).",
+              "description": "Bucket filter. The configuration only includes objects that meet the filter's criteria. See filter Block below.",
               "type": "object",
               "properties": {
                 "prefix": {
@@ -260,7 +260,7 @@
                   "type": "string"
                 },
                 "tags": {
-                  "description": "Key-value map of resource tags.",
+                  "description": "All of these tags must exist in the object's tag set in order for the configuration to apply.",
                   "type": "object",
                   "additionalProperties": {
                     "type": "string"
@@ -274,11 +274,11 @@
               "type": "string"
             },
             "status": {
-              "description": "Specifies the status of the configuration. Valid values: Enabled, Disabled.",
+              "description": "Status of the configuration. Valid values: Enabled, Disabled.",
               "type": "string"
             },
             "tiering": {
-              "description": "S3 Intelligent-Tiering storage class tiers of the configuration (documented below).",
+              "description": "S3 Intelligent-Tiering storage class tiers of the configuration. See tiering Block below.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -396,7 +396,7 @@
               "type": "string"
             },
             "filter": {
-              "description": "Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).",
+              "description": "Bucket filter. The configuration only includes objects that meet the filter's criteria. See filter Block below.",
               "type": "object",
               "properties": {
                 "prefix": {
@@ -404,7 +404,7 @@
                   "type": "string"
                 },
                 "tags": {
-                  "description": "Key-value map of resource tags.",
+                  "description": "All of these tags must exist in the object's tag set in order for the configuration to apply.",
                   "type": "object",
                   "additionalProperties": {
                     "type": "string"
@@ -425,11 +425,11 @@
               "type": "string"
             },
             "status": {
-              "description": "Specifies the status of the configuration. Valid values: Enabled, Disabled.",
+              "description": "Status of the configuration. Valid values: Enabled, Disabled.",
               "type": "string"
             },
             "tiering": {
-              "description": "S3 Intelligent-Tiering storage class tiers of the configuration (documented below).",
+              "description": "S3 Intelligent-Tiering storage class tiers of the configuration. See tiering Block below.",
               "type": "array",
               "items": {
                 "type": "object",

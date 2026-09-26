@@ -27,7 +27,7 @@
           "type": "object",
           "properties": {
             "acceleratorArn": {
-              "description": "The Amazon Resource Name (ARN) of your accelerator.",
+              "description": "ARN of your accelerator.",
               "type": "string"
             },
             "acceleratorArnRef": {
@@ -146,7 +146,7 @@
           "type": "object",
           "properties": {
             "acceleratorArn": {
-              "description": "The Amazon Resource Name (ARN) of your accelerator.",
+              "description": "ARN of your accelerator.",
               "type": "string"
             },
             "acceleratorArnRef": {
@@ -334,11 +334,11 @@
           "type": "object",
           "properties": {
             "acceleratorArn": {
-              "description": "The Amazon Resource Name (ARN) of your accelerator.",
+              "description": "ARN of your accelerator.",
               "type": "string"
             },
             "arn": {
-              "description": "The Amazon Resource Name (ARN) of the listener.",
+              "description": "ARN of the listener.",
               "type": "string"
             },
             "clientAffinity": {
@@ -346,7 +346,7 @@
               "type": "string"
             },
             "id": {
-              "description": "The Amazon Resource Name (ARN) of the listener.",
+              "description": "ARN of the listener.",
               "type": "string"
             },
             "portRange": {

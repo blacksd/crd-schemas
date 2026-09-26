@@ -238,7 +238,7 @@
               "type": "number"
             },
             "description": {
-              "description": "Description of the launch template.",
+              "description": "Description of the launch template version (VersionDescription in the EC2 API). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.",
               "type": "string"
             },
             "disableApiStop": {
@@ -278,7 +278,7 @@
               "type": "object",
               "properties": {
                 "arn": {
-                  "description": "The Amazon Resource Name (ARN) of the instance profile. Conflicts with name.",
+                  "description": "ARN of the instance profile. Conflicts with name.",
                   "type": "string"
                 },
                 "arnRef": {
@@ -824,6 +824,10 @@
                   },
                   "deviceIndex": {
                     "description": "The integer index of the network interface attachment.",
+                    "type": "number"
+                  },
+                  "enaQueueCount": {
+                    "description": "The number of ENA queues to be created with the instance. Requires an instance type and operating system that support ENA queue configuration.",
                     "type": "number"
                   },
                   "enaSrdSpecification": {
@@ -1698,7 +1702,7 @@
               "type": "number"
             },
             "description": {
-              "description": "Description of the launch template.",
+              "description": "Description of the launch template version (VersionDescription in the EC2 API). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.",
               "type": "string"
             },
             "disableApiStop": {
@@ -1738,7 +1742,7 @@
               "type": "object",
               "properties": {
                 "arn": {
-                  "description": "The Amazon Resource Name (ARN) of the instance profile. Conflicts with name.",
+                  "description": "ARN of the instance profile. Conflicts with name.",
                   "type": "string"
                 },
                 "arnRef": {
@@ -2284,6 +2288,10 @@
                   },
                   "deviceIndex": {
                     "description": "The integer index of the network interface attachment.",
+                    "type": "number"
+                  },
+                  "enaQueueCount": {
+                    "description": "The number of ENA queues to be created with the instance. Requires an instance type and operating system that support ENA queue configuration.",
                     "type": "number"
                   },
                   "enaSrdSpecification": {
@@ -3036,7 +3044,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "Amazon Resource Name (ARN) of the launch template.",
+              "description": "ARN of the launch template.",
               "type": "string"
             },
             "blockDeviceMappings": {
@@ -3163,7 +3171,7 @@
               "type": "number"
             },
             "description": {
-              "description": "Description of the launch template.",
+              "description": "Description of the launch template version (VersionDescription in the EC2 API). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.",
               "type": "string"
             },
             "disableApiStop": {
@@ -3203,7 +3211,7 @@
               "type": "object",
               "properties": {
                 "arn": {
-                  "description": "The Amazon Resource Name (ARN) of the instance profile. Conflicts with name.",
+                  "description": "ARN of the instance profile. Conflicts with name.",
                   "type": "string"
                 },
                 "name": {
@@ -3605,6 +3613,10 @@
                   },
                   "deviceIndex": {
                     "description": "The integer index of the network interface attachment.",
+                    "type": "number"
+                  },
+                  "enaQueueCount": {
+                    "description": "The number of ENA queues to be created with the instance. Requires an instance type and operating system that support ENA queue configuration.",
                     "type": "number"
                   },
                   "enaSrdSpecification": {

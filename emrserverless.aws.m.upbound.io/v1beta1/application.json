@@ -162,7 +162,7 @@
                       "type": "boolean"
                     },
                     "encryptionKeyArn": {
-                      "description": "The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.",
+                      "description": "KMS key ARN to encrypt the logs that you store in CloudWatch Logs.",
                       "type": "string"
                     },
                     "logGroupName": {
@@ -205,7 +205,7 @@
                       "type": "boolean"
                     },
                     "encryptionKeyArn": {
-                      "description": "The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.",
+                      "description": "KMS key ARN to encrypt the logs that you store in CloudWatch Logs.",
                       "type": "string"
                     }
                   }
@@ -225,7 +225,7 @@
                   "type": "object",
                   "properties": {
                     "encryptionKeyArn": {
-                      "description": "The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.",
+                      "description": "KMS key ARN to encrypt the logs that you store in CloudWatch Logs.",
                       "type": "string"
                     },
                     "logUri": {
@@ -456,7 +456,7 @@
                       "type": "boolean"
                     },
                     "encryptionKeyArn": {
-                      "description": "The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.",
+                      "description": "KMS key ARN to encrypt the logs that you store in CloudWatch Logs.",
                       "type": "string"
                     },
                     "logGroupName": {
@@ -499,7 +499,7 @@
                       "type": "boolean"
                     },
                     "encryptionKeyArn": {
-                      "description": "The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.",
+                      "description": "KMS key ARN to encrypt the logs that you store in CloudWatch Logs.",
                       "type": "string"
                     }
                   }
@@ -519,7 +519,7 @@
                   "type": "object",
                   "properties": {
                     "encryptionKeyArn": {
-                      "description": "The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.",
+                      "description": "KMS key ARN to encrypt the logs that you store in CloudWatch Logs.",
                       "type": "string"
                     },
                     "logUri": {
@@ -827,7 +827,7 @@
                       "type": "boolean"
                     },
                     "encryptionKeyArn": {
-                      "description": "The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.",
+                      "description": "KMS key ARN to encrypt the logs that you store in CloudWatch Logs.",
                       "type": "string"
                     },
                     "logGroupName": {
@@ -870,7 +870,7 @@
                       "type": "boolean"
                     },
                     "encryptionKeyArn": {
-                      "description": "The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.",
+                      "description": "KMS key ARN to encrypt the logs that you store in CloudWatch Logs.",
                       "type": "string"
                     }
                   }
@@ -890,7 +890,7 @@
                   "type": "object",
                   "properties": {
                     "encryptionKeyArn": {
-                      "description": "The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.",
+                      "description": "KMS key ARN to encrypt the logs that you store in CloudWatch Logs.",
                       "type": "string"
                     },
                     "logUri": {

@@ -560,7 +560,7 @@
                       "type": "object",
                       "properties": {
                         "listenerArns": {
-                          "description": "List of Amazon Resource Names (ARNs) of the load balancer listeners.",
+                          "description": "List of ARNs of the load balancer listeners.",
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -743,7 +743,7 @@
                       "type": "object",
                       "properties": {
                         "listenerArns": {
-                          "description": "List of Amazon Resource Names (ARNs) of the load balancer listeners.",
+                          "description": "List of ARNs of the load balancer listeners.",
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -1426,7 +1426,7 @@
                       "type": "object",
                       "properties": {
                         "listenerArns": {
-                          "description": "List of Amazon Resource Names (ARNs) of the load balancer listeners.",
+                          "description": "List of ARNs of the load balancer listeners.",
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -1609,7 +1609,7 @@
                       "type": "object",
                       "properties": {
                         "listenerArns": {
-                          "description": "List of Amazon Resource Names (ARNs) of the load balancer listeners.",
+                          "description": "List of ARNs of the load balancer listeners.",
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -2161,7 +2161,7 @@
                       "type": "object",
                       "properties": {
                         "listenerArns": {
-                          "description": "List of Amazon Resource Names (ARNs) of the load balancer listeners.",
+                          "description": "List of ARNs of the load balancer listeners.",
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -2188,7 +2188,7 @@
                       "type": "object",
                       "properties": {
                         "listenerArns": {
-                          "description": "List of Amazon Resource Names (ARNs) of the load balancer listeners.",
+                          "description": "List of ARNs of the load balancer listeners.",
                           "type": "array",
                           "items": {
                             "type": "string"

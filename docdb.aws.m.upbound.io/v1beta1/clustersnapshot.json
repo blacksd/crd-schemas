@@ -292,7 +292,7 @@
               "type": "string"
             },
             "dbClusterSnapshotArn": {
-              "description": "The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.",
+              "description": "ARN for the DocumentDB Cluster Snapshot.",
               "type": "string"
             },
             "engine": {
@@ -322,7 +322,7 @@
               "type": "string"
             },
             "sourceDbClusterSnapshotArn": {
-              "description": "The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.",
+              "description": "ARN for the DocumentDB Cluster Snapshot.",
               "type": "string"
             },
             "status": {

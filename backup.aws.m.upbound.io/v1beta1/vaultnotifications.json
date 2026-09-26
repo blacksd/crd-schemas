@@ -130,7 +130,7 @@
               "type": "string"
             },
             "snsTopicArn": {
-              "description": "The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events",
+              "description": "ARN that specifies the topic for a backup vault’s events",
               "type": "string"
             },
             "snsTopicArnRef": {
@@ -320,7 +320,7 @@
               }
             },
             "snsTopicArn": {
-              "description": "The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events",
+              "description": "ARN that specifies the topic for a backup vault’s events",
               "type": "string"
             },
             "snsTopicArnRef": {
@@ -503,7 +503,7 @@
               "type": "string"
             },
             "snsTopicArn": {
-              "description": "The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events",
+              "description": "ARN that specifies the topic for a backup vault’s events",
               "type": "string"
             }
           }

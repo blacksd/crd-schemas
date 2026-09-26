@@ -238,7 +238,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "targetClusterArn": {
-              "description": "The Amazon Resource Name (ARN) of the cluster.",
+              "description": "ARN of the cluster.",
               "type": "string"
             },
             "targetClusterArnRef": {
@@ -624,7 +624,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "targetClusterArn": {
-              "description": "The Amazon Resource Name (ARN) of the cluster.",
+              "description": "ARN of the cluster.",
               "type": "string"
             },
             "targetClusterArnRef": {
@@ -871,7 +871,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "Amazon Resource Name (ARN) of the VPC connection.",
+              "description": "ARN of the VPC connection.",
               "type": "string"
             },
             "authentication": {
@@ -918,7 +918,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "targetClusterArn": {
-              "description": "The Amazon Resource Name (ARN) of the cluster.",
+              "description": "ARN of the cluster.",
               "type": "string"
             },
             "vpcId": {

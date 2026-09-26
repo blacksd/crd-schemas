@@ -220,7 +220,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "Amazon Resource Name (ARN) of parameter group",
+              "description": "ARN of parameter group",
               "type": "string"
             },
             "description": {
