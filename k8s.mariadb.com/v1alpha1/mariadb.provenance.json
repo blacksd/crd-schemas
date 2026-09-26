@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://mariadb-operator.github.io/mariadb-operator",
     "chart": "mariadb-operator-crds",
-    "version": "26.10.0",
+    "version": "26.10.1",
     "license": "MIT",
     "homepage": "https://github.com/mariadb-operator/mariadb-operator"
   },
   "extraction": {
-    "timestamp": "2026-09-19T22:36:57Z",
+    "timestamp": "2026-09-26T09:16:21Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "68cb1ce624ba69a3cb623728429739ecd9e29c733937985f44009012123537f4"
+    "sha256": "ec1d7c702233df9388db0daa9357b4a1ce6f88f4959bee0d5654a018801348d1"
   }
 }
