@@ -1,8 +1,8 @@
 {
-  "schema": "recurringjob.json",
+  "schema": "snapshotgroup.json",
   "crd": {
     "group": "longhorn.io",
-    "kind": "RecurringJob",
+    "kind": "SnapshotGroup",
     "apiVersion": "v1beta2"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "50763ea904928b99a1f00fc16dce1a155a840f87b6ad0eb118a524b8528264d2"
+    "sha256": "f85d8523727aad9c202856c06443c7d33c873937dc938b0ae602e9b4713ba0e0"
   }
 }

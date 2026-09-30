@@ -1,8 +1,8 @@
 {
-  "schema": "recurringjob.json",
+  "schema": "instancemanagerupgradecontrol.json",
   "crd": {
     "group": "longhorn.io",
-    "kind": "RecurringJob",
+    "kind": "InstanceManagerUpgradeControl",
     "apiVersion": "v1beta2"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "50763ea904928b99a1f00fc16dce1a155a840f87b6ad0eb118a524b8528264d2"
+    "sha256": "a6adf7ff6269e8dd9849e4287ca078db3ee57d2d04ca6d6c9d62e4a9d7711730"
   }
 }
