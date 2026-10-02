@@ -1,9 +1,9 @@
 {
-  "schema": "edgeconnect.json",
+  "schema": "prometheusmonitoring.json",
   "crd": {
     "group": "dynatrace.com",
-    "kind": "EdgeConnect",
-    "apiVersion": "v1alpha2"
+    "kind": "PrometheusMonitoring",
+    "apiVersion": "v1alpha1"
   },
   "source": {
     "name": "dynatrace-operator",
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "1fe4e9d6a2e98dc676a750c5b7850ca120f7a66ea73a04cf4aa4e28c6cd6d0ef"
+    "sha256": "3e027a1142c51dafe1a2d9347329d818582ad4cf9dc42faf82af003bde5090bd"
   }
 }
