@@ -1,8 +1,8 @@
 {
-  "schema": "projectconfig.json",
+  "schema": "target.json",
   "crd": {
     "group": "kargo.akuity.io",
-    "kind": "ProjectConfig",
+    "kind": "Target",
     "apiVersion": "v1alpha1"
   },
   "source": {
@@ -26,6 +26,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "01e638696a2413f5d3038b37f323efb1c60e8acfdbd2b7ac22b39983fe0a9345"
+    "sha256": "d6c7058c8bf04c93bb72db9201ac9bd50217286c6f5091d1303b9d5ee56070cc"
   }
 }

@@ -254,6 +254,65 @@
           "description": "Shard is the name of the shard that this Stage belongs to. This is an\noptional field. If not specified, the Stage will belong to the default\nshard. A defaulting webhook will sync the value of the\nkargo.akuity.io/shard label with the value of this field. When this field\nis empty, the webhook will ensure that label is absent.",
           "type": "string"
         },
+        "targets": {
+          "description": "Targets describes the Targets that this Stage governs and promotes Freight\nto. Its presence is what makes a Stage target-aware.\n\nWhen this field is nil (the default), the Stage operates in classic mode:\nit governs no Targets and promotes Freight by way of Promotions alone.\nThis preserves the behavior of Stages authored before Targets existed.",
+          "type": "object",
+          "required": [
+            "selectors"
+          ],
+          "properties": {
+            "selectors": {
+              "description": "Selectors select the Targets that the Stage governs, matching Targets by\ntheir labels within the Stage's own Project. A Target is selected when it\nmatches any selector in the list, so several selectors describe a union.\nA Target matching more than one of them is still governed once.\n\nAn empty selector selects every Target in the Project. An empty list\nselects none: the Stage still governs Targets, it just governs none at the\nmoment.",
+              "type": "array",
+              "items": {
+                "description": "A label selector is a label query over a set of resources. The result of matchLabels and\nmatchExpressions are ANDed. An empty label selector matches all objects. A null\nlabel selector matches no objects.",
+                "type": "object",
+                "properties": {
+                  "matchExpressions": {
+                    "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                    "type": "array",
+                    "items": {
+                      "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                      "type": "object",
+                      "required": [
+                        "key",
+                        "operator"
+                      ],
+                      "properties": {
+                        "key": {
+                          "description": "key is the label key that the selector applies to.",
+                          "type": "string"
+                        },
+                        "operator": {
+                          "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                          "type": "string"
+                        },
+                        "values": {
+                          "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "x-kubernetes-list-type": "atomic"
+                        }
+                      }
+                    },
+                    "x-kubernetes-list-type": "atomic"
+                  },
+                  "matchLabels": {
+                    "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "x-kubernetes-map-type": "atomic"
+              },
+              "x-kubernetes-list-type": "atomic"
+            }
+          }
+        },
         "vars": {
           "description": "Vars is a list of variables that can be referenced anywhere in the\nStageSpec that supports expressions. For example, the PromotionTemplate\nand arguments of the Verification.",
           "type": "array",
@@ -535,6 +594,10 @@
                         "description": "RepoURL specifies the URL of a Helm chart repository. Classic chart\nrepositories (using HTTP/S) can contain differently named charts. When this\nfield points to such a repository, the Name field will specify the name of\nthe chart within the repository. In the case of a repository within an OCI\nregistry, the URL implicitly points to a specific chart and the Name field\nwill be empty.",
                         "type": "string"
                       },
+                      "subscriptionName": {
+                        "description": "SubscriptionName is the name of the subscription that discovered this\nchart. This field is only populated if the subscription was assigned\na name.",
+                        "type": "string"
+                      },
                       "version": {
                         "description": "Version specifies a particular version of the chart.",
                         "type": "string"
@@ -573,6 +636,10 @@
                         "description": "RepoURL is the URL of a Git repository.",
                         "type": "string"
                       },
+                      "subscriptionName": {
+                        "description": "SubscriptionName is the name of the subscription that discovered this\ncommit. This field is only populated if the subscription was assigned\na name.",
+                        "type": "string"
+                      },
                       "tag": {
                         "description": "Tag denotes a tag in the repository that matched selection criteria and\nresolved to this commit.",
                         "type": "string"
@@ -600,6 +667,10 @@
                       },
                       "repoURL": {
                         "description": "RepoURL describes the repository in which the image can be found.",
+                        "type": "string"
+                      },
+                      "subscriptionName": {
+                        "description": "SubscriptionName is the name of the subscription that discovered this\nimage. This field is only populated if the subscription was assigned\na name.",
                         "type": "string"
                       },
                       "tag": {
@@ -706,6 +777,10 @@
                             "description": "RepoURL specifies the URL of a Helm chart repository. Classic chart\nrepositories (using HTTP/S) can contain differently named charts. When this\nfield points to such a repository, the Name field will specify the name of\nthe chart within the repository. In the case of a repository within an OCI\nregistry, the URL implicitly points to a specific chart and the Name field\nwill be empty.",
                             "type": "string"
                           },
+                          "subscriptionName": {
+                            "description": "SubscriptionName is the name of the subscription that discovered this\nchart. This field is only populated if the subscription was assigned\na name.",
+                            "type": "string"
+                          },
                           "version": {
                             "description": "Version specifies a particular version of the chart.",
                             "type": "string"
@@ -744,6 +819,10 @@
                             "description": "RepoURL is the URL of a Git repository.",
                             "type": "string"
                           },
+                          "subscriptionName": {
+                            "description": "SubscriptionName is the name of the subscription that discovered this\ncommit. This field is only populated if the subscription was assigned\na name.",
+                            "type": "string"
+                          },
                           "tag": {
                             "description": "Tag denotes a tag in the repository that matched selection criteria and\nresolved to this commit.",
                             "type": "string"
@@ -771,6 +850,10 @@
                           },
                           "repoURL": {
                             "description": "RepoURL describes the repository in which the image can be found.",
+                            "type": "string"
+                          },
+                          "subscriptionName": {
+                            "description": "SubscriptionName is the name of the subscription that discovered this\nimage. This field is only populated if the subscription was assigned\na name.",
                             "type": "string"
                           },
                           "tag": {
@@ -873,6 +956,10 @@
                                   "description": "RepoURL specifies the URL of a Helm chart repository. Classic chart\nrepositories (using HTTP/S) can contain differently named charts. When this\nfield points to such a repository, the Name field will specify the name of\nthe chart within the repository. In the case of a repository within an OCI\nregistry, the URL implicitly points to a specific chart and the Name field\nwill be empty.",
                                   "type": "string"
                                 },
+                                "subscriptionName": {
+                                  "description": "SubscriptionName is the name of the subscription that discovered this\nchart. This field is only populated if the subscription was assigned\na name.",
+                                  "type": "string"
+                                },
                                 "version": {
                                   "description": "Version specifies a particular version of the chart.",
                                   "type": "string"
@@ -911,6 +998,10 @@
                                   "description": "RepoURL is the URL of a Git repository.",
                                   "type": "string"
                                 },
+                                "subscriptionName": {
+                                  "description": "SubscriptionName is the name of the subscription that discovered this\ncommit. This field is only populated if the subscription was assigned\na name.",
+                                  "type": "string"
+                                },
                                 "tag": {
                                   "description": "Tag denotes a tag in the repository that matched selection criteria and\nresolved to this commit.",
                                   "type": "string"
@@ -938,6 +1029,10 @@
                                 },
                                 "repoURL": {
                                   "description": "RepoURL describes the repository in which the image can be found.",
+                                  "type": "string"
+                                },
+                                "subscriptionName": {
+                                  "description": "SubscriptionName is the name of the subscription that discovered this\nimage. This field is only populated if the subscription was assigned\na name.",
                                   "type": "string"
                                 },
                                 "tag": {
@@ -1124,6 +1219,41 @@
             }
           }
         },
+        "currentPromotionRequest": {
+          "description": "CurrentPromotionRequest is a reference to the PromotionRequest currently\nfanning Freight out to this Stage's Targets. It is absent for a Stage that\ngoverns no Targets.\n\nFanning Freight out to Targets is a Kargo Enterprise-only feature. Kargo\nOSS maintains this field all the same, but the PromotionRequest it refers\nto never gets further than being marked Errored for that reason.",
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "finishedAt": {
+              "description": "FinishedAt is the time at which the PromotionRequest completed.",
+              "type": "string",
+              "format": "date-time"
+            },
+            "freight": {
+              "description": "Freight identifies the Freight being promoted.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name is the name of the Freight.",
+                  "type": "string"
+                }
+              }
+            },
+            "name": {
+              "description": "Name is the name of the PromotionRequest.",
+              "type": "string"
+            },
+            "phase": {
+              "description": "Phase is a high-level summary of the PromotionRequest's lifecycle.",
+              "type": "string"
+            }
+          }
+        },
         "effectiveAutoPromotionHolds": {
           "description": "EffectiveAutoPromotionHolds is the set of auto-promotion holds in effect\nright now. It is recomputed every reconciliation from AutoPromotionHolds\nplus the newest in-flight Promotions, and unlike AutoPromotionHolds is not\ndurable. Clients should read this map to reflect current hold state.",
           "type": "object",
@@ -1245,6 +1375,10 @@
                             "description": "RepoURL specifies the URL of a Helm chart repository. Classic chart\nrepositories (using HTTP/S) can contain differently named charts. When this\nfield points to such a repository, the Name field will specify the name of\nthe chart within the repository. In the case of a repository within an OCI\nregistry, the URL implicitly points to a specific chart and the Name field\nwill be empty.",
                             "type": "string"
                           },
+                          "subscriptionName": {
+                            "description": "SubscriptionName is the name of the subscription that discovered this\nchart. This field is only populated if the subscription was assigned\na name.",
+                            "type": "string"
+                          },
                           "version": {
                             "description": "Version specifies a particular version of the chart.",
                             "type": "string"
@@ -1283,6 +1417,10 @@
                             "description": "RepoURL is the URL of a Git repository.",
                             "type": "string"
                           },
+                          "subscriptionName": {
+                            "description": "SubscriptionName is the name of the subscription that discovered this\ncommit. This field is only populated if the subscription was assigned\na name.",
+                            "type": "string"
+                          },
                           "tag": {
                             "description": "Tag denotes a tag in the repository that matched selection criteria and\nresolved to this commit.",
                             "type": "string"
@@ -1310,6 +1448,10 @@
                           },
                           "repoURL": {
                             "description": "RepoURL describes the repository in which the image can be found.",
+                            "type": "string"
+                          },
+                          "subscriptionName": {
+                            "description": "SubscriptionName is the name of the subscription that discovered this\nimage. This field is only populated if the subscription was assigned\na name.",
                             "type": "string"
                           },
                           "tag": {
@@ -1506,6 +1648,10 @@
                         "description": "RepoURL specifies the URL of a Helm chart repository. Classic chart\nrepositories (using HTTP/S) can contain differently named charts. When this\nfield points to such a repository, the Name field will specify the name of\nthe chart within the repository. In the case of a repository within an OCI\nregistry, the URL implicitly points to a specific chart and the Name field\nwill be empty.",
                         "type": "string"
                       },
+                      "subscriptionName": {
+                        "description": "SubscriptionName is the name of the subscription that discovered this\nchart. This field is only populated if the subscription was assigned\na name.",
+                        "type": "string"
+                      },
                       "version": {
                         "description": "Version specifies a particular version of the chart.",
                         "type": "string"
@@ -1544,6 +1690,10 @@
                         "description": "RepoURL is the URL of a Git repository.",
                         "type": "string"
                       },
+                      "subscriptionName": {
+                        "description": "SubscriptionName is the name of the subscription that discovered this\ncommit. This field is only populated if the subscription was assigned\na name.",
+                        "type": "string"
+                      },
                       "tag": {
                         "description": "Tag denotes a tag in the repository that matched selection criteria and\nresolved to this commit.",
                         "type": "string"
@@ -1571,6 +1721,10 @@
                       },
                       "repoURL": {
                         "description": "RepoURL describes the repository in which the image can be found.",
+                        "type": "string"
+                      },
+                      "subscriptionName": {
+                        "description": "SubscriptionName is the name of the subscription that discovered this\nimage. This field is only populated if the subscription was assigned\na name.",
                         "type": "string"
                       },
                       "tag": {
@@ -1677,6 +1831,10 @@
                             "description": "RepoURL specifies the URL of a Helm chart repository. Classic chart\nrepositories (using HTTP/S) can contain differently named charts. When this\nfield points to such a repository, the Name field will specify the name of\nthe chart within the repository. In the case of a repository within an OCI\nregistry, the URL implicitly points to a specific chart and the Name field\nwill be empty.",
                             "type": "string"
                           },
+                          "subscriptionName": {
+                            "description": "SubscriptionName is the name of the subscription that discovered this\nchart. This field is only populated if the subscription was assigned\na name.",
+                            "type": "string"
+                          },
                           "version": {
                             "description": "Version specifies a particular version of the chart.",
                             "type": "string"
@@ -1715,6 +1873,10 @@
                             "description": "RepoURL is the URL of a Git repository.",
                             "type": "string"
                           },
+                          "subscriptionName": {
+                            "description": "SubscriptionName is the name of the subscription that discovered this\ncommit. This field is only populated if the subscription was assigned\na name.",
+                            "type": "string"
+                          },
                           "tag": {
                             "description": "Tag denotes a tag in the repository that matched selection criteria and\nresolved to this commit.",
                             "type": "string"
@@ -1742,6 +1904,10 @@
                           },
                           "repoURL": {
                             "description": "RepoURL describes the repository in which the image can be found.",
+                            "type": "string"
+                          },
+                          "subscriptionName": {
+                            "description": "SubscriptionName is the name of the subscription that discovered this\nimage. This field is only populated if the subscription was assigned\na name.",
                             "type": "string"
                           },
                           "tag": {
@@ -1844,6 +2010,10 @@
                                   "description": "RepoURL specifies the URL of a Helm chart repository. Classic chart\nrepositories (using HTTP/S) can contain differently named charts. When this\nfield points to such a repository, the Name field will specify the name of\nthe chart within the repository. In the case of a repository within an OCI\nregistry, the URL implicitly points to a specific chart and the Name field\nwill be empty.",
                                   "type": "string"
                                 },
+                                "subscriptionName": {
+                                  "description": "SubscriptionName is the name of the subscription that discovered this\nchart. This field is only populated if the subscription was assigned\na name.",
+                                  "type": "string"
+                                },
                                 "version": {
                                   "description": "Version specifies a particular version of the chart.",
                                   "type": "string"
@@ -1882,6 +2052,10 @@
                                   "description": "RepoURL is the URL of a Git repository.",
                                   "type": "string"
                                 },
+                                "subscriptionName": {
+                                  "description": "SubscriptionName is the name of the subscription that discovered this\ncommit. This field is only populated if the subscription was assigned\na name.",
+                                  "type": "string"
+                                },
                                 "tag": {
                                   "description": "Tag denotes a tag in the repository that matched selection criteria and\nresolved to this commit.",
                                   "type": "string"
@@ -1909,6 +2083,10 @@
                                 },
                                 "repoURL": {
                                   "description": "RepoURL describes the repository in which the image can be found.",
+                                  "type": "string"
+                                },
+                                "subscriptionName": {
+                                  "description": "SubscriptionName is the name of the subscription that discovered this\nimage. This field is only populated if the subscription was assigned\na name.",
                                   "type": "string"
                                 },
                                 "tag": {
@@ -2095,6 +2273,41 @@
             }
           }
         },
+        "lastPromotionRequest": {
+          "description": "LastPromotionRequest is a reference to the last PromotionRequest to reach a\nterminal phase. It is absent for a Stage that governs no Targets, and only\never moves forward, so it outlives the PromotionRequest it refers to.",
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "finishedAt": {
+              "description": "FinishedAt is the time at which the PromotionRequest completed.",
+              "type": "string",
+              "format": "date-time"
+            },
+            "freight": {
+              "description": "Freight identifies the Freight being promoted.",
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name is the name of the Freight.",
+                  "type": "string"
+                }
+              }
+            },
+            "name": {
+              "description": "Name is the name of the PromotionRequest.",
+              "type": "string"
+            },
+            "phase": {
+              "description": "Phase is a high-level summary of the PromotionRequest's lifecycle.",
+              "type": "string"
+            }
+          }
+        },
         "metadata": {
           "description": "Metadata is a map of arbitrary metadata associated with the Stage.\nThis is useful for storing additional information about the Stage\nthat can be shared across promotions, verifications, or other processes.",
           "type": "object",
@@ -2106,6 +2319,37 @@
           "description": "ObservedGeneration represents the .metadata.generation that this Stage\nstatus was reconciled against.",
           "type": "integer",
           "format": "int64"
+        },
+        "promotionWindowStatus": {
+          "description": "PromotionWindowStatus reports whether promotion windows currently permit\npromotion of this Stage, and when that is next expected to change. It is\nabsent when no window gates the Stage.\n\nKargo Enterprise only: This field is ignored in Kargo OSS.",
+          "type": "object",
+          "required": [
+            "closed"
+          ],
+          "properties": {
+            "closed": {
+              "description": "Closed indicates that the schedule currently forbids promotion of this\nStage.",
+              "type": "boolean"
+            },
+            "nextClose": {
+              "description": "NextClose is when promotion is next expected to become forbidden, and is\nmeaningful only while Closed is false. It allows a client to give warning of\nan approaching freeze, which NextCloseReason names. Like NextOpen it is optional, and\nabsent when no such boundary is known -- a schedule that will never forbid\npromotion again has none.",
+              "type": "string",
+              "format": "date-time"
+            },
+            "nextCloseReason": {
+              "description": "NextCloseReason explains in human-readable terms why promotion will be forbidden\nat NextClose, naming the freeze responsible where there is one.\nIt is set whenever NextClose is set.",
+              "type": "string"
+            },
+            "nextOpen": {
+              "description": "NextOpen is when the schedule is next expected to permit promotions.\n\nIt is optional even while Closed is true, and its absence means only that\nno reopening is known: the schedule may have none (a one-shot Allow window\nthat has already elapsed), determining one may be impractical, or the\nclosure may be indefinite by design. Clients must therefore render Reason\nand treat a missing NextOpen as \"frozen, with no known end\" rather than\nassuming a value is present.",
+              "type": "string",
+              "format": "date-time"
+            },
+            "reason": {
+              "description": "Reason explains in human-readable terms why promotion is forbidden,\nnaming the freeze responsible where there is one.\n\nIt is set whenever Closed is true, where it is the only field guaranteed\nto explain the freeze because NextOpen may be absent.\nIt carries the same explanation as the corresponding admission rejection.",
+              "type": "string"
+            }
+          }
         }
       }
     }
