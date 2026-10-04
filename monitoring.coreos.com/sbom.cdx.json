@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:977e7548-5635-495f-8dc3-3773c4e4e439",
-  "version": 78,
+  "version": 79,
   "metadata": {
-    "timestamp": "2026-10-01T14:35:42Z",
+    "timestamp": "2026-10-04T10:06:15Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "prometheus-operator",
-      "version": "91.8.2",
+      "version": "91.9.0",
       "licenses": [
         {
           "license": {
