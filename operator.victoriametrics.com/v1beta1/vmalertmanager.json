@@ -272,6 +272,46 @@
                   "currentVolumeAttributesClassName": {
                     "type": "string"
                   },
+                  "healthStatus": {
+                    "type": "object",
+                    "properties": {
+                      "healthConditions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "reason",
+                            "status"
+                          ],
+                          "properties": {
+                            "message": {
+                              "type": "string"
+                            },
+                            "reason": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string",
+                              "enum": [
+                                "DataLoss",
+                                "Degraded",
+                                "Inaccessible"
+                              ]
+                            }
+                          }
+                        },
+                        "x-kubernetes-list-map-keys": [
+                          "status",
+                          "reason"
+                        ],
+                        "x-kubernetes-list-type": "map"
+                      },
+                      "lastTransitionTime": {
+                        "type": "string",
+                        "format": "date-time"
+                      }
+                    }
+                  },
                   "modifyVolumeStatus": {
                     "type": "object",
                     "required": [
@@ -502,40 +542,7 @@
         },
         "dnsConfig": {
           "type": "object",
-          "items": {
-            "x-kubernetes-preserve-unknown-fields": true
-          },
-          "properties": {
-            "nameservers": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "x-kubernetes-list-type": "atomic"
-            },
-            "options": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "value": {
-                    "type": "string"
-                  }
-                }
-              },
-              "x-kubernetes-list-type": "atomic"
-            },
-            "searches": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "x-kubernetes-list-type": "atomic"
-            }
-          }
+          "x-kubernetes-preserve-unknown-fields": true
         },
         "dnsPolicy": {
           "type": "string"
@@ -1429,9 +1436,6 @@
         },
         "serviceScrapeSpec": {
           "type": "object",
-          "required": [
-            "endpoints"
-          ],
           "x-kubernetes-preserve-unknown-fields": true
         },
         "serviceSpec": {
@@ -1481,6 +1485,10 @@
               "properties": {
                 "medium": {
                   "type": "string"
+                },
+                "mode": {
+                  "type": "integer",
+                  "format": "int32"
                 },
                 "sizeLimit": {
                   "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
@@ -1748,6 +1756,46 @@
                     "currentVolumeAttributesClassName": {
                       "type": "string"
                     },
+                    "healthStatus": {
+                      "type": "object",
+                      "properties": {
+                        "healthConditions": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "reason",
+                              "status"
+                            ],
+                            "properties": {
+                              "message": {
+                                "type": "string"
+                              },
+                              "reason": {
+                                "type": "string"
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "DataLoss",
+                                  "Degraded",
+                                  "Inaccessible"
+                                ]
+                              }
+                            }
+                          },
+                          "x-kubernetes-list-map-keys": [
+                            "status",
+                            "reason"
+                          ],
+                          "x-kubernetes-list-type": "map"
+                        },
+                        "lastTransitionTime": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
+                      }
+                    },
                     "modifyVolumeStatus": {
                       "type": "object",
                       "required": [
@@ -1964,6 +2012,13 @@
               "name"
             ],
             "properties": {
+              "bindMountOptions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "x-kubernetes-list-type": "set"
+              },
               "mountPath": {
                 "type": "string"
               },
