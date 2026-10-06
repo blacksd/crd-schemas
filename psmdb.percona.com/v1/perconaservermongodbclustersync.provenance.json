@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://percona.github.io/percona-helm-charts",
     "chart": "psmdb-operator",
-    "version": "1.23.0",
+    "version": "1.23.2",
     "license": "Apache-2.0",
     "homepage": "https://www.percona.com/percona-server-mongodb-kubernetes"
   },
   "extraction": {
-    "timestamp": "2026-07-25T20:56:42Z",
+    "timestamp": "2026-10-06T05:49:33Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "7a33dd9a1f0a2c823f31e64a6e3c4b8be9fd8f11826b90473f76998b7d1a479d"
+    "sha256": "73a901150d65e5b2d4e5fbfaad383f4af89e28f2a8b509a8b1cfe3abd27f521c"
   }
 }
