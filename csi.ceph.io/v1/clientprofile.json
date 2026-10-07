@@ -60,6 +60,21 @@
                     }
                   },
                   "x-kubernetes-map-type": "atomic"
+                },
+                "nodePublishSecret": {
+                  "description": "SecretReference represents a Secret Reference. It has enough information to retrieve secret\nin any namespace",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "name is unique within a namespace to reference a secret resource.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "namespace defines the space within which the secret name must be unique.",
+                      "type": "string"
+                    }
+                  },
+                  "x-kubernetes-map-type": "atomic"
                 }
               }
             },
@@ -115,6 +130,21 @@
                     }
                   },
                   "x-kubernetes-map-type": "atomic"
+                },
+                "nodePublishSecret": {
+                  "description": "SecretReference represents a Secret Reference. It has enough information to retrieve secret\nin any namespace",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "name is unique within a namespace to reference a secret resource.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "namespace defines the space within which the secret name must be unique.",
+                      "type": "string"
+                    }
+                  },
+                  "x-kubernetes-map-type": "atomic"
                 }
               }
             },
@@ -151,6 +181,21 @@
                     }
                   },
                   "x-kubernetes-map-type": "atomic"
+                },
+                "nodePublishSecret": {
+                  "description": "SecretReference represents a Secret Reference. It has enough information to retrieve secret\nin any namespace",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "name is unique within a namespace to reference a secret resource.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "namespace defines the space within which the secret name must be unique.",
+                      "type": "string"
+                    }
+                  },
+                  "x-kubernetes-map-type": "atomic"
                 }
               }
             },
@@ -169,7 +214,17 @@
     },
     "status": {
       "description": "ClientProfileStatus defines the observed state of Ceph CSI\nconfiguration for volumes and snapshots configured to use\nthis profile",
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "message": {
+          "description": "Message provides human-readable details about the current phase",
+          "type": "string"
+        },
+        "phase": {
+          "description": "Phase indicates the current state of this CR",
+          "type": "string"
+        }
+      }
     }
   }
 }

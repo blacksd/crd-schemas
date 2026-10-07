@@ -1,8 +1,8 @@
 {
-  "schema": "cephobjectstoreaccount.json",
+  "schema": "clientprofilereplication.json",
   "crd": {
-    "group": "ceph.rook.io",
-    "kind": "CephObjectStoreAccount",
+    "group": "csi.ceph.io",
+    "kind": "ClientProfileReplication",
     "apiVersion": "v1"
   },
   "source": {
@@ -19,6 +19,6 @@
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "c139fbc6709cff39e756c117dade0e7f1968ca29f013b8ed13f546230fe00902"
+    "sha256": "769c1c3690f193ce132211561b4f91d7adc095423a40401f6508d0ad1ae12a53"
   }
 }

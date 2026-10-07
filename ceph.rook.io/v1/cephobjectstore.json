@@ -18,7 +18,7 @@
       "type": "object"
     },
     "spec": {
-      "description": "ObjectStoreSpec represent the spec of a pool",
+      "description": "ObjectStoreSpec represents the spec of a CephObjectStore",
       "type": "object",
       "properties": {
         "allowUsersInNamespaces": {
@@ -223,7 +223,7 @@
                     "type": "object",
                     "properties": {
                       "interval": {
-                        "description": "Interval represent the periodicity of the snapshot.",
+                        "description": "Interval represents the periodicity of the snapshot.",
                         "type": "string"
                       },
                       "path": {
@@ -385,6 +385,10 @@
                             "type": "integer",
                             "format": "int32"
                           },
+                          "defaultUser": {
+                            "type": "integer",
+                            "format": "int64"
+                          },
                           "items": {
                             "type": "array",
                             "items": {
@@ -403,6 +407,10 @@
                                 },
                                 "path": {
                                   "type": "string"
+                                },
+                                "user": {
+                                  "type": "integer",
+                                  "format": "int64"
                                 }
                               }
                             },
@@ -423,6 +431,10 @@
                         "properties": {
                           "medium": {
                             "type": "string"
+                          },
+                          "mode": {
+                            "type": "integer",
+                            "format": "int32"
                           },
                           "sizeLimit": {
                             "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
@@ -472,6 +484,10 @@
                           "defaultMode": {
                             "type": "integer",
                             "format": "int32"
+                          },
+                          "defaultUser": {
+                            "type": "integer",
+                            "format": "int64"
                           },
                           "sources": {
                             "type": "array",
@@ -533,6 +549,10 @@
                                     },
                                     "signerName": {
                                       "type": "string"
+                                    },
+                                    "user": {
+                                      "type": "integer",
+                                      "format": "int64"
                                     }
                                   }
                                 },
@@ -557,6 +577,10 @@
                                           },
                                           "path": {
                                             "type": "string"
+                                          },
+                                          "user": {
+                                            "type": "integer",
+                                            "format": "int64"
                                           }
                                         }
                                       },
@@ -631,6 +655,10 @@
                                               }
                                             },
                                             "x-kubernetes-map-type": "atomic"
+                                          },
+                                          "user": {
+                                            "type": "integer",
+                                            "format": "int64"
                                           }
                                         }
                                       },
@@ -664,6 +692,10 @@
                                     "signerName": {
                                       "type": "string"
                                     },
+                                    "user": {
+                                      "type": "integer",
+                                      "format": "int64"
+                                    },
                                     "userAnnotations": {
                                       "type": "object",
                                       "additionalProperties": {
@@ -693,6 +725,10 @@
                                           },
                                           "path": {
                                             "type": "string"
+                                          },
+                                          "user": {
+                                            "type": "integer",
+                                            "format": "int64"
                                           }
                                         }
                                       },
@@ -723,6 +759,10 @@
                                     },
                                     "path": {
                                       "type": "string"
+                                    },
+                                    "user": {
+                                      "type": "integer",
+                                      "format": "int64"
                                     }
                                   }
                                 }
@@ -738,6 +778,10 @@
                           "defaultMode": {
                             "type": "integer",
                             "format": "int32"
+                          },
+                          "defaultUser": {
+                            "type": "integer",
+                            "format": "int64"
                           },
                           "items": {
                             "type": "array",
@@ -757,6 +801,10 @@
                                 },
                                 "path": {
                                   "type": "string"
+                                },
+                                "user": {
+                                  "type": "integer",
+                                  "format": "int64"
                                 }
                               }
                             },
@@ -1869,6 +1917,10 @@
                         "port"
                       ],
                       "properties": {
+                        "mode": {
+                          "description": "mode specifies the connection mode for the gRPC health probe.\nSet to \"TLS\" to use TLS without certificate verification.\nSet to \"Plaintext\" to use a plaintext (insecure) connection explicitly.\nIf not specified, the probe uses a plaintext (insecure) connection.",
+                          "type": "string"
+                        },
                         "port": {
                           "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
                           "type": "integer",
@@ -1930,6 +1982,10 @@
                             }
                           ],
                           "x-kubernetes-int-or-string": true
+                        },
+                        "protocol": {
+                          "description": "Protocol selects the wire protocol for the probe connection.\nNil defaults to HTTP/1.1.",
+                          "type": "string"
                         },
                         "scheme": {
                           "description": "Scheme to use for connecting to the host.\nDefaults to HTTP.",
@@ -2029,6 +2085,10 @@
                         "port"
                       ],
                       "properties": {
+                        "mode": {
+                          "description": "mode specifies the connection mode for the gRPC health probe.\nSet to \"TLS\" to use TLS without certificate verification.\nSet to \"Plaintext\" to use a plaintext (insecure) connection explicitly.\nIf not specified, the probe uses a plaintext (insecure) connection.",
+                          "type": "string"
+                        },
                         "port": {
                           "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
                           "type": "integer",
@@ -2090,6 +2150,10 @@
                             }
                           ],
                           "x-kubernetes-int-or-string": true
+                        },
+                        "protocol": {
+                          "description": "Protocol selects the wire protocol for the probe connection.\nNil defaults to HTTP/1.1.",
+                          "type": "string"
                         },
                         "scheme": {
                           "description": "Scheme to use for connecting to the host.\nDefaults to HTTP.",
@@ -2343,7 +2407,7 @@
                     "type": "object",
                     "properties": {
                       "interval": {
-                        "description": "Interval represent the periodicity of the snapshot.",
+                        "description": "Interval represents the periodicity of the snapshot.",
                         "type": "string"
                       },
                       "path": {
@@ -2834,7 +2898,7 @@
                 "type": "string"
               },
               "type": {
-                "description": "ConditionType represent a resource's status",
+                "description": "ConditionType represents a resource's status",
                 "type": "string"
               }
             }
@@ -2875,7 +2939,7 @@
           "format": "int64"
         },
         "phase": {
-          "description": "ConditionType represent a resource's status",
+          "description": "ConditionType represents a resource's status",
           "type": "string"
         },
         "replicas": {

@@ -165,7 +165,7 @@
                 "type": "object",
                 "properties": {
                   "interval": {
-                    "description": "Interval represent the periodicity of the snapshot.",
+                    "description": "Interval represents the periodicity of the snapshot.",
                     "type": "string"
                   },
                   "path": {
@@ -187,7 +187,8 @@
           "enum": [
             ".rgw.root",
             ".nfs",
-            ".mgr"
+            ".mgr",
+            ".nvmeof"
           ]
         },
         "parameters": {
@@ -356,7 +357,7 @@
                 "type": "string"
               },
               "type": {
-                "description": "ConditionType represent a resource's status",
+                "description": "ConditionType represents a resource's status",
                 "type": "string"
               }
             }
@@ -574,7 +575,7 @@
           "format": "int64"
         },
         "phase": {
-          "description": "ConditionType represent a resource's status",
+          "description": "ConditionType represents a resource's status",
           "type": "string"
         },
         "poolID": {
