@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://charts.external-secrets.io",
     "chart": "external-secrets",
-    "version": "2.10.0",
+    "version": "2.12.0",
     "license": "Apache-2.0",
     "homepage": "https://external-secrets.io"
   },
   "extraction": {
-    "timestamp": "2026-08-30T10:50:36Z",
+    "timestamp": "2026-10-08T20:16:10Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "72b4ee480f679a4ee9f6ca599f5dd43d63e6026d7dc558f5cc0a8e836cb440f2"
+    "sha256": "5f3795b19ee6ee1057ee5ccf700ca612d87b86fd299770ce1d1470f693b09cf3"
   }
 }
