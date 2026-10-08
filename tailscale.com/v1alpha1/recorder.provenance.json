@@ -10,15 +10,15 @@
     "type": "git+github",
     "repo": "https://github.com/tailscale/tailscale",
     "path": "cmd/k8s-operator/deploy/crds",
-    "version": "v1.96.3",
+    "version": "v1.104.1",
     "license": "BSD-3-Clause",
     "homepage": "https://tailscale.com/kb/1236/kubernetes-operator"
   },
   "extraction": {
-    "timestamp": "2026-03-22T09:09:12Z",
+    "timestamp": "2026-10-08T15:44:51Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "e91079749ec079bb0a62d6f7133cf7970bbb2dbff3b9ac9e6a2f7b6ae69d64c3"
+    "sha256": "d63f8944cd1b7b494c428b87261f696bad647d24a12d5a7a26b4660a8f85fe10"
   }
 }
