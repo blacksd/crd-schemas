@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:8d600a22-b4c7-45f4-84d9-f29e3690b900",
-  "version": 20,
+  "version": 21,
   "metadata": {
-    "timestamp": "2026-10-07T14:07:25Z",
+    "timestamp": "2026-10-09T06:29:41Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "kargo",
-      "version": "1.12.2",
+      "version": "1.12.3",
       "licenses": [
         {
           "license": {
