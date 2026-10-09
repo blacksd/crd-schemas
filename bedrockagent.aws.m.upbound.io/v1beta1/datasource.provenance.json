@@ -1,0 +1,24 @@
+{
+  "schema": "datasource.json",
+  "crd": {
+    "group": "bedrockagent.aws.m.upbound.io",
+    "kind": "DataSource",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.9.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-10-09T18:17:09Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c4df5bbe4949addf96c4e88eef9324a086852690642ea6827a188b1e047d8f5c"
+  }
+}

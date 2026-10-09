@@ -1,0 +1,24 @@
+{
+  "schema": "deliverydestinationpolicy.json",
+  "crd": {
+    "group": "cloudwatchlogs.aws.upbound.io",
+    "kind": "DeliveryDestinationPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.9.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-10-09T18:17:09Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8c06c607aac10b50e4eb89d7762b9b1bfd69a899b408374d6b6acffbbc1de1b7"
+  }
+}

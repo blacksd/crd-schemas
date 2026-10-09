@@ -1,0 +1,24 @@
+{
+  "schema": "guardrailversion.json",
+  "crd": {
+    "group": "bedrock.aws.upbound.io",
+    "kind": "GuardrailVersion",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.9.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-10-09T18:17:09Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "1c585a63e86d23a14dbe1512d9b4a8e9a618e51dd4b5ba90651ebd2c2fbba844"
+  }
+}

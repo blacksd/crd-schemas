@@ -1,0 +1,24 @@
+{
+  "schema": "foundationmodelagreement.json",
+  "crd": {
+    "group": "bedrock.aws.m.upbound.io",
+    "kind": "FoundationModelAgreement",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.9.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-10-09T18:17:09Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "b57df0a7d11b4ac9ed609470ded7a6050cb2cef1a6f6e2dd0af7dfcb7d1daf9c"
+  }
+}

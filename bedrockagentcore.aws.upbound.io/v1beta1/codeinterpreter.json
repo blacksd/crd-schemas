@@ -223,6 +223,346 @@
                 }
               }
             },
+            "filesystemConfiguration": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "efsConfiguration": {
+                    "type": "object",
+                    "properties": {
+                      "accessPointArn": {
+                        "type": "string"
+                      },
+                      "accessPointArnRef": {
+                        "description": "Reference to a AccessPoint in efs to populate accessPointArn.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "accessPointArnSelector": {
+                        "description": "Selector for a AccessPoint in efs to populate accessPointArn.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "fileSystemArn": {
+                        "type": "string"
+                      },
+                      "fileSystemArnRef": {
+                        "description": "Reference to a FileSystem in efs to populate fileSystemArn.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "fileSystemArnSelector": {
+                        "description": "Selector for a FileSystem in efs to populate fileSystemArn.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "mountPath": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "s3FilesConfiguration": {
+                    "type": "object",
+                    "properties": {
+                      "accessPointArn": {
+                        "type": "string"
+                      },
+                      "accessPointArnRef": {
+                        "description": "Reference to a AccessPoint in s3files to populate accessPointArn.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "accessPointArnSelector": {
+                        "description": "Selector for a AccessPoint in s3files to populate accessPointArn.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "fileSystemArn": {
+                        "type": "string"
+                      },
+                      "fileSystemArnRef": {
+                        "description": "Reference to a FileSystem in s3files to populate fileSystemArn.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "fileSystemArnSelector": {
+                        "description": "Selector for a FileSystem in s3files to populate fileSystemArn.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "mountPath": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "name": {
               "description": "Name of the code interpreter.",
               "type": "string"
@@ -247,6 +587,86 @@
                       },
                       "x-kubernetes-list-type": "set"
                     },
+                    "securityGroupsRefs": {
+                      "description": "References to SecurityGroup in ec2 to populate securityGroups.",
+                      "type": "array",
+                      "items": {
+                        "description": "A Reference to a named object.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "securityGroupsSelector": {
+                      "description": "Selector for a list of SecurityGroup in ec2 to populate securityGroups.",
+                      "type": "object",
+                      "properties": {
+                        "matchControllerRef": {
+                          "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                          "type": "boolean"
+                        },
+                        "matchLabels": {
+                          "description": "MatchLabels ensures an object with matching labels is selected.",
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        },
+                        "policy": {
+                          "description": "Policies for selection.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
                     "subnets": {
                       "description": "Subnets associated with the VPC configuration.",
                       "type": "array",
@@ -254,6 +674,86 @@
                         "type": "string"
                       },
                       "x-kubernetes-list-type": "set"
+                    },
+                    "subnetsRefs": {
+                      "description": "References to Subnet in ec2 to populate subnets.",
+                      "type": "array",
+                      "items": {
+                        "description": "A Reference to a named object.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "subnetsSelector": {
+                      "description": "Selector for a list of Subnet in ec2 to populate subnets.",
+                      "type": "object",
+                      "properties": {
+                        "matchControllerRef": {
+                          "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                          "type": "boolean"
+                        },
+                        "matchLabels": {
+                          "description": "MatchLabels ensures an object with matching labels is selected.",
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        },
+                        "policy": {
+                          "description": "Policies for selection.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -462,6 +962,346 @@
                 }
               }
             },
+            "filesystemConfiguration": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "efsConfiguration": {
+                    "type": "object",
+                    "properties": {
+                      "accessPointArn": {
+                        "type": "string"
+                      },
+                      "accessPointArnRef": {
+                        "description": "Reference to a AccessPoint in efs to populate accessPointArn.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "accessPointArnSelector": {
+                        "description": "Selector for a AccessPoint in efs to populate accessPointArn.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "fileSystemArn": {
+                        "type": "string"
+                      },
+                      "fileSystemArnRef": {
+                        "description": "Reference to a FileSystem in efs to populate fileSystemArn.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "fileSystemArnSelector": {
+                        "description": "Selector for a FileSystem in efs to populate fileSystemArn.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "mountPath": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "s3FilesConfiguration": {
+                    "type": "object",
+                    "properties": {
+                      "accessPointArn": {
+                        "type": "string"
+                      },
+                      "accessPointArnRef": {
+                        "description": "Reference to a AccessPoint in s3files to populate accessPointArn.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "accessPointArnSelector": {
+                        "description": "Selector for a AccessPoint in s3files to populate accessPointArn.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "fileSystemArn": {
+                        "type": "string"
+                      },
+                      "fileSystemArnRef": {
+                        "description": "Reference to a FileSystem in s3files to populate fileSystemArn.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "fileSystemArnSelector": {
+                        "description": "Selector for a FileSystem in s3files to populate fileSystemArn.",
+                        "type": "object",
+                        "properties": {
+                          "matchControllerRef": {
+                            "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                            "type": "boolean"
+                          },
+                          "matchLabels": {
+                            "description": "MatchLabels ensures an object with matching labels is selected.",
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                          },
+                          "policy": {
+                            "description": "Policies for selection.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "mountPath": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "name": {
               "description": "Name of the code interpreter.",
               "type": "string"
@@ -486,6 +1326,86 @@
                       },
                       "x-kubernetes-list-type": "set"
                     },
+                    "securityGroupsRefs": {
+                      "description": "References to SecurityGroup in ec2 to populate securityGroups.",
+                      "type": "array",
+                      "items": {
+                        "description": "A Reference to a named object.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "securityGroupsSelector": {
+                      "description": "Selector for a list of SecurityGroup in ec2 to populate securityGroups.",
+                      "type": "object",
+                      "properties": {
+                        "matchControllerRef": {
+                          "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                          "type": "boolean"
+                        },
+                        "matchLabels": {
+                          "description": "MatchLabels ensures an object with matching labels is selected.",
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        },
+                        "policy": {
+                          "description": "Policies for selection.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
                     "subnets": {
                       "description": "Subnets associated with the VPC configuration.",
                       "type": "array",
@@ -493,6 +1413,86 @@
                         "type": "string"
                       },
                       "x-kubernetes-list-type": "set"
+                    },
+                    "subnetsRefs": {
+                      "description": "References to Subnet in ec2 to populate subnets.",
+                      "type": "array",
+                      "items": {
+                        "description": "A Reference to a named object.",
+                        "type": "object",
+                        "required": [
+                          "name"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the referenced object.",
+                            "type": "string"
+                          },
+                          "policy": {
+                            "description": "Policies for referencing.",
+                            "type": "object",
+                            "properties": {
+                              "resolution": {
+                                "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                                "type": "string",
+                                "default": "Required",
+                                "enum": [
+                                  "Required",
+                                  "Optional"
+                                ]
+                              },
+                              "resolve": {
+                                "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                                "type": "string",
+                                "enum": [
+                                  "Always",
+                                  "IfNotPresent"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "subnetsSelector": {
+                      "description": "Selector for a list of Subnet in ec2 to populate subnets.",
+                      "type": "object",
+                      "properties": {
+                        "matchControllerRef": {
+                          "description": "MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected.",
+                          "type": "boolean"
+                        },
+                        "matchLabels": {
+                          "description": "MatchLabels ensures an object with matching labels is selected.",
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        },
+                        "policy": {
+                          "description": "Policies for selection.",
+                          "type": "object",
+                          "properties": {
+                            "resolution": {
+                              "description": "Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved.",
+                              "type": "string",
+                              "default": "Required",
+                              "enum": [
+                                "Required",
+                                "Optional"
+                              ]
+                            },
+                            "resolve": {
+                              "description": "Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile.",
+                              "type": "string",
+                              "enum": [
+                                "Always",
+                                "IfNotPresent"
+                              ]
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -639,6 +1639,42 @@
             "executionRoleArn": {
               "description": "ARN of the IAM role that the code interpreter assumes for execution. Required when using SANDBOX network mode.",
               "type": "string"
+            },
+            "filesystemConfiguration": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "efsConfiguration": {
+                    "type": "object",
+                    "properties": {
+                      "accessPointArn": {
+                        "type": "string"
+                      },
+                      "fileSystemArn": {
+                        "type": "string"
+                      },
+                      "mountPath": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "s3FilesConfiguration": {
+                    "type": "object",
+                    "properties": {
+                      "accessPointArn": {
+                        "type": "string"
+                      },
+                      "fileSystemArn": {
+                        "type": "string"
+                      },
+                      "mountPath": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
             },
             "id": {
               "type": "string"
