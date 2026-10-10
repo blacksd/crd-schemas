@@ -419,7 +419,7 @@
               "type": "string"
             },
             "osType": {
-              "description": "A string indicating the Operating System type for this function app. Possible values are linux and “(empty string). Changing this forces a new resource to be created. Defaults to \"\".",
+              "description": "A string indicating the Operating System type for this function app. Possible values are linux and ``(empty string). Changing this forces a new resource to be created. Defaults to \"\".",
               "type": "string"
             },
             "resourceGroupName": {
@@ -1476,7 +1476,7 @@
               "type": "string"
             },
             "osType": {
-              "description": "A string indicating the Operating System type for this function app. Possible values are linux and “(empty string). Changing this forces a new resource to be created. Defaults to \"\".",
+              "description": "A string indicating the Operating System type for this function app. Possible values are linux and ``(empty string). Changing this forces a new resource to be created. Defaults to \"\".",
               "type": "string"
             },
             "resourceGroupName": {
@@ -2426,7 +2426,7 @@
               "type": "string"
             },
             "osType": {
-              "description": "A string indicating the Operating System type for this function app. Possible values are linux and “(empty string). Changing this forces a new resource to be created. Defaults to \"\".",
+              "description": "A string indicating the Operating System type for this function app. Possible values are linux and ``(empty string). Changing this forces a new resource to be created. Defaults to \"\".",
               "type": "string"
             },
             "outboundIpAddresses": {

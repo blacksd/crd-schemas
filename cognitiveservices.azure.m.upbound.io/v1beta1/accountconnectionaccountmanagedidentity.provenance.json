@@ -1,0 +1,24 @@
+{
+  "schema": "accountconnectionaccountmanagedidentity.json",
+  "crd": {
+    "group": "cognitiveservices.azure.m.upbound.io",
+    "kind": "AccountConnectionAccountManagedIdentity",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.8.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-10-10T18:07:58Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "10f3027479853097b0230b85ad358d3fd7499d4bdc650c202ad270dada043f67"
+  }
+}

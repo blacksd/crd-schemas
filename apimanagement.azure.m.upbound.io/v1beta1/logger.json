@@ -135,6 +135,10 @@
                     }
                   }
                 },
+                "identityClientId": {
+                  "description": "The Client Id of the User Assigned Identity, or SystemAssigned to use the System Assigned Identity, that has the \"Monitoring Metrics Publisher\" role on the target Application Insights resource. Requires connection_string to be set. Cannot be used with instrumentation_key.",
+                  "type": "string"
+                },
                 "instrumentationKeySecretRef": {
                   "description": "The instrumentation key used to push data to Application Insights.",
                   "type": "object",
@@ -400,6 +404,10 @@
                     }
                   }
                 },
+                "identityClientId": {
+                  "description": "The Client Id of the User Assigned Identity, or SystemAssigned to use the System Assigned Identity, that has the \"Monitoring Metrics Publisher\" role on the target Application Insights resource. Requires connection_string to be set. Cannot be used with instrumentation_key.",
+                  "type": "string"
+                },
                 "instrumentationKeySecretRef": {
                   "description": "The instrumentation key used to push data to Application Insights.",
                   "type": "object",
@@ -623,39 +631,9 @@
               "description": "An application_insights block as documented below. Changing this forces a new resource to be created.",
               "type": "object",
               "properties": {
-                "connectionStringSecretRef": {
-                  "description": "The connection string of Application Insights.",
-                  "type": "object",
-                  "required": [
-                    "key",
-                    "name"
-                  ],
-                  "properties": {
-                    "key": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Name of the secret.",
-                      "type": "string"
-                    }
-                  }
-                },
-                "instrumentationKeySecretRef": {
-                  "description": "The instrumentation key used to push data to Application Insights.",
-                  "type": "object",
-                  "required": [
-                    "key",
-                    "name"
-                  ],
-                  "properties": {
-                    "key": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "Name of the secret.",
-                      "type": "string"
-                    }
-                  }
+                "identityClientId": {
+                  "description": "The Client Id of the User Assigned Identity, or SystemAssigned to use the System Assigned Identity, that has the \"Monitoring Metrics Publisher\" role on the target Application Insights resource. Requires connection_string to be set. Cannot be used with instrumentation_key.",
+                  "type": "string"
                 }
               }
             },

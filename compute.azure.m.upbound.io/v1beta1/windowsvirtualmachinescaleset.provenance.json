@@ -10,15 +10,15 @@
     "type": "git+github",
     "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
     "path": "package/crds",
-    "version": "v2.7.0",
+    "version": "v2.8.0",
     "license": "Apache-2.0",
     "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
   },
   "extraction": {
-    "timestamp": "2026-08-05T13:16:46Z",
+    "timestamp": "2026-10-10T18:07:58Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "7d24a381171d26ab3aa03bb12fcc2ef801472b1abf858add4d547618968939cc"
+    "sha256": "d9467afaf22cffdbe4190569030b8894a545f195423f183de8d72a51d919fe79"
   }
 }

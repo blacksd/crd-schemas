@@ -1,0 +1,24 @@
+{
+  "schema": "accountconnectionentraid.json",
+  "crd": {
+    "group": "cognitiveservices.azure.m.upbound.io",
+    "kind": "AccountConnectionEntraID",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.8.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-10-10T18:07:58Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "6b20af14dfb024e8d92c97c5fea3d4ed20e20b1ca4a7c6658e3fe4bc0fb88025"
+  }
+}

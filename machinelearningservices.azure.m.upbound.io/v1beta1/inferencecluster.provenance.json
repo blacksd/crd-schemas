@@ -1,0 +1,24 @@
+{
+  "schema": "inferencecluster.json",
+  "crd": {
+    "group": "machinelearningservices.azure.m.upbound.io",
+    "kind": "InferenceCluster",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-azure",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-azure",
+    "path": "package/crds",
+    "version": "v2.8.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-azure"
+  },
+  "extraction": {
+    "timestamp": "2026-10-10T18:07:58Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "07594d73cf5ca478fbcb0b325c549d1393646b0e2598d7ff0d35bb585983fab4"
+  }
+}
