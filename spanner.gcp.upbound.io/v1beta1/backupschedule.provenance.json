@@ -1,0 +1,24 @@
+{
+  "schema": "backupschedule.json",
+  "crd": {
+    "group": "spanner.gcp.upbound.io",
+    "kind": "BackupSchedule",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v3.1.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-10-11T08:36:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "bde4797c8dcf6ae95b1b62acc650f879099fd65a93e24024aa2eaa3e8ca4d582"
+  }
+}

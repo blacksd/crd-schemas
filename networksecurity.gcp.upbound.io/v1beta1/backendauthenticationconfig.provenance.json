@@ -1,0 +1,24 @@
+{
+  "schema": "backendauthenticationconfig.json",
+  "crd": {
+    "group": "networksecurity.gcp.upbound.io",
+    "kind": "BackendAuthenticationConfig",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v3.1.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-10-11T08:36:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "470d8cf28fbf64eb9adb5ad30fb8307fa9f76a4ad096b8befcf96912f7011654"
+  }
+}

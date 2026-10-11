@@ -746,6 +746,9 @@
                 "availabilityDomain": {
                   "type": "number"
                 },
+                "hostErrorTimeoutSeconds": {
+                  "type": "number"
+                },
                 "instanceTerminationAction": {
                   "type": "string"
                 },
@@ -958,6 +961,17 @@
                 "type": "string"
               },
               "x-kubernetes-list-type": "set"
+            },
+            "workloadIdentityConfig": {
+              "type": "object",
+              "properties": {
+                "identity": {
+                  "type": "string"
+                },
+                "identityCertificateEnabled": {
+                  "type": "boolean"
+                }
+              }
             },
             "zone": {
               "description": "The zone that the machine should be created in. If not\nset, the provider zone is used.",
@@ -1689,6 +1703,9 @@
                 "availabilityDomain": {
                   "type": "number"
                 },
+                "hostErrorTimeoutSeconds": {
+                  "type": "number"
+                },
                 "instanceTerminationAction": {
                   "type": "string"
                 },
@@ -1901,6 +1918,17 @@
                 "type": "string"
               },
               "x-kubernetes-list-type": "set"
+            },
+            "workloadIdentityConfig": {
+              "type": "object",
+              "properties": {
+                "identity": {
+                  "type": "string"
+                },
+                "identityCertificateEnabled": {
+                  "type": "boolean"
+                }
+              }
             },
             "zone": {
               "description": "The zone that the machine should be created in. If not\nset, the provider zone is used.",
@@ -2450,6 +2478,9 @@
                 "availabilityDomain": {
                   "type": "number"
                 },
+                "hostErrorTimeoutSeconds": {
+                  "type": "number"
+                },
                 "instanceTerminationAction": {
                   "type": "string"
                 },
@@ -2591,6 +2622,17 @@
                 "type": "string"
               },
               "x-kubernetes-map-type": "granular"
+            },
+            "workloadIdentityConfig": {
+              "type": "object",
+              "properties": {
+                "identity": {
+                  "type": "string"
+                },
+                "identityCertificateEnabled": {
+                  "type": "boolean"
+                }
+              }
             },
             "zone": {
               "description": "The zone that the machine should be created in. If not\nset, the provider zone is used.",

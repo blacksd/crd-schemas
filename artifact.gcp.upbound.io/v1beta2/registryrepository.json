@@ -326,6 +326,10 @@
                     }
                   }
                 },
+                "noCache": {
+                  "description": "The repository will act as a non-caching proxy (connector mode).",
+                  "type": "object"
+                },
                 "npmRepository": {
                   "description": "Specific settings for an Npm remote repository.\nStructure is documented below.",
                   "type": "object",
@@ -889,6 +893,10 @@
                       "type": "string"
                     }
                   }
+                },
+                "noCache": {
+                  "description": "The repository will act as a non-caching proxy (connector mode).",
+                  "type": "object"
                 },
                 "npmRepository": {
                   "description": "Specific settings for an Npm remote repository.\nStructure is documented below.",
@@ -1496,6 +1504,10 @@
                       "type": "string"
                     }
                   }
+                },
+                "noCache": {
+                  "description": "The repository will act as a non-caching proxy (connector mode).",
+                  "type": "object"
                 },
                 "npmRepository": {
                   "description": "Specific settings for an Npm remote repository.\nStructure is documented below.",

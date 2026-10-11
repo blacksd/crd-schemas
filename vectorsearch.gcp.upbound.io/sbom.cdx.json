@@ -1,0 +1,49 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:90b4f619-ab46-4c19-8f0e-2f1d05c0d161",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-11T08:36:12Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "crd-schemas",
+          "version": "crd-schema-extractor v0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "provider-upjet-gcp",
+      "version": "v3.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "url": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp",
+          "type": "website"
+        }
+      ],
+      "properties": [
+        {
+          "name": "crd-schemas:source:type",
+          "value": "git+github"
+        },
+        {
+          "name": "crd-schemas:source:repo",
+          "value": "https://github.com/crossplane-contrib/provider-upjet-gcp"
+        }
+      ]
+    }
+  ]
+}

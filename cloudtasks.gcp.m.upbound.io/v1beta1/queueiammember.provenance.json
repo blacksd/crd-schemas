@@ -1,0 +1,24 @@
+{
+  "schema": "queueiammember.json",
+  "crd": {
+    "group": "cloudtasks.gcp.m.upbound.io",
+    "kind": "QueueIAMMember",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v3.1.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-10-11T08:36:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a6350711304b6087400fe3b1631777cdcc05c98b5f03429692365b0586061558"
+  }
+}

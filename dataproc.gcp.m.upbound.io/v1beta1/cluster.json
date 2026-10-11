@@ -74,7 +74,7 @@
                                   }
                                 },
                                 "diskConfig": {
-                                  "description": "Disk Config",
+                                  "description": "Disk configuration to apply to the instances in this instance selection.",
                                   "type": "object",
                                   "properties": {
                                     "bootDiskProvisionedIops": {
@@ -199,8 +199,12 @@
                       "description": "Confidential Instance Config for clusters using Confidential VMs",
                       "type": "object",
                       "properties": {
+                        "confidentialInstanceType": {
+                          "description": "Defines the confidential compute type of the instance. Valid values are \"CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED\", \"SEV\", \"SEV_SNP\", \"TDX\".",
+                          "type": "string"
+                        },
                         "enableConfidentialCompute": {
-                          "description": "Defines whether the instance should have confidential compute enabled.",
+                          "description": "Defines whether the instance should have confidential compute enabled. enable_confidential_compute is deprecated and will be removed in a future major release. Use confidential_instance_type instead.",
                           "type": "boolean"
                         }
                       }
@@ -457,6 +461,31 @@
                       "description": "Disk Config",
                       "type": "object",
                       "properties": {
+                        "attachedDiskConfig": {
+                          "description": "Attached disk configuration.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "diskSizeGb": {
+                                "description": "Size of the attached disk, specified in GB.",
+                                "type": "number"
+                              },
+                              "diskType": {
+                                "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                "type": "string"
+                              },
+                              "provisionedIops": {
+                                "description": "Indicates how many IOPS to provision for the disk.",
+                                "type": "number"
+                              },
+                              "provisionedThroughput": {
+                                "description": "Indicates how much throughput to provision for the disk.",
+                                "type": "number"
+                              }
+                            }
+                          }
+                        },
                         "bootDiskProvisionedIops": {
                           "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
                           "type": "number"
@@ -497,6 +526,61 @@
                           "items": {
                             "type": "object",
                             "properties": {
+                              "diskConfig": {
+                                "description": "Disk configuration to apply to the instances in this instance selection.",
+                                "type": "object",
+                                "properties": {
+                                  "attachedDiskConfig": {
+                                    "description": "Attached disk configuration.",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "diskSizeGb": {
+                                          "description": "Size of the attached disk, specified in GB.",
+                                          "type": "number"
+                                        },
+                                        "diskType": {
+                                          "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                          "type": "string"
+                                        },
+                                        "provisionedIops": {
+                                          "description": "Indicates how many IOPS to provision for the disk.",
+                                          "type": "number"
+                                        },
+                                        "provisionedThroughput": {
+                                          "description": "Indicates how much throughput to provision for the disk.",
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "bootDiskProvisionedIops": {
+                                    "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskProvisionedThroughput": {
+                                    "description": "Indicates how much throughput to provision for the disk. This sets the number of throughput mb per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskSizeGb": {
+                                    "description": "Size of the primary disk attached to each node, specified\nin GB. The primary disk contains the boot volume and system libraries, and the\nsmallest allowed disk size is 10GB. GCP will default to a predetermined\ncomputed value if not set (currently 500GB). Note: If SSDs are not\nattached, it also contains the HDFS data blocks and Hadoop working directories.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskType": {
+                                    "description": "The disk type of the primary disk attached to each node.\nOne of \"pd-ssd\" or \"pd-standard\". Defaults to \"pd-standard\".",
+                                    "type": "string"
+                                  },
+                                  "localSsdInterface": {
+                                    "description": "Optional. Interface type of local SSDs (default is \"scsi\").\nValid values: \"scsi\" (Small Computer System Interface), \"nvme\" (Non-Volatile\nMemory Express). See\nlocal SSD performance.",
+                                    "type": "string"
+                                  },
+                                  "numLocalSsds": {
+                                    "description": "The amount of local SSD disks that will be\nattached to each master cluster node. Defaults to 0.",
+                                    "type": "number"
+                                  }
+                                }
+                              },
                               "machineTypes": {
                                 "description": "Full machine-type names, e.g. \"n1-standard-16\".",
                                 "type": "array",
@@ -545,6 +629,31 @@
                       "description": "Disk Config",
                       "type": "object",
                       "properties": {
+                        "attachedDiskConfig": {
+                          "description": "Attached disk configuration.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "diskSizeGb": {
+                                "description": "Size of the attached disk, specified in GB.",
+                                "type": "number"
+                              },
+                              "diskType": {
+                                "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                "type": "string"
+                              },
+                              "provisionedIops": {
+                                "description": "Indicates how many IOPS to provision for the disk.",
+                                "type": "number"
+                              },
+                              "provisionedThroughput": {
+                                "description": "Indicates how much throughput to provision for the disk.",
+                                "type": "number"
+                              }
+                            }
+                          }
+                        },
                         "bootDiskProvisionedIops": {
                           "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
                           "type": "number"
@@ -581,6 +690,61 @@
                           "items": {
                             "type": "object",
                             "properties": {
+                              "diskConfig": {
+                                "description": "Disk configuration to apply to the instances in this instance selection.",
+                                "type": "object",
+                                "properties": {
+                                  "attachedDiskConfig": {
+                                    "description": "Attached disk configuration.",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "diskSizeGb": {
+                                          "description": "Size of the attached disk, specified in GB.",
+                                          "type": "number"
+                                        },
+                                        "diskType": {
+                                          "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                          "type": "string"
+                                        },
+                                        "provisionedIops": {
+                                          "description": "Indicates how many IOPS to provision for the disk.",
+                                          "type": "number"
+                                        },
+                                        "provisionedThroughput": {
+                                          "description": "Indicates how much throughput to provision for the disk.",
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "bootDiskProvisionedIops": {
+                                    "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskProvisionedThroughput": {
+                                    "description": "Indicates how much throughput to provision for the disk. This sets the number of throughput mb per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskSizeGb": {
+                                    "description": "Size of the primary disk attached to each node, specified\nin GB. The primary disk contains the boot volume and system libraries, and the\nsmallest allowed disk size is 10GB. GCP will default to a predetermined\ncomputed value if not set (currently 500GB). Note: If SSDs are not\nattached, it also contains the HDFS data blocks and Hadoop working directories.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskType": {
+                                    "description": "The disk type of the primary disk attached to each node.\nOne of \"pd-ssd\" or \"pd-standard\". Defaults to \"pd-standard\".",
+                                    "type": "string"
+                                  },
+                                  "localSsdInterface": {
+                                    "description": "Optional. Interface type of local SSDs (default is \"scsi\").\nValid values: \"scsi\" (Small Computer System Interface), \"nvme\" (Non-Volatile\nMemory Express). See\nlocal SSD performance.",
+                                    "type": "string"
+                                  },
+                                  "numLocalSsds": {
+                                    "description": "The amount of local SSD disks that will be\nattached to each master cluster node. Defaults to 0.",
+                                    "type": "number"
+                                  }
+                                }
+                              },
                               "machineTypes": {
                                 "description": "Full machine-type names, e.g. \"n1-standard-16\".",
                                 "type": "array",
@@ -766,6 +930,31 @@
                       "description": "Disk Config",
                       "type": "object",
                       "properties": {
+                        "attachedDiskConfig": {
+                          "description": "Attached disk configuration.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "diskSizeGb": {
+                                "description": "Size of the attached disk, specified in GB.",
+                                "type": "number"
+                              },
+                              "diskType": {
+                                "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                "type": "string"
+                              },
+                              "provisionedIops": {
+                                "description": "Indicates how many IOPS to provision for the disk.",
+                                "type": "number"
+                              },
+                              "provisionedThroughput": {
+                                "description": "Indicates how much throughput to provision for the disk.",
+                                "type": "number"
+                              }
+                            }
+                          }
+                        },
                         "bootDiskProvisionedIops": {
                           "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
                           "type": "number"
@@ -806,6 +995,61 @@
                           "items": {
                             "type": "object",
                             "properties": {
+                              "diskConfig": {
+                                "description": "Disk configuration to apply to the instances in this instance selection.",
+                                "type": "object",
+                                "properties": {
+                                  "attachedDiskConfig": {
+                                    "description": "Attached disk configuration.",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "diskSizeGb": {
+                                          "description": "Size of the attached disk, specified in GB.",
+                                          "type": "number"
+                                        },
+                                        "diskType": {
+                                          "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                          "type": "string"
+                                        },
+                                        "provisionedIops": {
+                                          "description": "Indicates how many IOPS to provision for the disk.",
+                                          "type": "number"
+                                        },
+                                        "provisionedThroughput": {
+                                          "description": "Indicates how much throughput to provision for the disk.",
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "bootDiskProvisionedIops": {
+                                    "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskProvisionedThroughput": {
+                                    "description": "Indicates how much throughput to provision for the disk. This sets the number of throughput mb per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskSizeGb": {
+                                    "description": "Size of the primary disk attached to each node, specified\nin GB. The primary disk contains the boot volume and system libraries, and the\nsmallest allowed disk size is 10GB. GCP will default to a predetermined\ncomputed value if not set (currently 500GB). Note: If SSDs are not\nattached, it also contains the HDFS data blocks and Hadoop working directories.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskType": {
+                                    "description": "The disk type of the primary disk attached to each node.\nOne of \"pd-ssd\" or \"pd-standard\". Defaults to \"pd-standard\".",
+                                    "type": "string"
+                                  },
+                                  "localSsdInterface": {
+                                    "description": "Optional. Interface type of local SSDs (default is \"scsi\").\nValid values: \"scsi\" (Small Computer System Interface), \"nvme\" (Non-Volatile\nMemory Express). See\nlocal SSD performance.",
+                                    "type": "string"
+                                  },
+                                  "numLocalSsds": {
+                                    "description": "The amount of local SSD disks that will be\nattached to each master cluster node. Defaults to 0.",
+                                    "type": "number"
+                                  }
+                                }
+                              },
                               "machineTypes": {
                                 "description": "Full machine-type names, e.g. \"n1-standard-16\".",
                                 "type": "array",
@@ -1073,7 +1317,7 @@
                                   }
                                 },
                                 "diskConfig": {
-                                  "description": "Disk Config",
+                                  "description": "Disk configuration to apply to the instances in this instance selection.",
                                   "type": "object",
                                   "properties": {
                                     "bootDiskProvisionedIops": {
@@ -1198,8 +1442,12 @@
                       "description": "Confidential Instance Config for clusters using Confidential VMs",
                       "type": "object",
                       "properties": {
+                        "confidentialInstanceType": {
+                          "description": "Defines the confidential compute type of the instance. Valid values are \"CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED\", \"SEV\", \"SEV_SNP\", \"TDX\".",
+                          "type": "string"
+                        },
                         "enableConfidentialCompute": {
-                          "description": "Defines whether the instance should have confidential compute enabled.",
+                          "description": "Defines whether the instance should have confidential compute enabled. enable_confidential_compute is deprecated and will be removed in a future major release. Use confidential_instance_type instead.",
                           "type": "boolean"
                         }
                       }
@@ -1456,6 +1704,31 @@
                       "description": "Disk Config",
                       "type": "object",
                       "properties": {
+                        "attachedDiskConfig": {
+                          "description": "Attached disk configuration.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "diskSizeGb": {
+                                "description": "Size of the attached disk, specified in GB.",
+                                "type": "number"
+                              },
+                              "diskType": {
+                                "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                "type": "string"
+                              },
+                              "provisionedIops": {
+                                "description": "Indicates how many IOPS to provision for the disk.",
+                                "type": "number"
+                              },
+                              "provisionedThroughput": {
+                                "description": "Indicates how much throughput to provision for the disk.",
+                                "type": "number"
+                              }
+                            }
+                          }
+                        },
                         "bootDiskProvisionedIops": {
                           "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
                           "type": "number"
@@ -1496,6 +1769,61 @@
                           "items": {
                             "type": "object",
                             "properties": {
+                              "diskConfig": {
+                                "description": "Disk configuration to apply to the instances in this instance selection.",
+                                "type": "object",
+                                "properties": {
+                                  "attachedDiskConfig": {
+                                    "description": "Attached disk configuration.",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "diskSizeGb": {
+                                          "description": "Size of the attached disk, specified in GB.",
+                                          "type": "number"
+                                        },
+                                        "diskType": {
+                                          "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                          "type": "string"
+                                        },
+                                        "provisionedIops": {
+                                          "description": "Indicates how many IOPS to provision for the disk.",
+                                          "type": "number"
+                                        },
+                                        "provisionedThroughput": {
+                                          "description": "Indicates how much throughput to provision for the disk.",
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "bootDiskProvisionedIops": {
+                                    "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskProvisionedThroughput": {
+                                    "description": "Indicates how much throughput to provision for the disk. This sets the number of throughput mb per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskSizeGb": {
+                                    "description": "Size of the primary disk attached to each node, specified\nin GB. The primary disk contains the boot volume and system libraries, and the\nsmallest allowed disk size is 10GB. GCP will default to a predetermined\ncomputed value if not set (currently 500GB). Note: If SSDs are not\nattached, it also contains the HDFS data blocks and Hadoop working directories.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskType": {
+                                    "description": "The disk type of the primary disk attached to each node.\nOne of \"pd-ssd\" or \"pd-standard\". Defaults to \"pd-standard\".",
+                                    "type": "string"
+                                  },
+                                  "localSsdInterface": {
+                                    "description": "Optional. Interface type of local SSDs (default is \"scsi\").\nValid values: \"scsi\" (Small Computer System Interface), \"nvme\" (Non-Volatile\nMemory Express). See\nlocal SSD performance.",
+                                    "type": "string"
+                                  },
+                                  "numLocalSsds": {
+                                    "description": "The amount of local SSD disks that will be\nattached to each master cluster node. Defaults to 0.",
+                                    "type": "number"
+                                  }
+                                }
+                              },
                               "machineTypes": {
                                 "description": "Full machine-type names, e.g. \"n1-standard-16\".",
                                 "type": "array",
@@ -1544,6 +1872,31 @@
                       "description": "Disk Config",
                       "type": "object",
                       "properties": {
+                        "attachedDiskConfig": {
+                          "description": "Attached disk configuration.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "diskSizeGb": {
+                                "description": "Size of the attached disk, specified in GB.",
+                                "type": "number"
+                              },
+                              "diskType": {
+                                "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                "type": "string"
+                              },
+                              "provisionedIops": {
+                                "description": "Indicates how many IOPS to provision for the disk.",
+                                "type": "number"
+                              },
+                              "provisionedThroughput": {
+                                "description": "Indicates how much throughput to provision for the disk.",
+                                "type": "number"
+                              }
+                            }
+                          }
+                        },
                         "bootDiskProvisionedIops": {
                           "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
                           "type": "number"
@@ -1580,6 +1933,61 @@
                           "items": {
                             "type": "object",
                             "properties": {
+                              "diskConfig": {
+                                "description": "Disk configuration to apply to the instances in this instance selection.",
+                                "type": "object",
+                                "properties": {
+                                  "attachedDiskConfig": {
+                                    "description": "Attached disk configuration.",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "diskSizeGb": {
+                                          "description": "Size of the attached disk, specified in GB.",
+                                          "type": "number"
+                                        },
+                                        "diskType": {
+                                          "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                          "type": "string"
+                                        },
+                                        "provisionedIops": {
+                                          "description": "Indicates how many IOPS to provision for the disk.",
+                                          "type": "number"
+                                        },
+                                        "provisionedThroughput": {
+                                          "description": "Indicates how much throughput to provision for the disk.",
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "bootDiskProvisionedIops": {
+                                    "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskProvisionedThroughput": {
+                                    "description": "Indicates how much throughput to provision for the disk. This sets the number of throughput mb per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskSizeGb": {
+                                    "description": "Size of the primary disk attached to each node, specified\nin GB. The primary disk contains the boot volume and system libraries, and the\nsmallest allowed disk size is 10GB. GCP will default to a predetermined\ncomputed value if not set (currently 500GB). Note: If SSDs are not\nattached, it also contains the HDFS data blocks and Hadoop working directories.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskType": {
+                                    "description": "The disk type of the primary disk attached to each node.\nOne of \"pd-ssd\" or \"pd-standard\". Defaults to \"pd-standard\".",
+                                    "type": "string"
+                                  },
+                                  "localSsdInterface": {
+                                    "description": "Optional. Interface type of local SSDs (default is \"scsi\").\nValid values: \"scsi\" (Small Computer System Interface), \"nvme\" (Non-Volatile\nMemory Express). See\nlocal SSD performance.",
+                                    "type": "string"
+                                  },
+                                  "numLocalSsds": {
+                                    "description": "The amount of local SSD disks that will be\nattached to each master cluster node. Defaults to 0.",
+                                    "type": "number"
+                                  }
+                                }
+                              },
                               "machineTypes": {
                                 "description": "Full machine-type names, e.g. \"n1-standard-16\".",
                                 "type": "array",
@@ -1765,6 +2173,31 @@
                       "description": "Disk Config",
                       "type": "object",
                       "properties": {
+                        "attachedDiskConfig": {
+                          "description": "Attached disk configuration.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "diskSizeGb": {
+                                "description": "Size of the attached disk, specified in GB.",
+                                "type": "number"
+                              },
+                              "diskType": {
+                                "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                "type": "string"
+                              },
+                              "provisionedIops": {
+                                "description": "Indicates how many IOPS to provision for the disk.",
+                                "type": "number"
+                              },
+                              "provisionedThroughput": {
+                                "description": "Indicates how much throughput to provision for the disk.",
+                                "type": "number"
+                              }
+                            }
+                          }
+                        },
                         "bootDiskProvisionedIops": {
                           "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
                           "type": "number"
@@ -1805,6 +2238,61 @@
                           "items": {
                             "type": "object",
                             "properties": {
+                              "diskConfig": {
+                                "description": "Disk configuration to apply to the instances in this instance selection.",
+                                "type": "object",
+                                "properties": {
+                                  "attachedDiskConfig": {
+                                    "description": "Attached disk configuration.",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "diskSizeGb": {
+                                          "description": "Size of the attached disk, specified in GB.",
+                                          "type": "number"
+                                        },
+                                        "diskType": {
+                                          "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                          "type": "string"
+                                        },
+                                        "provisionedIops": {
+                                          "description": "Indicates how many IOPS to provision for the disk.",
+                                          "type": "number"
+                                        },
+                                        "provisionedThroughput": {
+                                          "description": "Indicates how much throughput to provision for the disk.",
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "bootDiskProvisionedIops": {
+                                    "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskProvisionedThroughput": {
+                                    "description": "Indicates how much throughput to provision for the disk. This sets the number of throughput mb per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskSizeGb": {
+                                    "description": "Size of the primary disk attached to each node, specified\nin GB. The primary disk contains the boot volume and system libraries, and the\nsmallest allowed disk size is 10GB. GCP will default to a predetermined\ncomputed value if not set (currently 500GB). Note: If SSDs are not\nattached, it also contains the HDFS data blocks and Hadoop working directories.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskType": {
+                                    "description": "The disk type of the primary disk attached to each node.\nOne of \"pd-ssd\" or \"pd-standard\". Defaults to \"pd-standard\".",
+                                    "type": "string"
+                                  },
+                                  "localSsdInterface": {
+                                    "description": "Optional. Interface type of local SSDs (default is \"scsi\").\nValid values: \"scsi\" (Small Computer System Interface), \"nvme\" (Non-Volatile\nMemory Express). See\nlocal SSD performance.",
+                                    "type": "string"
+                                  },
+                                  "numLocalSsds": {
+                                    "description": "The amount of local SSD disks that will be\nattached to each master cluster node. Defaults to 0.",
+                                    "type": "number"
+                                  }
+                                }
+                              },
                               "machineTypes": {
                                 "description": "Full machine-type names, e.g. \"n1-standard-16\".",
                                 "type": "array",
@@ -2141,7 +2629,7 @@
                                   }
                                 },
                                 "diskConfig": {
-                                  "description": "Disk Config",
+                                  "description": "Disk configuration to apply to the instances in this instance selection.",
                                   "type": "object",
                                   "properties": {
                                     "bootDiskProvisionedIops": {
@@ -2285,8 +2773,12 @@
                       "description": "Confidential Instance Config for clusters using Confidential VMs",
                       "type": "object",
                       "properties": {
+                        "confidentialInstanceType": {
+                          "description": "Defines the confidential compute type of the instance. Valid values are \"CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED\", \"SEV\", \"SEV_SNP\", \"TDX\".",
+                          "type": "string"
+                        },
                         "enableConfidentialCompute": {
-                          "description": "Defines whether the instance should have confidential compute enabled.",
+                          "description": "Defines whether the instance should have confidential compute enabled. enable_confidential_compute is deprecated and will be removed in a future major release. Use confidential_instance_type instead.",
                           "type": "boolean"
                         }
                       }
@@ -2463,6 +2955,31 @@
                       "description": "Disk Config",
                       "type": "object",
                       "properties": {
+                        "attachedDiskConfig": {
+                          "description": "Attached disk configuration.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "diskSizeGb": {
+                                "description": "Size of the attached disk, specified in GB.",
+                                "type": "number"
+                              },
+                              "diskType": {
+                                "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                "type": "string"
+                              },
+                              "provisionedIops": {
+                                "description": "Indicates how many IOPS to provision for the disk.",
+                                "type": "number"
+                              },
+                              "provisionedThroughput": {
+                                "description": "Indicates how much throughput to provision for the disk.",
+                                "type": "number"
+                              }
+                            }
+                          }
+                        },
                         "bootDiskProvisionedIops": {
                           "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
                           "type": "number"
@@ -2503,6 +3020,61 @@
                           "items": {
                             "type": "object",
                             "properties": {
+                              "diskConfig": {
+                                "description": "Disk configuration to apply to the instances in this instance selection.",
+                                "type": "object",
+                                "properties": {
+                                  "attachedDiskConfig": {
+                                    "description": "Attached disk configuration.",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "diskSizeGb": {
+                                          "description": "Size of the attached disk, specified in GB.",
+                                          "type": "number"
+                                        },
+                                        "diskType": {
+                                          "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                          "type": "string"
+                                        },
+                                        "provisionedIops": {
+                                          "description": "Indicates how many IOPS to provision for the disk.",
+                                          "type": "number"
+                                        },
+                                        "provisionedThroughput": {
+                                          "description": "Indicates how much throughput to provision for the disk.",
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "bootDiskProvisionedIops": {
+                                    "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskProvisionedThroughput": {
+                                    "description": "Indicates how much throughput to provision for the disk. This sets the number of throughput mb per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskSizeGb": {
+                                    "description": "Size of the primary disk attached to each node, specified\nin GB. The primary disk contains the boot volume and system libraries, and the\nsmallest allowed disk size is 10GB. GCP will default to a predetermined\ncomputed value if not set (currently 500GB). Note: If SSDs are not\nattached, it also contains the HDFS data blocks and Hadoop working directories.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskType": {
+                                    "description": "The disk type of the primary disk attached to each node.\nOne of \"pd-ssd\" or \"pd-standard\". Defaults to \"pd-standard\".",
+                                    "type": "string"
+                                  },
+                                  "localSsdInterface": {
+                                    "description": "Optional. Interface type of local SSDs (default is \"scsi\").\nValid values: \"scsi\" (Small Computer System Interface), \"nvme\" (Non-Volatile\nMemory Express). See\nlocal SSD performance.",
+                                    "type": "string"
+                                  },
+                                  "numLocalSsds": {
+                                    "description": "The amount of local SSD disks that will be\nattached to each master cluster node. Defaults to 0.",
+                                    "type": "number"
+                                  }
+                                }
+                              },
                               "machineTypes": {
                                 "description": "Full machine-type names, e.g. \"n1-standard-16\".",
                                 "type": "array",
@@ -2573,6 +3145,31 @@
                       "description": "Disk Config",
                       "type": "object",
                       "properties": {
+                        "attachedDiskConfig": {
+                          "description": "Attached disk configuration.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "diskSizeGb": {
+                                "description": "Size of the attached disk, specified in GB.",
+                                "type": "number"
+                              },
+                              "diskType": {
+                                "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                "type": "string"
+                              },
+                              "provisionedIops": {
+                                "description": "Indicates how many IOPS to provision for the disk.",
+                                "type": "number"
+                              },
+                              "provisionedThroughput": {
+                                "description": "Indicates how much throughput to provision for the disk.",
+                                "type": "number"
+                              }
+                            }
+                          }
+                        },
                         "bootDiskProvisionedIops": {
                           "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
                           "type": "number"
@@ -2609,6 +3206,61 @@
                           "items": {
                             "type": "object",
                             "properties": {
+                              "diskConfig": {
+                                "description": "Disk configuration to apply to the instances in this instance selection.",
+                                "type": "object",
+                                "properties": {
+                                  "attachedDiskConfig": {
+                                    "description": "Attached disk configuration.",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "diskSizeGb": {
+                                          "description": "Size of the attached disk, specified in GB.",
+                                          "type": "number"
+                                        },
+                                        "diskType": {
+                                          "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                          "type": "string"
+                                        },
+                                        "provisionedIops": {
+                                          "description": "Indicates how many IOPS to provision for the disk.",
+                                          "type": "number"
+                                        },
+                                        "provisionedThroughput": {
+                                          "description": "Indicates how much throughput to provision for the disk.",
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "bootDiskProvisionedIops": {
+                                    "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskProvisionedThroughput": {
+                                    "description": "Indicates how much throughput to provision for the disk. This sets the number of throughput mb per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskSizeGb": {
+                                    "description": "Size of the primary disk attached to each node, specified\nin GB. The primary disk contains the boot volume and system libraries, and the\nsmallest allowed disk size is 10GB. GCP will default to a predetermined\ncomputed value if not set (currently 500GB). Note: If SSDs are not\nattached, it also contains the HDFS data blocks and Hadoop working directories.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskType": {
+                                    "description": "The disk type of the primary disk attached to each node.\nOne of \"pd-ssd\" or \"pd-standard\". Defaults to \"pd-standard\".",
+                                    "type": "string"
+                                  },
+                                  "localSsdInterface": {
+                                    "description": "Optional. Interface type of local SSDs (default is \"scsi\").\nValid values: \"scsi\" (Small Computer System Interface), \"nvme\" (Non-Volatile\nMemory Express). See\nlocal SSD performance.",
+                                    "type": "string"
+                                  },
+                                  "numLocalSsds": {
+                                    "description": "The amount of local SSD disks that will be\nattached to each master cluster node. Defaults to 0.",
+                                    "type": "number"
+                                  }
+                                }
+                              },
                               "machineTypes": {
                                 "description": "Full machine-type names, e.g. \"n1-standard-16\".",
                                 "type": "array",
@@ -2823,6 +3475,31 @@
                       "description": "Disk Config",
                       "type": "object",
                       "properties": {
+                        "attachedDiskConfig": {
+                          "description": "Attached disk configuration.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "diskSizeGb": {
+                                "description": "Size of the attached disk, specified in GB.",
+                                "type": "number"
+                              },
+                              "diskType": {
+                                "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                "type": "string"
+                              },
+                              "provisionedIops": {
+                                "description": "Indicates how many IOPS to provision for the disk.",
+                                "type": "number"
+                              },
+                              "provisionedThroughput": {
+                                "description": "Indicates how much throughput to provision for the disk.",
+                                "type": "number"
+                              }
+                            }
+                          }
+                        },
                         "bootDiskProvisionedIops": {
                           "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
                           "type": "number"
@@ -2863,6 +3540,61 @@
                           "items": {
                             "type": "object",
                             "properties": {
+                              "diskConfig": {
+                                "description": "Disk configuration to apply to the instances in this instance selection.",
+                                "type": "object",
+                                "properties": {
+                                  "attachedDiskConfig": {
+                                    "description": "Attached disk configuration.",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "diskSizeGb": {
+                                          "description": "Size of the attached disk, specified in GB.",
+                                          "type": "number"
+                                        },
+                                        "diskType": {
+                                          "description": "The disk type of the attached disk. Such as \"pd-ssd\" or \"pd-standard\".",
+                                          "type": "string"
+                                        },
+                                        "provisionedIops": {
+                                          "description": "Indicates how many IOPS to provision for the disk.",
+                                          "type": "number"
+                                        },
+                                        "provisionedThroughput": {
+                                          "description": "Indicates how much throughput to provision for the disk.",
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "bootDiskProvisionedIops": {
+                                    "description": "Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskProvisionedThroughput": {
+                                    "description": "Indicates how much throughput to provision for the disk. This sets the number of throughput mb per second that the disk can handle.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskSizeGb": {
+                                    "description": "Size of the primary disk attached to each node, specified\nin GB. The primary disk contains the boot volume and system libraries, and the\nsmallest allowed disk size is 10GB. GCP will default to a predetermined\ncomputed value if not set (currently 500GB). Note: If SSDs are not\nattached, it also contains the HDFS data blocks and Hadoop working directories.",
+                                    "type": "number"
+                                  },
+                                  "bootDiskType": {
+                                    "description": "The disk type of the primary disk attached to each node.\nOne of \"pd-ssd\" or \"pd-standard\". Defaults to \"pd-standard\".",
+                                    "type": "string"
+                                  },
+                                  "localSsdInterface": {
+                                    "description": "Optional. Interface type of local SSDs (default is \"scsi\").\nValid values: \"scsi\" (Small Computer System Interface), \"nvme\" (Non-Volatile\nMemory Express). See\nlocal SSD performance.",
+                                    "type": "string"
+                                  },
+                                  "numLocalSsds": {
+                                    "description": "The amount of local SSD disks that will be\nattached to each master cluster node. Defaults to 0.",
+                                    "type": "number"
+                                  }
+                                }
+                              },
                               "machineTypes": {
                                 "description": "Full machine-type names, e.g. \"n1-standard-16\".",
                                 "type": "array",

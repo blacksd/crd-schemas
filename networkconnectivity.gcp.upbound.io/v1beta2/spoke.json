@@ -39,6 +39,29 @@
               "description": "An optional description of the spoke.",
               "type": "string"
             },
+            "gateway": {
+              "description": "This is a gateway that can apply specialized processing to traffic going through it.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "capacity": {
+                  "description": "the capacity of the gateway spoke, in Gbps.\nPossible values are: CAPACITY_1_GBPS, CAPACITY_10_GBPS, CAPACITY_100_GBPS.",
+                  "type": "string"
+                },
+                "ipRangeReservations": {
+                  "description": "A list of IP ranges that are reserved for this gateway's internal infrastructure.\nStructure is documented below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ipRange": {
+                        "description": "A block of IP address ranges used to allocate supporting infrastructure for this gateway—for example, 10.1.2.0/23. The IP address block must be a /23 range. This IP address block must not overlap with subnets in any spoke or peer network that the gateway can communicate with.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "group": {
               "description": "The name of the group that this spoke is associated with.",
               "type": "string"
@@ -889,6 +912,29 @@
             "description": {
               "description": "An optional description of the spoke.",
               "type": "string"
+            },
+            "gateway": {
+              "description": "This is a gateway that can apply specialized processing to traffic going through it.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "capacity": {
+                  "description": "the capacity of the gateway spoke, in Gbps.\nPossible values are: CAPACITY_1_GBPS, CAPACITY_10_GBPS, CAPACITY_100_GBPS.",
+                  "type": "string"
+                },
+                "ipRangeReservations": {
+                  "description": "A list of IP ranges that are reserved for this gateway's internal infrastructure.\nStructure is documented below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ipRange": {
+                        "description": "A block of IP address ranges used to allocate supporting infrastructure for this gateway—for example, 10.1.2.0/23. The IP address block must be a /23 range. This IP address block must not overlap with subnets in any spoke or peer network that the gateway can communicate with.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
             },
             "group": {
               "description": "The name of the group that this spoke is associated with.",
@@ -1846,6 +1892,36 @@
                 "type": "string"
               },
               "x-kubernetes-map-type": "granular"
+            },
+            "gateway": {
+              "description": "This is a gateway that can apply specialized processing to traffic going through it.\nStructure is documented below.",
+              "type": "object",
+              "properties": {
+                "capacity": {
+                  "description": "the capacity of the gateway spoke, in Gbps.\nPossible values are: CAPACITY_1_GBPS, CAPACITY_10_GBPS, CAPACITY_100_GBPS.",
+                  "type": "string"
+                },
+                "ipRangeReservations": {
+                  "description": "A list of IP ranges that are reserved for this gateway's internal infrastructure.\nStructure is documented below.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ipRange": {
+                        "description": "A block of IP address ranges used to allocate supporting infrastructure for this gateway—for example, 10.1.2.0/23. The IP address block must be a /23 range. This IP address block must not overlap with subnets in any spoke or peer network that the gateway can communicate with.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "routers": {
+                  "description": "(Output)\nSet of Cloud Routers that are attached to this NCC-GW",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
             },
             "group": {
               "description": "The name of the group that this spoke is associated with.",

@@ -153,6 +153,28 @@
               "description": "The location (region or zone) of the cluster.",
               "type": "string"
             },
+            "maintenancePolicy": {
+              "description": "The maintenance policy of the pool. Structure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "exclusionUntilEndOfSupport": {
+                    "description": "When enabled, the node pool will not be automatically upgraded by GKE until the node pool version's end of support date. Structure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "description": "When true, the node pool will not be automatically upgraded by GKE until the node pool version's end of support date.",
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "management": {
               "description": "Node management configuration, wherein auto-repair and\nauto-upgrade is configured. Structure is documented below.",
               "type": "object",
@@ -534,6 +556,7 @@
                   }
                 },
                 "hostMaintenancePolicy": {
+                  "description": "The maintenance policy of the pool. Structure is documented below.",
                   "type": "object",
                   "properties": {
                     "maintenanceInterval": {
@@ -723,6 +746,25 @@
                     },
                     "cgroupMode": {
                       "type": "string"
+                    },
+                    "customNodeInit": {
+                      "type": "object",
+                      "properties": {
+                        "initScript": {
+                          "type": "object",
+                          "properties": {
+                            "gcpSecretManagerSecretUri": {
+                              "type": "string"
+                            },
+                            "gcsGeneration": {
+                              "type": "number"
+                            },
+                            "gcsUri": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
                     },
                     "hugepagesConfig": {
                       "type": "object",
@@ -1263,6 +1305,28 @@
               "description": "The initial number of nodes for the pool. In\nregional or multi-zonal clusters, this is the number of nodes per zone. Changing\nthis will force recreation of the resource.  If you don't\nneed this value, don't set it.  If you do need it, you can use a lifecycle block to\nignore subsequent changes to this field.",
               "type": "number"
             },
+            "maintenancePolicy": {
+              "description": "The maintenance policy of the pool. Structure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "exclusionUntilEndOfSupport": {
+                    "description": "When enabled, the node pool will not be automatically upgraded by GKE until the node pool version's end of support date. Structure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "description": "When true, the node pool will not be automatically upgraded by GKE until the node pool version's end of support date.",
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "management": {
               "description": "Node management configuration, wherein auto-repair and\nauto-upgrade is configured. Structure is documented below.",
               "type": "object",
@@ -1644,6 +1708,7 @@
                   }
                 },
                 "hostMaintenancePolicy": {
+                  "description": "The maintenance policy of the pool. Structure is documented below.",
                   "type": "object",
                   "properties": {
                     "maintenanceInterval": {
@@ -1833,6 +1898,25 @@
                     },
                     "cgroupMode": {
                       "type": "string"
+                    },
+                    "customNodeInit": {
+                      "type": "object",
+                      "properties": {
+                        "initScript": {
+                          "type": "object",
+                          "properties": {
+                            "gcpSecretManagerSecretUri": {
+                              "type": "string"
+                            },
+                            "gcsGeneration": {
+                              "type": "number"
+                            },
+                            "gcsUri": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
                     },
                     "hugepagesConfig": {
                       "type": "object",
@@ -2477,6 +2561,36 @@
               "description": "The location (region or zone) of the cluster.",
               "type": "string"
             },
+            "maintenancePolicy": {
+              "description": "The maintenance policy of the pool. Structure is documented below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "exclusionUntilEndOfSupport": {
+                    "description": "When enabled, the node pool will not be automatically upgraded by GKE until the node pool version's end of support date. Structure is documented below.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "description": "When true, the node pool will not be automatically upgraded by GKE until the node pool version's end of support date.",
+                          "type": "boolean"
+                        },
+                        "endTime": {
+                          "description": "The time when the maintenance policy is no longer effective, i.e., the node pool version's end of support date.",
+                          "type": "string"
+                        },
+                        "startTime": {
+                          "description": "The time when the maintenance policy is first created.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "managedInstanceGroupUrls": {
               "description": "List of instance group URLs which have been assigned to this node pool.",
               "type": "array",
@@ -2883,6 +2997,7 @@
                   }
                 },
                 "hostMaintenancePolicy": {
+                  "description": "The maintenance policy of the pool. Structure is documented below.",
                   "type": "object",
                   "properties": {
                     "maintenanceInterval": {
@@ -3072,6 +3187,25 @@
                     },
                     "cgroupMode": {
                       "type": "string"
+                    },
+                    "customNodeInit": {
+                      "type": "object",
+                      "properties": {
+                        "initScript": {
+                          "type": "object",
+                          "properties": {
+                            "gcpSecretManagerSecretUri": {
+                              "type": "string"
+                            },
+                            "gcsGeneration": {
+                              "type": "number"
+                            },
+                            "gcsUri": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
                     },
                     "hugepagesConfig": {
                       "type": "object",

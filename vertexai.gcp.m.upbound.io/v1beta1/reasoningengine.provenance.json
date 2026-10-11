@@ -1,0 +1,24 @@
+{
+  "schema": "reasoningengine.json",
+  "crd": {
+    "group": "vertexai.gcp.m.upbound.io",
+    "kind": "ReasoningEngine",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v3.1.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-10-11T08:36:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ad69a0194606b7fe5c453d28465ea6a86752631e5d5389d49487d7e58b167a27"
+  }
+}

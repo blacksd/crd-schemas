@@ -1,0 +1,24 @@
+{
+  "schema": "clienttlspolicy.json",
+  "crd": {
+    "group": "networksecurity.gcp.upbound.io",
+    "kind": "ClientTLSPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-gcp",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-gcp",
+    "path": "package/crds",
+    "version": "v3.1.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-gcp"
+  },
+  "extraction": {
+    "timestamp": "2026-10-11T08:36:12Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "cd7273f5c42ae950fbaf76f9d003b68d8f0abf915ca66e9fe3a81f6ab6b8813a"
+  }
+}
