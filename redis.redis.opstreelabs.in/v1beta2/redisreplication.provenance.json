@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://ot-container-kit.github.io/helm-charts",
     "chart": "redis-operator",
-    "version": "0.25.0",
+    "version": "0.27.0",
     "license": "Apache-2.0",
     "homepage": "https://redis-operator.opstree.dev"
   },
   "extraction": {
-    "timestamp": "2026-06-24T13:16:52Z",
+    "timestamp": "2026-10-11T01:11:52Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "f05f8a94853313d9931a4e949cf4cefe3d8f0402ca8b275dbeb4f742f3ba3f3f"
+    "sha256": "8f988e93a67b72155fe08987eab6cb2dc3922005a1f2ac718cf42180119248ce"
   }
 }
