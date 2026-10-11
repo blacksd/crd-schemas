@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:5dea9498-b1e8-4151-9df9-1a9ea458f88a",
-  "version": 8,
+  "version": 9,
   "metadata": {
-    "timestamp": "2026-09-09T16:59:03Z",
+    "timestamp": "2026-10-11T05:06:14Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "datadog-operator",
-      "version": "v1.30.0",
+      "version": "v1.31.0",
       "licenses": [
         {
           "license": {

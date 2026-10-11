@@ -1,5 +1,5 @@
 {
-  "description": "DatadogPodAutoscaler is the Schema for the datadogpodautoscalers API",
+  "description": "DatadogPodAutoscaler is the Schema for the datadogpodautoscalers API.",
   "type": "object",
   "properties": {
     "apiVersion": {
@@ -430,7 +430,7 @@
                                 "type": "array",
                                 "minItems": 1,
                                 "items": {
-                                  "description": "TimeseriesQuery is a discriminated union. Only Metrics and APMMetrics are supported for autoscaling.",
+                                  "description": "DatadogPodAutoscalerTimeseriesQuery is a discriminated union. Only Metrics and APMMetrics are supported for autoscaling.",
                                   "type": "object",
                                   "required": [
                                     "source"
@@ -663,7 +663,6 @@
         "objectives": {
           "description": "Objectives are the objectives to reach and maintain for the target resource.\nDefault to a single objective to maintain 80% POD CPU utilization.",
           "type": "array",
-          "minItems": 1,
           "items": {
             "description": "DatadogPodAutoscalerObjective defines the objectives to reach and maintain for the target workload.",
             "type": "object",
@@ -756,7 +755,7 @@
                         "type": "array",
                         "minItems": 1,
                         "items": {
-                          "description": "TimeseriesQuery is a discriminated union. Only Metrics and APMMetrics are supported for autoscaling.",
+                          "description": "DatadogPodAutoscalerTimeseriesQuery is a discriminated union. Only Metrics and APMMetrics are supported for autoscaling.",
                           "type": "object",
                           "required": [
                             "source"
@@ -1229,6 +1228,7 @@
                   "description": "DesiredResources is the desired resources for containers",
                   "type": "array",
                   "items": {
+                    "description": "DatadogPodAutoscalerContainerResources defines resource values for a container.",
                     "type": "object",
                     "required": [
                       "name"
