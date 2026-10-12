@@ -29,9 +29,6 @@
           "default": {
             "consolidateAfter": "0s"
           },
-          "required": [
-            "consolidateAfter"
-          ],
           "properties": {
             "budgets": {
               "description": "Budgets is a list of Budgets.\nIf there are multiple active budgets, Karpenter uses\nthe most restrictive value. If left undefined,\nthis will default to one budget with a value to 10%.",
@@ -61,7 +58,7 @@
                     "pattern": "^((100|[0-9]{1,2})%|[0-9]+)$"
                   },
                   "reasons": {
-                    "description": "reasons is a list of disruption methods that this budget applies to. If Reasons is not set, this budget applies to all methods.\nOtherwise, this will apply to each reason defined.\nallowed reasons are Underutilized, Empty, and Drifted.",
+                    "description": "reasons is a list of disruption methods that this budget applies to. If Reasons is not set, this budget applies to all methods.\nOtherwise, this will apply to each reason defined.\nallowed reasons are Underutilized, Empty, Drifted, and Unhealthy.",
                     "type": "array",
                     "maxItems": 50,
                     "items": {
@@ -70,7 +67,8 @@
                       "enum": [
                         "Underutilized",
                         "Empty",
-                        "Drifted"
+                        "Drifted",
+                        "Unhealthy"
                       ]
                     },
                     "x-kubernetes-list-type": "set"
@@ -91,12 +89,13 @@
               ]
             },
             "consolidateAfter": {
-              "description": "ConsolidateAfter is the duration the controller will wait\nbefore attempting to terminate nodes that are underutilized.\nRefer to ConsolidationPolicy for how underutilization is considered.\nWhen replicas is set, ConsolidateAfter is simply ignored",
+              "description": "ConsolidateAfter is the duration the controller will wait\nbefore attempting to terminate nodes that are underutilized.\nRefer to ConsolidationPolicy for how underutilization is considered.\nWhen replicas is set, ConsolidateAfter is simply ignored.",
               "type": "string",
+              "default": "0s",
               "pattern": "^(([0-9]+(s|m|h))+|Never)$"
             },
             "consolidationPolicy": {
-              "description": "ConsolidationPolicy describes which nodes Karpenter can disrupt through its consolidation\nalgorithm. This policy defaults to \"WhenEmptyOrUnderutilized\" if not specified.\nValid values: \"WhenEmpty\", \"WhenEmptyOrUnderutilized\", \"Balanced\".\nWhen replicas is set, ConsolidationPolicy is simply ignored.",
+              "description": "ConsolidationPolicy describes which nodes Karpenter can disrupt through its consolidation\nalgorithm.\nValid values: \"WhenEmpty\", \"WhenEmptyOrUnderutilized\", \"Balanced\".\nWhen replicas is set, ConsolidationPolicy is simply ignored.",
               "type": "string",
               "default": "WhenEmptyOrUnderutilized",
               "enum": [
@@ -290,14 +289,14 @@
                         "description": "Represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists, DoesNotExist. Gt, Lt, Gte, and Lte.",
                         "type": "string",
                         "enum": [
-                          "Gte",
-                          "Lte",
                           "In",
                           "NotIn",
                           "Exists",
                           "DoesNotExist",
                           "Gt",
-                          "Lt"
+                          "Lt",
+                          "Gte",
+                          "Lte"
                         ]
                       },
                       "values": {
