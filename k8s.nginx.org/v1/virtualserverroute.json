@@ -18,7 +18,7 @@
       "type": "object",
       "properties": {
         "host": {
-          "description": "The host (domain name) of the server. Must be a valid subdomain as defined in RFC 1123, such as my-app or hello.example.com. When using a wildcard domain like *.example.com the domain must be contained in double quotes. Must be the same as the host of the VirtualServer that references this resource.",
+          "description": "The host (domain name) of the server. Must be a valid subdomain as defined in RFC 1123, such as\nmy-app or hello.example.com. When using a wildcard domain like *.example.com the domain must be\ncontained in double quotes. When set, must be the same as the host of the VirtualServer that\nreferences this resource. When omitted (hostless mode), the VirtualServerRoute can be referenced\nby any VirtualServer regardless of host, enabling the same route configuration to be shared across\nmultiple VirtualServers.",
           "type": "string"
         },
         "ingressClassName": {
@@ -1058,6 +1058,15 @@
                 "description": "The port of the service. If the service doesn’t define that port, NGINX will assume the service has zero endpoints and return a 502 response for requests for this upstream. The port must fall into the range 1..65535.",
                 "type": "integer"
               },
+              "proxy-http-version": {
+                "description": "Sets the HTTP protocol version used for connections to the upstream servers.\nSupported values are \"1.0\", \"1.1\" and \"2\". If unset, the appProtocol of the backing\nService port is used (\"kubernetes.io/h2c\" implies \"2\"); otherwise NGINX uses HTTP/1.1.\nNote: this field is ignored for upstreams with type \"grpc\", where grpc_pass always\nuses HTTP/2, and the values \"1.0\" and \"2\" cannot be used with WebSocket, which requires\nHTTP/1.1. With \"1.0\", the \"Connection: close\" request header is sent to the upstream.",
+                "type": "string",
+                "enum": [
+                  "1.0",
+                  "1.1",
+                  "2"
+                ]
+              },
               "queue": {
                 "description": "Configures a queue for an upstream. A client request will be placed into the queue if an upstream server cannot be selected immediately while processing the request. By default, no queue is configured. Note: this feature is supported only in NGINX Plus.",
                 "type": "object",
@@ -1144,7 +1153,7 @@
                 }
               },
               "type": {
-                "description": "The type of the upstream. Supported values are http and grpc. The default is http. For gRPC, it is necessary to enable HTTP/2 in the ConfigMap and configure TLS termination in the VirtualServer.",
+                "description": "The type of the upstream. Supported values are http and grpc. The default is http. For gRPC, it is necessary to enable HTTP/2, using the VirtualServer http2 field or the http2 ConfigMap key.",
                 "type": "string"
               },
               "use-cluster-ip": {

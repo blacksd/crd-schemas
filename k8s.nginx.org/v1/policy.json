@@ -40,7 +40,7 @@
           "type": "object",
           "properties": {
             "clientSecret": {
-              "description": "The key to which the API key is applied. Can contain text, variables, or a combination of them. Accepted variables are $http_, $arg_, $cookie_.",
+              "description": "The name of a Kubernetes secret in the Policy namespace. A secret of the type Opaque is recommended. The secret is resolved with the APIKey role; each data key is a client ID and its value is that client API key. Can contain text, variables, or a combination of them. Accepted variables are $http_, $arg_, $cookie_.",
               "type": "string"
             },
             "suppliedIn": {
@@ -74,7 +74,7 @@
               "type": "string"
             },
             "secret": {
-              "description": "The name of the Kubernetes secret that stores the Htpasswd configuration. It must be in the same namespace as the Policy resource. The secret must be of the type nginx.org/htpasswd, and the config must be stored in the secret under the key htpasswd, otherwise the secret will be rejected as invalid.",
+              "description": "The name of the Kubernetes secret that stores the Htpasswd configuration. It must be in the same namespace as the Policy resource. A secret of type Opaque is recommended. The secret is resolved with the Htpasswd role and must store the configuration under the htpasswd key.",
               "type": "string"
             }
           }
@@ -382,11 +382,11 @@
               "type": "string"
             },
             "tlsSecret": {
-              "description": "The name of the Kubernetes secret that stores the TLS certificate and key. It must be in the same namespace as the Policy resource. The secret must be of the type kubernetes.io/tls, the certificate must be stored in the secret under the key tls.crt, and the key must be stored under the key tls.key, otherwise the secret will be rejected as invalid.",
+              "description": "The name of the Kubernetes secret that stores the TLS certificate and key. It must be in the same namespace as the Policy resource. A secret of the type kubernetes.io/tls or Opaque is recommended. The secret is resolved with the TLS role and must store the certificate chain under tls.crt key and matching private key under the tls.key key.",
               "type": "string"
             },
             "trustedCertSecret": {
-              "description": "The name of the Kubernetes secret that stores the CA certificate. It must be in the same namespace as the Policy resource. The secret must be of the type nginx.org/ca, and the certificate must be stored in the secret under the key ca.crt, otherwise the secret will be rejected as invalid.",
+              "description": "The name of the Kubernetes secret that stores the CA certificate. It must be in the same namespace as the Policy resource. A secret of the type Opaque is recommended. The secret is resolved with the CA role and must store the certificate under the ca.crt key.",
               "type": "string"
             },
             "verifyDepth": {
@@ -461,7 +461,7 @@
               "minimum": 0
             },
             "trustedCertSecret": {
-              "description": "TrustedCertSecret is the name of the Kubernetes secret that stores the CA certificate for external authentication server certificate verification. It can be in the same namespace as the Policy resource or in a different namespace specified as \u003cnamespace\u003e/\u003csecret\u003e. The secret must be of the type nginx.org/ca, and the certificate must be stored under the key ca.crt.",
+              "description": "TrustedCertSecret is the name of the Kubernetes secret that stores the CA certificate for external authentication server certificate verification. It can be in the same namespace as the Policy resource or in a different namespace specified as \u003cnamespace\u003e/\u003csecret\u003e. A secret of the type Opaque is recommended. The secret is resolved with the CA role and must store the certificate under the ca.crt key.",
               "type": "string",
               "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?\\/)?[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
             }
@@ -515,7 +515,7 @@
           "type": "object",
           "properties": {
             "clientCertSecret": {
-              "description": "The name of the Kubernetes secret that stores the CA certificate. It must be in the same namespace as the Policy resource. The secret must be of the type nginx.org/ca, and the certificate must be stored in the secret under the key ca.crt, otherwise the secret will be rejected as invalid.",
+              "description": "The name of the Kubernetes secret that stores the CA certificate. It must be in the same namespace as the Policy resource. A secret of type Opaque is recommended. The secret is resolved with the CA role and must store the certificate under the ca.crt key.",
               "type": "string"
             },
             "crlFileName": {
@@ -549,7 +549,7 @@
               "type": "string"
             },
             "secret": {
-              "description": "The name of the Kubernetes secret that stores the Htpasswd configuration. It must be in the same namespace as the Policy resource. The secret must be of the type nginx.org/htpasswd, and the config must be stored in the secret under the key htpasswd, otherwise the secret will be rejected as invalid.",
+              "description": "The name of the Kubernetes secret containing the JSON Web Key. It must be in the same namespace as the Policy resource. A secret of the type Opaque is recommended. The secret is resolved with the JWK role and must store the JWK under the jwk key.",
               "type": "string"
             },
             "sniEnabled": {
@@ -576,7 +576,7 @@
               "type": "string"
             },
             "trustedCertSecret": {
-              "description": "The name of the Kubernetes secret that stores the CA certificate for JWKS server verification. It must be in the same namespace as the Policy resource. The secret must be of the type nginx.org/ca, and the certificate must be stored in the secret under the key ca.crt.",
+              "description": "The name of the Kubernetes secret that stores the CA certificate for JWKS server verification. It must be in the same namespace as the Policy resource. A secret of the type Opaque is recommended. The secret is resolved with the CA role and must store the certificate under the ca.crt key.",
               "type": "string",
               "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
             }
@@ -606,7 +606,7 @@
               "type": "string"
             },
             "clientSecret": {
-              "description": "The name of the Kubernetes secret that stores the client secret provided by your OpenID Connect provider. It must be in the same namespace as the Policy resource. The secret must be of the type nginx.org/oidc, and the secret under the key client-secret, otherwise the secret will be rejected as invalid. If PKCE is enabled, this should be not configured.",
+              "description": "The name of the Kubernetes secret that stores the client secret provided by your OpenID Connect provider. It must be in the same namespace as the Policy resource. A secret of the type Opaque is recommended. The secret is resolved with the OIDC role and must store the client secret under the client-secret key. If PKCE is enabled, this should be not configured.",
               "type": "string"
             },
             "endSessionEndpoint": {
@@ -649,7 +649,7 @@
               "type": "string"
             },
             "trustedCertSecret": {
-              "description": "The name of the Kubernetes secret that stores the CA certificate for IDP server verification. It must be in the same namespace as the Policy resource. The secret must be of the type nginx.org/ca, and the certificate must be stored in the secret under the key ca.crt.",
+              "description": "The name of the Kubernetes secret that stores the CA certificate for IDP server verification. It must be in the same namespace as the Policy resource. A secret of the type Opaque is recommended. The secret is resolved with the CA role and must store the certificate under the ca.crt key.",
               "type": "string",
               "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
             },
@@ -678,7 +678,7 @@
               "type": "string"
             },
             "clientSecret": {
-              "description": "The name of the Kubernetes secret that stores the client secret provided by your OpenID Connect provider. It must be in the same namespace as the Policy resource. The secret must be of the type nginx.org/oidc, and the secret under the key client-secret, otherwise the secret will be rejected as invalid.",
+              "description": "The name of the Kubernetes secret that stores the client secret provided by your OpenID Connect provider. It must be in the same namespace as the Policy resource. A secret of the type Opaque is recommended. The secret is resolved with the OIDC role and must store the client secret under the client-secret key.",
               "type": "string",
               "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
             },
@@ -772,7 +772,7 @@
               "minimum": 0
             },
             "trustedCertSecret": {
-              "description": "The name of the Kubernetes secret that stores the trusted CA certificate for verifying the OpenID Provider's TLS certificate. Must be of type nginx.org/ca with the certificate stored under key ca.crt.",
+              "description": "The name of the Kubernetes secret that stores the trusted CA certificate for verifying the OpenID Provider's TLS certificate. A secret of the type Opaque is recommended. The secret is resolved with the CA role and must store the certificate under the ca.crt key.",
               "type": "string",
               "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
             },
@@ -935,7 +935,7 @@
                   "minimum": 1
                 },
                 "secret": {
-                  "description": "Secret is the name of a Kubernetes Secret in the same namespace as the Policy.\nFor HTTPS: kubernetes.io/tls (tls.crt + tls.key for client mTLS; optional ca.crt for server CA).\nFor N1C: nginx.com/waf-bundle Secret with a 'token' field containing the API token.\nFor NIM: nginx.com/waf-bundle Secret with a 'token' field (bearer auth) or 'username'+'password' fields (basic auth).",
+                  "description": "Secret is the name of a Kubernetes Secret in the same namespace as the Policy.\nA secret of the type Opaque is recommended.\nFor HTTPS: TLS role (tls.crt + tls.key keys for client mTLS; optional ca.crt for server CA).\nFor N1C: WAF Bundle role; secret with a 'token' field containing the API token.\nFor NIM: WAF Bundle role; secret with a 'token' field (bearer auth) or 'username'+'password' fields (basic auth).",
                   "type": "string",
                   "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
                 },
@@ -944,7 +944,7 @@
                   "type": "string"
                 },
                 "trustedCertSecret": {
-                  "description": "TrustedCertSecret is the name of a Kubernetes Secret with a custom CA certificate\nfor verifying the remote endpoint TLS certificate. The secret must be in the same\nnamespace as the Policy, must be of type nginx.org/ca, and must include ca.crt.",
+                  "description": "TrustedCertSecret is the name of a Kubernetes Secret with a custom CA certificate\nfor verifying the remote endpoint TLS certificate. The secret must be in the same\nnamespace as the Policy. A secret of the type Opaque is recommended. The secret is\nresolved with the CA role and must store the certificate under the ca.crt key.",
                   "type": "string",
                   "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
                 },
@@ -1024,7 +1024,7 @@
                       "minimum": 1
                     },
                     "secret": {
-                      "description": "Secret is the name of a Kubernetes Secret in the same namespace as the Policy.\nFor HTTPS: kubernetes.io/tls (tls.crt + tls.key for client mTLS; optional ca.crt for server CA).\nFor N1C: nginx.com/waf-bundle Secret with a 'token' field containing the API token.\nFor NIM: nginx.com/waf-bundle Secret with a 'token' field (bearer auth) or 'username'+'password' fields (basic auth).",
+                      "description": "Secret is the name of a Kubernetes Secret in the same namespace as the Policy.\nA secret of the type Opaque is recommended.\nFor HTTPS: TLS role (tls.crt + tls.key keys for client mTLS; optional ca.crt for server CA).\nFor N1C: WAF Bundle role; secret with a 'token' field containing the API token.\nFor NIM: WAF Bundle role; secret with a 'token' field (bearer auth) or 'username'+'password' fields (basic auth).",
                       "type": "string",
                       "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
                     },
@@ -1033,7 +1033,7 @@
                       "type": "string"
                     },
                     "trustedCertSecret": {
-                      "description": "TrustedCertSecret is the name of a Kubernetes Secret with a custom CA certificate\nfor verifying the remote endpoint TLS certificate. The secret must be in the same\nnamespace as the Policy, must be of type nginx.org/ca, and must include ca.crt.",
+                      "description": "TrustedCertSecret is the name of a Kubernetes Secret with a custom CA certificate\nfor verifying the remote endpoint TLS certificate. The secret must be in the same\nnamespace as the Policy. A secret of the type Opaque is recommended. The secret is\nresolved with the CA role and must store the certificate under the ca.crt key.",
                       "type": "string",
                       "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
                     },
@@ -1121,7 +1121,7 @@
                         "minimum": 1
                       },
                       "secret": {
-                        "description": "Secret is the name of a Kubernetes Secret in the same namespace as the Policy.\nFor HTTPS: kubernetes.io/tls (tls.crt + tls.key for client mTLS; optional ca.crt for server CA).\nFor N1C: nginx.com/waf-bundle Secret with a 'token' field containing the API token.\nFor NIM: nginx.com/waf-bundle Secret with a 'token' field (bearer auth) or 'username'+'password' fields (basic auth).",
+                        "description": "Secret is the name of a Kubernetes Secret in the same namespace as the Policy.\nA secret of the type Opaque is recommended.\nFor HTTPS: TLS role (tls.crt + tls.key keys for client mTLS; optional ca.crt for server CA).\nFor N1C: WAF Bundle role; secret with a 'token' field containing the API token.\nFor NIM: WAF Bundle role; secret with a 'token' field (bearer auth) or 'username'+'password' fields (basic auth).",
                         "type": "string",
                         "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
                       },
@@ -1130,7 +1130,7 @@
                         "type": "string"
                       },
                       "trustedCertSecret": {
-                        "description": "TrustedCertSecret is the name of a Kubernetes Secret with a custom CA certificate\nfor verifying the remote endpoint TLS certificate. The secret must be in the same\nnamespace as the Policy, must be of type nginx.org/ca, and must include ca.crt.",
+                        "description": "TrustedCertSecret is the name of a Kubernetes Secret with a custom CA certificate\nfor verifying the remote endpoint TLS certificate. The secret must be in the same\nnamespace as the Policy. A secret of the type Opaque is recommended. The secret is\nresolved with the CA role and must store the certificate under the ca.crt key.",
                         "type": "string",
                         "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
                       },
