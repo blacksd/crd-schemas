@@ -3,6 +3,6 @@ sources:
     type: helm
     repo: https://kubernetes-sigs.github.io/node-feature-discovery/charts
     chart: node-feature-discovery
-    version: 0.20.0
+    version: 0.20.1
     license: Apache-2.0
     homepage: https://kubernetes-sigs.github.io/node-feature-discovery
