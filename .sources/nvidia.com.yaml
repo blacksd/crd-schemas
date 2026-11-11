@@ -6,3 +6,6 @@ sources:
     version: v26.7.2
     license: Apache-2.0
     homepage: https://github.com/NVIDIA/gpu-operator
+    exclude:
+      - nfd.k8s-sigs.io/*
+      - topology.node.k8s.io/*
