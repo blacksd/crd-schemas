@@ -65,3 +65,8 @@ jobs:
             echo "Testing extraction for $f..."
             crd-schema-extractor extract "$f" --fetch-only
           done
+
+      # Per-file checks cannot see schemas emitted by more than one source.
+      - name: Check for cross-source schema conflicts
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: crd-schema-extractor extract .sources --output "$RUNNER_TEMP/schemas"
