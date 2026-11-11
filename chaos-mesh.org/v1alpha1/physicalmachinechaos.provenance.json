@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://charts.chaos-mesh.org",
     "chart": "chaos-mesh",
-    "version": "2.8.1",
+    "version": "2.8.8",
     "license": "Apache-2.0",
     "homepage": "https://chaos-mesh.org"
   },
   "extraction": {
-    "timestamp": "2026-03-05T16:55:29Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-11-11T07:42:47Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "d3c67e5c702edf4d2c7494ac63eca589d401c213e24f551ab4ab304dd4bdc0a3"
+    "sha256": "fd5f78766a744b59895c2b50b11101f29dfc8a7afd19ca6cbf7830722c16a3ae"
   }
 }

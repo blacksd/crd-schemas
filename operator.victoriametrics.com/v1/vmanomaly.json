@@ -264,6 +264,7 @@
                     "properties": {
                       "healthConditions": {
                         "type": "array",
+                        "maxItems": 16,
                         "items": {
                           "type": "object",
                           "required": [
@@ -275,10 +276,12 @@
                               "type": "string"
                             },
                             "reason": {
-                              "type": "string"
+                              "type": "string",
+                              "minLength": 1
                             },
                             "status": {
                               "type": "string",
+                              "minLength": 1,
                               "enum": [
                                 "DataLoss",
                                 "Degraded",
@@ -1359,6 +1362,15 @@
                 }
               }
             },
+            "class": {
+              "type": "string",
+              "enum": [
+                "vm",
+                "reader.vm.VmReader",
+                "vlogs",
+                "reader.vlogs.VLogsReader"
+              ]
+            },
             "dataRange": {
               "type": "array",
               "items": {
@@ -1976,6 +1988,7 @@
                       "properties": {
                         "healthConditions": {
                           "type": "array",
+                          "maxItems": 16,
                           "items": {
                             "type": "object",
                             "required": [
@@ -1987,10 +2000,12 @@
                                 "type": "string"
                               },
                               "reason": {
-                                "type": "string"
+                                "type": "string",
+                                "minLength": 1
                               },
                               "status": {
                                 "type": "string",
+                                "minLength": 1,
                                 "enum": [
                                   "DataLoss",
                                   "Degraded",

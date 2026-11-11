@@ -40,9 +40,21 @@
                 },
                 "xtrabackup": {
                   "type": "array",
+                  "maxItems": 100,
                   "items": {
-                    "type": "string"
-                  }
+                    "type": "string",
+                    "maxLength": 1024
+                  },
+                  "x-kubernetes-validations": [
+                    {
+                      "rule": "!self.exists(arg, arg == '--defaults-file' || arg.startsWith('--defaults-file=')) || (self[0].startsWith('--defaults-file=') \u0026\u0026 self[0] != '--defaults-file=')",
+                      "message": "--defaults-file must use --defaults-file=\u003cpath\u003e syntax and be the first xtrabackup argument"
+                    },
+                    {
+                      "rule": "!self.exists(arg, arg == '--defaults-extra-file' || arg.startsWith('--defaults-extra-file='))",
+                      "message": "--defaults-extra-file is managed by the operator and cannot be specified"
+                    }
+                  ]
                 }
               }
             },
@@ -180,8 +192,18 @@
         "sourcePod": {
           "type": "string"
         },
+        "startingDeadlineSeconds": {
+          "type": "integer",
+          "format": "int64",
+          "minimum": 0
+        },
         "storageName": {
           "type": "string"
+        },
+        "suspendedDeadlineSeconds": {
+          "type": "integer",
+          "format": "int64",
+          "minimum": 0
         },
         "type": {
           "type": "string",
@@ -263,6 +285,9 @@
           "type": "string"
         },
         "image": {
+          "type": "string"
+        },
+        "size": {
           "type": "string"
         },
         "state": {
@@ -967,9 +992,21 @@
                     },
                     "xtrabackup": {
                       "type": "array",
+                      "maxItems": 100,
                       "items": {
-                        "type": "string"
-                      }
+                        "type": "string",
+                        "maxLength": 1024
+                      },
+                      "x-kubernetes-validations": [
+                        {
+                          "rule": "!self.exists(arg, arg == '--defaults-file' || arg.startsWith('--defaults-file=')) || (self[0].startsWith('--defaults-file=') \u0026\u0026 self[0] != '--defaults-file=')",
+                          "message": "--defaults-file must use --defaults-file=\u003cpath\u003e syntax and be the first xtrabackup argument"
+                        },
+                        {
+                          "rule": "!self.exists(arg, arg == '--defaults-extra-file' || arg.startsWith('--defaults-extra-file='))",
+                          "message": "--defaults-extra-file is managed by the operator and cannot be specified"
+                        }
+                      ]
                     }
                   }
                 },
@@ -1451,6 +1488,21 @@
                 "bucket": {
                   "type": "string"
                 },
+                "caBundle": {
+                  "type": "object",
+                  "required": [
+                    "name"
+                  ],
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "default": "ca.crt"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                },
                 "credentialsSecret": {
                   "type": "string"
                 },
@@ -1584,6 +1636,10 @@
                   "properties": {
                     "medium": {
                       "type": "string"
+                    },
+                    "mode": {
+                      "type": "integer",
+                      "format": "int32"
                     },
                     "sizeLimit": {
                       "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
@@ -1755,6 +1811,9 @@
           }
         },
         "type": {
+          "type": "string"
+        },
+        "uncompressedSize": {
           "type": "string"
         }
       }

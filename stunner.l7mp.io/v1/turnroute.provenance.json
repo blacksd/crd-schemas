@@ -1,0 +1,27 @@
+{
+  "schema": "turnroute.json",
+  "crd": {
+    "group": "stunner.l7mp.io",
+    "kind": "TURNRoute",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "stunner",
+    "type": "helm",
+    "repo": "https://l7mp.io/stunner",
+    "chart": "stunner",
+    "version": "2.0.0",
+    "license": "MIT",
+    "homepage": "https://github.com/l7mp/stunner",
+    "include": [
+      "stunner.l7mp.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-11-11T07:42:47Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8a2faf00e830efb64682ad3f3b150e0a49b1126930d84026b9972c1e25756330"
+  }
+}

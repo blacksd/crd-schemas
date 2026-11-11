@@ -1,0 +1,27 @@
+{
+  "schema": "tcproute.json",
+  "crd": {
+    "group": "stunner.l7mp.io",
+    "kind": "TCPRoute",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "stunner",
+    "type": "helm",
+    "repo": "https://l7mp.io/stunner",
+    "chart": "stunner",
+    "version": "2.0.0",
+    "license": "MIT",
+    "homepage": "https://github.com/l7mp/stunner",
+    "include": [
+      "stunner.l7mp.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-11-11T07:42:47Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "db537a7455cdb283fb190eb63946cd1f66b3a2df837000d125ad66f7a5de8b26"
+  }
+}

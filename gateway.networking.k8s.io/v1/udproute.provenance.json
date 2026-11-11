@@ -9,15 +9,15 @@
     "name": "gateway-api",
     "type": "url",
     "url": "https://github.com/kubernetes-sigs/gateway-api/releases/download/{version}/experimental-install.yaml",
-    "version": "v1.6.0",
+    "version": "v1.7.0",
     "license": "Apache-2.0",
     "homepage": "https://gateway-api.sigs.k8s.io"
   },
   "extraction": {
-    "timestamp": "2026-06-30T11:36:08Z",
+    "timestamp": "2026-11-11T07:42:47Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "1f290ec1a1cbc7512093740bace37c1c5c3cdd07affbc44f963dccf8a916ac9e"
+    "sha256": "a100940994159de3ba8addc69c55b9e6cc436d61ec45543b11baeebd5285c0da"
   }
 }

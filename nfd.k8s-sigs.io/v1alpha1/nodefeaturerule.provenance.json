@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://kubernetes-sigs.github.io/node-feature-discovery/charts",
     "chart": "node-feature-discovery",
-    "version": "0.18.3",
+    "version": "0.20.1",
     "license": "Apache-2.0",
     "homepage": "https://kubernetes-sigs.github.io/node-feature-discovery"
   },
   "extraction": {
-    "timestamp": "2026-03-07T06:28:54Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-11-11T07:42:47Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "3b3952b212629a865ca19b0baec23de02302640214035ee27a06e837dab06363"
+    "sha256": "7f3ba98a8ca250647167189f6b7bc92f4e51b36d4ef763ccd26ffc313b298d06"
   }
 }

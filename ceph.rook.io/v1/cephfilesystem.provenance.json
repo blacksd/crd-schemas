@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://charts.rook.io/release",
     "chart": "rook-ceph",
-    "version": "v1.21.0",
+    "version": "v1.21.2",
     "license": "Apache-2.0",
     "homepage": "https://rook.io"
   },
   "extraction": {
-    "timestamp": "2026-10-07T08:57:55Z",
+    "timestamp": "2026-11-11T07:42:47Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "506d8c03be8c4a4a46dbd9c4ff8e733574acf4f29c557c525ed77dbeb7ae24f1"
+    "sha256": "5e8f02242c9fb7df91554ac193ef210c444bcb5e58402c73621a6fa3a0fdc8de"
   }
 }

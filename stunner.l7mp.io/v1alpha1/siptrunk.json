@@ -1,0 +1,93 @@
+{
+  "description": "SIPTrunk names the listener of a Gateway carrying the media, and tells how the carriers\nconnect. SIP Gateways can reference a SIPTrunk in spec.infrastructure.parametersRef.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "SIPTrunkSpec is the spec of a SIPTrunk.",
+      "type": "object",
+      "required": [
+        "mediaListener"
+      ],
+      "properties": {
+        "allowedSources": {
+          "description": "AllowedSources are the address prefixes the SIP listeners admit calls from. Empty admits no\ninbound calls, which suits registration-only trunks.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mediaListener": {
+          "description": "MediaListener is the name of the Gateway listener carrying the media of the calls. Every\nother listener of the Gateway is a SIP listener.",
+          "type": "string",
+          "maxLength": 253,
+          "minLength": 1,
+          "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
+        },
+        "registrations": {
+          "description": "Registrations are the registrations the gateway keeps up with registration trunks.",
+          "type": "array",
+          "items": {
+            "description": "SIPRegistration is a registration of an address of record with a carrier's registrar.",
+            "type": "object",
+            "required": [
+              "aor",
+              "name",
+              "registrar"
+            ],
+            "properties": {
+              "aor": {
+                "description": "AOR is the address of record to register, a sip: or sips: URI.",
+                "type": "string",
+                "minLength": 1
+              },
+              "authRef": {
+                "description": "AuthRef names a Secret in the namespace of the SIPTrunk whose username and password keys\nanswer the registrar's digest challenge.",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                    "type": "string",
+                    "default": ""
+                  }
+                },
+                "x-kubernetes-map-type": "atomic"
+              },
+              "expires": {
+                "description": "Expires is the registration lifetime the gateway asks for.",
+                "type": "string",
+                "default": "600s"
+              },
+              "name": {
+                "description": "Name of the registration, unique in the SIPTrunk and distinct from the listener names of\nthe Gateway. A route attaches to the registration by this name as its sectionName: its\nbackends take the calls of the registration, so the name is a valid sectionName.",
+                "type": "string",
+                "maxLength": 253,
+                "minLength": 1,
+                "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
+              },
+              "registrar": {
+                "description": "Registrar is the SIP URI of the carrier's registrar, as Kamailio or Asterisk names one:\nsip:host[:port][;transport=udp|tcp|tls], or sips:host[:port] for TLS; the scheme may be\nomitted for sip:. The transport defaults to UDP, TLS for sips:, the port to 5060, 5061 over\nTLS.",
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map"
+        }
+      }
+    }
+  }
+}

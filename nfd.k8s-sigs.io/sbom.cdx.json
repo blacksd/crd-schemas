@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:bbd308a9-62d6-4963-8deb-62dced98535c",
-  "version": 377,
+  "version": 378,
   "metadata": {
-    "timestamp": "2026-10-17T06:00:33Z",
+    "timestamp": "2026-11-11T07:42:47Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "node-feature-discovery",
-      "version": "0.19.0",
+      "version": "0.20.1",
       "licenses": [
         {
           "license": {

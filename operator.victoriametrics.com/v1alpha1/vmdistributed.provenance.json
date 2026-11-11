@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://victoriametrics.github.io/helm-charts/",
     "chart": "victoria-metrics-operator-crds",
-    "version": "0.15.0",
+    "version": "0.15.2",
     "license": "Apache-2.0",
     "homepage": "https://github.com/VictoriaMetrics/operator"
   },
   "extraction": {
-    "timestamp": "2026-10-04T01:10:58Z",
+    "timestamp": "2026-11-11T07:42:47Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "fd3716e2d700d7587d5e5da7847ce548c43ff5ea4a4c691ab7f3dea7b1ed6734"
+    "sha256": "672bd9e96426b80f5891446bf57bc5654d6cb3234ca18f98eeed0cef3385aa18"
   }
 }

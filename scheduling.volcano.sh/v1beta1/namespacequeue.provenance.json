@@ -1,0 +1,27 @@
+{
+  "schema": "namespacequeue.json",
+  "crd": {
+    "group": "scheduling.volcano.sh",
+    "kind": "NamespaceQueue",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "volcano",
+    "type": "helm",
+    "repo": "https://volcano-sh.github.io/helm-charts",
+    "chart": "volcano",
+    "version": "1.16.0",
+    "license": "Apache-2.0",
+    "homepage": "https://volcano.sh",
+    "include": [
+      "scheduling.volcano.sh/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-11-11T07:42:47Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "55b23631f5ce0f754dac5ac889a43d7695974e886a4a3c6d44f812b0e02886bf"
+  }
+}

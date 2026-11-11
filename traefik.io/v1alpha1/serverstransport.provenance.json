@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://traefik.github.io/charts",
     "chart": "traefik",
-    "version": "40.0.0",
+    "version": "42.3.1",
     "license": "MIT",
     "homepage": "https://traefik.io",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-05-07T14:41:10Z",
+    "timestamp": "2026-11-11T07:42:47Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "757ea229fae510559c3c1cf98f1ab5d875b3c2eb0b0ac9620a33e963f3956c22"
+    "sha256": "1c669abd007b5a75f2c89358bb07040dcb6568aa457769d4022a20ccb599687b"
   }
 }

@@ -226,7 +226,7 @@
                         "type": "string",
                         "default": "default",
                         "maxLength": 253,
-                        "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
+                        "pattern": "^(namespace/)?[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
                       },
                       "runningEstimate": {
                         "type": "string"
@@ -4690,6 +4690,14 @@
                                       ],
                                       "x-kubernetes-list-type": "map"
                                     },
+                                    "schedulingGroup": {
+                                      "type": "object",
+                                      "properties": {
+                                        "podGroupName": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
                                     "securityContext": {
                                       "type": "object",
                                       "properties": {
@@ -6173,24 +6181,6 @@
                                         "name"
                                       ],
                                       "x-kubernetes-list-type": "map"
-                                    },
-                                    "workloadRef": {
-                                      "type": "object",
-                                      "required": [
-                                        "name",
-                                        "podGroup"
-                                      ],
-                                      "properties": {
-                                        "name": {
-                                          "type": "string"
-                                        },
-                                        "podGroup": {
-                                          "type": "string"
-                                        },
-                                        "podGroupReplicaKey": {
-                                          "type": "string"
-                                        }
-                                      }
                                     }
                                   }
                                 }

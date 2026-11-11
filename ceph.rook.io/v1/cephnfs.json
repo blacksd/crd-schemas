@@ -3076,6 +3076,11 @@
             }
           }
         },
+        "message": {
+          "type": "string",
+          "maxLength": 500,
+          "minLength": 1
+        },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest generation observed by the controller.",
           "type": "integer",

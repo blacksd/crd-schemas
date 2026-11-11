@@ -508,6 +508,7 @@
                     "properties": {
                       "healthConditions": {
                         "type": "array",
+                        "maxItems": 16,
                         "items": {
                           "type": "object",
                           "required": [
@@ -519,10 +520,12 @@
                               "type": "string"
                             },
                             "reason": {
-                              "type": "string"
+                              "type": "string",
+                              "minLength": 1
                             },
                             "status": {
                               "type": "string",
+                              "minLength": 1,
                               "enum": [
                                 "DataLoss",
                                 "Degraded",
@@ -4378,6 +4381,7 @@
                       "properties": {
                         "healthConditions": {
                           "type": "array",
+                          "maxItems": 16,
                           "items": {
                             "type": "object",
                             "required": [
@@ -4389,10 +4393,12 @@
                                 "type": "string"
                               },
                               "reason": {
-                                "type": "string"
+                                "type": "string",
+                                "minLength": 1
                               },
                               "status": {
                                 "type": "string",
+                                "minLength": 1,
                                 "enum": [
                                   "DataLoss",
                                   "Degraded",

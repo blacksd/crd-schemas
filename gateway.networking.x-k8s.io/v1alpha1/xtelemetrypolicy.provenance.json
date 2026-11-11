@@ -1,0 +1,23 @@
+{
+  "schema": "xtelemetrypolicy.json",
+  "crd": {
+    "group": "gateway.networking.x-k8s.io",
+    "kind": "XTelemetryPolicy",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "gateway-api",
+    "type": "url",
+    "url": "https://github.com/kubernetes-sigs/gateway-api/releases/download/{version}/experimental-install.yaml",
+    "version": "v1.7.0",
+    "license": "Apache-2.0",
+    "homepage": "https://gateway-api.sigs.k8s.io"
+  },
+  "extraction": {
+    "timestamp": "2026-11-11T07:42:47Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ad54632ffc3c65808fd4e54609de3dae3e6c94c0b2f999c94434b83e6b53d6a9"
+  }
+}

@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://backube.github.io/helm-charts",
     "chart": "volsync",
-    "version": "0.15.0",
+    "version": "0.17.0",
     "license": "AGPL-3.0",
     "homepage": "https://volsync.readthedocs.io"
   },
   "extraction": {
-    "timestamp": "2026-03-07T06:29:46Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-11-11T07:42:47Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "e02f6e3417e3720906f45f071f983417a726162a8c9cfa915b775ffe934cf2f7"
+    "sha256": "f19943c6f7940a611c7f6b7c22499130a424ef09ced66cff02304644b3f68f1c"
   }
 }

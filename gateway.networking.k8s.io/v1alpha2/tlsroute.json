@@ -175,6 +175,10 @@
                     {
                       "rule": "(size(self.group) == 0 \u0026\u0026 self.kind == 'Service') ? has(self.port) : true",
                       "message": "Must have port for Service reference"
+                    },
+                    {
+                      "rule": "(self.group == 'gateway.networking.x-k8s.io' \u0026\u0026 self.kind == 'XBackend') ? !has(self.port) : true",
+                      "message": "Must not have port for Backend reference"
                     }
                   ]
                 },

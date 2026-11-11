@@ -1,0 +1,26 @@
+{
+  "schema": "provider.json",
+  "crd": {
+    "group": "notification.toolkit.fluxcd.io",
+    "kind": "Provider",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "flux",
+    "type": "url",
+    "url": "https://github.com/fluxcd/flux2/releases/download/{version}/install.yaml",
+    "version": "v2.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://fluxcd.io",
+    "include": [
+      "notification.toolkit.fluxcd.io/*"
+    ]
+  },
+  "extraction": {
+    "timestamp": "2026-11-11T07:42:47Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "8e44448a6b774ce4e418175572f6719d217ba1501ebfea1bdff572b82b0495a1"
+  }
+}

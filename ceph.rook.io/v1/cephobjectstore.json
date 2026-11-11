@@ -1863,6 +1863,15 @@
                   "additionalProperties": {
                     "type": "string"
                   }
+                },
+                "trafficDistribution": {
+                  "description": "The trafficDistribution to set on each rgw service.",
+                  "type": "string",
+                  "enum": [
+                    "PreferClose",
+                    "PreferSameZone",
+                    "PreferSameNode"
+                  ]
                 }
               },
               "nullable": true
@@ -2931,7 +2940,9 @@
           "nullable": true
         },
         "message": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 500,
+          "minLength": 1
         },
         "observedGeneration": {
           "description": "ObservedGeneration is the latest generation observed by the controller.",

@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://fluent.github.io/helm-charts",
     "chart": "fluent-operator",
-    "version": "3.5.0",
+    "version": "4.4.0",
     "license": "Apache-2.0",
     "homepage": "https://github.com/fluent/fluent-operator",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-07T06:28:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-11-11T07:42:47Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "dfdaec84dac5df5681cefae97333b88b338a6cdfc017cefadaa81c94f8451479"
+    "sha256": "0f043f71e3b682d5e1c5b1250f73cd091f373666bef8122fedd5b37fc6562d77"
   }
 }
