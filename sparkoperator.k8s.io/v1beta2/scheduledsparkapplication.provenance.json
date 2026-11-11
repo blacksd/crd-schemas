@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://kubeflow.github.io/spark-operator",
     "chart": "spark-operator",
-    "version": "2.4.0",
+    "version": "2.6.0",
     "license": "Apache-2.0",
     "homepage": "https://www.kubeflow.org/docs/components/spark-operator"
   },
   "extraction": {
-    "timestamp": "2026-03-05T16:55:25Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-11-11T10:51:36Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "db0e0198ac1d1259f03da8ab62947a28073afcaa7c3e7e8d5b4c5f498087e034"
+    "sha256": "35f34e610d11067d5dd25aa41e4dd03a7d7d8b915d9544d9673d78736cea945d"
   }
 }
