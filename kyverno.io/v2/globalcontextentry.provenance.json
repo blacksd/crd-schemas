@@ -10,7 +10,7 @@
     "type": "helm",
     "repo": "https://kyverno.github.io/kyverno",
     "chart": "kyverno",
-    "version": "3.7.1",
+    "version": "3.10.0",
     "license": "Apache-2.0",
     "homepage": "https://kyverno.io",
     "include": [
@@ -18,10 +18,10 @@
     ]
   },
   "extraction": {
-    "timestamp": "2026-03-05T11:37:31Z",
-    "toolVersion": "crd-schemas v0.1.0"
+    "timestamp": "2026-11-12T12:40:21Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "e236c8f9b4fa29e5e5c52e6d5d5f9112b04a5ee98b928930fdb06f8eb6248144"
+    "sha256": "c5d79efe3c025c5e4820d34e63c4676409c7ea667002e2b61931dcb4ea337f2e"
   }
 }
