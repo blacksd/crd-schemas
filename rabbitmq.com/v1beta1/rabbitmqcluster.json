@@ -4079,6 +4079,7 @@
                             },
                             "evictionResponders": {
                               "type": "array",
+                              "maxItems": 10,
                               "items": {
                                 "type": "object",
                                 "required": [
@@ -4087,11 +4088,14 @@
                                 ],
                                 "properties": {
                                   "name": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "minLength": 1
                                   },
                                   "priority": {
                                     "type": "integer",
-                                    "format": "int32"
+                                    "format": "int32",
+                                    "maximum": 100000,
+                                    "minimum": 0
                                   }
                                 },
                                 "x-kubernetes-map-type": "atomic"
@@ -7721,6 +7725,11 @@
         "quorumStatus": {
           "description": "QuorumStatus indicates whether any node in the cluster is quorum critical.\nFormat: \"\u003cstatus\u003e [(\u003cdetails\u003e)]\"\nExamples:\n  - \"ok\" - no nodes are quorum critical\n  - \"ok (1 unavailable)\" - no critical nodes, but 1 node unreachable\n  - \"quorum-critical: pod-0\" - pod-0 is quorum critical\n  - \"quorum-critical: pod-0, pod-2 (1 unavailable)\" - multiple critical pods\n  - \"unavailable\" - all nodes unreachable or StatefulSet not ready",
           "type": "string"
+        },
+        "replicas": {
+          "description": "Replicas is the number of RabbitMQ pods currently running, as reported by\nthe StatefulSet. It backs the status of the /scale subresource.",
+          "type": "integer",
+          "format": "int32"
         }
       }
     }
