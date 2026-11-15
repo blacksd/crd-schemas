@@ -10,15 +10,15 @@
     "type": "helm",
     "repo": "https://helm.releases.hashicorp.com",
     "chart": "vault-secrets-operator",
-    "version": "1.5.0",
+    "version": "2.0.0",
     "license": "BUSL-1.1",
     "homepage": "https://developer.hashicorp.com/vault/docs/platform/k8s/vso"
   },
   "extraction": {
-    "timestamp": "2026-07-26T06:08:49Z",
+    "timestamp": "2026-11-15T02:47:10Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "7fc884442dfb9f6bdd69d5d0bbf0e3c7c12b6ca78bb593907de261cc89e4e6a8"
+    "sha256": "24136051c97614c280ba06b979b9d48726c36b9b02cb3c9a13f373ebf3813bec"
   }
 }
