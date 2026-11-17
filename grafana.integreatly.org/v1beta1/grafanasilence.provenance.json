@@ -1,0 +1,24 @@
+{
+  "schema": "grafanasilence.json",
+  "crd": {
+    "group": "grafana.integreatly.org",
+    "kind": "GrafanaSilence",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "grafana-operator",
+    "type": "helm",
+    "repo": "https://grafana.github.io/helm-charts",
+    "chart": "grafana-operator",
+    "version": "5.26.0",
+    "license": "Apache-2.0",
+    "homepage": "https://grafana.github.io/grafana-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-11-17T22:54:41Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "c7fbf84a5aab8dc5ab0848f7ff93e21758f8250dcf524c1e2b00d84ce810c5e7"
+  }
+}
