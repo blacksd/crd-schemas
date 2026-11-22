@@ -1,0 +1,24 @@
+{
+  "schema": "datadogbyoccluster.json",
+  "crd": {
+    "group": "datadoghq.com",
+    "kind": "DatadogBYOCCluster",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "datadog-operator",
+    "type": "git+github",
+    "repo": "https://github.com/DataDog/datadog-operator",
+    "path": "config/crd/bases/v1",
+    "version": "v1.32.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/DataDog/datadog-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-11-22T09:18:17Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ac124a7ca45bc3df4d1056ec8965b51f41e84f7cc184ad5d6519042e21c2f969"
+  }
+}

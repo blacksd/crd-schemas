@@ -1,0 +1,24 @@
+{
+  "schema": "datadogobservabilitypipelinesworker.json",
+  "crd": {
+    "group": "datadoghq.com",
+    "kind": "DatadogObservabilityPipelinesWorker",
+    "apiVersion": "v1alpha1"
+  },
+  "source": {
+    "name": "datadog-operator",
+    "type": "git+github",
+    "repo": "https://github.com/DataDog/datadog-operator",
+    "path": "config/crd/bases/v1",
+    "version": "v1.32.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/DataDog/datadog-operator"
+  },
+  "extraction": {
+    "timestamp": "2026-11-22T09:18:17Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "ff9f1ff98524e1ecac326fa46b137c8ed93ddc0d6d6e2fb788e4d40b4fcf7e9f"
+  }
+}
