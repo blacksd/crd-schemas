@@ -9,15 +9,15 @@
     "name": "kubevirt",
     "type": "url",
     "url": "https://github.com/kubevirt/kubevirt/releases/download/{version}/kubevirt-operator.yaml",
-    "version": "v1.9.0",
+    "version": "v1.10.0",
     "license": "Apache-2.0",
     "homepage": "https://kubevirt.io"
   },
   "extraction": {
-    "timestamp": "2026-07-31T10:54:53Z",
+    "timestamp": "2026-11-22T13:50:20Z",
     "toolVersion": "crd-schema-extractor v0.1.0"
   },
   "integrity": {
-    "sha256": "0f5dc9a937b1a74299f9a230bddee3a1c81cf6cc10ef2de2593c516bbae860f5"
+    "sha256": "87dedb9c666469f30b33043df89a33dfd53050716de68d6f0bf0e31a475a9ed2"
   }
 }
