@@ -147,7 +147,7 @@
               }
             },
             "targets": {
-              "description": "The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.",
+              "description": "The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -837,7 +837,7 @@
               "type": "string"
             },
             "windowId": {
-              "description": "The Id of the maintenance window to register the task with.",
+              "description": "The ID of the maintenance window to register the task with.",
               "type": "string"
             },
             "windowIdRef": {
@@ -1027,7 +1027,7 @@
               }
             },
             "targets": {
-              "description": "The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.",
+              "description": "The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -1717,7 +1717,7 @@
               "type": "string"
             },
             "windowId": {
-              "description": "The Id of the maintenance window to register the task with.",
+              "description": "The ID of the maintenance window to register the task with.",
               "type": "string"
             },
             "windowIdRef": {
@@ -1930,7 +1930,7 @@
               "type": "string"
             },
             "targets": {
-              "description": "The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.",
+              "description": "The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -2110,7 +2110,7 @@
               "type": "string"
             },
             "windowId": {
-              "description": "The Id of the maintenance window to register the task with.",
+              "description": "The ID of the maintenance window to register the task with.",
               "type": "string"
             },
             "windowTaskId": {

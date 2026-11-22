@@ -249,7 +249,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "ARN assigned by AWS to the autoscaling schedule.",
+              "description": "ARN assigned by AWS to the Auto Scaling schedule.",
               "type": "string"
             },
             "autoscalingGroupName": {

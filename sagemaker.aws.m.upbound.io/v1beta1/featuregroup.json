@@ -143,7 +143,7 @@
                   "type": "string"
                 },
                 "ttlDuration": {
-                  "description": "Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.",
+                  "description": "Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.",
                   "type": "object",
                   "properties": {
                     "unit": {
@@ -396,7 +396,7 @@
                   "type": "string"
                 },
                 "ttlDuration": {
-                  "description": "Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.",
+                  "description": "Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.",
                   "type": "object",
                   "properties": {
                     "unit": {
@@ -725,7 +725,7 @@
                   "type": "string"
                 },
                 "ttlDuration": {
-                  "description": "Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.",
+                  "description": "Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.",
                   "type": "object",
                   "properties": {
                     "unit": {

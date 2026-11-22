@@ -211,7 +211,7 @@
               }
             },
             "sourceS3Path": {
-              "description": "S3 path where your block list text file is located. See details below.",
+              "description": "S3 path where your block list text file is located. See source_s3_path Block for details.",
               "type": "object",
               "properties": {
                 "bucket": {
@@ -301,7 +301,7 @@
               }
             },
             "tags": {
-              "description": "Key-value map of resource tags. If configured with a provider default_tags configuration block, tags with matching keys will overwrite those defined at the provider-level.",
+              "description": "Key-value map of resource tags.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -483,7 +483,7 @@
               }
             },
             "sourceS3Path": {
-              "description": "S3 path where your block list text file is located. See details below.",
+              "description": "S3 path where your block list text file is located. See source_s3_path Block for details.",
               "type": "object",
               "properties": {
                 "bucket": {
@@ -573,7 +573,7 @@
               }
             },
             "tags": {
-              "description": "Key-value map of resource tags. If configured with a provider default_tags configuration block, tags with matching keys will overwrite those defined at the provider-level.",
+              "description": "Key-value map of resource tags.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -709,7 +709,7 @@
               "type": "string"
             },
             "sourceS3Path": {
-              "description": "S3 path where your block list text file is located. See details below.",
+              "description": "S3 path where your block list text file is located. See source_s3_path Block for details.",
               "type": "object",
               "properties": {
                 "bucket": {
@@ -723,10 +723,11 @@
               }
             },
             "status": {
+              "description": "Current status of the block list.",
               "type": "string"
             },
             "tags": {
-              "description": "Key-value map of resource tags. If configured with a provider default_tags configuration block, tags with matching keys will overwrite those defined at the provider-level.",
+              "description": "Key-value map of resource tags.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"

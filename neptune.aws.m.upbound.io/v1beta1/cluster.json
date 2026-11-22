@@ -58,7 +58,7 @@
               "type": "boolean"
             },
             "enableCloudwatchLogsExports": {
-              "description": "List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports audit and slowquery.",
+              "description": "List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports audit and slowquery.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -448,6 +448,10 @@
                   }
                 }
               }
+            },
+            "networkType": {
+              "description": "Network type of the Neptune cluster. Valid values: IPV4, DUAL. Default: IPV4. Specifying DUAL enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the Neptune dual-stack documentation for prerequisites.",
+              "type": "string"
             },
             "port": {
               "description": "Port on which the Neptune accepts connections. Default is 8182.",
@@ -806,7 +810,7 @@
               "type": "boolean"
             },
             "enableCloudwatchLogsExports": {
-              "description": "List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports audit and slowquery.",
+              "description": "List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports audit and slowquery.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -1196,6 +1200,10 @@
                   }
                 }
               }
+            },
+            "networkType": {
+              "description": "Network type of the Neptune cluster. Valid values: IPV4, DUAL. Default: IPV4. Specifying DUAL enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the Neptune dual-stack documentation for prerequisites.",
+              "type": "string"
             },
             "port": {
               "description": "Port on which the Neptune accepts connections. Default is 8182.",
@@ -1625,7 +1633,7 @@
               "type": "boolean"
             },
             "enableCloudwatchLogsExports": {
-              "description": "List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports audit and slowquery.",
+              "description": "List of the log types this DB cluster is configured to export to CloudWatch Logs. Currently only supports audit and slowquery.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -1686,6 +1694,10 @@
             },
             "neptuneSubnetGroupName": {
               "description": "Neptune subnet group to associate with this Neptune instance.",
+              "type": "string"
+            },
+            "networkType": {
+              "description": "Network type of the Neptune cluster. Valid values: IPV4, DUAL. Default: IPV4. Specifying DUAL enables dual-stack IPv4/IPv6 connectivity. The Neptune DB subnet group associated with the cluster must be backed by IPv6-capable subnets. See the Neptune dual-stack documentation for prerequisites.",
               "type": "string"
             },
             "port": {

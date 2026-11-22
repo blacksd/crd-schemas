@@ -48,33 +48,33 @@
                   "type": "object",
                   "properties": {
                     "maxWorkerCount": {
-                      "description": "The maximum number of workers allocated to the connector.",
+                      "description": "Maximum number of workers allocated to the connector.",
                       "type": "number"
                     },
                     "mcuCount": {
-                      "description": "The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: 1, 2, 4, 8. The default value is 1.",
+                      "description": "Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: 1, 2, 4, 8. The default value is 1.",
                       "type": "number"
                     },
                     "minWorkerCount": {
-                      "description": "The minimum number of workers allocated to the connector.",
+                      "description": "Minimum number of workers allocated to the connector.",
                       "type": "number"
                     },
                     "scaleInPolicy": {
-                      "description": "The scale-in policy for the connector. See scale_in_policy Block for details.",
+                      "description": "Scale-in policy for the connector. See scale_in_policy Block for details.",
                       "type": "object",
                       "properties": {
                         "cpuUtilizationPercentage": {
-                          "description": "Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.",
+                          "description": "CPU utilization percentage threshold at which you want connector scale in to be triggered.",
                           "type": "number"
                         }
                       }
                     },
                     "scaleOutPolicy": {
-                      "description": "The scale-out policy for the connector. See scale_out_policy Block for details.",
+                      "description": "Scale-out policy for the connector. See scale_out_policy Block for details.",
                       "type": "object",
                       "properties": {
                         "cpuUtilizationPercentage": {
-                          "description": "The CPU utilization percentage threshold at which you want connector scale out to be triggered.",
+                          "description": "CPU utilization percentage threshold at which you want connector scale out to be triggered.",
                           "type": "number"
                         }
                       }
@@ -86,11 +86,11 @@
                   "type": "object",
                   "properties": {
                     "mcuCount": {
-                      "description": "The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: 1, 2, 4, 8. The default value is 1.",
+                      "description": "Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: 1, 2, 4, 8. The default value is 1.",
                       "type": "number"
                     },
                     "workerCount": {
-                      "description": "The number of workers that are allocated to the connector.",
+                      "description": "Number of workers that are allocated to the connector.",
                       "type": "number"
                     }
                   }
@@ -98,7 +98,7 @@
               }
             },
             "connectorConfiguration": {
-              "description": "A map of keys to values that represent the configuration for the connector.",
+              "description": "Map of keys to values that represent the configuration for the connector.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -106,19 +106,19 @@
               "x-kubernetes-map-type": "granular"
             },
             "description": {
-              "description": "A summary description of the connector.",
+              "description": "Summary description of the connector.",
               "type": "string"
             },
             "kafkaCluster": {
-              "description": "Specifies which Apache Kafka cluster to connect to. See kafka_cluster Block for details.",
+              "description": "Apache Kafka cluster to connect to. See kafka_cluster Block for details.",
               "type": "object",
               "properties": {
                 "apacheKafkaCluster": {
-                  "description": "The Apache Kafka cluster to which the connector is connected. See apache_kafka_cluster Block for details.",
+                  "description": "Apache Kafka cluster to which the connector is connected. See apache_kafka_cluster Block for details.",
                   "type": "object",
                   "properties": {
                     "bootstrapServers": {
-                      "description": "The bootstrap servers of the cluster.",
+                      "description": "Bootstrap servers of the cluster.",
                       "type": "string"
                     },
                     "vpc": {
@@ -206,7 +206,7 @@
                           }
                         },
                         "securityGroups": {
-                          "description": "The security groups for the connector.",
+                          "description": "Security groups for the connector.",
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -294,7 +294,7 @@
                           }
                         },
                         "subnets": {
-                          "description": "The subnets for the connector.",
+                          "description": "Subnets for the connector.",
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -312,7 +312,7 @@
               "type": "object",
               "properties": {
                 "authenticationType": {
-                  "description": "The type of client authentication used to connect to the Apache Kafka cluster. Valid values: IAM, NONE. A value of NONE means that no client authentication is used. The default value is NONE.",
+                  "description": "Type of client authentication used to connect to the Apache Kafka cluster. Valid values: IAM, NONE. A value of NONE means that no client authentication is used. The default value is NONE.",
                   "type": "string"
                 }
               }
@@ -322,13 +322,13 @@
               "type": "object",
               "properties": {
                 "encryptionType": {
-                  "description": "The type of encryption in transit to the Apache Kafka cluster. Valid values: PLAINTEXT, TLS. The default values is PLAINTEXT.",
+                  "description": "Type of encryption in transit to the Apache Kafka cluster. Valid values: PLAINTEXT, TLS. The default values is PLAINTEXT.",
                   "type": "string"
                 }
               }
             },
             "kafkaconnectVersion": {
-              "description": "The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.",
+              "description": "Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.",
               "type": "string"
             },
             "logDelivery": {
@@ -336,7 +336,7 @@
               "type": "object",
               "properties": {
                 "workerLogDelivery": {
-                  "description": "The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See worker_log_delivery Block for details.",
+                  "description": "Workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See worker_log_delivery Block for details.",
                   "type": "object",
                   "properties": {
                     "cloudwatchLogs": {
@@ -348,7 +348,7 @@
                           "type": "boolean"
                         },
                         "logGroup": {
-                          "description": "The name of the CloudWatch log group that is the destination for log delivery.",
+                          "description": "Name of the CloudWatch log group that is the destination for log delivery.",
                           "type": "string"
                         },
                         "logGroupRef": {
@@ -434,7 +434,7 @@
                       "type": "object",
                       "properties": {
                         "deliveryStream": {
-                          "description": "The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.",
+                          "description": "Name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.",
                           "type": "string"
                         },
                         "deliveryStreamRef": {
@@ -514,7 +514,7 @@
                           }
                         },
                         "enabled": {
-                          "description": "Specifies whether connector logs get sent to the specified Amazon S3 destination.",
+                          "description": "Whether connector logs get sent to the specified Amazon S3 destination.",
                           "type": "boolean"
                         }
                       }
@@ -524,7 +524,7 @@
                       "type": "object",
                       "properties": {
                         "bucket": {
-                          "description": "The name of the S3 bucket that is the destination for log delivery.",
+                          "description": "Name of the S3 bucket that is the destination for log delivery.",
                           "type": "string"
                         },
                         "bucketRef": {
@@ -604,11 +604,11 @@
                           }
                         },
                         "enabled": {
-                          "description": "Specifies whether connector logs get sent to the specified Amazon S3 destination.",
+                          "description": "Whether connector logs get sent to the specified Amazon S3 destination.",
                           "type": "boolean"
                         },
                         "prefix": {
-                          "description": "The S3 prefix that is the destination for log delivery.",
+                          "description": "S3 prefix that is the destination for log delivery.",
                           "type": "string"
                         }
                       }
@@ -618,11 +618,11 @@
               }
             },
             "name": {
-              "description": "The name of the connector.",
+              "description": "Name of the connector.",
               "type": "string"
             },
             "plugin": {
-              "description": "Specifies which plugins to use for the connector. See plugin Block for details.",
+              "description": "Plugins to use for the connector. See plugin Block for details.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -712,7 +712,7 @@
                         }
                       },
                       "revision": {
-                        "description": "The revision of the custom plugin.",
+                        "description": "Revision of the custom plugin.",
                         "type": "number"
                       }
                     }
@@ -813,7 +813,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "workerConfiguration": {
-              "description": "Specifies which worker configuration to use with the connector. See worker_configuration Block for details.",
+              "description": "Worker configuration to use with the connector. See worker_configuration Block for details.",
               "type": "object",
               "properties": {
                 "arn": {
@@ -897,7 +897,7 @@
                   }
                 },
                 "revision": {
-                  "description": "The revision of the worker configuration.",
+                  "description": "Revision of the worker configuration.",
                   "type": "number"
                 }
               }
@@ -917,33 +917,33 @@
                   "type": "object",
                   "properties": {
                     "maxWorkerCount": {
-                      "description": "The maximum number of workers allocated to the connector.",
+                      "description": "Maximum number of workers allocated to the connector.",
                       "type": "number"
                     },
                     "mcuCount": {
-                      "description": "The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: 1, 2, 4, 8. The default value is 1.",
+                      "description": "Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: 1, 2, 4, 8. The default value is 1.",
                       "type": "number"
                     },
                     "minWorkerCount": {
-                      "description": "The minimum number of workers allocated to the connector.",
+                      "description": "Minimum number of workers allocated to the connector.",
                       "type": "number"
                     },
                     "scaleInPolicy": {
-                      "description": "The scale-in policy for the connector. See scale_in_policy Block for details.",
+                      "description": "Scale-in policy for the connector. See scale_in_policy Block for details.",
                       "type": "object",
                       "properties": {
                         "cpuUtilizationPercentage": {
-                          "description": "Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.",
+                          "description": "CPU utilization percentage threshold at which you want connector scale in to be triggered.",
                           "type": "number"
                         }
                       }
                     },
                     "scaleOutPolicy": {
-                      "description": "The scale-out policy for the connector. See scale_out_policy Block for details.",
+                      "description": "Scale-out policy for the connector. See scale_out_policy Block for details.",
                       "type": "object",
                       "properties": {
                         "cpuUtilizationPercentage": {
-                          "description": "The CPU utilization percentage threshold at which you want connector scale out to be triggered.",
+                          "description": "CPU utilization percentage threshold at which you want connector scale out to be triggered.",
                           "type": "number"
                         }
                       }
@@ -955,11 +955,11 @@
                   "type": "object",
                   "properties": {
                     "mcuCount": {
-                      "description": "The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: 1, 2, 4, 8. The default value is 1.",
+                      "description": "Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: 1, 2, 4, 8. The default value is 1.",
                       "type": "number"
                     },
                     "workerCount": {
-                      "description": "The number of workers that are allocated to the connector.",
+                      "description": "Number of workers that are allocated to the connector.",
                       "type": "number"
                     }
                   }
@@ -967,7 +967,7 @@
               }
             },
             "connectorConfiguration": {
-              "description": "A map of keys to values that represent the configuration for the connector.",
+              "description": "Map of keys to values that represent the configuration for the connector.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -975,19 +975,19 @@
               "x-kubernetes-map-type": "granular"
             },
             "description": {
-              "description": "A summary description of the connector.",
+              "description": "Summary description of the connector.",
               "type": "string"
             },
             "kafkaCluster": {
-              "description": "Specifies which Apache Kafka cluster to connect to. See kafka_cluster Block for details.",
+              "description": "Apache Kafka cluster to connect to. See kafka_cluster Block for details.",
               "type": "object",
               "properties": {
                 "apacheKafkaCluster": {
-                  "description": "The Apache Kafka cluster to which the connector is connected. See apache_kafka_cluster Block for details.",
+                  "description": "Apache Kafka cluster to which the connector is connected. See apache_kafka_cluster Block for details.",
                   "type": "object",
                   "properties": {
                     "bootstrapServers": {
-                      "description": "The bootstrap servers of the cluster.",
+                      "description": "Bootstrap servers of the cluster.",
                       "type": "string"
                     },
                     "vpc": {
@@ -1075,7 +1075,7 @@
                           }
                         },
                         "securityGroups": {
-                          "description": "The security groups for the connector.",
+                          "description": "Security groups for the connector.",
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -1163,7 +1163,7 @@
                           }
                         },
                         "subnets": {
-                          "description": "The subnets for the connector.",
+                          "description": "Subnets for the connector.",
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -1181,7 +1181,7 @@
               "type": "object",
               "properties": {
                 "authenticationType": {
-                  "description": "The type of client authentication used to connect to the Apache Kafka cluster. Valid values: IAM, NONE. A value of NONE means that no client authentication is used. The default value is NONE.",
+                  "description": "Type of client authentication used to connect to the Apache Kafka cluster. Valid values: IAM, NONE. A value of NONE means that no client authentication is used. The default value is NONE.",
                   "type": "string"
                 }
               }
@@ -1191,13 +1191,13 @@
               "type": "object",
               "properties": {
                 "encryptionType": {
-                  "description": "The type of encryption in transit to the Apache Kafka cluster. Valid values: PLAINTEXT, TLS. The default values is PLAINTEXT.",
+                  "description": "Type of encryption in transit to the Apache Kafka cluster. Valid values: PLAINTEXT, TLS. The default values is PLAINTEXT.",
                   "type": "string"
                 }
               }
             },
             "kafkaconnectVersion": {
-              "description": "The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.",
+              "description": "Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.",
               "type": "string"
             },
             "logDelivery": {
@@ -1205,7 +1205,7 @@
               "type": "object",
               "properties": {
                 "workerLogDelivery": {
-                  "description": "The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See worker_log_delivery Block for details.",
+                  "description": "Workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See worker_log_delivery Block for details.",
                   "type": "object",
                   "properties": {
                     "cloudwatchLogs": {
@@ -1217,7 +1217,7 @@
                           "type": "boolean"
                         },
                         "logGroup": {
-                          "description": "The name of the CloudWatch log group that is the destination for log delivery.",
+                          "description": "Name of the CloudWatch log group that is the destination for log delivery.",
                           "type": "string"
                         },
                         "logGroupRef": {
@@ -1303,7 +1303,7 @@
                       "type": "object",
                       "properties": {
                         "deliveryStream": {
-                          "description": "The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.",
+                          "description": "Name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.",
                           "type": "string"
                         },
                         "deliveryStreamRef": {
@@ -1383,7 +1383,7 @@
                           }
                         },
                         "enabled": {
-                          "description": "Specifies whether connector logs get sent to the specified Amazon S3 destination.",
+                          "description": "Whether connector logs get sent to the specified Amazon S3 destination.",
                           "type": "boolean"
                         }
                       }
@@ -1393,7 +1393,7 @@
                       "type": "object",
                       "properties": {
                         "bucket": {
-                          "description": "The name of the S3 bucket that is the destination for log delivery.",
+                          "description": "Name of the S3 bucket that is the destination for log delivery.",
                           "type": "string"
                         },
                         "bucketRef": {
@@ -1473,11 +1473,11 @@
                           }
                         },
                         "enabled": {
-                          "description": "Specifies whether connector logs get sent to the specified Amazon S3 destination.",
+                          "description": "Whether connector logs get sent to the specified Amazon S3 destination.",
                           "type": "boolean"
                         },
                         "prefix": {
-                          "description": "The S3 prefix that is the destination for log delivery.",
+                          "description": "S3 prefix that is the destination for log delivery.",
                           "type": "string"
                         }
                       }
@@ -1487,7 +1487,7 @@
               }
             },
             "plugin": {
-              "description": "Specifies which plugins to use for the connector. See plugin Block for details.",
+              "description": "Plugins to use for the connector. See plugin Block for details.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -1577,7 +1577,7 @@
                         }
                       },
                       "revision": {
-                        "description": "The revision of the custom plugin.",
+                        "description": "Revision of the custom plugin.",
                         "type": "number"
                       }
                     }
@@ -1674,7 +1674,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "workerConfiguration": {
-              "description": "Specifies which worker configuration to use with the connector. See worker_configuration Block for details.",
+              "description": "Worker configuration to use with the connector. See worker_configuration Block for details.",
               "type": "object",
               "properties": {
                 "arn": {
@@ -1758,7 +1758,7 @@
                   }
                 },
                 "revision": {
-                  "description": "The revision of the worker configuration.",
+                  "description": "Revision of the worker configuration.",
                   "type": "number"
                 }
               }
@@ -1893,33 +1893,33 @@
                   "type": "object",
                   "properties": {
                     "maxWorkerCount": {
-                      "description": "The maximum number of workers allocated to the connector.",
+                      "description": "Maximum number of workers allocated to the connector.",
                       "type": "number"
                     },
                     "mcuCount": {
-                      "description": "The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: 1, 2, 4, 8. The default value is 1.",
+                      "description": "Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: 1, 2, 4, 8. The default value is 1.",
                       "type": "number"
                     },
                     "minWorkerCount": {
-                      "description": "The minimum number of workers allocated to the connector.",
+                      "description": "Minimum number of workers allocated to the connector.",
                       "type": "number"
                     },
                     "scaleInPolicy": {
-                      "description": "The scale-in policy for the connector. See scale_in_policy Block for details.",
+                      "description": "Scale-in policy for the connector. See scale_in_policy Block for details.",
                       "type": "object",
                       "properties": {
                         "cpuUtilizationPercentage": {
-                          "description": "Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.",
+                          "description": "CPU utilization percentage threshold at which you want connector scale in to be triggered.",
                           "type": "number"
                         }
                       }
                     },
                     "scaleOutPolicy": {
-                      "description": "The scale-out policy for the connector. See scale_out_policy Block for details.",
+                      "description": "Scale-out policy for the connector. See scale_out_policy Block for details.",
                       "type": "object",
                       "properties": {
                         "cpuUtilizationPercentage": {
-                          "description": "The CPU utilization percentage threshold at which you want connector scale out to be triggered.",
+                          "description": "CPU utilization percentage threshold at which you want connector scale out to be triggered.",
                           "type": "number"
                         }
                       }
@@ -1931,11 +1931,11 @@
                   "type": "object",
                   "properties": {
                     "mcuCount": {
-                      "description": "The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: 1, 2, 4, 8. The default value is 1.",
+                      "description": "Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: 1, 2, 4, 8. The default value is 1.",
                       "type": "number"
                     },
                     "workerCount": {
-                      "description": "The number of workers that are allocated to the connector.",
+                      "description": "Number of workers that are allocated to the connector.",
                       "type": "number"
                     }
                   }
@@ -1943,7 +1943,7 @@
               }
             },
             "connectorConfiguration": {
-              "description": "A map of keys to values that represent the configuration for the connector.",
+              "description": "Map of keys to values that represent the configuration for the connector.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -1951,22 +1951,22 @@
               "x-kubernetes-map-type": "granular"
             },
             "description": {
-              "description": "A summary description of the connector.",
+              "description": "Summary description of the connector.",
               "type": "string"
             },
             "id": {
               "type": "string"
             },
             "kafkaCluster": {
-              "description": "Specifies which Apache Kafka cluster to connect to. See kafka_cluster Block for details.",
+              "description": "Apache Kafka cluster to connect to. See kafka_cluster Block for details.",
               "type": "object",
               "properties": {
                 "apacheKafkaCluster": {
-                  "description": "The Apache Kafka cluster to which the connector is connected. See apache_kafka_cluster Block for details.",
+                  "description": "Apache Kafka cluster to which the connector is connected. See apache_kafka_cluster Block for details.",
                   "type": "object",
                   "properties": {
                     "bootstrapServers": {
-                      "description": "The bootstrap servers of the cluster.",
+                      "description": "Bootstrap servers of the cluster.",
                       "type": "string"
                     },
                     "vpc": {
@@ -1974,7 +1974,7 @@
                       "type": "object",
                       "properties": {
                         "securityGroups": {
-                          "description": "The security groups for the connector.",
+                          "description": "Security groups for the connector.",
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -1982,7 +1982,7 @@
                           "x-kubernetes-list-type": "set"
                         },
                         "subnets": {
-                          "description": "The subnets for the connector.",
+                          "description": "Subnets for the connector.",
                           "type": "array",
                           "items": {
                             "type": "string"
@@ -2000,7 +2000,7 @@
               "type": "object",
               "properties": {
                 "authenticationType": {
-                  "description": "The type of client authentication used to connect to the Apache Kafka cluster. Valid values: IAM, NONE. A value of NONE means that no client authentication is used. The default value is NONE.",
+                  "description": "Type of client authentication used to connect to the Apache Kafka cluster. Valid values: IAM, NONE. A value of NONE means that no client authentication is used. The default value is NONE.",
                   "type": "string"
                 }
               }
@@ -2010,13 +2010,13 @@
               "type": "object",
               "properties": {
                 "encryptionType": {
-                  "description": "The type of encryption in transit to the Apache Kafka cluster. Valid values: PLAINTEXT, TLS. The default values is PLAINTEXT.",
+                  "description": "Type of encryption in transit to the Apache Kafka cluster. Valid values: PLAINTEXT, TLS. The default values is PLAINTEXT.",
                   "type": "string"
                 }
               }
             },
             "kafkaconnectVersion": {
-              "description": "The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.",
+              "description": "Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.",
               "type": "string"
             },
             "logDelivery": {
@@ -2024,7 +2024,7 @@
               "type": "object",
               "properties": {
                 "workerLogDelivery": {
-                  "description": "The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See worker_log_delivery Block for details.",
+                  "description": "Workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See worker_log_delivery Block for details.",
                   "type": "object",
                   "properties": {
                     "cloudwatchLogs": {
@@ -2036,7 +2036,7 @@
                           "type": "boolean"
                         },
                         "logGroup": {
-                          "description": "The name of the CloudWatch log group that is the destination for log delivery.",
+                          "description": "Name of the CloudWatch log group that is the destination for log delivery.",
                           "type": "string"
                         }
                       }
@@ -2046,11 +2046,11 @@
                       "type": "object",
                       "properties": {
                         "deliveryStream": {
-                          "description": "The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.",
+                          "description": "Name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.",
                           "type": "string"
                         },
                         "enabled": {
-                          "description": "Specifies whether connector logs get sent to the specified Amazon S3 destination.",
+                          "description": "Whether connector logs get sent to the specified Amazon S3 destination.",
                           "type": "boolean"
                         }
                       }
@@ -2060,15 +2060,15 @@
                       "type": "object",
                       "properties": {
                         "bucket": {
-                          "description": "The name of the S3 bucket that is the destination for log delivery.",
+                          "description": "Name of the S3 bucket that is the destination for log delivery.",
                           "type": "string"
                         },
                         "enabled": {
-                          "description": "Specifies whether connector logs get sent to the specified Amazon S3 destination.",
+                          "description": "Whether connector logs get sent to the specified Amazon S3 destination.",
                           "type": "boolean"
                         },
                         "prefix": {
-                          "description": "The S3 prefix that is the destination for log delivery.",
+                          "description": "S3 prefix that is the destination for log delivery.",
                           "type": "string"
                         }
                       }
@@ -2078,11 +2078,11 @@
               }
             },
             "name": {
-              "description": "The name of the connector.",
+              "description": "Name of the connector.",
               "type": "string"
             },
             "plugin": {
-              "description": "Specifies which plugins to use for the connector. See plugin Block for details.",
+              "description": "Plugins to use for the connector. See plugin Block for details.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -2096,7 +2096,7 @@
                         "type": "string"
                       },
                       "revision": {
-                        "description": "The revision of the custom plugin.",
+                        "description": "Revision of the custom plugin.",
                         "type": "number"
                       }
                     }
@@ -2121,7 +2121,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "tagsAll": {
-              "description": "A map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
+              "description": "Map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -2129,11 +2129,11 @@
               "x-kubernetes-map-type": "granular"
             },
             "version": {
-              "description": "The current version of the connector.",
+              "description": "Current version of the connector.",
               "type": "string"
             },
             "workerConfiguration": {
-              "description": "Specifies which worker configuration to use with the connector. See worker_configuration Block for details.",
+              "description": "Worker configuration to use with the connector. See worker_configuration Block for details.",
               "type": "object",
               "properties": {
                 "arn": {
@@ -2141,7 +2141,7 @@
                   "type": "string"
                 },
                 "revision": {
-                  "description": "The revision of the worker configuration.",
+                  "description": "Revision of the worker configuration.",
                   "type": "number"
                 }
               }

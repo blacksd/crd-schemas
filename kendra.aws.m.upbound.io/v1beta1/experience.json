@@ -34,11 +34,11 @@
               "type": "object",
               "properties": {
                 "contentSourceConfiguration": {
-                  "description": "The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the BatchPutDocument API. Detailed below.",
+                  "description": "Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the BatchPutDocument API. Detailed below.",
                   "type": "object",
                   "properties": {
                     "dataSourceIds": {
-                      "description": "The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.",
+                      "description": "Identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.",
                       "type": "array",
                       "items": {
                         "type": "string"
@@ -50,7 +50,7 @@
                       "type": "boolean"
                     },
                     "faqIds": {
-                      "description": "The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.",
+                      "description": "Identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.",
                       "type": "array",
                       "items": {
                         "type": "string"
@@ -60,11 +60,11 @@
                   }
                 },
                 "userIdentityConfiguration": {
-                  "description": "The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.",
+                  "description": "AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.",
                   "type": "object",
                   "properties": {
                     "identityAttributeName": {
-                      "description": "The AWS SSO field name that contains the identifiers of your users, such as their emails.",
+                      "description": "AWS SSO field name that contains the identifiers of your users, such as their emails.",
                       "type": "string"
                     }
                   }
@@ -72,11 +72,11 @@
               }
             },
             "description": {
-              "description": "A description for your Amazon Kendra experience.",
+              "description": "Description for your Amazon Kendra experience.",
               "type": "string"
             },
             "indexId": {
-              "description": "The identifier of the index for your Amazon Kendra experience.",
+              "description": "Identifier of the index for your Amazon Kendra experience.",
               "type": "string"
             },
             "indexIdRef": {
@@ -164,7 +164,7 @@
               }
             },
             "name": {
-              "description": "A name for your Amazon Kendra experience.",
+              "description": "Name for your Amazon Kendra experience.",
               "type": "string"
             },
             "region": {
@@ -270,11 +270,11 @@
               "type": "object",
               "properties": {
                 "contentSourceConfiguration": {
-                  "description": "The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the BatchPutDocument API. Detailed below.",
+                  "description": "Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the BatchPutDocument API. Detailed below.",
                   "type": "object",
                   "properties": {
                     "dataSourceIds": {
-                      "description": "The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.",
+                      "description": "Identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.",
                       "type": "array",
                       "items": {
                         "type": "string"
@@ -286,7 +286,7 @@
                       "type": "boolean"
                     },
                     "faqIds": {
-                      "description": "The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.",
+                      "description": "Identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.",
                       "type": "array",
                       "items": {
                         "type": "string"
@@ -296,11 +296,11 @@
                   }
                 },
                 "userIdentityConfiguration": {
-                  "description": "The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.",
+                  "description": "AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.",
                   "type": "object",
                   "properties": {
                     "identityAttributeName": {
-                      "description": "The AWS SSO field name that contains the identifiers of your users, such as their emails.",
+                      "description": "AWS SSO field name that contains the identifiers of your users, such as their emails.",
                       "type": "string"
                     }
                   }
@@ -308,11 +308,11 @@
               }
             },
             "description": {
-              "description": "A description for your Amazon Kendra experience.",
+              "description": "Description for your Amazon Kendra experience.",
               "type": "string"
             },
             "indexId": {
-              "description": "The identifier of the index for your Amazon Kendra experience.",
+              "description": "Identifier of the index for your Amazon Kendra experience.",
               "type": "string"
             },
             "indexIdRef": {
@@ -400,7 +400,7 @@
               }
             },
             "name": {
-              "description": "A name for your Amazon Kendra experience.",
+              "description": "Name for your Amazon Kendra experience.",
               "type": "string"
             },
             "roleArn": {
@@ -571,11 +571,11 @@
               "type": "object",
               "properties": {
                 "contentSourceConfiguration": {
-                  "description": "The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the BatchPutDocument API. Detailed below.",
+                  "description": "Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the BatchPutDocument API. Detailed below.",
                   "type": "object",
                   "properties": {
                     "dataSourceIds": {
-                      "description": "The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.",
+                      "description": "Identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.",
                       "type": "array",
                       "items": {
                         "type": "string"
@@ -587,7 +587,7 @@
                       "type": "boolean"
                     },
                     "faqIds": {
-                      "description": "The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.",
+                      "description": "Identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.",
                       "type": "array",
                       "items": {
                         "type": "string"
@@ -597,11 +597,11 @@
                   }
                 },
                 "userIdentityConfiguration": {
-                  "description": "The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.",
+                  "description": "AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.",
                   "type": "object",
                   "properties": {
                     "identityAttributeName": {
-                      "description": "The AWS SSO field name that contains the identifiers of your users, such as their emails.",
+                      "description": "AWS SSO field name that contains the identifiers of your users, such as their emails.",
                       "type": "string"
                     }
                   }
@@ -609,7 +609,7 @@
               }
             },
             "description": {
-              "description": "A description for your Amazon Kendra experience.",
+              "description": "Description for your Amazon Kendra experience.",
               "type": "string"
             },
             "endpoints": {
@@ -619,30 +619,30 @@
                 "type": "object",
                 "properties": {
                   "endpoint": {
-                    "description": "The endpoint of your Amazon Kendra experience.",
+                    "description": "Endpoint of your Amazon Kendra experience.",
                     "type": "string"
                   },
                   "endpointType": {
-                    "description": "The type of endpoint for your Amazon Kendra experience.",
+                    "description": "Type of endpoint for your Amazon Kendra experience.",
                     "type": "string"
                   }
                 }
               }
             },
             "experienceId": {
-              "description": "The unique identifier of the experience.",
+              "description": "Unique identifier of the experience.",
               "type": "string"
             },
             "id": {
-              "description": "The unique identifiers of the experience and index separated by a slash (/).",
+              "description": "Unique identifiers of the experience and index separated by a slash (/).",
               "type": "string"
             },
             "indexId": {
-              "description": "The identifier of the index for your Amazon Kendra experience.",
+              "description": "Identifier of the index for your Amazon Kendra experience.",
               "type": "string"
             },
             "name": {
-              "description": "A name for your Amazon Kendra experience.",
+              "description": "Name for your Amazon Kendra experience.",
               "type": "string"
             },
             "region": {
@@ -654,7 +654,7 @@
               "type": "string"
             },
             "status": {
-              "description": "The current processing status of your Amazon Kendra experience.",
+              "description": "Current processing status of your Amazon Kendra experience.",
               "type": "string"
             }
           }

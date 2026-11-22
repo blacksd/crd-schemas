@@ -30,7 +30,7 @@
           ],
           "properties": {
             "accessLogSettings": {
-              "description": "Enables access logs for the API stage. See Access Log Settings below.",
+              "description": "Enables access logs for the API stage. See access_log_settings Block below.",
               "type": "object",
               "properties": {
                 "destinationArn": {
@@ -52,7 +52,7 @@
               "type": "string"
             },
             "canarySettings": {
-              "description": "Configuration settings of a canary deployment. See Canary Settings below.",
+              "description": "Configuration settings of a canary deployment. See canary_settings Block below.",
               "type": "object",
               "properties": {
                 "deploymentId": {
@@ -300,7 +300,7 @@
           "type": "object",
           "properties": {
             "accessLogSettings": {
-              "description": "Enables access logs for the API stage. See Access Log Settings below.",
+              "description": "Enables access logs for the API stage. See access_log_settings Block below.",
               "type": "object",
               "properties": {
                 "destinationArn": {
@@ -322,7 +322,7 @@
               "type": "string"
             },
             "canarySettings": {
-              "description": "Configuration settings of a canary deployment. See Canary Settings below.",
+              "description": "Configuration settings of a canary deployment. See canary_settings Block below.",
               "type": "object",
               "properties": {
                 "deploymentId": {
@@ -631,7 +631,7 @@
           "type": "object",
           "properties": {
             "accessLogSettings": {
-              "description": "Enables access logs for the API stage. See Access Log Settings below.",
+              "description": "Enables access logs for the API stage. See access_log_settings Block below.",
               "type": "object",
               "properties": {
                 "destinationArn": {
@@ -657,7 +657,7 @@
               "type": "string"
             },
             "canarySettings": {
-              "description": "Configuration settings of a canary deployment. See Canary Settings below.",
+              "description": "Configuration settings of a canary deployment. See canary_settings Block below.",
               "type": "object",
               "properties": {
                 "deploymentId": {

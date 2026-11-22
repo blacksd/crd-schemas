@@ -321,7 +321,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "The ARN of the subnet group.",
+              "description": "ARN of the subnet group.",
               "type": "string"
             },
             "description": {
@@ -329,7 +329,7 @@
               "type": "string"
             },
             "id": {
-              "description": "The name of the subnet group.",
+              "description": "Name of the subnet group.",
               "type": "string"
             },
             "region": {
@@ -353,7 +353,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "tagsAll": {
-              "description": "A map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
+              "description": "Map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -361,7 +361,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "vpcId": {
-              "description": "The VPC in which the subnet group exists.",
+              "description": "VPC in which the subnet group exists.",
               "type": "string"
             }
           }

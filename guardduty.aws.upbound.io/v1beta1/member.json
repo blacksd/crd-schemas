@@ -119,7 +119,7 @@
               }
             },
             "detectorId": {
-              "description": "The detector ID of the GuardDuty account where you want to create member accounts.",
+              "description": "Detector ID of the GuardDuty account where you want to create member accounts.",
               "type": "string"
             },
             "detectorIdRef": {
@@ -305,7 +305,7 @@
               }
             },
             "detectorId": {
-              "description": "The detector ID of the GuardDuty account where you want to create member accounts.",
+              "description": "Detector ID of the GuardDuty account where you want to create member accounts.",
               "type": "string"
             },
             "detectorIdRef": {
@@ -498,7 +498,7 @@
               "type": "string"
             },
             "detectorId": {
-              "description": "The detector ID of the GuardDuty account where you want to create member accounts.",
+              "description": "Detector ID of the GuardDuty account where you want to create member accounts.",
               "type": "string"
             },
             "disableEmailNotification": {
@@ -525,7 +525,7 @@
               "type": "string"
             },
             "relationshipStatus": {
-              "description": "The status of the relationship between the member account and its primary account. More information can be found in Amazon GuardDuty API Reference.",
+              "description": "Status of the relationship between the member account and its primary account. More information can be found in Amazon GuardDuty API Reference.",
               "type": "string"
             }
           }

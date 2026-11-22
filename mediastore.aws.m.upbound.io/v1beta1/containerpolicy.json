@@ -30,7 +30,7 @@
           ],
           "properties": {
             "containerName": {
-              "description": "The name of the container.",
+              "description": "Name of the container.",
               "type": "string"
             },
             "containerNameRef": {
@@ -118,7 +118,7 @@
               }
             },
             "policy": {
-              "description": "The contents of the policy.",
+              "description": "Contents of the policy.",
               "type": "string"
             },
             "region": {
@@ -132,7 +132,7 @@
           "type": "object",
           "properties": {
             "containerName": {
-              "description": "The name of the container.",
+              "description": "Name of the container.",
               "type": "string"
             },
             "containerNameRef": {
@@ -220,7 +220,7 @@
               }
             },
             "policy": {
-              "description": "The contents of the policy.",
+              "description": "Contents of the policy.",
               "type": "string"
             }
           }
@@ -295,14 +295,14 @@
           "type": "object",
           "properties": {
             "containerName": {
-              "description": "The name of the container.",
+              "description": "Name of the container.",
               "type": "string"
             },
             "id": {
               "type": "string"
             },
             "policy": {
-              "description": "The contents of the policy.",
+              "description": "Contents of the policy.",
               "type": "string"
             },
             "region": {

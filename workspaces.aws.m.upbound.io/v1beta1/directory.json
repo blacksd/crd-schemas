@@ -642,7 +642,7 @@
               "type": "object",
               "properties": {
                 "customSecurityGroupId": {
-                  "description": "The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.",
+                  "description": "The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.",
                   "type": "string"
                 },
                 "customSecurityGroupIdRef": {
@@ -1374,7 +1374,7 @@
               "type": "object",
               "properties": {
                 "customSecurityGroupId": {
-                  "description": "The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.",
+                  "description": "The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.",
                   "type": "string"
                 },
                 "customSecurityGroupIdRef": {
@@ -1785,7 +1785,7 @@
               "type": "object",
               "properties": {
                 "customSecurityGroupId": {
-                  "description": "The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.",
+                  "description": "The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.",
                   "type": "string"
                 },
                 "defaultOu": {

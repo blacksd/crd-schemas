@@ -55,7 +55,7 @@
               "x-kubernetes-list-type": "set"
             },
             "authorizerId": {
-              "description": "Authorizer id to be used when the authorization is CUSTOM or COGNITO_USER_POOLS",
+              "description": "Authorizer ID to be used when the authorization is CUSTOM or COGNITO_USER_POOLS",
               "type": "string"
             },
             "authorizerIdRef": {
@@ -349,7 +349,7 @@
               "x-kubernetes-list-type": "set"
             },
             "authorizerId": {
-              "description": "Authorizer id to be used when the authorization is CUSTOM or COGNITO_USER_POOLS",
+              "description": "Authorizer ID to be used when the authorization is CUSTOM or COGNITO_USER_POOLS",
               "type": "string"
             },
             "authorizerIdRef": {
@@ -730,7 +730,7 @@
               "x-kubernetes-list-type": "set"
             },
             "authorizerId": {
-              "description": "Authorizer id to be used when the authorization is CUSTOM or COGNITO_USER_POOLS",
+              "description": "Authorizer ID to be used when the authorization is CUSTOM or COGNITO_USER_POOLS",
               "type": "string"
             },
             "httpMethod": {

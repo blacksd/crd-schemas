@@ -39,11 +39,11 @@
           ],
           "properties": {
             "description": {
-              "description": "The description for a thesaurus.",
+              "description": "Description for a thesaurus.",
               "type": "string"
             },
             "indexId": {
-              "description": "The identifier of the index for a thesaurus.",
+              "description": "Identifier of the index for a thesaurus.",
               "type": "string"
             },
             "indexIdRef": {
@@ -123,7 +123,7 @@
               }
             },
             "name": {
-              "description": "The name for the thesaurus.",
+              "description": "Name for the thesaurus.",
               "type": "string"
             },
             "region": {
@@ -131,7 +131,7 @@
               "type": "string"
             },
             "roleArn": {
-              "description": "The IAM (Identity and Access Management) role used to access the thesaurus file in S3.",
+              "description": "IAM (Identity and Access Management) role used to access the thesaurus file in S3.",
               "type": "string"
             },
             "roleArnRef": {
@@ -211,11 +211,11 @@
               }
             },
             "sourceS3Path": {
-              "description": "The S3 path where your thesaurus file sits in S3. Detailed below.",
+              "description": "S3 path where your thesaurus file sits in S3. Detailed below.",
               "type": "object",
               "properties": {
                 "bucket": {
-                  "description": "The name of the S3 bucket that contains the file.",
+                  "description": "Name of the S3 bucket that contains the file.",
                   "type": "string"
                 },
                 "bucketRef": {
@@ -295,7 +295,7 @@
                   }
                 },
                 "key": {
-                  "description": "The name of the file.",
+                  "description": "Name of the file.",
                   "type": "string"
                 },
                 "keyRef": {
@@ -377,7 +377,7 @@
               }
             },
             "tags": {
-              "description": "Key-value map of resource tags. If configured with a provider default_tags configuration block present, tags with matching keys will overwrite those defined at the provider-level.",
+              "description": "Key-value map of resource tags.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -391,11 +391,11 @@
           "type": "object",
           "properties": {
             "description": {
-              "description": "The description for a thesaurus.",
+              "description": "Description for a thesaurus.",
               "type": "string"
             },
             "indexId": {
-              "description": "The identifier of the index for a thesaurus.",
+              "description": "Identifier of the index for a thesaurus.",
               "type": "string"
             },
             "indexIdRef": {
@@ -475,11 +475,11 @@
               }
             },
             "name": {
-              "description": "The name for the thesaurus.",
+              "description": "Name for the thesaurus.",
               "type": "string"
             },
             "roleArn": {
-              "description": "The IAM (Identity and Access Management) role used to access the thesaurus file in S3.",
+              "description": "IAM (Identity and Access Management) role used to access the thesaurus file in S3.",
               "type": "string"
             },
             "roleArnRef": {
@@ -559,11 +559,11 @@
               }
             },
             "sourceS3Path": {
-              "description": "The S3 path where your thesaurus file sits in S3. Detailed below.",
+              "description": "S3 path where your thesaurus file sits in S3. Detailed below.",
               "type": "object",
               "properties": {
                 "bucket": {
-                  "description": "The name of the S3 bucket that contains the file.",
+                  "description": "Name of the S3 bucket that contains the file.",
                   "type": "string"
                 },
                 "bucketRef": {
@@ -643,7 +643,7 @@
                   }
                 },
                 "key": {
-                  "description": "The name of the file.",
+                  "description": "Name of the file.",
                   "type": "string"
                 },
                 "keyRef": {
@@ -725,7 +725,7 @@
               }
             },
             "tags": {
-              "description": "Key-value map of resource tags. If configured with a provider default_tags configuration block present, tags with matching keys will overwrite those defined at the provider-level.",
+              "description": "Key-value map of resource tags.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -834,19 +834,19 @@
               "type": "string"
             },
             "description": {
-              "description": "The description for a thesaurus.",
+              "description": "Description for a thesaurus.",
               "type": "string"
             },
             "id": {
-              "description": "The unique identifiers of the thesaurus and index separated by a slash (/).",
+              "description": "Unique identifiers of the thesaurus and index separated by a slash (/).",
               "type": "string"
             },
             "indexId": {
-              "description": "The identifier of the index for a thesaurus.",
+              "description": "Identifier of the index for a thesaurus.",
               "type": "string"
             },
             "name": {
-              "description": "The name for the thesaurus.",
+              "description": "Name for the thesaurus.",
               "type": "string"
             },
             "region": {
@@ -854,29 +854,29 @@
               "type": "string"
             },
             "roleArn": {
-              "description": "The IAM (Identity and Access Management) role used to access the thesaurus file in S3.",
+              "description": "IAM (Identity and Access Management) role used to access the thesaurus file in S3.",
               "type": "string"
             },
             "sourceS3Path": {
-              "description": "The S3 path where your thesaurus file sits in S3. Detailed below.",
+              "description": "S3 path where your thesaurus file sits in S3. Detailed below.",
               "type": "object",
               "properties": {
                 "bucket": {
-                  "description": "The name of the S3 bucket that contains the file.",
+                  "description": "Name of the S3 bucket that contains the file.",
                   "type": "string"
                 },
                 "key": {
-                  "description": "The name of the file.",
+                  "description": "Name of the file.",
                   "type": "string"
                 }
               }
             },
             "status": {
-              "description": "The current status of the thesaurus.",
+              "description": "Current status of the thesaurus.",
               "type": "string"
             },
             "tags": {
-              "description": "Key-value map of resource tags. If configured with a provider default_tags configuration block present, tags with matching keys will overwrite those defined at the provider-level.",
+              "description": "Key-value map of resource tags.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -884,7 +884,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "tagsAll": {
-              "description": "A map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
+              "description": "Map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -892,7 +892,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "thesaurusId": {
-              "description": "The unique identifiers of the thesaurus and index separated by a slash (/).",
+              "description": "Unique identifier of the thesaurus.",
               "type": "string"
             }
           }

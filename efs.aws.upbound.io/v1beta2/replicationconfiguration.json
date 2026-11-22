@@ -372,6 +372,7 @@
               }
             },
             "id": {
+              "description": "(String) ID of the file system.",
               "type": "string"
             },
             "originalSourceFileSystemArn": {

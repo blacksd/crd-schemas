@@ -30,11 +30,11 @@
           ],
           "properties": {
             "amazonSideAsn": {
-              "description": "The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.",
+              "description": "Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.",
               "type": "string"
             },
             "availabilityZone": {
-              "description": "The Availability Zone for the virtual private gateway.",
+              "description": "Availability Zone for the virtual private gateway.",
               "type": "string"
             },
             "region": {
@@ -50,7 +50,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "vpcId": {
-              "description": "The VPC ID to create in.",
+              "description": "VPC ID to create in.",
               "type": "string"
             },
             "vpcIdRef": {
@@ -144,11 +144,11 @@
           "type": "object",
           "properties": {
             "amazonSideAsn": {
-              "description": "The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.",
+              "description": "Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.",
               "type": "string"
             },
             "availabilityZone": {
-              "description": "The Availability Zone for the virtual private gateway.",
+              "description": "Availability Zone for the virtual private gateway.",
               "type": "string"
             },
             "tags": {
@@ -160,7 +160,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "vpcId": {
-              "description": "The VPC ID to create in.",
+              "description": "VPC ID to create in.",
               "type": "string"
             },
             "vpcIdRef": {
@@ -313,7 +313,7 @@
           "type": "object",
           "properties": {
             "amazonSideAsn": {
-              "description": "The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.",
+              "description": "Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.",
               "type": "string"
             },
             "arn": {
@@ -321,11 +321,11 @@
               "type": "string"
             },
             "availabilityZone": {
-              "description": "The Availability Zone for the virtual private gateway.",
+              "description": "Availability Zone for the virtual private gateway.",
               "type": "string"
             },
             "id": {
-              "description": "The ID of the VPN Gateway.",
+              "description": "ID of the VPN Gateway.",
               "type": "string"
             },
             "region": {
@@ -341,7 +341,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "tagsAll": {
-              "description": "A map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
+              "description": "Map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -349,7 +349,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "vpcId": {
-              "description": "The VPC ID to create in.",
+              "description": "VPC ID to create in.",
               "type": "string"
             }
           }

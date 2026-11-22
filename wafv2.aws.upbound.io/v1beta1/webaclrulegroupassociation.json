@@ -193,7 +193,7 @@
                                   "x-kubernetes-list-type": "set"
                                 },
                                 "identifier": {
-                                  "description": "Identifier for the value to match against in the JSON.\nIdentifier of the JSON field to inspect",
+                                  "description": "Name of the username field.\nIdentifier of the JSON field to inspect",
                                   "type": "string"
                                 },
                                 "successValues": {
@@ -1156,7 +1156,7 @@
                                   "x-kubernetes-list-type": "set"
                                 },
                                 "identifier": {
-                                  "description": "Identifier for the value to match against in the JSON.\nIdentifier of the JSON field to inspect",
+                                  "description": "Name of the username field.\nIdentifier of the JSON field to inspect",
                                   "type": "string"
                                 },
                                 "successValues": {
@@ -2209,7 +2209,7 @@
                                   "x-kubernetes-list-type": "set"
                                 },
                                 "identifier": {
-                                  "description": "Identifier for the value to match against in the JSON.\nIdentifier of the JSON field to inspect",
+                                  "description": "Name of the username field.\nIdentifier of the JSON field to inspect",
                                   "type": "string"
                                 },
                                 "successValues": {

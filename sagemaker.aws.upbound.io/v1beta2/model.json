@@ -64,8 +64,18 @@
                                 "description": "How the model data is prepared. Allowed values are: None and Gzip.",
                                 "type": "string"
                               },
+                              "hubAccessConfig": {
+                                "description": "Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.",
+                                "type": "object",
+                                "properties": {
+                                  "hubContentArn": {
+                                    "description": "Versioned ARN of the private hub content to deploy, such as the versioned_hub_content_arn of an aws_sagemaker_hub_content_reference. s3_uri must match the hub content's hosting artifact URI.",
+                                    "type": "string"
+                                  }
+                                }
+                              },
                               "modelAccessConfig": {
-                                "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [model_access_config configuration block]. See Model Access Config.",
+                                "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the model_access_config configuration block. See Model Access Config.",
                                 "type": "object",
                                 "properties": {
                                   "acceptEula": {
@@ -146,8 +156,18 @@
                               "description": "How the model data is prepared. Allowed values are: None and Gzip.",
                               "type": "string"
                             },
+                            "hubAccessConfig": {
+                              "description": "Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.",
+                              "type": "object",
+                              "properties": {
+                                "hubContentArn": {
+                                  "description": "Versioned ARN of the private hub content to deploy, such as the versioned_hub_content_arn of an aws_sagemaker_hub_content_reference. s3_uri must match the hub content's hosting artifact URI.",
+                                  "type": "string"
+                                }
+                              }
+                            },
                             "modelAccessConfig": {
-                              "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [model_access_config configuration block]. See Model Access Config.",
+                              "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the model_access_config configuration block. See Model Access Config.",
                               "type": "object",
                               "properties": {
                                 "acceptEula": {
@@ -308,8 +328,18 @@
                               "description": "How the model data is prepared. Allowed values are: None and Gzip.",
                               "type": "string"
                             },
+                            "hubAccessConfig": {
+                              "description": "Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.",
+                              "type": "object",
+                              "properties": {
+                                "hubContentArn": {
+                                  "description": "Versioned ARN of the private hub content to deploy, such as the versioned_hub_content_arn of an aws_sagemaker_hub_content_reference. s3_uri must match the hub content's hosting artifact URI.",
+                                  "type": "string"
+                                }
+                              }
+                            },
                             "modelAccessConfig": {
-                              "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [model_access_config configuration block]. See Model Access Config.",
+                              "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the model_access_config configuration block. See Model Access Config.",
                               "type": "object",
                               "properties": {
                                 "acceptEula": {
@@ -390,8 +420,18 @@
                             "description": "How the model data is prepared. Allowed values are: None and Gzip.",
                             "type": "string"
                           },
+                          "hubAccessConfig": {
+                            "description": "Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.",
+                            "type": "object",
+                            "properties": {
+                              "hubContentArn": {
+                                "description": "Versioned ARN of the private hub content to deploy, such as the versioned_hub_content_arn of an aws_sagemaker_hub_content_reference. s3_uri must match the hub content's hosting artifact URI.",
+                                "type": "string"
+                              }
+                            }
+                          },
                           "modelAccessConfig": {
-                            "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [model_access_config configuration block]. See Model Access Config.",
+                            "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the model_access_config configuration block. See Model Access Config.",
                             "type": "object",
                             "properties": {
                               "acceptEula": {
@@ -499,8 +539,18 @@
                                 "description": "How the model data is prepared. Allowed values are: None and Gzip.",
                                 "type": "string"
                               },
+                              "hubAccessConfig": {
+                                "description": "Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.",
+                                "type": "object",
+                                "properties": {
+                                  "hubContentArn": {
+                                    "description": "Versioned ARN of the private hub content to deploy, such as the versioned_hub_content_arn of an aws_sagemaker_hub_content_reference. s3_uri must match the hub content's hosting artifact URI.",
+                                    "type": "string"
+                                  }
+                                }
+                              },
                               "modelAccessConfig": {
-                                "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [model_access_config configuration block]. See Model Access Config.",
+                                "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the model_access_config configuration block. See Model Access Config.",
                                 "type": "object",
                                 "properties": {
                                   "acceptEula": {
@@ -581,8 +631,18 @@
                               "description": "How the model data is prepared. Allowed values are: None and Gzip.",
                               "type": "string"
                             },
+                            "hubAccessConfig": {
+                              "description": "Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.",
+                              "type": "object",
+                              "properties": {
+                                "hubContentArn": {
+                                  "description": "Versioned ARN of the private hub content to deploy, such as the versioned_hub_content_arn of an aws_sagemaker_hub_content_reference. s3_uri must match the hub content's hosting artifact URI.",
+                                  "type": "string"
+                                }
+                              }
+                            },
                             "modelAccessConfig": {
-                              "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [model_access_config configuration block]. See Model Access Config.",
+                              "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the model_access_config configuration block. See Model Access Config.",
                               "type": "object",
                               "properties": {
                                 "acceptEula": {
@@ -743,8 +803,18 @@
                               "description": "How the model data is prepared. Allowed values are: None and Gzip.",
                               "type": "string"
                             },
+                            "hubAccessConfig": {
+                              "description": "Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.",
+                              "type": "object",
+                              "properties": {
+                                "hubContentArn": {
+                                  "description": "Versioned ARN of the private hub content to deploy, such as the versioned_hub_content_arn of an aws_sagemaker_hub_content_reference. s3_uri must match the hub content's hosting artifact URI.",
+                                  "type": "string"
+                                }
+                              }
+                            },
                             "modelAccessConfig": {
-                              "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [model_access_config configuration block]. See Model Access Config.",
+                              "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the model_access_config configuration block. See Model Access Config.",
                               "type": "object",
                               "properties": {
                                 "acceptEula": {
@@ -825,8 +895,18 @@
                             "description": "How the model data is prepared. Allowed values are: None and Gzip.",
                             "type": "string"
                           },
+                          "hubAccessConfig": {
+                            "description": "Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.",
+                            "type": "object",
+                            "properties": {
+                              "hubContentArn": {
+                                "description": "Versioned ARN of the private hub content to deploy, such as the versioned_hub_content_arn of an aws_sagemaker_hub_content_reference. s3_uri must match the hub content's hosting artifact URI.",
+                                "type": "string"
+                              }
+                            }
+                          },
                           "modelAccessConfig": {
-                            "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [model_access_config configuration block]. See Model Access Config.",
+                            "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the model_access_config configuration block. See Model Access Config.",
                             "type": "object",
                             "properties": {
                               "acceptEula": {
@@ -1015,8 +1095,18 @@
                                 "description": "How the model data is prepared. Allowed values are: None and Gzip.",
                                 "type": "string"
                               },
+                              "hubAccessConfig": {
+                                "description": "Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.",
+                                "type": "object",
+                                "properties": {
+                                  "hubContentArn": {
+                                    "description": "Versioned ARN of the private hub content to deploy, such as the versioned_hub_content_arn of an aws_sagemaker_hub_content_reference. s3_uri must match the hub content's hosting artifact URI.",
+                                    "type": "string"
+                                  }
+                                }
+                              },
                               "modelAccessConfig": {
-                                "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [model_access_config configuration block]. See Model Access Config.",
+                                "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the model_access_config configuration block. See Model Access Config.",
                                 "type": "object",
                                 "properties": {
                                   "acceptEula": {
@@ -1097,8 +1187,18 @@
                               "description": "How the model data is prepared. Allowed values are: None and Gzip.",
                               "type": "string"
                             },
+                            "hubAccessConfig": {
+                              "description": "Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.",
+                              "type": "object",
+                              "properties": {
+                                "hubContentArn": {
+                                  "description": "Versioned ARN of the private hub content to deploy, such as the versioned_hub_content_arn of an aws_sagemaker_hub_content_reference. s3_uri must match the hub content's hosting artifact URI.",
+                                  "type": "string"
+                                }
+                              }
+                            },
                             "modelAccessConfig": {
-                              "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [model_access_config configuration block]. See Model Access Config.",
+                              "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the model_access_config configuration block. See Model Access Config.",
                               "type": "object",
                               "properties": {
                                 "acceptEula": {
@@ -1186,8 +1286,18 @@
                               "description": "How the model data is prepared. Allowed values are: None and Gzip.",
                               "type": "string"
                             },
+                            "hubAccessConfig": {
+                              "description": "Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.",
+                              "type": "object",
+                              "properties": {
+                                "hubContentArn": {
+                                  "description": "Versioned ARN of the private hub content to deploy, such as the versioned_hub_content_arn of an aws_sagemaker_hub_content_reference. s3_uri must match the hub content's hosting artifact URI.",
+                                  "type": "string"
+                                }
+                              }
+                            },
                             "modelAccessConfig": {
-                              "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [model_access_config configuration block]. See Model Access Config.",
+                              "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the model_access_config configuration block. See Model Access Config.",
                               "type": "object",
                               "properties": {
                                 "acceptEula": {
@@ -1268,8 +1378,18 @@
                             "description": "How the model data is prepared. Allowed values are: None and Gzip.",
                             "type": "string"
                           },
+                          "hubAccessConfig": {
+                            "description": "Configuration for deploying a model from a SageMaker JumpStart private hub. See Hub Access Config.",
+                            "type": "object",
+                            "properties": {
+                              "hubContentArn": {
+                                "description": "Versioned ARN of the private hub content to deploy, such as the versioned_hub_content_arn of an aws_sagemaker_hub_content_reference. s3_uri must match the hub content's hosting artifact URI.",
+                                "type": "string"
+                              }
+                            }
+                          },
                           "modelAccessConfig": {
-                            "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [model_access_config configuration block]. See Model Access Config.",
+                            "description": "Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the model_access_config configuration block. See Model Access Config.",
                             "type": "object",
                             "properties": {
                               "acceptEula": {

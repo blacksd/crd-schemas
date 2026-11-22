@@ -1,5 +1,5 @@
 {
-  "description": "AgentKnowledgeBaseAssociation is the Schema for the AgentKnowledgeBaseAssociations API.",
+  "description": "AgentKnowledgeBaseAssociation is the Schema for the AgentKnowledgeBaseAssociations API. Manages an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.",
   "type": "object",
   "required": [
     "spec"
@@ -118,7 +118,7 @@
               }
             },
             "agentVersion": {
-              "description": "Version of the agent with which you want to associate the knowledge base. Valid values: DRAFT.",
+              "description": "Version of the agent with which you want to associate the knowledge base. Valid values: DRAFT. Defaults to DRAFT.",
               "type": "string"
             },
             "description": {
@@ -228,7 +228,7 @@
           "type": "object",
           "properties": {
             "agentVersion": {
-              "description": "Version of the agent with which you want to associate the knowledge base. Valid values: DRAFT.",
+              "description": "Version of the agent with which you want to associate the knowledge base. Valid values: DRAFT. Defaults to DRAFT.",
               "type": "string"
             },
             "description": {
@@ -319,7 +319,7 @@
               "type": "string"
             },
             "agentVersion": {
-              "description": "Version of the agent with which you want to associate the knowledge base. Valid values: DRAFT.",
+              "description": "Version of the agent with which you want to associate the knowledge base. Valid values: DRAFT. Defaults to DRAFT.",
               "type": "string"
             },
             "description": {

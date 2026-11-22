@@ -30,11 +30,11 @@
           ],
           "properties": {
             "authentication": {
-              "description": "The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.",
+              "description": "Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.",
               "type": "string"
             },
             "clientSubnets": {
-              "description": "The list of subnets in the client VPC to connect to.",
+              "description": "List of subnets in the client VPC to connect to.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -134,7 +134,7 @@
               "type": "string"
             },
             "securityGroups": {
-              "description": "The security groups to attach to the ENIs for the broker nodes.",
+              "description": "Security groups to attach to the ENIs for the broker nodes.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -326,7 +326,7 @@
               }
             },
             "vpcId": {
-              "description": "The VPC ID of the remote client.",
+              "description": "VPC ID of the remote client.",
               "type": "string"
             },
             "vpcIdRef": {
@@ -420,11 +420,11 @@
           "type": "object",
           "properties": {
             "authentication": {
-              "description": "The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.",
+              "description": "Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.",
               "type": "string"
             },
             "clientSubnets": {
-              "description": "The list of subnets in the client VPC to connect to.",
+              "description": "List of subnets in the client VPC to connect to.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -520,7 +520,7 @@
               }
             },
             "securityGroups": {
-              "description": "The security groups to attach to the ENIs for the broker nodes.",
+              "description": "Security groups to attach to the ENIs for the broker nodes.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -712,7 +712,7 @@
               }
             },
             "vpcId": {
-              "description": "The VPC ID of the remote client.",
+              "description": "VPC ID of the remote client.",
               "type": "string"
             },
             "vpcIdRef": {
@@ -875,11 +875,11 @@
               "type": "string"
             },
             "authentication": {
-              "description": "The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.",
+              "description": "Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.",
               "type": "string"
             },
             "clientSubnets": {
-              "description": "The list of subnets in the client VPC to connect to.",
+              "description": "List of subnets in the client VPC to connect to.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -894,7 +894,7 @@
               "type": "string"
             },
             "securityGroups": {
-              "description": "The security groups to attach to the ENIs for the broker nodes.",
+              "description": "Security groups to attach to the ENIs for the broker nodes.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -910,7 +910,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "tagsAll": {
-              "description": "A map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
+              "description": "Map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -922,7 +922,7 @@
               "type": "string"
             },
             "vpcId": {
-              "description": "The VPC ID of the remote client.",
+              "description": "VPC ID of the remote client.",
               "type": "string"
             }
           }

@@ -122,7 +122,7 @@
               "type": "object",
               "properties": {
                 "certificateType": {
-                  "description": "Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are DISABLED and GENERATED. Default value is DISABLED.",
+                  "description": "Whether a TLS/SSL certificate is generated for a fleet. Valid values are DISABLED and GENERATED. Default value is DISABLED.",
                   "type": "string"
                 }
               }
@@ -260,7 +260,7 @@
               }
             },
             "name": {
-              "description": "The name of the fleet.",
+              "description": "Name of the fleet.",
               "type": "string"
             },
             "newGameSessionProtectionPolicy": {
@@ -431,7 +431,7 @@
               "type": "object",
               "properties": {
                 "certificateType": {
-                  "description": "Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are DISABLED and GENERATED. Default value is DISABLED.",
+                  "description": "Whether a TLS/SSL certificate is generated for a fleet. Valid values are DISABLED and GENERATED. Default value is DISABLED.",
                   "type": "string"
                 }
               }
@@ -569,7 +569,7 @@
               }
             },
             "name": {
-              "description": "The name of the fleet.",
+              "description": "Name of the fleet.",
               "type": "string"
             },
             "newGameSessionProtectionPolicy": {
@@ -729,7 +729,7 @@
               "type": "object",
               "properties": {
                 "certificateType": {
-                  "description": "Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are DISABLED and GENERATED. Default value is DISABLED.",
+                  "description": "Whether a TLS/SSL certificate is generated for a fleet. Valid values are DISABLED and GENERATED. Default value is DISABLED.",
                   "type": "string"
                 }
               }
@@ -780,6 +780,7 @@
               "type": "string"
             },
             "logPaths": {
+              "description": "List of paths from which the fleet captures logs.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -793,7 +794,7 @@
               }
             },
             "name": {
-              "description": "The name of the fleet.",
+              "description": "Name of the fleet.",
               "type": "string"
             },
             "newGameSessionProtectionPolicy": {
@@ -874,7 +875,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "tagsAll": {
-              "description": "A map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
+              "description": "Map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"

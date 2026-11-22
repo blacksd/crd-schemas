@@ -1,0 +1,24 @@
+{
+  "schema": "sinkpolicy.json",
+  "crd": {
+    "group": "oam.aws.upbound.io",
+    "kind": "SinkPolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-11-22T05:53:49Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "a820a9b36cdd432c9e0773ab17fd48f97f55a7bbc870aa1f44b00fe440f5e650"
+  }
+}

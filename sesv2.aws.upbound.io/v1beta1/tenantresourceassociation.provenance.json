@@ -1,0 +1,24 @@
+{
+  "schema": "tenantresourceassociation.json",
+  "crd": {
+    "group": "sesv2.aws.upbound.io",
+    "kind": "TenantResourceAssociation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-11-22T05:53:49Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4492fe4c21f9026a0e94df802d374a7e0b1ab250a86d57e1fb4946b7da9b1d31"
+  }
+}

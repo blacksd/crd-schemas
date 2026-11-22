@@ -278,7 +278,7 @@
               "type": "string"
             },
             "sourceIpConfig": {
-              "description": "A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.",
+              "description": "A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.",
               "type": "object",
               "properties": {
                 "cidrs": {
@@ -562,7 +562,7 @@
               }
             },
             "sourceIpConfig": {
-              "description": "A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.",
+              "description": "A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.",
               "type": "object",
               "properties": {
                 "cidrs": {
@@ -761,7 +761,7 @@
               "type": "string"
             },
             "sourceIpConfig": {
-              "description": "A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.",
+              "description": "A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.",
               "type": "object",
               "properties": {
                 "cidrs": {

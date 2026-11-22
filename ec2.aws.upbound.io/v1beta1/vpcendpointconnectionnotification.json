@@ -47,7 +47,7 @@
               "x-kubernetes-list-type": "set"
             },
             "connectionNotificationArn": {
-              "description": "The ARN of the SNS topic for the notifications.",
+              "description": "ARN of the SNS topic for the notifications.",
               "type": "string"
             },
             "connectionNotificationArnRef": {
@@ -131,11 +131,11 @@
               "type": "string"
             },
             "vpcEndpointId": {
-              "description": "The ID of the VPC Endpoint to receive notifications for.",
+              "description": "ID of the VPC Endpoint to receive notifications for.",
               "type": "string"
             },
             "vpcEndpointServiceId": {
-              "description": "The ID of the VPC Endpoint Service to receive notifications for.",
+              "description": "ID of the VPC Endpoint Service to receive notifications for.",
               "type": "string"
             },
             "vpcEndpointServiceIdRef": {
@@ -229,7 +229,7 @@
               "x-kubernetes-list-type": "set"
             },
             "connectionNotificationArn": {
-              "description": "The ARN of the SNS topic for the notifications.",
+              "description": "ARN of the SNS topic for the notifications.",
               "type": "string"
             },
             "connectionNotificationArnRef": {
@@ -309,11 +309,11 @@
               }
             },
             "vpcEndpointId": {
-              "description": "The ID of the VPC Endpoint to receive notifications for.",
+              "description": "ID of the VPC Endpoint to receive notifications for.",
               "type": "string"
             },
             "vpcEndpointServiceId": {
-              "description": "The ID of the VPC Endpoint Service to receive notifications for.",
+              "description": "ID of the VPC Endpoint Service to receive notifications for.",
               "type": "string"
             },
             "vpcEndpointServiceIdRef": {
@@ -494,15 +494,15 @@
               "x-kubernetes-list-type": "set"
             },
             "connectionNotificationArn": {
-              "description": "The ARN of the SNS topic for the notifications.",
+              "description": "ARN of the SNS topic for the notifications.",
               "type": "string"
             },
             "id": {
-              "description": "The ID of the VPC connection notification.",
+              "description": "ID of the VPC connection notification.",
               "type": "string"
             },
             "notificationType": {
-              "description": "The type of notification.",
+              "description": "Type of notification.",
               "type": "string"
             },
             "region": {
@@ -510,15 +510,15 @@
               "type": "string"
             },
             "state": {
-              "description": "The state of the notification.",
+              "description": "State of the notification.",
               "type": "string"
             },
             "vpcEndpointId": {
-              "description": "The ID of the VPC Endpoint to receive notifications for.",
+              "description": "ID of the VPC Endpoint to receive notifications for.",
               "type": "string"
             },
             "vpcEndpointServiceId": {
-              "description": "The ID of the VPC Endpoint Service to receive notifications for.",
+              "description": "ID of the VPC Endpoint Service to receive notifications for.",
               "type": "string"
             }
           }

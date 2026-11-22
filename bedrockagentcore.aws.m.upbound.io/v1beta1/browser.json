@@ -34,7 +34,7 @@
               "type": "object",
               "properties": {
                 "enabled": {
-                  "description": "Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.",
+                  "description": "Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.",
                   "type": "boolean"
                 }
               }
@@ -46,7 +46,7 @@
                 "type": "object",
                 "properties": {
                   "location": {
-                    "description": "Location from which to retrieve the certificate. See certificates.location below.",
+                    "description": "Location from which to retrieve the certificate. See certificate.location below.",
                     "type": "object",
                     "properties": {
                       "secretsManager": {
@@ -326,7 +326,7 @@
                   "type": "object",
                   "properties": {
                     "bucket": {
-                      "description": "Name of the S3 bucket where recordings are stored.",
+                      "description": "Name of the S3 bucket.",
                       "type": "string"
                     },
                     "bucketRef": {
@@ -414,7 +414,7 @@
                       }
                     },
                     "prefix": {
-                      "description": "S3 key prefix for recording files.",
+                      "description": "Prefix for objects in the S3 bucket.",
                       "type": "string"
                     }
                   }
@@ -444,7 +444,7 @@
               "type": "object",
               "properties": {
                 "enabled": {
-                  "description": "Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.",
+                  "description": "Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.",
                   "type": "boolean"
                 }
               }
@@ -456,7 +456,7 @@
                 "type": "object",
                 "properties": {
                   "location": {
-                    "description": "Location from which to retrieve the certificate. See certificates.location below.",
+                    "description": "Location from which to retrieve the certificate. See certificate.location below.",
                     "type": "object",
                     "properties": {
                       "secretsManager": {
@@ -736,7 +736,7 @@
                   "type": "object",
                   "properties": {
                     "bucket": {
-                      "description": "Name of the S3 bucket where recordings are stored.",
+                      "description": "Name of the S3 bucket.",
                       "type": "string"
                     },
                     "bucketRef": {
@@ -824,7 +824,7 @@
                       }
                     },
                     "prefix": {
-                      "description": "S3 key prefix for recording files.",
+                      "description": "Prefix for objects in the S3 bucket.",
                       "type": "string"
                     }
                   }
@@ -923,7 +923,7 @@
               "type": "object",
               "properties": {
                 "enabled": {
-                  "description": "Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.",
+                  "description": "Whether to enable browser signing. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.",
                   "type": "boolean"
                 }
               }
@@ -935,7 +935,7 @@
                 "type": "object",
                 "properties": {
                   "location": {
-                    "description": "Location from which to retrieve the certificate. See certificates.location below.",
+                    "description": "Location from which to retrieve the certificate. See certificate.location below.",
                     "type": "object",
                     "properties": {
                       "secretsManager": {
@@ -1050,11 +1050,11 @@
                   "type": "object",
                   "properties": {
                     "bucket": {
-                      "description": "Name of the S3 bucket where recordings are stored.",
+                      "description": "Name of the S3 bucket.",
                       "type": "string"
                     },
                     "prefix": {
-                      "description": "S3 key prefix for recording files.",
+                      "description": "Prefix for objects in the S3 bucket.",
                       "type": "string"
                     }
                   }
@@ -1074,7 +1074,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "tagsAll": {
-              "description": "A map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
+              "description": "Map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"

@@ -68,7 +68,7 @@
               }
             },
             "windowId": {
-              "description": "The Id of the maintenance window to register the target with.",
+              "description": "The ID of the maintenance window to register the target with.",
               "type": "string"
             },
             "windowIdRef": {
@@ -196,7 +196,7 @@
               }
             },
             "windowId": {
-              "description": "The Id of the maintenance window to register the target with.",
+              "description": "The ID of the maintenance window to register the target with.",
               "type": "string"
             },
             "windowIdRef": {
@@ -401,7 +401,7 @@
               }
             },
             "windowId": {
-              "description": "The Id of the maintenance window to register the target with.",
+              "description": "The ID of the maintenance window to register the target with.",
               "type": "string"
             }
           }

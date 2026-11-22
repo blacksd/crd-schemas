@@ -1,0 +1,24 @@
+{
+  "schema": "agentspace.json",
+  "crd": {
+    "group": "devopsagent.aws.upbound.io",
+    "kind": "AgentSpace",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-11-22T05:53:49Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "303e8704f142b6a321698e475879a3341bf6d9969789bd00705676797db00dcc"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "tablepolicy.json",
+  "crd": {
+    "group": "s3tables.aws.m.upbound.io",
+    "kind": "TablePolicy",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-11-22T05:53:49Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "70e1c8959229e39b4f8e55b05603cad4a19d1523532b270d32f23b1680f404d5"
+  }
+}

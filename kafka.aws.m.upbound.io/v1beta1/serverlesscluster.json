@@ -30,15 +30,15 @@
           ],
           "properties": {
             "clientAuthentication": {
-              "description": "Specifies client authentication information for the serverless cluster. See below.",
+              "description": "Client authentication information for the serverless cluster. See client_authentication Block below.",
               "type": "object",
               "properties": {
                 "sasl": {
-                  "description": "Details for client authentication using SASL. See below.",
+                  "description": "Details for client authentication using SASL. See sasl Block below.",
                   "type": "object",
                   "properties": {
                     "iam": {
-                      "description": "Details for client authentication using IAM. See below.",
+                      "description": "Details for client authentication using IAM. See iam Block below.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -52,7 +52,7 @@
               }
             },
             "clusterName": {
-              "description": "The name of the serverless cluster.",
+              "description": "Name of the serverless cluster.",
               "type": "string"
             },
             "region": {
@@ -68,7 +68,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "vpcConfig": {
-              "description": "VPC configuration information. See below.",
+              "description": "VPC configuration information. See vpc_config Block below.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -162,7 +162,7 @@
                     }
                   },
                   "securityGroupIds": {
-                    "description": "Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.",
+                    "description": "Up to five security groups that control inbound and outbound traffic for the serverless cluster.",
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -258,7 +258,7 @@
                     }
                   },
                   "subnetIds": {
-                    "description": "A list of subnets in at least two different Availability Zones that host your client applications.",
+                    "description": "List of subnets in at least two different Availability Zones that host your client applications.",
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -275,15 +275,15 @@
           "type": "object",
           "properties": {
             "clientAuthentication": {
-              "description": "Specifies client authentication information for the serverless cluster. See below.",
+              "description": "Client authentication information for the serverless cluster. See client_authentication Block below.",
               "type": "object",
               "properties": {
                 "sasl": {
-                  "description": "Details for client authentication using SASL. See below.",
+                  "description": "Details for client authentication using SASL. See sasl Block below.",
                   "type": "object",
                   "properties": {
                     "iam": {
-                      "description": "Details for client authentication using IAM. See below.",
+                      "description": "Details for client authentication using IAM. See iam Block below.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -297,7 +297,7 @@
               }
             },
             "clusterName": {
-              "description": "The name of the serverless cluster.",
+              "description": "Name of the serverless cluster.",
               "type": "string"
             },
             "tags": {
@@ -309,7 +309,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "vpcConfig": {
-              "description": "VPC configuration information. See below.",
+              "description": "VPC configuration information. See vpc_config Block below.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -403,7 +403,7 @@
                     }
                   },
                   "securityGroupIds": {
-                    "description": "Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.",
+                    "description": "Up to five security groups that control inbound and outbound traffic for the serverless cluster.",
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -499,7 +499,7 @@
                     }
                   },
                   "subnetIds": {
-                    "description": "A list of subnets in at least two different Availability Zones that host your client applications.",
+                    "description": "List of subnets in at least two different Availability Zones that host your client applications.",
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -589,7 +589,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "The ARN of the serverless cluster.",
+              "description": "ARN of the serverless cluster.",
               "type": "string"
             },
             "bootstrapBrokersSaslIam": {
@@ -597,15 +597,15 @@
               "type": "string"
             },
             "clientAuthentication": {
-              "description": "Specifies client authentication information for the serverless cluster. See below.",
+              "description": "Client authentication information for the serverless cluster. See client_authentication Block below.",
               "type": "object",
               "properties": {
                 "sasl": {
-                  "description": "Details for client authentication using SASL. See below.",
+                  "description": "Details for client authentication using SASL. See sasl Block below.",
                   "type": "object",
                   "properties": {
                     "iam": {
-                      "description": "Details for client authentication using IAM. See below.",
+                      "description": "Details for client authentication using IAM. See iam Block below.",
                       "type": "object",
                       "properties": {
                         "enabled": {
@@ -619,7 +619,7 @@
               }
             },
             "clusterName": {
-              "description": "The name of the serverless cluster.",
+              "description": "Name of the serverless cluster.",
               "type": "string"
             },
             "clusterUuid": {
@@ -642,7 +642,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "tagsAll": {
-              "description": "A map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
+              "description": "Map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -650,13 +650,13 @@
               "x-kubernetes-map-type": "granular"
             },
             "vpcConfig": {
-              "description": "VPC configuration information. See below.",
+              "description": "VPC configuration information. See vpc_config Block below.",
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
                   "securityGroupIds": {
-                    "description": "Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.",
+                    "description": "Up to five security groups that control inbound and outbound traffic for the serverless cluster.",
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -664,7 +664,7 @@
                     "x-kubernetes-list-type": "set"
                   },
                   "subnetIds": {
-                    "description": "A list of subnets in at least two different Availability Zones that host your client applications.",
+                    "description": "List of subnets in at least two different Availability Zones that host your client applications.",
                     "type": "array",
                     "items": {
                       "type": "string"

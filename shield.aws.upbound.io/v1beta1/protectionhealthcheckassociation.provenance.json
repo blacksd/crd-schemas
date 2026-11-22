@@ -1,0 +1,24 @@
+{
+  "schema": "protectionhealthcheckassociation.json",
+  "crd": {
+    "group": "shield.aws.upbound.io",
+    "kind": "ProtectionHealthCheckAssociation",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-11-22T05:53:49Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4503a0c94e82ab02a4e1c0ea3dbeb35268dc1055a2f6b0e85a64b3579ceeffb8"
+  }
+}

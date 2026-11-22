@@ -40,7 +40,7 @@
           ],
           "properties": {
             "policy": {
-              "description": "Resource policy definition",
+              "description": "Resource policy document in JSON format.",
               "type": "string"
             },
             "region": {
@@ -58,7 +58,7 @@
           "type": "object",
           "properties": {
             "policy": {
-              "description": "Resource policy definition",
+              "description": "Resource policy document in JSON format.",
               "type": "string"
             }
           }
@@ -158,7 +158,7 @@
               "type": "string"
             },
             "policy": {
-              "description": "Resource policy definition",
+              "description": "Resource policy document in JSON format.",
               "type": "string"
             },
             "region": {

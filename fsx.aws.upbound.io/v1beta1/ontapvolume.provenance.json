@@ -1,0 +1,24 @@
+{
+  "schema": "ontapvolume.json",
+  "crd": {
+    "group": "fsx.aws.upbound.io",
+    "kind": "OntapVolume",
+    "apiVersion": "v1beta1"
+  },
+  "source": {
+    "name": "provider-upjet-aws",
+    "type": "git+github",
+    "repo": "https://github.com/crossplane-contrib/provider-upjet-aws",
+    "path": "package/crds",
+    "version": "v2.10.0",
+    "license": "Apache-2.0",
+    "homepage": "https://marketplace.upbound.io/providers/upbound/provider-family-aws"
+  },
+  "extraction": {
+    "timestamp": "2026-11-22T05:53:49Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "4aab8fdc0dd427331d1244d7d09d6913f86729ed4bea3da73334965da0f45b2e"
+  }
+}

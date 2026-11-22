@@ -397,7 +397,7 @@
                         "type": "string"
                       },
                       "version": {
-                        "description": "Template version. Unlike the autoscaling equivalent, does not support $Latest or $Default, so use the launch_template resource's attribute, e.g., \"${aws_launch_template.foo.latest_version}\". It will use the default version if omitted.",
+                        "description": "Template version. Unlike the AutoScaling equivalent, does not support $Latest or $Default, so use the launch_template resource's attribute, e.g., \"${aws_launch_template.foo.latest_version}\". It will use the default version if omitted.",
                         "type": "string"
                       },
                       "versionRef": {
@@ -515,7 +515,7 @@
                               "x-kubernetes-list-type": "set"
                             },
                             "acceleratorNames": {
-                              "description": "List of accelerator names. Default is any acclerator.",
+                              "description": "List of accelerator names. Default is any accelerator.",
                               "type": "array",
                               "items": {
                                 "type": "string"
@@ -553,7 +553,7 @@
                               "x-kubernetes-list-type": "set"
                             },
                             "bareMetal": {
-                              "description": "Indicate whether bare metal instace types should be included, excluded, or required. Default is excluded.",
+                              "description": "Indicate whether bare metal instance types should be included, excluded, or required. Default is excluded.",
                               "type": "string"
                             },
                             "baselineEbsBandwidthMbps": {
@@ -1190,7 +1190,7 @@
                         "type": "string"
                       },
                       "version": {
-                        "description": "Template version. Unlike the autoscaling equivalent, does not support $Latest or $Default, so use the launch_template resource's attribute, e.g., \"${aws_launch_template.foo.latest_version}\". It will use the default version if omitted.",
+                        "description": "Template version. Unlike the AutoScaling equivalent, does not support $Latest or $Default, so use the launch_template resource's attribute, e.g., \"${aws_launch_template.foo.latest_version}\". It will use the default version if omitted.",
                         "type": "string"
                       },
                       "versionRef": {
@@ -1308,7 +1308,7 @@
                               "x-kubernetes-list-type": "set"
                             },
                             "acceleratorNames": {
-                              "description": "List of accelerator names. Default is any acclerator.",
+                              "description": "List of accelerator names. Default is any accelerator.",
                               "type": "array",
                               "items": {
                                 "type": "string"
@@ -1346,7 +1346,7 @@
                               "x-kubernetes-list-type": "set"
                             },
                             "bareMetal": {
-                              "description": "Indicate whether bare metal instace types should be included, excluded, or required. Default is excluded.",
+                              "description": "Indicate whether bare metal instance types should be included, excluded, or required. Default is excluded.",
                               "type": "string"
                             },
                             "baselineEbsBandwidthMbps": {
@@ -1925,7 +1925,7 @@
                         "type": "string"
                       },
                       "version": {
-                        "description": "Template version. Unlike the autoscaling equivalent, does not support $Latest or $Default, so use the launch_template resource's attribute, e.g., \"${aws_launch_template.foo.latest_version}\". It will use the default version if omitted.",
+                        "description": "Template version. Unlike the AutoScaling equivalent, does not support $Latest or $Default, so use the launch_template resource's attribute, e.g., \"${aws_launch_template.foo.latest_version}\". It will use the default version if omitted.",
                         "type": "string"
                       }
                     }
@@ -1967,7 +1967,7 @@
                               "x-kubernetes-list-type": "set"
                             },
                             "acceleratorNames": {
-                              "description": "List of accelerator names. Default is any acclerator.",
+                              "description": "List of accelerator names. Default is any accelerator.",
                               "type": "array",
                               "items": {
                                 "type": "string"
@@ -2005,7 +2005,7 @@
                               "x-kubernetes-list-type": "set"
                             },
                             "bareMetal": {
-                              "description": "Indicate whether bare metal instace types should be included, excluded, or required. Default is excluded.",
+                              "description": "Indicate whether bare metal instance types should be included, excluded, or required. Default is excluded.",
                               "type": "string"
                             },
                             "baselineEbsBandwidthMbps": {

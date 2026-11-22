@@ -43,7 +43,7 @@
               "type": "string"
             },
             "subnetId": {
-              "description": "The ID of the subnet to be associated with the VPC endpoint.",
+              "description": "ID of the subnet to be associated with the VPC endpoint.",
               "type": "string"
             },
             "subnetIdRef": {
@@ -123,7 +123,7 @@
               }
             },
             "vpcEndpointId": {
-              "description": "The ID of the VPC endpoint with which the subnet will be associated.",
+              "description": "ID of the VPC endpoint with which the subnet will be associated.",
               "type": "string"
             },
             "vpcEndpointIdRef": {
@@ -209,7 +209,7 @@
           "type": "object",
           "properties": {
             "subnetId": {
-              "description": "The ID of the subnet to be associated with the VPC endpoint.",
+              "description": "ID of the subnet to be associated with the VPC endpoint.",
               "type": "string"
             },
             "subnetIdRef": {
@@ -289,7 +289,7 @@
               }
             },
             "vpcEndpointId": {
-              "description": "The ID of the VPC endpoint with which the subnet will be associated.",
+              "description": "ID of the VPC endpoint with which the subnet will be associated.",
               "type": "string"
             },
             "vpcEndpointIdRef": {
@@ -456,7 +456,7 @@
           "type": "object",
           "properties": {
             "id": {
-              "description": "The ID of the association.",
+              "description": "ID of the association.",
               "type": "string"
             },
             "region": {
@@ -464,11 +464,11 @@
               "type": "string"
             },
             "subnetId": {
-              "description": "The ID of the subnet to be associated with the VPC endpoint.",
+              "description": "ID of the subnet to be associated with the VPC endpoint.",
               "type": "string"
             },
             "vpcEndpointId": {
-              "description": "The ID of the VPC endpoint with which the subnet will be associated.",
+              "description": "ID of the VPC endpoint with which the subnet will be associated.",
               "type": "string"
             }
           }

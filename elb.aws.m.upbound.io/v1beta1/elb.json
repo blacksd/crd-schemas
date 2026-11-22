@@ -106,7 +106,7 @@
               "type": "number"
             },
             "instances": {
-              "description": "A list of instance ids to place in the ELB pool.",
+              "description": "A list of instance IDs to place in the ELB pool.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -437,7 +437,7 @@
               "type": "number"
             },
             "instances": {
-              "description": "A list of instance ids to place in the ELB pool.",
+              "description": "A list of instance IDs to place in the ELB pool.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -841,7 +841,7 @@
               "type": "number"
             },
             "instances": {
-              "description": "A list of instance ids to place in the ELB pool.",
+              "description": "A list of instance IDs to place in the ELB pool.",
               "type": "array",
               "items": {
                 "type": "string"

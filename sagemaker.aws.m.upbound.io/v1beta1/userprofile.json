@@ -381,7 +381,7 @@
                   }
                 },
                 "customPosixUserConfig": {
-                  "description": "Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.",
+                  "description": "Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.",
                   "type": "object",
                   "properties": {
                     "gid": {
@@ -1179,7 +1179,7 @@
                   }
                 },
                 "customPosixUserConfig": {
-                  "description": "Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.",
+                  "description": "Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.",
                   "type": "object",
                   "properties": {
                     "gid": {
@@ -1981,7 +1981,7 @@
                   }
                 },
                 "customPosixUserConfig": {
-                  "description": "Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.",
+                  "description": "Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.",
                   "type": "object",
                   "properties": {
                     "gid": {

@@ -55,7 +55,7 @@
               "type": "string"
             },
             "portRanges": {
-              "description": "Port ranges to access the Resource either single port 80 or range 80-81 range.",
+              "description": "Port ranges to access the Resource either single port 80 or range 80-81 range. For CIDR resource configurations, include port 53 to allow DNS.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -63,7 +63,7 @@
               "x-kubernetes-list-type": "set"
             },
             "protocol": {
-              "description": "Protocol for the Resource TCP is currently the only supported value.  MUST be specified if resource_configuration_group_id is not.",
+              "description": "Protocol for the Resource. Valid values are TCP and TCP_UDP. TCP_UDP is only supported when type is CIDR (UDP is only supported for DNS). MUST be specified if resource_configuration_group_id is not.",
               "type": "string"
             },
             "region": {
@@ -165,6 +165,23 @@
                       }
                     }
                   },
+                  "cidrResource": {
+                    "description": "Resource CIDR configuration. Only valid when type is CIDR. See cidr_resource Block for details.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "cidrRanges": {
+                          "description": "Set of 1 to 10 IPv4 and/or IPv6 CIDR ranges (prefix length required), for example 10.0.0.0/16. 0.0.0.0/0 and ::/0 are only allowed as the sole range. Reserved ranges such as 169.254.0.0/16, 100.64.0.0/10, 224.0.0.0/4, fe80::/10 and ff00::/8 are rejected by AWS.",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "x-kubernetes-list-type": "set"
+                        }
+                      }
+                    }
+                  },
                   "dnsResource": {
                     "description": "Resource DNS Configuration. See dns_resource Block for details.",
                     "type": "array",
@@ -291,7 +308,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "type": {
-              "description": "Type of Resource Configuration. Must be one of GROUP, CHILD, SINGLE, ARN.",
+              "description": "Type of Resource Configuration. Must be one of GROUP, CHILD, SINGLE, ARN, CIDR. Use CIDR with a cidr_resource block.",
               "type": "string"
             }
           }
@@ -317,7 +334,7 @@
               "type": "string"
             },
             "portRanges": {
-              "description": "Port ranges to access the Resource either single port 80 or range 80-81 range.",
+              "description": "Port ranges to access the Resource either single port 80 or range 80-81 range. For CIDR resource configurations, include port 53 to allow DNS.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -325,7 +342,7 @@
               "x-kubernetes-list-type": "set"
             },
             "protocol": {
-              "description": "Protocol for the Resource TCP is currently the only supported value.  MUST be specified if resource_configuration_group_id is not.",
+              "description": "Protocol for the Resource. Valid values are TCP and TCP_UDP. TCP_UDP is only supported when type is CIDR (UDP is only supported for DNS). MUST be specified if resource_configuration_group_id is not.",
               "type": "string"
             },
             "resourceConfigurationDefinition": {
@@ -423,6 +440,23 @@
                       }
                     }
                   },
+                  "cidrResource": {
+                    "description": "Resource CIDR configuration. Only valid when type is CIDR. See cidr_resource Block for details.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "cidrRanges": {
+                          "description": "Set of 1 to 10 IPv4 and/or IPv6 CIDR ranges (prefix length required), for example 10.0.0.0/16. 0.0.0.0/0 and ::/0 are only allowed as the sole range. Reserved ranges such as 169.254.0.0/16, 100.64.0.0/10, 224.0.0.0/4, fe80::/10 and ff00::/8 are rejected by AWS.",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "x-kubernetes-list-type": "set"
+                        }
+                      }
+                    }
+                  },
                   "dnsResource": {
                     "description": "Resource DNS Configuration. See dns_resource Block for details.",
                     "type": "array",
@@ -549,7 +583,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "type": {
-              "description": "Type of Resource Configuration. Must be one of GROUP, CHILD, SINGLE, ARN.",
+              "description": "Type of Resource Configuration. Must be one of GROUP, CHILD, SINGLE, ARN, CIDR. Use CIDR with a cidr_resource block.",
               "type": "string"
             }
           }
@@ -678,7 +712,7 @@
               "type": "string"
             },
             "portRanges": {
-              "description": "Port ranges to access the Resource either single port 80 or range 80-81 range.",
+              "description": "Port ranges to access the Resource either single port 80 or range 80-81 range. For CIDR resource configurations, include port 53 to allow DNS.",
               "type": "array",
               "items": {
                 "type": "string"
@@ -686,7 +720,7 @@
               "x-kubernetes-list-type": "set"
             },
             "protocol": {
-              "description": "Protocol for the Resource TCP is currently the only supported value.  MUST be specified if resource_configuration_group_id is not.",
+              "description": "Protocol for the Resource. Valid values are TCP and TCP_UDP. TCP_UDP is only supported when type is CIDR (UDP is only supported for DNS). MUST be specified if resource_configuration_group_id is not.",
               "type": "string"
             },
             "region": {
@@ -708,6 +742,23 @@
                         "arn": {
                           "description": "ARN of the Resource for this configuration.",
                           "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "cidrResource": {
+                    "description": "Resource CIDR configuration. Only valid when type is CIDR. See cidr_resource Block for details.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "cidrRanges": {
+                          "description": "Set of 1 to 10 IPv4 and/or IPv6 CIDR ranges (prefix length required), for example 10.0.0.0/16. 0.0.0.0/0 and ::/0 are only allowed as the sole range. Reserved ranges such as 169.254.0.0/16, 100.64.0.0/10, 224.0.0.0/4, fe80::/10 and ff00::/8 are rejected by AWS.",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "x-kubernetes-list-type": "set"
                         }
                       }
                     }
@@ -770,7 +821,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "type": {
-              "description": "Type of Resource Configuration. Must be one of GROUP, CHILD, SINGLE, ARN.",
+              "description": "Type of Resource Configuration. Must be one of GROUP, CHILD, SINGLE, ARN, CIDR. Use CIDR with a cidr_resource block.",
               "type": "string"
             }
           }

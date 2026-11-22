@@ -1652,7 +1652,7 @@
           "type": "object",
           "properties": {
             "arn": {
-              "description": "Codepipeline ARN.",
+              "description": "CodePipeline ARN.",
               "type": "string"
             },
             "artifactStore": {
@@ -1695,7 +1695,7 @@
               "type": "string"
             },
             "id": {
-              "description": "Codepipeline ID.",
+              "description": "CodePipeline ID.",
               "type": "string"
             },
             "pipelineType": {

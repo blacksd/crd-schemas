@@ -39,7 +39,7 @@
           ],
           "properties": {
             "groupNames": {
-              "description": "List of AutoScaling Group Names",
+              "description": "List of Auto Scaling group Names",
               "type": "array",
               "items": {
                 "type": "string"
@@ -225,7 +225,7 @@
           "type": "object",
           "properties": {
             "groupNames": {
-              "description": "List of AutoScaling Group Names",
+              "description": "List of Auto Scaling group Names",
               "type": "array",
               "items": {
                 "type": "string"
@@ -494,7 +494,7 @@
           "type": "object",
           "properties": {
             "groupNames": {
-              "description": "List of AutoScaling Group Names",
+              "description": "List of Auto Scaling group Names",
               "type": "array",
               "items": {
                 "type": "string"

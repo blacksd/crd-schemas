@@ -31,11 +31,11 @@
           ],
           "properties": {
             "contentType": {
-              "description": "The type of the plugin file. Allowed values are ZIP and JAR.",
+              "description": "Type of the plugin file. Allowed values are ZIP and JAR.",
               "type": "string"
             },
             "description": {
-              "description": "A summary description of the custom plugin.",
+              "description": "Summary description of the custom plugin.",
               "type": "string"
             },
             "location": {
@@ -135,7 +135,7 @@
                       }
                     },
                     "fileKey": {
-                      "description": "The file key for an object in an S3 bucket.",
+                      "description": "File key for an object in an S3 bucket.",
                       "type": "string"
                     },
                     "fileKeyRef": {
@@ -223,7 +223,7 @@
                       }
                     },
                     "objectVersion": {
-                      "description": "The version of an object in an S3 bucket.",
+                      "description": "Version of an object in an S3 bucket.",
                       "type": "string"
                     }
                   }
@@ -231,7 +231,7 @@
               }
             },
             "name": {
-              "description": "The name of the custom plugin..",
+              "description": "Name of the custom plugin.",
               "type": "string"
             },
             "region": {
@@ -253,11 +253,11 @@
           "type": "object",
           "properties": {
             "contentType": {
-              "description": "The type of the plugin file. Allowed values are ZIP and JAR.",
+              "description": "Type of the plugin file. Allowed values are ZIP and JAR.",
               "type": "string"
             },
             "description": {
-              "description": "A summary description of the custom plugin.",
+              "description": "Summary description of the custom plugin.",
               "type": "string"
             },
             "location": {
@@ -357,7 +357,7 @@
                       }
                     },
                     "fileKey": {
-                      "description": "The file key for an object in an S3 bucket.",
+                      "description": "File key for an object in an S3 bucket.",
                       "type": "string"
                     },
                     "fileKeyRef": {
@@ -445,7 +445,7 @@
                       }
                     },
                     "objectVersion": {
-                      "description": "The version of an object in an S3 bucket.",
+                      "description": "Version of an object in an S3 bucket.",
                       "type": "string"
                     }
                   }
@@ -540,11 +540,11 @@
               "type": "string"
             },
             "contentType": {
-              "description": "The type of the plugin file. Allowed values are ZIP and JAR.",
+              "description": "Type of the plugin file. Allowed values are ZIP and JAR.",
               "type": "string"
             },
             "description": {
-              "description": "A summary description of the custom plugin.",
+              "description": "Summary description of the custom plugin.",
               "type": "string"
             },
             "id": {
@@ -567,11 +567,11 @@
                       "type": "string"
                     },
                     "fileKey": {
-                      "description": "The file key for an object in an S3 bucket.",
+                      "description": "File key for an object in an S3 bucket.",
                       "type": "string"
                     },
                     "objectVersion": {
-                      "description": "The version of an object in an S3 bucket.",
+                      "description": "Version of an object in an S3 bucket.",
                       "type": "string"
                     }
                   }
@@ -579,7 +579,7 @@
               }
             },
             "name": {
-              "description": "The name of the custom plugin..",
+              "description": "Name of the custom plugin.",
               "type": "string"
             },
             "region": {
@@ -599,7 +599,7 @@
               "x-kubernetes-map-type": "granular"
             },
             "tagsAll": {
-              "description": "A map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
+              "description": "Map of tags assigned to the resource, including those inherited from the provider default_tags configuration block.",
               "type": "object",
               "additionalProperties": {
                 "type": "string"

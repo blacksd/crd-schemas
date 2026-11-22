@@ -34,7 +34,7 @@
               "type": "string"
             },
             "cpu": {
-              "description": "Number of cpu units used by the task. If the requires_compatibilities is FARGATE this field is required.",
+              "description": "Number of CPU units used by the task. If the requires_compatibilities is FARGATE this field is required.",
               "type": "string"
             },
             "enableFaultInjection": {
@@ -215,7 +215,7 @@
               "type": "object",
               "properties": {
                 "cpuArchitecture": {
-                  "description": "Must be set to either X86_64 or ARM64; see cpu architecture",
+                  "description": "Must be set to either X86_64 or ARM64; see CPU architecture",
                   "type": "string"
                 },
                 "operatingSystemFamily": {
@@ -325,7 +325,7 @@
                     }
                   },
                   "fsxWindowsFileServerVolumeConfiguration": {
-                    "description": "Configuration block for an FSX Windows File Server volume. Detailed below.",
+                    "description": "Configuration block for an FSx Windows File Server volume. Detailed below.",
                     "type": "object",
                     "properties": {
                       "authorizationConfig": {
@@ -396,7 +396,7 @@
               "type": "string"
             },
             "cpu": {
-              "description": "Number of cpu units used by the task. If the requires_compatibilities is FARGATE this field is required.",
+              "description": "Number of CPU units used by the task. If the requires_compatibilities is FARGATE this field is required.",
               "type": "string"
             },
             "enableFaultInjection": {
@@ -573,7 +573,7 @@
               "type": "object",
               "properties": {
                 "cpuArchitecture": {
-                  "description": "Must be set to either X86_64 or ARM64; see cpu architecture",
+                  "description": "Must be set to either X86_64 or ARM64; see CPU architecture",
                   "type": "string"
                 },
                 "operatingSystemFamily": {
@@ -683,7 +683,7 @@
                     }
                   },
                   "fsxWindowsFileServerVolumeConfiguration": {
-                    "description": "Configuration block for an FSX Windows File Server volume. Detailed below.",
+                    "description": "Configuration block for an FSx Windows File Server volume. Detailed below.",
                     "type": "object",
                     "properties": {
                       "authorizationConfig": {
@@ -831,7 +831,7 @@
               "type": "string"
             },
             "cpu": {
-              "description": "Number of cpu units used by the task. If the requires_compatibilities is FARGATE this field is required.",
+              "description": "Number of CPU units used by the task. If the requires_compatibilities is FARGATE this field is required.",
               "type": "string"
             },
             "enableFaultInjection": {
@@ -935,7 +935,7 @@
               "type": "object",
               "properties": {
                 "cpuArchitecture": {
-                  "description": "Must be set to either X86_64 or ARM64; see cpu architecture",
+                  "description": "Must be set to either X86_64 or ARM64; see CPU architecture",
                   "type": "string"
                 },
                 "operatingSystemFamily": {
@@ -1053,7 +1053,7 @@
                     }
                   },
                   "fsxWindowsFileServerVolumeConfiguration": {
-                    "description": "Configuration block for an FSX Windows File Server volume. Detailed below.",
+                    "description": "Configuration block for an FSx Windows File Server volume. Detailed below.",
                     "type": "object",
                     "properties": {
                       "authorizationConfig": {
