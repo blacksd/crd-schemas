@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:008a25b0-0c61-4c79-9579-34f9a115bdac",
-  "version": 24,
+  "version": 25,
   "metadata": {
-    "timestamp": "2026-11-21T20:55:36Z",
+    "timestamp": "2026-11-24T22:17:31Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
     {
       "type": "library",
       "name": "traefik",
-      "version": "42.4.1",
+      "version": "42.4.3",
       "licenses": [
         {
           "license": {
