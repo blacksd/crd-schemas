@@ -1,0 +1,24 @@
+{
+  "schema": "vmestimator.json",
+  "crd": {
+    "group": "operator.victoriametrics.com",
+    "kind": "VMEstimator",
+    "apiVersion": "v1"
+  },
+  "source": {
+    "name": "victoria-metrics-operator-crds",
+    "type": "helm",
+    "repo": "https://victoriametrics.github.io/helm-charts/",
+    "chart": "victoria-metrics-operator-crds",
+    "version": "0.16.0",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/VictoriaMetrics/operator"
+  },
+  "extraction": {
+    "timestamp": "2026-11-28T13:05:25Z",
+    "toolVersion": "crd-schema-extractor v0.1.0"
+  },
+  "integrity": {
+    "sha256": "847c077c9263e7ad1d09380b158a840f97ea818ba8d7d89d08bf915e6ef0e43e"
+  }
+}

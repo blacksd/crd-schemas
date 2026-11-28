@@ -603,6 +603,9 @@
         "license": {
           "type": "object",
           "properties": {
+            "acceptEULA": {
+              "type": "boolean"
+            },
             "forceOffline": {
               "type": "boolean"
             },
@@ -1679,6 +1682,131 @@
             },
             "port": {
               "type": "string"
+            },
+            "tlsConfig": {
+              "type": "object",
+              "properties": {
+                "ca": {
+                  "type": "object",
+                  "properties": {
+                    "configMap": {
+                      "type": "object",
+                      "required": [
+                        "key"
+                      ],
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "optional": {
+                          "type": "boolean"
+                        }
+                      },
+                      "x-kubernetes-map-type": "atomic"
+                    },
+                    "secret": {
+                      "type": "object",
+                      "required": [
+                        "key"
+                      ],
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "optional": {
+                          "type": "boolean"
+                        }
+                      },
+                      "x-kubernetes-map-type": "atomic"
+                    }
+                  }
+                },
+                "caFile": {
+                  "type": "string"
+                },
+                "cert": {
+                  "type": "object",
+                  "properties": {
+                    "configMap": {
+                      "type": "object",
+                      "required": [
+                        "key"
+                      ],
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "optional": {
+                          "type": "boolean"
+                        }
+                      },
+                      "x-kubernetes-map-type": "atomic"
+                    },
+                    "secret": {
+                      "type": "object",
+                      "required": [
+                        "key"
+                      ],
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "optional": {
+                          "type": "boolean"
+                        }
+                      },
+                      "x-kubernetes-map-type": "atomic"
+                    }
+                  }
+                },
+                "certFile": {
+                  "type": "string"
+                },
+                "insecureSkipVerify": {
+                  "type": "boolean"
+                },
+                "keyFile": {
+                  "type": "string"
+                },
+                "keySecret": {
+                  "type": "object",
+                  "required": [
+                    "key"
+                  ],
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "default": ""
+                    },
+                    "optional": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-kubernetes-map-type": "atomic"
+                },
+                "serverName": {
+                  "type": "string"
+                }
+              }
             },
             "uiDefaultState": {
               "type": "string"

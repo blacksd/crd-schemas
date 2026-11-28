@@ -1317,6 +1317,9 @@
         "license": {
           "type": "object",
           "properties": {
+            "acceptEULA": {
+              "type": "boolean"
+            },
             "forceOffline": {
               "type": "boolean"
             },
@@ -1981,6 +1984,12 @@
                         "type": "integer"
                       }
                     }
+                  }
+                },
+                "headers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
                   }
                 }
               }

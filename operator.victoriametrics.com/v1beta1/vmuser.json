@@ -29,6 +29,12 @@
                   }
                 }
               }
+            },
+            "headers": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           }
         },

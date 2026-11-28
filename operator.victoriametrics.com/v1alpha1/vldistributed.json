@@ -26,6 +26,9 @@
         "license": {
           "type": "object",
           "properties": {
+            "acceptEULA": {
+              "type": "boolean"
+            },
             "forceOffline": {
               "type": "boolean"
             },
@@ -1379,6 +1382,9 @@
                 "license": {
                   "type": "object",
                   "properties": {
+                    "acceptEULA": {
+                      "type": "boolean"
+                    },
                     "forceOffline": {
                       "type": "boolean"
                     },
@@ -2043,6 +2049,12 @@
                                 "type": "integer"
                               }
                             }
+                          }
+                        },
+                        "headers": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
                           }
                         }
                       }
@@ -3406,6 +3418,9 @@
                     "license": {
                       "type": "object",
                       "properties": {
+                        "acceptEULA": {
+                          "type": "boolean"
+                        },
                         "forceOffline": {
                           "type": "boolean"
                         },
@@ -4906,6 +4921,9 @@
                       "license": {
                         "type": "object",
                         "properties": {
+                          "acceptEULA": {
+                            "type": "boolean"
+                          },
                           "forceOffline": {
                             "type": "boolean"
                           },
